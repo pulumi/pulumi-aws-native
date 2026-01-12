@@ -29,6 +29,7 @@ __all__ = [
     'ConnectionHyperPodPropertiesInput',
     'ConnectionIamPropertiesInput',
     'ConnectionLineageSyncSchedule',
+    'ConnectionMlflowPropertiesInput',
     'ConnectionOAuth2ClientApplication',
     'ConnectionOAuth2Properties',
     'ConnectionPhysicalConnectionRequirements',
@@ -41,6 +42,7 @@ __all__ = [
     'ConnectionPropertiesInput6Properties',
     'ConnectionPropertiesInput7Properties',
     'ConnectionPropertiesInput8Properties',
+    'ConnectionPropertiesInput9Properties',
     'ConnectionRedshiftCredentials0Properties',
     'ConnectionRedshiftCredentials1Properties',
     'ConnectionRedshiftLineageSyncConfigurationInput',
@@ -823,6 +825,46 @@ class ConnectionLineageSyncSchedule(dict):
 
 
 @pulumi.output_type
+class ConnectionMlflowPropertiesInput(dict):
+    """
+    MLflow Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trackingServerArn":
+            suggest = "tracking_server_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMlflowPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMlflowPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMlflowPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tracking_server_arn: Optional[_builtins.str] = None):
+        """
+        MLflow Properties Input
+        :param _builtins.str tracking_server_arn: The ARN of the MLflow tracking server
+        """
+        if tracking_server_arn is not None:
+            pulumi.set(__self__, "tracking_server_arn", tracking_server_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="trackingServerArn")
+    def tracking_server_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the MLflow tracking server
+        """
+        return pulumi.get(self, "tracking_server_arn")
+
+
+@pulumi.output_type
 class ConnectionOAuth2ClientApplication(dict):
     """
     OAuth2 Client Application
@@ -1282,6 +1324,35 @@ class ConnectionPropertiesInput8Properties(dict):
 
 
 @pulumi.output_type
+class ConnectionPropertiesInput9Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mlflowProperties":
+            suggest = "mlflow_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput9Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput9Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput9Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mlflow_properties: 'outputs.ConnectionMlflowPropertiesInput'):
+        pulumi.set(__self__, "mlflow_properties", mlflow_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowProperties")
+    def mlflow_properties(self) -> 'outputs.ConnectionMlflowPropertiesInput':
+        return pulumi.get(self, "mlflow_properties")
+
+
+@pulumi.output_type
 class ConnectionRedshiftCredentials0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1571,6 +1642,8 @@ class ConnectionSparkEmrPropertiesInput(dict):
             suggest = "java_virtual_env"
         elif key == "logUri":
             suggest = "log_uri"
+        elif key == "managedEndpointArn":
+            suggest = "managed_endpoint_arn"
         elif key == "pythonVirtualEnv":
             suggest = "python_virtual_env"
         elif key == "runtimeRole":
@@ -1594,6 +1667,7 @@ class ConnectionSparkEmrPropertiesInput(dict):
                  instance_profile_arn: Optional[_builtins.str] = None,
                  java_virtual_env: Optional[_builtins.str] = None,
                  log_uri: Optional[_builtins.str] = None,
+                 managed_endpoint_arn: Optional[_builtins.str] = None,
                  python_virtual_env: Optional[_builtins.str] = None,
                  runtime_role: Optional[_builtins.str] = None,
                  trusted_certificates_s3_uri: Optional[_builtins.str] = None):
@@ -1608,6 +1682,8 @@ class ConnectionSparkEmrPropertiesInput(dict):
             pulumi.set(__self__, "java_virtual_env", java_virtual_env)
         if log_uri is not None:
             pulumi.set(__self__, "log_uri", log_uri)
+        if managed_endpoint_arn is not None:
+            pulumi.set(__self__, "managed_endpoint_arn", managed_endpoint_arn)
         if python_virtual_env is not None:
             pulumi.set(__self__, "python_virtual_env", python_virtual_env)
         if runtime_role is not None:
@@ -1634,6 +1710,11 @@ class ConnectionSparkEmrPropertiesInput(dict):
     @pulumi.getter(name="logUri")
     def log_uri(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "log_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="managedEndpointArn")
+    def managed_endpoint_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "managed_endpoint_arn")
 
     @_builtins.property
     @pulumi.getter(name="pythonVirtualEnv")

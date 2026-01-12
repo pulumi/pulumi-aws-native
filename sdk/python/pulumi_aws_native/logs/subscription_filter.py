@@ -37,8 +37,8 @@ class SubscriptionFilterArgs:
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
                 If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         :param pulumi.Input['SubscriptionFilterDistribution'] distribution: The method used to distribute log data to the destination, which can be either random or grouped by log stream.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
-        :param pulumi.Input[_builtins.str] field_selection_criteria: The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
+        :param pulumi.Input[_builtins.str] field_selection_criteria: The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
         :param pulumi.Input[_builtins.str] filter_name: The name of the subscription filter.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that grants CWL permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
         """
@@ -123,7 +123,7 @@ class SubscriptionFilterArgs:
     @pulumi.getter(name="emitSystemFields")
     def emit_system_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
         """
         return pulumi.get(self, "emit_system_fields")
 
@@ -135,7 +135,7 @@ class SubscriptionFilterArgs:
     @pulumi.getter(name="fieldSelectionCriteria")
     def field_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
         """
         return pulumi.get(self, "field_selection_criteria")
 
@@ -199,8 +199,8 @@ class SubscriptionFilter(pulumi.CustomResource):
                 If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the destination.
         :param pulumi.Input['SubscriptionFilterDistribution'] distribution: The method used to distribute log data to the destination, which can be either random or grouped by log stream.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
-        :param pulumi.Input[_builtins.str] field_selection_criteria: The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
+        :param pulumi.Input[_builtins.str] field_selection_criteria: The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
         :param pulumi.Input[_builtins.str] filter_name: The name of the subscription filter.
         :param pulumi.Input[_builtins.str] filter_pattern: The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group_name: The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
@@ -333,7 +333,7 @@ class SubscriptionFilter(pulumi.CustomResource):
     @pulumi.getter(name="emitSystemFields")
     def emit_system_fields(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
         """
         return pulumi.get(self, "emit_system_fields")
 
@@ -341,7 +341,7 @@ class SubscriptionFilter(pulumi.CustomResource):
     @pulumi.getter(name="fieldSelectionCriteria")
     def field_selection_criteria(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
         """
         return pulumi.get(self, "field_selection_criteria")
 

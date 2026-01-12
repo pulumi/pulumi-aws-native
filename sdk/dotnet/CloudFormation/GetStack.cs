@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetStackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Unique identifier of the stack.
+        /// Returns the unique identifier of the stack.
         /// </summary>
         [Input("stackId", required: true)]
         public string StackId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetStackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Unique identifier of the stack.
+        /// Returns the unique identifier of the stack.
         /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
@@ -101,11 +101,11 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem> Capabilities;
         /// <summary>
-        /// The unique ID of the change set.
+        /// Returns the unique identifier of the change set.
         /// </summary>
         public readonly string? ChangeSetId;
         /// <summary>
-        /// The time at which the stack was created.
+        /// Returns the time the stack was created.
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly bool? EnableTerminationProtection;
         /// <summary>
-        /// The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+        /// Returns the time the stack was last updated. This will only be returned if the stack has been updated at least once.
         /// </summary>
         public readonly string? LastUpdateTime;
         /// <summary>
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly ImmutableArray<string> NotificationArns;
         /// <summary>
-        /// A list of output structures.
+        /// Returns a list of output structures.
         /// </summary>
         public readonly ImmutableArray<Outputs.StackOutput> Outputs;
         /// <summary>
@@ -147,9 +147,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
-        /// For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
-        /// 
-        /// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        /// For nested stacks, returns the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
         /// </summary>
         public readonly string? ParentId;
         /// <summary>
@@ -159,13 +157,11 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
-        /// 
-        /// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        /// For nested stacks, returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
         /// </summary>
         public readonly string? RootId;
         /// <summary>
-        /// Unique identifier of the stack.
+        /// Returns the unique identifier of the stack.
         /// </summary>
         public readonly string? StackId;
         /// <summary>
@@ -175,7 +171,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly object? StackPolicyBody;
         /// <summary>
-        /// Current status of the stack.
+        /// Returns a success or failure message associated with the stack status.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFormation.StackStatus? StackStatus;
         /// <summary>

@@ -31,6 +31,10 @@ export interface GetUserProfileArgs {
 
 export interface GetUserProfileResult {
     /**
+     * A list of tags to apply to the user profile.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The user profile Amazon Resource Name (ARN).
      */
     readonly userProfileArn?: string;

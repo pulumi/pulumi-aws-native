@@ -647,7 +647,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="changeSetId")
     def change_set_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique ID of the change set.
+        Returns the unique identifier of the change set.
         """
         return pulumi.get(self, "change_set_id")
 
@@ -655,7 +655,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time at which the stack was created.
+        Returns the time the stack was created.
         """
         return pulumi.get(self, "creation_time")
 
@@ -691,7 +691,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdateTime")
     def last_update_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+        Returns the time the stack was last updated. This will only be returned if the stack has been updated at least once.
         """
         return pulumi.get(self, "last_update_time")
 
@@ -707,7 +707,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Sequence['outputs.StackOutput']]:
         """
-        A list of output structures.
+        Returns a list of output structures.
         """
         return pulumi.get(self, "outputs")
 
@@ -729,9 +729,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Output[_builtins.str]:
         """
-        For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
-
-        For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        For nested stacks, returns the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
         """
         return pulumi.get(self, "parent_id")
 
@@ -749,9 +747,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="rootId")
     def root_id(self) -> pulumi.Output[_builtins.str]:
         """
-        For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
-
-        For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        For nested stacks, returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
         """
         return pulumi.get(self, "root_id")
 
@@ -759,7 +755,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Unique identifier of the stack.
+        Returns the unique identifier of the stack.
         """
         return pulumi.get(self, "stack_id")
 
@@ -795,7 +791,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="stackStatus")
     def stack_status(self) -> pulumi.Output['StackStatus']:
         """
-        Current status of the stack.
+        Returns a success or failure message associated with the stack status.
         """
         return pulumi.get(self, "stack_status")
 

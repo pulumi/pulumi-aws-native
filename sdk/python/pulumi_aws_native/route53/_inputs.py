@@ -831,10 +831,10 @@ class HostedZoneConfigArgs:
 
 if not MYPY:
     class HostedZoneFeaturesArgsDict(TypedDict):
+        """
+        Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
+        """
         enable_accelerated_recovery: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
-        """
 elif False:
     HostedZoneFeaturesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -843,7 +843,7 @@ class HostedZoneFeaturesArgs:
     def __init__(__self__, *,
                  enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
         """
         if enable_accelerated_recovery is not None:
             pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
@@ -851,9 +851,6 @@ class HostedZoneFeaturesArgs:
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
     def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
-        """
         return pulumi.get(self, "enable_accelerated_recovery")
 
     @enable_accelerated_recovery.setter

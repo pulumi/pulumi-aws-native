@@ -864,7 +864,7 @@ namespace Pulumi.AwsNative.CloudFormation
     }
 
     /// <summary>
-    /// Current status of the stack.
+    /// Returns a success or failure message associated with the stack status.
     /// </summary>
     [EnumType]
     public readonly struct StackStatus : IEquatable<StackStatus>

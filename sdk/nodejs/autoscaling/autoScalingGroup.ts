@@ -51,11 +51,11 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      */
     declare public readonly autoScalingGroupName: pulumi.Output<string | undefined>;
     /**
-     * The instance capacity distribution across Availability Zones.
+     * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
     declare public readonly availabilityZoneDistribution: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
     /**
-     * The Availability Zone impairment policy.
+     * The Availability Zone impairment policy for the Auto Scaling group.
      */
     declare public readonly availabilityZoneImpairmentPolicy: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy | undefined>;
     /**
@@ -67,7 +67,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      */
     declare public readonly capacityRebalance: pulumi.Output<boolean | undefined>;
     /**
-     * The capacity reservation specification.
+     * The capacity reservation specification for the Auto Scaling group.
      */
     declare public readonly capacityReservationSpecification: pulumi.Output<outputs.autoscaling.AutoScalingGroupCapacityReservationSpecification | undefined>;
     /**
@@ -319,11 +319,11 @@ export interface AutoScalingGroupArgs {
      */
     autoScalingGroupName?: pulumi.Input<string>;
     /**
-     * The instance capacity distribution across Availability Zones.
+     * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
     /**
-     * The Availability Zone impairment policy.
+     * The Availability Zone impairment policy for the Auto Scaling group.
      */
     availabilityZoneImpairmentPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>;
     /**
@@ -335,7 +335,7 @@ export interface AutoScalingGroupArgs {
      */
     capacityRebalance?: pulumi.Input<boolean>;
     /**
-     * The capacity reservation specification.
+     * The capacity reservation specification for the Auto Scaling group.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupCapacityReservationSpecificationArgs>;
     /**

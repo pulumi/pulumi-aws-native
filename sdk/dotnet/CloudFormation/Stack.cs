@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<ImmutableArray<Pulumi.AwsNative.CloudFormation.StackCapabilitiesItem>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the change set.
+        /// Returns the unique identifier of the change set.
         /// </summary>
         [Output("changeSetId")]
         public Output<string> ChangeSetId { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the stack was created.
+        /// Returns the time the stack was created.
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<bool?> EnableTerminationProtection { get; private set; } = null!;
 
         /// <summary>
-        /// The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+        /// Returns the time the stack was last updated. This will only be returned if the stack has been updated at least once.
         /// </summary>
         [Output("lastUpdateTime")]
         public Output<string> LastUpdateTime { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
         /// <summary>
-        /// A list of output structures.
+        /// Returns a list of output structures.
         /// </summary>
         [Output("outputs")]
         public Output<ImmutableArray<Outputs.StackOutput>> Outputs { get; private set; } = null!;
@@ -119,9 +119,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
-        /// 
-        /// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        /// For nested stacks, returns the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
         /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
@@ -135,15 +133,13 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
-        /// 
-        /// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        /// For nested stacks, returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
         /// </summary>
         [Output("rootId")]
         public Output<string> RootId { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier of the stack.
+        /// Returns the unique identifier of the stack.
         /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
@@ -171,7 +167,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string?> StackPolicyUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Current status of the stack.
+        /// Returns a success or failure message associated with the stack status.
         /// </summary>
         [Output("stackStatus")]
         public Output<Pulumi.AwsNative.CloudFormation.StackStatus> StackStatus { get; private set; } = null!;

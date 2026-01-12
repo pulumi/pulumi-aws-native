@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DataZone.Inputs
         [Input("logUri")]
         public Input<string>? LogUri { get; set; }
 
+        [Input("managedEndpointArn")]
+        public Input<string>? ManagedEndpointArn { get; set; }
+
         [Input("pythonVirtualEnv")]
         public Input<string>? PythonVirtualEnv { get; set; }
 

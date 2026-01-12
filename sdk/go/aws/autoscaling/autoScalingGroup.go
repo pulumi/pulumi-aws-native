@@ -26,15 +26,15 @@ type AutoScalingGroup struct {
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
 	AutoScalingGroupName pulumi.StringPtrOutput `pulumi:"autoScalingGroupName"`
-	// The instance capacity distribution across Availability Zones.
+	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrOutput `pulumi:"availabilityZoneDistribution"`
-	// The Availability Zone impairment policy.
+	// The Availability Zone impairment policy for the Auto Scaling group.
 	AvailabilityZoneImpairmentPolicy AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
 	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
-	// The capacity reservation specification.
+	// The capacity reservation specification for the Auto Scaling group.
 	CapacityReservationSpecification AutoScalingGroupCapacityReservationSpecificationPtrOutput `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
@@ -174,15 +174,15 @@ type autoScalingGroupArgs struct {
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
 	AutoScalingGroupName *string `pulumi:"autoScalingGroupName"`
-	// The instance capacity distribution across Availability Zones.
+	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
-	// The Availability Zone impairment policy.
+	// The Availability Zone impairment policy for the Auto Scaling group.
 	AvailabilityZoneImpairmentPolicy *AutoScalingGroupAvailabilityZoneImpairmentPolicy `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
-	// The capacity reservation specification.
+	// The capacity reservation specification for the Auto Scaling group.
 	CapacityReservationSpecification *AutoScalingGroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
@@ -273,15 +273,15 @@ type AutoScalingGroupArgs struct {
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
 	AutoScalingGroupName pulumi.StringPtrInput
-	// The instance capacity distribution across Availability Zones.
+	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrInput
-	// The Availability Zone impairment policy.
+	// The Availability Zone impairment policy for the Auto Scaling group.
 	AvailabilityZoneImpairmentPolicy AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
 	CapacityRebalance pulumi.BoolPtrInput
-	// The capacity reservation specification.
+	// The capacity reservation specification for the Auto Scaling group.
 	CapacityReservationSpecification AutoScalingGroupCapacityReservationSpecificationPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
@@ -416,14 +416,14 @@ func (o AutoScalingGroupOutput) AutoScalingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.AutoScalingGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The instance capacity distribution across Availability Zones.
+// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 func (o AutoScalingGroupOutput) AvailabilityZoneDistribution() AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 		return v.AvailabilityZoneDistribution
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
-// The Availability Zone impairment policy.
+// The Availability Zone impairment policy for the Auto Scaling group.
 func (o AutoScalingGroupOutput) AvailabilityZoneImpairmentPolicy() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
 		return v.AvailabilityZoneImpairmentPolicy
@@ -440,7 +440,7 @@ func (o AutoScalingGroupOutput) CapacityRebalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
 }
 
-// The capacity reservation specification.
+// The capacity reservation specification for the Auto Scaling group.
 func (o AutoScalingGroupOutput) CapacityReservationSpecification() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupCapacityReservationSpecificationPtrOutput {
 		return v.CapacityReservationSpecification

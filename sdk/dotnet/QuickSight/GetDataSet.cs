@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
+        /// &lt;p&gt;Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetColumnGroup> ColumnGroups;
         /// <summary>

@@ -305,7 +305,7 @@ class StackSetRegionConcurrencyType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:cloudformation:StackStatus")
 class StackStatus(_builtins.str, Enum):
     """
-    Current status of the stack.
+    Returns a success or failure message associated with the stack status.
     """
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     CREATE_FAILED = "CREATE_FAILED"

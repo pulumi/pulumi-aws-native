@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, domain_execution_role=None, id=None, last_updated_at=None, managed_account_id=None, name=None, portal_url=None, root_domain_unit_id=None, service_role=None, single_sign_on=None, status=None, tags=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, domain_execution_role=None, id=None, last_updated_at=None, managed_account_id=None, name=None, portal_url=None, root_domain_unit_id=None, single_sign_on=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -57,9 +57,6 @@ class GetDomainResult:
         if root_domain_unit_id and not isinstance(root_domain_unit_id, str):
             raise TypeError("Expected argument 'root_domain_unit_id' to be a str")
         pulumi.set(__self__, "root_domain_unit_id", root_domain_unit_id)
-        if service_role and not isinstance(service_role, str):
-            raise TypeError("Expected argument 'service_role' to be a str")
-        pulumi.set(__self__, "service_role", service_role)
         if single_sign_on and not isinstance(single_sign_on, dict):
             raise TypeError("Expected argument 'single_sign_on' to be a dict")
         pulumi.set(__self__, "single_sign_on", single_sign_on)
@@ -151,14 +148,6 @@ class GetDomainResult:
         return pulumi.get(self, "root_domain_unit_id")
 
     @_builtins.property
-    @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[_builtins.str]:
-        """
-        The service role of the domain that is created.
-        """
-        return pulumi.get(self, "service_role")
-
-    @_builtins.property
     @pulumi.getter(name="singleSignOn")
     def single_sign_on(self) -> Optional['outputs.DomainSingleSignOn']:
         """
@@ -199,7 +188,6 @@ class AwaitableGetDomainResult(GetDomainResult):
             name=self.name,
             portal_url=self.portal_url,
             root_domain_unit_id=self.root_domain_unit_id,
-            service_role=self.service_role,
             single_sign_on=self.single_sign_on,
             status=self.status,
             tags=self.tags)
@@ -229,7 +217,6 @@ def get_domain(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         portal_url=pulumi.get(__ret__, 'portal_url'),
         root_domain_unit_id=pulumi.get(__ret__, 'root_domain_unit_id'),
-        service_role=pulumi.get(__ret__, 'service_role'),
         single_sign_on=pulumi.get(__ret__, 'single_sign_on'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -256,7 +243,6 @@ def get_domain_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         portal_url=pulumi.get(__response__, 'portal_url'),
         root_domain_unit_id=pulumi.get(__response__, 'root_domain_unit_id'),
-        service_role=pulumi.get(__response__, 'service_role'),
         single_sign_on=pulumi.get(__response__, 'single_sign_on'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

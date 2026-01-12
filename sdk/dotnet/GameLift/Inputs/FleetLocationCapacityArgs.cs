@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         /// </summary>
-        [Input("minSize", required: true)]
-        public Input<int> MinSize { get; set; } = null!;
+        [Input("minSize")]
+        public Input<int>? MinSize { get; set; }
 
         public FleetLocationCapacityArgs()
         {

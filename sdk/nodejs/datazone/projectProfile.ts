@@ -89,6 +89,7 @@ export class ProjectProfile extends pulumi.CustomResource {
      * The status of a project profile.
      */
     declare public readonly status: pulumi.Output<enums.datazone.ProjectProfileStatus | undefined>;
+    declare public readonly useDefaultConfigurations: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ProjectProfile resource with the given unique name, arguments, and options.
@@ -107,6 +108,7 @@ export class ProjectProfile extends pulumi.CustomResource {
             resourceInputs["environmentConfigurations"] = args?.environmentConfigurations;
             resourceInputs["name"] = args?.name;
             resourceInputs["status"] = args?.status;
+            resourceInputs["useDefaultConfigurations"] = args?.useDefaultConfigurations;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -128,9 +130,10 @@ export class ProjectProfile extends pulumi.CustomResource {
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["useDefaultConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "useDefaultConfigurations"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ProjectProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -164,4 +167,5 @@ export interface ProjectProfileArgs {
      * The status of a project profile.
      */
     status?: pulumi.Input<enums.datazone.ProjectProfileStatus>;
+    useDefaultConfigurations?: pulumi.Input<boolean>;
 }

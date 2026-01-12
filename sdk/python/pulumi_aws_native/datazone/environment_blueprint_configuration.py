@@ -25,6 +25,7 @@ class EnvironmentBlueprintConfigurationArgs:
                  enabled_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  environment_blueprint_identifier: pulumi.Input[_builtins.str],
                  environment_role_permission_boundary: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  manage_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs']]]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class EnvironmentBlueprintConfigurationArgs:
                
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
         :param pulumi.Input[_builtins.str] environment_role_permission_boundary: The environment role permission boundary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_parameters: Region-agnostic environment blueprint parameters.
         :param pulumi.Input[_builtins.str] manage_access_role_arn: The ARN of the manage access role.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs']]] provisioning_configurations: The provisioning configuration of a blueprint.
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The ARN of the provisioning role.
@@ -47,6 +49,8 @@ class EnvironmentBlueprintConfigurationArgs:
         pulumi.set(__self__, "environment_blueprint_identifier", environment_blueprint_identifier)
         if environment_role_permission_boundary is not None:
             pulumi.set(__self__, "environment_role_permission_boundary", environment_role_permission_boundary)
+        if global_parameters is not None:
+            pulumi.set(__self__, "global_parameters", global_parameters)
         if manage_access_role_arn is not None:
             pulumi.set(__self__, "manage_access_role_arn", manage_access_role_arn)
         if provisioning_configurations is not None:
@@ -107,6 +111,18 @@ class EnvironmentBlueprintConfigurationArgs:
         pulumi.set(self, "environment_role_permission_boundary", value)
 
     @_builtins.property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Region-agnostic environment blueprint parameters.
+        """
+        return pulumi.get(self, "global_parameters")
+
+    @global_parameters.setter
+    def global_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "global_parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="manageAccessRoleArn")
     def manage_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -165,6 +181,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  enabled_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  environment_blueprint_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_role_permission_boundary: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  manage_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -181,6 +198,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
         :param pulumi.Input[_builtins.str] environment_role_permission_boundary: The environment role permission boundary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_parameters: Region-agnostic environment blueprint parameters.
         :param pulumi.Input[_builtins.str] manage_access_role_arn: The ARN of the manage access role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]] provisioning_configurations: The provisioning configuration of a blueprint.
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The ARN of the provisioning role.
@@ -214,6 +232,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  enabled_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  environment_blueprint_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_role_permission_boundary: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  manage_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -237,6 +256,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'environment_blueprint_identifier'")
             __props__.__dict__["environment_blueprint_identifier"] = environment_blueprint_identifier
             __props__.__dict__["environment_role_permission_boundary"] = environment_role_permission_boundary
+            __props__.__dict__["global_parameters"] = global_parameters
             __props__.__dict__["manage_access_role_arn"] = manage_access_role_arn
             __props__.__dict__["provisioning_configurations"] = provisioning_configurations
             __props__.__dict__["provisioning_role_arn"] = provisioning_role_arn
@@ -276,6 +296,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         __props__.__dict__["environment_blueprint_id"] = None
         __props__.__dict__["environment_blueprint_identifier"] = None
         __props__.__dict__["environment_role_permission_boundary"] = None
+        __props__.__dict__["global_parameters"] = None
         __props__.__dict__["manage_access_role_arn"] = None
         __props__.__dict__["provisioning_configurations"] = None
         __props__.__dict__["provisioning_role_arn"] = None
@@ -340,6 +361,14 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         The environment role permission boundary.
         """
         return pulumi.get(self, "environment_role_permission_boundary")
+
+    @_builtins.property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Region-agnostic environment blueprint parameters.
+        """
+        return pulumi.get(self, "global_parameters")
 
     @_builtins.property
     @pulumi.getter(name="manageAccessRoleArn")

@@ -35,16 +35,34 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "IncludeContentInScheduledReportsEmail" : {
+        "PublishWithoutApproval" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "ExportToCsvInScheduledReports" : {
+        "UseAgentWebSearch" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "Space" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "Analysis" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ChatAgent" : {
           "$ref" : "#/definitions/CapabilityState"
         },
         "CreateAndUpdateDataSources" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "ViewAccountSPICECapacity" : {
+        "CreateSPICEDataset" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "KnowledgeBase" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ShareDatasets" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "IncludeContentInScheduledReportsEmail" : {
           "$ref" : "#/definitions/CapabilityState"
         },
         "Dashboard" : {
@@ -53,43 +71,31 @@
         "ExportToPdfInScheduledReports" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "CreateSPICEDataset" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
         "CreateAndUpdateDatasets" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
-        "PrintReports" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
-        "ShareDatasets" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
-        "ExportToExcelInScheduledReports" : {
           "$ref" : "#/definitions/CapabilityState"
         },
         "CreateAndUpdateDashboardEmailReports" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "CreateAndUpdateThresholdAlerts" : {
+        "ShareDashboards" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "SubscribeDashboardEmailReports" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "Action" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ExportToCsvInScheduledReports" : {
           "$ref" : "#/definitions/CapabilityState"
         },
         "CreateSharedFolders" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "ShareDashboards" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
-        "RenameSharedFolders" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
         "AddOrRunAnomalyDetectionForAnalyses" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "ShareDataSources" : {
-          "$ref" : "#/definitions/CapabilityState"
-        },
-        "ExportToExcel" : {
+        "Automate" : {
           "$ref" : "#/definitions/CapabilityState"
         },
         "ExportToPdf" : {
@@ -98,16 +104,46 @@
         "ShareAnalyses" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "SubscribeDashboardEmailReports" : {
+        "PrintReports" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "Analysis" : {
+        "ExportToExcelInScheduledReports" : {
           "$ref" : "#/definitions/CapabilityState"
         },
-        "ExportToCsv" : {
+        "RenameSharedFolders" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "Research" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "UseBedrockModels" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "CreateAndUpdateThresholdAlerts" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "Flow" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ExportToExcel" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "PerformFlowUiTask" : {
           "$ref" : "#/definitions/CapabilityState"
         },
         "CreateAndUpdateThemes" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ViewAccountSPICECapacity" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ShareDataSources" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "CreateChatAgents" : {
+          "$ref" : "#/definitions/CapabilityState"
+        },
+        "ExportToCsv" : {
           "$ref" : "#/definitions/CapabilityState"
         }
       }

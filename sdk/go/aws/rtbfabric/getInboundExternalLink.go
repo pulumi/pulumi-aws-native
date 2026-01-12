@@ -30,6 +30,7 @@ type LookupInboundExternalLinkArgs struct {
 type LookupInboundExternalLinkResult struct {
 	Arn              *string                             `pulumi:"arn"`
 	CreatedTimestamp *string                             `pulumi:"createdTimestamp"`
+	DomainName       *string                             `pulumi:"domainName"`
 	GatewayId        *string                             `pulumi:"gatewayId"`
 	LinkAttributes   *InboundExternalLinkLinkAttributes  `pulumi:"linkAttributes"`
 	LinkId           *string                             `pulumi:"linkId"`
@@ -76,6 +77,10 @@ func (o LookupInboundExternalLinkResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupInboundExternalLinkResultOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInboundExternalLinkResult) *string { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupInboundExternalLinkResultOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInboundExternalLinkResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInboundExternalLinkResultOutput) GatewayId() pulumi.StringPtrOutput {

@@ -59,6 +59,7 @@ namespace Pulumi.AwsNative.RtbFabric
     {
         public readonly string? Arn;
         public readonly string? CreatedTimestamp;
+        public readonly string? DomainName;
         public readonly string? GatewayId;
         public readonly Outputs.InboundExternalLinkLinkAttributes? LinkAttributes;
         public readonly string? LinkId;
@@ -72,6 +73,8 @@ namespace Pulumi.AwsNative.RtbFabric
             string? arn,
 
             string? createdTimestamp,
+
+            string? domainName,
 
             string? gatewayId,
 
@@ -89,6 +92,7 @@ namespace Pulumi.AwsNative.RtbFabric
         {
             Arn = arn;
             CreatedTimestamp = createdTimestamp;
+            DomainName = domainName;
             GatewayId = gatewayId;
             LinkAttributes = linkAttributes;
             LinkId = linkId;

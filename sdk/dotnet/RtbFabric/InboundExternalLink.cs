@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
+        [Output("domainName")]
+        public Output<string> DomainName { get; private set; } = null!;
+
         [Output("gatewayId")]
         public Output<string> GatewayId { get; private set; } = null!;
 

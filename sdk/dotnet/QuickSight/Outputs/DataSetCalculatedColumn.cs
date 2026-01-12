@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         /// <summary>
         /// &lt;p&gt;A unique ID to identify a calculated column. During a dataset update, if the column ID
-        ///             of a calculated column matches that of an existing calculated column, Amazon QuickSight
+        ///             of a calculated column matches that of an existing calculated column, Amazon Quick Suite
         ///             preserves the existing calculated column.&lt;/p&gt;
         /// </summary>
         public readonly string ColumnId;

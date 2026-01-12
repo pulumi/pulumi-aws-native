@@ -40,6 +40,8 @@ __all__ = [
     'ConnectionIamPropertiesInputArgsDict',
     'ConnectionLineageSyncScheduleArgs',
     'ConnectionLineageSyncScheduleArgsDict',
+    'ConnectionMlflowPropertiesInputArgs',
+    'ConnectionMlflowPropertiesInputArgsDict',
     'ConnectionOAuth2ClientApplicationArgs',
     'ConnectionOAuth2ClientApplicationArgsDict',
     'ConnectionOAuth2PropertiesArgs',
@@ -64,6 +66,8 @@ __all__ = [
     'ConnectionPropertiesInput7PropertiesArgsDict',
     'ConnectionPropertiesInput8PropertiesArgs',
     'ConnectionPropertiesInput8PropertiesArgsDict',
+    'ConnectionPropertiesInput9PropertiesArgs',
+    'ConnectionPropertiesInput9PropertiesArgsDict',
     'ConnectionRedshiftCredentials0PropertiesArgs',
     'ConnectionRedshiftCredentials0PropertiesArgsDict',
     'ConnectionRedshiftCredentials1PropertiesArgs',
@@ -963,6 +967,42 @@ class ConnectionLineageSyncScheduleArgs:
 
 
 if not MYPY:
+    class ConnectionMlflowPropertiesInputArgsDict(TypedDict):
+        """
+        MLflow Properties Input
+        """
+        tracking_server_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the MLflow tracking server
+        """
+elif False:
+    ConnectionMlflowPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionMlflowPropertiesInputArgs:
+    def __init__(__self__, *,
+                 tracking_server_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        MLflow Properties Input
+        :param pulumi.Input[_builtins.str] tracking_server_arn: The ARN of the MLflow tracking server
+        """
+        if tracking_server_arn is not None:
+            pulumi.set(__self__, "tracking_server_arn", tracking_server_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="trackingServerArn")
+    def tracking_server_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the MLflow tracking server
+        """
+        return pulumi.get(self, "tracking_server_arn")
+
+    @tracking_server_arn.setter
+    def tracking_server_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tracking_server_arn", value)
+
+
+if not MYPY:
     class ConnectionOAuth2ClientApplicationArgsDict(TypedDict):
         """
         OAuth2 Client Application
@@ -1365,6 +1405,28 @@ class ConnectionPropertiesInput8PropertiesArgs:
 
 
 if not MYPY:
+    class ConnectionPropertiesInput9PropertiesArgsDict(TypedDict):
+        mlflow_properties: pulumi.Input['ConnectionMlflowPropertiesInputArgsDict']
+elif False:
+    ConnectionPropertiesInput9PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionPropertiesInput9PropertiesArgs:
+    def __init__(__self__, *,
+                 mlflow_properties: pulumi.Input['ConnectionMlflowPropertiesInputArgs']):
+        pulumi.set(__self__, "mlflow_properties", mlflow_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowProperties")
+    def mlflow_properties(self) -> pulumi.Input['ConnectionMlflowPropertiesInputArgs']:
+        return pulumi.get(self, "mlflow_properties")
+
+    @mlflow_properties.setter
+    def mlflow_properties(self, value: pulumi.Input['ConnectionMlflowPropertiesInputArgs']):
+        pulumi.set(self, "mlflow_properties", value)
+
+
+if not MYPY:
     class ConnectionRedshiftCredentials0PropertiesArgsDict(TypedDict):
         secret_arn: pulumi.Input[_builtins.str]
 elif False:
@@ -1652,6 +1714,7 @@ if not MYPY:
         instance_profile_arn: NotRequired[pulumi.Input[_builtins.str]]
         java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
         log_uri: NotRequired[pulumi.Input[_builtins.str]]
+        managed_endpoint_arn: NotRequired[pulumi.Input[_builtins.str]]
         python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
         runtime_role: NotRequired[pulumi.Input[_builtins.str]]
         trusted_certificates_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
@@ -1665,6 +1728,7 @@ class ConnectionSparkEmrPropertiesInputArgs:
                  instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  java_virtual_env: Optional[pulumi.Input[_builtins.str]] = None,
                  log_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  python_virtual_env: Optional[pulumi.Input[_builtins.str]] = None,
                  runtime_role: Optional[pulumi.Input[_builtins.str]] = None,
                  trusted_certificates_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
@@ -1679,6 +1743,8 @@ class ConnectionSparkEmrPropertiesInputArgs:
             pulumi.set(__self__, "java_virtual_env", java_virtual_env)
         if log_uri is not None:
             pulumi.set(__self__, "log_uri", log_uri)
+        if managed_endpoint_arn is not None:
+            pulumi.set(__self__, "managed_endpoint_arn", managed_endpoint_arn)
         if python_virtual_env is not None:
             pulumi.set(__self__, "python_virtual_env", python_virtual_env)
         if runtime_role is not None:
@@ -1721,6 +1787,15 @@ class ConnectionSparkEmrPropertiesInputArgs:
     @log_uri.setter
     def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedEndpointArn")
+    def managed_endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "managed_endpoint_arn")
+
+    @managed_endpoint_arn.setter
+    def managed_endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_endpoint_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="pythonVirtualEnv")

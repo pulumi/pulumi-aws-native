@@ -27,7 +27,7 @@ class UserProfileArgs:
                  domain_id: pulumi.Input[_builtins.str],
                  single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
@@ -35,7 +35,7 @@ class UserProfileArgs:
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[_builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the user profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the user profile.
         :param pulumi.Input[_builtins.str] user_profile_name: A name for the UserProfile.
         :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: A collection of settings.
         """
@@ -89,14 +89,14 @@ class UserProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to apply to the user profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
@@ -133,7 +133,7 @@ class UserProfile(pulumi.CustomResource):
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
@@ -145,7 +145,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[_builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A list of tags to apply to the user profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the user profile.
         :param pulumi.Input[_builtins.str] user_profile_name: A name for the UserProfile.
         :param pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']] user_settings: A collection of settings.
         """
@@ -176,7 +176,7 @@ class UserProfile(pulumi.CustomResource):
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
@@ -197,7 +197,7 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["user_profile_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "tags[*]", "userProfileName", "userSettings.rStudioServerProAppSettings.accessStatus", "userSettings.rStudioServerProAppSettings.userGroup"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "userProfileName", "userSettings.rStudioServerProAppSettings.accessStatus", "userSettings.rStudioServerProAppSettings.userGroup"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserProfile, __self__).__init__(
             'aws-native:sagemaker:UserProfile',
@@ -256,7 +256,7 @@ class UserProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to apply to the user profile.
         """

@@ -36064,28 +36064,25 @@ type VpcTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes a tag.
 type VpnConcentratorTag struct {
 	// The key of the tag.
-	//
-	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	//  Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:``.
 	Key string `pulumi:"key"`
 	// The value of the tag.
-	//
-	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	//  Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 	Value string `pulumi:"value"`
 }
 
 // Options for sending VPN tunnel logs to CloudWatch.
 type VpnConnectionCloudwatchLogOptionsSpecification struct {
-	// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-	//
-	// Valid values: `True` | `False`
+	// Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+	//  Valid values: ``True`` | ``False``
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
-	// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-	//
-	// Valid values: `json` | `text`
+	// The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+	//  Valid values: ``json`` | ``text``
 	BgpLogOutputFormat *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is ``False``.
 	//  Valid values: ``True`` | ``False``
@@ -36110,15 +36107,13 @@ type VpnConnectionCloudwatchLogOptionsSpecificationInput interface {
 
 // Options for sending VPN tunnel logs to CloudWatch.
 type VpnConnectionCloudwatchLogOptionsSpecificationArgs struct {
-	// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-	//
-	// Valid values: `True` | `False`
+	// Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+	//  Valid values: ``True`` | ``False``
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
-	// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-	//
-	// Valid values: `json` | `text`
+	// The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+	//  Valid values: ``json`` | ``text``
 	BgpLogOutputFormat VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is ``False``.
 	//  Valid values: ``True`` | ``False``
@@ -36208,9 +36203,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) ToVpnConnectionClo
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput)
 }
 
-// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+// Specifies whether to enable BGP logging for the VPN connection. Default value is “False“.
 //
-// Valid values: `True` | `False`
+//	Valid values: ``True`` | ``False``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -36220,9 +36215,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogGroupArn() p
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
 		return v.BgpLogOutputFormat
@@ -36274,9 +36269,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) Elem() VpnConne
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationOutput)
 }
 
-// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+// Specifies whether to enable BGP logging for the VPN connection. Default value is “False“.
 //
-// Valid values: `True` | `False`
+//	Valid values: ``True`` | ``False``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *bool {
 		if v == nil {
@@ -36296,9 +36291,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogGroupArn(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
 		if v == nil {

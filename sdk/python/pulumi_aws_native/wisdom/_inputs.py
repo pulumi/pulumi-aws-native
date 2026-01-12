@@ -28,12 +28,22 @@ __all__ = [
     'AiAgentAiAgentConfiguration4PropertiesArgsDict',
     'AiAgentAiAgentConfiguration5PropertiesArgs',
     'AiAgentAiAgentConfiguration5PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration6PropertiesArgs',
+    'AiAgentAiAgentConfiguration6PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration7PropertiesArgs',
+    'AiAgentAiAgentConfiguration7PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration8PropertiesArgs',
+    'AiAgentAiAgentConfiguration8PropertiesArgsDict',
+    'AiAgentAnnotationArgs',
+    'AiAgentAnnotationArgsDict',
     'AiAgentAnswerRecommendationAiAgentConfigurationArgs',
     'AiAgentAnswerRecommendationAiAgentConfigurationArgsDict',
     'AiAgentAssociationConfigurationDataPropertiesArgs',
     'AiAgentAssociationConfigurationDataPropertiesArgsDict',
     'AiAgentAssociationConfigurationArgs',
     'AiAgentAssociationConfigurationArgsDict',
+    'AiAgentCaseSummarizationAiAgentConfigurationArgs',
+    'AiAgentCaseSummarizationAiAgentConfigurationArgsDict',
     'AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs',
     'AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict',
     'AiAgentEmailOverviewAiAgentConfigurationArgs',
@@ -44,10 +54,14 @@ __all__ = [
     'AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict',
     'AiAgentManualSearchAiAgentConfigurationArgs',
     'AiAgentManualSearchAiAgentConfigurationArgsDict',
+    'AiAgentNoteTakingAiAgentConfigurationArgs',
+    'AiAgentNoteTakingAiAgentConfigurationArgsDict',
     'AiAgentOrCondition0PropertiesArgs',
     'AiAgentOrCondition0PropertiesArgsDict',
     'AiAgentOrCondition1PropertiesArgs',
     'AiAgentOrCondition1PropertiesArgsDict',
+    'AiAgentOrchestrationAiAgentConfigurationArgs',
+    'AiAgentOrchestrationAiAgentConfigurationArgsDict',
     'AiAgentSelfServiceAiAgentConfigurationArgs',
     'AiAgentSelfServiceAiAgentConfigurationArgsDict',
     'AiAgentTagConditionArgs',
@@ -58,6 +72,22 @@ __all__ = [
     'AiAgentTagFilter1PropertiesArgsDict',
     'AiAgentTagFilter2PropertiesArgs',
     'AiAgentTagFilter2PropertiesArgsDict',
+    'AiAgentToolConfigurationArgs',
+    'AiAgentToolConfigurationArgsDict',
+    'AiAgentToolInstructionArgs',
+    'AiAgentToolInstructionArgsDict',
+    'AiAgentToolOutputConfigurationArgs',
+    'AiAgentToolOutputConfigurationArgsDict',
+    'AiAgentToolOutputFilterArgs',
+    'AiAgentToolOutputFilterArgsDict',
+    'AiAgentToolOverrideConstantInputValueArgs',
+    'AiAgentToolOverrideConstantInputValueArgsDict',
+    'AiAgentToolOverrideInputValueConfigurationPropertiesArgs',
+    'AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict',
+    'AiAgentToolOverrideInputValueArgs',
+    'AiAgentToolOverrideInputValueArgsDict',
+    'AiAgentUserInteractionConfigurationArgs',
+    'AiAgentUserInteractionConfigurationArgsDict',
     'AiGuardrailAiGuardrailContentPolicyConfigArgs',
     'AiGuardrailAiGuardrailContentPolicyConfigArgsDict',
     'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs',
@@ -299,6 +329,84 @@ class AiAgentAiAgentConfiguration5PropertiesArgs:
 
 
 if not MYPY:
+    class AiAgentAiAgentConfiguration6PropertiesArgsDict(TypedDict):
+        orchestration_ai_agent_configuration: pulumi.Input['AiAgentOrchestrationAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration6PropertiesArgs:
+    def __init__(__self__, *,
+                 orchestration_ai_agent_configuration: pulumi.Input['AiAgentOrchestrationAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "orchestration_ai_agent_configuration", orchestration_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="orchestrationAiAgentConfiguration")
+    def orchestration_ai_agent_configuration(self) -> pulumi.Input['AiAgentOrchestrationAiAgentConfigurationArgs']:
+        return pulumi.get(self, "orchestration_ai_agent_configuration")
+
+    @orchestration_ai_agent_configuration.setter
+    def orchestration_ai_agent_configuration(self, value: pulumi.Input['AiAgentOrchestrationAiAgentConfigurationArgs']):
+        pulumi.set(self, "orchestration_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAiAgentConfiguration7PropertiesArgsDict(TypedDict):
+        note_taking_ai_agent_configuration: pulumi.Input['AiAgentNoteTakingAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration7PropertiesArgs:
+    def __init__(__self__, *,
+                 note_taking_ai_agent_configuration: pulumi.Input['AiAgentNoteTakingAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "note_taking_ai_agent_configuration", note_taking_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="noteTakingAiAgentConfiguration")
+    def note_taking_ai_agent_configuration(self) -> pulumi.Input['AiAgentNoteTakingAiAgentConfigurationArgs']:
+        return pulumi.get(self, "note_taking_ai_agent_configuration")
+
+    @note_taking_ai_agent_configuration.setter
+    def note_taking_ai_agent_configuration(self, value: pulumi.Input['AiAgentNoteTakingAiAgentConfigurationArgs']):
+        pulumi.set(self, "note_taking_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAiAgentConfiguration8PropertiesArgsDict(TypedDict):
+        case_summarization_ai_agent_configuration: pulumi.Input['AiAgentCaseSummarizationAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration8PropertiesArgs:
+    def __init__(__self__, *,
+                 case_summarization_ai_agent_configuration: pulumi.Input['AiAgentCaseSummarizationAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "case_summarization_ai_agent_configuration", case_summarization_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="caseSummarizationAiAgentConfiguration")
+    def case_summarization_ai_agent_configuration(self) -> pulumi.Input['AiAgentCaseSummarizationAiAgentConfigurationArgs']:
+        return pulumi.get(self, "case_summarization_ai_agent_configuration")
+
+    @case_summarization_ai_agent_configuration.setter
+    def case_summarization_ai_agent_configuration(self, value: pulumi.Input['AiAgentCaseSummarizationAiAgentConfigurationArgs']):
+        pulumi.set(self, "case_summarization_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAnnotationArgsDict(TypedDict):
+        pass
+elif False:
+    AiAgentAnnotationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAnnotationArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
     class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
         answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
         answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
@@ -455,6 +563,55 @@ class AiAgentAssociationConfigurationArgs:
     @association_type.setter
     def association_type(self, value: Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]):
         pulumi.set(self, "association_type", value)
+
+
+if not MYPY:
+    class AiAgentCaseSummarizationAiAgentConfigurationArgsDict(TypedDict):
+        case_summarization_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+        case_summarization_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentCaseSummarizationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentCaseSummarizationAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 case_summarization_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 case_summarization_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+        if case_summarization_ai_guardrail_id is not None:
+            pulumi.set(__self__, "case_summarization_ai_guardrail_id", case_summarization_ai_guardrail_id)
+        if case_summarization_ai_prompt_id is not None:
+            pulumi.set(__self__, "case_summarization_ai_prompt_id", case_summarization_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="caseSummarizationAiGuardrailId")
+    def case_summarization_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "case_summarization_ai_guardrail_id")
+
+    @case_summarization_ai_guardrail_id.setter
+    def case_summarization_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "case_summarization_ai_guardrail_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="caseSummarizationAiPromptId")
+    def case_summarization_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "case_summarization_ai_prompt_id")
+
+    @case_summarization_ai_prompt_id.setter
+    def case_summarization_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "case_summarization_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
 
 
 if not MYPY:
@@ -729,6 +886,55 @@ class AiAgentManualSearchAiAgentConfigurationArgs:
 
 
 if not MYPY:
+    class AiAgentNoteTakingAiAgentConfigurationArgsDict(TypedDict):
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+        note_taking_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+        note_taking_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentNoteTakingAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentNoteTakingAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
+                 note_taking_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 note_taking_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None):
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if note_taking_ai_guardrail_id is not None:
+            pulumi.set(__self__, "note_taking_ai_guardrail_id", note_taking_ai_guardrail_id)
+        if note_taking_ai_prompt_id is not None:
+            pulumi.set(__self__, "note_taking_ai_prompt_id", note_taking_ai_prompt_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noteTakingAiGuardrailId")
+    def note_taking_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "note_taking_ai_guardrail_id")
+
+    @note_taking_ai_guardrail_id.setter
+    def note_taking_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "note_taking_ai_guardrail_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noteTakingAiPromptId")
+    def note_taking_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "note_taking_ai_prompt_id")
+
+    @note_taking_ai_prompt_id.setter
+    def note_taking_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "note_taking_ai_prompt_id", value)
+
+
+if not MYPY:
     class AiAgentOrCondition0PropertiesArgsDict(TypedDict):
         and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
 elif False:
@@ -770,6 +976,80 @@ class AiAgentOrCondition1PropertiesArgs:
     @tag_condition.setter
     def tag_condition(self, value: pulumi.Input['AiAgentTagConditionArgs']):
         pulumi.set(self, "tag_condition", value)
+
+
+if not MYPY:
+    class AiAgentOrchestrationAiAgentConfigurationArgsDict(TypedDict):
+        orchestration_ai_prompt_id: pulumi.Input[_builtins.str]
+        connect_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+        orchestration_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+        tool_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgsDict']]]]
+elif False:
+    AiAgentOrchestrationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentOrchestrationAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 orchestration_ai_prompt_id: pulumi.Input[_builtins.str],
+                 connect_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
+                 orchestration_ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tool_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]] = None):
+        pulumi.set(__self__, "orchestration_ai_prompt_id", orchestration_ai_prompt_id)
+        if connect_instance_arn is not None:
+            pulumi.set(__self__, "connect_instance_arn", connect_instance_arn)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if orchestration_ai_guardrail_id is not None:
+            pulumi.set(__self__, "orchestration_ai_guardrail_id", orchestration_ai_guardrail_id)
+        if tool_configurations is not None:
+            pulumi.set(__self__, "tool_configurations", tool_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="orchestrationAiPromptId")
+    def orchestration_ai_prompt_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "orchestration_ai_prompt_id")
+
+    @orchestration_ai_prompt_id.setter
+    def orchestration_ai_prompt_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "orchestration_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectInstanceArn")
+    def connect_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "connect_instance_arn")
+
+    @connect_instance_arn.setter
+    def connect_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connect_instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orchestrationAiGuardrailId")
+    def orchestration_ai_guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "orchestration_ai_guardrail_id")
+
+    @orchestration_ai_guardrail_id.setter
+    def orchestration_ai_guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "orchestration_ai_guardrail_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toolConfigurations")
+    def tool_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]:
+        return pulumi.get(self, "tool_configurations")
+
+    @tool_configurations.setter
+    def tool_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgs']]]]):
+        pulumi.set(self, "tool_configurations", value)
 
 
 if not MYPY:
@@ -933,6 +1213,390 @@ class AiAgentTagFilter2PropertiesArgs:
     @or_conditions.setter
     def or_conditions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgs', 'AiAgentOrCondition1PropertiesArgs']]]]):
         pulumi.set(self, "or_conditions", value)
+
+
+if not MYPY:
+    class AiAgentToolConfigurationArgsDict(TypedDict):
+        tool_name: pulumi.Input[_builtins.str]
+        tool_type: pulumi.Input['AiAgentToolType']
+        annotations: NotRequired[pulumi.Input['AiAgentAnnotationArgsDict']]
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        input_schema: NotRequired[Any]
+        instruction: NotRequired[pulumi.Input['AiAgentToolInstructionArgsDict']]
+        output_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgsDict']]]]
+        output_schema: NotRequired[Any]
+        override_input_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgsDict']]]]
+        title: NotRequired[pulumi.Input[_builtins.str]]
+        tool_id: NotRequired[pulumi.Input[_builtins.str]]
+        user_interaction_configuration: NotRequired[pulumi.Input['AiAgentUserInteractionConfigurationArgsDict']]
+elif False:
+    AiAgentToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolConfigurationArgs:
+    def __init__(__self__, *,
+                 tool_name: pulumi.Input[_builtins.str],
+                 tool_type: pulumi.Input['AiAgentToolType'],
+                 annotations: Optional[pulumi.Input['AiAgentAnnotationArgs']] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_schema: Optional[Any] = None,
+                 instruction: Optional[pulumi.Input['AiAgentToolInstructionArgs']] = None,
+                 output_filters: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]] = None,
+                 output_schema: Optional[Any] = None,
+                 override_input_values: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 tool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_interaction_configuration: Optional[pulumi.Input['AiAgentUserInteractionConfigurationArgs']] = None):
+        pulumi.set(__self__, "tool_name", tool_name)
+        pulumi.set(__self__, "tool_type", tool_type)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_schema is not None:
+            pulumi.set(__self__, "input_schema", input_schema)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+        if output_filters is not None:
+            pulumi.set(__self__, "output_filters", output_filters)
+        if output_schema is not None:
+            pulumi.set(__self__, "output_schema", output_schema)
+        if override_input_values is not None:
+            pulumi.set(__self__, "override_input_values", override_input_values)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if tool_id is not None:
+            pulumi.set(__self__, "tool_id", tool_id)
+        if user_interaction_configuration is not None:
+            pulumi.set(__self__, "user_interaction_configuration", user_interaction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="toolName")
+    def tool_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "tool_name")
+
+    @tool_name.setter
+    def tool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tool_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toolType")
+    def tool_type(self) -> pulumi.Input['AiAgentToolType']:
+        return pulumi.get(self, "tool_type")
+
+    @tool_type.setter
+    def tool_type(self, value: pulumi.Input['AiAgentToolType']):
+        pulumi.set(self, "tool_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input['AiAgentAnnotationArgs']]:
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input['AiAgentAnnotationArgs']]):
+        pulumi.set(self, "annotations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Optional[Any]:
+        return pulumi.get(self, "input_schema")
+
+    @input_schema.setter
+    def input_schema(self, value: Optional[Any]):
+        pulumi.set(self, "input_schema", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> Optional[pulumi.Input['AiAgentToolInstructionArgs']]:
+        return pulumi.get(self, "instruction")
+
+    @instruction.setter
+    def instruction(self, value: Optional[pulumi.Input['AiAgentToolInstructionArgs']]):
+        pulumi.set(self, "instruction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFilters")
+    def output_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]:
+        return pulumi.get(self, "output_filters")
+
+    @output_filters.setter
+    def output_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgs']]]]):
+        pulumi.set(self, "output_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputSchema")
+    def output_schema(self) -> Optional[Any]:
+        return pulumi.get(self, "output_schema")
+
+    @output_schema.setter
+    def output_schema(self, value: Optional[Any]):
+        pulumi.set(self, "output_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideInputValues")
+    def override_input_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]:
+        return pulumi.get(self, "override_input_values")
+
+    @override_input_values.setter
+    def override_input_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgs']]]]):
+        pulumi.set(self, "override_input_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toolId")
+    def tool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "tool_id")
+
+    @tool_id.setter
+    def tool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tool_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userInteractionConfiguration")
+    def user_interaction_configuration(self) -> Optional[pulumi.Input['AiAgentUserInteractionConfigurationArgs']]:
+        return pulumi.get(self, "user_interaction_configuration")
+
+    @user_interaction_configuration.setter
+    def user_interaction_configuration(self, value: Optional[pulumi.Input['AiAgentUserInteractionConfigurationArgs']]):
+        pulumi.set(self, "user_interaction_configuration", value)
+
+
+if not MYPY:
+    class AiAgentToolInstructionArgsDict(TypedDict):
+        examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        instruction: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentToolInstructionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolInstructionArgs:
+    def __init__(__self__, *,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instruction: Optional[pulumi.Input[_builtins.str]] = None):
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+        if instruction is not None:
+            pulumi.set(__self__, "instruction", instruction)
+
+    @_builtins.property
+    @pulumi.getter
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "examples")
+
+    @examples.setter
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "examples", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "instruction")
+
+    @instruction.setter
+    def instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instruction", value)
+
+
+if not MYPY:
+    class AiAgentToolOutputConfigurationArgsDict(TypedDict):
+        output_variable_name_override: NotRequired[pulumi.Input[_builtins.str]]
+        session_data_namespace: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentToolOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 output_variable_name_override: Optional[pulumi.Input[_builtins.str]] = None,
+                 session_data_namespace: Optional[pulumi.Input[_builtins.str]] = None):
+        if output_variable_name_override is not None:
+            pulumi.set(__self__, "output_variable_name_override", output_variable_name_override)
+        if session_data_namespace is not None:
+            pulumi.set(__self__, "session_data_namespace", session_data_namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="outputVariableNameOverride")
+    def output_variable_name_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "output_variable_name_override")
+
+    @output_variable_name_override.setter
+    def output_variable_name_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "output_variable_name_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionDataNamespace")
+    def session_data_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "session_data_namespace")
+
+    @session_data_namespace.setter
+    def session_data_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "session_data_namespace", value)
+
+
+if not MYPY:
+    class AiAgentToolOutputFilterArgsDict(TypedDict):
+        json_path: pulumi.Input[_builtins.str]
+        output_configuration: NotRequired[pulumi.Input['AiAgentToolOutputConfigurationArgsDict']]
+elif False:
+    AiAgentToolOutputFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolOutputFilterArgs:
+    def __init__(__self__, *,
+                 json_path: pulumi.Input[_builtins.str],
+                 output_configuration: Optional[pulumi.Input['AiAgentToolOutputConfigurationArgs']] = None):
+        pulumi.set(__self__, "json_path", json_path)
+        if output_configuration is not None:
+            pulumi.set(__self__, "output_configuration", output_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "json_path")
+
+    @json_path.setter
+    def json_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> Optional[pulumi.Input['AiAgentToolOutputConfigurationArgs']]:
+        return pulumi.get(self, "output_configuration")
+
+    @output_configuration.setter
+    def output_configuration(self, value: Optional[pulumi.Input['AiAgentToolOutputConfigurationArgs']]):
+        pulumi.set(self, "output_configuration", value)
+
+
+if not MYPY:
+    class AiAgentToolOverrideConstantInputValueArgsDict(TypedDict):
+        type: pulumi.Input['AiAgentToolOverrideInputValueType']
+        value: pulumi.Input[_builtins.str]
+elif False:
+    AiAgentToolOverrideConstantInputValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolOverrideConstantInputValueArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['AiAgentToolOverrideInputValueType'],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AiAgentToolOverrideInputValueType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AiAgentToolOverrideInputValueType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict(TypedDict):
+        constant: pulumi.Input['AiAgentToolOverrideConstantInputValueArgsDict']
+elif False:
+    AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolOverrideInputValueConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 constant: pulumi.Input['AiAgentToolOverrideConstantInputValueArgs']):
+        pulumi.set(__self__, "constant", constant)
+
+    @_builtins.property
+    @pulumi.getter
+    def constant(self) -> pulumi.Input['AiAgentToolOverrideConstantInputValueArgs']:
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: pulumi.Input['AiAgentToolOverrideConstantInputValueArgs']):
+        pulumi.set(self, "constant", value)
+
+
+if not MYPY:
+    class AiAgentToolOverrideInputValueArgsDict(TypedDict):
+        json_path: pulumi.Input[_builtins.str]
+        value: pulumi.Input['AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict']
+elif False:
+    AiAgentToolOverrideInputValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentToolOverrideInputValueArgs:
+    def __init__(__self__, *,
+                 json_path: pulumi.Input[_builtins.str],
+                 value: pulumi.Input['AiAgentToolOverrideInputValueConfigurationPropertiesArgs']):
+        pulumi.set(__self__, "json_path", json_path)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "json_path")
+
+    @json_path.setter
+    def json_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['AiAgentToolOverrideInputValueConfigurationPropertiesArgs']:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['AiAgentToolOverrideInputValueConfigurationPropertiesArgs']):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AiAgentUserInteractionConfigurationArgsDict(TypedDict):
+        is_user_confirmation_required: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    AiAgentUserInteractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentUserInteractionConfigurationArgs:
+    def __init__(__self__, *,
+                 is_user_confirmation_required: Optional[pulumi.Input[_builtins.bool]] = None):
+        if is_user_confirmation_required is not None:
+            pulumi.set(__self__, "is_user_confirmation_required", is_user_confirmation_required)
+
+    @_builtins.property
+    @pulumi.getter(name="isUserConfirmationRequired")
+    def is_user_confirmation_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_user_confirmation_required")
+
+    @is_user_confirmation_required.setter
+    def is_user_confirmation_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_user_confirmation_required", value)
 
 
 if not MYPY:

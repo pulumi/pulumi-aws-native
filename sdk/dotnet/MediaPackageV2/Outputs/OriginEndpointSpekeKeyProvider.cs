@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     public sealed class OriginEndpointSpekeKeyProvider
     {
         /// <summary>
+        /// &lt;p&gt;The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.&lt;/p&gt;
+        /// </summary>
+        public readonly string? CertificateArn;
+        /// <summary>
         /// &lt;p&gt;The DRM solution provider you're using to protect your content during distribution.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDrmSystem> DrmSystems;
@@ -39,6 +43,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointSpekeKeyProvider(
+            string? certificateArn,
+
             ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDrmSystem> drmSystems,
 
             Outputs.OriginEndpointEncryptionContractConfiguration encryptionContractConfiguration,
@@ -49,6 +55,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             string url)
         {
+            CertificateArn = certificateArn;
             DrmSystems = drmSystems;
             EncryptionContractConfiguration = encryptionContractConfiguration;
             ResourceId = resourceId;

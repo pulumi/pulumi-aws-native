@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ActionConnectorArgs } from "./actionConnector";
+export type ActionConnector = import("./actionConnector").ActionConnector;
+export const ActionConnector: typeof import("./actionConnector").ActionConnector = null as any;
+utilities.lazyLoad(exports, ["ActionConnector"], () => require("./actionConnector"));
+
 export { AnalysisArgs } from "./analysis";
 export type Analysis = import("./analysis").Analysis;
 export const Analysis: typeof import("./analysis").Analysis = null as any;
@@ -34,6 +39,11 @@ export { FolderArgs } from "./folder";
 export type Folder = import("./folder").Folder;
 export const Folder: typeof import("./folder").Folder = null as any;
 utilities.lazyLoad(exports, ["Folder"], () => require("./folder"));
+
+export { GetActionConnectorArgs, GetActionConnectorResult, GetActionConnectorOutputArgs } from "./getActionConnector";
+export const getActionConnector: typeof import("./getActionConnector").getActionConnector = null as any;
+export const getActionConnectorOutput: typeof import("./getActionConnector").getActionConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getActionConnector","getActionConnectorOutput"], () => require("./getActionConnector"));
 
 export { GetAnalysisArgs, GetAnalysisResult, GetAnalysisOutputArgs } from "./getAnalysis";
 export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as any;
@@ -118,6 +128,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:quicksight:ActionConnector":
+                return new ActionConnector(name, <any>undefined, { urn })
             case "aws-native:quicksight:Analysis":
                 return new Analysis(name, <any>undefined, { urn })
             case "aws-native:quicksight:CustomPermissions":

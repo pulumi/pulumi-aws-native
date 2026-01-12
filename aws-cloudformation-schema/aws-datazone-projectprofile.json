@@ -203,12 +203,15 @@
     },
     "Status" : {
       "$ref" : "#/definitions/Status"
+    },
+    "UseDefaultConfigurations" : {
+      "type" : "boolean"
     }
   },
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/DomainUnitId", "/properties/Id", "/properties/Identifier", "/properties/LastUpdatedAt", "/properties/EnvironmentConfigurations/*/EnvironmentConfigurationId", "/properties/EnvironmentConfigurations/*/ConfigurationParameters/ResolvedParameters" ],
-  "writeOnlyProperties" : [ "/properties/DomainUnitIdentifier" ],
-  "createOnlyProperties" : [ "/properties/DomainIdentifier" ],
+  "writeOnlyProperties" : [ "/properties/DomainUnitIdentifier", "/properties/UseDefaultConfigurations" ],
+  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/UseDefaultConfigurations" ],
   "primaryIdentifier" : [ "/properties/DomainIdentifier", "/properties/Identifier" ],
   "tagging" : {
     "taggable" : false,
@@ -218,7 +221,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateProjectProfile", "datazone:GetProjectProfile", "ssm:GetParameter" ]
+      "permissions" : [ "datazone:CreateProjectProfile", "datazone:GetProjectProfile", "datazone:ListEnvironmentBlueprints", "ssm:GetParameter" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetProjectProfile", "ssm:GetParameter" ]

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
+        /// &lt;p&gt;Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         [Output("columnGroups")]
         public Output<ImmutableArray<Outputs.DataSetColumnGroup>> ColumnGroups { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableDictionary<string, Outputs.DataSetFieldFolder>?> FieldFolders { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;When you create the dataset, Amazon QuickSight adds the dataset to these folders.&lt;/p&gt;
+        /// &lt;p&gt;When you create the dataset, Quick Suite adds the dataset to these folders.&lt;/p&gt;
         /// </summary>
         [Output("folderArns")]
         public Output<ImmutableArray<string>> FolderArns { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSetColumnGroupArgs>? _columnGroups;
 
         /// <summary>
-        /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
+        /// &lt;p&gt;Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSetColumnGroupArgs> ColumnGroups
         {
@@ -306,7 +306,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<string>? _folderArns;
 
         /// <summary>
-        /// &lt;p&gt;When you create the dataset, Amazon QuickSight adds the dataset to these folders.&lt;/p&gt;
+        /// &lt;p&gt;When you create the dataset, Quick Suite adds the dataset to these folders.&lt;/p&gt;
         /// </summary>
         public InputList<string> FolderArns
         {

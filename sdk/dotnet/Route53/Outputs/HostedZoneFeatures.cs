@@ -10,12 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53.Outputs
 {
 
+    /// <summary>
+    /// Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
+    /// </summary>
     [OutputType]
     public sealed class HostedZoneFeatures
     {
-        /// <summary>
-        /// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
-        /// </summary>
         public readonly bool? EnableAcceleratedRecovery;
 
         [OutputConstructor]

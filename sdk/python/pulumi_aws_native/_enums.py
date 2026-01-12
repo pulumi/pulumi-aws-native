@@ -130,7 +130,7 @@ class Region(_builtins.str, Enum):
     """
     EUSC_DE_EAST1 = "eusc-de-east-1"
     """
-    EU (Germany)
+    AWS European Sovereign Cloud (Germany)
     """
     IL_CENTRAL1 = "il-central-1"
     """

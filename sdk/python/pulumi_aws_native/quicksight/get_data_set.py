@@ -106,7 +106,7 @@ class GetDataSetResult:
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> Optional[Sequence['outputs.DataSetColumnGroup']]:
         """
-        <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 

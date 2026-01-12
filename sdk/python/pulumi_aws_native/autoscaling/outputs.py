@@ -439,6 +439,10 @@ class AutoScalingGroupCpuPerformanceFactorRequest(dict):
 
 @pulumi.output_type
 class AutoScalingGroupInstanceLifecyclePolicy(dict):
+    """
+    The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination. 
+     For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +463,9 @@ class AutoScalingGroupInstanceLifecyclePolicy(dict):
     def __init__(__self__, *,
                  retention_triggers: Optional['outputs.AutoScalingGroupRetentionTriggers'] = None):
         """
-        :param 'AutoScalingGroupRetentionTriggers' retention_triggers: Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
+        The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination. 
+         For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param 'AutoScalingGroupRetentionTriggers' retention_triggers: Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a ``Retained`` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
         """
         if retention_triggers is not None:
             pulumi.set(__self__, "retention_triggers", retention_triggers)
@@ -468,7 +474,7 @@ class AutoScalingGroupInstanceLifecyclePolicy(dict):
     @pulumi.getter(name="retentionTriggers")
     def retention_triggers(self) -> Optional['outputs.AutoScalingGroupRetentionTriggers']:
         """
-        Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
+        Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a ``Retained`` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
         """
         return pulumi.get(self, "retention_triggers")
 
@@ -1292,13 +1298,11 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
          Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
          After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
          ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
-        :param _builtins.str image_id: The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
-               
-               For `ReplaceRootVolume` operations:
-               
-               - All overrides in the `MixedInstancesPolicy` must specify an ImageId
-               - The AMI must contain only a single root volume
-               - Root volume replacement doesn't support multi-volume AMIs
+        :param _builtins.str image_id: The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with ``ReplaceRootVolume`` strategy, this specifies the AMI for root volume replacement operations. 
+                 For ``ReplaceRootVolume`` operations: 
+                 +  All overrides in the ``MixedInstancesPolicy`` must specify an ImageId
+                 +  The AMI must contain only a single root volume
+                 +  Root volume replacement doesn't support multi-volume AMIs
         :param 'AutoScalingGroupInstanceRequirements' instance_requirements: The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
                 You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 
                  If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
@@ -1325,13 +1329,11 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
-
-        For `ReplaceRootVolume` operations:
-
-        - All overrides in the `MixedInstancesPolicy` must specify an ImageId
-        - The AMI must contain only a single root volume
-        - Root volume replacement doesn't support multi-volume AMIs
+        The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with ``ReplaceRootVolume`` strategy, this specifies the AMI for root volume replacement operations. 
+          For ``ReplaceRootVolume`` operations: 
+          +  All overrides in the ``MixedInstancesPolicy`` must specify an ImageId
+          +  The AMI must contain only a single root volume
+          +  Root volume replacement doesn't support multi-volume AMIs
         """
         return pulumi.get(self, "image_id")
 
@@ -2027,6 +2029,9 @@ class AutoScalingGroupPerformanceFactorReferenceRequest(dict):
 
 @pulumi.output_type
 class AutoScalingGroupRetentionTriggers(dict):
+    """
+    Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2047,11 +2052,10 @@ class AutoScalingGroupRetentionTriggers(dict):
     def __init__(__self__, *,
                  terminate_hook_abandon: Optional[_builtins.str] = None):
         """
-        :param _builtins.str terminate_hook_abandon: Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
-               
-               Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
-               
-               Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
+        Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
+        :param _builtins.str terminate_hook_abandon: Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
+                 Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. 
+                 Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         """
         if terminate_hook_abandon is not None:
             pulumi.set(__self__, "terminate_hook_abandon", terminate_hook_abandon)
@@ -2060,11 +2064,9 @@ class AutoScalingGroupRetentionTriggers(dict):
     @pulumi.getter(name="terminateHookAbandon")
     def terminate_hook_abandon(self) -> Optional[_builtins.str]:
         """
-        Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
-
-        Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
-
-        Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
+        Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
+          Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. 
+          Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         """
         return pulumi.get(self, "terminate_hook_abandon")
 

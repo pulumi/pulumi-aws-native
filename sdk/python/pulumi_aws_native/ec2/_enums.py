@@ -546,6 +546,7 @@ class IpamPoolAwsService(_builtins.str, Enum):
     Limits which service in Amazon Web Services that the pool can be used in.
     """
     EC2 = "ec2"
+    GLOBAL_SERVICES = "global-services"
 
 
 @pulumi.type_token("aws-native:ec2:IpamPoolIpamScopeType")
@@ -1210,9 +1211,8 @@ class VpcEndpointType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat")
 class VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat(_builtins.str, Enum):
     """
-    The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-
-    Valid values: `json` | `text`
+    The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+     Valid values: ``json`` | ``text``
     """
     JSON = "json"
     TEXT = "text"
@@ -1293,7 +1293,7 @@ class VpnConnectionPreSharedKeyStorage(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ec2:VpnConnectionTunnelBandwidth")
 class VpnConnectionTunnelBandwidth(_builtins.str, Enum):
     """
-    The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+    The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
     """
     STANDARD = "standard"
     LARGE = "large"

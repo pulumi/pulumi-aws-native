@@ -1384,6 +1384,10 @@ if not MYPY:
         """
         <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
         """
+        drm_settings: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+        """
         end: NotRequired[pulumi.Input[_builtins.str]]
         """
         <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
@@ -1407,6 +1411,7 @@ elif False:
 class OriginEndpointFilterConfigurationArgs:
     def __init__(__self__, *,
                  clip_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 drm_settings: Optional[pulumi.Input[_builtins.str]] = None,
                  end: Optional[pulumi.Input[_builtins.str]] = None,
                  manifest_filter: Optional[pulumi.Input[_builtins.str]] = None,
                  start: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1414,6 +1419,7 @@ class OriginEndpointFilterConfigurationArgs:
         """
         <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
         :param pulumi.Input[_builtins.str] clip_start_time: <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        :param pulumi.Input[_builtins.str] drm_settings: <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
         :param pulumi.Input[_builtins.str] end: <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
         :param pulumi.Input[_builtins.str] manifest_filter: <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
         :param pulumi.Input[_builtins.str] start: <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
@@ -1421,6 +1427,8 @@ class OriginEndpointFilterConfigurationArgs:
         """
         if clip_start_time is not None:
             pulumi.set(__self__, "clip_start_time", clip_start_time)
+        if drm_settings is not None:
+            pulumi.set(__self__, "drm_settings", drm_settings)
         if end is not None:
             pulumi.set(__self__, "end", end)
         if manifest_filter is not None:
@@ -1441,6 +1449,18 @@ class OriginEndpointFilterConfigurationArgs:
     @clip_start_time.setter
     def clip_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "clip_start_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="drmSettings")
+    def drm_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "drm_settings")
+
+    @drm_settings.setter
+    def drm_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "drm_settings", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2145,6 +2165,14 @@ if not MYPY:
         <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
         scte_in_segments: NotRequired[pulumi.Input['OriginEndpointScteInSegments']]
+        """
+        Controls whether SCTE-35 messages are included in segment files.
+
+        - None – SCTE-35 messages are not included in segments (default)
+        - All – SCTE-35 messages are embedded in segment data
+
+        For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
+        """
 elif False:
     OriginEndpointScteArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2156,6 +2184,12 @@ class OriginEndpointScteArgs:
         """
         <p>The SCTE configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]] scte_filter: <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
+        :param pulumi.Input['OriginEndpointScteInSegments'] scte_in_segments: Controls whether SCTE-35 messages are included in segment files.
+               
+               - None – SCTE-35 messages are not included in segments (default)
+               - All – SCTE-35 messages are embedded in segment data
+               
+               For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
         """
         if scte_filter is not None:
             pulumi.set(__self__, "scte_filter", scte_filter)
@@ -2177,6 +2211,14 @@ class OriginEndpointScteArgs:
     @_builtins.property
     @pulumi.getter(name="scteInSegments")
     def scte_in_segments(self) -> Optional[pulumi.Input['OriginEndpointScteInSegments']]:
+        """
+        Controls whether SCTE-35 messages are included in segment files.
+
+        - None – SCTE-35 messages are not included in segments (default)
+        - All – SCTE-35 messages are embedded in segment data
+
+        For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
+        """
         return pulumi.get(self, "scte_in_segments")
 
     @scte_in_segments.setter
@@ -2365,6 +2407,10 @@ if not MYPY:
         """
         <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
         """
+        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+        """
 elif False:
     OriginEndpointSpekeKeyProviderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2375,7 +2421,8 @@ class OriginEndpointSpekeKeyProviderArgs:
                  encryption_contract_configuration: pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'],
                  resource_id: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 url: pulumi.Input[_builtins.str]):
+                 url: pulumi.Input[_builtins.str],
+                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         <p>The parameters for the SPEKE key provider.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDrmSystem']]] drm_systems: <p>The DRM solution provider you're using to protect your content during distribution.</p>
@@ -2383,12 +2430,15 @@ class OriginEndpointSpekeKeyProviderArgs:
         :param pulumi.Input[_builtins.str] resource_id: <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
         :param pulumi.Input[_builtins.str] role_arn: <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
         :param pulumi.Input[_builtins.str] url: <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
+        :param pulumi.Input[_builtins.str] certificate_arn: <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
         """
         pulumi.set(__self__, "drm_systems", drm_systems)
         pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "url", url)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @_builtins.property
     @pulumi.getter(name="drmSystems")
@@ -2449,6 +2499,18 @@ class OriginEndpointSpekeKeyProviderArgs:
     @url.setter
     def url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
 
 
 if not MYPY:

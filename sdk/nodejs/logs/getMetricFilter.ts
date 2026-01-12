@@ -37,11 +37,11 @@ export interface GetMetricFilterResult {
      */
     readonly applyOnTransformedLogs?: boolean;
     /**
-     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
      */
     readonly emitSystemFieldDimensions?: string[];
     /**
-     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
      */
     readonly fieldSelectionCriteria?: string;
     /**

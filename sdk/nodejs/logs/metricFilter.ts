@@ -44,11 +44,11 @@ export class MetricFilter extends pulumi.CustomResource {
      */
     declare public readonly applyOnTransformedLogs: pulumi.Output<boolean | undefined>;
     /**
-     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
      */
     declare public readonly emitSystemFieldDimensions: pulumi.Output<string[] | undefined>;
     /**
-     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
      */
     declare public readonly fieldSelectionCriteria: pulumi.Output<string | undefined>;
     /**
@@ -121,11 +121,11 @@ export interface MetricFilterArgs {
      */
     applyOnTransformedLogs?: pulumi.Input<boolean>;
     /**
-     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
      */
     emitSystemFieldDimensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
      */
     fieldSelectionCriteria?: pulumi.Input<string>;
     /**

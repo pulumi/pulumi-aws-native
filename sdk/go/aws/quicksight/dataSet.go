@@ -20,7 +20,7 @@ type DataSet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS account ID.
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
-	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	// <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups DataSetColumnGroupArrayOutput `pulumi:"columnGroups"`
 	// <p>A set of one or more definitions of a <code>
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
@@ -43,7 +43,7 @@ type DataSet struct {
 	DatasetParameters DataSetDatasetParameterArrayOutput `pulumi:"datasetParameters"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders DataSetFieldFolderMapOutput `pulumi:"fieldFolders"`
-	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+	// <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
 	FolderArns pulumi.StringArrayOutput `pulumi:"folderArns"`
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode DataSetImportModePtrOutput `pulumi:"importMode"`
@@ -120,7 +120,7 @@ func (DataSetState) ElementType() reflect.Type {
 type dataSetArgs struct {
 	// The AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	// <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
 	// <p>A set of one or more definitions of a <code>
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
@@ -138,7 +138,7 @@ type dataSetArgs struct {
 	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders map[string]DataSetFieldFolder `pulumi:"fieldFolders"`
-	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+	// <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
 	FolderArns []string `pulumi:"folderArns"`
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode *DataSetImportMode `pulumi:"importMode"`
@@ -167,7 +167,7 @@ type dataSetArgs struct {
 type DataSetArgs struct {
 	// The AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	// <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups DataSetColumnGroupArrayInput
 	// <p>A set of one or more definitions of a <code>
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
@@ -185,7 +185,7 @@ type DataSetArgs struct {
 	DatasetParameters DataSetDatasetParameterArrayInput
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders DataSetFieldFolderMapInput
-	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+	// <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
 	FolderArns pulumi.StringArrayInput
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode DataSetImportModePtrInput
@@ -257,7 +257,7 @@ func (o DataSetOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
-// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+// <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
 func (o DataSetOutput) ColumnGroups() DataSetColumnGroupArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetColumnGroupArrayOutput { return v.ColumnGroups }).(DataSetColumnGroupArrayOutput)
 }
@@ -312,7 +312,7 @@ func (o DataSetOutput) FieldFolders() DataSetFieldFolderMapOutput {
 	return o.ApplyT(func(v *DataSet) DataSetFieldFolderMapOutput { return v.FieldFolders }).(DataSetFieldFolderMapOutput)
 }
 
-// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+// <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
 func (o DataSetOutput) FolderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringArrayOutput { return v.FolderArns }).(pulumi.StringArrayOutput)
 }

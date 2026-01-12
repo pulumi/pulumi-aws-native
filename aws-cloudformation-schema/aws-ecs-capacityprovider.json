@@ -29,7 +29,7 @@
   },
   "typeName" : "AWS::ECS::CapacityProvider",
   "description" : "Resource Type definition for AWS::ECS::CapacityProvider.",
-  "createOnlyProperties" : [ "/properties/AutoScalingGroupProvider/AutoScalingGroupArn", "/properties/Name", "/properties/ClusterName" ],
+  "createOnlyProperties" : [ "/properties/AutoScalingGroupProvider/AutoScalingGroupArn", "/properties/ManagedInstancesProvider/InstanceLaunchTemplate/FipsEnabled", "/properties/Name", "/properties/ClusterName" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Name" ],
   "definitions" : {
@@ -95,7 +95,7 @@
           }
         }
       },
-      "required" : [ "Subnets" ]
+      "required" : [ "SecurityGroups", "Subnets" ]
     },
     "InstanceRequirementsRequest" : {
       "additionalProperties" : false,

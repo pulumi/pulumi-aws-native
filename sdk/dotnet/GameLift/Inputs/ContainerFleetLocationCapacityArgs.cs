@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// The minimum value allowed for the fleet's instance count for a location.
         /// </summary>
-        [Input("minSize", required: true)]
-        public Input<int> MinSize { get; set; } = null!;
+        [Input("minSize")]
+        public Input<int>? MinSize { get; set; }
 
         public ContainerFleetLocationCapacityArgs()
         {

@@ -15,6 +15,9 @@ export const AiAgentAiAgentType = {
     EmailResponse: "EMAIL_RESPONSE",
     EmailOverview: "EMAIL_OVERVIEW",
     EmailGenerativeAnswer: "EMAIL_GENERATIVE_ANSWER",
+    Orchestration: "ORCHESTRATION",
+    NoteTaking: "NOTE_TAKING",
+    CaseSummarization: "CASE_SUMMARIZATION",
 } as const;
 
 export type AiAgentAiAgentType = (typeof AiAgentAiAgentType)[keyof typeof AiAgentAiAgentType];
@@ -25,6 +28,22 @@ export const AiAgentKnowledgeBaseSearchType = {
 } as const;
 
 export type AiAgentKnowledgeBaseSearchType = (typeof AiAgentKnowledgeBaseSearchType)[keyof typeof AiAgentKnowledgeBaseSearchType];
+
+export const AiAgentToolOverrideInputValueType = {
+    String: "STRING",
+    Number: "NUMBER",
+    JsonString: "JSON_STRING",
+} as const;
+
+export type AiAgentToolOverrideInputValueType = (typeof AiAgentToolOverrideInputValueType)[keyof typeof AiAgentToolOverrideInputValueType];
+
+export const AiAgentToolType = {
+    ModelContextProtocol: "MODEL_CONTEXT_PROTOCOL",
+    ReturnToControl: "RETURN_TO_CONTROL",
+    Constant: "CONSTANT",
+} as const;
+
+export type AiAgentToolType = (typeof AiAgentToolType)[keyof typeof AiAgentToolType];
 
 export const AiGuardrailGuardrailContentFilterType = {
     Sexual: "SEXUAL",

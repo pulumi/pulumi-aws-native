@@ -19,6 +19,7 @@ type InboundExternalLink struct {
 
 	Arn              pulumi.StringOutput                        `pulumi:"arn"`
 	CreatedTimestamp pulumi.StringOutput                        `pulumi:"createdTimestamp"`
+	DomainName       pulumi.StringOutput                        `pulumi:"domainName"`
 	GatewayId        pulumi.StringOutput                        `pulumi:"gatewayId"`
 	LinkAttributes   InboundExternalLinkLinkAttributesPtrOutput `pulumi:"linkAttributes"`
 	LinkId           pulumi.StringOutput                        `pulumi:"linkId"`
@@ -131,6 +132,10 @@ func (o InboundExternalLinkOutput) Arn() pulumi.StringOutput {
 
 func (o InboundExternalLinkOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundExternalLink) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+func (o InboundExternalLinkOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundExternalLink) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
 func (o InboundExternalLinkOutput) GatewayId() pulumi.StringOutput {

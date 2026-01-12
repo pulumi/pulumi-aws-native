@@ -45,7 +45,7 @@ export interface GetAiAgentResult {
     /**
      * Configuration for the AI Agent.
      */
-    readonly configuration?: outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties | outputs.wisdom.AiAgentAiAgentConfiguration2Properties | outputs.wisdom.AiAgentAiAgentConfiguration3Properties | outputs.wisdom.AiAgentAiAgentConfiguration4Properties | outputs.wisdom.AiAgentAiAgentConfiguration5Properties;
+    readonly configuration?: outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties | outputs.wisdom.AiAgentAiAgentConfiguration2Properties | outputs.wisdom.AiAgentAiAgentConfiguration3Properties | outputs.wisdom.AiAgentAiAgentConfiguration4Properties | outputs.wisdom.AiAgentAiAgentConfiguration5Properties | outputs.wisdom.AiAgentAiAgentConfiguration6Properties | outputs.wisdom.AiAgentAiAgentConfiguration7Properties | outputs.wisdom.AiAgentAiAgentConfiguration8Properties;
     /**
      * The description of the AI Agent.
      */

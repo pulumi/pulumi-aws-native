@@ -2538,6 +2538,8 @@ func (o OriginEndpointEncryptionMethodPtrOutput) TsEncryptionMethod() OriginEndp
 type OriginEndpointFilterConfiguration struct {
 	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
 	ClipStartTime *string `pulumi:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	DrmSettings *string `pulumi:"drmSettings"`
 	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 	End *string `pulumi:"end"`
 	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
@@ -2563,6 +2565,8 @@ type OriginEndpointFilterConfigurationInput interface {
 type OriginEndpointFilterConfigurationArgs struct {
 	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
 	ClipStartTime pulumi.StringPtrInput `pulumi:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	DrmSettings pulumi.StringPtrInput `pulumi:"drmSettings"`
 	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
@@ -2656,6 +2660,11 @@ func (o OriginEndpointFilterConfigurationOutput) ClipStartTime() pulumi.StringPt
 	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.ClipStartTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointFilterConfigurationOutput) DrmSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.DrmSettings }).(pulumi.StringPtrOutput)
+}
+
 // <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 func (o OriginEndpointFilterConfigurationOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.End }).(pulumi.StringPtrOutput)
@@ -2707,6 +2716,16 @@ func (o OriginEndpointFilterConfigurationPtrOutput) ClipStartTime() pulumi.Strin
 			return nil
 		}
 		return v.ClipStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointFilterConfigurationPtrOutput) DrmSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DrmSettings
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3524,7 +3543,13 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulu
 // <p>The SCTE configuration.</p>
 type OriginEndpointScte struct {
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
-	ScteFilter     []OriginEndpointScteFilter    `pulumi:"scteFilter"`
+	ScteFilter []OriginEndpointScteFilter `pulumi:"scteFilter"`
+	// Controls whether SCTE-35 messages are included in segment files.
+	//
+	// - None – SCTE-35 messages are not included in segments (default)
+	// - All – SCTE-35 messages are embedded in segment data
+	//
+	// For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
 	ScteInSegments *OriginEndpointScteInSegments `pulumi:"scteInSegments"`
 }
 
@@ -3542,7 +3567,13 @@ type OriginEndpointScteInput interface {
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteArgs struct {
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
-	ScteFilter     OriginEndpointScteFilterArrayInput   `pulumi:"scteFilter"`
+	ScteFilter OriginEndpointScteFilterArrayInput `pulumi:"scteFilter"`
+	// Controls whether SCTE-35 messages are included in segment files.
+	//
+	// - None – SCTE-35 messages are not included in segments (default)
+	// - All – SCTE-35 messages are embedded in segment data
+	//
+	// For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
 	ScteInSegments OriginEndpointScteInSegmentsPtrInput `pulumi:"scteInSegments"`
 }
 
@@ -3629,6 +3660,12 @@ func (o OriginEndpointScteOutput) ScteFilter() OriginEndpointScteFilterArrayOutp
 	return o.ApplyT(func(v OriginEndpointScte) []OriginEndpointScteFilter { return v.ScteFilter }).(OriginEndpointScteFilterArrayOutput)
 }
 
+// Controls whether SCTE-35 messages are included in segment files.
+//
+// - None – SCTE-35 messages are not included in segments (default)
+// - All – SCTE-35 messages are embedded in segment data
+//
+// For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
 func (o OriginEndpointScteOutput) ScteInSegments() OriginEndpointScteInSegmentsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointScte) *OriginEndpointScteInSegments { return v.ScteInSegments }).(OriginEndpointScteInSegmentsPtrOutput)
 }
@@ -3667,6 +3704,12 @@ func (o OriginEndpointSctePtrOutput) ScteFilter() OriginEndpointScteFilterArrayO
 	}).(OriginEndpointScteFilterArrayOutput)
 }
 
+// Controls whether SCTE-35 messages are included in segment files.
+//
+// - None – SCTE-35 messages are not included in segments (default)
+// - All – SCTE-35 messages are embedded in segment data
+//
+// For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
 func (o OriginEndpointSctePtrOutput) ScteInSegments() OriginEndpointScteInSegmentsPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointScte) *OriginEndpointScteInSegments {
 		if v == nil {
@@ -4232,6 +4275,8 @@ func (o OriginEndpointSegmentPtrOutput) TsUseAudioRenditionGroup() pulumi.BoolPt
 
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProvider struct {
+	// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+	CertificateArn *string `pulumi:"certificateArn"`
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
 	DrmSystems []OriginEndpointDrmSystem `pulumi:"drmSystems"`
 	// The encryption contract configuration associated with the SPEKE key provider.
@@ -4257,6 +4302,8 @@ type OriginEndpointSpekeKeyProviderInput interface {
 
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProviderArgs struct {
+	// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
 	DrmSystems OriginEndpointDrmSystemArrayInput `pulumi:"drmSystems"`
 	// The encryption contract configuration associated with the SPEKE key provider.
@@ -4347,6 +4394,11 @@ func (o OriginEndpointSpekeKeyProviderOutput) ToOriginEndpointSpekeKeyProviderPt
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
+// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
 // <p>The DRM solution provider you're using to protect your content during distribution.</p>
 func (o OriginEndpointSpekeKeyProviderOutput) DrmSystems() OriginEndpointDrmSystemArrayOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) []OriginEndpointDrmSystem { return v.DrmSystems }).(OriginEndpointDrmSystemArrayOutput)
@@ -4396,6 +4448,16 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) Elem() OriginEndpointSpekeKeyPr
 		var ret OriginEndpointSpekeKeyProvider
 		return ret
 	}).(OriginEndpointSpekeKeyProviderOutput)
+}
+
+// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // <p>The DRM solution provider you're using to protect your content during distribution.</p>

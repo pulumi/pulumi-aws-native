@@ -1047,7 +1047,7 @@ type ContainerFleetLocationCapacity struct {
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location.
-	MinSize int `pulumi:"minSize"`
+	MinSize *int `pulumi:"minSize"`
 }
 
 // ContainerFleetLocationCapacityInput is an input type that accepts ContainerFleetLocationCapacityArgs and ContainerFleetLocationCapacityOutput values.
@@ -1068,7 +1068,7 @@ type ContainerFleetLocationCapacityArgs struct {
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
+	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
 }
 
 func (ContainerFleetLocationCapacityArgs) ElementType() reflect.Type {
@@ -1160,8 +1160,8 @@ func (o ContainerFleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
 }
 
 // The minimum value allowed for the fleet's instance count for a location.
-func (o ContainerFleetLocationCapacityOutput) MinSize() pulumi.IntOutput {
-	return o.ApplyT(func(v ContainerFleetLocationCapacity) int { return v.MinSize }).(pulumi.IntOutput)
+func (o ContainerFleetLocationCapacityOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLocationCapacity) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
 type ContainerFleetLocationCapacityPtrOutput struct{ *pulumi.OutputState }
@@ -1214,7 +1214,7 @@ func (o ContainerFleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.MinSize
+		return v.MinSize
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -3593,7 +3593,7 @@ type FleetLocationCapacity struct {
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
-	MinSize int `pulumi:"minSize"`
+	MinSize *int `pulumi:"minSize"`
 }
 
 // FleetLocationCapacityInput is an input type that accepts FleetLocationCapacityArgs and FleetLocationCapacityOutput values.
@@ -3614,7 +3614,7 @@ type FleetLocationCapacityArgs struct {
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
+	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
 }
 
 func (FleetLocationCapacityArgs) ElementType() reflect.Type {
@@ -3706,8 +3706,8 @@ func (o FleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
 }
 
 // The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
-func (o FleetLocationCapacityOutput) MinSize() pulumi.IntOutput {
-	return o.ApplyT(func(v FleetLocationCapacity) int { return v.MinSize }).(pulumi.IntOutput)
+func (o FleetLocationCapacityOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
 type FleetLocationCapacityPtrOutput struct{ *pulumi.OutputState }
@@ -3760,7 +3760,7 @@ func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.MinSize
+		return v.MinSize
 	}).(pulumi.IntPtrOutput)
 }
 

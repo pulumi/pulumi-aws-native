@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Ses.Outputs
         /// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         /// </summary>
         public readonly ImmutableArray<string> SuppressedReasons;
+        /// <summary>
+        /// An object that contains information about the validation options for your account.
+        /// </summary>
+        public readonly Outputs.ConfigurationSetSuppressionOptionsValidationOptionsProperties? ValidationOptions;
 
         [OutputConstructor]
-        private ConfigurationSetSuppressionOptions(ImmutableArray<string> suppressedReasons)
+        private ConfigurationSetSuppressionOptions(
+            ImmutableArray<string> suppressedReasons,
+
+            Outputs.ConfigurationSetSuppressionOptionsValidationOptionsProperties? validationOptions)
         {
             SuppressedReasons = suppressedReasons;
+            ValidationOptions = validationOptions;
         }
     }
 }

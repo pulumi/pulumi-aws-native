@@ -165,6 +165,8 @@ if typing.TYPE_CHECKING:
     directoryservice = __directoryservice
     import pulumi_aws_native.dms as __dms
     dms = __dms
+    import pulumi_aws_native.docdb as __docdb
+    docdb = __docdb
     import pulumi_aws_native.docdbelastic as __docdbelastic
     docdbelastic = __docdbelastic
     import pulumi_aws_native.dsql as __dsql
@@ -567,6 +569,7 @@ else:
     devopsguru = _utilities.lazy_import('pulumi_aws_native.devopsguru')
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
     dms = _utilities.lazy_import('pulumi_aws_native.dms')
+    docdb = _utilities.lazy_import('pulumi_aws_native.docdb')
     docdbelastic = _utilities.lazy_import('pulumi_aws_native.docdbelastic')
     dsql = _utilities.lazy_import('pulumi_aws_native.dsql')
     dynamodb = _utilities.lazy_import('pulumi_aws_native.dynamodb')
@@ -1597,6 +1600,14 @@ _utilities.register(
    "aws-native:dms:InstanceProfile": "InstanceProfile",
    "aws-native:dms:MigrationProject": "MigrationProject",
    "aws-native:dms:ReplicationConfig": "ReplicationConfig"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "docdb",
+  "fqn": "pulumi_aws_native.docdb",
+  "classes": {
+   "aws-native:docdb:GlobalCluster": "GlobalCluster"
   }
  },
  {
@@ -2923,6 +2934,7 @@ _utilities.register(
   "mod": "quicksight",
   "fqn": "pulumi_aws_native.quicksight",
   "classes": {
+   "aws-native:quicksight:ActionConnector": "ActionConnector",
    "aws-native:quicksight:Analysis": "Analysis",
    "aws-native:quicksight:CustomPermissions": "CustomPermissions",
    "aws-native:quicksight:Dashboard": "Dashboard",

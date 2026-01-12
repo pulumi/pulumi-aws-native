@@ -1,4 +1,13 @@
 {
+  "typeName" : "AWS::DynamoDB::GlobalTable",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/StreamArn", "/properties/TableId" ],
+  "description" : "Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable",
+  "createOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/TableName", "/properties/KeySchema" ],
+  "primaryIdentifier" : [ "/properties/TableName" ],
+  "required" : [ "KeySchema", "AttributeDefinitions", "Replicas" ],
+  "propertyTransform" : {
+    "/properties/Replicas/*/GlobalTableSettingsReplicationMode" : "GlobalTableSettingsReplicationMode $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"DISABLED\") $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"ENABLED_WITH_OVERRIDES\")"
+  },
   "handlers" : {
     "read" : {
       "permissions" : [ "dynamodb:Describe*", "dynamodb:GetResourcePolicy", "application-autoscaling:Describe*", "cloudwatch:PutMetricData", "dynamodb:ListTagsOfResource", "kms:DescribeKey" ]
@@ -17,14 +26,9 @@
       "permissions" : [ "dynamodb:Describe*", "dynamodb:DeleteTable", "application-autoscaling:DeleteScalingPolicy", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:Describe*", "application-autoscaling:PutScalingPolicy", "application-autoscaling:PutScheduledAction", "application-autoscaling:RegisterScalableTarget" ]
     }
   },
-  "typeName" : "AWS::DynamoDB::GlobalTable",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/StreamArn", "/properties/TableId" ],
-  "description" : "Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable",
   "additionalIdentifiers" : [ [ "/properties/Arn" ], [ "/properties/StreamArn" ] ],
   "writeOnlyProperties" : [ "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity" ],
-  "createOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/TableName", "/properties/KeySchema" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/TableName" ],
   "definitions" : {
     "LocalSecondaryIndex" : {
       "additionalProperties" : false,
@@ -462,7 +466,6 @@
       "required" : [ "Enabled" ]
     }
   },
-  "required" : [ "KeySchema", "AttributeDefinitions", "Replicas" ],
   "properties" : {
     "MultiRegionConsistency" : {
       "type" : "string",

@@ -139,6 +139,7 @@ class InboundExternalLink(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_timestamp"] = None
+            __props__.__dict__["domain_name"] = None
             __props__.__dict__["link_id"] = None
             __props__.__dict__["link_status"] = None
             __props__.__dict__["updated_timestamp"] = None
@@ -166,6 +167,7 @@ class InboundExternalLink(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["created_timestamp"] = None
+        __props__.__dict__["domain_name"] = None
         __props__.__dict__["gateway_id"] = None
         __props__.__dict__["link_attributes"] = None
         __props__.__dict__["link_id"] = None
@@ -184,6 +186,11 @@ class InboundExternalLink(pulumi.CustomResource):
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "created_timestamp")
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")

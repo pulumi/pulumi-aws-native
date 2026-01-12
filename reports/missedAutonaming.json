@@ -3557,6 +3557,13 @@
         "type": "string",
         "description": "The environment role permission boundary."
       },
+      "globalParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Region-agnostic environment blueprint parameters."
+      },
       "manageAccessRoleArn": {
         "type": "string",
         "description": "The ARN of the manage access role."
@@ -4180,6 +4187,42 @@
       "targetEndpointArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration"
+      }
+    }
+  },
+  "aws-native:docdb:GlobalCluster": {
+    "cfTypeName": "AWS::DocDB::GlobalCluster",
+    "properties": {
+      "deletionProtection": {
+        "type": "boolean",
+        "description": "Indicates whether the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled."
+      },
+      "engine": {
+        "$ref": "#/types/aws-native:docdb:GlobalClusterEngine",
+        "description": "The database engine to use for this global cluster."
+      },
+      "engineVersion": {
+        "type": "string",
+        "description": "The engine version to use for this global cluster."
+      },
+      "globalClusterIdentifier": {
+        "type": "string",
+        "description": "The cluster identifier of the global cluster."
+      },
+      "sourceDbClusterIdentifier": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. You may also choose to instead specify the DBClusterIdentifier. If you provide a value for this parameter, don't specify values for the following settings because Amazon DocumentDB uses the values from the specified source DB cluster: Engine, EngineVersion, StorageEncrypted"
+      },
+      "storageEncrypted": {
+        "type": "boolean",
+        "description": "Indicates whether the global cluster has storage encryption enabled."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to be assigned to the Amazon DocumentDB resource."
       }
     }
   },
@@ -7441,11 +7484,11 @@
       },
       "transitGatewayId": {
         "type": "string",
-        "description": "The ID of the transit gateway"
+        "description": "The ID of the transit gateway associated with the VPN concentrator."
       },
       "type": {
         "type": "string",
-        "description": "The type of VPN concentrator"
+        "description": "The type of VPN concentrator."
       }
     }
   },
@@ -7505,7 +7548,7 @@
       },
       "tunnelBandwidth": {
         "$ref": "#/types/aws-native:ec2:VpnConnectionTunnelBandwidth",
-        "description": "The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` ."
+        "description": "The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``."
       },
       "tunnelInsideIpVersion": {
         "type": "string",

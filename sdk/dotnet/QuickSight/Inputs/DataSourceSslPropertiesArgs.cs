@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
+    /// &lt;p&gt;Secure Socket Layer (SSL) properties that apply when Quick Suite connects to your
     ///             underlying data source.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceSslPropertiesArgs : global::Pulumi.ResourceArgs

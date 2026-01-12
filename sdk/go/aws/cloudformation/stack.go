@@ -51,9 +51,9 @@ type Stack struct {
 	//
 	// For more information, see [Perform custom processing on CloudFormation templates with template macros](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) in the *CloudFormation User Guide* .
 	Capabilities StackCapabilitiesItemArrayOutput `pulumi:"capabilities"`
-	// The unique ID of the change set.
+	// Returns the unique identifier of the change set.
 	ChangeSetId pulumi.StringOutput `pulumi:"changeSetId"`
-	// The time at which the stack was created.
+	// Returns the time the stack was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A user-defined description associated with the stack.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -65,11 +65,11 @@ type Stack struct {
 	//
 	// For nested stacks, termination protection is set on the root stack and can't be changed directly on the nested stack.
 	EnableTerminationProtection pulumi.BoolPtrOutput `pulumi:"enableTerminationProtection"`
-	// The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+	// Returns the time the stack was last updated. This will only be returned if the stack has been updated at least once.
 	LastUpdateTime pulumi.StringOutput `pulumi:"lastUpdateTime"`
 	// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
-	// A list of output structures.
+	// Returns a list of output structures.
 	Outputs StackOutputTypeArrayOutput `pulumi:"outputs"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
 	//
@@ -79,19 +79,15 @@ type Stack struct {
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
-	//
-	// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+	// For nested stacks, returns the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to create the stack. CloudFormation uses the role's credentials to make calls on your behalf. CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
 	//
 	// If you don't specify a value, CloudFormation uses the role that was previously associated with the stack. If no role is available, CloudFormation uses a temporary session that's generated from your user credentials.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
-	//
-	// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+	// For nested stacks, returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
 	RootId pulumi.StringOutput `pulumi:"rootId"`
-	// Unique identifier of the stack.
+	// Returns the unique identifier of the stack.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// The name that's associated with the stack. The name must be unique in the Region in which you are creating the stack.
 	//
@@ -103,7 +99,7 @@ type Stack struct {
 	StackPolicyBody pulumi.AnyOutput `pulumi:"stackPolicyBody"`
 	// Location of a file that contains the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
 	StackPolicyUrl pulumi.StringPtrOutput `pulumi:"stackPolicyUrl"`
-	// Current status of the stack.
+	// Returns a success or failure message associated with the stack status.
 	StackStatus StackStatusOutput `pulumi:"stackStatus"`
 	// Success/failure message associated with the stack status.
 	StackStatusReason pulumi.StringPtrOutput `pulumi:"stackStatusReason"`
@@ -424,12 +420,12 @@ func (o StackOutput) Capabilities() StackCapabilitiesItemArrayOutput {
 	return o.ApplyT(func(v *Stack) StackCapabilitiesItemArrayOutput { return v.Capabilities }).(StackCapabilitiesItemArrayOutput)
 }
 
-// The unique ID of the change set.
+// Returns the unique identifier of the change set.
 func (o StackOutput) ChangeSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.ChangeSetId }).(pulumi.StringOutput)
 }
 
-// The time at which the stack was created.
+// Returns the time the stack was created.
 func (o StackOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
@@ -453,7 +449,7 @@ func (o StackOutput) EnableTerminationProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.EnableTerminationProtection }).(pulumi.BoolPtrOutput)
 }
 
-// The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+// Returns the time the stack was last updated. This will only be returned if the stack has been updated at least once.
 func (o StackOutput) LastUpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.LastUpdateTime }).(pulumi.StringOutput)
 }
@@ -463,7 +459,7 @@ func (o StackOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
-// A list of output structures.
+// Returns a list of output structures.
 func (o StackOutput) Outputs() StackOutputTypeArrayOutput {
 	return o.ApplyT(func(v *Stack) StackOutputTypeArrayOutput { return v.Outputs }).(StackOutputTypeArrayOutput)
 }
@@ -479,9 +475,7 @@ func (o StackOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
-//
-// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+// For nested stacks, returns the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 func (o StackOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
 }
@@ -493,14 +487,12 @@ func (o StackOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
-//
-// For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+// For nested stacks, returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
 func (o StackOutput) RootId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RootId }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the stack.
+// Returns the unique identifier of the stack.
 func (o StackOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
@@ -524,7 +516,7 @@ func (o StackOutput) StackPolicyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.StackPolicyUrl }).(pulumi.StringPtrOutput)
 }
 
-// Current status of the stack.
+// Returns a success or failure message associated with the stack status.
 func (o StackOutput) StackStatus() StackStatusOutput {
 	return o.ApplyT(func(v *Stack) StackStatusOutput { return v.StackStatus }).(StackStatusOutput)
 }

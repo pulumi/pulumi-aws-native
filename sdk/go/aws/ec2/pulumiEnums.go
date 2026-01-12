@@ -6143,7 +6143,8 @@ func (in *ipamMeteredAccountPtr) ToIpamMeteredAccountPtrOutputWithContext(ctx co
 type IpamPoolAwsService string
 
 const (
-	IpamPoolAwsServiceEc2 = IpamPoolAwsService("ec2")
+	IpamPoolAwsServiceEc2            = IpamPoolAwsService("ec2")
+	IpamPoolAwsServiceGlobalServices = IpamPoolAwsService("global-services")
 )
 
 func (IpamPoolAwsService) ElementType() reflect.Type {
@@ -6269,6 +6270,7 @@ func (o IpamPoolAwsServicePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `IpamPoolAwsServiceInput` can be one of the following:
 //
 //	IpamPoolAwsServiceEc2
+//	IpamPoolAwsServiceGlobalServices
 type IpamPoolAwsServiceInput interface {
 	pulumi.Input
 
@@ -16312,9 +16314,9 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
 }
 
-// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat string
 
 const (
@@ -17660,7 +17662,7 @@ func (in *vpnConnectionPreSharedKeyStoragePtr) ToVpnConnectionPreSharedKeyStorag
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPreSharedKeyStoragePtrOutput)
 }
 
-// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. “standard“ supports up to 1.25 Gbps per tunnel, while “large“ supports up to 5 Gbps per tunnel. The default value is “standard“. Existing VPN connections without a bandwidth setting will automatically default to “standard“.
 type VpnConnectionTunnelBandwidth string
 
 const (
