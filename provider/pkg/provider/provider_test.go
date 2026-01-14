@@ -101,11 +101,11 @@ func TestConfigure(t *testing.T) {
 		assert.ErrorContains(t, err, "failed to unmarshal 'autoNaming' config")
 	})
 
-	t.Run("S3ForcePathStyle config", func(t *testing.T) {
+	t.Run("S3UsePathStyle config", func(t *testing.T) {
 		req := &pulumirpc.ConfigureRequest{
 			Variables: map[string]string{
 				"aws-native:config:skipCredentialsValidation": "true",
-				"aws-native:config:s3ForcePathStyle":          "true",
+				"aws-native:config:s3UsePathStyle":            "true",
 				"aws-native:config:region":                    "us-west-2",
 			},
 		}
@@ -134,10 +134,10 @@ func TestCheckConfig(t *testing.T) {
 		},
 	}
 
-	t.Run("s3ForcePathStyle is accepted", func(t *testing.T) {
+	t.Run("s3UsePathStyle is accepted", func(t *testing.T) {
 		news, err := plugin.MarshalProperties(resource.PropertyMap{
-			"s3ForcePathStyle": resource.NewBoolProperty(true),
-			"region":           resource.NewStringProperty("us-west-2"),
+			"s3UsePathStyle": resource.NewBoolProperty(true),
+			"region":         resource.NewStringProperty("us-west-2"),
 		}, plugin.MarshalOptions{})
 		require.NoError(t, err)
 

@@ -496,10 +496,10 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		p.defaultTags = nil
 	}
 
-	s3ForcePathStyle := false
-	if s3ForcePathStyleVar, ok := vars["aws-native:config:s3ForcePathStyle"]; ok {
-		if s3ForcePathStyleVar == "true" {
-			s3ForcePathStyle = true
+	s3UsePathStyle := false
+	if s3UsePathStyleVar, ok := vars["aws-native:config:s3UsePathStyle"]; ok {
+		if s3UsePathStyleVar == "true" {
+			s3UsePathStyle = true
 			glog.V(4).Infof("using S3 path-style addressing")
 		}
 	}
@@ -510,7 +510,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
 	p.s3 = s3.NewFromConfig(cfg, func(o *s3.Options) {
-		o.UsePathStyle = s3ForcePathStyle
+		o.UsePathStyle = s3UsePathStyle
 	})
 	p.lambda = lambda.NewFromConfig(cfg)
 
