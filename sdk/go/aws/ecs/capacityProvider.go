@@ -280,6 +280,7 @@ func NewCapacityProvider(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"autoScalingGroupProvider.autoScalingGroupArn",
 		"clusterName",
+		"managedInstancesProvider.instanceLaunchTemplate.fipsEnabled",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)

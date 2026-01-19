@@ -14,6 +14,7 @@ __all__ = [
     'DataTableAttributeValueType',
     'DataTableStatus',
     'DataTableValueLockLevel',
+    'EvaluationFormEvaluationReviewNotificationRecipientType',
     'EvaluationFormItemEnablementConditionOperator',
     'EvaluationFormItemEnablementConfigurationAction',
     'EvaluationFormItemEnablementConfigurationDefaultAction',
@@ -135,6 +136,14 @@ class DataTableValueLockLevel(_builtins.str, Enum):
     The value lock level of the Data Table
     """
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormEvaluationReviewNotificationRecipientType")
+class EvaluationFormEvaluationReviewNotificationRecipientType(_builtins.str, Enum):
+    """
+    The type of notification recipient.
+    """
+    USER_ID = "USER_ID"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConditionOperator")

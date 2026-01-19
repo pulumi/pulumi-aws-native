@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,6 +28,7 @@ type KeyValueStore struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 	Status pulumi.StringOutput `pulumi:"status"`
+	Tags   aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewKeyValueStore registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +80,8 @@ type keyValueStoreArgs struct {
 	// The import source for the key value store.
 	ImportSource *KeyValueStoreImportSource `pulumi:"importSource"`
 	// The name of the key value store.
-	Name *string `pulumi:"name"`
+	Name *string   `pulumi:"name"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyValueStore resource.
@@ -89,6 +92,7 @@ type KeyValueStoreArgs struct {
 	ImportSource KeyValueStoreImportSourcePtrInput
 	// The name of the key value store.
 	Name pulumi.StringPtrInput
+	Tags aws.TagArrayInput
 }
 
 func (KeyValueStoreArgs) ElementType() reflect.Type {
@@ -156,6 +160,10 @@ func (o KeyValueStoreOutput) Name() pulumi.StringOutput {
 // The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 func (o KeyValueStoreOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o KeyValueStoreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *KeyValueStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

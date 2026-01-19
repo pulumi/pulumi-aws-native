@@ -721,6 +721,7 @@ type CapacityProviderInstanceLaunchTemplate struct {
 	//
 	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
 	Ec2InstanceProfileArn string `pulumi:"ec2InstanceProfileArn"`
+	FipsEnabled           *bool  `pulumi:"fipsEnabled"`
 	// The instance requirements. You can specify:
 	//
 	// - The instance types
@@ -762,7 +763,8 @@ type CapacityProviderInstanceLaunchTemplateArgs struct {
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
 	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
-	Ec2InstanceProfileArn pulumi.StringInput `pulumi:"ec2InstanceProfileArn"`
+	Ec2InstanceProfileArn pulumi.StringInput  `pulumi:"ec2InstanceProfileArn"`
+	FipsEnabled           pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
 	// The instance requirements. You can specify:
 	//
 	// - The instance types
@@ -878,6 +880,10 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) Ec2InstanceProfileArn() pu
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) string { return v.Ec2InstanceProfileArn }).(pulumi.StringOutput)
 }
 
+func (o CapacityProviderInstanceLaunchTemplateOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The instance requirements. You can specify:
 //
 // - The instance types
@@ -964,6 +970,15 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Ec2InstanceProfileArn()
 		}
 		return &v.Ec2InstanceProfileArn
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FipsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The instance requirements. You can specify:

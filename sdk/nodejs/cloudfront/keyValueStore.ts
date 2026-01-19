@@ -61,6 +61,7 @@ export class KeyValueStore extends pulumi.CustomResource {
      * The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a KeyValueStore resource with the given unique name, arguments, and options.
@@ -76,6 +77,7 @@ export class KeyValueStore extends pulumi.CustomResource {
             resourceInputs["comment"] = args?.comment;
             resourceInputs["importSource"] = args?.importSource;
             resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -86,6 +88,7 @@ export class KeyValueStore extends pulumi.CustomResource {
             resourceInputs["importSource"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -110,4 +113,5 @@ export interface KeyValueStoreArgs {
      * The name of the key value store.
      */
     name?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

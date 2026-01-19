@@ -518,6 +518,7 @@ if not MYPY:
 
         For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
         """
+        fips_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         instance_requirements: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgsDict']]
         """
         The instance requirements. You can specify:
@@ -544,6 +545,7 @@ class CapacityProviderInstanceLaunchTemplateArgs:
                  ec2_instance_profile_arn: pulumi.Input[_builtins.str],
                  network_configuration: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs'],
                  capacity_option_type: Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']] = None,
+                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  instance_requirements: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgs']] = None,
                  monitoring: Optional[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']] = None,
                  storage_configuration: Optional[pulumi.Input['CapacityProviderManagedInstancesStorageConfigurationArgs']] = None):
@@ -575,6 +577,8 @@ class CapacityProviderInstanceLaunchTemplateArgs:
         pulumi.set(__self__, "network_configuration", network_configuration)
         if capacity_option_type is not None:
             pulumi.set(__self__, "capacity_option_type", capacity_option_type)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if monitoring is not None:
@@ -628,6 +632,15 @@ class CapacityProviderInstanceLaunchTemplateArgs:
     @capacity_option_type.setter
     def capacity_option_type(self, value: Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']]):
         pulumi.set(self, "capacity_option_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "fips_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")

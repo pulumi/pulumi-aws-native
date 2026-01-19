@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Sso
     public partial class InstanceAccessControlAttributeConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        /// Lists the attributes that are configured for ABAC in the specified  instance.
         /// </summary>
         [Output("accessControlAttributes")]
         public Output<ImmutableArray<Outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute>> AccessControlAttributes { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.AwsNative.Sso
         private InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>? _accessControlAttributes;
 
         /// <summary>
-        /// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        /// Lists the attributes that are configured for ABAC in the specified  instance.
         /// </summary>
         public InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs> AccessControlAttributes
         {

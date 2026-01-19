@@ -235,6 +235,36 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The type of notification recipient.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormEvaluationReviewNotificationRecipientType : IEquatable<EvaluationFormEvaluationReviewNotificationRecipientType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormEvaluationReviewNotificationRecipientType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormEvaluationReviewNotificationRecipientType UserId { get; } = new EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID");
+
+        public static bool operator ==(EvaluationFormEvaluationReviewNotificationRecipientType left, EvaluationFormEvaluationReviewNotificationRecipientType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormEvaluationReviewNotificationRecipientType left, EvaluationFormEvaluationReviewNotificationRecipientType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormEvaluationReviewNotificationRecipientType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormEvaluationReviewNotificationRecipientType other && Equals(other);
+        public bool Equals(EvaluationFormEvaluationReviewNotificationRecipientType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The operator to be used to be applied to operands if more than one provided.
     /// </summary>
     [EnumType]

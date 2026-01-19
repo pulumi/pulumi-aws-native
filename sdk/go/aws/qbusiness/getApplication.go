@@ -43,7 +43,7 @@ type LookupApplicationResult struct {
 	Description *string `pulumi:"description"`
 	// The name of the Amazon Q Business application.
 	DisplayName *string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+	// The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
 	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
@@ -130,7 +130,7 @@ func (o LookupApplicationResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+// The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
 func (o LookupApplicationResultOutput) IdentityCenterApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }

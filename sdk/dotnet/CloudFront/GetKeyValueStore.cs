@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
         /// </summary>
         public readonly string? Status;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetKeyValueStoreResult(
@@ -88,12 +89,15 @@ namespace Pulumi.AwsNative.CloudFront
 
             string? id,
 
-            string? status)
+            string? status,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Comment = comment;
             Id = id;
             Status = status;
+            Tags = tags;
         }
     }
 }

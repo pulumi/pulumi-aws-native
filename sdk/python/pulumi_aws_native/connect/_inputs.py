@@ -32,6 +32,12 @@ __all__ = [
     'EvaluationFormAutomaticFailConfigurationArgsDict',
     'EvaluationFormBaseItemArgs',
     'EvaluationFormBaseItemArgsDict',
+    'EvaluationFormEvaluationReviewConfigurationArgs',
+    'EvaluationFormEvaluationReviewConfigurationArgsDict',
+    'EvaluationFormEvaluationReviewNotificationRecipientValueArgs',
+    'EvaluationFormEvaluationReviewNotificationRecipientValueArgsDict',
+    'EvaluationFormEvaluationReviewNotificationRecipientArgs',
+    'EvaluationFormEvaluationReviewNotificationRecipientArgsDict',
     'EvaluationFormItemEnablementConditionOperandArgs',
     'EvaluationFormItemEnablementConditionOperandArgsDict',
     'EvaluationFormItemEnablementConditionArgs',
@@ -582,6 +588,139 @@ class EvaluationFormBaseItemArgs:
     @section.setter
     def section(self, value: pulumi.Input['EvaluationFormSectionArgs']):
         pulumi.set(self, "section", value)
+
+
+if not MYPY:
+    class EvaluationFormEvaluationReviewConfigurationArgsDict(TypedDict):
+        review_notification_recipients: pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgsDict']]]
+        """
+        List of recipients who should be notified when a review is requested.
+        """
+        eligibility_days: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+elif False:
+    EvaluationFormEvaluationReviewConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EvaluationFormEvaluationReviewConfigurationArgs:
+    def __init__(__self__, *,
+                 review_notification_recipients: pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgs']]],
+                 eligibility_days: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgs']]] review_notification_recipients: List of recipients who should be notified when a review is requested.
+        :param pulumi.Input[_builtins.int] eligibility_days: Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+        pulumi.set(__self__, "review_notification_recipients", review_notification_recipients)
+        if eligibility_days is not None:
+            pulumi.set(__self__, "eligibility_days", eligibility_days)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewNotificationRecipients")
+    def review_notification_recipients(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgs']]]:
+        """
+        List of recipients who should be notified when a review is requested.
+        """
+        return pulumi.get(self, "review_notification_recipients")
+
+    @review_notification_recipients.setter
+    def review_notification_recipients(self, value: pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgs']]]):
+        pulumi.set(self, "review_notification_recipients", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eligibilityDays")
+    def eligibility_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+        return pulumi.get(self, "eligibility_days")
+
+    @eligibility_days.setter
+    def eligibility_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "eligibility_days", value)
+
+
+if not MYPY:
+    class EvaluationFormEvaluationReviewNotificationRecipientValueArgsDict(TypedDict):
+        user_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The user identifier for the notification recipient.
+        """
+elif False:
+    EvaluationFormEvaluationReviewNotificationRecipientValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EvaluationFormEvaluationReviewNotificationRecipientValueArgs:
+    def __init__(__self__, *,
+                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] user_id: The user identifier for the notification recipient.
+        """
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user identifier for the notification recipient.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_id", value)
+
+
+if not MYPY:
+    class EvaluationFormEvaluationReviewNotificationRecipientArgsDict(TypedDict):
+        type: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType']
+        """
+        The type of notification recipient.
+        """
+        value: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgsDict']
+        """
+        The value associated with the notification recipient type.
+        """
+elif False:
+    EvaluationFormEvaluationReviewNotificationRecipientArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EvaluationFormEvaluationReviewNotificationRecipientArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType'],
+                 value: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgs']):
+        """
+        :param pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType'] type: The type of notification recipient.
+        :param pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgs'] value: The value associated with the notification recipient type.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType']:
+        """
+        The type of notification recipient.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgs']:
+        """
+        The value associated with the notification recipient type.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgs']):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

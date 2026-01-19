@@ -37,6 +37,7 @@ import (
 type DbInstance struct {
 	pulumi.CustomResourceState
 
+	AdditionalStorageVolumes DbInstanceAdditionalStorageVolumeArrayOutput `pulumi:"additionalStorageVolumes"`
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
 	//    *Amazon Aurora*
@@ -747,6 +748,7 @@ func (DbInstanceState) ElementType() reflect.Type {
 }
 
 type dbInstanceArgs struct {
+	AdditionalStorageVolumes []DbInstanceAdditionalStorageVolume `pulumi:"additionalStorageVolumes"`
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
 	//    *Amazon Aurora*
@@ -1373,6 +1375,7 @@ type dbInstanceArgs struct {
 
 // The set of arguments for constructing a DbInstance resource.
 type DbInstanceArgs struct {
+	AdditionalStorageVolumes DbInstanceAdditionalStorageVolumeArrayInput
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
 	//    *Amazon Aurora*
@@ -2032,6 +2035,10 @@ func (o DbInstanceOutput) ToDbInstanceOutput() DbInstanceOutput {
 
 func (o DbInstanceOutput) ToDbInstanceOutputWithContext(ctx context.Context) DbInstanceOutput {
 	return o
+}
+
+func (o DbInstanceOutput) AdditionalStorageVolumes() DbInstanceAdditionalStorageVolumeArrayOutput {
+	return o.ApplyT(func(v *DbInstance) DbInstanceAdditionalStorageVolumeArrayOutput { return v.AdditionalStorageVolumes }).(DbInstanceAdditionalStorageVolumeArrayOutput)
 }
 
 // The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.

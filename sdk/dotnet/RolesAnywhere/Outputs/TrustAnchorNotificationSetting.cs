@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RolesAnywhere.Outputs
     public sealed class TrustAnchorNotificationSetting
     {
         /// <summary>
-        /// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+        /// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
         /// 
         /// &gt; In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         /// </summary>

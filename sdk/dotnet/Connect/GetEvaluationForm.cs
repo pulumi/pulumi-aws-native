@@ -90,6 +90,7 @@ namespace Pulumi.AwsNative.Connect
         /// Configuration for language settings of this evaluation form.
         /// </summary>
         public readonly Outputs.EvaluationFormLanguageConfiguration? LanguageConfiguration;
+        public readonly Outputs.EvaluationFormEvaluationReviewConfiguration? ReviewConfiguration;
         /// <summary>
         /// A scoring strategy of the evaluation form.
         /// </summary>
@@ -126,6 +127,8 @@ namespace Pulumi.AwsNative.Connect
 
             Outputs.EvaluationFormLanguageConfiguration? languageConfiguration,
 
+            Outputs.EvaluationFormEvaluationReviewConfiguration? reviewConfiguration,
+
             Outputs.EvaluationFormScoringStrategy? scoringStrategy,
 
             Pulumi.AwsNative.Connect.EvaluationFormStatus? status,
@@ -142,6 +145,7 @@ namespace Pulumi.AwsNative.Connect
             InstanceArn = instanceArn;
             Items = items;
             LanguageConfiguration = languageConfiguration;
+            ReviewConfiguration = reviewConfiguration;
             ScoringStrategy = scoringStrategy;
             Status = status;
             Tags = tags;

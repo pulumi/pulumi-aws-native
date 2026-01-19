@@ -52,6 +52,7 @@ export interface GetEvaluationFormResult {
      * Configuration for language settings of this evaluation form.
      */
     readonly languageConfiguration?: outputs.connect.EvaluationFormLanguageConfiguration;
+    readonly reviewConfiguration?: outputs.connect.EvaluationFormEvaluationReviewConfiguration;
     /**
      * A scoring strategy of the evaluation form.
      */

@@ -2708,6 +2708,9 @@
         "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration",
         "description": "Configuration for language settings of this evaluation form."
       },
+      "reviewConfiguration": {
+        "$ref": "#/types/aws-native:connect:EvaluationFormEvaluationReviewConfiguration"
+      },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
         "description": "A scoring strategy of the evaluation form."
@@ -13100,6 +13103,12 @@
   "aws-native:rds:DbInstance": {
     "cfTypeName": "AWS::RDS::DBInstance",
     "properties": {
+      "additionalStorageVolumes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:rds:DbInstanceAdditionalStorageVolume"
+        }
+      },
       "allocatedStorage": {
         "type": "string",
         "description": "The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.\n  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). \n   *Amazon Aurora* \n Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.\n  *Db2* \n Constraints to the amount of storage for each storage type are the following:\n  +  General Purpose (SSD) storage (gp3): Must be an integer from 20 to 64000.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 64000.\n  \n  *MySQL* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 5 to 3072.\n  \n  *MariaDB* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 5 to 3072.\n  \n  *PostgreSQL* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 5 to 3072.\n  \n  *Oracle* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 10 to 3072.\n  \n  *SQL Server* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2):\n  +  Enterprise and Standard editions: Must be an integer from 20 to 16384.\n  +  Web and Express editions: Must be an integer from 20 to 16384.\n  \n  +  Provisioned IOPS storage (io1):\n  +  Enterprise and Standard editions: Must be an integer from 20 to 16384.\n  +  Web and Express editions: Must be an integer from 20 to 16384.\n  \n  +  Magnetic storage (standard):\n  +  Enterprise and Standard editions: Must be an integer from 20 to 1024.\n  +  Web and Express editions: Must be an integer from 20 to 1024."
@@ -15737,7 +15746,7 @@
         "items": {
           "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationAccessControlAttribute"
         },
-        "description": "Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance."
+        "description": "Lists the attributes that are configured for ABAC in the specified  instance."
       },
       "instanceAccessControlAttributeConfiguration": {
         "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationProperties",
@@ -16820,7 +16829,7 @@
       },
       "authenticationType": {
         "$ref": "#/types/aws-native:workspacesweb:PortalAuthenticationType",
-        "description": "The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .\n\n`Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:\n\n1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.\n\n2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.\n\n3. Submit the data to your IdP.\n\n4. Add an `IdentityProvider` resource to your CloudFormation template.\n\n`IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation."
+        "description": "The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .\n\n`Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:\n\n1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.\n\n2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.\n\n3. Submit the data to your IdP.\n\n4. Add an `IdentityProvider` resource to your CloudFormation template.\n\n`SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation."
       },
       "browserSettingsArn": {
         "type": "string",

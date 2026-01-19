@@ -130,7 +130,7 @@ class GetApplicationResult:
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+        The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
         """
         return pulumi.get(self, "identity_center_application_arn")
 

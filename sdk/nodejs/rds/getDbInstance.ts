@@ -47,6 +47,7 @@ export interface GetDbInstanceArgs {
 }
 
 export interface GetDbInstanceResult {
+    readonly additionalStorageVolumes?: outputs.rds.DbInstanceAdditionalStorageVolume[];
     /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
      *   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 

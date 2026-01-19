@@ -459,6 +459,39 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct GatewayTargetRestApiMethod : IEquatable<GatewayTargetRestApiMethod>
+    {
+        private readonly string _value;
+
+        private GatewayTargetRestApiMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetRestApiMethod Get { get; } = new GatewayTargetRestApiMethod("GET");
+        public static GatewayTargetRestApiMethod Delete { get; } = new GatewayTargetRestApiMethod("DELETE");
+        public static GatewayTargetRestApiMethod Head { get; } = new GatewayTargetRestApiMethod("HEAD");
+        public static GatewayTargetRestApiMethod Options { get; } = new GatewayTargetRestApiMethod("OPTIONS");
+        public static GatewayTargetRestApiMethod Patch { get; } = new GatewayTargetRestApiMethod("PATCH");
+        public static GatewayTargetRestApiMethod Put { get; } = new GatewayTargetRestApiMethod("PUT");
+        public static GatewayTargetRestApiMethod Post { get; } = new GatewayTargetRestApiMethod("POST");
+
+        public static bool operator ==(GatewayTargetRestApiMethod left, GatewayTargetRestApiMethod right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetRestApiMethod left, GatewayTargetRestApiMethod right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetRestApiMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetRestApiMethod other && Equals(other);
+        public bool Equals(GatewayTargetRestApiMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct GatewayTargetSchemaType : IEquatable<GatewayTargetSchemaType>
     {
         private readonly string _value;

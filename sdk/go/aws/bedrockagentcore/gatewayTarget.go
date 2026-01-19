@@ -48,9 +48,6 @@ func NewGatewayTarget(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CredentialProviderConfigurations == nil {
-		return nil, errors.New("invalid value for required argument 'CredentialProviderConfigurations'")
-	}
 	if args.TargetConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'TargetConfiguration'")
 	}

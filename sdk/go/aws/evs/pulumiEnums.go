@@ -464,6 +464,7 @@ type EnvironmentVcfVersion string
 
 const (
 	EnvironmentVcfVersionVcf521 = EnvironmentVcfVersion("VCF-5.2.1")
+	EnvironmentVcfVersionVcf522 = EnvironmentVcfVersion("VCF-5.2.2")
 )
 
 func (EnvironmentVcfVersion) ElementType() reflect.Type {
@@ -589,6 +590,7 @@ func (o EnvironmentVcfVersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 // A concrete instance of `EnvironmentVcfVersionInput` can be one of the following:
 //
 //	EnvironmentVcfVersionVcf521
+//	EnvironmentVcfVersionVcf522
 type EnvironmentVcfVersionInput interface {
 	pulumi.Input
 

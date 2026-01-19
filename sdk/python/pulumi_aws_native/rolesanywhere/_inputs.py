@@ -125,7 +125,7 @@ if not MYPY:
         """
         channel: NotRequired[pulumi.Input['TrustAnchorNotificationChannel']]
         """
-        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
         > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         """
@@ -146,7 +146,7 @@ class TrustAnchorNotificationSettingArgs:
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the notification setting is enabled.
         :param pulumi.Input['TrustAnchorNotificationEvent'] event: The event to which this notification setting is applied.
-        :param pulumi.Input['TrustAnchorNotificationChannel'] channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+        :param pulumi.Input['TrustAnchorNotificationChannel'] channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
                
                > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         :param pulumi.Input[_builtins.float] threshold: The number of days before a notification event. This value is required for a notification setting that is enabled.
@@ -186,7 +186,7 @@ class TrustAnchorNotificationSettingArgs:
     @pulumi.getter
     def channel(self) -> Optional[pulumi.Input['TrustAnchorNotificationChannel']]:
         """
-        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
         > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         """

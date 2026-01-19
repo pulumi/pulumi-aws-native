@@ -25,6 +25,9 @@ __all__ = [
     'EvaluationFormAutoEvaluationConfiguration',
     'EvaluationFormAutomaticFailConfiguration',
     'EvaluationFormBaseItem',
+    'EvaluationFormEvaluationReviewConfiguration',
+    'EvaluationFormEvaluationReviewNotificationRecipient',
+    'EvaluationFormEvaluationReviewNotificationRecipientValue',
     'EvaluationFormItem',
     'EvaluationFormItemEnablementCondition',
     'EvaluationFormItemEnablementConditionOperand',
@@ -450,6 +453,120 @@ class EvaluationFormBaseItem(dict):
         A subsection or inner section of an item.
         """
         return pulumi.get(self, "section")
+
+
+@pulumi.output_type
+class EvaluationFormEvaluationReviewConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reviewNotificationRecipients":
+            suggest = "review_notification_recipients"
+        elif key == "eligibilityDays":
+            suggest = "eligibility_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormEvaluationReviewConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormEvaluationReviewConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormEvaluationReviewConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 review_notification_recipients: Sequence['outputs.EvaluationFormEvaluationReviewNotificationRecipient'],
+                 eligibility_days: Optional[_builtins.int] = None):
+        """
+        :param Sequence['EvaluationFormEvaluationReviewNotificationRecipient'] review_notification_recipients: List of recipients who should be notified when a review is requested.
+        :param _builtins.int eligibility_days: Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+        pulumi.set(__self__, "review_notification_recipients", review_notification_recipients)
+        if eligibility_days is not None:
+            pulumi.set(__self__, "eligibility_days", eligibility_days)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewNotificationRecipients")
+    def review_notification_recipients(self) -> Sequence['outputs.EvaluationFormEvaluationReviewNotificationRecipient']:
+        """
+        List of recipients who should be notified when a review is requested.
+        """
+        return pulumi.get(self, "review_notification_recipients")
+
+    @_builtins.property
+    @pulumi.getter(name="eligibilityDays")
+    def eligibility_days(self) -> Optional[_builtins.int]:
+        """
+        Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+        return pulumi.get(self, "eligibility_days")
+
+
+@pulumi.output_type
+class EvaluationFormEvaluationReviewNotificationRecipient(dict):
+    def __init__(__self__, *,
+                 type: 'EvaluationFormEvaluationReviewNotificationRecipientType',
+                 value: 'outputs.EvaluationFormEvaluationReviewNotificationRecipientValue'):
+        """
+        :param 'EvaluationFormEvaluationReviewNotificationRecipientType' type: The type of notification recipient.
+        :param 'EvaluationFormEvaluationReviewNotificationRecipientValue' value: The value associated with the notification recipient type.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'EvaluationFormEvaluationReviewNotificationRecipientType':
+        """
+        The type of notification recipient.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.EvaluationFormEvaluationReviewNotificationRecipientValue':
+        """
+        The value associated with the notification recipient type.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EvaluationFormEvaluationReviewNotificationRecipientValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormEvaluationReviewNotificationRecipientValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormEvaluationReviewNotificationRecipientValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormEvaluationReviewNotificationRecipientValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str user_id: The user identifier for the notification recipient.
+        """
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[_builtins.str]:
+        """
+        The user identifier for the notification recipient.
+        """
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type

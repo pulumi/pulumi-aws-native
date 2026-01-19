@@ -231,7 +231,7 @@ type ProfileTag struct {
 }
 
 type TrustAnchorNotificationSetting struct {
-	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 	//
 	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 	Channel *TrustAnchorNotificationChannel `pulumi:"channel"`
@@ -255,7 +255,7 @@ type TrustAnchorNotificationSettingInput interface {
 }
 
 type TrustAnchorNotificationSettingArgs struct {
-	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 	//
 	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 	Channel TrustAnchorNotificationChannelPtrInput `pulumi:"channel"`
@@ -318,7 +318,7 @@ func (o TrustAnchorNotificationSettingOutput) ToTrustAnchorNotificationSettingOu
 	return o
 }
 
-// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 //
 // > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 func (o TrustAnchorNotificationSettingOutput) Channel() TrustAnchorNotificationChannelPtrOutput {

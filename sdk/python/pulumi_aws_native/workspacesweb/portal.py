@@ -52,7 +52,7 @@ class PortalArgs:
                
                4. Add an `IdentityProvider` resource to your CloudFormation template.
                
-               `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+               `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
         :param pulumi.Input[_builtins.str] browser_settings_arn: The ARN of the browser settings that is associated with this web portal.
         :param pulumi.Input[_builtins.str] customer_managed_key: The customer managed key of the web portal.
                
@@ -128,7 +128,7 @@ class PortalArgs:
 
         4. Add an `IdentityProvider` resource to your CloudFormation template.
 
-        `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+        `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -335,7 +335,7 @@ class Portal(pulumi.CustomResource):
                
                4. Add an `IdentityProvider` resource to your CloudFormation template.
                
-               `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+               `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
         :param pulumi.Input[_builtins.str] browser_settings_arn: The ARN of the browser settings that is associated with this web portal.
         :param pulumi.Input[_builtins.str] customer_managed_key: The customer managed key of the web portal.
                
@@ -496,7 +496,7 @@ class Portal(pulumi.CustomResource):
 
         4. Add an `IdentityProvider` resource to your CloudFormation template.
 
-        `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+        `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
         """
         return pulumi.get(self, "authentication_type")
 
