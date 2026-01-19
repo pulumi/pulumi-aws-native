@@ -127,6 +127,7 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetDbInstanceResult
     {
+        public readonly ImmutableArray<Outputs.DbInstanceAdditionalStorageVolume> AdditionalStorageVolumes;
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
         ///   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
@@ -675,6 +676,8 @@ namespace Pulumi.AwsNative.Rds
 
         [OutputConstructor]
         private GetDbInstanceResult(
+            ImmutableArray<Outputs.DbInstanceAdditionalStorageVolume> additionalStorageVolumes,
+
             string? allocatedStorage,
 
             ImmutableArray<Outputs.DbInstanceDbInstanceRole> associatedRoles,
@@ -813,6 +816,7 @@ namespace Pulumi.AwsNative.Rds
 
             ImmutableArray<string> vpcSecurityGroups)
         {
+            AdditionalStorageVolumes = additionalStorageVolumes;
             AllocatedStorage = allocatedStorage;
             AssociatedRoles = associatedRoles;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;

@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
         /// </summary>
         public readonly string Ec2InstanceProfileArn;
+        public readonly bool? FipsEnabled;
         /// <summary>
         /// The instance requirements. You can specify:
         /// 
@@ -60,6 +61,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             string ec2InstanceProfileArn,
 
+            bool? fipsEnabled,
+
             Outputs.CapacityProviderInstanceRequirementsRequest? instanceRequirements,
 
             Pulumi.AwsNative.Ecs.CapacityProviderManagedInstancesMonitoringOptions? monitoring,
@@ -70,6 +73,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         {
             CapacityOptionType = capacityOptionType;
             Ec2InstanceProfileArn = ec2InstanceProfileArn;
+            FipsEnabled = fipsEnabled;
             InstanceRequirements = instanceRequirements;
             Monitoring = monitoring;
             NetworkConfiguration = networkConfiguration;

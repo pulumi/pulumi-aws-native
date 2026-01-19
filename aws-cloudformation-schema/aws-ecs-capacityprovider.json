@@ -371,6 +371,9 @@
           "type" : "string",
           "enum" : [ "ON_DEMAND", "SPOT" ]
         },
+        "FipsEnabled" : {
+          "type" : "boolean"
+        },
         "StorageConfiguration" : {
           "$ref" : "#/definitions/ManagedInstancesStorageConfiguration"
         },

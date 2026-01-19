@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,8 @@ type LookupKeyValueStoreResult struct {
 	// The unique Id for the key value store.
 	Id *string `pulumi:"id"`
 	// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
-	Status *string `pulumi:"status"`
+	Status *string   `pulumi:"status"`
+	Tags   []aws.Tag `pulumi:"tags"`
 }
 
 func LookupKeyValueStoreOutput(ctx *pulumi.Context, args LookupKeyValueStoreOutputArgs, opts ...pulumi.InvokeOption) LookupKeyValueStoreResultOutput {
@@ -88,6 +90,10 @@ func (o LookupKeyValueStoreResultOutput) Id() pulumi.StringPtrOutput {
 // The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 func (o LookupKeyValueStoreResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyValueStoreResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupKeyValueStoreResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupKeyValueStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

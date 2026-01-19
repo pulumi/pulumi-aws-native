@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originKeepaliveTimeout")]
         public Input<int>? OriginKeepaliveTimeout { get; set; }
 
+        [Input("originMtlsConfig")]
+        public Input<Inputs.DistributionOriginMtlsConfigArgs>? OriginMtlsConfig { get; set; }
+
         /// <summary>
         /// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
         ///   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.

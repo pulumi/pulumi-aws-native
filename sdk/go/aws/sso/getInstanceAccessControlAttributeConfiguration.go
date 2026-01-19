@@ -28,7 +28,7 @@ type LookupInstanceAccessControlAttributeConfigurationArgs struct {
 }
 
 type LookupInstanceAccessControlAttributeConfigurationResult struct {
-	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+	// Lists the attributes that are configured for ABAC in the specified  instance.
 	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
 	InstanceAccessControlAttributeConfiguration *InstanceAccessControlAttributeConfigurationProperties `pulumi:"instanceAccessControlAttributeConfiguration"`
@@ -66,7 +66,7 @@ func (o LookupInstanceAccessControlAttributeConfigurationResultOutput) ToLookupI
 	return o
 }
 
-// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+// Lists the attributes that are configured for ABAC in the specified  instance.
 func (o LookupInstanceAccessControlAttributeConfigurationResultOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
 	return o.ApplyT(func(v LookupInstanceAccessControlAttributeConfigurationResult) []InstanceAccessControlAttributeConfigurationAccessControlAttribute {
 		return v.AccessControlAttributes

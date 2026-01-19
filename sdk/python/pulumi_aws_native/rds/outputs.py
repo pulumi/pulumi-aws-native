@@ -23,6 +23,7 @@ __all__ = [
     'DbClusterReadEndpoint',
     'DbClusterScalingConfiguration',
     'DbClusterServerlessV2ScalingConfiguration',
+    'DbInstanceAdditionalStorageVolume',
     'DbInstanceCertificateDetails',
     'DbInstanceDbInstanceRole',
     'DbInstanceDbInstanceStatusInfo',
@@ -429,6 +430,110 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
          Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
+
+
+@pulumi.output_type
+class DbInstanceAdditionalStorageVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocatedStorage":
+            suggest = "allocated_storage"
+        elif key == "maxAllocatedStorage":
+            suggest = "max_allocated_storage"
+        elif key == "storageThroughput":
+            suggest = "storage_throughput"
+        elif key == "storageType":
+            suggest = "storage_type"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DbInstanceAdditionalStorageVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DbInstanceAdditionalStorageVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DbInstanceAdditionalStorageVolume.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocated_storage: Optional[_builtins.str] = None,
+                 iops: Optional[_builtins.int] = None,
+                 max_allocated_storage: Optional[_builtins.int] = None,
+                 storage_throughput: Optional[_builtins.int] = None,
+                 storage_type: Optional[_builtins.str] = None,
+                 volume_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str allocated_storage: The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
+        :param _builtins.int iops: The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
+        :param _builtins.int max_allocated_storage: The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
+        :param _builtins.int storage_throughput: The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        :param _builtins.str storage_type: The storage type for the additional storage volume.
+        :param _builtins.str volume_name: The name of the additional storage volume.
+        """
+        if allocated_storage is not None:
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if max_allocated_storage is not None:
+            pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
+        if storage_throughput is not None:
+            pulumi.set(__self__, "storage_throughput", storage_throughput)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
+
+    @_builtins.property
+    @pulumi.getter(name="allocatedStorage")
+    def allocated_storage(self) -> Optional[_builtins.str]:
+        """
+        The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
+        """
+        return pulumi.get(self, "allocated_storage")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAllocatedStorage")
+    def max_allocated_storage(self) -> Optional[_builtins.int]:
+        """
+        The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
+        """
+        return pulumi.get(self, "max_allocated_storage")
+
+    @_builtins.property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> Optional[_builtins.int]:
+        """
+        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        """
+        return pulumi.get(self, "storage_throughput")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        """
+        The storage type for the additional storage volume.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the additional storage volume.
+        """
+        return pulumi.get(self, "volume_name")
 
 
 @pulumi.output_type

@@ -47,6 +47,9 @@
     "EncoderSettings" : {
       "$ref" : "#/definitions/EncoderSettings"
     },
+    "LinkedChannelSettings" : {
+      "$ref" : "#/definitions/LinkedChannelSettings"
+    },
     "AnywhereSettings" : {
       "$ref" : "#/definitions/AnywhereSettings"
     },
@@ -599,7 +602,12 @@
     },
     "PipelineLockingSettings" : {
       "type" : "object",
-      "additionalProperties" : false
+      "additionalProperties" : false,
+      "properties" : {
+        "PipelineLockingMethod" : {
+          "type" : "string"
+        }
+      }
     },
     "FrameCaptureS3Settings" : {
       "type" : "object",
@@ -858,6 +866,18 @@
           "items" : {
             "$ref" : "#/definitions/MediaPackageOutputDestinationSettings"
           }
+        }
+      }
+    },
+    "LinkedChannelSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PrimaryChannelSettings" : {
+          "$ref" : "#/definitions/PrimaryChannelSettings"
+        },
+        "FollowerChannelSettings" : {
+          "$ref" : "#/definitions/FollowerChannelSettings"
         }
       }
     },
@@ -2375,6 +2395,15 @@
         }
       }
     },
+    "PrimaryChannelSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "LinkedChannelType" : {
+          "type" : "string"
+        }
+      }
+    },
     "EpochLockingSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -3200,6 +3229,18 @@
     "HtmlMotionGraphicsSettings" : {
       "type" : "object",
       "additionalProperties" : false
+    },
+    "FollowerChannelSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PrimaryChannelArn" : {
+          "type" : "string"
+        },
+        "LinkedChannelType" : {
+          "type" : "string"
+        }
+      }
     },
     "MultiplexOutputSettings" : {
       "type" : "object",

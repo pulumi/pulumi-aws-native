@@ -25,6 +25,8 @@ type Script struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A descriptive label that is associated with a script. Script names do not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The Node.js version used for execution of the Realtime script.
+	NodeJsVersion pulumi.StringPtrOutput `pulumi:"nodeJsVersion"`
 	// The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
 	SizeOnDisk pulumi.IntOutput `pulumi:"sizeOnDisk"`
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
@@ -45,6 +47,10 @@ func NewScript(ctx *pulumi.Context,
 	if args.StorageLocation == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLocation'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"nodeJsVersion",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Script
 	err := ctx.RegisterResource("aws-native:gamelift:Script", name, args, &resource, opts...)
@@ -80,6 +86,8 @@ func (ScriptState) ElementType() reflect.Type {
 type scriptArgs struct {
 	// A descriptive label that is associated with a script. Script names do not need to be unique.
 	Name *string `pulumi:"name"`
+	// The Node.js version used for execution of the Realtime script.
+	NodeJsVersion *string `pulumi:"nodeJsVersion"`
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
 	StorageLocation ScriptS3Location `pulumi:"storageLocation"`
 	// An array of key-value pairs to apply to this resource.
@@ -92,6 +100,8 @@ type scriptArgs struct {
 type ScriptArgs struct {
 	// A descriptive label that is associated with a script. Script names do not need to be unique.
 	Name pulumi.StringPtrInput
+	// The Node.js version used for execution of the Realtime script.
+	NodeJsVersion pulumi.StringPtrInput
 	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
 	StorageLocation ScriptS3LocationInput
 	// An array of key-value pairs to apply to this resource.
@@ -155,6 +165,11 @@ func (o ScriptOutput) CreationTime() pulumi.StringOutput {
 // A descriptive label that is associated with a script. Script names do not need to be unique.
 func (o ScriptOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Node.js version used for execution of the Realtime script.
+func (o ScriptOutput) NodeJsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.NodeJsVersion }).(pulumi.StringPtrOutput)
 }
 
 // The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".

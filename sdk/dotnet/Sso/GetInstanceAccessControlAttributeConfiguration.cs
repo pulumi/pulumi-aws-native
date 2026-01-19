@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Sso
     public sealed class GetInstanceAccessControlAttributeConfigurationResult
     {
         /// <summary>
-        /// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        /// Lists the attributes that are configured for ABAC in the specified  instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute> AccessControlAttributes;
         /// <summary>

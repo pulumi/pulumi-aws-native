@@ -22,22 +22,23 @@ __all__ = ['GatewayTargetArgs', 'GatewayTarget']
 @pulumi.input_type
 class GatewayTargetArgs:
     def __init__(__self__, *,
-                 credential_provider_configurations: pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]],
                  target_configuration: pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs'],
+                 credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayTarget resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]] credential_provider_configurations: The OAuth credential provider configuration.
         :param pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs'] target_configuration: The target configuration for the Smithy model target.
+        :param pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]] credential_provider_configurations: The OAuth credential provider configuration.
         :param pulumi.Input[_builtins.str] description: The description for the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: The gateway ID for the gateway target.
         :param pulumi.Input[_builtins.str] name: The name for the gateway target.
         """
-        pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
         pulumi.set(__self__, "target_configuration", target_configuration)
+        if credential_provider_configurations is not None:
+            pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if gateway_identifier is not None:
@@ -46,18 +47,6 @@ class GatewayTargetArgs:
             pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialProviderConfigurations")
-    def credential_provider_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]:
-        """
-        The OAuth credential provider configuration.
-        """
-        return pulumi.get(self, "credential_provider_configurations")
-
-    @credential_provider_configurations.setter
-    def credential_provider_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]):
-        pulumi.set(self, "credential_provider_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
@@ -70,6 +59,18 @@ class GatewayTargetArgs:
     @target_configuration.setter
     def target_configuration(self, value: pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs']):
         pulumi.set(self, "target_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderConfigurations")
+    def credential_provider_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]]:
+        """
+        The OAuth credential provider configuration.
+        """
+        return pulumi.get(self, "credential_provider_configurations")
+
+    @credential_provider_configurations.setter
+    def credential_provider_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]]):
+        pulumi.set(self, "credential_provider_configurations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,8 +181,6 @@ class GatewayTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GatewayTargetArgs.__new__(GatewayTargetArgs)
 
-            if credential_provider_configurations is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_provider_configurations'")
             __props__.__dict__["credential_provider_configurations"] = credential_provider_configurations
             __props__.__dict__["description"] = description
             __props__.__dict__["gateway_identifier"] = gateway_identifier
@@ -246,7 +245,7 @@ class GatewayTarget(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfigurations")
-    def credential_provider_configurations(self) -> pulumi.Output[Sequence['outputs.GatewayTargetCredentialProviderConfiguration']]:
+    def credential_provider_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayTargetCredentialProviderConfiguration']]]:
         """
         The OAuth credential provider configuration.
         """

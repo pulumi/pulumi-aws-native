@@ -54,7 +54,7 @@ export interface GetApplicationResult {
      */
     readonly displayName?: string;
     /**
-     * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+     * The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
      */
     readonly identityCenterApplicationArn?: string;
     /**

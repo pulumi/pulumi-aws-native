@@ -90,6 +90,8 @@ __all__ = [
     'DistributionOriginGroupsArgsDict',
     'DistributionOriginGroupArgs',
     'DistributionOriginGroupArgsDict',
+    'DistributionOriginMtlsConfigArgs',
+    'DistributionOriginMtlsConfigArgsDict',
     'DistributionOriginShieldArgs',
     'DistributionOriginShieldArgsDict',
     'DistributionOriginArgs',
@@ -2803,6 +2805,7 @@ if not MYPY:
         Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
+        origin_mtls_config: NotRequired[pulumi.Input['DistributionOriginMtlsConfigArgsDict']]
         origin_read_timeout: NotRequired[pulumi.Input[_builtins.int]]
         """
         Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
@@ -2824,6 +2827,7 @@ class DistributionCustomOriginConfigArgs:
                  https_port: Optional[pulumi.Input[_builtins.int]] = None,
                  ip_address_type: Optional[pulumi.Input['DistributionCustomOriginConfigIpAddressType']] = None,
                  origin_keepalive_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 origin_mtls_config: Optional[pulumi.Input['DistributionOriginMtlsConfigArgs']] = None,
                  origin_read_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -2851,6 +2855,8 @@ class DistributionCustomOriginConfigArgs:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_mtls_config is not None:
+            pulumi.set(__self__, "origin_mtls_config", origin_mtls_config)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
         if origin_ssl_protocols is not None:
@@ -2919,6 +2925,15 @@ class DistributionCustomOriginConfigArgs:
     @origin_keepalive_timeout.setter
     def origin_keepalive_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "origin_keepalive_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originMtlsConfig")
+    def origin_mtls_config(self) -> Optional[pulumi.Input['DistributionOriginMtlsConfigArgs']]:
+        return pulumi.get(self, "origin_mtls_config")
+
+    @origin_mtls_config.setter
+    def origin_mtls_config(self, value: Optional[pulumi.Input['DistributionOriginMtlsConfigArgs']]):
+        pulumi.set(self, "origin_mtls_config", value)
 
     @_builtins.property
     @pulumi.getter(name="originReadTimeout")
@@ -4451,6 +4466,28 @@ class DistributionOriginGroupArgs:
     @selection_criteria.setter
     def selection_criteria(self, value: Optional[pulumi.Input['DistributionOriginGroupSelectionCriteria']]):
         pulumi.set(self, "selection_criteria", value)
+
+
+if not MYPY:
+    class DistributionOriginMtlsConfigArgsDict(TypedDict):
+        client_certificate_arn: pulumi.Input[_builtins.str]
+elif False:
+    DistributionOriginMtlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionOriginMtlsConfigArgs:
+    def __init__(__self__, *,
+                 client_certificate_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "client_certificate_arn", client_certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateArn")
+    def client_certificate_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_certificate_arn")
+
+    @client_certificate_arn.setter
+    def client_certificate_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_certificate_arn", value)
 
 
 if not MYPY:

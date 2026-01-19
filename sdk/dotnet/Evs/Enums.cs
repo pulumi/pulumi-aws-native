@@ -152,6 +152,7 @@ namespace Pulumi.AwsNative.Evs
         }
 
         public static EnvironmentVcfVersion Vcf521 { get; } = new EnvironmentVcfVersion("VCF-5.2.1");
+        public static EnvironmentVcfVersion Vcf522 { get; } = new EnvironmentVcfVersion("VCF-5.2.2");
 
         public static bool operator ==(EnvironmentVcfVersion left, EnvironmentVcfVersion right) => left.Equals(right);
         public static bool operator !=(EnvironmentVcfVersion left, EnvironmentVcfVersion right) => !left.Equals(right);

@@ -34,6 +34,10 @@ __all__ = [
     'GatewayLambdaInterceptorConfiguration',
     'GatewayMcpGatewayConfiguration',
     'GatewayProtocolConfigurationProperties',
+    'GatewayTargetApiGatewayTargetConfiguration',
+    'GatewayTargetApiGatewayToolConfiguration',
+    'GatewayTargetApiGatewayToolFilter',
+    'GatewayTargetApiGatewayToolOverride',
     'GatewayTargetApiKeyCredentialProvider',
     'GatewayTargetApiSchemaConfiguration0Properties',
     'GatewayTargetApiSchemaConfiguration1Properties',
@@ -46,6 +50,7 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration1Properties',
     'GatewayTargetMcpTargetConfiguration2Properties',
     'GatewayTargetMcpTargetConfiguration3Properties',
+    'GatewayTargetMcpTargetConfiguration4Properties',
     'GatewayTargetMetadataConfiguration',
     'GatewayTargetOAuthCredentialProvider',
     'GatewayTargetS3Configuration',
@@ -771,6 +776,160 @@ class GatewayProtocolConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetApiGatewayTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiGatewayToolConfiguration":
+            suggest = "api_gateway_tool_configuration"
+        elif key == "restApiId":
+            suggest = "rest_api_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiGatewayTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiGatewayTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiGatewayTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_gateway_tool_configuration: 'outputs.GatewayTargetApiGatewayToolConfiguration',
+                 rest_api_id: _builtins.str,
+                 stage: _builtins.str):
+        pulumi.set(__self__, "api_gateway_tool_configuration", api_gateway_tool_configuration)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        pulumi.set(__self__, "stage", stage)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGatewayToolConfiguration")
+    def api_gateway_tool_configuration(self) -> 'outputs.GatewayTargetApiGatewayToolConfiguration':
+        return pulumi.get(self, "api_gateway_tool_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> _builtins.str:
+        return pulumi.get(self, "rest_api_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> _builtins.str:
+        return pulumi.get(self, "stage")
+
+
+@pulumi.output_type
+class GatewayTargetApiGatewayToolConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolFilters":
+            suggest = "tool_filters"
+        elif key == "toolOverrides":
+            suggest = "tool_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiGatewayToolConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiGatewayToolConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiGatewayToolConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tool_filters: Sequence['outputs.GatewayTargetApiGatewayToolFilter'],
+                 tool_overrides: Optional[Sequence['outputs.GatewayTargetApiGatewayToolOverride']] = None):
+        pulumi.set(__self__, "tool_filters", tool_filters)
+        if tool_overrides is not None:
+            pulumi.set(__self__, "tool_overrides", tool_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="toolFilters")
+    def tool_filters(self) -> Sequence['outputs.GatewayTargetApiGatewayToolFilter']:
+        return pulumi.get(self, "tool_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="toolOverrides")
+    def tool_overrides(self) -> Optional[Sequence['outputs.GatewayTargetApiGatewayToolOverride']]:
+        return pulumi.get(self, "tool_overrides")
+
+
+@pulumi.output_type
+class GatewayTargetApiGatewayToolFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterPath":
+            suggest = "filter_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiGatewayToolFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiGatewayToolFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiGatewayToolFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_path: _builtins.str,
+                 methods: Sequence['GatewayTargetRestApiMethod']):
+        pulumi.set(__self__, "filter_path", filter_path)
+        pulumi.set(__self__, "methods", methods)
+
+    @_builtins.property
+    @pulumi.getter(name="filterPath")
+    def filter_path(self) -> _builtins.str:
+        return pulumi.get(self, "filter_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def methods(self) -> Sequence['GatewayTargetRestApiMethod']:
+        return pulumi.get(self, "methods")
+
+
+@pulumi.output_type
+class GatewayTargetApiGatewayToolOverride(dict):
+    def __init__(__self__, *,
+                 method: 'GatewayTargetRestApiMethod',
+                 name: _builtins.str,
+                 path: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> 'GatewayTargetRestApiMethod':
+        return pulumi.get(self, "method")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class GatewayTargetApiKeyCredentialProvider(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1141,6 +1300,35 @@ class GatewayTargetMcpTargetConfiguration3Properties(dict):
     @pulumi.getter(name="mcpServer")
     def mcp_server(self) -> 'outputs.GatewayTargetMcpServerTargetConfiguration':
         return pulumi.get(self, "mcp_server")
+
+
+@pulumi.output_type
+class GatewayTargetMcpTargetConfiguration4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiGateway":
+            suggest = "api_gateway"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpTargetConfiguration4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpTargetConfiguration4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpTargetConfiguration4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_gateway: 'outputs.GatewayTargetApiGatewayTargetConfiguration'):
+        pulumi.set(__self__, "api_gateway", api_gateway)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> 'outputs.GatewayTargetApiGatewayTargetConfiguration':
+        return pulumi.get(self, "api_gateway")
 
 
 @pulumi.output_type

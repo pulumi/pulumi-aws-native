@@ -74,7 +74,7 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     }
 
     /**
-     * Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+     * Lists the attributes that are configured for ABAC in the specified  instance.
      */
     declare public readonly accessControlAttributes: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
     /**
@@ -120,7 +120,7 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
  */
 export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
-     * Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+     * Lists the attributes that are configured for ABAC in the specified  instance.
      */
     accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
     /**

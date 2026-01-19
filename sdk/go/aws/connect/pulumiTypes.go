@@ -1114,6 +1114,326 @@ func (o EvaluationFormBaseItemArrayOutput) Index(i pulumi.IntInput) EvaluationFo
 	}).(EvaluationFormBaseItemOutput)
 }
 
+type EvaluationFormEvaluationReviewConfiguration struct {
+	// Number of days during which a request for review can be submitted for evaluations created from this form.
+	EligibilityDays *int `pulumi:"eligibilityDays"`
+	// List of recipients who should be notified when a review is requested.
+	ReviewNotificationRecipients []EvaluationFormEvaluationReviewNotificationRecipient `pulumi:"reviewNotificationRecipients"`
+}
+
+// EvaluationFormEvaluationReviewConfigurationInput is an input type that accepts EvaluationFormEvaluationReviewConfigurationArgs and EvaluationFormEvaluationReviewConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewConfigurationInput` via:
+//
+//	EvaluationFormEvaluationReviewConfigurationArgs{...}
+type EvaluationFormEvaluationReviewConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewConfigurationOutput() EvaluationFormEvaluationReviewConfigurationOutput
+	ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(context.Context) EvaluationFormEvaluationReviewConfigurationOutput
+}
+
+type EvaluationFormEvaluationReviewConfigurationArgs struct {
+	// Number of days during which a request for review can be submitted for evaluations created from this form.
+	EligibilityDays pulumi.IntPtrInput `pulumi:"eligibilityDays"`
+	// List of recipients who should be notified when a review is requested.
+	ReviewNotificationRecipients EvaluationFormEvaluationReviewNotificationRecipientArrayInput `pulumi:"reviewNotificationRecipients"`
+}
+
+func (EvaluationFormEvaluationReviewConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationOutput() EvaluationFormEvaluationReviewConfigurationOutput {
+	return i.ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationOutput)
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return i.ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationOutput).ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormEvaluationReviewConfigurationPtrInput is an input type that accepts EvaluationFormEvaluationReviewConfigurationArgs, EvaluationFormEvaluationReviewConfigurationPtr and EvaluationFormEvaluationReviewConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewConfigurationPtrInput` via:
+//
+//	        EvaluationFormEvaluationReviewConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormEvaluationReviewConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput
+	ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput
+}
+
+type evaluationFormEvaluationReviewConfigurationPtrType EvaluationFormEvaluationReviewConfigurationArgs
+
+func EvaluationFormEvaluationReviewConfigurationPtr(v *EvaluationFormEvaluationReviewConfigurationArgs) EvaluationFormEvaluationReviewConfigurationPtrInput {
+	return (*evaluationFormEvaluationReviewConfigurationPtrType)(v)
+}
+
+func (*evaluationFormEvaluationReviewConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationFormEvaluationReviewConfigurationPtrType) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return i.ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormEvaluationReviewConfigurationPtrType) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationPtrOutput)
+}
+
+type EvaluationFormEvaluationReviewConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationOutput() EvaluationFormEvaluationReviewConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o.ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormEvaluationReviewConfiguration) *EvaluationFormEvaluationReviewConfiguration {
+		return &v
+	}).(EvaluationFormEvaluationReviewConfigurationPtrOutput)
+}
+
+// Number of days during which a request for review can be submitted for evaluations created from this form.
+func (o EvaluationFormEvaluationReviewConfigurationOutput) EligibilityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewConfiguration) *int { return v.EligibilityDays }).(pulumi.IntPtrOutput)
+}
+
+// List of recipients who should be notified when a review is requested.
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ReviewNotificationRecipients() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewConfiguration) []EvaluationFormEvaluationReviewNotificationRecipient {
+		return v.ReviewNotificationRecipients
+	}).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
+}
+
+type EvaluationFormEvaluationReviewConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) Elem() EvaluationFormEvaluationReviewConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewConfiguration) EvaluationFormEvaluationReviewConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormEvaluationReviewConfiguration
+		return ret
+	}).(EvaluationFormEvaluationReviewConfigurationOutput)
+}
+
+// Number of days during which a request for review can be submitted for evaluations created from this form.
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) EligibilityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EligibilityDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of recipients who should be notified when a review is requested.
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ReviewNotificationRecipients() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewConfiguration) []EvaluationFormEvaluationReviewNotificationRecipient {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewNotificationRecipients
+	}).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipient struct {
+	// The type of notification recipient.
+	Type EvaluationFormEvaluationReviewNotificationRecipientType `pulumi:"type"`
+	// The value associated with the notification recipient type.
+	Value EvaluationFormEvaluationReviewNotificationRecipientValue `pulumi:"value"`
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientInput is an input type that accepts EvaluationFormEvaluationReviewNotificationRecipientArgs and EvaluationFormEvaluationReviewNotificationRecipientOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientInput` via:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientArgs{...}
+type EvaluationFormEvaluationReviewNotificationRecipientInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientOutput() EvaluationFormEvaluationReviewNotificationRecipientOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientArgs struct {
+	// The type of notification recipient.
+	Type EvaluationFormEvaluationReviewNotificationRecipientTypeInput `pulumi:"type"`
+	// The value associated with the notification recipient type.
+	Value EvaluationFormEvaluationReviewNotificationRecipientValueInput `pulumi:"value"`
+}
+
+func (EvaluationFormEvaluationReviewNotificationRecipientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArgs) ToEvaluationFormEvaluationReviewNotificationRecipientOutput() EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return i.ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArgs) ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientOutput)
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientArrayInput is an input type that accepts EvaluationFormEvaluationReviewNotificationRecipientArray and EvaluationFormEvaluationReviewNotificationRecipientArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientArrayInput` via:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientArray{ EvaluationFormEvaluationReviewNotificationRecipientArgs{...} }
+type EvaluationFormEvaluationReviewNotificationRecipientArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutput() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientArrayOutput
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientArray []EvaluationFormEvaluationReviewNotificationRecipientInput
+
+func (EvaluationFormEvaluationReviewNotificationRecipientArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArray) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutput() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return i.ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArray) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) ToEvaluationFormEvaluationReviewNotificationRecipientOutput() EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return o
+}
+
+// The type of notification recipient.
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) Type() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewNotificationRecipient) EvaluationFormEvaluationReviewNotificationRecipientType {
+		return v.Type
+	}).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+// The value associated with the notification recipient type.
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) Value() EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewNotificationRecipient) EvaluationFormEvaluationReviewNotificationRecipientValue {
+		return v.Value
+	}).(EvaluationFormEvaluationReviewNotificationRecipientValueOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutput() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) Index(i pulumi.IntInput) EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormEvaluationReviewNotificationRecipient {
+		return vs[0].([]EvaluationFormEvaluationReviewNotificationRecipient)[vs[1].(int)]
+	}).(EvaluationFormEvaluationReviewNotificationRecipientOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientValue struct {
+	// The user identifier for the notification recipient.
+	UserId *string `pulumi:"userId"`
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientValueInput is an input type that accepts EvaluationFormEvaluationReviewNotificationRecipientValueArgs and EvaluationFormEvaluationReviewNotificationRecipientValueOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientValueInput` via:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientValueArgs{...}
+type EvaluationFormEvaluationReviewNotificationRecipientValueInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientValueOutput() EvaluationFormEvaluationReviewNotificationRecipientValueOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientValueArgs struct {
+	// The user identifier for the notification recipient.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientValue)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutput() EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return i.ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientValueOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientValueOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientValue)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutput() EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return o
+}
+
+// The user identifier for the notification recipient.
+func (o EvaluationFormEvaluationReviewNotificationRecipientValueOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewNotificationRecipientValue) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
 // Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 type EvaluationFormItem struct {
 	// The information of the question.
@@ -16485,6 +16805,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormAutomaticFailConfigurationPtrInput)(nil)).Elem(), EvaluationFormAutomaticFailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormBaseItemInput)(nil)).Elem(), EvaluationFormBaseItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormBaseItemArrayInput)(nil)).Elem(), EvaluationFormBaseItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewConfigurationInput)(nil)).Elem(), EvaluationFormEvaluationReviewConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewConfigurationPtrInput)(nil)).Elem(), EvaluationFormEvaluationReviewConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientArrayInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientValueInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemInput)(nil)).Elem(), EvaluationFormItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemArrayInput)(nil)).Elem(), EvaluationFormItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionInput)(nil)).Elem(), EvaluationFormItemEnablementConditionArgs{})
@@ -16698,6 +17023,11 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormAutomaticFailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormBaseItemOutput{})
 	pulumi.RegisterOutputType(EvaluationFormBaseItemArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientValueOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemArrayOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOutput{})

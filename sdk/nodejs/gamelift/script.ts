@@ -54,6 +54,10 @@ export class Script extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
+     * The Node.js version used for execution of the Realtime script.
+     */
+    declare public readonly nodeJsVersion: pulumi.Output<string | undefined>;
+    /**
      * The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
      */
     declare public /*out*/ readonly sizeOnDisk: pulumi.Output<number>;
@@ -85,6 +89,7 @@ export class Script extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageLocation'");
             }
             resourceInputs["name"] = args?.name;
+            resourceInputs["nodeJsVersion"] = args?.nodeJsVersion;
             resourceInputs["storageLocation"] = args?.storageLocation;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["version"] = args?.version;
@@ -97,12 +102,15 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeJsVersion"] = undefined /*out*/;
             resourceInputs["sizeOnDisk"] = undefined /*out*/;
             resourceInputs["storageLocation"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["nodeJsVersion"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Script.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -115,6 +123,10 @@ export interface ScriptArgs {
      * A descriptive label that is associated with a script. Script names do not need to be unique.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Node.js version used for execution of the Realtime script.
+     */
+    nodeJsVersion?: pulumi.Input<string>;
     /**
      * The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
      */

@@ -1192,6 +1192,170 @@ func (in *dataTableValueLockLevelPtr) ToDataTableValueLockLevelPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DataTableValueLockLevelPtrOutput)
 }
 
+// The type of notification recipient.
+type EvaluationFormEvaluationReviewNotificationRecipientType string
+
+const (
+	EvaluationFormEvaluationReviewNotificationRecipientTypeUserId = EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID")
+)
+
+func (EvaluationFormEvaluationReviewNotificationRecipientType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutput() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return pulumi.ToOutput(e).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return e.ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return EvaluationFormEvaluationReviewNotificationRecipientType(e).ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(ctx).ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientTypeOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutput() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o.ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormEvaluationReviewNotificationRecipientType) *EvaluationFormEvaluationReviewNotificationRecipientType {
+		return &v
+	}).(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput)
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormEvaluationReviewNotificationRecipientType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormEvaluationReviewNotificationRecipientType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) Elem() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewNotificationRecipientType) EvaluationFormEvaluationReviewNotificationRecipientType {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormEvaluationReviewNotificationRecipientType
+		return ret
+	}).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormEvaluationReviewNotificationRecipientType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientTypeInput is an input type that accepts values of the EvaluationFormEvaluationReviewNotificationRecipientType enum
+// A concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientTypeInput` can be one of the following:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientTypeUserId
+type EvaluationFormEvaluationReviewNotificationRecipientTypeInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutput() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypeOutput
+}
+
+var evaluationFormEvaluationReviewNotificationRecipientTypePtrType = reflect.TypeOf((**EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+
+type EvaluationFormEvaluationReviewNotificationRecipientTypePtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput
+}
+
+type evaluationFormEvaluationReviewNotificationRecipientTypePtr string
+
+func EvaluationFormEvaluationReviewNotificationRecipientTypePtr(v string) EvaluationFormEvaluationReviewNotificationRecipientTypePtrInput {
+	return (*evaluationFormEvaluationReviewNotificationRecipientTypePtr)(&v)
+}
+
+func (*evaluationFormEvaluationReviewNotificationRecipientTypePtr) ElementType() reflect.Type {
+	return evaluationFormEvaluationReviewNotificationRecipientTypePtrType
+}
+
+func (in *evaluationFormEvaluationReviewNotificationRecipientTypePtr) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput)
+}
+
+func (in *evaluationFormEvaluationReviewNotificationRecipientTypePtr) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput)
+}
+
 // The operator to be used to be applied to operands if more than one provided.
 type EvaluationFormItemEnablementConditionOperator string
 
@@ -8947,6 +9111,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableStatusPtrInput)(nil)).Elem(), DataTableStatus("PUBLISHED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableValueLockLevelInput)(nil)).Elem(), DataTableValueLockLevel("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableValueLockLevelPtrInput)(nil)).Elem(), DataTableValueLockLevel("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientTypeInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientTypePtrInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionOperatorInput)(nil)).Elem(), EvaluationFormItemEnablementConditionOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionOperatorPtrInput)(nil)).Elem(), EvaluationFormItemEnablementConditionOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConfigurationActionInput)(nil)).Elem(), EvaluationFormItemEnablementConfigurationAction("DISABLE"))
@@ -9049,6 +9215,8 @@ func init() {
 	pulumi.RegisterOutputType(DataTableStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataTableValueLockLevelOutput{})
 	pulumi.RegisterOutputType(DataTableValueLockLevelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOperatorOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConfigurationActionOutput{})

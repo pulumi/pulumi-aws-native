@@ -64,3 +64,4 @@ class EnvironmentVcfVersion(_builtins.str, Enum):
     The VCF version of the environment.
     """
     VCF521 = "VCF-5.2.1"
+    VCF522 = "VCF-5.2.2"

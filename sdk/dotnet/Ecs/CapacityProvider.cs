@@ -298,6 +298,7 @@ namespace Pulumi.AwsNative.Ecs
                 {
                     "autoScalingGroupProvider.autoScalingGroupArn",
                     "clusterName",
+                    "managedInstancesProvider.instanceLaunchTemplate.fipsEnabled",
                     "name",
                 },
             };

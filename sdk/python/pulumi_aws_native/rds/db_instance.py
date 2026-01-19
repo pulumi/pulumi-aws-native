@@ -24,6 +24,7 @@ __all__ = ['DbInstanceArgs', 'DbInstance']
 @pulumi.input_type
 class DbInstanceArgs:
     def __init__(__self__, *,
+                 additional_storage_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]] = None,
                  allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -649,6 +650,8 @@ class DbInstanceArgs:
                  *Amazon Aurora* 
                 Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         """
+        if additional_storage_volumes is not None:
+            pulumi.set(__self__, "additional_storage_volumes", additional_storage_volumes)
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
@@ -813,6 +816,15 @@ class DbInstanceArgs:
             pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_groups is not None:
             pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalStorageVolumes")
+    def additional_storage_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]]:
+        return pulumi.get(self, "additional_storage_volumes")
+
+    @additional_storage_volumes.setter
+    def additional_storage_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]]):
+        pulumi.set(self, "additional_storage_volumes", value)
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
@@ -2259,6 +2271,7 @@ class DbInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_storage_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]]] = None,
                  allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2952,6 +2965,7 @@ class DbInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_storage_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]]] = None,
                  allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -3043,6 +3057,7 @@ class DbInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
+            __props__.__dict__["additional_storage_volumes"] = additional_storage_volumes
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["apply_immediately"] = apply_immediately
@@ -3165,6 +3180,7 @@ class DbInstance(pulumi.CustomResource):
 
         __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
+        __props__.__dict__["additional_storage_volumes"] = None
         __props__.__dict__["allocated_storage"] = None
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["apply_immediately"] = None
@@ -3264,6 +3280,11 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_groups"] = None
         return DbInstance(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalStorageVolumes")
+    def additional_storage_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceAdditionalStorageVolume']]]:
+        return pulumi.get(self, "additional_storage_volumes")
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")

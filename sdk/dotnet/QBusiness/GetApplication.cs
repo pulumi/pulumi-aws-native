@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+        /// The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
         /// <summary>

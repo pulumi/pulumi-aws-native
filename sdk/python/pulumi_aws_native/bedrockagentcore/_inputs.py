@@ -50,6 +50,14 @@ __all__ = [
     'GatewayMcpGatewayConfigurationArgsDict',
     'GatewayProtocolConfigurationPropertiesArgs',
     'GatewayProtocolConfigurationPropertiesArgsDict',
+    'GatewayTargetApiGatewayTargetConfigurationArgs',
+    'GatewayTargetApiGatewayTargetConfigurationArgsDict',
+    'GatewayTargetApiGatewayToolConfigurationArgs',
+    'GatewayTargetApiGatewayToolConfigurationArgsDict',
+    'GatewayTargetApiGatewayToolFilterArgs',
+    'GatewayTargetApiGatewayToolFilterArgsDict',
+    'GatewayTargetApiGatewayToolOverrideArgs',
+    'GatewayTargetApiGatewayToolOverrideArgsDict',
     'GatewayTargetApiKeyCredentialProviderArgs',
     'GatewayTargetApiKeyCredentialProviderArgsDict',
     'GatewayTargetApiSchemaConfiguration0PropertiesArgs',
@@ -74,6 +82,8 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict',
     'GatewayTargetMcpTargetConfiguration3PropertiesArgs',
     'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict',
+    'GatewayTargetMcpTargetConfiguration4PropertiesArgs',
+    'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict',
     'GatewayTargetMetadataConfigurationArgs',
     'GatewayTargetMetadataConfigurationArgsDict',
     'GatewayTargetOAuthCredentialProviderArgs',
@@ -878,6 +888,180 @@ class GatewayProtocolConfigurationPropertiesArgs:
 
 
 if not MYPY:
+    class GatewayTargetApiGatewayTargetConfigurationArgsDict(TypedDict):
+        api_gateway_tool_configuration: pulumi.Input['GatewayTargetApiGatewayToolConfigurationArgsDict']
+        rest_api_id: pulumi.Input[_builtins.str]
+        stage: pulumi.Input[_builtins.str]
+elif False:
+    GatewayTargetApiGatewayTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetApiGatewayTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 api_gateway_tool_configuration: pulumi.Input['GatewayTargetApiGatewayToolConfigurationArgs'],
+                 rest_api_id: pulumi.Input[_builtins.str],
+                 stage: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "api_gateway_tool_configuration", api_gateway_tool_configuration)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        pulumi.set(__self__, "stage", stage)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGatewayToolConfiguration")
+    def api_gateway_tool_configuration(self) -> pulumi.Input['GatewayTargetApiGatewayToolConfigurationArgs']:
+        return pulumi.get(self, "api_gateway_tool_configuration")
+
+    @api_gateway_tool_configuration.setter
+    def api_gateway_tool_configuration(self, value: pulumi.Input['GatewayTargetApiGatewayToolConfigurationArgs']):
+        pulumi.set(self, "api_gateway_tool_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rest_api_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stage", value)
+
+
+if not MYPY:
+    class GatewayTargetApiGatewayToolConfigurationArgsDict(TypedDict):
+        tool_filters: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgsDict']]]
+        tool_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgsDict']]]]
+elif False:
+    GatewayTargetApiGatewayToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetApiGatewayToolConfigurationArgs:
+    def __init__(__self__, *,
+                 tool_filters: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgs']]],
+                 tool_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]] = None):
+        pulumi.set(__self__, "tool_filters", tool_filters)
+        if tool_overrides is not None:
+            pulumi.set(__self__, "tool_overrides", tool_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="toolFilters")
+    def tool_filters(self) -> pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgs']]]:
+        return pulumi.get(self, "tool_filters")
+
+    @tool_filters.setter
+    def tool_filters(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgs']]]):
+        pulumi.set(self, "tool_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toolOverrides")
+    def tool_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]]:
+        return pulumi.get(self, "tool_overrides")
+
+    @tool_overrides.setter
+    def tool_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgs']]]]):
+        pulumi.set(self, "tool_overrides", value)
+
+
+if not MYPY:
+    class GatewayTargetApiGatewayToolFilterArgsDict(TypedDict):
+        filter_path: pulumi.Input[_builtins.str]
+        methods: pulumi.Input[Sequence[pulumi.Input['GatewayTargetRestApiMethod']]]
+elif False:
+    GatewayTargetApiGatewayToolFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetApiGatewayToolFilterArgs:
+    def __init__(__self__, *,
+                 filter_path: pulumi.Input[_builtins.str],
+                 methods: pulumi.Input[Sequence[pulumi.Input['GatewayTargetRestApiMethod']]]):
+        pulumi.set(__self__, "filter_path", filter_path)
+        pulumi.set(__self__, "methods", methods)
+
+    @_builtins.property
+    @pulumi.getter(name="filterPath")
+    def filter_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "filter_path")
+
+    @filter_path.setter
+    def filter_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def methods(self) -> pulumi.Input[Sequence[pulumi.Input['GatewayTargetRestApiMethod']]]:
+        return pulumi.get(self, "methods")
+
+    @methods.setter
+    def methods(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayTargetRestApiMethod']]]):
+        pulumi.set(self, "methods", value)
+
+
+if not MYPY:
+    class GatewayTargetApiGatewayToolOverrideArgsDict(TypedDict):
+        method: pulumi.Input['GatewayTargetRestApiMethod']
+        name: pulumi.Input[_builtins.str]
+        path: pulumi.Input[_builtins.str]
+        description: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    GatewayTargetApiGatewayToolOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetApiGatewayToolOverrideArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input['GatewayTargetRestApiMethod'],
+                 name: pulumi.Input[_builtins.str],
+                 path: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> pulumi.Input['GatewayTargetRestApiMethod']:
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input['GatewayTargetRestApiMethod']):
+        pulumi.set(self, "method", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+if not MYPY:
     class GatewayTargetApiKeyCredentialProviderArgsDict(TypedDict):
         provider_arn: pulumi.Input[_builtins.str]
         credential_location: NotRequired[pulumi.Input['GatewayTargetApiKeyCredentialLocation']]
@@ -1222,6 +1406,28 @@ class GatewayTargetMcpTargetConfiguration3PropertiesArgs:
 
 
 if not MYPY:
+    class GatewayTargetMcpTargetConfiguration4PropertiesArgsDict(TypedDict):
+        api_gateway: pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgsDict']
+elif False:
+    GatewayTargetMcpTargetConfiguration4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetMcpTargetConfiguration4PropertiesArgs:
+    def __init__(__self__, *,
+                 api_gateway: pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgs']):
+        pulumi.set(__self__, "api_gateway", api_gateway)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgs']:
+        return pulumi.get(self, "api_gateway")
+
+    @api_gateway.setter
+    def api_gateway(self, value: pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgs']):
+        pulumi.set(self, "api_gateway", value)
+
+
+if not MYPY:
     class GatewayTargetMetadataConfigurationArgsDict(TypedDict):
         allowed_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         allowed_request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
@@ -1464,23 +1670,23 @@ class GatewayTargetSchemaDefinitionArgs:
 
 if not MYPY:
     class GatewayTargetTargetConfigurationPropertiesArgsDict(TypedDict):
-        mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict']]
+        mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict']]
 elif False:
     GatewayTargetTargetConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayTargetTargetConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs']]):
+                 mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]):
         pulumi.set(__self__, "mcp", mcp)
 
     @_builtins.property
     @pulumi.getter
-    def mcp(self) -> pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs']]:
+    def mcp(self) -> pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]:
         return pulumi.get(self, "mcp")
 
     @mcp.setter
-    def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs']]):
+    def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]):
         pulumi.set(self, "mcp", value)
 
 

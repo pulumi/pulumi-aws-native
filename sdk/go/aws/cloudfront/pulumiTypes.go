@@ -4187,7 +4187,8 @@ type DistributionCustomOriginConfig struct {
 	IpAddressType *DistributionCustomOriginConfigIpAddressType `pulumi:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
-	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
+	OriginKeepaliveTimeout *int                          `pulumi:"originKeepaliveTimeout"`
+	OriginMtlsConfig       *DistributionOriginMtlsConfig `pulumi:"originMtlsConfig"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 	//   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
 	//   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
@@ -4222,7 +4223,8 @@ type DistributionCustomOriginConfigArgs struct {
 	IpAddressType DistributionCustomOriginConfigIpAddressTypePtrInput `pulumi:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
-	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	OriginKeepaliveTimeout pulumi.IntPtrInput                   `pulumi:"originKeepaliveTimeout"`
+	OriginMtlsConfig       DistributionOriginMtlsConfigPtrInput `pulumi:"originMtlsConfig"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 	//   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
 	//   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
@@ -4338,6 +4340,10 @@ func (o DistributionCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.In
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
+func (o DistributionCustomOriginConfigOutput) OriginMtlsConfig() DistributionOriginMtlsConfigPtrOutput {
+	return o.ApplyT(func(v DistributionCustomOriginConfig) *DistributionOriginMtlsConfig { return v.OriginMtlsConfig }).(DistributionOriginMtlsConfigPtrOutput)
+}
+
 // Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 //   - “http-only“ – CloudFront always uses HTTP to connect to the origin.
 //   - “match-viewer“ – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
@@ -4424,6 +4430,15 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi
 		}
 		return v.OriginKeepaliveTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o DistributionCustomOriginConfigPtrOutput) OriginMtlsConfig() DistributionOriginMtlsConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionCustomOriginConfig) *DistributionOriginMtlsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OriginMtlsConfig
+	}).(DistributionOriginMtlsConfigPtrOutput)
 }
 
 // Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
@@ -7421,6 +7436,139 @@ func (o DistributionOriginGroupsPtrOutput) Quantity() pulumi.IntPtrOutput {
 		}
 		return &v.Quantity
 	}).(pulumi.IntPtrOutput)
+}
+
+type DistributionOriginMtlsConfig struct {
+	ClientCertificateArn string `pulumi:"clientCertificateArn"`
+}
+
+// DistributionOriginMtlsConfigInput is an input type that accepts DistributionOriginMtlsConfigArgs and DistributionOriginMtlsConfigOutput values.
+// You can construct a concrete instance of `DistributionOriginMtlsConfigInput` via:
+//
+//	DistributionOriginMtlsConfigArgs{...}
+type DistributionOriginMtlsConfigInput interface {
+	pulumi.Input
+
+	ToDistributionOriginMtlsConfigOutput() DistributionOriginMtlsConfigOutput
+	ToDistributionOriginMtlsConfigOutputWithContext(context.Context) DistributionOriginMtlsConfigOutput
+}
+
+type DistributionOriginMtlsConfigArgs struct {
+	ClientCertificateArn pulumi.StringInput `pulumi:"clientCertificateArn"`
+}
+
+func (DistributionOriginMtlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginMtlsConfig)(nil)).Elem()
+}
+
+func (i DistributionOriginMtlsConfigArgs) ToDistributionOriginMtlsConfigOutput() DistributionOriginMtlsConfigOutput {
+	return i.ToDistributionOriginMtlsConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginMtlsConfigArgs) ToDistributionOriginMtlsConfigOutputWithContext(ctx context.Context) DistributionOriginMtlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginMtlsConfigOutput)
+}
+
+func (i DistributionOriginMtlsConfigArgs) ToDistributionOriginMtlsConfigPtrOutput() DistributionOriginMtlsConfigPtrOutput {
+	return i.ToDistributionOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginMtlsConfigArgs) ToDistributionOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginMtlsConfigOutput).ToDistributionOriginMtlsConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionOriginMtlsConfigPtrInput is an input type that accepts DistributionOriginMtlsConfigArgs, DistributionOriginMtlsConfigPtr and DistributionOriginMtlsConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionOriginMtlsConfigPtrInput` via:
+//
+//	        DistributionOriginMtlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionOriginMtlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOriginMtlsConfigPtrOutput() DistributionOriginMtlsConfigPtrOutput
+	ToDistributionOriginMtlsConfigPtrOutputWithContext(context.Context) DistributionOriginMtlsConfigPtrOutput
+}
+
+type distributionOriginMtlsConfigPtrType DistributionOriginMtlsConfigArgs
+
+func DistributionOriginMtlsConfigPtr(v *DistributionOriginMtlsConfigArgs) DistributionOriginMtlsConfigPtrInput {
+	return (*distributionOriginMtlsConfigPtrType)(v)
+}
+
+func (*distributionOriginMtlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginMtlsConfig)(nil)).Elem()
+}
+
+func (i *distributionOriginMtlsConfigPtrType) ToDistributionOriginMtlsConfigPtrOutput() DistributionOriginMtlsConfigPtrOutput {
+	return i.ToDistributionOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOriginMtlsConfigPtrType) ToDistributionOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginMtlsConfigPtrOutput)
+}
+
+type DistributionOriginMtlsConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginMtlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionOriginMtlsConfigOutput) ToDistributionOriginMtlsConfigOutput() DistributionOriginMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionOriginMtlsConfigOutput) ToDistributionOriginMtlsConfigOutputWithContext(ctx context.Context) DistributionOriginMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionOriginMtlsConfigOutput) ToDistributionOriginMtlsConfigPtrOutput() DistributionOriginMtlsConfigPtrOutput {
+	return o.ToDistributionOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginMtlsConfigOutput) ToDistributionOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginMtlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOriginMtlsConfig) *DistributionOriginMtlsConfig {
+		return &v
+	}).(DistributionOriginMtlsConfigPtrOutput)
+}
+
+func (o DistributionOriginMtlsConfigOutput) ClientCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOriginMtlsConfig) string { return v.ClientCertificateArn }).(pulumi.StringOutput)
+}
+
+type DistributionOriginMtlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginMtlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionOriginMtlsConfigPtrOutput) ToDistributionOriginMtlsConfigPtrOutput() DistributionOriginMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionOriginMtlsConfigPtrOutput) ToDistributionOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionOriginMtlsConfigPtrOutput) Elem() DistributionOriginMtlsConfigOutput {
+	return o.ApplyT(func(v *DistributionOriginMtlsConfig) DistributionOriginMtlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOriginMtlsConfig
+		return ret
+	}).(DistributionOriginMtlsConfigOutput)
+}
+
+func (o DistributionOriginMtlsConfigPtrOutput) ClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginMtlsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientCertificateArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // CloudFront Origin Shield.
@@ -10918,6 +11066,11 @@ func (o KeyValueStoreImportSourcePtrOutput) SourceType() pulumi.StringPtrOutput 
 		}
 		return &v.SourceType
 	}).(pulumi.StringPtrOutput)
+}
+
+type KeyValueStoreTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
@@ -16045,6 +16198,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupMembersInput)(nil)).Elem(), DistributionOriginGroupMembersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupsInput)(nil)).Elem(), DistributionOriginGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupsPtrInput)(nil)).Elem(), DistributionOriginGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginMtlsConfigInput)(nil)).Elem(), DistributionOriginMtlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginMtlsConfigPtrInput)(nil)).Elem(), DistributionOriginMtlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginShieldInput)(nil)).Elem(), DistributionOriginShieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginShieldPtrInput)(nil)).Elem(), DistributionOriginShieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionParameterDefinitionInput)(nil)).Elem(), DistributionParameterDefinitionArgs{})
@@ -16211,6 +16366,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOriginGroupMembersOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupsOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupsPtrOutput{})
+	pulumi.RegisterOutputType(DistributionOriginMtlsConfigOutput{})
+	pulumi.RegisterOutputType(DistributionOriginMtlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOriginShieldOutput{})
 	pulumi.RegisterOutputType(DistributionOriginShieldPtrOutput{})
 	pulumi.RegisterOutputType(DistributionParameterDefinitionOutput{})

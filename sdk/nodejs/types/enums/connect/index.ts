@@ -82,6 +82,15 @@ export const DataTableValueLockLevel = {
  */
 export type DataTableValueLockLevel = (typeof DataTableValueLockLevel)[keyof typeof DataTableValueLockLevel];
 
+export const EvaluationFormEvaluationReviewNotificationRecipientType = {
+    UserId: "USER_ID",
+} as const;
+
+/**
+ * The type of notification recipient.
+ */
+export type EvaluationFormEvaluationReviewNotificationRecipientType = (typeof EvaluationFormEvaluationReviewNotificationRecipientType)[keyof typeof EvaluationFormEvaluationReviewNotificationRecipientType];
+
 export const EvaluationFormItemEnablementConditionOperator = {
     Or: "OR",
     And: "AND",

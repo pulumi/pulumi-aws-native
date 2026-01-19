@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class GatewayTargetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("credentialProviderConfigurations", required: true)]
+        [Input("credentialProviderConfigurations")]
         private InputList<Inputs.GatewayTargetCredentialProviderConfigurationArgs>? _credentialProviderConfigurations;
 
         /// <summary>

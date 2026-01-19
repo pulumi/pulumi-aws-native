@@ -44,7 +44,7 @@ export class GatewayTarget extends pulumi.CustomResource {
     /**
      * The OAuth credential provider configuration.
      */
-    declare public readonly credentialProviderConfigurations: pulumi.Output<outputs.bedrockagentcore.GatewayTargetCredentialProviderConfiguration[]>;
+    declare public readonly credentialProviderConfigurations: pulumi.Output<outputs.bedrockagentcore.GatewayTargetCredentialProviderConfiguration[] | undefined>;
     /**
      * The description for the gateway target.
      */
@@ -92,9 +92,6 @@ export class GatewayTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.credentialProviderConfigurations === undefined && !opts.urn) {
-                throw new Error("Missing required property 'credentialProviderConfigurations'");
-            }
             if (args?.targetConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetConfiguration'");
             }
@@ -140,7 +137,7 @@ export interface GatewayTargetArgs {
     /**
      * The OAuth credential provider configuration.
      */
-    credentialProviderConfigurations: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetCredentialProviderConfigurationArgs>[]>;
+    credentialProviderConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetCredentialProviderConfigurationArgs>[]>;
     /**
      * The description for the gateway target.
      */

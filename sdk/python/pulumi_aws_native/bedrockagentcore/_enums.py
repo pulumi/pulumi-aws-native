@@ -22,6 +22,7 @@ __all__ = [
     'GatewayTargetApiKeyCredentialLocation',
     'GatewayTargetCredentialProviderType',
     'GatewayTargetOAuthGrantType',
+    'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
     'GatewayTargetTargetStatus',
     'MemoryCustomMemoryStrategyStatus',
@@ -162,6 +163,17 @@ class GatewayTargetCredentialProviderType(_builtins.str, Enum):
 class GatewayTargetOAuthGrantType(_builtins.str, Enum):
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetRestApiMethod")
+class GatewayTargetRestApiMethod(_builtins.str, Enum):
+    GET = "GET"
+    DELETE = "DELETE"
+    HEAD = "HEAD"
+    OPTIONS = "OPTIONS"
+    PATCH = "PATCH"
+    PUT = "PUT"
+    POST = "POST"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetSchemaType")

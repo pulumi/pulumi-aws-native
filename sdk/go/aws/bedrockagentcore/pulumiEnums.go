@@ -2325,6 +2325,226 @@ func (in *gatewayTargetOAuthGrantTypePtr) ToGatewayTargetOAuthGrantTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetOAuthGrantTypePtrOutput)
 }
 
+type GatewayTargetRestApiMethod string
+
+const (
+	GatewayTargetRestApiMethodGet     = GatewayTargetRestApiMethod("GET")
+	GatewayTargetRestApiMethodDelete  = GatewayTargetRestApiMethod("DELETE")
+	GatewayTargetRestApiMethodHead    = GatewayTargetRestApiMethod("HEAD")
+	GatewayTargetRestApiMethodOptions = GatewayTargetRestApiMethod("OPTIONS")
+	GatewayTargetRestApiMethodPatch   = GatewayTargetRestApiMethod("PATCH")
+	GatewayTargetRestApiMethodPut     = GatewayTargetRestApiMethod("PUT")
+	GatewayTargetRestApiMethodPost    = GatewayTargetRestApiMethod("POST")
+)
+
+func (GatewayTargetRestApiMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetRestApiMethod)(nil)).Elem()
+}
+
+func (e GatewayTargetRestApiMethod) ToGatewayTargetRestApiMethodOutput() GatewayTargetRestApiMethodOutput {
+	return pulumi.ToOutput(e).(GatewayTargetRestApiMethodOutput)
+}
+
+func (e GatewayTargetRestApiMethod) ToGatewayTargetRestApiMethodOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayTargetRestApiMethodOutput)
+}
+
+func (e GatewayTargetRestApiMethod) ToGatewayTargetRestApiMethodPtrOutput() GatewayTargetRestApiMethodPtrOutput {
+	return e.ToGatewayTargetRestApiMethodPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayTargetRestApiMethod) ToGatewayTargetRestApiMethodPtrOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodPtrOutput {
+	return GatewayTargetRestApiMethod(e).ToGatewayTargetRestApiMethodOutputWithContext(ctx).ToGatewayTargetRestApiMethodPtrOutputWithContext(ctx)
+}
+
+func (e GatewayTargetRestApiMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayTargetRestApiMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayTargetRestApiMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayTargetRestApiMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayTargetRestApiMethodOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetRestApiMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetRestApiMethod)(nil)).Elem()
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToGatewayTargetRestApiMethodOutput() GatewayTargetRestApiMethodOutput {
+	return o
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToGatewayTargetRestApiMethodOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodOutput {
+	return o
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToGatewayTargetRestApiMethodPtrOutput() GatewayTargetRestApiMethodPtrOutput {
+	return o.ToGatewayTargetRestApiMethodPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToGatewayTargetRestApiMethodPtrOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetRestApiMethod) *GatewayTargetRestApiMethod {
+		return &v
+	}).(GatewayTargetRestApiMethodPtrOutput)
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetRestApiMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetRestApiMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetRestApiMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetRestApiMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetRestApiMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetRestApiMethod)(nil)).Elem()
+}
+
+func (o GatewayTargetRestApiMethodPtrOutput) ToGatewayTargetRestApiMethodPtrOutput() GatewayTargetRestApiMethodPtrOutput {
+	return o
+}
+
+func (o GatewayTargetRestApiMethodPtrOutput) ToGatewayTargetRestApiMethodPtrOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodPtrOutput {
+	return o
+}
+
+func (o GatewayTargetRestApiMethodPtrOutput) Elem() GatewayTargetRestApiMethodOutput {
+	return o.ApplyT(func(v *GatewayTargetRestApiMethod) GatewayTargetRestApiMethod {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetRestApiMethod
+		return ret
+	}).(GatewayTargetRestApiMethodOutput)
+}
+
+func (o GatewayTargetRestApiMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetRestApiMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayTargetRestApiMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayTargetRestApiMethodInput is an input type that accepts values of the GatewayTargetRestApiMethod enum
+// A concrete instance of `GatewayTargetRestApiMethodInput` can be one of the following:
+//
+//	GatewayTargetRestApiMethodGet
+//	GatewayTargetRestApiMethodDelete
+//	GatewayTargetRestApiMethodHead
+//	GatewayTargetRestApiMethodOptions
+//	GatewayTargetRestApiMethodPatch
+//	GatewayTargetRestApiMethodPut
+//	GatewayTargetRestApiMethodPost
+type GatewayTargetRestApiMethodInput interface {
+	pulumi.Input
+
+	ToGatewayTargetRestApiMethodOutput() GatewayTargetRestApiMethodOutput
+	ToGatewayTargetRestApiMethodOutputWithContext(context.Context) GatewayTargetRestApiMethodOutput
+}
+
+var gatewayTargetRestApiMethodPtrType = reflect.TypeOf((**GatewayTargetRestApiMethod)(nil)).Elem()
+
+type GatewayTargetRestApiMethodPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetRestApiMethodPtrOutput() GatewayTargetRestApiMethodPtrOutput
+	ToGatewayTargetRestApiMethodPtrOutputWithContext(context.Context) GatewayTargetRestApiMethodPtrOutput
+}
+
+type gatewayTargetRestApiMethodPtr string
+
+func GatewayTargetRestApiMethodPtr(v string) GatewayTargetRestApiMethodPtrInput {
+	return (*gatewayTargetRestApiMethodPtr)(&v)
+}
+
+func (*gatewayTargetRestApiMethodPtr) ElementType() reflect.Type {
+	return gatewayTargetRestApiMethodPtrType
+}
+
+func (in *gatewayTargetRestApiMethodPtr) ToGatewayTargetRestApiMethodPtrOutput() GatewayTargetRestApiMethodPtrOutput {
+	return pulumi.ToOutput(in).(GatewayTargetRestApiMethodPtrOutput)
+}
+
+func (in *gatewayTargetRestApiMethodPtr) ToGatewayTargetRestApiMethodPtrOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetRestApiMethodPtrOutput)
+}
+
+// GatewayTargetRestApiMethodArrayInput is an input type that accepts GatewayTargetRestApiMethodArray and GatewayTargetRestApiMethodArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetRestApiMethodArrayInput` via:
+//
+//	GatewayTargetRestApiMethodArray{ GatewayTargetRestApiMethodArgs{...} }
+type GatewayTargetRestApiMethodArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetRestApiMethodArrayOutput() GatewayTargetRestApiMethodArrayOutput
+	ToGatewayTargetRestApiMethodArrayOutputWithContext(context.Context) GatewayTargetRestApiMethodArrayOutput
+}
+
+type GatewayTargetRestApiMethodArray []GatewayTargetRestApiMethod
+
+func (GatewayTargetRestApiMethodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetRestApiMethod)(nil)).Elem()
+}
+
+func (i GatewayTargetRestApiMethodArray) ToGatewayTargetRestApiMethodArrayOutput() GatewayTargetRestApiMethodArrayOutput {
+	return i.ToGatewayTargetRestApiMethodArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetRestApiMethodArray) ToGatewayTargetRestApiMethodArrayOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetRestApiMethodArrayOutput)
+}
+
+type GatewayTargetRestApiMethodArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetRestApiMethodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetRestApiMethod)(nil)).Elem()
+}
+
+func (o GatewayTargetRestApiMethodArrayOutput) ToGatewayTargetRestApiMethodArrayOutput() GatewayTargetRestApiMethodArrayOutput {
+	return o
+}
+
+func (o GatewayTargetRestApiMethodArrayOutput) ToGatewayTargetRestApiMethodArrayOutputWithContext(ctx context.Context) GatewayTargetRestApiMethodArrayOutput {
+	return o
+}
+
+func (o GatewayTargetRestApiMethodArrayOutput) Index(i pulumi.IntInput) GatewayTargetRestApiMethodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetRestApiMethod {
+		return vs[0].([]GatewayTargetRestApiMethod)[vs[1].(int)]
+	}).(GatewayTargetRestApiMethodOutput)
+}
+
 type GatewayTargetSchemaType string
 
 const (
@@ -5114,6 +5334,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderTypePtrInput)(nil)).Elem(), GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypeInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypePtrInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodInput)(nil)).Elem(), GatewayTargetRestApiMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodPtrInput)(nil)).Elem(), GatewayTargetRestApiMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodArrayInput)(nil)).Elem(), GatewayTargetRestApiMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypeInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
@@ -5173,6 +5396,9 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetRestApiMethodOutput{})
+	pulumi.RegisterOutputType(GatewayTargetRestApiMethodPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetRestApiMethodArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusOutput{})

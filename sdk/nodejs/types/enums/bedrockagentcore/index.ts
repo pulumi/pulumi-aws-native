@@ -138,6 +138,18 @@ export const GatewayTargetOAuthGrantType = {
 
 export type GatewayTargetOAuthGrantType = (typeof GatewayTargetOAuthGrantType)[keyof typeof GatewayTargetOAuthGrantType];
 
+export const GatewayTargetRestApiMethod = {
+    Get: "GET",
+    Delete: "DELETE",
+    Head: "HEAD",
+    Options: "OPTIONS",
+    Patch: "PATCH",
+    Put: "PUT",
+    Post: "POST",
+} as const;
+
+export type GatewayTargetRestApiMethod = (typeof GatewayTargetRestApiMethod)[keyof typeof GatewayTargetRestApiMethod];
+
 export const GatewayTargetSchemaType = {
     String: "string",
     Number: "number",

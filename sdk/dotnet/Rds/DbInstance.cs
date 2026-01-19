@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbInstance")]
     public partial class DbInstance : global::Pulumi.CustomResource
     {
+        [Output("additionalStorageVolumes")]
+        public Output<ImmutableArray<Outputs.DbInstanceAdditionalStorageVolume>> AdditionalStorageVolumes { get; private set; } = null!;
+
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
         ///   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
@@ -1130,6 +1133,14 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class DbInstanceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalStorageVolumes")]
+        private InputList<Inputs.DbInstanceAdditionalStorageVolumeArgs>? _additionalStorageVolumes;
+        public InputList<Inputs.DbInstanceAdditionalStorageVolumeArgs> AdditionalStorageVolumes
+        {
+            get => _additionalStorageVolumes ?? (_additionalStorageVolumes = new InputList<Inputs.DbInstanceAdditionalStorageVolumeArgs>());
+            set => _additionalStorageVolumes = value;
+        }
+
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
         ///   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 

@@ -979,6 +979,148 @@ type DbClusterTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type DbInstanceAdditionalStorageVolume struct {
+	// The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
+	AllocatedStorage *string `pulumi:"allocatedStorage"`
+	// The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
+	Iops *int `pulumi:"iops"`
+	// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
+	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
+	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+	StorageThroughput *int `pulumi:"storageThroughput"`
+	// The storage type for the additional storage volume.
+	StorageType *string `pulumi:"storageType"`
+	// The name of the additional storage volume.
+	VolumeName *string `pulumi:"volumeName"`
+}
+
+// DbInstanceAdditionalStorageVolumeInput is an input type that accepts DbInstanceAdditionalStorageVolumeArgs and DbInstanceAdditionalStorageVolumeOutput values.
+// You can construct a concrete instance of `DbInstanceAdditionalStorageVolumeInput` via:
+//
+//	DbInstanceAdditionalStorageVolumeArgs{...}
+type DbInstanceAdditionalStorageVolumeInput interface {
+	pulumi.Input
+
+	ToDbInstanceAdditionalStorageVolumeOutput() DbInstanceAdditionalStorageVolumeOutput
+	ToDbInstanceAdditionalStorageVolumeOutputWithContext(context.Context) DbInstanceAdditionalStorageVolumeOutput
+}
+
+type DbInstanceAdditionalStorageVolumeArgs struct {
+	// The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
+	AllocatedStorage pulumi.StringPtrInput `pulumi:"allocatedStorage"`
+	// The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
+	MaxAllocatedStorage pulumi.IntPtrInput `pulumi:"maxAllocatedStorage"`
+	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+	StorageThroughput pulumi.IntPtrInput `pulumi:"storageThroughput"`
+	// The storage type for the additional storage volume.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+	// The name of the additional storage volume.
+	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
+}
+
+func (DbInstanceAdditionalStorageVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceAdditionalStorageVolume)(nil)).Elem()
+}
+
+func (i DbInstanceAdditionalStorageVolumeArgs) ToDbInstanceAdditionalStorageVolumeOutput() DbInstanceAdditionalStorageVolumeOutput {
+	return i.ToDbInstanceAdditionalStorageVolumeOutputWithContext(context.Background())
+}
+
+func (i DbInstanceAdditionalStorageVolumeArgs) ToDbInstanceAdditionalStorageVolumeOutputWithContext(ctx context.Context) DbInstanceAdditionalStorageVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceAdditionalStorageVolumeOutput)
+}
+
+// DbInstanceAdditionalStorageVolumeArrayInput is an input type that accepts DbInstanceAdditionalStorageVolumeArray and DbInstanceAdditionalStorageVolumeArrayOutput values.
+// You can construct a concrete instance of `DbInstanceAdditionalStorageVolumeArrayInput` via:
+//
+//	DbInstanceAdditionalStorageVolumeArray{ DbInstanceAdditionalStorageVolumeArgs{...} }
+type DbInstanceAdditionalStorageVolumeArrayInput interface {
+	pulumi.Input
+
+	ToDbInstanceAdditionalStorageVolumeArrayOutput() DbInstanceAdditionalStorageVolumeArrayOutput
+	ToDbInstanceAdditionalStorageVolumeArrayOutputWithContext(context.Context) DbInstanceAdditionalStorageVolumeArrayOutput
+}
+
+type DbInstanceAdditionalStorageVolumeArray []DbInstanceAdditionalStorageVolumeInput
+
+func (DbInstanceAdditionalStorageVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceAdditionalStorageVolume)(nil)).Elem()
+}
+
+func (i DbInstanceAdditionalStorageVolumeArray) ToDbInstanceAdditionalStorageVolumeArrayOutput() DbInstanceAdditionalStorageVolumeArrayOutput {
+	return i.ToDbInstanceAdditionalStorageVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i DbInstanceAdditionalStorageVolumeArray) ToDbInstanceAdditionalStorageVolumeArrayOutputWithContext(ctx context.Context) DbInstanceAdditionalStorageVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceAdditionalStorageVolumeArrayOutput)
+}
+
+type DbInstanceAdditionalStorageVolumeOutput struct{ *pulumi.OutputState }
+
+func (DbInstanceAdditionalStorageVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbInstanceAdditionalStorageVolume)(nil)).Elem()
+}
+
+func (o DbInstanceAdditionalStorageVolumeOutput) ToDbInstanceAdditionalStorageVolumeOutput() DbInstanceAdditionalStorageVolumeOutput {
+	return o
+}
+
+func (o DbInstanceAdditionalStorageVolumeOutput) ToDbInstanceAdditionalStorageVolumeOutputWithContext(ctx context.Context) DbInstanceAdditionalStorageVolumeOutput {
+	return o
+}
+
+// The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
+func (o DbInstanceAdditionalStorageVolumeOutput) AllocatedStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *string { return v.AllocatedStorage }).(pulumi.StringPtrOutput)
+}
+
+// The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
+func (o DbInstanceAdditionalStorageVolumeOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
+func (o DbInstanceAdditionalStorageVolumeOutput) MaxAllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.MaxAllocatedStorage }).(pulumi.IntPtrOutput)
+}
+
+// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+func (o DbInstanceAdditionalStorageVolumeOutput) StorageThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.StorageThroughput }).(pulumi.IntPtrOutput)
+}
+
+// The storage type for the additional storage volume.
+func (o DbInstanceAdditionalStorageVolumeOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the additional storage volume.
+func (o DbInstanceAdditionalStorageVolumeOutput) VolumeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
+}
+
+type DbInstanceAdditionalStorageVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (DbInstanceAdditionalStorageVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DbInstanceAdditionalStorageVolume)(nil)).Elem()
+}
+
+func (o DbInstanceAdditionalStorageVolumeArrayOutput) ToDbInstanceAdditionalStorageVolumeArrayOutput() DbInstanceAdditionalStorageVolumeArrayOutput {
+	return o
+}
+
+func (o DbInstanceAdditionalStorageVolumeArrayOutput) ToDbInstanceAdditionalStorageVolumeArrayOutputWithContext(ctx context.Context) DbInstanceAdditionalStorageVolumeArrayOutput {
+	return o
+}
+
+func (o DbInstanceAdditionalStorageVolumeArrayOutput) Index(i pulumi.IntInput) DbInstanceAdditionalStorageVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DbInstanceAdditionalStorageVolume {
+		return vs[0].([]DbInstanceAdditionalStorageVolume)[vs[1].(int)]
+	}).(DbInstanceAdditionalStorageVolumeOutput)
+}
+
 // The details of the DB instance’s server certificate.
 //
 //	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -2383,6 +2525,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterScalingConfigurationPtrInput)(nil)).Elem(), DbClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceAdditionalStorageVolumeInput)(nil)).Elem(), DbInstanceAdditionalStorageVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceAdditionalStorageVolumeArrayInput)(nil)).Elem(), DbInstanceAdditionalStorageVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleInput)(nil)).Elem(), DbInstanceDbInstanceRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleArrayInput)(nil)).Elem(), DbInstanceDbInstanceRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
@@ -2409,6 +2553,8 @@ func init() {
 	pulumi.RegisterOutputType(DbClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DbClusterServerlessV2ScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(DbClusterServerlessV2ScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DbInstanceAdditionalStorageVolumeOutput{})
+	pulumi.RegisterOutputType(DbInstanceAdditionalStorageVolumeArrayOutput{})
 	pulumi.RegisterOutputType(DbInstanceCertificateDetailsOutput{})
 	pulumi.RegisterOutputType(DbInstanceCertificateDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DbInstanceDbInstanceRoleOutput{})

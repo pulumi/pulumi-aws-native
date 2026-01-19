@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEvaluationFormResult:
-    def __init__(__self__, auto_evaluation_configuration=None, description=None, evaluation_form_arn=None, instance_arn=None, items=None, language_configuration=None, scoring_strategy=None, status=None, tags=None, target_configuration=None, title=None):
+    def __init__(__self__, auto_evaluation_configuration=None, description=None, evaluation_form_arn=None, instance_arn=None, items=None, language_configuration=None, review_configuration=None, scoring_strategy=None, status=None, tags=None, target_configuration=None, title=None):
         if auto_evaluation_configuration and not isinstance(auto_evaluation_configuration, dict):
             raise TypeError("Expected argument 'auto_evaluation_configuration' to be a dict")
         pulumi.set(__self__, "auto_evaluation_configuration", auto_evaluation_configuration)
@@ -45,6 +45,9 @@ class GetEvaluationFormResult:
         if language_configuration and not isinstance(language_configuration, dict):
             raise TypeError("Expected argument 'language_configuration' to be a dict")
         pulumi.set(__self__, "language_configuration", language_configuration)
+        if review_configuration and not isinstance(review_configuration, dict):
+            raise TypeError("Expected argument 'review_configuration' to be a dict")
+        pulumi.set(__self__, "review_configuration", review_configuration)
         if scoring_strategy and not isinstance(scoring_strategy, dict):
             raise TypeError("Expected argument 'scoring_strategy' to be a dict")
         pulumi.set(__self__, "scoring_strategy", scoring_strategy)
@@ -113,6 +116,11 @@ class GetEvaluationFormResult:
         return pulumi.get(self, "language_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="reviewConfiguration")
+    def review_configuration(self) -> Optional['outputs.EvaluationFormEvaluationReviewConfiguration']:
+        return pulumi.get(self, "review_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="scoringStrategy")
     def scoring_strategy(self) -> Optional['outputs.EvaluationFormScoringStrategy']:
         """
@@ -166,6 +174,7 @@ class AwaitableGetEvaluationFormResult(GetEvaluationFormResult):
             instance_arn=self.instance_arn,
             items=self.items,
             language_configuration=self.language_configuration,
+            review_configuration=self.review_configuration,
             scoring_strategy=self.scoring_strategy,
             status=self.status,
             tags=self.tags,
@@ -193,6 +202,7 @@ def get_evaluation_form(evaluation_form_arn: Optional[_builtins.str] = None,
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         items=pulumi.get(__ret__, 'items'),
         language_configuration=pulumi.get(__ret__, 'language_configuration'),
+        review_configuration=pulumi.get(__ret__, 'review_configuration'),
         scoring_strategy=pulumi.get(__ret__, 'scoring_strategy'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -217,6 +227,7 @@ def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[_built
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         items=pulumi.get(__response__, 'items'),
         language_configuration=pulumi.get(__response__, 'language_configuration'),
+        review_configuration=pulumi.get(__response__, 'review_configuration'),
         scoring_strategy=pulumi.get(__response__, 'scoring_strategy'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

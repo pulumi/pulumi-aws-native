@@ -130,7 +130,7 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "workspaces:CreateTags", "workspaces:DescribeTags", "workspaces:DeleteTags" ]

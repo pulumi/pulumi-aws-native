@@ -101,7 +101,7 @@ class TrustAnchorNotificationSetting(dict):
         """
         :param _builtins.bool enabled: Indicates whether the notification setting is enabled.
         :param 'TrustAnchorNotificationEvent' event: The event to which this notification setting is applied.
-        :param 'TrustAnchorNotificationChannel' channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+        :param 'TrustAnchorNotificationChannel' channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
                
                > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         :param _builtins.float threshold: The number of days before a notification event. This value is required for a notification setting that is enabled.
@@ -133,7 +133,7 @@ class TrustAnchorNotificationSetting(dict):
     @pulumi.getter
     def channel(self) -> Optional['TrustAnchorNotificationChannel']:
         """
-        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
         > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
         """

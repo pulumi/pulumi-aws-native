@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("languageConfiguration")]
         public Output<Outputs.EvaluationFormLanguageConfiguration?> LanguageConfiguration { get; private set; } = null!;
 
+        [Output("reviewConfiguration")]
+        public Output<Outputs.EvaluationFormEvaluationReviewConfiguration?> ReviewConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// A scoring strategy of the evaluation form.
         /// </summary>
@@ -168,6 +171,9 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("languageConfiguration")]
         public Input<Inputs.EvaluationFormLanguageConfigurationArgs>? LanguageConfiguration { get; set; }
+
+        [Input("reviewConfiguration")]
+        public Input<Inputs.EvaluationFormEvaluationReviewConfigurationArgs>? ReviewConfiguration { get; set; }
 
         /// <summary>
         /// A scoring strategy of the evaluation form.

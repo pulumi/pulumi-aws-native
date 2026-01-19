@@ -322,6 +322,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             suggest = "network_configuration"
         elif key == "capacityOptionType":
             suggest = "capacity_option_type"
+        elif key == "fipsEnabled":
+            suggest = "fips_enabled"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "storageConfiguration":
@@ -342,6 +344,7 @@ class CapacityProviderInstanceLaunchTemplate(dict):
                  ec2_instance_profile_arn: _builtins.str,
                  network_configuration: 'outputs.CapacityProviderManagedInstancesNetworkConfiguration',
                  capacity_option_type: Optional['CapacityProviderInstanceLaunchTemplateCapacityOptionType'] = None,
+                 fips_enabled: Optional[_builtins.bool] = None,
                  instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
                  monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
                  storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
@@ -373,6 +376,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
         pulumi.set(__self__, "network_configuration", network_configuration)
         if capacity_option_type is not None:
             pulumi.set(__self__, "capacity_option_type", capacity_option_type)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if monitoring is not None:
@@ -414,6 +419,11 @@ class CapacityProviderInstanceLaunchTemplate(dict):
         For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "capacity_option_type")
+
+    @_builtins.property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "fips_enabled")
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")

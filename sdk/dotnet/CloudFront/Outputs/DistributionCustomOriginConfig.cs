@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly int? OriginKeepaliveTimeout;
+        public readonly Outputs.DistributionOriginMtlsConfig? OriginMtlsConfig;
         /// <summary>
         /// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
         ///   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
@@ -61,6 +62,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             int? originKeepaliveTimeout,
 
+            Outputs.DistributionOriginMtlsConfig? originMtlsConfig,
+
             string originProtocolPolicy,
 
             int? originReadTimeout,
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             HttpsPort = httpsPort;
             IpAddressType = ipAddressType;
             OriginKeepaliveTimeout = originKeepaliveTimeout;
+            OriginMtlsConfig = originMtlsConfig;
             OriginProtocolPolicy = originProtocolPolicy;
             OriginReadTimeout = originReadTimeout;
             OriginSslProtocols = originSslProtocols;
