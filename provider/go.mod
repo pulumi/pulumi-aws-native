@@ -33,7 +33,7 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.217.0
 	github.com/pulumi/pulumi/sdk/v3 v3.217.0
 	github.com/stretchr/testify v1.10.0
-	github.com/wI2L/jsondiff v0.5.1
+	github.com/wI2L/jsondiff v0.7.0
 	github.com/zclconf/go-cty v1.13.2
 	go.uber.org/mock v0.4.0
 	google.golang.org/grpc v1.72.1
@@ -135,7 +135,7 @@ require (
 	github.com/spf13/cobra v1.10.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
-	github.com/tidwall/gjson v1.17.0 // indirect
+	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
