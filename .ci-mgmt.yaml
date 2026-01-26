@@ -1,4 +1,4 @@
-template: aws-native
+template: native
 provider: aws-native
 major-version: 0
 aws: true

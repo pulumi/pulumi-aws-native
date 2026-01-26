@@ -28,21 +28,20 @@ jobs:
       with:
         lfs: true
     - id: version
+
       name: Set Provider Version
       uses: pulumi/provider-version-action@3a647064cf4697c7c6352b9a1d9e554450cbe957 # v1.6.1
       with:
         set-env: PROVIDER_VERSION
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@6096f2a2bbfee498ced520b6922ac2c06e990ed2 # v2.1.0
+
+    - name: Setup Tools
+      uses: ./.github/actions/setup-tools
       with:
-        repo: pulumi/pulumictl
-    - name: Install Go
-      uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6.1.0
-      with:
-        go-version: 1.21.x
-        cache-dependency-path: "**/*.sum"
+        cache: 'true'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@5742e2a039330cbb23ebf35f046f814d4c6ff811 # v5.1.0
       env:
@@ -50,8 +49,10 @@ jobs:
       with:
         args: -p 1 -f .goreleaser.cf2pulumi.yml release --clean --timeout 60m0s
         version: latest
+
     - name: Chocolatey Package Deployment
       env:
         CURRENT_TAG: ${{ env.PROVIDER_VERSION }}
       run: pulumictl create choco-deploy -a cf2pulumi "${CURRENT_TAG}"
+
     name: release
