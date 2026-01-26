@@ -57,6 +57,9 @@ export class DbInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbInstance.__pulumiType;
     }
 
+    /**
+     * The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+     */
     declare public readonly additionalStorageVolumes: pulumi.Output<outputs.rds.DbInstanceAdditionalStorageVolume[] | undefined>;
     /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
@@ -1118,6 +1121,9 @@ export class DbInstance extends pulumi.CustomResource {
  * The set of arguments for constructing a DbInstance resource.
  */
 export interface DbInstanceArgs {
+    /**
+     * The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+     */
     additionalStorageVolumes?: pulumi.Input<pulumi.Input<inputs.rds.DbInstanceAdditionalStorageVolumeArgs>[]>;
     /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.

@@ -334,6 +334,17 @@ export const RuntimeAgentStatus = {
 
 export type RuntimeAgentStatus = (typeof RuntimeAgentStatus)[keyof typeof RuntimeAgentStatus];
 
+export const RuntimeClaimMatchOperator = {
+    Equals: "EQUALS",
+    Contains: "CONTAINS",
+    ContainsAny: "CONTAINS_ANY",
+} as const;
+
+/**
+ * The relationship between the claim field value and the value or values being matched
+ */
+export type RuntimeClaimMatchOperator = (typeof RuntimeClaimMatchOperator)[keyof typeof RuntimeClaimMatchOperator];
+
 export const RuntimeEndpointAgentRuntimeEndpointStatus = {
     Creating: "CREATING",
     CreateFailed: "CREATE_FAILED",
@@ -344,6 +355,16 @@ export const RuntimeEndpointAgentRuntimeEndpointStatus = {
 } as const;
 
 export type RuntimeEndpointAgentRuntimeEndpointStatus = (typeof RuntimeEndpointAgentRuntimeEndpointStatus)[keyof typeof RuntimeEndpointAgentRuntimeEndpointStatus];
+
+export const RuntimeInboundTokenClaimValueType = {
+    String: "STRING",
+    StringArray: "STRING_ARRAY",
+} as const;
+
+/**
+ * Token claim data type
+ */
+export type RuntimeInboundTokenClaimValueType = (typeof RuntimeInboundTokenClaimValueType)[keyof typeof RuntimeInboundTokenClaimValueType];
 
 export const RuntimeNetworkMode = {
     Public: "PUBLIC",

@@ -109,6 +109,7 @@ class DbInstanceArgs:
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbInstance resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
                  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
                   *Amazon Aurora* 
@@ -820,6 +821,9 @@ class DbInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="additionalStorageVolumes")
     def additional_storage_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]]:
+        """
+        The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
         return pulumi.get(self, "additional_storage_volumes")
 
     @additional_storage_volumes.setter
@@ -2380,6 +2384,7 @@ class DbInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
                  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
                   *Amazon Aurora* 
@@ -3284,6 +3289,9 @@ class DbInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalStorageVolumes")
     def additional_storage_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceAdditionalStorageVolume']]]:
+        """
+        The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
         return pulumi.get(self, "additional_storage_volumes")
 
     @_builtins.property

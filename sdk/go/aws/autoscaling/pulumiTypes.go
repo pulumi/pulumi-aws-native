@@ -5206,7 +5206,7 @@ func (o AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) Index(i pu
 // Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
 type AutoScalingGroupRetentionTriggers struct {
 	// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
-	//   Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior.
+	//   Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior.
 	//   Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
 	TerminateHookAbandon *string `pulumi:"terminateHookAbandon"`
 }
@@ -5225,7 +5225,7 @@ type AutoScalingGroupRetentionTriggersInput interface {
 // Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
 type AutoScalingGroupRetentionTriggersArgs struct {
 	// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
-	//   Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior.
+	//   Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior.
 	//   Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
 	TerminateHookAbandon pulumi.StringPtrInput `pulumi:"terminateHookAbandon"`
 }
@@ -5310,7 +5310,7 @@ func (o AutoScalingGroupRetentionTriggersOutput) ToAutoScalingGroupRetentionTrig
 
 // Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
 //
-//	Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior.
+//	Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior.
 //	Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
 func (o AutoScalingGroupRetentionTriggersOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupRetentionTriggers) *string { return v.TerminateHookAbandon }).(pulumi.StringPtrOutput)
@@ -5342,7 +5342,7 @@ func (o AutoScalingGroupRetentionTriggersPtrOutput) Elem() AutoScalingGroupReten
 
 // Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
 //
-//	Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior.
+//	Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior.
 //	Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
 func (o AutoScalingGroupRetentionTriggersPtrOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupRetentionTriggers) *string {

@@ -28,6 +28,10 @@ __all__ = [
     'BackupPlanLifecycleResourceTypeArgsDict',
     'BackupPlanResourceTypeArgs',
     'BackupPlanResourceTypeArgsDict',
+    'BackupPlanScanActionResourceTypeArgs',
+    'BackupPlanScanActionResourceTypeArgsDict',
+    'BackupPlanScanSettingResourceTypeArgs',
+    'BackupPlanScanSettingResourceTypeArgsDict',
     'BackupSelectionConditionParameterArgs',
     'BackupSelectionConditionParameterArgsDict',
     'BackupSelectionConditionResourceTypeArgs',
@@ -60,6 +64,8 @@ __all__ = [
     'RestoreTestingSelectionKeyValueArgsDict',
     'RestoreTestingSelectionProtectedResourceConditionsArgs',
     'RestoreTestingSelectionProtectedResourceConditionsArgsDict',
+    'TieringConfigurationResourceSelectionArgs',
+    'TieringConfigurationResourceSelectionArgsDict',
 ]
 
 MYPY = False
@@ -183,6 +189,7 @@ if not MYPY:
         """
         The tags to assign to the resources.
         """
+        scan_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanActionResourceTypeArgsDict']]]]
         schedule_expression: NotRequired[pulumi.Input[_builtins.str]]
         """
         A CRON expression specifying when AWS Backup initiates a backup job.
@@ -215,6 +222,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
                  index_actions: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanIndexActionsResourceTypeArgs']]]] = None,
                  lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None,
                  recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 scan_actions: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanActionResourceTypeArgs']]]] = None,
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  start_window_minutes: Optional[pulumi.Input[_builtins.float]] = None,
@@ -254,6 +262,8 @@ class BackupPlanBackupRuleResourceTypeArgs:
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+        if scan_actions is not None:
+            pulumi.set(__self__, "scan_actions", scan_actions)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if schedule_expression_timezone is not None:
@@ -363,6 +373,15 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @recovery_point_tags.setter
     def recovery_point_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recovery_point_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scanActions")
+    def scan_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanActionResourceTypeArgs']]]]:
+        return pulumi.get(self, "scan_actions")
+
+    @scan_actions.setter
+    def scan_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanActionResourceTypeArgs']]]]):
+        pulumi.set(self, "scan_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
@@ -605,6 +624,7 @@ if not MYPY:
         """
         A list of backup options for each resource type.
         """
+        scan_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanSettingResourceTypeArgsDict']]]]
 elif False:
     BackupPlanResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -613,7 +633,8 @@ class BackupPlanResourceTypeArgs:
     def __init__(__self__, *,
                  backup_plan_name: pulumi.Input[_builtins.str],
                  backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
-                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None):
+                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None,
+                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanSettingResourceTypeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] backup_plan_name: The display name of a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]] backup_plan_rule: An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
@@ -623,6 +644,8 @@ class BackupPlanResourceTypeArgs:
         pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
         if advanced_backup_settings is not None:
             pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
+        if scan_settings is not None:
+            pulumi.set(__self__, "scan_settings", scan_settings)
 
     @_builtins.property
     @pulumi.getter(name="backupPlanName")
@@ -659,6 +682,100 @@ class BackupPlanResourceTypeArgs:
     @advanced_backup_settings.setter
     def advanced_backup_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]):
         pulumi.set(self, "advanced_backup_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scanSettings")
+    def scan_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanSettingResourceTypeArgs']]]]:
+        return pulumi.get(self, "scan_settings")
+
+    @scan_settings.setter
+    def scan_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanScanSettingResourceTypeArgs']]]]):
+        pulumi.set(self, "scan_settings", value)
+
+
+if not MYPY:
+    class BackupPlanScanActionResourceTypeArgsDict(TypedDict):
+        malware_scanner: NotRequired[pulumi.Input['BackupPlanMalwareScanner']]
+        scan_mode: NotRequired[pulumi.Input['BackupPlanScanMode']]
+elif False:
+    BackupPlanScanActionResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackupPlanScanActionResourceTypeArgs:
+    def __init__(__self__, *,
+                 malware_scanner: Optional[pulumi.Input['BackupPlanMalwareScanner']] = None,
+                 scan_mode: Optional[pulumi.Input['BackupPlanScanMode']] = None):
+        if malware_scanner is not None:
+            pulumi.set(__self__, "malware_scanner", malware_scanner)
+        if scan_mode is not None:
+            pulumi.set(__self__, "scan_mode", scan_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="malwareScanner")
+    def malware_scanner(self) -> Optional[pulumi.Input['BackupPlanMalwareScanner']]:
+        return pulumi.get(self, "malware_scanner")
+
+    @malware_scanner.setter
+    def malware_scanner(self, value: Optional[pulumi.Input['BackupPlanMalwareScanner']]):
+        pulumi.set(self, "malware_scanner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scanMode")
+    def scan_mode(self) -> Optional[pulumi.Input['BackupPlanScanMode']]:
+        return pulumi.get(self, "scan_mode")
+
+    @scan_mode.setter
+    def scan_mode(self, value: Optional[pulumi.Input['BackupPlanScanMode']]):
+        pulumi.set(self, "scan_mode", value)
+
+
+if not MYPY:
+    class BackupPlanScanSettingResourceTypeArgsDict(TypedDict):
+        malware_scanner: NotRequired[pulumi.Input['BackupPlanMalwareScanner']]
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        scanner_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    BackupPlanScanSettingResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackupPlanScanSettingResourceTypeArgs:
+    def __init__(__self__, *,
+                 malware_scanner: Optional[pulumi.Input['BackupPlanMalwareScanner']] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scanner_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        if malware_scanner is not None:
+            pulumi.set(__self__, "malware_scanner", malware_scanner)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if scanner_role_arn is not None:
+            pulumi.set(__self__, "scanner_role_arn", scanner_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="malwareScanner")
+    def malware_scanner(self) -> Optional[pulumi.Input['BackupPlanMalwareScanner']]:
+        return pulumi.get(self, "malware_scanner")
+
+    @malware_scanner.setter
+    def malware_scanner(self, value: Optional[pulumi.Input['BackupPlanMalwareScanner']]):
+        pulumi.set(self, "malware_scanner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scannerRoleArn")
+    def scanner_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "scanner_role_arn")
+
+    @scanner_role_arn.setter
+    def scanner_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "scanner_role_arn", value)
 
 
 if not MYPY:
@@ -1897,5 +2014,51 @@ class RestoreTestingSelectionProtectedResourceConditionsArgs:
     @string_not_equals.setter
     def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]):
         pulumi.set(self, "string_not_equals", value)
+
+
+if not MYPY:
+    class TieringConfigurationResourceSelectionArgsDict(TypedDict):
+        resource_type: pulumi.Input[_builtins.str]
+        resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        tiering_down_settings_in_days: pulumi.Input[_builtins.int]
+elif False:
+    TieringConfigurationResourceSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TieringConfigurationResourceSelectionArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[_builtins.str],
+                 resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 tiering_down_settings_in_days: pulumi.Input[_builtins.int]):
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "tiering_down_settings_in_days", tiering_down_settings_in_days)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "resources", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tieringDownSettingsInDays")
+    def tiering_down_settings_in_days(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "tiering_down_settings_in_days")
+
+    @tiering_down_settings_in_days.setter
+    def tiering_down_settings_in_days(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "tiering_down_settings_in_days", value)
 
 

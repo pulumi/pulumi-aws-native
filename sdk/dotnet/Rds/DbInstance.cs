@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbInstance")]
     public partial class DbInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        /// </summary>
         [Output("additionalStorageVolumes")]
         public Output<ImmutableArray<Outputs.DbInstanceAdditionalStorageVolume>> AdditionalStorageVolumes { get; private set; } = null!;
 
@@ -1135,6 +1138,10 @@ namespace Pulumi.AwsNative.Rds
     {
         [Input("additionalStorageVolumes")]
         private InputList<Inputs.DbInstanceAdditionalStorageVolumeArgs>? _additionalStorageVolumes;
+
+        /// <summary>
+        /// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        /// </summary>
         public InputList<Inputs.DbInstanceAdditionalStorageVolumeArgs> AdditionalStorageVolumes
         {
             get => _additionalStorageVolumes ?? (_additionalStorageVolumes = new InputList<Inputs.DbInstanceAdditionalStorageVolumeArgs>());

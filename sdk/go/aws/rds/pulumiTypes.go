@@ -979,6 +979,7 @@ type DbClusterTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
 type DbInstanceAdditionalStorageVolume struct {
 	// The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
 	AllocatedStorage *string `pulumi:"allocatedStorage"`
@@ -986,11 +987,13 @@ type DbInstanceAdditionalStorageVolume struct {
 	Iops *int `pulumi:"iops"`
 	// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
 	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
-	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// The storage type for the additional storage volume.
+	//  Valid Values: ``GP3 | IO2``
 	StorageType *string `pulumi:"storageType"`
 	// The name of the additional storage volume.
+	//  Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
 	VolumeName *string `pulumi:"volumeName"`
 }
 
@@ -1005,6 +1008,7 @@ type DbInstanceAdditionalStorageVolumeInput interface {
 	ToDbInstanceAdditionalStorageVolumeOutputWithContext(context.Context) DbInstanceAdditionalStorageVolumeOutput
 }
 
+// Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
 type DbInstanceAdditionalStorageVolumeArgs struct {
 	// The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
 	AllocatedStorage pulumi.StringPtrInput `pulumi:"allocatedStorage"`
@@ -1012,11 +1016,13 @@ type DbInstanceAdditionalStorageVolumeArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
 	MaxAllocatedStorage pulumi.IntPtrInput `pulumi:"maxAllocatedStorage"`
-	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
 	StorageThroughput pulumi.IntPtrInput `pulumi:"storageThroughput"`
 	// The storage type for the additional storage volume.
+	//  Valid Values: ``GP3 | IO2``
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 	// The name of the additional storage volume.
+	//  Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
 	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
 }
 
@@ -1057,6 +1063,7 @@ func (i DbInstanceAdditionalStorageVolumeArray) ToDbInstanceAdditionalStorageVol
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceAdditionalStorageVolumeArrayOutput)
 }
 
+// Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
 type DbInstanceAdditionalStorageVolumeOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceAdditionalStorageVolumeOutput) ElementType() reflect.Type {
@@ -1086,17 +1093,21 @@ func (o DbInstanceAdditionalStorageVolumeOutput) MaxAllocatedStorage() pulumi.In
 	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.MaxAllocatedStorage }).(pulumi.IntPtrOutput)
 }
 
-// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (“gp3“) storage type.
 func (o DbInstanceAdditionalStorageVolumeOutput) StorageThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.StorageThroughput }).(pulumi.IntPtrOutput)
 }
 
 // The storage type for the additional storage volume.
+//
+//	Valid Values: ``GP3 | IO2``
 func (o DbInstanceAdditionalStorageVolumeOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the additional storage volume.
+//
+//	Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
 func (o DbInstanceAdditionalStorageVolumeOutput) VolumeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
 }

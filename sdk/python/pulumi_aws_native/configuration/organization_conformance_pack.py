@@ -153,7 +153,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::Config::OrganizationConformancePack.
+        Resource Type definition for AWS::Config::OrganizationConformancePack.
 
         ## Example Usage
         ### Example
@@ -198,7 +198,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  args: Optional[OrganizationConformancePackArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::Config::OrganizationConformancePack.
+        Resource Type definition for AWS::Config::OrganizationConformancePack.
 
         ## Example Usage
         ### Example

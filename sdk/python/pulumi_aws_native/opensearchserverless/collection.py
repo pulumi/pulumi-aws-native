@@ -33,13 +33,7 @@ class CollectionArgs:
                  type: Optional[pulumi.Input['CollectionType']] = None):
         """
         The set of arguments for constructing a Collection resource.
-        :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group.
-               
-               The name must meet the following criteria:
-               Unique to your account and AWS Region
-               Starts with a lowercase letter
-               Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-               Contains between 3 and 32 characters
+        :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group to associate with the collection.
         :param pulumi.Input[_builtins.str] description: The description of the collection
         :param pulumi.Input[_builtins.str] name: The name of the collection.
                
@@ -71,13 +65,7 @@ class CollectionArgs:
     @pulumi.getter(name="collectionGroupName")
     def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the collection group.
-
-        The name must meet the following criteria:
-        Unique to your account and AWS Region
-        Starts with a lowercase letter
-        Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        Contains between 3 and 32 characters
+        The name of the collection group to associate with the collection.
         """
         return pulumi.get(self, "collection_group_name")
 
@@ -218,13 +206,7 @@ class Collection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group.
-               
-               The name must meet the following criteria:
-               Unique to your account and AWS Region
-               Starts with a lowercase letter
-               Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-               Contains between 3 and 32 characters
+        :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group to associate with the collection.
         :param pulumi.Input[_builtins.str] description: The description of the collection
         :param pulumi.Input[_builtins.str] name: The name of the collection.
                
@@ -393,13 +375,7 @@ class Collection(pulumi.CustomResource):
     @pulumi.getter(name="collectionGroupName")
     def collection_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of the collection group.
-
-        The name must meet the following criteria:
-        Unique to your account and AWS Region
-        Starts with a lowercase letter
-        Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        Contains between 3 and 32 characters
+        The name of the collection group to associate with the collection.
         """
         return pulumi.get(self, "collection_group_name")
 
@@ -428,7 +404,7 @@ class Collection(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the AWS KMS key used to encrypt the collection.
+        Key Management Service key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 

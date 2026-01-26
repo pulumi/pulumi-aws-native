@@ -46,6 +46,10 @@ export class Logging extends pulumi.CustomResource {
      */
     declare public readonly defaultLogLevel: pulumi.Output<enums.iot.LoggingDefaultLogLevel>;
     /**
+     * Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+     */
+    declare public readonly eventConfigurations: pulumi.Output<outputs.iot.LoggingEventConfiguration[] | undefined>;
+    /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      */
     declare public readonly roleArn: pulumi.Output<string>;
@@ -72,10 +76,12 @@ export class Logging extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args?.accountId;
             resourceInputs["defaultLogLevel"] = args?.defaultLogLevel;
+            resourceInputs["eventConfigurations"] = args?.eventConfigurations;
             resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["defaultLogLevel"] = undefined /*out*/;
+            resourceInputs["eventConfigurations"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -97,6 +103,10 @@ export interface LoggingArgs {
      * The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
      */
     defaultLogLevel: pulumi.Input<enums.iot.LoggingDefaultLogLevel>;
+    /**
+     * Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+     */
+    eventConfigurations?: pulumi.Input<pulumi.Input<inputs.iot.LoggingEventConfigurationArgs>[]>;
     /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      */

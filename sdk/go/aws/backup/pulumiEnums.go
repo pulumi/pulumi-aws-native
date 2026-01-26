@@ -10,6 +10,334 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BackupPlanMalwareScanner string
+
+const (
+	BackupPlanMalwareScannerGuardduty = BackupPlanMalwareScanner("GUARDDUTY")
+)
+
+func (BackupPlanMalwareScanner) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanMalwareScanner)(nil)).Elem()
+}
+
+func (e BackupPlanMalwareScanner) ToBackupPlanMalwareScannerOutput() BackupPlanMalwareScannerOutput {
+	return pulumi.ToOutput(e).(BackupPlanMalwareScannerOutput)
+}
+
+func (e BackupPlanMalwareScanner) ToBackupPlanMalwareScannerOutputWithContext(ctx context.Context) BackupPlanMalwareScannerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BackupPlanMalwareScannerOutput)
+}
+
+func (e BackupPlanMalwareScanner) ToBackupPlanMalwareScannerPtrOutput() BackupPlanMalwareScannerPtrOutput {
+	return e.ToBackupPlanMalwareScannerPtrOutputWithContext(context.Background())
+}
+
+func (e BackupPlanMalwareScanner) ToBackupPlanMalwareScannerPtrOutputWithContext(ctx context.Context) BackupPlanMalwareScannerPtrOutput {
+	return BackupPlanMalwareScanner(e).ToBackupPlanMalwareScannerOutputWithContext(ctx).ToBackupPlanMalwareScannerPtrOutputWithContext(ctx)
+}
+
+func (e BackupPlanMalwareScanner) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackupPlanMalwareScanner) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackupPlanMalwareScanner) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BackupPlanMalwareScanner) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BackupPlanMalwareScannerOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanMalwareScannerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanMalwareScanner)(nil)).Elem()
+}
+
+func (o BackupPlanMalwareScannerOutput) ToBackupPlanMalwareScannerOutput() BackupPlanMalwareScannerOutput {
+	return o
+}
+
+func (o BackupPlanMalwareScannerOutput) ToBackupPlanMalwareScannerOutputWithContext(ctx context.Context) BackupPlanMalwareScannerOutput {
+	return o
+}
+
+func (o BackupPlanMalwareScannerOutput) ToBackupPlanMalwareScannerPtrOutput() BackupPlanMalwareScannerPtrOutput {
+	return o.ToBackupPlanMalwareScannerPtrOutputWithContext(context.Background())
+}
+
+func (o BackupPlanMalwareScannerOutput) ToBackupPlanMalwareScannerPtrOutputWithContext(ctx context.Context) BackupPlanMalwareScannerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPlanMalwareScanner) *BackupPlanMalwareScanner {
+		return &v
+	}).(BackupPlanMalwareScannerPtrOutput)
+}
+
+func (o BackupPlanMalwareScannerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupPlanMalwareScannerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupPlanMalwareScanner) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupPlanMalwareScannerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupPlanMalwareScannerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupPlanMalwareScanner) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupPlanMalwareScannerPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanMalwareScannerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPlanMalwareScanner)(nil)).Elem()
+}
+
+func (o BackupPlanMalwareScannerPtrOutput) ToBackupPlanMalwareScannerPtrOutput() BackupPlanMalwareScannerPtrOutput {
+	return o
+}
+
+func (o BackupPlanMalwareScannerPtrOutput) ToBackupPlanMalwareScannerPtrOutputWithContext(ctx context.Context) BackupPlanMalwareScannerPtrOutput {
+	return o
+}
+
+func (o BackupPlanMalwareScannerPtrOutput) Elem() BackupPlanMalwareScannerOutput {
+	return o.ApplyT(func(v *BackupPlanMalwareScanner) BackupPlanMalwareScanner {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPlanMalwareScanner
+		return ret
+	}).(BackupPlanMalwareScannerOutput)
+}
+
+func (o BackupPlanMalwareScannerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupPlanMalwareScannerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupPlanMalwareScanner) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BackupPlanMalwareScannerInput is an input type that accepts values of the BackupPlanMalwareScanner enum
+// A concrete instance of `BackupPlanMalwareScannerInput` can be one of the following:
+//
+//	BackupPlanMalwareScannerGuardduty
+type BackupPlanMalwareScannerInput interface {
+	pulumi.Input
+
+	ToBackupPlanMalwareScannerOutput() BackupPlanMalwareScannerOutput
+	ToBackupPlanMalwareScannerOutputWithContext(context.Context) BackupPlanMalwareScannerOutput
+}
+
+var backupPlanMalwareScannerPtrType = reflect.TypeOf((**BackupPlanMalwareScanner)(nil)).Elem()
+
+type BackupPlanMalwareScannerPtrInput interface {
+	pulumi.Input
+
+	ToBackupPlanMalwareScannerPtrOutput() BackupPlanMalwareScannerPtrOutput
+	ToBackupPlanMalwareScannerPtrOutputWithContext(context.Context) BackupPlanMalwareScannerPtrOutput
+}
+
+type backupPlanMalwareScannerPtr string
+
+func BackupPlanMalwareScannerPtr(v string) BackupPlanMalwareScannerPtrInput {
+	return (*backupPlanMalwareScannerPtr)(&v)
+}
+
+func (*backupPlanMalwareScannerPtr) ElementType() reflect.Type {
+	return backupPlanMalwareScannerPtrType
+}
+
+func (in *backupPlanMalwareScannerPtr) ToBackupPlanMalwareScannerPtrOutput() BackupPlanMalwareScannerPtrOutput {
+	return pulumi.ToOutput(in).(BackupPlanMalwareScannerPtrOutput)
+}
+
+func (in *backupPlanMalwareScannerPtr) ToBackupPlanMalwareScannerPtrOutputWithContext(ctx context.Context) BackupPlanMalwareScannerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BackupPlanMalwareScannerPtrOutput)
+}
+
+type BackupPlanScanMode string
+
+const (
+	BackupPlanScanModeFullScan        = BackupPlanScanMode("FULL_SCAN")
+	BackupPlanScanModeIncrementalScan = BackupPlanScanMode("INCREMENTAL_SCAN")
+)
+
+func (BackupPlanScanMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanScanMode)(nil)).Elem()
+}
+
+func (e BackupPlanScanMode) ToBackupPlanScanModeOutput() BackupPlanScanModeOutput {
+	return pulumi.ToOutput(e).(BackupPlanScanModeOutput)
+}
+
+func (e BackupPlanScanMode) ToBackupPlanScanModeOutputWithContext(ctx context.Context) BackupPlanScanModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BackupPlanScanModeOutput)
+}
+
+func (e BackupPlanScanMode) ToBackupPlanScanModePtrOutput() BackupPlanScanModePtrOutput {
+	return e.ToBackupPlanScanModePtrOutputWithContext(context.Background())
+}
+
+func (e BackupPlanScanMode) ToBackupPlanScanModePtrOutputWithContext(ctx context.Context) BackupPlanScanModePtrOutput {
+	return BackupPlanScanMode(e).ToBackupPlanScanModeOutputWithContext(ctx).ToBackupPlanScanModePtrOutputWithContext(ctx)
+}
+
+func (e BackupPlanScanMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackupPlanScanMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackupPlanScanMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BackupPlanScanMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BackupPlanScanModeOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanScanModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanScanMode)(nil)).Elem()
+}
+
+func (o BackupPlanScanModeOutput) ToBackupPlanScanModeOutput() BackupPlanScanModeOutput {
+	return o
+}
+
+func (o BackupPlanScanModeOutput) ToBackupPlanScanModeOutputWithContext(ctx context.Context) BackupPlanScanModeOutput {
+	return o
+}
+
+func (o BackupPlanScanModeOutput) ToBackupPlanScanModePtrOutput() BackupPlanScanModePtrOutput {
+	return o.ToBackupPlanScanModePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPlanScanModeOutput) ToBackupPlanScanModePtrOutputWithContext(ctx context.Context) BackupPlanScanModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPlanScanMode) *BackupPlanScanMode {
+		return &v
+	}).(BackupPlanScanModePtrOutput)
+}
+
+func (o BackupPlanScanModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupPlanScanModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupPlanScanMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupPlanScanModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupPlanScanModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupPlanScanMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupPlanScanModePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanScanModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPlanScanMode)(nil)).Elem()
+}
+
+func (o BackupPlanScanModePtrOutput) ToBackupPlanScanModePtrOutput() BackupPlanScanModePtrOutput {
+	return o
+}
+
+func (o BackupPlanScanModePtrOutput) ToBackupPlanScanModePtrOutputWithContext(ctx context.Context) BackupPlanScanModePtrOutput {
+	return o
+}
+
+func (o BackupPlanScanModePtrOutput) Elem() BackupPlanScanModeOutput {
+	return o.ApplyT(func(v *BackupPlanScanMode) BackupPlanScanMode {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPlanScanMode
+		return ret
+	}).(BackupPlanScanModeOutput)
+}
+
+func (o BackupPlanScanModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupPlanScanModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupPlanScanMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BackupPlanScanModeInput is an input type that accepts values of the BackupPlanScanMode enum
+// A concrete instance of `BackupPlanScanModeInput` can be one of the following:
+//
+//	BackupPlanScanModeFullScan
+//	BackupPlanScanModeIncrementalScan
+type BackupPlanScanModeInput interface {
+	pulumi.Input
+
+	ToBackupPlanScanModeOutput() BackupPlanScanModeOutput
+	ToBackupPlanScanModeOutputWithContext(context.Context) BackupPlanScanModeOutput
+}
+
+var backupPlanScanModePtrType = reflect.TypeOf((**BackupPlanScanMode)(nil)).Elem()
+
+type BackupPlanScanModePtrInput interface {
+	pulumi.Input
+
+	ToBackupPlanScanModePtrOutput() BackupPlanScanModePtrOutput
+	ToBackupPlanScanModePtrOutputWithContext(context.Context) BackupPlanScanModePtrOutput
+}
+
+type backupPlanScanModePtr string
+
+func BackupPlanScanModePtr(v string) BackupPlanScanModePtrInput {
+	return (*backupPlanScanModePtr)(&v)
+}
+
+func (*backupPlanScanModePtr) ElementType() reflect.Type {
+	return backupPlanScanModePtrType
+}
+
+func (in *backupPlanScanModePtr) ToBackupPlanScanModePtrOutput() BackupPlanScanModePtrOutput {
+	return pulumi.ToOutput(in).(BackupPlanScanModePtrOutput)
+}
+
+func (in *backupPlanScanModePtr) ToBackupPlanScanModePtrOutputWithContext(ctx context.Context) BackupPlanScanModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BackupPlanScanModePtrOutput)
+}
+
 type RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm string
 
 const (
@@ -386,11 +714,19 @@ func (o RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput) Index(i pu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanMalwareScannerInput)(nil)).Elem(), BackupPlanMalwareScanner("GUARDDUTY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanMalwareScannerPtrInput)(nil)).Elem(), BackupPlanMalwareScanner("GUARDDUTY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanScanModeInput)(nil)).Elem(), BackupPlanScanMode("FULL_SCAN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanScanModePtrInput)(nil)).Elem(), BackupPlanScanMode("FULL_SCAN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm("LATEST_WITHIN_WINDOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm("LATEST_WITHIN_WINDOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointTypeInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointType("SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointTypePtrInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointType("SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointTypeArray{})
+	pulumi.RegisterOutputType(BackupPlanMalwareScannerOutput{})
+	pulumi.RegisterOutputType(BackupPlanMalwareScannerPtrOutput{})
+	pulumi.RegisterOutputType(BackupPlanScanModeOutput{})
+	pulumi.RegisterOutputType(BackupPlanScanModePtrOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput{})

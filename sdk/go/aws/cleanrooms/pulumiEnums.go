@@ -893,7 +893,9 @@ func (in *collaborationAnalyticsEnginePtr) ToCollaborationAnalyticsEnginePtrOutp
 type CollaborationAutoApprovedChangeType string
 
 const (
-	CollaborationAutoApprovedChangeTypeAddMember = CollaborationAutoApprovedChangeType("ADD_MEMBER")
+	CollaborationAutoApprovedChangeTypeAddMember                   = CollaborationAutoApprovedChangeType("ADD_MEMBER")
+	CollaborationAutoApprovedChangeTypeGrantReceiveResultsAbility  = CollaborationAutoApprovedChangeType("GRANT_RECEIVE_RESULTS_ABILITY")
+	CollaborationAutoApprovedChangeTypeRevokeReceiveResultsAbility = CollaborationAutoApprovedChangeType("REVOKE_RECEIVE_RESULTS_ABILITY")
 )
 
 func (CollaborationAutoApprovedChangeType) ElementType() reflect.Type {
@@ -1019,6 +1021,8 @@ func (o CollaborationAutoApprovedChangeTypePtrOutput) ToStringPtrOutputWithConte
 // A concrete instance of `CollaborationAutoApprovedChangeTypeInput` can be one of the following:
 //
 //	CollaborationAutoApprovedChangeTypeAddMember
+//	CollaborationAutoApprovedChangeTypeGrantReceiveResultsAbility
+//	CollaborationAutoApprovedChangeTypeRevokeReceiveResultsAbility
 type CollaborationAutoApprovedChangeTypeInput interface {
 	pulumi.Input
 

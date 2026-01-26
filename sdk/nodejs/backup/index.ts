@@ -65,6 +65,11 @@ export const getRestoreTestingSelection: typeof import("./getRestoreTestingSelec
 export const getRestoreTestingSelectionOutput: typeof import("./getRestoreTestingSelection").getRestoreTestingSelectionOutput = null as any;
 utilities.lazyLoad(exports, ["getRestoreTestingSelection","getRestoreTestingSelectionOutput"], () => require("./getRestoreTestingSelection"));
 
+export { GetTieringConfigurationArgs, GetTieringConfigurationResult, GetTieringConfigurationOutputArgs } from "./getTieringConfiguration";
+export const getTieringConfiguration: typeof import("./getTieringConfiguration").getTieringConfiguration = null as any;
+export const getTieringConfigurationOutput: typeof import("./getTieringConfiguration").getTieringConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getTieringConfiguration","getTieringConfigurationOutput"], () => require("./getTieringConfiguration"));
+
 export { LogicallyAirGappedBackupVaultArgs } from "./logicallyAirGappedBackupVault";
 export type LogicallyAirGappedBackupVault = import("./logicallyAirGappedBackupVault").LogicallyAirGappedBackupVault;
 export const LogicallyAirGappedBackupVault: typeof import("./logicallyAirGappedBackupVault").LogicallyAirGappedBackupVault = null as any;
@@ -84,6 +89,11 @@ export { RestoreTestingSelectionArgs } from "./restoreTestingSelection";
 export type RestoreTestingSelection = import("./restoreTestingSelection").RestoreTestingSelection;
 export const RestoreTestingSelection: typeof import("./restoreTestingSelection").RestoreTestingSelection = null as any;
 utilities.lazyLoad(exports, ["RestoreTestingSelection"], () => require("./restoreTestingSelection"));
+
+export { TieringConfigurationArgs } from "./tieringConfiguration";
+export type TieringConfiguration = import("./tieringConfiguration").TieringConfiguration;
+export const TieringConfiguration: typeof import("./tieringConfiguration").TieringConfiguration = null as any;
+utilities.lazyLoad(exports, ["TieringConfiguration"], () => require("./tieringConfiguration"));
 
 
 // Export enums:
@@ -109,6 +119,8 @@ const _module = {
                 return new RestoreTestingPlan(name, <any>undefined, { urn })
             case "aws-native:backup:RestoreTestingSelection":
                 return new RestoreTestingSelection(name, <any>undefined, { urn })
+            case "aws-native:backup:TieringConfiguration":
+                return new TieringConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

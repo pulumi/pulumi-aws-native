@@ -8,6 +8,61 @@ using Pulumi;
 namespace Pulumi.AwsNative.Backup
 {
     [EnumType]
+    public readonly struct BackupPlanMalwareScanner : IEquatable<BackupPlanMalwareScanner>
+    {
+        private readonly string _value;
+
+        private BackupPlanMalwareScanner(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupPlanMalwareScanner Guardduty { get; } = new BackupPlanMalwareScanner("GUARDDUTY");
+
+        public static bool operator ==(BackupPlanMalwareScanner left, BackupPlanMalwareScanner right) => left.Equals(right);
+        public static bool operator !=(BackupPlanMalwareScanner left, BackupPlanMalwareScanner right) => !left.Equals(right);
+
+        public static explicit operator string(BackupPlanMalwareScanner value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupPlanMalwareScanner other && Equals(other);
+        public bool Equals(BackupPlanMalwareScanner other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BackupPlanScanMode : IEquatable<BackupPlanScanMode>
+    {
+        private readonly string _value;
+
+        private BackupPlanScanMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupPlanScanMode FullScan { get; } = new BackupPlanScanMode("FULL_SCAN");
+        public static BackupPlanScanMode IncrementalScan { get; } = new BackupPlanScanMode("INCREMENTAL_SCAN");
+
+        public static bool operator ==(BackupPlanScanMode left, BackupPlanScanMode right) => left.Equals(right);
+        public static bool operator !=(BackupPlanScanMode left, BackupPlanScanMode right) => !left.Equals(right);
+
+        public static explicit operator string(BackupPlanScanMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupPlanScanMode other && Equals(other);
+        public bool Equals(BackupPlanScanMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm : IEquatable<RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm>
     {
         private readonly string _value;

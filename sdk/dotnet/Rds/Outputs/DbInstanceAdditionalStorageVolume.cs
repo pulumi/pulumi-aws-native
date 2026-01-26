@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds.Outputs
 {
 
+    /// <summary>
+    /// Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
+    /// </summary>
     [OutputType]
     public sealed class DbInstanceAdditionalStorageVolume
     {
@@ -26,15 +29,17 @@ namespace Pulumi.AwsNative.Rds.Outputs
         /// </summary>
         public readonly int? MaxAllocatedStorage;
         /// <summary>
-        /// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        /// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         /// </summary>
         public readonly int? StorageThroughput;
         /// <summary>
         /// The storage type for the additional storage volume.
+        ///  Valid Values: ``GP3 | IO2``
         /// </summary>
         public readonly string? StorageType;
         /// <summary>
         /// The name of the additional storage volume.
+        ///  Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
         /// </summary>
         public readonly string? VolumeName;
 

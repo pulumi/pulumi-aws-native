@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> BackupPlanRule;
+        public readonly ImmutableArray<Outputs.BackupPlanScanSettingResourceType> ScanSettings;
 
         [OutputConstructor]
         private BackupPlanResourceType(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             string backupPlanName,
 
-            ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> backupPlanRule)
+            ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> backupPlanRule,
+
+            ImmutableArray<Outputs.BackupPlanScanSettingResourceType> scanSettings)
         {
             AdvancedBackupSettings = advancedBackupSettings;
             BackupPlanName = backupPlanName;
             BackupPlanRule = backupPlanRule;
+            ScanSettings = scanSettings;
         }
     }
 }

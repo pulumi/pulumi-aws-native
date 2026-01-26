@@ -26,6 +26,8 @@ type Environment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Amazon DataZone user who created the environment.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// The deployment order for the environment.
+	DeploymentOrder pulumi.IntPtrOutput `pulumi:"deploymentOrder"`
 	// The description of the Amazon DataZone environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier of the Amazon DataZone domain in which the environment is created.
@@ -38,6 +40,10 @@ type Environment struct {
 	EnvironmentAccountRegion pulumi.StringPtrOutput `pulumi:"environmentAccountRegion"`
 	// The ID of the blueprint with which the Amazon DataZone environment was created.
 	EnvironmentBlueprintId pulumi.StringOutput `pulumi:"environmentBlueprintId"`
+	// The identifier of the environment blueprint.
+	EnvironmentBlueprintIdentifier pulumi.StringPtrOutput `pulumi:"environmentBlueprintIdentifier"`
+	// The identifier of the environment configuration.
+	EnvironmentConfigurationId pulumi.StringPtrOutput `pulumi:"environmentConfigurationId"`
 	// The ID of the environment profile with which the Amazon DataZone environment was created.
 	EnvironmentProfileId pulumi.StringOutput `pulumi:"environmentProfileId"`
 	// The ID of the environment profile with which the Amazon DataZone environment would be created.
@@ -76,9 +82,12 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProjectIdentifier'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deploymentOrder",
 		"domainIdentifier",
 		"environmentAccountIdentifier",
 		"environmentAccountRegion",
+		"environmentBlueprintIdentifier",
+		"environmentConfigurationId",
 		"environmentProfileIdentifier",
 		"projectIdentifier",
 		"userParameters[*]",
@@ -117,6 +126,8 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
+	// The deployment order for the environment.
+	DeploymentOrder *int `pulumi:"deploymentOrder"`
 	// The description of the Amazon DataZone environment.
 	Description *string `pulumi:"description"`
 	// The identifier of the Amazon DataZone domain in which the environment would be created.
@@ -125,6 +136,10 @@ type environmentArgs struct {
 	EnvironmentAccountIdentifier *string `pulumi:"environmentAccountIdentifier"`
 	// The AWS region in which the Amazon DataZone environment is created.
 	EnvironmentAccountRegion *string `pulumi:"environmentAccountRegion"`
+	// The identifier of the environment blueprint.
+	EnvironmentBlueprintIdentifier *string `pulumi:"environmentBlueprintIdentifier"`
+	// The identifier of the environment configuration.
+	EnvironmentConfigurationId *string `pulumi:"environmentConfigurationId"`
 	// The ID of the environment profile with which the Amazon DataZone environment would be created.
 	EnvironmentProfileIdentifier *string `pulumi:"environmentProfileIdentifier"`
 	// Environment role arn for custom aws environment permissions
@@ -141,6 +156,8 @@ type environmentArgs struct {
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
+	// The deployment order for the environment.
+	DeploymentOrder pulumi.IntPtrInput
 	// The description of the Amazon DataZone environment.
 	Description pulumi.StringPtrInput
 	// The identifier of the Amazon DataZone domain in which the environment would be created.
@@ -149,6 +166,10 @@ type EnvironmentArgs struct {
 	EnvironmentAccountIdentifier pulumi.StringPtrInput
 	// The AWS region in which the Amazon DataZone environment is created.
 	EnvironmentAccountRegion pulumi.StringPtrInput
+	// The identifier of the environment blueprint.
+	EnvironmentBlueprintIdentifier pulumi.StringPtrInput
+	// The identifier of the environment configuration.
+	EnvironmentConfigurationId pulumi.StringPtrInput
 	// The ID of the environment profile with which the Amazon DataZone environment would be created.
 	EnvironmentProfileIdentifier pulumi.StringPtrInput
 	// Environment role arn for custom aws environment permissions
@@ -225,6 +246,11 @@ func (o EnvironmentOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
+// The deployment order for the environment.
+func (o EnvironmentOutput) DeploymentOrder() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntPtrOutput { return v.DeploymentOrder }).(pulumi.IntPtrOutput)
+}
+
 // The description of the Amazon DataZone environment.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -253,6 +279,16 @@ func (o EnvironmentOutput) EnvironmentAccountRegion() pulumi.StringPtrOutput {
 // The ID of the blueprint with which the Amazon DataZone environment was created.
 func (o EnvironmentOutput) EnvironmentBlueprintId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentBlueprintId }).(pulumi.StringOutput)
+}
+
+// The identifier of the environment blueprint.
+func (o EnvironmentOutput) EnvironmentBlueprintIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentBlueprintIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the environment configuration.
+func (o EnvironmentOutput) EnvironmentConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the environment profile with which the Amazon DataZone environment was created.

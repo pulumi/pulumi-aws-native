@@ -158,12 +158,18 @@ __all__ = [
     'RuntimeAgentRuntimeArtifactArgsDict',
     'RuntimeAuthorizerConfigurationArgs',
     'RuntimeAuthorizerConfigurationArgsDict',
+    'RuntimeAuthorizingClaimMatchValueTypeArgs',
+    'RuntimeAuthorizingClaimMatchValueTypeArgsDict',
+    'RuntimeClaimMatchValueTypeArgs',
+    'RuntimeClaimMatchValueTypeArgsDict',
     'RuntimeCodeConfigurationArgs',
     'RuntimeCodeConfigurationArgsDict',
     'RuntimeCodeArgs',
     'RuntimeCodeArgsDict',
     'RuntimeContainerConfigurationArgs',
     'RuntimeContainerConfigurationArgsDict',
+    'RuntimeCustomClaimValidationTypeArgs',
+    'RuntimeCustomClaimValidationTypeArgsDict',
     'RuntimeCustomJwtAuthorizerConfigurationArgs',
     'RuntimeCustomJwtAuthorizerConfigurationArgsDict',
     'RuntimeLifecycleConfigurationArgs',
@@ -3477,6 +3483,88 @@ class RuntimeAuthorizerConfigurationArgs:
 
 
 if not MYPY:
+    class RuntimeAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
+        """
+        The value or values in the custom claim to match and relationship of match
+        """
+        claim_match_operator: pulumi.Input['RuntimeClaimMatchOperator']
+        claim_match_value: pulumi.Input['RuntimeClaimMatchValueTypeArgsDict']
+elif False:
+    RuntimeAuthorizingClaimMatchValueTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeAuthorizingClaimMatchValueTypeArgs:
+    def __init__(__self__, *,
+                 claim_match_operator: pulumi.Input['RuntimeClaimMatchOperator'],
+                 claim_match_value: pulumi.Input['RuntimeClaimMatchValueTypeArgs']):
+        """
+        The value or values in the custom claim to match and relationship of match
+        """
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> pulumi.Input['RuntimeClaimMatchOperator']:
+        return pulumi.get(self, "claim_match_operator")
+
+    @claim_match_operator.setter
+    def claim_match_operator(self, value: pulumi.Input['RuntimeClaimMatchOperator']):
+        pulumi.set(self, "claim_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> pulumi.Input['RuntimeClaimMatchValueTypeArgs']:
+        return pulumi.get(self, "claim_match_value")
+
+    @claim_match_value.setter
+    def claim_match_value(self, value: pulumi.Input['RuntimeClaimMatchValueTypeArgs']):
+        pulumi.set(self, "claim_match_value", value)
+
+
+if not MYPY:
+    class RuntimeClaimMatchValueTypeArgsDict(TypedDict):
+        """
+        The value or values in the custom claim to match for
+        """
+        match_value_string: NotRequired[pulumi.Input[_builtins.str]]
+        match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+elif False:
+    RuntimeClaimMatchValueTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeClaimMatchValueTypeArgs:
+    def __init__(__self__, *,
+                 match_value_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 match_value_string_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The value or values in the custom claim to match for
+        """
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_list is not None:
+            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "match_value_string")
+
+    @match_value_string.setter
+    def match_value_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "match_value_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringList")
+    def match_value_string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "match_value_string_list")
+
+    @match_value_string_list.setter
+    def match_value_string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_value_string_list", value)
+
+
+if not MYPY:
     class RuntimeCodeConfigurationArgsDict(TypedDict):
         """
         Representation of a code configuration
@@ -3589,6 +3677,58 @@ class RuntimeContainerConfigurationArgs:
 
 
 if not MYPY:
+    class RuntimeCustomClaimValidationTypeArgsDict(TypedDict):
+        """
+        Required custom claim
+        """
+        authorizing_claim_match_value: pulumi.Input['RuntimeAuthorizingClaimMatchValueTypeArgsDict']
+        inbound_token_claim_name: pulumi.Input[_builtins.str]
+        inbound_token_claim_value_type: pulumi.Input['RuntimeInboundTokenClaimValueType']
+elif False:
+    RuntimeCustomClaimValidationTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeCustomClaimValidationTypeArgs:
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: pulumi.Input['RuntimeAuthorizingClaimMatchValueTypeArgs'],
+                 inbound_token_claim_name: pulumi.Input[_builtins.str],
+                 inbound_token_claim_value_type: pulumi.Input['RuntimeInboundTokenClaimValueType']):
+        """
+        Required custom claim
+        """
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> pulumi.Input['RuntimeAuthorizingClaimMatchValueTypeArgs']:
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @authorizing_claim_match_value.setter
+    def authorizing_claim_match_value(self, value: pulumi.Input['RuntimeAuthorizingClaimMatchValueTypeArgs']):
+        pulumi.set(self, "authorizing_claim_match_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @inbound_token_claim_name.setter
+    def inbound_token_claim_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> pulumi.Input['RuntimeInboundTokenClaimValueType']:
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+    @inbound_token_claim_value_type.setter
+    def inbound_token_claim_value_type(self, value: pulumi.Input['RuntimeInboundTokenClaimValueType']):
+        pulumi.set(self, "inbound_token_claim_value_type", value)
+
+
+if not MYPY:
     class RuntimeCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
         """
         Configuration for custom JWT authorizer
@@ -3605,6 +3745,8 @@ if not MYPY:
         """
         Represents individual client IDs that are validated in the incoming JWT token validation process.
         """
+        allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgsDict']]]]
 elif False:
     RuntimeCustomJwtAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3613,7 +3755,9 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  discovery_url: pulumi.Input[_builtins.str],
                  allowed_audience: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]] = None):
         """
         Configuration for custom JWT authorizer
         :param pulumi.Input[_builtins.str] discovery_url: The configuration authorization.
@@ -3625,6 +3769,10 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
             pulumi.set(__self__, "allowed_audience", allowed_audience)
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -3661,6 +3809,24 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
     @allowed_clients.setter
     def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_clients", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @allowed_scopes.setter
+    def allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]:
+        return pulumi.get(self, "custom_claims")
+
+    @custom_claims.setter
+    def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]):
+        pulumi.set(self, "custom_claims", value)
 
 
 if not MYPY:

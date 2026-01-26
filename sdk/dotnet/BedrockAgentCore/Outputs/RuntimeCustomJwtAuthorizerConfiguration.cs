@@ -24,6 +24,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// Represents individual client IDs that are validated in the incoming JWT token validation process.
         /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
+        public readonly ImmutableArray<string> AllowedScopes;
+        public readonly ImmutableArray<Outputs.RuntimeCustomClaimValidationType> CustomClaims;
         /// <summary>
         /// The configuration authorization.
         /// </summary>
@@ -35,10 +37,16 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<string> allowedClients,
 
+            ImmutableArray<string> allowedScopes,
+
+            ImmutableArray<Outputs.RuntimeCustomClaimValidationType> customClaims,
+
             string discoveryUrl)
         {
             AllowedAudience = allowedAudience;
             AllowedClients = allowedClients;
+            AllowedScopes = allowedScopes;
+            CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
         }
     }

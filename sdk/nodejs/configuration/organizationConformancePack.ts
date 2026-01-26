@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::Config::OrganizationConformancePack.
+ * Resource Type definition for AWS::Config::OrganizationConformancePack.
  *
  * ## Example Usage
  * ### Example

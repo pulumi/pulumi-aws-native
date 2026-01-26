@@ -4881,6 +4881,174 @@ func (o RuntimeAgentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
+// The relationship between the claim field value and the value or values being matched
+type RuntimeClaimMatchOperator string
+
+const (
+	RuntimeClaimMatchOperatorEquals      = RuntimeClaimMatchOperator("EQUALS")
+	RuntimeClaimMatchOperatorContains    = RuntimeClaimMatchOperator("CONTAINS")
+	RuntimeClaimMatchOperatorContainsAny = RuntimeClaimMatchOperator("CONTAINS_ANY")
+)
+
+func (RuntimeClaimMatchOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeClaimMatchOperator)(nil)).Elem()
+}
+
+func (e RuntimeClaimMatchOperator) ToRuntimeClaimMatchOperatorOutput() RuntimeClaimMatchOperatorOutput {
+	return pulumi.ToOutput(e).(RuntimeClaimMatchOperatorOutput)
+}
+
+func (e RuntimeClaimMatchOperator) ToRuntimeClaimMatchOperatorOutputWithContext(ctx context.Context) RuntimeClaimMatchOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuntimeClaimMatchOperatorOutput)
+}
+
+func (e RuntimeClaimMatchOperator) ToRuntimeClaimMatchOperatorPtrOutput() RuntimeClaimMatchOperatorPtrOutput {
+	return e.ToRuntimeClaimMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeClaimMatchOperator) ToRuntimeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) RuntimeClaimMatchOperatorPtrOutput {
+	return RuntimeClaimMatchOperator(e).ToRuntimeClaimMatchOperatorOutputWithContext(ctx).ToRuntimeClaimMatchOperatorPtrOutputWithContext(ctx)
+}
+
+func (e RuntimeClaimMatchOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeClaimMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeClaimMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeClaimMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuntimeClaimMatchOperatorOutput struct{ *pulumi.OutputState }
+
+func (RuntimeClaimMatchOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeClaimMatchOperator)(nil)).Elem()
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToRuntimeClaimMatchOperatorOutput() RuntimeClaimMatchOperatorOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToRuntimeClaimMatchOperatorOutputWithContext(ctx context.Context) RuntimeClaimMatchOperatorOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToRuntimeClaimMatchOperatorPtrOutput() RuntimeClaimMatchOperatorPtrOutput {
+	return o.ToRuntimeClaimMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToRuntimeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) RuntimeClaimMatchOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeClaimMatchOperator) *RuntimeClaimMatchOperator {
+		return &v
+	}).(RuntimeClaimMatchOperatorPtrOutput)
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeClaimMatchOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeClaimMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeClaimMatchOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeClaimMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeClaimMatchOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeClaimMatchOperator)(nil)).Elem()
+}
+
+func (o RuntimeClaimMatchOperatorPtrOutput) ToRuntimeClaimMatchOperatorPtrOutput() RuntimeClaimMatchOperatorPtrOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchOperatorPtrOutput) ToRuntimeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) RuntimeClaimMatchOperatorPtrOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchOperatorPtrOutput) Elem() RuntimeClaimMatchOperatorOutput {
+	return o.ApplyT(func(v *RuntimeClaimMatchOperator) RuntimeClaimMatchOperator {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeClaimMatchOperator
+		return ret
+	}).(RuntimeClaimMatchOperatorOutput)
+}
+
+func (o RuntimeClaimMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeClaimMatchOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuntimeClaimMatchOperatorInput is an input type that accepts values of the RuntimeClaimMatchOperator enum
+// A concrete instance of `RuntimeClaimMatchOperatorInput` can be one of the following:
+//
+//	RuntimeClaimMatchOperatorEquals
+//	RuntimeClaimMatchOperatorContains
+//	RuntimeClaimMatchOperatorContainsAny
+type RuntimeClaimMatchOperatorInput interface {
+	pulumi.Input
+
+	ToRuntimeClaimMatchOperatorOutput() RuntimeClaimMatchOperatorOutput
+	ToRuntimeClaimMatchOperatorOutputWithContext(context.Context) RuntimeClaimMatchOperatorOutput
+}
+
+var runtimeClaimMatchOperatorPtrType = reflect.TypeOf((**RuntimeClaimMatchOperator)(nil)).Elem()
+
+type RuntimeClaimMatchOperatorPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeClaimMatchOperatorPtrOutput() RuntimeClaimMatchOperatorPtrOutput
+	ToRuntimeClaimMatchOperatorPtrOutputWithContext(context.Context) RuntimeClaimMatchOperatorPtrOutput
+}
+
+type runtimeClaimMatchOperatorPtr string
+
+func RuntimeClaimMatchOperatorPtr(v string) RuntimeClaimMatchOperatorPtrInput {
+	return (*runtimeClaimMatchOperatorPtr)(&v)
+}
+
+func (*runtimeClaimMatchOperatorPtr) ElementType() reflect.Type {
+	return runtimeClaimMatchOperatorPtrType
+}
+
+func (in *runtimeClaimMatchOperatorPtr) ToRuntimeClaimMatchOperatorPtrOutput() RuntimeClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutput(in).(RuntimeClaimMatchOperatorPtrOutput)
+}
+
+func (in *runtimeClaimMatchOperatorPtr) ToRuntimeClaimMatchOperatorPtrOutputWithContext(ctx context.Context) RuntimeClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuntimeClaimMatchOperatorPtrOutput)
+}
+
 type RuntimeEndpointAgentRuntimeEndpointStatus string
 
 const (
@@ -4973,6 +5141,172 @@ func (o RuntimeEndpointAgentRuntimeEndpointStatusPtrOutput) ToStringPtrOutputWit
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// Token claim data type
+type RuntimeInboundTokenClaimValueType string
+
+const (
+	RuntimeInboundTokenClaimValueTypeString      = RuntimeInboundTokenClaimValueType("STRING")
+	RuntimeInboundTokenClaimValueTypeStringArray = RuntimeInboundTokenClaimValueType("STRING_ARRAY")
+)
+
+func (RuntimeInboundTokenClaimValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToRuntimeInboundTokenClaimValueTypeOutput() RuntimeInboundTokenClaimValueTypeOutput {
+	return pulumi.ToOutput(e).(RuntimeInboundTokenClaimValueTypeOutput)
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToRuntimeInboundTokenClaimValueTypeOutputWithContext(ctx context.Context) RuntimeInboundTokenClaimValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuntimeInboundTokenClaimValueTypeOutput)
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToRuntimeInboundTokenClaimValueTypePtrOutput() RuntimeInboundTokenClaimValueTypePtrOutput {
+	return e.ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) RuntimeInboundTokenClaimValueTypePtrOutput {
+	return RuntimeInboundTokenClaimValueType(e).ToRuntimeInboundTokenClaimValueTypeOutputWithContext(ctx).ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(ctx)
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeInboundTokenClaimValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuntimeInboundTokenClaimValueTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeInboundTokenClaimValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToRuntimeInboundTokenClaimValueTypeOutput() RuntimeInboundTokenClaimValueTypeOutput {
+	return o
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToRuntimeInboundTokenClaimValueTypeOutputWithContext(ctx context.Context) RuntimeInboundTokenClaimValueTypeOutput {
+	return o
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToRuntimeInboundTokenClaimValueTypePtrOutput() RuntimeInboundTokenClaimValueTypePtrOutput {
+	return o.ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) RuntimeInboundTokenClaimValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeInboundTokenClaimValueType) *RuntimeInboundTokenClaimValueType {
+		return &v
+	}).(RuntimeInboundTokenClaimValueTypePtrOutput)
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeInboundTokenClaimValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeInboundTokenClaimValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeInboundTokenClaimValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeInboundTokenClaimValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeInboundTokenClaimValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (o RuntimeInboundTokenClaimValueTypePtrOutput) ToRuntimeInboundTokenClaimValueTypePtrOutput() RuntimeInboundTokenClaimValueTypePtrOutput {
+	return o
+}
+
+func (o RuntimeInboundTokenClaimValueTypePtrOutput) ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) RuntimeInboundTokenClaimValueTypePtrOutput {
+	return o
+}
+
+func (o RuntimeInboundTokenClaimValueTypePtrOutput) Elem() RuntimeInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v *RuntimeInboundTokenClaimValueType) RuntimeInboundTokenClaimValueType {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeInboundTokenClaimValueType
+		return ret
+	}).(RuntimeInboundTokenClaimValueTypeOutput)
+}
+
+func (o RuntimeInboundTokenClaimValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeInboundTokenClaimValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeInboundTokenClaimValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuntimeInboundTokenClaimValueTypeInput is an input type that accepts values of the RuntimeInboundTokenClaimValueType enum
+// A concrete instance of `RuntimeInboundTokenClaimValueTypeInput` can be one of the following:
+//
+//	RuntimeInboundTokenClaimValueTypeString
+//	RuntimeInboundTokenClaimValueTypeStringArray
+type RuntimeInboundTokenClaimValueTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeInboundTokenClaimValueTypeOutput() RuntimeInboundTokenClaimValueTypeOutput
+	ToRuntimeInboundTokenClaimValueTypeOutputWithContext(context.Context) RuntimeInboundTokenClaimValueTypeOutput
+}
+
+var runtimeInboundTokenClaimValueTypePtrType = reflect.TypeOf((**RuntimeInboundTokenClaimValueType)(nil)).Elem()
+
+type RuntimeInboundTokenClaimValueTypePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeInboundTokenClaimValueTypePtrOutput() RuntimeInboundTokenClaimValueTypePtrOutput
+	ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(context.Context) RuntimeInboundTokenClaimValueTypePtrOutput
+}
+
+type runtimeInboundTokenClaimValueTypePtr string
+
+func RuntimeInboundTokenClaimValueTypePtr(v string) RuntimeInboundTokenClaimValueTypePtrInput {
+	return (*runtimeInboundTokenClaimValueTypePtr)(&v)
+}
+
+func (*runtimeInboundTokenClaimValueTypePtr) ElementType() reflect.Type {
+	return runtimeInboundTokenClaimValueTypePtrType
+}
+
+func (in *runtimeInboundTokenClaimValueTypePtr) ToRuntimeInboundTokenClaimValueTypePtrOutput() RuntimeInboundTokenClaimValueTypePtrOutput {
+	return pulumi.ToOutput(in).(RuntimeInboundTokenClaimValueTypePtrOutput)
+}
+
+func (in *runtimeInboundTokenClaimValueTypePtr) ToRuntimeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) RuntimeInboundTokenClaimValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuntimeInboundTokenClaimValueTypePtrOutput)
 }
 
 // Network mode configuration type
@@ -5361,6 +5695,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypeInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypePtrInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchOperatorInput)(nil)).Elem(), RuntimeClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchOperatorPtrInput)(nil)).Elem(), RuntimeClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInboundTokenClaimValueTypeInput)(nil)).Elem(), RuntimeInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), RuntimeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModeInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModePtrInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeProtocolConfigurationInput)(nil)).Elem(), RuntimeProtocolConfiguration("MCP"))
@@ -5429,8 +5767,12 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeClaimMatchOperatorOutput{})
+	pulumi.RegisterOutputType(RuntimeClaimMatchOperatorPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeEndpointAgentRuntimeEndpointStatusOutput{})
 	pulumi.RegisterOutputType(RuntimeEndpointAgentRuntimeEndpointStatusPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeInboundTokenClaimValueTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeInboundTokenClaimValueTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkModeOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeProtocolConfigurationOutput{})

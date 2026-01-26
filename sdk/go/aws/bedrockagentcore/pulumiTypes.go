@@ -9593,6 +9593,122 @@ func (o RuntimeAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() RuntimeCu
 	}).(RuntimeCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+// The value or values in the custom claim to match and relationship of match
+type RuntimeAuthorizingClaimMatchValueType struct {
+	ClaimMatchOperator RuntimeClaimMatchOperator  `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    RuntimeClaimMatchValueType `pulumi:"claimMatchValue"`
+}
+
+// RuntimeAuthorizingClaimMatchValueTypeInput is an input type that accepts RuntimeAuthorizingClaimMatchValueTypeArgs and RuntimeAuthorizingClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `RuntimeAuthorizingClaimMatchValueTypeInput` via:
+//
+//	RuntimeAuthorizingClaimMatchValueTypeArgs{...}
+type RuntimeAuthorizingClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeAuthorizingClaimMatchValueTypeOutput() RuntimeAuthorizingClaimMatchValueTypeOutput
+	ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(context.Context) RuntimeAuthorizingClaimMatchValueTypeOutput
+}
+
+// The value or values in the custom claim to match and relationship of match
+type RuntimeAuthorizingClaimMatchValueTypeArgs struct {
+	ClaimMatchOperator RuntimeClaimMatchOperatorInput  `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    RuntimeClaimMatchValueTypeInput `pulumi:"claimMatchValue"`
+}
+
+func (RuntimeAuthorizingClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (i RuntimeAuthorizingClaimMatchValueTypeArgs) ToRuntimeAuthorizingClaimMatchValueTypeOutput() RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return i.ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i RuntimeAuthorizingClaimMatchValueTypeArgs) ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAuthorizingClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match and relationship of match
+type RuntimeAuthorizingClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAuthorizingClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ToRuntimeAuthorizingClaimMatchValueTypeOutput() RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() RuntimeClaimMatchOperatorOutput {
+	return o.ApplyT(func(v RuntimeAuthorizingClaimMatchValueType) RuntimeClaimMatchOperator { return v.ClaimMatchOperator }).(RuntimeClaimMatchOperatorOutput)
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() RuntimeClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v RuntimeAuthorizingClaimMatchValueType) RuntimeClaimMatchValueType { return v.ClaimMatchValue }).(RuntimeClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match for
+type RuntimeClaimMatchValueType struct {
+	MatchValueString     *string  `pulumi:"matchValueString"`
+	MatchValueStringList []string `pulumi:"matchValueStringList"`
+}
+
+// RuntimeClaimMatchValueTypeInput is an input type that accepts RuntimeClaimMatchValueTypeArgs and RuntimeClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `RuntimeClaimMatchValueTypeInput` via:
+//
+//	RuntimeClaimMatchValueTypeArgs{...}
+type RuntimeClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeClaimMatchValueTypeOutput() RuntimeClaimMatchValueTypeOutput
+	ToRuntimeClaimMatchValueTypeOutputWithContext(context.Context) RuntimeClaimMatchValueTypeOutput
+}
+
+// The value or values in the custom claim to match for
+type RuntimeClaimMatchValueTypeArgs struct {
+	MatchValueString     pulumi.StringPtrInput   `pulumi:"matchValueString"`
+	MatchValueStringList pulumi.StringArrayInput `pulumi:"matchValueStringList"`
+}
+
+func (RuntimeClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeClaimMatchValueType)(nil)).Elem()
+}
+
+func (i RuntimeClaimMatchValueTypeArgs) ToRuntimeClaimMatchValueTypeOutput() RuntimeClaimMatchValueTypeOutput {
+	return i.ToRuntimeClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i RuntimeClaimMatchValueTypeArgs) ToRuntimeClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match for
+type RuntimeClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeClaimMatchValueType)(nil)).Elem()
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) ToRuntimeClaimMatchValueTypeOutput() RuntimeClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) ToRuntimeClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeClaimMatchValueType) *string { return v.MatchValueString }).(pulumi.StringPtrOutput)
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) MatchValueStringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeClaimMatchValueType) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
+}
+
 // Object represents source code from zip file
 type RuntimeCode struct {
 	S3 *RuntimeS3Location `pulumi:"s3"`
@@ -10032,12 +10148,127 @@ func (o RuntimeContainerConfigurationPtrOutput) ContainerUri() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required custom claim
+type RuntimeCustomClaimValidationType struct {
+	AuthorizingClaimMatchValue RuntimeAuthorizingClaimMatchValueType `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      string                                `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType RuntimeInboundTokenClaimValueType     `pulumi:"inboundTokenClaimValueType"`
+}
+
+// RuntimeCustomClaimValidationTypeInput is an input type that accepts RuntimeCustomClaimValidationTypeArgs and RuntimeCustomClaimValidationTypeOutput values.
+// You can construct a concrete instance of `RuntimeCustomClaimValidationTypeInput` via:
+//
+//	RuntimeCustomClaimValidationTypeArgs{...}
+type RuntimeCustomClaimValidationTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeCustomClaimValidationTypeOutput() RuntimeCustomClaimValidationTypeOutput
+	ToRuntimeCustomClaimValidationTypeOutputWithContext(context.Context) RuntimeCustomClaimValidationTypeOutput
+}
+
+// Required custom claim
+type RuntimeCustomClaimValidationTypeArgs struct {
+	AuthorizingClaimMatchValue RuntimeAuthorizingClaimMatchValueTypeInput `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      pulumi.StringInput                         `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType RuntimeInboundTokenClaimValueTypeInput     `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (RuntimeCustomClaimValidationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i RuntimeCustomClaimValidationTypeArgs) ToRuntimeCustomClaimValidationTypeOutput() RuntimeCustomClaimValidationTypeOutput {
+	return i.ToRuntimeCustomClaimValidationTypeOutputWithContext(context.Background())
+}
+
+func (i RuntimeCustomClaimValidationTypeArgs) ToRuntimeCustomClaimValidationTypeOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCustomClaimValidationTypeOutput)
+}
+
+// RuntimeCustomClaimValidationTypeArrayInput is an input type that accepts RuntimeCustomClaimValidationTypeArray and RuntimeCustomClaimValidationTypeArrayOutput values.
+// You can construct a concrete instance of `RuntimeCustomClaimValidationTypeArrayInput` via:
+//
+//	RuntimeCustomClaimValidationTypeArray{ RuntimeCustomClaimValidationTypeArgs{...} }
+type RuntimeCustomClaimValidationTypeArrayInput interface {
+	pulumi.Input
+
+	ToRuntimeCustomClaimValidationTypeArrayOutput() RuntimeCustomClaimValidationTypeArrayOutput
+	ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(context.Context) RuntimeCustomClaimValidationTypeArrayOutput
+}
+
+type RuntimeCustomClaimValidationTypeArray []RuntimeCustomClaimValidationTypeInput
+
+func (RuntimeCustomClaimValidationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i RuntimeCustomClaimValidationTypeArray) ToRuntimeCustomClaimValidationTypeArrayOutput() RuntimeCustomClaimValidationTypeArrayOutput {
+	return i.ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i RuntimeCustomClaimValidationTypeArray) ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCustomClaimValidationTypeArrayOutput)
+}
+
+// Required custom claim
+type RuntimeCustomClaimValidationTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCustomClaimValidationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) ToRuntimeCustomClaimValidationTypeOutput() RuntimeCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) ToRuntimeCustomClaimValidationTypeOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) AuthorizingClaimMatchValue() RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v RuntimeCustomClaimValidationType) RuntimeAuthorizingClaimMatchValueType {
+		return v.AuthorizingClaimMatchValue
+	}).(RuntimeAuthorizingClaimMatchValueTypeOutput)
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeCustomClaimValidationType) string { return v.InboundTokenClaimName }).(pulumi.StringOutput)
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) InboundTokenClaimValueType() RuntimeInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v RuntimeCustomClaimValidationType) RuntimeInboundTokenClaimValueType {
+		return v.InboundTokenClaimValueType
+	}).(RuntimeInboundTokenClaimValueTypeOutput)
+}
+
+type RuntimeCustomClaimValidationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCustomClaimValidationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o RuntimeCustomClaimValidationTypeArrayOutput) ToRuntimeCustomClaimValidationTypeArrayOutput() RuntimeCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeArrayOutput) ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) RuntimeCustomClaimValidationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeCustomClaimValidationType {
+		return vs[0].([]RuntimeCustomClaimValidationType)[vs[1].(int)]
+	}).(RuntimeCustomClaimValidationTypeOutput)
+}
+
 // Configuration for custom JWT authorizer
 type RuntimeCustomJwtAuthorizerConfiguration struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience []string `pulumi:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
-	AllowedClients []string `pulumi:"allowedClients"`
+	AllowedClients []string                           `pulumi:"allowedClients"`
+	AllowedScopes  []string                           `pulumi:"allowedScopes"`
+	CustomClaims   []RuntimeCustomClaimValidationType `pulumi:"customClaims"`
 	// The configuration authorization.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
@@ -10058,7 +10289,9 @@ type RuntimeCustomJwtAuthorizerConfigurationArgs struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience pulumi.StringArrayInput `pulumi:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
-	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	AllowedClients pulumi.StringArrayInput                    `pulumi:"allowedClients"`
+	AllowedScopes  pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
+	CustomClaims   RuntimeCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
 	// The configuration authorization.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
@@ -10151,6 +10384,16 @@ func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedClients() pulumi.S
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) CustomClaims() RuntimeCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []RuntimeCustomClaimValidationType {
+		return v.CustomClaims
+	}).(RuntimeCustomClaimValidationTypeArrayOutput)
+}
+
 // The configuration authorization.
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
@@ -10198,6 +10441,24 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulum
 		}
 		return v.AllowedClients
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() RuntimeCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []RuntimeCustomClaimValidationType {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(RuntimeCustomClaimValidationTypeArrayOutput)
 }
 
 // The configuration authorization.
@@ -11124,12 +11385,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), RuntimeAuthorizingClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchValueTypeInput)(nil)).Elem(), RuntimeClaimMatchValueTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeInput)(nil)).Elem(), RuntimeCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodePtrInput)(nil)).Elem(), RuntimeCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeConfigurationInput)(nil)).Elem(), RuntimeCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeConfigurationPtrInput)(nil)).Elem(), RuntimeCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeContainerConfigurationInput)(nil)).Elem(), RuntimeContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeContainerConfigurationPtrInput)(nil)).Elem(), RuntimeContainerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomClaimValidationTypeInput)(nil)).Elem(), RuntimeCustomClaimValidationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomClaimValidationTypeArrayInput)(nil)).Elem(), RuntimeCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
@@ -11280,12 +11545,16 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAuthorizingClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeClaimMatchValueTypeOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeOutput{})
 	pulumi.RegisterOutputType(RuntimeCodePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeContainerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeCustomClaimValidationTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})

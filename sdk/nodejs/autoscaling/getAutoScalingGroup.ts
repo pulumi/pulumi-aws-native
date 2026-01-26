@@ -71,6 +71,7 @@ export interface GetAutoScalingGroupResult {
      *   Default: None
      */
     readonly defaultInstanceWarmup?: number;
+    readonly deletionProtection?: string;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
      *  The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
