@@ -120,6 +120,7 @@ AWS::Backup::LogicallyAirGappedBackupVault
 AWS::Backup::ReportPlan
 AWS::Backup::RestoreTestingPlan
 AWS::Backup::RestoreTestingSelection
+AWS::Backup::TieringConfiguration
 AWS::BackupGateway::Hypervisor
 AWS::Batch::ComputeEnvironment
 AWS::Batch::ConsumableResource
@@ -807,6 +808,7 @@ AWS::MSK::Replicator
 AWS::MSK::ServerlessCluster
 AWS::MSK::VpcConnection
 AWS::MWAA::Environment
+AWS::MWAAServerless::Workflow
 AWS::Macie::AllowList
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter

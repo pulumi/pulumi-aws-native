@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     {
         /// <summary>
         /// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
-        ///   Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. 
+        ///   Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
         ///   Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         /// </summary>
         [Input("terminateHookAbandon")]

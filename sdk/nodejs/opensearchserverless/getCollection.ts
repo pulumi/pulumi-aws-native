@@ -43,7 +43,7 @@ export interface GetCollectionResult {
      */
     readonly id?: string;
     /**
-     * The ARN of the AWS KMS key used to encrypt the collection.
+     * Key Management Service key used to encrypt the collection.
      */
     readonly kmsKeyArn?: string;
 }

@@ -241,6 +241,9 @@ class GetDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="additionalStorageVolumes")
     def additional_storage_volumes(self) -> Optional[Sequence['outputs.DbInstanceAdditionalStorageVolume']]:
+        """
+        The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
         return pulumi.get(self, "additional_storage_volumes")
 
     @_builtins.property

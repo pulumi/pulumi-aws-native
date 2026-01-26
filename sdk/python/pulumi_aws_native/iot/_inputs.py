@@ -68,6 +68,8 @@ __all__ = [
     'JobTemplateRateIncreaseCriteriaArgsDict',
     'JobTemplateRetryCriteriaArgs',
     'JobTemplateRetryCriteriaArgsDict',
+    'LoggingEventConfigurationArgs',
+    'LoggingEventConfigurationArgsDict',
     'MetricsExportConfigPropertiesArgs',
     'MetricsExportConfigPropertiesArgsDict',
     'MitigationActionActionParamsArgs',
@@ -1896,6 +1898,81 @@ class JobTemplateRetryCriteriaArgs:
     @number_of_retries.setter
     def number_of_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "number_of_retries", value)
+
+
+if not MYPY:
+    class LoggingEventConfigurationArgsDict(TypedDict):
+        """
+        Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+        """
+        event_type: pulumi.Input[_builtins.str]
+        """
+        The type of event to log. These include event types like Connect, Publish, and Disconnect.
+        """
+        log_destination: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+        """
+        log_level: NotRequired[pulumi.Input['LoggingEventConfigurationLogLevel']]
+        """
+        The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+        """
+elif False:
+    LoggingEventConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoggingEventConfigurationArgs:
+    def __init__(__self__, *,
+                 event_type: pulumi.Input[_builtins.str],
+                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_level: Optional[pulumi.Input['LoggingEventConfigurationLogLevel']] = None):
+        """
+        Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+        :param pulumi.Input[_builtins.str] event_type: The type of event to log. These include event types like Connect, Publish, and Disconnect.
+        :param pulumi.Input[_builtins.str] log_destination: CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+        :param pulumi.Input['LoggingEventConfigurationLogLevel'] log_level: The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        if log_destination is not None:
+            pulumi.set(__self__, "log_destination", log_destination)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of event to log. These include event types like Connect, Publish, and Disconnect.
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @log_destination.setter
+    def log_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[pulumi.Input['LoggingEventConfigurationLogLevel']]:
+        """
+        The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+        """
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: Optional[pulumi.Input['LoggingEventConfigurationLogLevel']]):
+        pulumi.set(self, "log_level", value)
 
 
 if not MYPY:

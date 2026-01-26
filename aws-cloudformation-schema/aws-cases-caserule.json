@@ -291,6 +291,6 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "cases:TagResource", "cases:UntagResource" ]
+    "permissions" : [ "cases:BatchGetCaseRule", "cases:TagResource", "cases:UntagResource" ]
   }
 }

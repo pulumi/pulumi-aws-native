@@ -434,6 +434,9 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
 
 @pulumi.output_type
 class DbInstanceAdditionalStorageVolume(dict):
+    """
+    Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -467,12 +470,15 @@ class DbInstanceAdditionalStorageVolume(dict):
                  storage_type: Optional[_builtins.str] = None,
                  volume_name: Optional[_builtins.str] = None):
         """
+        Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param _builtins.str allocated_storage: The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
         :param _builtins.int iops: The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
         :param _builtins.int max_allocated_storage: The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
-        :param _builtins.int storage_throughput: The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        :param _builtins.int storage_throughput: The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         :param _builtins.str storage_type: The storage type for the additional storage volume.
+                Valid Values: ``GP3 | IO2``
         :param _builtins.str volume_name: The name of the additional storage volume.
+                Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -515,7 +521,7 @@ class DbInstanceAdditionalStorageVolume(dict):
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[_builtins.int]:
         """
-        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         """
         return pulumi.get(self, "storage_throughput")
 
@@ -524,6 +530,7 @@ class DbInstanceAdditionalStorageVolume(dict):
     def storage_type(self) -> Optional[_builtins.str]:
         """
         The storage type for the additional storage volume.
+         Valid Values: ``GP3 | IO2``
         """
         return pulumi.get(self, "storage_type")
 
@@ -532,6 +539,7 @@ class DbInstanceAdditionalStorageVolume(dict):
     def volume_name(self) -> Optional[_builtins.str]:
         """
         The name of the additional storage volume.
+         Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
         """
         return pulumi.get(self, "volume_name")
 

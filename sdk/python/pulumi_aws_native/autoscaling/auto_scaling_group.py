@@ -33,6 +33,7 @@ class AutoScalingGroupArgs:
                  context: Optional[pulumi.Input[_builtins.str]] = None,
                  cooldown: Optional[pulumi.Input[_builtins.str]] = None,
                  default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_capacity: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -140,6 +141,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "cooldown", cooldown)
         if default_instance_warmup is not None:
             pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
         if desired_capacity_type is not None:
@@ -330,6 +333,15 @@ class AutoScalingGroupArgs:
     @default_instance_warmup.setter
     def default_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "default_instance_warmup", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
@@ -658,6 +670,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  context: Optional[pulumi.Input[_builtins.str]] = None,
                  cooldown: Optional[pulumi.Input[_builtins.str]] = None,
                  default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_capacity: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -790,6 +803,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  context: Optional[pulumi.Input[_builtins.str]] = None,
                  cooldown: Optional[pulumi.Input[_builtins.str]] = None,
                  default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
+                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_capacity: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -835,6 +849,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["context"] = context
             __props__.__dict__["cooldown"] = cooldown
             __props__.__dict__["default_instance_warmup"] = default_instance_warmup
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["desired_capacity"] = desired_capacity
             __props__.__dict__["desired_capacity_type"] = desired_capacity_type
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
@@ -901,6 +916,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["context"] = None
         __props__.__dict__["cooldown"] = None
         __props__.__dict__["default_instance_warmup"] = None
+        __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["desired_capacity"] = None
         __props__.__dict__["desired_capacity_type"] = None
         __props__.__dict__["health_check_grace_period"] = None
@@ -1016,6 +1032,11 @@ class AutoScalingGroup(pulumi.CustomResource):
           Default: None
         """
         return pulumi.get(self, "default_instance_warmup")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")

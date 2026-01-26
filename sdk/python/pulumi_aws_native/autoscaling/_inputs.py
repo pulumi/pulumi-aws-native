@@ -2659,7 +2659,7 @@ if not MYPY:
         terminate_hook_abandon: NotRequired[pulumi.Input[_builtins.str]]
         """
         Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
-          Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. 
+          Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
           Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         """
 elif False:
@@ -2672,7 +2672,7 @@ class AutoScalingGroupRetentionTriggersArgs:
         """
         Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
         :param pulumi.Input[_builtins.str] terminate_hook_abandon: Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
-                 Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. 
+                 Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
                  Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         """
         if terminate_hook_abandon is not None:
@@ -2683,7 +2683,7 @@ class AutoScalingGroupRetentionTriggersArgs:
     def terminate_hook_abandon(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
-          Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. 
+          Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
           Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         """
         return pulumi.get(self, "terminate_hook_abandon")

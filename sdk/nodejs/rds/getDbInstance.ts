@@ -47,6 +47,9 @@ export interface GetDbInstanceArgs {
 }
 
 export interface GetDbInstanceResult {
+    /**
+     * The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+     */
     readonly additionalStorageVolumes?: outputs.rds.DbInstanceAdditionalStorageVolume[];
     /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.

@@ -122,7 +122,7 @@
   },
   "tagging" : {
     "cloudFormationSystemTags" : true,
-    "permissions" : [ "cases:TagResource", "cases:UntagResource" ],
+    "permissions" : [ "cases:BatchGetField", "cases:TagResource", "cases:UntagResource" ],
     "tagOnCreate" : false,
     "tagProperty" : "/properties/Tags",
     "tagUpdatable" : true,

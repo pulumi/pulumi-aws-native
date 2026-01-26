@@ -245,6 +245,19 @@ export const LoggingDefaultLogLevel = {
  */
 export type LoggingDefaultLogLevel = (typeof LoggingDefaultLogLevel)[keyof typeof LoggingDefaultLogLevel];
 
+export const LoggingEventConfigurationLogLevel = {
+    Error: "ERROR",
+    Warn: "WARN",
+    Info: "INFO",
+    Debug: "DEBUG",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+ */
+export type LoggingEventConfigurationLogLevel = (typeof LoggingEventConfigurationLogLevel)[keyof typeof LoggingEventConfigurationLogLevel];
+
 export const MitigationActionEnableIoTLoggingParamsLogLevel = {
     Debug: "DEBUG",
     Info: "INFO",

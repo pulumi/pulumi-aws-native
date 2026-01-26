@@ -216,6 +216,7 @@ import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
+import * as mwaaserverless from "./mwaaserverless";
 import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
@@ -456,6 +457,7 @@ export {
     memorydb,
     msk,
     mwaa,
+    mwaaserverless,
     neptune,
     neptunegraph,
     networkfirewall,

@@ -86,7 +86,7 @@ class AwaitableGetOrganizationConformancePackResult(GetOrganizationConformancePa
 def get_organization_conformance_pack(organization_conformance_pack_name: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationConformancePackResult:
     """
-    Resource schema for AWS::Config::OrganizationConformancePack.
+    Resource Type definition for AWS::Config::OrganizationConformancePack.
 
 
     :param _builtins.str organization_conformance_pack_name: The name of the organization conformance pack.
@@ -104,7 +104,7 @@ def get_organization_conformance_pack(organization_conformance_pack_name: Option
 def get_organization_conformance_pack_output(organization_conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationConformancePackResult]:
     """
-    Resource schema for AWS::Config::OrganizationConformancePack.
+    Resource Type definition for AWS::Config::OrganizationConformancePack.
 
 
     :param _builtins.str organization_conformance_pack_name: The name of the organization conformance pack.

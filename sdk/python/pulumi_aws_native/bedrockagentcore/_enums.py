@@ -38,7 +38,9 @@ __all__ = [
     'MemoryUserPreferenceMemoryStrategyType',
     'RuntimeAgentManagedRuntimeType',
     'RuntimeAgentStatus',
+    'RuntimeClaimMatchOperator',
     'RuntimeEndpointAgentRuntimeEndpointStatus',
+    'RuntimeInboundTokenClaimValueType',
     'RuntimeNetworkMode',
     'RuntimeProtocolConfiguration',
 ]
@@ -345,6 +347,16 @@ class RuntimeAgentStatus(_builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:RuntimeClaimMatchOperator")
+class RuntimeClaimMatchOperator(_builtins.str, Enum):
+    """
+    The relationship between the claim field value and the value or values being matched
+    """
+    EQUALS = "EQUALS"
+    CONTAINS = "CONTAINS"
+    CONTAINS_ANY = "CONTAINS_ANY"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeEndpointAgentRuntimeEndpointStatus")
 class RuntimeEndpointAgentRuntimeEndpointStatus(_builtins.str, Enum):
     CREATING = "CREATING"
@@ -353,6 +365,15 @@ class RuntimeEndpointAgentRuntimeEndpointStatus(_builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
     READY = "READY"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:RuntimeInboundTokenClaimValueType")
+class RuntimeInboundTokenClaimValueType(_builtins.str, Enum):
+    """
+    Token claim data type
+    """
+    STRING = "STRING"
+    STRING_ARRAY = "STRING_ARRAY"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeNetworkMode")

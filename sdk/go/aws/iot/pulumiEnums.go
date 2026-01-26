@@ -3527,6 +3527,178 @@ func (in *loggingDefaultLogLevelPtr) ToLoggingDefaultLogLevelPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingDefaultLogLevelPtrOutput)
 }
 
+// The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+type LoggingEventConfigurationLogLevel string
+
+const (
+	LoggingEventConfigurationLogLevelError    = LoggingEventConfigurationLogLevel("ERROR")
+	LoggingEventConfigurationLogLevelWarn     = LoggingEventConfigurationLogLevel("WARN")
+	LoggingEventConfigurationLogLevelInfo     = LoggingEventConfigurationLogLevel("INFO")
+	LoggingEventConfigurationLogLevelDebug    = LoggingEventConfigurationLogLevel("DEBUG")
+	LoggingEventConfigurationLogLevelDisabled = LoggingEventConfigurationLogLevel("DISABLED")
+)
+
+func (LoggingEventConfigurationLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingEventConfigurationLogLevel)(nil)).Elem()
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelOutput() LoggingEventConfigurationLogLevelOutput {
+	return pulumi.ToOutput(e).(LoggingEventConfigurationLogLevelOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingEventConfigurationLogLevelOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return e.ToLoggingEventConfigurationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return LoggingEventConfigurationLogLevel(e).ToLoggingEventConfigurationLogLevelOutputWithContext(ctx).ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingEventConfigurationLogLevelOutput struct{ *pulumi.OutputState }
+
+func (LoggingEventConfigurationLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingEventConfigurationLogLevel)(nil)).Elem()
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelOutput() LoggingEventConfigurationLogLevelOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return o.ToLoggingEventConfigurationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingEventConfigurationLogLevel) *LoggingEventConfigurationLogLevel {
+		return &v
+	}).(LoggingEventConfigurationLogLevelPtrOutput)
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingEventConfigurationLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingEventConfigurationLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingEventConfigurationLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingEventConfigurationLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingEventConfigurationLogLevel)(nil)).Elem()
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) Elem() LoggingEventConfigurationLogLevelOutput {
+	return o.ApplyT(func(v *LoggingEventConfigurationLogLevel) LoggingEventConfigurationLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingEventConfigurationLogLevel
+		return ret
+	}).(LoggingEventConfigurationLogLevelOutput)
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingEventConfigurationLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingEventConfigurationLogLevelInput is an input type that accepts values of the LoggingEventConfigurationLogLevel enum
+// A concrete instance of `LoggingEventConfigurationLogLevelInput` can be one of the following:
+//
+//	LoggingEventConfigurationLogLevelError
+//	LoggingEventConfigurationLogLevelWarn
+//	LoggingEventConfigurationLogLevelInfo
+//	LoggingEventConfigurationLogLevelDebug
+//	LoggingEventConfigurationLogLevelDisabled
+type LoggingEventConfigurationLogLevelInput interface {
+	pulumi.Input
+
+	ToLoggingEventConfigurationLogLevelOutput() LoggingEventConfigurationLogLevelOutput
+	ToLoggingEventConfigurationLogLevelOutputWithContext(context.Context) LoggingEventConfigurationLogLevelOutput
+}
+
+var loggingEventConfigurationLogLevelPtrType = reflect.TypeOf((**LoggingEventConfigurationLogLevel)(nil)).Elem()
+
+type LoggingEventConfigurationLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput
+	ToLoggingEventConfigurationLogLevelPtrOutputWithContext(context.Context) LoggingEventConfigurationLogLevelPtrOutput
+}
+
+type loggingEventConfigurationLogLevelPtr string
+
+func LoggingEventConfigurationLogLevelPtr(v string) LoggingEventConfigurationLogLevelPtrInput {
+	return (*loggingEventConfigurationLogLevelPtr)(&v)
+}
+
+func (*loggingEventConfigurationLogLevelPtr) ElementType() reflect.Type {
+	return loggingEventConfigurationLogLevelPtrType
+}
+
+func (in *loggingEventConfigurationLogLevelPtr) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(LoggingEventConfigurationLogLevelPtrOutput)
+}
+
+func (in *loggingEventConfigurationLogLevelPtr) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingEventConfigurationLogLevelPtrOutput)
+}
+
 // Specifies which types of information are logged.
 type MitigationActionEnableIoTLoggingParamsLogLevel string
 
@@ -6491,6 +6663,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobRetryFailureTypePtrInput)(nil)).Elem(), JobTemplateJobRetryFailureType("FAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelPtrInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationLogLevelInput)(nil)).Elem(), LoggingEventConfigurationLogLevel("ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationLogLevelPtrInput)(nil)).Elem(), LoggingEventConfigurationLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelPtrInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput)(nil)).Elem(), MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY"))
@@ -6568,6 +6742,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateJobRetryFailureTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingDefaultLogLevelOutput{})
 	pulumi.RegisterOutputType(LoggingDefaultLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(LoggingEventConfigurationLogLevelOutput{})
+	pulumi.RegisterOutputType(LoggingEventConfigurationLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput{})

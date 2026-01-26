@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::Config::OrganizationConformancePack.
+// Resource Type definition for AWS::Config::OrganizationConformancePack.
 //
 // ## Example Usage
 // ### Example

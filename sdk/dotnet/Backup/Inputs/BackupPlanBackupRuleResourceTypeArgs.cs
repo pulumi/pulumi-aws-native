@@ -77,6 +77,14 @@ namespace Pulumi.AwsNative.Backup.Inputs
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
+        [Input("scanActions")]
+        private InputList<Inputs.BackupPlanScanActionResourceTypeArgs>? _scanActions;
+        public InputList<Inputs.BackupPlanScanActionResourceTypeArgs> ScanActions
+        {
+            get => _scanActions ?? (_scanActions = new InputList<Inputs.BackupPlanScanActionResourceTypeArgs>());
+            set => _scanActions = value;
+        }
+
         /// <summary>
         /// A CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The ARN of the AWS KMS key used to encrypt the collection.
+        /// Key Management Service key used to encrypt the collection.
         /// </summary>
         public readonly string? KmsKeyArn;
 

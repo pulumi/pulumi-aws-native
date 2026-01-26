@@ -194,6 +194,8 @@ namespace Pulumi.AwsNative.CleanRooms
         }
 
         public static CollaborationAutoApprovedChangeType AddMember { get; } = new CollaborationAutoApprovedChangeType("ADD_MEMBER");
+        public static CollaborationAutoApprovedChangeType GrantReceiveResultsAbility { get; } = new CollaborationAutoApprovedChangeType("GRANT_RECEIVE_RESULTS_ABILITY");
+        public static CollaborationAutoApprovedChangeType RevokeReceiveResultsAbility { get; } = new CollaborationAutoApprovedChangeType("REVOKE_RECEIVE_RESULTS_ABILITY");
 
         public static bool operator ==(CollaborationAutoApprovedChangeType left, CollaborationAutoApprovedChangeType right) => left.Equals(right);
         public static bool operator !=(CollaborationAutoApprovedChangeType left, CollaborationAutoApprovedChangeType right) => !left.Equals(right);

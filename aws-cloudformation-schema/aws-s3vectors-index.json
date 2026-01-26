@@ -135,13 +135,13 @@
       "permissions" : [ "s3vectors:GetIndex", "s3vectors:CreateIndex", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "s3vectors:GetIndex", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "s3vectors:GetIndex" ]
     },
     "delete" : {
-      "permissions" : [ "s3vectors:GetIndex", "s3vectors:DeleteIndex", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "s3vectors:GetIndex", "s3vectors:DeleteIndex" ]
     },
     "list" : {
-      "permissions" : [ "s3vectors:ListIndexes", "kms:GenerateDataKey", "kms:Decrypt" ],
+      "permissions" : [ "s3vectors:ListIndexes" ],
       "handlerSchema" : {
         "properties" : {
           "VectorBucketArn" : {

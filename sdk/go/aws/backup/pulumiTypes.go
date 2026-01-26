@@ -168,7 +168,8 @@ type BackupPlanBackupRuleResourceType struct {
 	// The tags to assign to the resources.
 	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
 	// A display name for a backup rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName    string                             `pulumi:"ruleName"`
+	ScanActions []BackupPlanScanActionResourceType `pulumi:"scanActions"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
@@ -213,7 +214,8 @@ type BackupPlanBackupRuleResourceTypeArgs struct {
 	// The tags to assign to the resources.
 	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
 	// A display name for a backup rule.
-	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	RuleName    pulumi.StringInput                         `pulumi:"ruleName"`
+	ScanActions BackupPlanScanActionResourceTypeArrayInput `pulumi:"scanActions"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 	// This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
@@ -317,6 +319,10 @@ func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.Strin
 // A display name for a backup rule.
 func (o BackupPlanBackupRuleResourceTypeOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+func (o BackupPlanBackupRuleResourceTypeOutput) ScanActions() BackupPlanScanActionResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) []BackupPlanScanActionResourceType { return v.ScanActions }).(BackupPlanScanActionResourceTypeArrayOutput)
 }
 
 // A CRON expression specifying when AWS Backup initiates a backup job.
@@ -771,7 +777,8 @@ type BackupPlanResourceType struct {
 	// The display name of a backup plan.
 	BackupPlanName string `pulumi:"backupPlanName"`
 	// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
-	BackupPlanRule []BackupPlanBackupRuleResourceType `pulumi:"backupPlanRule"`
+	BackupPlanRule []BackupPlanBackupRuleResourceType  `pulumi:"backupPlanRule"`
+	ScanSettings   []BackupPlanScanSettingResourceType `pulumi:"scanSettings"`
 }
 
 // BackupPlanResourceTypeInput is an input type that accepts BackupPlanResourceTypeArgs and BackupPlanResourceTypeOutput values.
@@ -791,7 +798,8 @@ type BackupPlanResourceTypeArgs struct {
 	// The display name of a backup plan.
 	BackupPlanName pulumi.StringInput `pulumi:"backupPlanName"`
 	// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
-	BackupPlanRule BackupPlanBackupRuleResourceTypeArrayInput `pulumi:"backupPlanRule"`
+	BackupPlanRule BackupPlanBackupRuleResourceTypeArrayInput  `pulumi:"backupPlanRule"`
+	ScanSettings   BackupPlanScanSettingResourceTypeArrayInput `pulumi:"scanSettings"`
 }
 
 func (BackupPlanResourceTypeArgs) ElementType() reflect.Type {
@@ -835,6 +843,10 @@ func (o BackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
 // An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
 func (o BackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
+}
+
+func (o BackupPlanResourceTypeOutput) ScanSettings() BackupPlanScanSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanScanSettingResourceType { return v.ScanSettings }).(BackupPlanScanSettingResourceTypeArrayOutput)
 }
 
 type BackupPlanResourceTypePtrOutput struct{ *pulumi.OutputState }
@@ -889,6 +901,221 @@ func (o BackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleRe
 		}
 		return v.BackupPlanRule
 	}).(BackupPlanBackupRuleResourceTypeArrayOutput)
+}
+
+func (o BackupPlanResourceTypePtrOutput) ScanSettings() BackupPlanScanSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanScanSettingResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.ScanSettings
+	}).(BackupPlanScanSettingResourceTypeArrayOutput)
+}
+
+type BackupPlanScanActionResourceType struct {
+	MalwareScanner *BackupPlanMalwareScanner `pulumi:"malwareScanner"`
+	ScanMode       *BackupPlanScanMode       `pulumi:"scanMode"`
+}
+
+// BackupPlanScanActionResourceTypeInput is an input type that accepts BackupPlanScanActionResourceTypeArgs and BackupPlanScanActionResourceTypeOutput values.
+// You can construct a concrete instance of `BackupPlanScanActionResourceTypeInput` via:
+//
+//	BackupPlanScanActionResourceTypeArgs{...}
+type BackupPlanScanActionResourceTypeInput interface {
+	pulumi.Input
+
+	ToBackupPlanScanActionResourceTypeOutput() BackupPlanScanActionResourceTypeOutput
+	ToBackupPlanScanActionResourceTypeOutputWithContext(context.Context) BackupPlanScanActionResourceTypeOutput
+}
+
+type BackupPlanScanActionResourceTypeArgs struct {
+	MalwareScanner BackupPlanMalwareScannerPtrInput `pulumi:"malwareScanner"`
+	ScanMode       BackupPlanScanModePtrInput       `pulumi:"scanMode"`
+}
+
+func (BackupPlanScanActionResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanScanActionResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanScanActionResourceTypeArgs) ToBackupPlanScanActionResourceTypeOutput() BackupPlanScanActionResourceTypeOutput {
+	return i.ToBackupPlanScanActionResourceTypeOutputWithContext(context.Background())
+}
+
+func (i BackupPlanScanActionResourceTypeArgs) ToBackupPlanScanActionResourceTypeOutputWithContext(ctx context.Context) BackupPlanScanActionResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanScanActionResourceTypeOutput)
+}
+
+// BackupPlanScanActionResourceTypeArrayInput is an input type that accepts BackupPlanScanActionResourceTypeArray and BackupPlanScanActionResourceTypeArrayOutput values.
+// You can construct a concrete instance of `BackupPlanScanActionResourceTypeArrayInput` via:
+//
+//	BackupPlanScanActionResourceTypeArray{ BackupPlanScanActionResourceTypeArgs{...} }
+type BackupPlanScanActionResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToBackupPlanScanActionResourceTypeArrayOutput() BackupPlanScanActionResourceTypeArrayOutput
+	ToBackupPlanScanActionResourceTypeArrayOutputWithContext(context.Context) BackupPlanScanActionResourceTypeArrayOutput
+}
+
+type BackupPlanScanActionResourceTypeArray []BackupPlanScanActionResourceTypeInput
+
+func (BackupPlanScanActionResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanScanActionResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanScanActionResourceTypeArray) ToBackupPlanScanActionResourceTypeArrayOutput() BackupPlanScanActionResourceTypeArrayOutput {
+	return i.ToBackupPlanScanActionResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPlanScanActionResourceTypeArray) ToBackupPlanScanActionResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanScanActionResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanScanActionResourceTypeArrayOutput)
+}
+
+type BackupPlanScanActionResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanScanActionResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanScanActionResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanScanActionResourceTypeOutput) ToBackupPlanScanActionResourceTypeOutput() BackupPlanScanActionResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanScanActionResourceTypeOutput) ToBackupPlanScanActionResourceTypeOutputWithContext(ctx context.Context) BackupPlanScanActionResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanScanActionResourceTypeOutput) MalwareScanner() BackupPlanMalwareScannerPtrOutput {
+	return o.ApplyT(func(v BackupPlanScanActionResourceType) *BackupPlanMalwareScanner { return v.MalwareScanner }).(BackupPlanMalwareScannerPtrOutput)
+}
+
+func (o BackupPlanScanActionResourceTypeOutput) ScanMode() BackupPlanScanModePtrOutput {
+	return o.ApplyT(func(v BackupPlanScanActionResourceType) *BackupPlanScanMode { return v.ScanMode }).(BackupPlanScanModePtrOutput)
+}
+
+type BackupPlanScanActionResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanScanActionResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanScanActionResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanScanActionResourceTypeArrayOutput) ToBackupPlanScanActionResourceTypeArrayOutput() BackupPlanScanActionResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanScanActionResourceTypeArrayOutput) ToBackupPlanScanActionResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanScanActionResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanScanActionResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanScanActionResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPlanScanActionResourceType {
+		return vs[0].([]BackupPlanScanActionResourceType)[vs[1].(int)]
+	}).(BackupPlanScanActionResourceTypeOutput)
+}
+
+type BackupPlanScanSettingResourceType struct {
+	MalwareScanner *BackupPlanMalwareScanner `pulumi:"malwareScanner"`
+	ResourceTypes  []string                  `pulumi:"resourceTypes"`
+	ScannerRoleArn *string                   `pulumi:"scannerRoleArn"`
+}
+
+// BackupPlanScanSettingResourceTypeInput is an input type that accepts BackupPlanScanSettingResourceTypeArgs and BackupPlanScanSettingResourceTypeOutput values.
+// You can construct a concrete instance of `BackupPlanScanSettingResourceTypeInput` via:
+//
+//	BackupPlanScanSettingResourceTypeArgs{...}
+type BackupPlanScanSettingResourceTypeInput interface {
+	pulumi.Input
+
+	ToBackupPlanScanSettingResourceTypeOutput() BackupPlanScanSettingResourceTypeOutput
+	ToBackupPlanScanSettingResourceTypeOutputWithContext(context.Context) BackupPlanScanSettingResourceTypeOutput
+}
+
+type BackupPlanScanSettingResourceTypeArgs struct {
+	MalwareScanner BackupPlanMalwareScannerPtrInput `pulumi:"malwareScanner"`
+	ResourceTypes  pulumi.StringArrayInput          `pulumi:"resourceTypes"`
+	ScannerRoleArn pulumi.StringPtrInput            `pulumi:"scannerRoleArn"`
+}
+
+func (BackupPlanScanSettingResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanScanSettingResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanScanSettingResourceTypeArgs) ToBackupPlanScanSettingResourceTypeOutput() BackupPlanScanSettingResourceTypeOutput {
+	return i.ToBackupPlanScanSettingResourceTypeOutputWithContext(context.Background())
+}
+
+func (i BackupPlanScanSettingResourceTypeArgs) ToBackupPlanScanSettingResourceTypeOutputWithContext(ctx context.Context) BackupPlanScanSettingResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanScanSettingResourceTypeOutput)
+}
+
+// BackupPlanScanSettingResourceTypeArrayInput is an input type that accepts BackupPlanScanSettingResourceTypeArray and BackupPlanScanSettingResourceTypeArrayOutput values.
+// You can construct a concrete instance of `BackupPlanScanSettingResourceTypeArrayInput` via:
+//
+//	BackupPlanScanSettingResourceTypeArray{ BackupPlanScanSettingResourceTypeArgs{...} }
+type BackupPlanScanSettingResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToBackupPlanScanSettingResourceTypeArrayOutput() BackupPlanScanSettingResourceTypeArrayOutput
+	ToBackupPlanScanSettingResourceTypeArrayOutputWithContext(context.Context) BackupPlanScanSettingResourceTypeArrayOutput
+}
+
+type BackupPlanScanSettingResourceTypeArray []BackupPlanScanSettingResourceTypeInput
+
+func (BackupPlanScanSettingResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanScanSettingResourceType)(nil)).Elem()
+}
+
+func (i BackupPlanScanSettingResourceTypeArray) ToBackupPlanScanSettingResourceTypeArrayOutput() BackupPlanScanSettingResourceTypeArrayOutput {
+	return i.ToBackupPlanScanSettingResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPlanScanSettingResourceTypeArray) ToBackupPlanScanSettingResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanScanSettingResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanScanSettingResourceTypeArrayOutput)
+}
+
+type BackupPlanScanSettingResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanScanSettingResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanScanSettingResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanScanSettingResourceTypeOutput) ToBackupPlanScanSettingResourceTypeOutput() BackupPlanScanSettingResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanScanSettingResourceTypeOutput) ToBackupPlanScanSettingResourceTypeOutputWithContext(ctx context.Context) BackupPlanScanSettingResourceTypeOutput {
+	return o
+}
+
+func (o BackupPlanScanSettingResourceTypeOutput) MalwareScanner() BackupPlanMalwareScannerPtrOutput {
+	return o.ApplyT(func(v BackupPlanScanSettingResourceType) *BackupPlanMalwareScanner { return v.MalwareScanner }).(BackupPlanMalwareScannerPtrOutput)
+}
+
+func (o BackupPlanScanSettingResourceTypeOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPlanScanSettingResourceType) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o BackupPlanScanSettingResourceTypeOutput) ScannerRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPlanScanSettingResourceType) *string { return v.ScannerRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type BackupPlanScanSettingResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanScanSettingResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPlanScanSettingResourceType)(nil)).Elem()
+}
+
+func (o BackupPlanScanSettingResourceTypeArrayOutput) ToBackupPlanScanSettingResourceTypeArrayOutput() BackupPlanScanSettingResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanScanSettingResourceTypeArrayOutput) ToBackupPlanScanSettingResourceTypeArrayOutputWithContext(ctx context.Context) BackupPlanScanSettingResourceTypeArrayOutput {
+	return o
+}
+
+func (o BackupPlanScanSettingResourceTypeArrayOutput) Index(i pulumi.IntInput) BackupPlanScanSettingResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPlanScanSettingResourceType {
+		return vs[0].([]BackupPlanScanSettingResourceType)[vs[1].(int)]
+	}).(BackupPlanScanSettingResourceTypeOutput)
 }
 
 type BackupSelectionConditionParameter struct {
@@ -3249,6 +3476,112 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEq
 	}).(RestoreTestingSelectionKeyValueArrayOutput)
 }
 
+type TieringConfigurationResourceSelection struct {
+	ResourceType              string   `pulumi:"resourceType"`
+	Resources                 []string `pulumi:"resources"`
+	TieringDownSettingsInDays int      `pulumi:"tieringDownSettingsInDays"`
+}
+
+// TieringConfigurationResourceSelectionInput is an input type that accepts TieringConfigurationResourceSelectionArgs and TieringConfigurationResourceSelectionOutput values.
+// You can construct a concrete instance of `TieringConfigurationResourceSelectionInput` via:
+//
+//	TieringConfigurationResourceSelectionArgs{...}
+type TieringConfigurationResourceSelectionInput interface {
+	pulumi.Input
+
+	ToTieringConfigurationResourceSelectionOutput() TieringConfigurationResourceSelectionOutput
+	ToTieringConfigurationResourceSelectionOutputWithContext(context.Context) TieringConfigurationResourceSelectionOutput
+}
+
+type TieringConfigurationResourceSelectionArgs struct {
+	ResourceType              pulumi.StringInput      `pulumi:"resourceType"`
+	Resources                 pulumi.StringArrayInput `pulumi:"resources"`
+	TieringDownSettingsInDays pulumi.IntInput         `pulumi:"tieringDownSettingsInDays"`
+}
+
+func (TieringConfigurationResourceSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TieringConfigurationResourceSelection)(nil)).Elem()
+}
+
+func (i TieringConfigurationResourceSelectionArgs) ToTieringConfigurationResourceSelectionOutput() TieringConfigurationResourceSelectionOutput {
+	return i.ToTieringConfigurationResourceSelectionOutputWithContext(context.Background())
+}
+
+func (i TieringConfigurationResourceSelectionArgs) ToTieringConfigurationResourceSelectionOutputWithContext(ctx context.Context) TieringConfigurationResourceSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TieringConfigurationResourceSelectionOutput)
+}
+
+// TieringConfigurationResourceSelectionArrayInput is an input type that accepts TieringConfigurationResourceSelectionArray and TieringConfigurationResourceSelectionArrayOutput values.
+// You can construct a concrete instance of `TieringConfigurationResourceSelectionArrayInput` via:
+//
+//	TieringConfigurationResourceSelectionArray{ TieringConfigurationResourceSelectionArgs{...} }
+type TieringConfigurationResourceSelectionArrayInput interface {
+	pulumi.Input
+
+	ToTieringConfigurationResourceSelectionArrayOutput() TieringConfigurationResourceSelectionArrayOutput
+	ToTieringConfigurationResourceSelectionArrayOutputWithContext(context.Context) TieringConfigurationResourceSelectionArrayOutput
+}
+
+type TieringConfigurationResourceSelectionArray []TieringConfigurationResourceSelectionInput
+
+func (TieringConfigurationResourceSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TieringConfigurationResourceSelection)(nil)).Elem()
+}
+
+func (i TieringConfigurationResourceSelectionArray) ToTieringConfigurationResourceSelectionArrayOutput() TieringConfigurationResourceSelectionArrayOutput {
+	return i.ToTieringConfigurationResourceSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i TieringConfigurationResourceSelectionArray) ToTieringConfigurationResourceSelectionArrayOutputWithContext(ctx context.Context) TieringConfigurationResourceSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TieringConfigurationResourceSelectionArrayOutput)
+}
+
+type TieringConfigurationResourceSelectionOutput struct{ *pulumi.OutputState }
+
+func (TieringConfigurationResourceSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TieringConfigurationResourceSelection)(nil)).Elem()
+}
+
+func (o TieringConfigurationResourceSelectionOutput) ToTieringConfigurationResourceSelectionOutput() TieringConfigurationResourceSelectionOutput {
+	return o
+}
+
+func (o TieringConfigurationResourceSelectionOutput) ToTieringConfigurationResourceSelectionOutputWithContext(ctx context.Context) TieringConfigurationResourceSelectionOutput {
+	return o
+}
+
+func (o TieringConfigurationResourceSelectionOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v TieringConfigurationResourceSelection) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o TieringConfigurationResourceSelectionOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TieringConfigurationResourceSelection) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+func (o TieringConfigurationResourceSelectionOutput) TieringDownSettingsInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v TieringConfigurationResourceSelection) int { return v.TieringDownSettingsInDays }).(pulumi.IntOutput)
+}
+
+type TieringConfigurationResourceSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (TieringConfigurationResourceSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TieringConfigurationResourceSelection)(nil)).Elem()
+}
+
+func (o TieringConfigurationResourceSelectionArrayOutput) ToTieringConfigurationResourceSelectionArrayOutput() TieringConfigurationResourceSelectionArrayOutput {
+	return o
+}
+
+func (o TieringConfigurationResourceSelectionArrayOutput) ToTieringConfigurationResourceSelectionArrayOutputWithContext(ctx context.Context) TieringConfigurationResourceSelectionArrayOutput {
+	return o
+}
+
+func (o TieringConfigurationResourceSelectionArrayOutput) Index(i pulumi.IntInput) TieringConfigurationResourceSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TieringConfigurationResourceSelection {
+		return vs[0].([]TieringConfigurationResourceSelection)[vs[1].(int)]
+	}).(TieringConfigurationResourceSelectionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeArrayInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArray{})
@@ -3261,6 +3594,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanLifecycleResourceTypeInput)(nil)).Elem(), BackupPlanLifecycleResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanLifecycleResourceTypePtrInput)(nil)).Elem(), BackupPlanLifecycleResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanResourceTypeInput)(nil)).Elem(), BackupPlanResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanScanActionResourceTypeInput)(nil)).Elem(), BackupPlanScanActionResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanScanActionResourceTypeArrayInput)(nil)).Elem(), BackupPlanScanActionResourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanScanSettingResourceTypeInput)(nil)).Elem(), BackupPlanScanSettingResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanScanSettingResourceTypeArrayInput)(nil)).Elem(), BackupPlanScanSettingResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionParameterInput)(nil)).Elem(), BackupSelectionConditionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionParameterArrayInput)(nil)).Elem(), BackupSelectionConditionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionConditionResourceTypeInput)(nil)).Elem(), BackupSelectionConditionResourceTypeArgs{})
@@ -3289,6 +3626,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionKeyValueArrayInput)(nil)).Elem(), RestoreTestingSelectionKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsPtrInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TieringConfigurationResourceSelectionInput)(nil)).Elem(), TieringConfigurationResourceSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TieringConfigurationResourceSelectionArrayInput)(nil)).Elem(), TieringConfigurationResourceSelectionArray{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeOutput{})
@@ -3301,6 +3640,10 @@ func init() {
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(BackupPlanScanActionResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupPlanScanActionResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(BackupPlanScanSettingResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupPlanScanSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionParameterOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionParameterArrayOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeOutput{})
@@ -3332,4 +3675,6 @@ func init() {
 	pulumi.RegisterOutputType(RestoreTestingSelectionKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsOutput{})
 	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsPtrOutput{})
+	pulumi.RegisterOutputType(TieringConfigurationResourceSelectionOutput{})
+	pulumi.RegisterOutputType(TieringConfigurationResourceSelectionArrayOutput{})
 }

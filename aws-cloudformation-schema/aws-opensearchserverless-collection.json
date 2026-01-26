@@ -41,15 +41,15 @@
     },
     "EncryptionConfig" : {
       "type" : "object",
-      "description" : "The configuration to encrypt the collection",
+      "description" : "Encryption settings for the collection",
       "properties" : {
         "AWSOwnedKey" : {
           "type" : "boolean",
-          "description" : "The configuration to encrypt the collection with AWS owned key"
+          "description" : "Indicates whether to use an AWS owned key for encryption."
         },
         "KmsKeyArn" : {
           "type" : "string",
-          "description" : "The ARN of the KMS key to encrypt the collection with"
+          "description" : "Key Management Service key used to encrypt the collection."
         }
       },
       "additionalProperties" : false
@@ -104,14 +104,14 @@
     },
     "CollectionGroupName" : {
       "type" : "string",
-      "description" : "The name of the collection group.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n"
+      "description" : "The name of the collection group to associate with the collection."
     },
     "EncryptionConfig" : {
       "$ref" : "#/definitions/EncryptionConfig"
     },
     "KmsKeyArn" : {
       "type" : "string",
-      "description" : "The ARN of the AWS KMS key used to encrypt the collection."
+      "description" : "Key Management Service key used to encrypt the collection."
     }
   },
   "required" : [ "Name" ],

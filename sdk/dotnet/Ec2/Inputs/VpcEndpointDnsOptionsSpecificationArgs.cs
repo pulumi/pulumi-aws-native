@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<string>? _privateDnsSpecifiedDomains;
 
         /// <summary>
-        /// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        /// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
         /// </summary>
         public InputList<string> PrivateDnsSpecifiedDomains
         {

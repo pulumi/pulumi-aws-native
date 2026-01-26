@@ -24,9 +24,12 @@ class EnvironmentArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
                  project_identifier: pulumi.Input[_builtins.str],
+                 deployment_order: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_account_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_account_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_blueprint_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -36,9 +39,12 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the environment would be created.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the Amazon DataZone project in which the environment would be created.
+        :param pulumi.Input[_builtins.int] deployment_order: The deployment order for the environment.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone environment.
         :param pulumi.Input[_builtins.str] environment_account_identifier: The AWS account in which the Amazon DataZone environment is created.
         :param pulumi.Input[_builtins.str] environment_account_region: The AWS region in which the Amazon DataZone environment is created.
+        :param pulumi.Input[_builtins.str] environment_blueprint_identifier: The identifier of the environment blueprint.
+        :param pulumi.Input[_builtins.str] environment_configuration_id: The identifier of the environment configuration.
         :param pulumi.Input[_builtins.str] environment_profile_identifier: The ID of the environment profile with which the Amazon DataZone environment would be created.
         :param pulumi.Input[_builtins.str] environment_role_arn: Environment role arn for custom aws environment permissions
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The glossary terms that can be used in the Amazon DataZone environment.
@@ -47,12 +53,18 @@ class EnvironmentArgs:
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "project_identifier", project_identifier)
+        if deployment_order is not None:
+            pulumi.set(__self__, "deployment_order", deployment_order)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if environment_account_identifier is not None:
             pulumi.set(__self__, "environment_account_identifier", environment_account_identifier)
         if environment_account_region is not None:
             pulumi.set(__self__, "environment_account_region", environment_account_region)
+        if environment_blueprint_identifier is not None:
+            pulumi.set(__self__, "environment_blueprint_identifier", environment_blueprint_identifier)
+        if environment_configuration_id is not None:
+            pulumi.set(__self__, "environment_configuration_id", environment_configuration_id)
         if environment_profile_identifier is not None:
             pulumi.set(__self__, "environment_profile_identifier", environment_profile_identifier)
         if environment_role_arn is not None:
@@ -89,6 +101,18 @@ class EnvironmentArgs:
         pulumi.set(self, "project_identifier", value)
 
     @_builtins.property
+    @pulumi.getter(name="deploymentOrder")
+    def deployment_order(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The deployment order for the environment.
+        """
+        return pulumi.get(self, "deployment_order")
+
+    @deployment_order.setter
+    def deployment_order(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "deployment_order", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -123,6 +147,30 @@ class EnvironmentArgs:
     @environment_account_region.setter
     def environment_account_region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "environment_account_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentBlueprintIdentifier")
+    def environment_blueprint_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The identifier of the environment blueprint.
+        """
+        return pulumi.get(self, "environment_blueprint_identifier")
+
+    @environment_blueprint_identifier.setter
+    def environment_blueprint_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "environment_blueprint_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentConfigurationId")
+    def environment_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The identifier of the environment configuration.
+        """
+        return pulumi.get(self, "environment_configuration_id")
+
+    @environment_configuration_id.setter
+    def environment_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "environment_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentProfileIdentifier")
@@ -191,10 +239,13 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_order: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_account_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_account_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_blueprint_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -207,10 +258,13 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.int] deployment_order: The deployment order for the environment.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone environment.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the environment would be created.
         :param pulumi.Input[_builtins.str] environment_account_identifier: The AWS account in which the Amazon DataZone environment is created.
         :param pulumi.Input[_builtins.str] environment_account_region: The AWS region in which the Amazon DataZone environment is created.
+        :param pulumi.Input[_builtins.str] environment_blueprint_identifier: The identifier of the environment blueprint.
+        :param pulumi.Input[_builtins.str] environment_configuration_id: The identifier of the environment configuration.
         :param pulumi.Input[_builtins.str] environment_profile_identifier: The ID of the environment profile with which the Amazon DataZone environment would be created.
         :param pulumi.Input[_builtins.str] environment_role_arn: Environment role arn for custom aws environment permissions
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The glossary terms that can be used in the Amazon DataZone environment.
@@ -242,10 +296,13 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_order: Optional[pulumi.Input[_builtins.int]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_account_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_account_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_blueprint_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -261,12 +318,15 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
+            __props__.__dict__["deployment_order"] = deployment_order
             __props__.__dict__["description"] = description
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["environment_account_identifier"] = environment_account_identifier
             __props__.__dict__["environment_account_region"] = environment_account_region
+            __props__.__dict__["environment_blueprint_identifier"] = environment_blueprint_identifier
+            __props__.__dict__["environment_configuration_id"] = environment_configuration_id
             __props__.__dict__["environment_profile_identifier"] = environment_profile_identifier
             __props__.__dict__["environment_role_arn"] = environment_role_arn
             __props__.__dict__["glossary_terms"] = glossary_terms
@@ -287,7 +347,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["provider"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentAccountIdentifier", "environmentAccountRegion", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deploymentOrder", "domainIdentifier", "environmentAccountIdentifier", "environmentAccountRegion", "environmentBlueprintIdentifier", "environmentConfigurationId", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:datazone:Environment',
@@ -316,12 +376,15 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
+        __props__.__dict__["deployment_order"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_identifier"] = None
         __props__.__dict__["environment_account_identifier"] = None
         __props__.__dict__["environment_account_region"] = None
         __props__.__dict__["environment_blueprint_id"] = None
+        __props__.__dict__["environment_blueprint_identifier"] = None
+        __props__.__dict__["environment_configuration_id"] = None
         __props__.__dict__["environment_profile_id"] = None
         __props__.__dict__["environment_profile_identifier"] = None
         __props__.__dict__["environment_role_arn"] = None
@@ -376,6 +439,14 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "created_by")
 
     @_builtins.property
+    @pulumi.getter(name="deploymentOrder")
+    def deployment_order(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The deployment order for the environment.
+        """
+        return pulumi.get(self, "deployment_order")
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -422,6 +493,22 @@ class Environment(pulumi.CustomResource):
         The ID of the blueprint with which the Amazon DataZone environment was created.
         """
         return pulumi.get(self, "environment_blueprint_id")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentBlueprintIdentifier")
+    def environment_blueprint_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The identifier of the environment blueprint.
+        """
+        return pulumi.get(self, "environment_blueprint_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentConfigurationId")
+    def environment_configuration_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The identifier of the environment configuration.
+        """
+        return pulumi.get(self, "environment_configuration_id")
 
     @_builtins.property
     @pulumi.getter(name="environmentProfileId")

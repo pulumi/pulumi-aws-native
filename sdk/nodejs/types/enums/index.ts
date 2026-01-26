@@ -121,6 +121,7 @@ import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
+import * as mwaaserverless from "./mwaaserverless";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
@@ -313,6 +314,7 @@ export {
     memorydb,
     msk,
     mwaa,
+    mwaaserverless,
     networkfirewall,
     oam,
     observabilityadmin,
