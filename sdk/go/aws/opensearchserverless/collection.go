@@ -100,20 +100,14 @@ type Collection struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The endpoint for the collection.
 	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
-	// The name of the collection group.
-	//
-	// The name must meet the following criteria:
-	// Unique to your account and AWS Region
-	// Starts with a lowercase letter
-	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters
+	// The name of the collection group to associate with the collection.
 	CollectionGroupName pulumi.StringPtrOutput `pulumi:"collectionGroupName"`
 	// The OpenSearch Dashboards endpoint for the collection.
 	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
 	// The description of the collection
 	Description      pulumi.StringPtrOutput              `pulumi:"description"`
 	EncryptionConfig CollectionEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
-	// The ARN of the AWS KMS key used to encrypt the collection.
+	// Key Management Service key used to encrypt the collection.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// The name of the collection.
 	//
@@ -180,13 +174,7 @@ func (CollectionState) ElementType() reflect.Type {
 }
 
 type collectionArgs struct {
-	// The name of the collection group.
-	//
-	// The name must meet the following criteria:
-	// Unique to your account and AWS Region
-	// Starts with a lowercase letter
-	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters
+	// The name of the collection group to associate with the collection.
 	CollectionGroupName *string `pulumi:"collectionGroupName"`
 	// The description of the collection
 	Description      *string                     `pulumi:"description"`
@@ -209,13 +197,7 @@ type collectionArgs struct {
 
 // The set of arguments for constructing a Collection resource.
 type CollectionArgs struct {
-	// The name of the collection group.
-	//
-	// The name must meet the following criteria:
-	// Unique to your account and AWS Region
-	// Starts with a lowercase letter
-	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters
+	// The name of the collection group to associate with the collection.
 	CollectionGroupName pulumi.StringPtrInput
 	// The description of the collection
 	Description      pulumi.StringPtrInput
@@ -288,13 +270,7 @@ func (o CollectionOutput) CollectionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.CollectionEndpoint }).(pulumi.StringOutput)
 }
 
-// The name of the collection group.
-//
-// The name must meet the following criteria:
-// Unique to your account and AWS Region
-// Starts with a lowercase letter
-// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-// Contains between 3 and 32 characters
+// The name of the collection group to associate with the collection.
 func (o CollectionOutput) CollectionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringPtrOutput { return v.CollectionGroupName }).(pulumi.StringPtrOutput)
 }
@@ -313,7 +289,7 @@ func (o CollectionOutput) EncryptionConfig() CollectionEncryptionConfigPtrOutput
 	return o.ApplyT(func(v *Collection) CollectionEncryptionConfigPtrOutput { return v.EncryptionConfig }).(CollectionEncryptionConfigPtrOutput)
 }
 
-// The ARN of the AWS KMS key used to encrypt the collection.
+// Key Management Service key used to encrypt the collection.
 func (o CollectionOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }

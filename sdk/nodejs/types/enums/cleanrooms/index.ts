@@ -75,6 +75,8 @@ export type CollaborationAnalyticsEngine = (typeof CollaborationAnalyticsEngine)
 
 export const CollaborationAutoApprovedChangeType = {
     AddMember: "ADD_MEMBER",
+    GrantReceiveResultsAbility: "GRANT_RECEIVE_RESULTS_ABILITY",
+    RevokeReceiveResultsAbility: "REVOKE_RECEIVE_RESULTS_ABILITY",
 } as const;
 
 export type CollaborationAutoApprovedChangeType = (typeof CollaborationAutoApprovedChangeType)[keyof typeof CollaborationAutoApprovedChangeType];

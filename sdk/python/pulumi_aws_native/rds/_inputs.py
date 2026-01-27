@@ -431,6 +431,9 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
 
 if not MYPY:
     class DbInstanceAdditionalStorageVolumeArgsDict(TypedDict):
+        """
+        Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
         allocated_storage: NotRequired[pulumi.Input[_builtins.str]]
         """
         The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
@@ -445,15 +448,17 @@ if not MYPY:
         """
         storage_throughput: NotRequired[pulumi.Input[_builtins.int]]
         """
-        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         """
         storage_type: NotRequired[pulumi.Input[_builtins.str]]
         """
         The storage type for the additional storage volume.
+         Valid Values: ``GP3 | IO2``
         """
         volume_name: NotRequired[pulumi.Input[_builtins.str]]
         """
         The name of the additional storage volume.
+         Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
         """
 elif False:
     DbInstanceAdditionalStorageVolumeArgsDict: TypeAlias = Mapping[str, Any]
@@ -468,12 +473,15 @@ class DbInstanceAdditionalStorageVolumeArgs:
                  storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  volume_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
         :param pulumi.Input[_builtins.int] max_allocated_storage: The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
-        :param pulumi.Input[_builtins.int] storage_throughput: The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        :param pulumi.Input[_builtins.int] storage_throughput: The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         :param pulumi.Input[_builtins.str] storage_type: The storage type for the additional storage volume.
+                Valid Values: ``GP3 | IO2``
         :param pulumi.Input[_builtins.str] volume_name: The name of the additional storage volume.
+                Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -528,7 +536,7 @@ class DbInstanceAdditionalStorageVolumeArgs:
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+        The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         """
         return pulumi.get(self, "storage_throughput")
 
@@ -541,6 +549,7 @@ class DbInstanceAdditionalStorageVolumeArgs:
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The storage type for the additional storage volume.
+         Valid Values: ``GP3 | IO2``
         """
         return pulumi.get(self, "storage_type")
 
@@ -553,6 +562,7 @@ class DbInstanceAdditionalStorageVolumeArgs:
     def volume_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the additional storage volume.
+         Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
         """
         return pulumi.get(self, "volume_name")
 

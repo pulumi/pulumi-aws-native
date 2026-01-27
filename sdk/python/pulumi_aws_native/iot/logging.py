@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['LoggingArgs', 'Logging']
 
@@ -22,16 +24,20 @@ class LoggingArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
                  default_log_level: pulumi.Input['LoggingDefaultLogLevel'],
-                 role_arn: pulumi.Input[_builtins.str]):
+                 role_arn: pulumi.Input[_builtins.str],
+                 event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Logging resource.
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         :param pulumi.Input['LoggingDefaultLogLevel'] default_log_level: The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
+        :param pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]] event_configurations: Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "default_log_level", default_log_level)
         pulumi.set(__self__, "role_arn", role_arn)
+        if event_configurations is not None:
+            pulumi.set(__self__, "event_configurations", event_configurations)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
@@ -69,6 +75,18 @@ class LoggingArgs:
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
 
+    @_builtins.property
+    @pulumi.getter(name="eventConfigurations")
+    def event_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]]:
+        """
+        Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+        """
+        return pulumi.get(self, "event_configurations")
+
+    @event_configurations.setter
+    def event_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]]):
+        pulumi.set(self, "event_configurations", value)
+
 
 @pulumi.type_token("aws-native:iot:Logging")
 class Logging(pulumi.CustomResource):
@@ -78,6 +96,7 @@ class Logging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  default_log_level: Optional[pulumi.Input['LoggingDefaultLogLevel']] = None,
+                 event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -87,6 +106,7 @@ class Logging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         :param pulumi.Input['LoggingDefaultLogLevel'] default_log_level: The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]] event_configurations: Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         ...
@@ -115,6 +135,7 @@ class Logging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  default_log_level: Optional[pulumi.Input['LoggingDefaultLogLevel']] = None,
+                 event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -131,6 +152,7 @@ class Logging(pulumi.CustomResource):
             if default_log_level is None and not opts.urn:
                 raise TypeError("Missing required property 'default_log_level'")
             __props__.__dict__["default_log_level"] = default_log_level
+            __props__.__dict__["event_configurations"] = event_configurations
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -160,6 +182,7 @@ class Logging(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = None
         __props__.__dict__["default_log_level"] = None
+        __props__.__dict__["event_configurations"] = None
         __props__.__dict__["role_arn"] = None
         return Logging(resource_name, opts=opts, __props__=__props__)
 
@@ -178,6 +201,14 @@ class Logging(pulumi.CustomResource):
         The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         """
         return pulumi.get(self, "default_log_level")
+
+    @_builtins.property
+    @pulumi.getter(name="eventConfigurations")
+    def event_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.LoggingEventConfiguration']]]:
+        """
+        Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+        """
+        return pulumi.get(self, "event_configurations")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")

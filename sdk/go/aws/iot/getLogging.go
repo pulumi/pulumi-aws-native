@@ -30,6 +30,8 @@ type LookupLoggingArgs struct {
 type LookupLoggingResult struct {
 	// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 	DefaultLogLevel *LoggingDefaultLogLevel `pulumi:"defaultLogLevel"`
+	// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+	EventConfigurations []LoggingEventConfiguration `pulumi:"eventConfigurations"`
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -69,6 +71,11 @@ func (o LookupLoggingResultOutput) ToLookupLoggingResultOutputWithContext(ctx co
 // The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 func (o LookupLoggingResultOutput) DefaultLogLevel() LoggingDefaultLogLevelPtrOutput {
 	return o.ApplyT(func(v LookupLoggingResult) *LoggingDefaultLogLevel { return v.DefaultLogLevel }).(LoggingDefaultLogLevelPtrOutput)
+}
+
+// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+func (o LookupLoggingResultOutput) EventConfigurations() LoggingEventConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupLoggingResult) []LoggingEventConfiguration { return v.EventConfigurations }).(LoggingEventConfigurationArrayOutput)
 }
 
 // The ARN of the role that allows IoT to write to Cloudwatch logs.

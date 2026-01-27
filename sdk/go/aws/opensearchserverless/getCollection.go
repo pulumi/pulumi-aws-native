@@ -38,7 +38,7 @@ type LookupCollectionResult struct {
 	Description *string `pulumi:"description"`
 	// The identifier of the collection
 	Id *string `pulumi:"id"`
-	// The ARN of the AWS KMS key used to encrypt the collection.
+	// Key Management Service key used to encrypt the collection.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -99,7 +99,7 @@ func (o LookupCollectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS KMS key used to encrypt the collection.
+// Key Management Service key used to encrypt the collection.
 func (o LookupCollectionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

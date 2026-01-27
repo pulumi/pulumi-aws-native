@@ -4419,6 +4419,124 @@ type JobTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+type LoggingEventConfiguration struct {
+	// The type of event to log. These include event types like Connect, Publish, and Disconnect.
+	EventType string `pulumi:"eventType"`
+	// CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+	LogDestination *string `pulumi:"logDestination"`
+	// The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+	LogLevel *LoggingEventConfigurationLogLevel `pulumi:"logLevel"`
+}
+
+// LoggingEventConfigurationInput is an input type that accepts LoggingEventConfigurationArgs and LoggingEventConfigurationOutput values.
+// You can construct a concrete instance of `LoggingEventConfigurationInput` via:
+//
+//	LoggingEventConfigurationArgs{...}
+type LoggingEventConfigurationInput interface {
+	pulumi.Input
+
+	ToLoggingEventConfigurationOutput() LoggingEventConfigurationOutput
+	ToLoggingEventConfigurationOutputWithContext(context.Context) LoggingEventConfigurationOutput
+}
+
+// Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+type LoggingEventConfigurationArgs struct {
+	// The type of event to log. These include event types like Connect, Publish, and Disconnect.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
+	// The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+	LogLevel LoggingEventConfigurationLogLevelPtrInput `pulumi:"logLevel"`
+}
+
+func (LoggingEventConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingEventConfiguration)(nil)).Elem()
+}
+
+func (i LoggingEventConfigurationArgs) ToLoggingEventConfigurationOutput() LoggingEventConfigurationOutput {
+	return i.ToLoggingEventConfigurationOutputWithContext(context.Background())
+}
+
+func (i LoggingEventConfigurationArgs) ToLoggingEventConfigurationOutputWithContext(ctx context.Context) LoggingEventConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingEventConfigurationOutput)
+}
+
+// LoggingEventConfigurationArrayInput is an input type that accepts LoggingEventConfigurationArray and LoggingEventConfigurationArrayOutput values.
+// You can construct a concrete instance of `LoggingEventConfigurationArrayInput` via:
+//
+//	LoggingEventConfigurationArray{ LoggingEventConfigurationArgs{...} }
+type LoggingEventConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLoggingEventConfigurationArrayOutput() LoggingEventConfigurationArrayOutput
+	ToLoggingEventConfigurationArrayOutputWithContext(context.Context) LoggingEventConfigurationArrayOutput
+}
+
+type LoggingEventConfigurationArray []LoggingEventConfigurationInput
+
+func (LoggingEventConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingEventConfiguration)(nil)).Elem()
+}
+
+func (i LoggingEventConfigurationArray) ToLoggingEventConfigurationArrayOutput() LoggingEventConfigurationArrayOutput {
+	return i.ToLoggingEventConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LoggingEventConfigurationArray) ToLoggingEventConfigurationArrayOutputWithContext(ctx context.Context) LoggingEventConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingEventConfigurationArrayOutput)
+}
+
+// Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+type LoggingEventConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LoggingEventConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingEventConfiguration)(nil)).Elem()
+}
+
+func (o LoggingEventConfigurationOutput) ToLoggingEventConfigurationOutput() LoggingEventConfigurationOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationOutput) ToLoggingEventConfigurationOutputWithContext(ctx context.Context) LoggingEventConfigurationOutput {
+	return o
+}
+
+// The type of event to log. These include event types like Connect, Publish, and Disconnect.
+func (o LoggingEventConfigurationOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v LoggingEventConfiguration) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+func (o LoggingEventConfigurationOutput) LogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggingEventConfiguration) *string { return v.LogDestination }).(pulumi.StringPtrOutput)
+}
+
+// The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+func (o LoggingEventConfigurationOutput) LogLevel() LoggingEventConfigurationLogLevelPtrOutput {
+	return o.ApplyT(func(v LoggingEventConfiguration) *LoggingEventConfigurationLogLevel { return v.LogLevel }).(LoggingEventConfigurationLogLevelPtrOutput)
+}
+
+type LoggingEventConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LoggingEventConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingEventConfiguration)(nil)).Elem()
+}
+
+func (o LoggingEventConfigurationArrayOutput) ToLoggingEventConfigurationArrayOutput() LoggingEventConfigurationArrayOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationArrayOutput) ToLoggingEventConfigurationArrayOutputWithContext(ctx context.Context) LoggingEventConfigurationArrayOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationArrayOutput) Index(i pulumi.IntInput) LoggingEventConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingEventConfiguration {
+		return vs[0].([]LoggingEventConfiguration)[vs[1].(int)]
+	}).(LoggingEventConfigurationOutput)
+}
+
 // A structure containing the mqtt topic for metrics export.
 type MetricsExportConfigProperties struct {
 	// The topic for metrics export.
@@ -16448,6 +16566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaPtrInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaInput)(nil)).Elem(), JobTemplateRetryCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaArrayInput)(nil)).Elem(), JobTemplateRetryCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationInput)(nil)).Elem(), LoggingEventConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationArrayInput)(nil)).Elem(), LoggingEventConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesPtrInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionActionParamsInput)(nil)).Elem(), MitigationActionActionParamsArgs{})
@@ -16639,6 +16759,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(LoggingEventConfigurationOutput{})
+	pulumi.RegisterOutputType(LoggingEventConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricsExportConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(MetricsExportConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})

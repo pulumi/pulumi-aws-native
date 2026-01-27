@@ -110,6 +110,8 @@ class CollaborationAnalyticsEngine(_builtins.str, Enum):
 @pulumi.type_token("aws-native:cleanrooms:CollaborationAutoApprovedChangeType")
 class CollaborationAutoApprovedChangeType(_builtins.str, Enum):
     ADD_MEMBER = "ADD_MEMBER"
+    GRANT_RECEIVE_RESULTS_ABILITY = "GRANT_RECEIVE_RESULTS_ABILITY"
+    REVOKE_RECEIVE_RESULTS_ABILITY = "REVOKE_RECEIVE_RESULTS_ABILITY"
 
 
 @pulumi.type_token("aws-native:cleanrooms:CollaborationCustomMlMemberAbility")

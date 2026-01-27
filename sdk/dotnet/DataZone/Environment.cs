@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
+        /// The deployment order for the environment.
+        /// </summary>
+        [Output("deploymentOrder")]
+        public Output<int?> DeploymentOrder { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the Amazon DataZone environment.
         /// </summary>
         [Output("description")]
@@ -80,6 +86,18 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Output("environmentBlueprintId")]
         public Output<string> EnvironmentBlueprintId { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the environment blueprint.
+        /// </summary>
+        [Output("environmentBlueprintIdentifier")]
+        public Output<string?> EnvironmentBlueprintIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the environment configuration.
+        /// </summary>
+        [Output("environmentConfigurationId")]
+        public Output<string?> EnvironmentConfigurationId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the environment profile with which the Amazon DataZone environment was created.
@@ -172,9 +190,12 @@ namespace Pulumi.AwsNative.DataZone
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "deploymentOrder",
                     "domainIdentifier",
                     "environmentAccountIdentifier",
                     "environmentAccountRegion",
+                    "environmentBlueprintIdentifier",
+                    "environmentConfigurationId",
                     "environmentProfileIdentifier",
                     "projectIdentifier",
                     "userParameters[*]",
@@ -202,6 +223,12 @@ namespace Pulumi.AwsNative.DataZone
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The deployment order for the environment.
+        /// </summary>
+        [Input("deploymentOrder")]
+        public Input<int>? DeploymentOrder { get; set; }
+
+        /// <summary>
         /// The description of the Amazon DataZone environment.
         /// </summary>
         [Input("description")]
@@ -224,6 +251,18 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("environmentAccountRegion")]
         public Input<string>? EnvironmentAccountRegion { get; set; }
+
+        /// <summary>
+        /// The identifier of the environment blueprint.
+        /// </summary>
+        [Input("environmentBlueprintIdentifier")]
+        public Input<string>? EnvironmentBlueprintIdentifier { get; set; }
+
+        /// <summary>
+        /// The identifier of the environment configuration.
+        /// </summary>
+        [Input("environmentConfigurationId")]
+        public Input<string>? EnvironmentConfigurationId { get; set; }
 
         /// <summary>
         /// The ID of the environment profile with which the Amazon DataZone environment would be created.

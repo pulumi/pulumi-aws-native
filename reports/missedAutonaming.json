@@ -5434,14 +5434,14 @@
       },
       "availabilityMode": {
         "type": "string",
-        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n\nA zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*."
       },
       "availabilityZoneAddresses": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ec2:NatGatewayAvailabilityZoneAddress"
         },
-        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n\nA regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*."
       },
       "connectivityType": {
         "type": "string",
@@ -9697,6 +9697,13 @@
         "$ref": "#/types/aws-native:iot:LoggingDefaultLogLevel",
         "description": "The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
       },
+      "eventConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:iot:LoggingEventConfiguration"
+        },
+        "description": "Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event"
+      },
       "roleArn": {
         "type": "string",
         "description": "The ARN of the role that allows IoT to write to Cloudwatch logs."
@@ -13107,7 +13114,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:rds:DbInstanceAdditionalStorageVolume"
-        }
+        },
+        "description": "The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server."
       },
       "allocatedStorage": {
         "type": "string",

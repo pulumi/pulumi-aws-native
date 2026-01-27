@@ -104,13 +104,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string> CollectionEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the collection group.
-        /// 
-        /// The name must meet the following criteria:
-        /// Unique to your account and AWS Region
-        /// Starts with a lowercase letter
-        /// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        /// Contains between 3 and 32 characters
+        /// The name of the collection group to associate with the collection.
         /// </summary>
         [Output("collectionGroupName")]
         public Output<string?> CollectionGroupName { get; private set; } = null!;
@@ -131,7 +125,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<Outputs.CollectionEncryptionConfig?> EncryptionConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS KMS key used to encrypt the collection.
+        /// Key Management Service key used to encrypt the collection.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
@@ -221,13 +215,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public sealed class CollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collection group.
-        /// 
-        /// The name must meet the following criteria:
-        /// Unique to your account and AWS Region
-        /// Starts with a lowercase letter
-        /// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        /// Contains between 3 and 32 characters
+        /// The name of the collection group to associate with the collection.
         /// </summary>
         [Input("collectionGroupName")]
         public Input<string>? CollectionGroupName { get; set; }

@@ -89,9 +89,12 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
     'RuntimeAgentRuntimeArtifact',
     'RuntimeAuthorizerConfiguration',
+    'RuntimeAuthorizingClaimMatchValueType',
+    'RuntimeClaimMatchValueType',
     'RuntimeCode',
     'RuntimeCodeConfiguration',
     'RuntimeContainerConfiguration',
+    'RuntimeCustomClaimValidationType',
     'RuntimeCustomJwtAuthorizerConfiguration',
     'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
@@ -3137,6 +3140,96 @@ class RuntimeAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeAuthorizingClaimMatchValueType(dict):
+    """
+    The value or values in the custom claim to match and relationship of match
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimMatchOperator":
+            suggest = "claim_match_operator"
+        elif key == "claimMatchValue":
+            suggest = "claim_match_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeAuthorizingClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_match_operator: 'RuntimeClaimMatchOperator',
+                 claim_match_value: 'outputs.RuntimeClaimMatchValueType'):
+        """
+        The value or values in the custom claim to match and relationship of match
+        """
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> 'RuntimeClaimMatchOperator':
+        return pulumi.get(self, "claim_match_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> 'outputs.RuntimeClaimMatchValueType':
+        return pulumi.get(self, "claim_match_value")
+
+
+@pulumi.output_type
+class RuntimeClaimMatchValueType(dict):
+    """
+    The value or values in the custom claim to match for
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValueString":
+            suggest = "match_value_string"
+        elif key == "matchValueStringList":
+            suggest = "match_value_string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_value_string: Optional[_builtins.str] = None,
+                 match_value_string_list: Optional[Sequence[_builtins.str]] = None):
+        """
+        The value or values in the custom claim to match for
+        """
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_list is not None:
+            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "match_value_string")
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringList")
+    def match_value_string_list(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "match_value_string_list")
+
+
+@pulumi.output_type
 class RuntimeCode(dict):
     """
     Object represents source code from zip file
@@ -3240,6 +3333,59 @@ class RuntimeContainerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeCustomClaimValidationType(dict):
+    """
+    Required custom claim
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizingClaimMatchValue":
+            suggest = "authorizing_claim_match_value"
+        elif key == "inboundTokenClaimName":
+            suggest = "inbound_token_claim_name"
+        elif key == "inboundTokenClaimValueType":
+            suggest = "inbound_token_claim_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeCustomClaimValidationType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeCustomClaimValidationType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeCustomClaimValidationType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: 'outputs.RuntimeAuthorizingClaimMatchValueType',
+                 inbound_token_claim_name: _builtins.str,
+                 inbound_token_claim_value_type: 'RuntimeInboundTokenClaimValueType'):
+        """
+        Required custom claim
+        """
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> 'outputs.RuntimeAuthorizingClaimMatchValueType':
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> _builtins.str:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> 'RuntimeInboundTokenClaimValueType':
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+
+@pulumi.output_type
 class RuntimeCustomJwtAuthorizerConfiguration(dict):
     """
     Configuration for custom JWT authorizer
@@ -3253,6 +3399,10 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
             suggest = "allowed_audience"
         elif key == "allowedClients":
             suggest = "allowed_clients"
+        elif key == "allowedScopes":
+            suggest = "allowed_scopes"
+        elif key == "customClaims":
+            suggest = "custom_claims"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuntimeCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3268,7 +3418,9 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
     def __init__(__self__, *,
                  discovery_url: _builtins.str,
                  allowed_audience: Optional[Sequence[_builtins.str]] = None,
-                 allowed_clients: Optional[Sequence[_builtins.str]] = None):
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 custom_claims: Optional[Sequence['outputs.RuntimeCustomClaimValidationType']] = None):
         """
         Configuration for custom JWT authorizer
         :param _builtins.str discovery_url: The configuration authorization.
@@ -3280,6 +3432,10 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
             pulumi.set(__self__, "allowed_audience", allowed_audience)
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -3304,6 +3460,16 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
         Represents individual client IDs that are validated in the incoming JWT token validation process.
         """
         return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[Sequence['outputs.RuntimeCustomClaimValidationType']]:
+        return pulumi.get(self, "custom_claims")
 
 
 @pulumi.output_type

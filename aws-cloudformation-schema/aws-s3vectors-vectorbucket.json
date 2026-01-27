@@ -69,13 +69,13 @@
       "permissions" : [ "s3vectors:GetVectorBucket", "s3vectors:CreateVectorBucket", "kms:GenerateDataKey" ]
     },
     "read" : {
-      "permissions" : [ "s3vectors:GetVectorBucket", "kms:GenerateDataKey" ]
+      "permissions" : [ "s3vectors:GetVectorBucket" ]
     },
     "delete" : {
-      "permissions" : [ "s3vectors:GetVectorBucket", "s3vectors:DeleteVectorBucket", "kms:GenerateDataKey" ]
+      "permissions" : [ "s3vectors:GetVectorBucket", "s3vectors:DeleteVectorBucket" ]
     },
     "list" : {
-      "permissions" : [ "s3vectors:ListVectorBuckets", "kms:GenerateDataKey" ]
+      "permissions" : [ "s3vectors:ListVectorBuckets" ]
     }
   }
 }

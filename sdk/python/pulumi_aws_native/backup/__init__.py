@@ -19,9 +19,11 @@ from .get_logically_air_gapped_backup_vault import *
 from .get_report_plan import *
 from .get_restore_testing_plan import *
 from .get_restore_testing_selection import *
+from .get_tiering_configuration import *
 from .logically_air_gapped_backup_vault import *
 from .report_plan import *
 from .restore_testing_plan import *
 from .restore_testing_selection import *
+from .tiering_configuration import *
 from ._inputs import *
 from . import outputs

@@ -325,6 +325,8 @@ if typing.TYPE_CHECKING:
     msk = __msk
     import pulumi_aws_native.mwaa as __mwaa
     mwaa = __mwaa
+    import pulumi_aws_native.mwaaserverless as __mwaaserverless
+    mwaaserverless = __mwaaserverless
     import pulumi_aws_native.neptune as __neptune
     neptune = __neptune
     import pulumi_aws_native.neptunegraph as __neptunegraph
@@ -649,6 +651,7 @@ else:
     memorydb = _utilities.lazy_import('pulumi_aws_native.memorydb')
     msk = _utilities.lazy_import('pulumi_aws_native.msk')
     mwaa = _utilities.lazy_import('pulumi_aws_native.mwaa')
+    mwaaserverless = _utilities.lazy_import('pulumi_aws_native.mwaaserverless')
     neptune = _utilities.lazy_import('pulumi_aws_native.neptune')
     neptunegraph = _utilities.lazy_import('pulumi_aws_native.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
@@ -1033,7 +1036,8 @@ _utilities.register(
    "aws-native:backup:LogicallyAirGappedBackupVault": "LogicallyAirGappedBackupVault",
    "aws-native:backup:ReportPlan": "ReportPlan",
    "aws-native:backup:RestoreTestingPlan": "RestoreTestingPlan",
-   "aws-native:backup:RestoreTestingSelection": "RestoreTestingSelection"
+   "aws-native:backup:RestoreTestingSelection": "RestoreTestingSelection",
+   "aws-native:backup:TieringConfiguration": "TieringConfiguration"
   }
  },
  {
@@ -2650,6 +2654,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.mwaa",
   "classes": {
    "aws-native:mwaa:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "mwaaserverless",
+  "fqn": "pulumi_aws_native.mwaaserverless",
+  "classes": {
+   "aws-native:mwaaserverless:Workflow": "Workflow"
   }
  },
  {

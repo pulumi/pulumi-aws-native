@@ -94,6 +94,6 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "cases:TagResource", "cases:UntagResource" ]
+    "permissions" : [ "cases:GetDomain", "cases:TagResource", "cases:UntagResource" ]
   }
 }

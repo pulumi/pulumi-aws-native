@@ -990,6 +990,38 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The relationship between the claim field value and the value or values being matched
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeClaimMatchOperator : IEquatable<RuntimeClaimMatchOperator>
+    {
+        private readonly string _value;
+
+        private RuntimeClaimMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeClaimMatchOperator EqualsValue { get; } = new RuntimeClaimMatchOperator("EQUALS");
+        public static RuntimeClaimMatchOperator Contains { get; } = new RuntimeClaimMatchOperator("CONTAINS");
+        public static RuntimeClaimMatchOperator ContainsAny { get; } = new RuntimeClaimMatchOperator("CONTAINS_ANY");
+
+        public static bool operator ==(RuntimeClaimMatchOperator left, RuntimeClaimMatchOperator right) => left.Equals(right);
+        public static bool operator !=(RuntimeClaimMatchOperator left, RuntimeClaimMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeClaimMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeClaimMatchOperator other && Equals(other);
+        public bool Equals(RuntimeClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct RuntimeEndpointAgentRuntimeEndpointStatus : IEquatable<RuntimeEndpointAgentRuntimeEndpointStatus>
     {
@@ -1015,6 +1047,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuntimeEndpointAgentRuntimeEndpointStatus other && Equals(other);
         public bool Equals(RuntimeEndpointAgentRuntimeEndpointStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Token claim data type
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeInboundTokenClaimValueType : IEquatable<RuntimeInboundTokenClaimValueType>
+    {
+        private readonly string _value;
+
+        private RuntimeInboundTokenClaimValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeInboundTokenClaimValueType String { get; } = new RuntimeInboundTokenClaimValueType("STRING");
+        public static RuntimeInboundTokenClaimValueType StringArray { get; } = new RuntimeInboundTokenClaimValueType("STRING_ARRAY");
+
+        public static bool operator ==(RuntimeInboundTokenClaimValueType left, RuntimeInboundTokenClaimValueType right) => left.Equals(right);
+        public static bool operator !=(RuntimeInboundTokenClaimValueType left, RuntimeInboundTokenClaimValueType right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeInboundTokenClaimValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeInboundTokenClaimValueType other && Equals(other);
+        public bool Equals(RuntimeInboundTokenClaimValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

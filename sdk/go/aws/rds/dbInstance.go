@@ -37,6 +37,7 @@ import (
 type DbInstance struct {
 	pulumi.CustomResourceState
 
+	// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
 	AdditionalStorageVolumes DbInstanceAdditionalStorageVolumeArrayOutput `pulumi:"additionalStorageVolumes"`
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
@@ -748,6 +749,7 @@ func (DbInstanceState) ElementType() reflect.Type {
 }
 
 type dbInstanceArgs struct {
+	// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
 	AdditionalStorageVolumes []DbInstanceAdditionalStorageVolume `pulumi:"additionalStorageVolumes"`
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
@@ -1375,6 +1377,7 @@ type dbInstanceArgs struct {
 
 // The set of arguments for constructing a DbInstance resource.
 type DbInstanceArgs struct {
+	// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
 	AdditionalStorageVolumes DbInstanceAdditionalStorageVolumeArrayInput
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
@@ -2037,6 +2040,7 @@ func (o DbInstanceOutput) ToDbInstanceOutputWithContext(ctx context.Context) DbI
 	return o
 }
 
+// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
 func (o DbInstanceOutput) AdditionalStorageVolumes() DbInstanceAdditionalStorageVolumeArrayOutput {
 	return o.ApplyT(func(v *DbInstance) DbInstanceAdditionalStorageVolumeArrayOutput { return v.AdditionalStorageVolumes }).(DbInstanceAdditionalStorageVolumeArrayOutput)
 }

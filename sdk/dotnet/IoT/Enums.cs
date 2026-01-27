@@ -713,6 +713,40 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingEventConfigurationLogLevel : IEquatable<LoggingEventConfigurationLogLevel>
+    {
+        private readonly string _value;
+
+        private LoggingEventConfigurationLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingEventConfigurationLogLevel Error { get; } = new LoggingEventConfigurationLogLevel("ERROR");
+        public static LoggingEventConfigurationLogLevel Warn { get; } = new LoggingEventConfigurationLogLevel("WARN");
+        public static LoggingEventConfigurationLogLevel Info { get; } = new LoggingEventConfigurationLogLevel("INFO");
+        public static LoggingEventConfigurationLogLevel Debug { get; } = new LoggingEventConfigurationLogLevel("DEBUG");
+        public static LoggingEventConfigurationLogLevel Disabled { get; } = new LoggingEventConfigurationLogLevel("DISABLED");
+
+        public static bool operator ==(LoggingEventConfigurationLogLevel left, LoggingEventConfigurationLogLevel right) => left.Equals(right);
+        public static bool operator !=(LoggingEventConfigurationLogLevel left, LoggingEventConfigurationLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingEventConfigurationLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingEventConfigurationLogLevel other && Equals(other);
+        public bool Equals(LoggingEventConfigurationLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     ///  Specifies which types of information are logged.
     /// </summary>
     [EnumType]

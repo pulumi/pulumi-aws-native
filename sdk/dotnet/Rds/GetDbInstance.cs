@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetDbInstanceResult
     {
+        /// <summary>
+        /// The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DbInstanceAdditionalStorageVolume> AdditionalStorageVolumes;
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.

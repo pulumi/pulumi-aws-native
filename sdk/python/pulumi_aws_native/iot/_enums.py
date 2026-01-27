@@ -29,6 +29,7 @@ __all__ = [
     'JobTemplateFailureType',
     'JobTemplateJobRetryFailureType',
     'LoggingDefaultLogLevel',
+    'LoggingEventConfigurationLogLevel',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCaCertificateParamsAction',
@@ -263,6 +264,18 @@ class JobTemplateJobRetryFailureType(_builtins.str, Enum):
 class LoggingDefaultLogLevel(_builtins.str, Enum):
     """
     The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+    """
+    ERROR = "ERROR"
+    WARN = "WARN"
+    INFO = "INFO"
+    DEBUG = "DEBUG"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:iot:LoggingEventConfigurationLogLevel")
+class LoggingEventConfigurationLogLevel(_builtins.str, Enum):
+    """
+    The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
     """
     ERROR = "ERROR"
     WARN = "WARN"
