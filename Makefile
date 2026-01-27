@@ -82,7 +82,7 @@ cf2pulumi::
 test_provider::
 	(cd provider && go test -v -coverpkg=./... -coverprofile=coverage.txt ./...)
 
-lint_provider:: provider # lint the provider code
+lint:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 .pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
