@@ -206,9 +206,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		case "insecure":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/111")})
-		case "s3ForcePathStyle":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/113")})
 		case "skipGetEc2Platforms":
 			if !truthyValue(k, news) {
 				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
@@ -499,12 +496,22 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		p.defaultTags = nil
 	}
 
+	s3UsePathStyle := false
+	if s3UsePathStyleVar, ok := vars["aws-native:config:s3UsePathStyle"]; ok {
+		if s3UsePathStyleVar == "true" {
+			s3UsePathStyle = true
+			glog.V(4).Infof("using S3 path-style addressing")
+		}
+	}
+
 	p.cfn = cloudformation.NewFromConfig(cfg)
 	p.ccc = client.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn, cfg.Retryer, p.host)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
-	p.s3 = s3.NewFromConfig(cfg)
+	p.s3 = s3.NewFromConfig(cfg, func(o *s3.Options) {
+		o.UsePathStyle = s3UsePathStyle
+	})
 	p.lambda = lambda.NewFromConfig(cfg)
 
 	if !skipCredentialsValidation {
