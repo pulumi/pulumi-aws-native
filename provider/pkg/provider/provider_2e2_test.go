@@ -77,9 +77,10 @@ const (
 )
 
 func TestEfsReplicationProtection(t *testing.T) {
-	// Skip: takes ~45 min to run. Manual testing only.
+	// Skip: takes ~45 min to run due to EFS replication setup time. Manual testing only.
 	// Run with: go test -v -timeout 45m -run TestEfsReplicationProtection ./pkg/provider
-	t.Skip("Manual test: EFS replication takes ~45 minutes")
+	// The REPLICATING state suppression is now handled via propertyTransform.
+	t.Skip("Manual test: EFS replication setup takes ~45 minutes")
 
 	skipIfShort(t)
 
@@ -180,6 +181,94 @@ func TestEfsReplicationProtection(t *testing.T) {
 	}
 
 	t.Log("Test passed: Refresh and subsequent Up succeeded with REPLICATING enum value")
+}
+
+// TestRdsLowercaseTransforms tests that RDS DBCluster propertyTransforms correctly
+// suppress spurious diffs when AWS returns lowercase values for identifiers.
+//
+// RDS DBCluster has propertyTransforms like:
+//   - "$lowercase(DBClusterIdentifier)"
+//   - "$lowercase(Engine)"
+//   - "$lowercase(DBSubnetGroupName)"
+//
+// AWS always returns these values in lowercase, even if you provide uppercase input.
+// Without propertyTransforms, Pulumi would detect a diff and try to update.
+func TestRdsLowercaseTransforms(t *testing.T) {
+	// Skip: takes ~15-20 min to run (Aurora cluster creation). Manual testing only.
+	// Run with: go test -v -timeout 30m -run TestRdsLowercaseTransforms ./pkg/provider
+	t.Skip("Manual test: RDS cluster creation takes ~15-20 minutes")
+
+	skipIfShort(t)
+
+	// Use a random suffix to avoid naming conflicts
+	clusterSuffix := fmt.Sprintf("%d", rand.Intn(10000))
+
+	pt := pulumitest.NewPulumiTest(t, filepath.Join("testdata", "rds-lowercase-transforms"),
+		opttest.Env("PULUMI_DEBUG_GRPC", "true"),
+		opttest.LocalProviderPath("aws-native", filepath.Join("..", "..", "..", "bin")),
+	)
+	pt.SetConfig(t, "aws-native:region", "us-west-2")
+	pt.SetConfig(t, "clusterSuffix", clusterSuffix)
+	defer pt.Destroy(t)
+
+	// Phase 1: Initial deployment with UPPERCASE values
+	t.Log("=== Phase 1: Initial Preview and Up with UPPERCASE values ===")
+	pt.Preview(t)
+
+	up := pt.Up(t)
+	assert.NotNil(t, up.Summary)
+
+	// Verify AWS returned values
+	engine, ok := up.Outputs["engine"].Value.(string)
+	assert.True(t, ok, "engine output should be a string")
+	t.Logf("Engine after up: %s", engine)
+	assert.Equal(t, "aurora-mysql", engine, "Engine should be aurora-mysql")
+
+	// The key test: dbClusterIdentifier was specified as UPPERCASE but AWS returns lowercase
+	dbClusterIdentifier, ok := up.Outputs["dbClusterIdentifier"].Value.(string)
+	assert.True(t, ok, "dbClusterIdentifier output should be a string")
+	t.Logf("DBClusterIdentifier after up: %s (input was UPPERCASE)", dbClusterIdentifier)
+	// AWS normalizes identifiers to lowercase
+	expectedIdentifier := strings.ToLower(fmt.Sprintf("RDS-TRANSFORM-CLUSTER-%s", clusterSuffix))
+	assert.Equal(t, expectedIdentifier, dbClusterIdentifier,
+		"AWS should return dbClusterIdentifier in lowercase even though input was UPPERCASE")
+
+	// Log all outputs for debugging
+	t.Log("=== Outputs after initial up ===")
+	for k, v := range up.Outputs {
+		t.Logf("  %s = %v", k, v.Value)
+	}
+
+	// Phase 2: Refresh to get the current state from AWS
+	t.Log("=== Phase 2: Refresh to sync state with AWS ===")
+	refreshResult := pt.Refresh(t)
+	assert.NotNil(t, refreshResult.Summary, "Refresh should complete successfully")
+
+	t.Logf("=== Refresh StdOut ===\n%s", refreshResult.StdOut)
+	if refreshResult.StdErr != "" {
+		t.Logf("=== Refresh StdErr ===\n%s", refreshResult.StdErr)
+	}
+
+	// Phase 3: Run up again - this should NOT try to change anything
+	// The propertyTransforms should suppress the diff between UPPERCASE (input) and lowercase (AWS)
+	t.Log("=== Phase 3: Up after refresh (should have no changes) ===")
+	upAfterRefresh := pt.Up(t)
+	assert.NotNil(t, upAfterRefresh.Summary, "Up after refresh should complete successfully")
+
+	// Verify no changes were made
+	if upAfterRefresh.Summary.ResourceChanges != nil {
+		changes := *upAfterRefresh.Summary.ResourceChanges
+		t.Logf("Resource changes after refresh: %+v", changes)
+		// The only changes should be "same", not "update"
+		assert.Zero(t, changes["update"], "There should be no updates - propertyTransforms should suppress case diffs")
+	}
+
+	t.Log("=== Outputs after up (post-refresh) ===")
+	for k, v := range upAfterRefresh.Outputs {
+		t.Logf("  %s = %v", k, v.Value)
+	}
+
+	t.Log("Test passed: RDS lowercase propertyTransforms correctly suppressed case diffs")
 }
 
 func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {
