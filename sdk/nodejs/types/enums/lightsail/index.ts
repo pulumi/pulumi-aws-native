@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DatabaseSnapshotResourceType = {
+    RelationalDatabaseSnapshot: "RelationalDatabaseSnapshot",
+} as const;
+
+/**
+ * The Lightsail resource type.
+ */
+export type DatabaseSnapshotResourceType = (typeof DatabaseSnapshotResourceType)[keyof typeof DatabaseSnapshotResourceType];
+
 export const DiskAddOnStatus = {
     Enabling: "Enabling",
     Disabling: "Disabling",

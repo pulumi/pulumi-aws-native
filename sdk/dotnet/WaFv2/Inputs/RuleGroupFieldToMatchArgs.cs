@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("cookies")]
         public Input<Inputs.RuleGroupCookiesArgs>? Cookies { get; set; }
 
+        [Input("headerOrder")]
+        public Input<Inputs.RuleGroupHeaderOrderArgs>? HeaderOrder { get; set; }
+
         /// <summary>
         /// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
         /// 

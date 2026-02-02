@@ -33,10 +33,18 @@ type LookupVpnConnectionArgs struct {
 }
 
 type LookupVpnConnectionResult struct {
+	// The ID of the customer gateway at your end of the VPN connection.
+	CustomerGatewayId *string `pulumi:"customerGatewayId"`
 	// Any tags assigned to the VPN connection.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the transit gateway associated with the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The ID of the VPN connection.
 	VpnConnectionId *string `pulumi:"vpnConnectionId"`
+	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 func LookupVpnConnectionOutput(ctx *pulumi.Context, args LookupVpnConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpnConnectionResultOutput {
@@ -71,14 +79,33 @@ func (o LookupVpnConnectionResultOutput) ToLookupVpnConnectionResultOutputWithCo
 	return o
 }
 
+// The ID of the customer gateway at your end of the VPN connection.
+func (o LookupVpnConnectionResultOutput) CustomerGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.CustomerGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // Any tags assigned to the VPN connection.
 func (o LookupVpnConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the transit gateway associated with the VPN connection.
+//
+//	You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+func (o LookupVpnConnectionResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VPN connection.
 func (o LookupVpnConnectionResultOutput) VpnConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.VpnConnectionId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the virtual private gateway at the AWS side of the VPN connection.
+//
+//	You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+func (o LookupVpnConnectionResultOutput) VpnGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

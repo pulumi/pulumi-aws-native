@@ -89,6 +89,7 @@ export type ConnectorAs2ConfigPropertiesEncryptionAlgorithm = (typeof ConnectorA
 
 export const ConnectorAs2ConfigPropertiesMdnResponse = {
     Sync: "SYNC",
+    Async: "ASYNC",
     None: "NONE",
 } as const;
 

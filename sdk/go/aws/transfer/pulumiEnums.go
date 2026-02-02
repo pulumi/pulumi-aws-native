@@ -1201,8 +1201,9 @@ func (in *connectorAs2ConfigPropertiesEncryptionAlgorithmPtr) ToConnectorAs2Conf
 type ConnectorAs2ConfigPropertiesMdnResponse string
 
 const (
-	ConnectorAs2ConfigPropertiesMdnResponseSync = ConnectorAs2ConfigPropertiesMdnResponse("SYNC")
-	ConnectorAs2ConfigPropertiesMdnResponseNone = ConnectorAs2ConfigPropertiesMdnResponse("NONE")
+	ConnectorAs2ConfigPropertiesMdnResponseSync  = ConnectorAs2ConfigPropertiesMdnResponse("SYNC")
+	ConnectorAs2ConfigPropertiesMdnResponseAsync = ConnectorAs2ConfigPropertiesMdnResponse("ASYNC")
+	ConnectorAs2ConfigPropertiesMdnResponseNone  = ConnectorAs2ConfigPropertiesMdnResponse("NONE")
 )
 
 func (ConnectorAs2ConfigPropertiesMdnResponse) ElementType() reflect.Type {
@@ -1328,6 +1329,7 @@ func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToStringPtrOutputWithC
 // A concrete instance of `ConnectorAs2ConfigPropertiesMdnResponseInput` can be one of the following:
 //
 //	ConnectorAs2ConfigPropertiesMdnResponseSync
+//	ConnectorAs2ConfigPropertiesMdnResponseAsync
 //	ConnectorAs2ConfigPropertiesMdnResponseNone
 type ConnectorAs2ConfigPropertiesMdnResponseInput interface {
 	pulumi.Input

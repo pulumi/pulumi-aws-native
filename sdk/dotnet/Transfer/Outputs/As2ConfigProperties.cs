@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     public sealed class As2ConfigProperties
     {
         /// <summary>
+        /// Configuration for an AS2 connector with ASYNC MDN Response
+        /// </summary>
+        public readonly Outputs.ConnectorAsyncMdnConfig? AsyncMdnConfig;
+        /// <summary>
         /// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         /// </summary>
         public readonly string? BasicAuthSecretId;
@@ -59,6 +63,8 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
         [OutputConstructor]
         private As2ConfigProperties(
+            Outputs.ConnectorAsyncMdnConfig? asyncMdnConfig,
+
             string? basicAuthSecretId,
 
             Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesCompression? compression,
@@ -79,6 +85,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             Pulumi.AwsNative.Transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm? signingAlgorithm)
         {
+            AsyncMdnConfig = asyncMdnConfig;
             BasicAuthSecretId = basicAuthSecretId;
             Compression = compression;
             EncryptionAlgorithm = encryptionAlgorithm;

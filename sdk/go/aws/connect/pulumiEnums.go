@@ -1032,7 +1032,11 @@ func (in *dataTableStatusPtr) ToDataTableStatusPtrOutputWithContext(ctx context.
 type DataTableValueLockLevel string
 
 const (
-	DataTableValueLockLevelNone = DataTableValueLockLevel("NONE")
+	DataTableValueLockLevelNone         = DataTableValueLockLevel("NONE")
+	DataTableValueLockLevelDataTable    = DataTableValueLockLevel("DATA_TABLE")
+	DataTableValueLockLevelPrimaryValue = DataTableValueLockLevel("PRIMARY_VALUE")
+	DataTableValueLockLevelAttribute    = DataTableValueLockLevel("ATTRIBUTE")
+	DataTableValueLockLevelValue        = DataTableValueLockLevel("VALUE")
 )
 
 func (DataTableValueLockLevel) ElementType() reflect.Type {
@@ -1158,6 +1162,10 @@ func (o DataTableValueLockLevelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // A concrete instance of `DataTableValueLockLevelInput` can be one of the following:
 //
 //	DataTableValueLockLevelNone
+//	DataTableValueLockLevelDataTable
+//	DataTableValueLockLevelPrimaryValue
+//	DataTableValueLockLevelAttribute
+//	DataTableValueLockLevelValue
 type DataTableValueLockLevelInput interface {
 	pulumi.Input
 
@@ -5856,6 +5864,7 @@ const (
 	IntegrationAssociationIntegrationTypeLexBot         = IntegrationAssociationIntegrationType("LEX_BOT")
 	IntegrationAssociationIntegrationTypeLambdaFunction = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
 	IntegrationAssociationIntegrationTypeApplication    = IntegrationAssociationIntegrationType("APPLICATION")
+	IntegrationAssociationIntegrationTypeCasesDomain    = IntegrationAssociationIntegrationType("CASES_DOMAIN")
 )
 
 func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
@@ -5983,6 +5992,7 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithCon
 //	IntegrationAssociationIntegrationTypeLexBot
 //	IntegrationAssociationIntegrationTypeLambdaFunction
 //	IntegrationAssociationIntegrationTypeApplication
+//	IntegrationAssociationIntegrationTypeCasesDomain
 type IntegrationAssociationIntegrationTypeInput interface {
 	pulumi.Input
 

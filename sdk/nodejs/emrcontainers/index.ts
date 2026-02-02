@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
+export { GetSecurityConfigurationArgs, GetSecurityConfigurationResult, GetSecurityConfigurationOutputArgs } from "./getSecurityConfiguration";
+export const getSecurityConfiguration: typeof import("./getSecurityConfiguration").getSecurityConfiguration = null as any;
+export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConfiguration","getSecurityConfigurationOutput"], () => require("./getSecurityConfiguration"));
+
 export { GetVirtualClusterArgs, GetVirtualClusterResult, GetVirtualClusterOutputArgs } from "./getVirtualCluster";
 export const getVirtualCluster: typeof import("./getVirtualCluster").getVirtualCluster = null as any;
 export const getVirtualClusterOutput: typeof import("./getVirtualCluster").getVirtualClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualCluster","getVirtualClusterOutput"], () => require("./getVirtualCluster"));
+
+export { SecurityConfigurationArgs } from "./securityConfiguration";
+export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
+export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
+utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
 
 export { VirtualClusterArgs } from "./virtualCluster";
 export type VirtualCluster = import("./virtualCluster").VirtualCluster;
@@ -16,10 +36,17 @@ export const VirtualCluster: typeof import("./virtualCluster").VirtualCluster = 
 utilities.lazyLoad(exports, ["VirtualCluster"], () => require("./virtualCluster"));
 
 
+// Export enums:
+export * from "../types/enums/emrcontainers";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:emrcontainers:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
+            case "aws-native:emrcontainers:SecurityConfiguration":
+                return new SecurityConfiguration(name, <any>undefined, { urn })
             case "aws-native:emrcontainers:VirtualCluster":
                 return new VirtualCluster(name, <any>undefined, { urn })
             default:

@@ -76,10 +76,22 @@ namespace Pulumi.AwsNative.IoT
         public Output<Outputs.CommandPayload?> Payload { get; private set; } = null!;
 
         /// <summary>
+        /// The payload template associated with the command.
+        /// </summary>
+        [Output("payloadTemplate")]
+        public Output<string?> PayloadTemplate { get; private set; } = null!;
+
+        /// <summary>
         /// A flag indicating whether the command is pending deletion.
         /// </summary>
         [Output("pendingDeletion")]
         public Output<bool?> PendingDeletion { get; private set; } = null!;
+
+        /// <summary>
+        /// The command preprocessor configuration.
+        /// </summary>
+        [Output("preprocessor")]
+        public Output<Outputs.CommandPreprocessor?> Preprocessor { get; private set; } = null!;
 
         /// <summary>
         /// The customer role associated with the command.
@@ -119,6 +131,8 @@ namespace Pulumi.AwsNative.IoT
                 ReplaceOnChanges =
                 {
                     "commandId",
+                    "payloadTemplate",
+                    "preprocessor",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -203,10 +217,22 @@ namespace Pulumi.AwsNative.IoT
         public Input<Inputs.CommandPayloadArgs>? Payload { get; set; }
 
         /// <summary>
+        /// The payload template associated with the command.
+        /// </summary>
+        [Input("payloadTemplate")]
+        public Input<string>? PayloadTemplate { get; set; }
+
+        /// <summary>
         /// A flag indicating whether the command is pending deletion.
         /// </summary>
         [Input("pendingDeletion")]
         public Input<bool>? PendingDeletion { get; set; }
+
+        /// <summary>
+        /// The command preprocessor configuration.
+        /// </summary>
+        [Input("preprocessor")]
+        public Input<Inputs.CommandPreprocessorArgs>? Preprocessor { get; set; }
 
         /// <summary>
         /// The customer role associated with the command.

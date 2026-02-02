@@ -1977,7 +1977,7 @@
     },
     "InputColumnDataType" : {
       "type" : "string",
-      "enum" : [ "STRING", "INTEGER", "DECIMAL", "DATETIME", "BIT", "BOOLEAN", "JSON" ]
+      "enum" : [ "STRING", "INTEGER", "DECIMAL", "DATETIME", "BIT", "BOOLEAN", "JSON", "SEMISTRUCT" ]
     },
     "ParentDataSet" : {
       "additionalProperties" : false,

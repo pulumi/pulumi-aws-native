@@ -126,6 +126,7 @@ class ConnectorAs2ConfigPropertiesMdnResponse(_builtins.str, Enum):
     MDN Response setting for this AS2 connector configuration.
     """
     SYNC = "SYNC"
+    ASYNC_ = "ASYNC"
     NONE = "NONE"
 
 

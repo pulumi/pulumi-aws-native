@@ -8075,6 +8075,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSetInputColumnDataType Bit { get; } = new DataSetInputColumnDataType("BIT");
         public static DataSetInputColumnDataType Boolean { get; } = new DataSetInputColumnDataType("BOOLEAN");
         public static DataSetInputColumnDataType Json { get; } = new DataSetInputColumnDataType("JSON");
+        public static DataSetInputColumnDataType Semistruct { get; } = new DataSetInputColumnDataType("SEMISTRUCT");
 
         public static bool operator ==(DataSetInputColumnDataType left, DataSetInputColumnDataType right) => left.Equals(right);
         public static bool operator !=(DataSetInputColumnDataType left, DataSetInputColumnDataType right) => !left.Equals(right);

@@ -75,6 +75,10 @@ export type DataTableStatus = (typeof DataTableStatus)[keyof typeof DataTableSta
 
 export const DataTableValueLockLevel = {
     None: "NONE",
+    DataTable: "DATA_TABLE",
+    PrimaryValue: "PRIMARY_VALUE",
+    Attribute: "ATTRIBUTE",
+    Value: "VALUE",
 } as const;
 
 /**
@@ -409,6 +413,7 @@ export const IntegrationAssociationIntegrationType = {
     LexBot: "LEX_BOT",
     LambdaFunction: "LAMBDA_FUNCTION",
     Application: "APPLICATION",
+    CasesDomain: "CASES_DOMAIN",
 } as const;
 
 /**

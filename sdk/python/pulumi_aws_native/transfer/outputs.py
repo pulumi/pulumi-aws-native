@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'As2ConfigProperties',
+    'ConnectorAsyncMdnConfig',
     'ConnectorEgressConfig',
     'ConnectorVpcLatticeEgressConfig',
     'CustomDirectoriesProperties',
@@ -31,8 +32,10 @@ __all__ = [
     'UserHomeDirectoryMapEntry',
     'UserPosixProfile',
     'WebAppCustomization',
+    'WebAppEndpointDetails',
     'WebAppIdentityProviderDetails',
     'WebAppUnitsProperties',
+    'WebAppVpc',
     'WorkflowEfsInputFileLocation',
     'WorkflowInputFileLocation',
     'WorkflowS3FileLocation',
@@ -54,7 +57,9 @@ class As2ConfigProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "basicAuthSecretId":
+        if key == "asyncMdnConfig":
+            suggest = "async_mdn_config"
+        elif key == "basicAuthSecretId":
             suggest = "basic_auth_secret_id"
         elif key == "encryptionAlgorithm":
             suggest = "encryption_algorithm"
@@ -85,6 +90,7 @@ class As2ConfigProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 async_mdn_config: Optional['outputs.ConnectorAsyncMdnConfig'] = None,
                  basic_auth_secret_id: Optional[_builtins.str] = None,
                  compression: Optional['ConnectorAs2ConfigPropertiesCompression'] = None,
                  encryption_algorithm: Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] = None,
@@ -97,6 +103,7 @@ class As2ConfigProperties(dict):
                  signing_algorithm: Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm'] = None):
         """
         Configuration for an AS2 connector.
+        :param 'ConnectorAsyncMdnConfig' async_mdn_config: Configuration for an AS2 connector with ASYNC MDN Response
         :param _builtins.str basic_auth_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         :param 'ConnectorAs2ConfigPropertiesCompression' compression: Compression setting for this AS2 connector configuration.
         :param 'ConnectorAs2ConfigPropertiesEncryptionAlgorithm' encryption_algorithm: Encryption algorithm for this AS2 connector configuration.
@@ -108,6 +115,8 @@ class As2ConfigProperties(dict):
         :param 'ConnectorAs2ConfigPropertiesPreserveContentType' preserve_content_type: Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
         :param 'ConnectorAs2ConfigPropertiesSigningAlgorithm' signing_algorithm: Signing algorithm for this AS2 connector configuration.
         """
+        if async_mdn_config is not None:
+            pulumi.set(__self__, "async_mdn_config", async_mdn_config)
         if basic_auth_secret_id is not None:
             pulumi.set(__self__, "basic_auth_secret_id", basic_auth_secret_id)
         if compression is not None:
@@ -128,6 +137,14 @@ class As2ConfigProperties(dict):
             pulumi.set(__self__, "preserve_content_type", preserve_content_type)
         if signing_algorithm is not None:
             pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncMdnConfig")
+    def async_mdn_config(self) -> Optional['outputs.ConnectorAsyncMdnConfig']:
+        """
+        Configuration for an AS2 connector with ASYNC MDN Response
+        """
+        return pulumi.get(self, "async_mdn_config")
 
     @_builtins.property
     @pulumi.getter(name="basicAuthSecretId")
@@ -208,6 +225,48 @@ class As2ConfigProperties(dict):
         Signing algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "signing_algorithm")
+
+
+@pulumi.output_type
+class ConnectorAsyncMdnConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverIds":
+            suggest = "server_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorAsyncMdnConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorAsyncMdnConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorAsyncMdnConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_ids: Sequence[_builtins.str],
+                 url: _builtins.str):
+        """
+        :param _builtins.str url: URL of the server to receive the MDN response on
+        """
+        pulumi.set(__self__, "server_ids", server_ids)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="serverIds")
+    def server_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "server_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        URL of the server to receive the MDN response on
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -1151,6 +1210,19 @@ class WebAppCustomization(dict):
 
 
 @pulumi.output_type
+class WebAppEndpointDetails(dict):
+    def __init__(__self__, *,
+                 vpc: Optional['outputs.WebAppVpc'] = None):
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> Optional['outputs.WebAppVpc']:
+        return pulumi.get(self, "vpc")
+
+
+@pulumi.output_type
 class WebAppIdentityProviderDetails(dict):
     """
     You can provide a structure that contains the details for the identity provider to use with your web app.
@@ -1232,6 +1304,62 @@ class WebAppUnitsProperties(dict):
     @pulumi.getter
     def provisioned(self) -> _builtins.int:
         return pulumi.get(self, "provisioned")
+
+
+@pulumi.output_type
+class WebAppVpc(dict):
+    """
+    You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppVpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppVpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppVpc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 subnet_ids: Optional[Sequence[_builtins.str]] = None,
+                 vpc_id: Optional[_builtins.str] = None):
+        """
+        You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "vpc_id")
 
 
 @pulumi.output_type

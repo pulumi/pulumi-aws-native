@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Indicates whether the EBS volume is deleted on instance termination.
         /// </summary>
         public readonly bool? DeleteOnTermination;
+        public readonly int? EbsCardIndex;
         /// <summary>
         /// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
         /// </summary>
@@ -79,6 +80,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         private LaunchTemplateEbs(
             bool? deleteOnTermination,
 
+            int? ebsCardIndex,
+
             bool? encrypted,
 
             int? iops,
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
+            EbsCardIndex = ebsCardIndex;
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;

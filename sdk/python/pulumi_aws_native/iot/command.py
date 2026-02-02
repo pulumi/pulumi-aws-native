@@ -33,7 +33,9 @@ class CommandArgs:
                  mandatory_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterArgs']]]] = None,
                  namespace: Optional[pulumi.Input['CommandNamespace']] = None,
                  payload: Optional[pulumi.Input['CommandPayloadArgs']] = None,
+                 payload_template: Optional[pulumi.Input[_builtins.str]] = None,
                  pending_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
+                 preprocessor: Optional[pulumi.Input['CommandPreprocessorArgs']] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -47,7 +49,9 @@ class CommandArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CommandParameterArgs']]] mandatory_parameters: The list of mandatory parameters for the command.
         :param pulumi.Input['CommandNamespace'] namespace: The namespace to which the command belongs.
         :param pulumi.Input['CommandPayloadArgs'] payload: The payload associated with the command.
+        :param pulumi.Input[_builtins.str] payload_template: The payload template associated with the command.
         :param pulumi.Input[_builtins.bool] pending_deletion: A flag indicating whether the command is pending deletion.
+        :param pulumi.Input['CommandPreprocessorArgs'] preprocessor: The command preprocessor configuration.
         :param pulumi.Input[_builtins.str] role_arn: The customer role associated with the command.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to be associated with the command.
         """
@@ -68,8 +72,12 @@ class CommandArgs:
             pulumi.set(__self__, "namespace", namespace)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
+        if payload_template is not None:
+            pulumi.set(__self__, "payload_template", payload_template)
         if pending_deletion is not None:
             pulumi.set(__self__, "pending_deletion", pending_deletion)
+        if preprocessor is not None:
+            pulumi.set(__self__, "preprocessor", preprocessor)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
@@ -184,6 +192,18 @@ class CommandArgs:
         pulumi.set(self, "payload", value)
 
     @_builtins.property
+    @pulumi.getter(name="payloadTemplate")
+    def payload_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The payload template associated with the command.
+        """
+        return pulumi.get(self, "payload_template")
+
+    @payload_template.setter
+    def payload_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "payload_template", value)
+
+    @_builtins.property
     @pulumi.getter(name="pendingDeletion")
     def pending_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -194,6 +214,18 @@ class CommandArgs:
     @pending_deletion.setter
     def pending_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "pending_deletion", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def preprocessor(self) -> Optional[pulumi.Input['CommandPreprocessorArgs']]:
+        """
+        The command preprocessor configuration.
+        """
+        return pulumi.get(self, "preprocessor")
+
+    @preprocessor.setter
+    def preprocessor(self, value: Optional[pulumi.Input['CommandPreprocessorArgs']]):
+        pulumi.set(self, "preprocessor", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
@@ -235,7 +267,9 @@ class Command(pulumi.CustomResource):
                  mandatory_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
                  namespace: Optional[pulumi.Input['CommandNamespace']] = None,
                  payload: Optional[pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
+                 payload_template: Optional[pulumi.Input[_builtins.str]] = None,
                  pending_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
+                 preprocessor: Optional[pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -253,7 +287,9 @@ class Command(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]] mandatory_parameters: The list of mandatory parameters for the command.
         :param pulumi.Input['CommandNamespace'] namespace: The namespace to which the command belongs.
         :param pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']] payload: The payload associated with the command.
+        :param pulumi.Input[_builtins.str] payload_template: The payload template associated with the command.
         :param pulumi.Input[_builtins.bool] pending_deletion: A flag indicating whether the command is pending deletion.
+        :param pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']] preprocessor: The command preprocessor configuration.
         :param pulumi.Input[_builtins.str] role_arn: The customer role associated with the command.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be associated with the command.
         """
@@ -290,7 +326,9 @@ class Command(pulumi.CustomResource):
                  mandatory_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
                  namespace: Optional[pulumi.Input['CommandNamespace']] = None,
                  payload: Optional[pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
+                 payload_template: Optional[pulumi.Input[_builtins.str]] = None,
                  pending_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
+                 preprocessor: Optional[pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -313,11 +351,13 @@ class Command(pulumi.CustomResource):
             __props__.__dict__["mandatory_parameters"] = mandatory_parameters
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["payload"] = payload
+            __props__.__dict__["payload_template"] = payload_template
             __props__.__dict__["pending_deletion"] = pending_deletion
+            __props__.__dict__["preprocessor"] = preprocessor
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["command_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["commandId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["commandId", "payloadTemplate", "preprocessor"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Command, __self__).__init__(
             'aws-native:iot:Command',
@@ -351,7 +391,9 @@ class Command(pulumi.CustomResource):
         __props__.__dict__["mandatory_parameters"] = None
         __props__.__dict__["namespace"] = None
         __props__.__dict__["payload"] = None
+        __props__.__dict__["payload_template"] = None
         __props__.__dict__["pending_deletion"] = None
+        __props__.__dict__["preprocessor"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
         return Command(resource_name, opts=opts, __props__=__props__)
@@ -437,12 +479,28 @@ class Command(pulumi.CustomResource):
         return pulumi.get(self, "payload")
 
     @_builtins.property
+    @pulumi.getter(name="payloadTemplate")
+    def payload_template(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The payload template associated with the command.
+        """
+        return pulumi.get(self, "payload_template")
+
+    @_builtins.property
     @pulumi.getter(name="pendingDeletion")
     def pending_deletion(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         A flag indicating whether the command is pending deletion.
         """
         return pulumi.get(self, "pending_deletion")
+
+    @_builtins.property
+    @pulumi.getter
+    def preprocessor(self) -> pulumi.Output[Optional['outputs.CommandPreprocessor']]:
+        """
+        The command preprocessor configuration.
+        """
+        return pulumi.get(self, "preprocessor")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")

@@ -218,6 +218,10 @@ namespace Pulumi.AwsNative.Connect
         }
 
         public static DataTableValueLockLevel None { get; } = new DataTableValueLockLevel("NONE");
+        public static DataTableValueLockLevel DataTable { get; } = new DataTableValueLockLevel("DATA_TABLE");
+        public static DataTableValueLockLevel PrimaryValue { get; } = new DataTableValueLockLevel("PRIMARY_VALUE");
+        public static DataTableValueLockLevel Attribute { get; } = new DataTableValueLockLevel("ATTRIBUTE");
+        public static DataTableValueLockLevel Value { get; } = new DataTableValueLockLevel("VALUE");
 
         public static bool operator ==(DataTableValueLockLevel left, DataTableValueLockLevel right) => left.Equals(right);
         public static bool operator !=(DataTableValueLockLevel left, DataTableValueLockLevel right) => !left.Equals(right);
@@ -1161,6 +1165,7 @@ namespace Pulumi.AwsNative.Connect
         public static IntegrationAssociationIntegrationType LexBot { get; } = new IntegrationAssociationIntegrationType("LEX_BOT");
         public static IntegrationAssociationIntegrationType LambdaFunction { get; } = new IntegrationAssociationIntegrationType("LAMBDA_FUNCTION");
         public static IntegrationAssociationIntegrationType Application { get; } = new IntegrationAssociationIntegrationType("APPLICATION");
+        public static IntegrationAssociationIntegrationType CasesDomain { get; } = new IntegrationAssociationIntegrationType("CASES_DOMAIN");
 
         public static bool operator ==(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => left.Equals(right);
         public static bool operator !=(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => !left.Equals(right);

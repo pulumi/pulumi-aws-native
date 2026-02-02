@@ -30,6 +30,11 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
+export { DatabaseSnapshotArgs } from "./databaseSnapshot";
+export type DatabaseSnapshot = import("./databaseSnapshot").DatabaseSnapshot;
+export const DatabaseSnapshot: typeof import("./databaseSnapshot").DatabaseSnapshot = null as any;
+utilities.lazyLoad(exports, ["DatabaseSnapshot"], () => require("./databaseSnapshot"));
+
 export { DiskArgs } from "./disk";
 export type Disk = import("./disk").Disk;
 export const Disk: typeof import("./disk").Disk = null as any;
@@ -64,6 +69,11 @@ export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./get
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetDatabaseSnapshotArgs, GetDatabaseSnapshotResult, GetDatabaseSnapshotOutputArgs } from "./getDatabaseSnapshot";
+export const getDatabaseSnapshot: typeof import("./getDatabaseSnapshot").getDatabaseSnapshot = null as any;
+export const getDatabaseSnapshotOutput: typeof import("./getDatabaseSnapshot").getDatabaseSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseSnapshot","getDatabaseSnapshotOutput"], () => require("./getDatabaseSnapshot"));
 
 export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
 export const getDisk: typeof import("./getDisk").getDisk = null as any;
@@ -143,6 +153,8 @@ const _module = {
                 return new Container(name, <any>undefined, { urn })
             case "aws-native:lightsail:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws-native:lightsail:DatabaseSnapshot":
+                return new DatabaseSnapshot(name, <any>undefined, { urn })
             case "aws-native:lightsail:Disk":
                 return new Disk(name, <any>undefined, { urn })
             case "aws-native:lightsail:DiskSnapshot":

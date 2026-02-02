@@ -2286,6 +2286,7 @@ export const DataSetInputColumnDataType = {
     Bit: "BIT",
     Boolean: "BOOLEAN",
     Json: "JSON",
+    Semistruct: "SEMISTRUCT",
 } as const;
 
 export type DataSetInputColumnDataType = (typeof DataSetInputColumnDataType)[keyof typeof DataSetInputColumnDataType];

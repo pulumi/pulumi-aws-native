@@ -20,6 +20,7 @@ __all__ = [
     'GlobalTableAttributeDefinition',
     'GlobalTableCapacityAutoScalingSettings',
     'GlobalTableContributorInsightsSpecification',
+    'GlobalTableGlobalReadProvisionedThroughputSettings',
     'GlobalTableGlobalSecondaryIndex',
     'GlobalTableKeySchema',
     'GlobalTableKinesisStreamSpecification',
@@ -230,6 +231,36 @@ class GlobalTableContributorInsightsSpecification(dict):
         Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class GlobalTableGlobalReadProvisionedThroughputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readCapacityUnits":
+            suggest = "read_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableGlobalReadProvisionedThroughputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableGlobalReadProvisionedThroughputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableGlobalReadProvisionedThroughputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_capacity_units: Optional[_builtins.int] = None):
+        if read_capacity_units is not None:
+            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+
+    @_builtins.property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "read_capacity_units")
 
 
 @pulumi.output_type

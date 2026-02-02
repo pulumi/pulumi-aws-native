@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly Outputs.CommandParameterValue? DefaultValue;
         public readonly string? Description;
         public readonly string Name;
+        public readonly Pulumi.AwsNative.IoT.CommandParameterType? Type;
         public readonly Outputs.CommandParameterValue? Value;
+        public readonly ImmutableArray<Outputs.CommandParameterValueCondition> ValueConditions;
 
         [OutputConstructor]
         private CommandParameter(
@@ -26,12 +28,18 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             string name,
 
-            Outputs.CommandParameterValue? value)
+            Pulumi.AwsNative.IoT.CommandParameterType? type,
+
+            Outputs.CommandParameterValue? value,
+
+            ImmutableArray<Outputs.CommandParameterValueCondition> valueConditions)
         {
             DefaultValue = defaultValue;
             Description = description;
             Name = name;
+            Type = type;
             Value = value;
+            ValueConditions = valueConditions;
         }
     }
 }

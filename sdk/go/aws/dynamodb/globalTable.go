@@ -30,7 +30,9 @@ type GlobalTable struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes                       GlobalTableGlobalSecondaryIndexArrayOutput                  `pulumi:"globalSecondaryIndexes"`
+	GlobalTableReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrOutput          `pulumi:"globalTableReadOnDemandThroughputSettings"`
+	GlobalTableReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput `pulumi:"globalTableReadProvisionedThroughputSettings"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses GlobalTableWitnessArrayOutput `pulumi:"globalTableWitnesses"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
@@ -85,18 +87,10 @@ func NewGlobalTable(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AttributeDefinitions == nil {
-		return nil, errors.New("invalid value for required argument 'AttributeDefinitions'")
-	}
-	if args.KeySchema == nil {
-		return nil, errors.New("invalid value for required argument 'KeySchema'")
-	}
 	if args.Replicas == nil {
 		return nil, errors.New("invalid value for required argument 'Replicas'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"keySchema[*]",
-		"localSecondaryIndexes[*]",
 		"tableName",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -145,7 +139,9 @@ type globalTableArgs struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes                       []GlobalTableGlobalSecondaryIndex                   `pulumi:"globalSecondaryIndexes"`
+	GlobalTableReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings          `pulumi:"globalTableReadOnDemandThroughputSettings"`
+	GlobalTableReadProvisionedThroughputSettings *GlobalTableGlobalReadProvisionedThroughputSettings `pulumi:"globalTableReadProvisionedThroughputSettings"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
@@ -201,7 +197,9 @@ type GlobalTableArgs struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayInput
+	GlobalSecondaryIndexes                       GlobalTableGlobalSecondaryIndexArrayInput
+	GlobalTableReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrInput
+	GlobalTableReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses GlobalTableWitnessArrayInput
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
@@ -305,6 +303,18 @@ func (o GlobalTableOutput) BillingMode() pulumi.StringPtrOutput {
 // Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 func (o GlobalTableOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
+}
+
+func (o GlobalTableOutput) GlobalTableReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+		return v.GlobalTableReadOnDemandThroughputSettings
+	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
+}
+
+func (o GlobalTableOutput) GlobalTableReadProvisionedThroughputSettings() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+		return v.GlobalTableReadProvisionedThroughputSettings
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
 }
 
 // The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.

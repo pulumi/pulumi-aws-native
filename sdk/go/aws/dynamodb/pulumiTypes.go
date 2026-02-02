@@ -501,6 +501,139 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Mode() GlobalTable
 	}).(GlobalTableContributorInsightsSpecificationModePtrOutput)
 }
 
+type GlobalTableGlobalReadProvisionedThroughputSettings struct {
+	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
+}
+
+// GlobalTableGlobalReadProvisionedThroughputSettingsInput is an input type that accepts GlobalTableGlobalReadProvisionedThroughputSettingsArgs and GlobalTableGlobalReadProvisionedThroughputSettingsOutput values.
+// You can construct a concrete instance of `GlobalTableGlobalReadProvisionedThroughputSettingsInput` via:
+//
+//	GlobalTableGlobalReadProvisionedThroughputSettingsArgs{...}
+type GlobalTableGlobalReadProvisionedThroughputSettingsInput interface {
+	pulumi.Input
+
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsOutput() GlobalTableGlobalReadProvisionedThroughputSettingsOutput
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsOutput
+}
+
+type GlobalTableGlobalReadProvisionedThroughputSettingsArgs struct {
+	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
+}
+
+func (GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutput() GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return i.ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(context.Background())
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalReadProvisionedThroughputSettingsOutput)
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return i.ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalReadProvisionedThroughputSettingsOutput).ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx)
+}
+
+// GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput is an input type that accepts GlobalTableGlobalReadProvisionedThroughputSettingsArgs, GlobalTableGlobalReadProvisionedThroughputSettingsPtr and GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput values.
+// You can construct a concrete instance of `GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput` via:
+//
+//	        GlobalTableGlobalReadProvisionedThroughputSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput
+}
+
+type globalTableGlobalReadProvisionedThroughputSettingsPtrType GlobalTableGlobalReadProvisionedThroughputSettingsArgs
+
+func GlobalTableGlobalReadProvisionedThroughputSettingsPtr(v *GlobalTableGlobalReadProvisionedThroughputSettingsArgs) GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput {
+	return (*globalTableGlobalReadProvisionedThroughputSettingsPtrType)(v)
+}
+
+func (*globalTableGlobalReadProvisionedThroughputSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (i *globalTableGlobalReadProvisionedThroughputSettingsPtrType) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return i.ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableGlobalReadProvisionedThroughputSettingsPtrType) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
+}
+
+type GlobalTableGlobalReadProvisionedThroughputSettingsOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutput() GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableGlobalReadProvisionedThroughputSettings) *GlobalTableGlobalReadProvisionedThroughputSettings {
+		return &v
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalTableGlobalReadProvisionedThroughputSettings) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+type GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) Elem() GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return o.ApplyT(func(v *GlobalTableGlobalReadProvisionedThroughputSettings) GlobalTableGlobalReadProvisionedThroughputSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableGlobalReadProvisionedThroughputSettings
+		return ret
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsOutput)
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalTableGlobalReadProvisionedThroughputSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
 type GlobalTableGlobalSecondaryIndex struct {
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
@@ -6762,6 +6895,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableCapacityAutoScalingSettingsPtrInput)(nil)).Elem(), GlobalTableCapacityAutoScalingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableContributorInsightsSpecificationInput)(nil)).Elem(), GlobalTableContributorInsightsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableContributorInsightsSpecificationPtrInput)(nil)).Elem(), GlobalTableContributorInsightsSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettingsInput)(nil)).Elem(), GlobalTableGlobalReadProvisionedThroughputSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput)(nil)).Elem(), GlobalTableGlobalReadProvisionedThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalSecondaryIndexInput)(nil)).Elem(), GlobalTableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalSecondaryIndexArrayInput)(nil)).Elem(), GlobalTableGlobalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKeySchemaInput)(nil)).Elem(), GlobalTableKeySchemaArgs{})
@@ -6848,6 +6983,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableCapacityAutoScalingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableGlobalReadProvisionedThroughputSettingsOutput{})
+	pulumi.RegisterOutputType(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GlobalTableGlobalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableKeySchemaOutput{})

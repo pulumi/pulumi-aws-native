@@ -7527,6 +7527,7 @@ type InstanceAttributes struct {
 	EnhancedContactMonitoring *bool `pulumi:"enhancedContactMonitoring"`
 	HighVolumeOutBound        *bool `pulumi:"highVolumeOutBound"`
 	InboundCalls              bool  `pulumi:"inboundCalls"`
+	MessageStreaming          *bool `pulumi:"messageStreaming"`
 	MultiPartyChatConference  *bool `pulumi:"multiPartyChatConference"`
 	MultiPartyConference      *bool `pulumi:"multiPartyConference"`
 	OutboundCalls             bool  `pulumi:"outboundCalls"`
@@ -7553,6 +7554,7 @@ type InstanceAttributesArgs struct {
 	EnhancedContactMonitoring pulumi.BoolPtrInput `pulumi:"enhancedContactMonitoring"`
 	HighVolumeOutBound        pulumi.BoolPtrInput `pulumi:"highVolumeOutBound"`
 	InboundCalls              pulumi.BoolInput    `pulumi:"inboundCalls"`
+	MessageStreaming          pulumi.BoolPtrInput `pulumi:"messageStreaming"`
 	MultiPartyChatConference  pulumi.BoolPtrInput `pulumi:"multiPartyChatConference"`
 	MultiPartyConference      pulumi.BoolPtrInput `pulumi:"multiPartyConference"`
 	OutboundCalls             pulumi.BoolInput    `pulumi:"outboundCalls"`
@@ -7615,6 +7617,10 @@ func (o InstanceAttributesOutput) HighVolumeOutBound() pulumi.BoolPtrOutput {
 
 func (o InstanceAttributesOutput) InboundCalls() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceAttributes) bool { return v.InboundCalls }).(pulumi.BoolOutput)
+}
+
+func (o InstanceAttributesOutput) MessageStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.MessageStreaming }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesOutput) MultiPartyChatConference() pulumi.BoolPtrOutput {
@@ -7726,6 +7732,15 @@ func (o InstanceAttributesPtrOutput) InboundCalls() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return &v.InboundCalls
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) MessageStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MessageStreaming
 	}).(pulumi.BoolPtrOutput)
 }
 

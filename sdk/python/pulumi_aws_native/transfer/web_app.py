@@ -26,6 +26,7 @@ class WebAppArgs:
     def __init__(__self__, *,
                  identity_provider_details: pulumi.Input['WebAppIdentityProviderDetailsArgs'],
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input['WebAppEndpointDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  web_app_customization: Optional[pulumi.Input['WebAppCustomizationArgs']] = None,
                  web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
@@ -46,6 +47,8 @@ class WebAppArgs:
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         if access_endpoint is not None:
             pulumi.set(__self__, "access_endpoint", access_endpoint)
+        if endpoint_details is not None:
+            pulumi.set(__self__, "endpoint_details", endpoint_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if web_app_customization is not None:
@@ -80,6 +83,15 @@ class WebAppArgs:
     @access_endpoint.setter
     def access_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "access_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointDetails")
+    def endpoint_details(self) -> Optional[pulumi.Input['WebAppEndpointDetailsArgs']]:
+        return pulumi.get(self, "endpoint_details")
+
+    @endpoint_details.setter
+    def endpoint_details(self, value: Optional[pulumi.Input['WebAppEndpointDetailsArgs']]):
+        pulumi.set(self, "endpoint_details", value)
 
     @_builtins.property
     @pulumi.getter
@@ -139,6 +151,7 @@ class WebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
                  identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  web_app_customization: Optional[pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
@@ -186,6 +199,7 @@ class WebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
                  identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  web_app_customization: Optional[pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
@@ -201,6 +215,7 @@ class WebApp(pulumi.CustomResource):
             __props__ = WebAppArgs.__new__(WebAppArgs)
 
             __props__.__dict__["access_endpoint"] = access_endpoint
+            __props__.__dict__["endpoint_details"] = endpoint_details
             if identity_provider_details is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_provider_details'")
             __props__.__dict__["identity_provider_details"] = identity_provider_details
@@ -209,8 +224,9 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["web_app_endpoint_policy"] = web_app_endpoint_policy
             __props__.__dict__["web_app_units"] = web_app_units
             __props__.__dict__["arn"] = None
+            __props__.__dict__["vpc_endpoint_id"] = None
             __props__.__dict__["web_app_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identityProviderDetails.instanceArn", "webAppEndpointPolicy"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpointDetails.vpc.securityGroupIds[*]", "endpointDetails.vpc.vpcId", "identityProviderDetails.instanceArn", "webAppEndpointPolicy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WebApp, __self__).__init__(
             'aws-native:transfer:WebApp',
@@ -236,8 +252,10 @@ class WebApp(pulumi.CustomResource):
 
         __props__.__dict__["access_endpoint"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["endpoint_details"] = None
         __props__.__dict__["identity_provider_details"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_endpoint_id"] = None
         __props__.__dict__["web_app_customization"] = None
         __props__.__dict__["web_app_endpoint_policy"] = None
         __props__.__dict__["web_app_id"] = None
@@ -261,6 +279,11 @@ class WebApp(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="endpointDetails")
+    def endpoint_details(self) -> pulumi.Output[Optional['outputs.WebAppEndpointDetails']]:
+        return pulumi.get(self, "endpoint_details")
+
+    @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Output['outputs.WebAppIdentityProviderDetails']:
         """
@@ -277,6 +300,11 @@ class WebApp(pulumi.CustomResource):
         Key-value pairs that can be used to group and search for web apps.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="webAppCustomization")

@@ -13,6 +13,146 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+type ConfigurationSetArchivingOptions struct {
+	// The ARN of the MailManager archive to associate with the configuration set.
+	ArchiveArn *string `pulumi:"archiveArn"`
+}
+
+// ConfigurationSetArchivingOptionsInput is an input type that accepts ConfigurationSetArchivingOptionsArgs and ConfigurationSetArchivingOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetArchivingOptionsInput` via:
+//
+//	ConfigurationSetArchivingOptionsArgs{...}
+type ConfigurationSetArchivingOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetArchivingOptionsOutput() ConfigurationSetArchivingOptionsOutput
+	ToConfigurationSetArchivingOptionsOutputWithContext(context.Context) ConfigurationSetArchivingOptionsOutput
+}
+
+// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+type ConfigurationSetArchivingOptionsArgs struct {
+	// The ARN of the MailManager archive to associate with the configuration set.
+	ArchiveArn pulumi.StringPtrInput `pulumi:"archiveArn"`
+}
+
+func (ConfigurationSetArchivingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsOutput() ConfigurationSetArchivingOptionsOutput {
+	return i.ToConfigurationSetArchivingOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArchivingOptionsOutput)
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return i.ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArchivingOptionsOutput).ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetArchivingOptionsPtrInput is an input type that accepts ConfigurationSetArchivingOptionsArgs, ConfigurationSetArchivingOptionsPtr and ConfigurationSetArchivingOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetArchivingOptionsPtrInput` via:
+//
+//	        ConfigurationSetArchivingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetArchivingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput
+	ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Context) ConfigurationSetArchivingOptionsPtrOutput
+}
+
+type configurationSetArchivingOptionsPtrType ConfigurationSetArchivingOptionsArgs
+
+func ConfigurationSetArchivingOptionsPtr(v *ConfigurationSetArchivingOptionsArgs) ConfigurationSetArchivingOptionsPtrInput {
+	return (*configurationSetArchivingOptionsPtrType)(v)
+}
+
+func (*configurationSetArchivingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (i *configurationSetArchivingOptionsPtrType) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return i.ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetArchivingOptionsPtrType) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArchivingOptionsPtrOutput)
+}
+
+// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+type ConfigurationSetArchivingOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetArchivingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsOutput() ConfigurationSetArchivingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return o.ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetArchivingOptions) *ConfigurationSetArchivingOptions {
+		return &v
+	}).(ConfigurationSetArchivingOptionsPtrOutput)
+}
+
+// The ARN of the MailManager archive to associate with the configuration set.
+func (o ConfigurationSetArchivingOptionsOutput) ArchiveArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetArchivingOptions) *string { return v.ArchiveArn }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetArchivingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetArchivingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetArchivingOptionsPtrOutput) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsPtrOutput) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsPtrOutput) Elem() ConfigurationSetArchivingOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetArchivingOptions) ConfigurationSetArchivingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetArchivingOptions
+		return ret
+	}).(ConfigurationSetArchivingOptionsOutput)
+}
+
+// The ARN of the MailManager archive to associate with the configuration set.
+func (o ConfigurationSetArchivingOptionsPtrOutput) ArchiveArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetArchivingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Preferences regarding the Dashboard feature.
 type ConfigurationSetDashboardOptions struct {
 	// Whether emails sent with this configuration set have engagement tracking enabled.
@@ -9159,6 +9299,8 @@ func (o VdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery() pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetArchivingOptionsInput)(nil)).Elem(), ConfigurationSetArchivingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetArchivingOptionsPtrInput)(nil)).Elem(), ConfigurationSetArchivingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDashboardOptionsInput)(nil)).Elem(), ConfigurationSetDashboardOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDashboardOptionsPtrInput)(nil)).Elem(), ConfigurationSetDashboardOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
@@ -9299,6 +9441,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesPtrInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesPtrInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
+	pulumi.RegisterOutputType(ConfigurationSetArchivingOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetArchivingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDashboardOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDashboardOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})

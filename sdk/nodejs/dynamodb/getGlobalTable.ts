@@ -50,10 +50,20 @@ export interface GetGlobalTableResult {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     readonly globalSecondaryIndexes?: outputs.dynamodb.GlobalTableGlobalSecondaryIndex[];
+    readonly globalTableReadOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableReadOnDemandThroughputSettings;
+    readonly globalTableReadProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableGlobalReadProvisionedThroughputSettings;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */
     readonly globalTableWitnesses?: outputs.dynamodb.GlobalTableWitness[];
+    /**
+     * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+     */
+    readonly keySchema?: outputs.dynamodb.GlobalTableKeySchema[];
+    /**
+     * Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+     */
+    readonly localSecondaryIndexes?: outputs.dynamodb.GlobalTableLocalSecondaryIndex[];
     /**
      * Specifies the consistency mode for a new global table.
      *

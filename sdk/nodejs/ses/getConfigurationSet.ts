@@ -25,6 +25,7 @@ export interface GetConfigurationSetArgs {
 }
 
 export interface GetConfigurationSetResult {
+    readonly archivingOptions?: outputs.ses.ConfigurationSetArchivingOptions;
     /**
      * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */

@@ -20,13 +20,15 @@ type WebApp struct {
 	// The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
 	AccessEndpoint pulumi.StringPtrOutput `pulumi:"accessEndpoint"`
 	// Specifies the unique Amazon Resource Name (ARN) for the web app.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn             pulumi.StringOutput            `pulumi:"arn"`
+	EndpointDetails WebAppEndpointDetailsPtrOutput `pulumi:"endpointDetails"`
 	// You can provide a structure that contains the details for the identity provider to use with your web app.
 	//
 	// For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
 	IdentityProviderDetails WebAppIdentityProviderDetailsOutput `pulumi:"identityProviderDetails"`
 	// Key-value pairs that can be used to group and search for web apps.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags          aws.TagArrayOutput  `pulumi:"tags"`
+	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 	// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
 	WebAppCustomization WebAppCustomizationPtrOutput `pulumi:"webAppCustomization"`
 	// Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
@@ -50,6 +52,8 @@ func NewWebApp(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'IdentityProviderDetails'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointDetails.vpc.securityGroupIds[*]",
+		"endpointDetails.vpc.vpcId",
 		"identityProviderDetails.instanceArn",
 		"webAppEndpointPolicy",
 	})
@@ -88,7 +92,8 @@ func (WebAppState) ElementType() reflect.Type {
 
 type webAppArgs struct {
 	// The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
-	AccessEndpoint *string `pulumi:"accessEndpoint"`
+	AccessEndpoint  *string                `pulumi:"accessEndpoint"`
+	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
 	// You can provide a structure that contains the details for the identity provider to use with your web app.
 	//
 	// For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
@@ -108,7 +113,8 @@ type webAppArgs struct {
 // The set of arguments for constructing a WebApp resource.
 type WebAppArgs struct {
 	// The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
-	AccessEndpoint pulumi.StringPtrInput
+	AccessEndpoint  pulumi.StringPtrInput
+	EndpointDetails WebAppEndpointDetailsPtrInput
 	// You can provide a structure that contains the details for the identity provider to use with your web app.
 	//
 	// For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
@@ -172,6 +178,10 @@ func (o WebAppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o WebAppOutput) EndpointDetails() WebAppEndpointDetailsPtrOutput {
+	return o.ApplyT(func(v *WebApp) WebAppEndpointDetailsPtrOutput { return v.EndpointDetails }).(WebAppEndpointDetailsPtrOutput)
+}
+
 // You can provide a structure that contains the details for the identity provider to use with your web app.
 //
 // For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
@@ -182,6 +192,10 @@ func (o WebAppOutput) IdentityProviderDetails() WebAppIdentityProviderDetailsOut
 // Key-value pairs that can be used to group and search for web apps.
 func (o WebAppOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *WebApp) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o WebAppOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
 // A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.

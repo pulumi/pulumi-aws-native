@@ -274,6 +274,7 @@ namespace Pulumi.AwsNative.Transfer
         }
 
         public static ConnectorAs2ConfigPropertiesMdnResponse Sync { get; } = new ConnectorAs2ConfigPropertiesMdnResponse("SYNC");
+        public static ConnectorAs2ConfigPropertiesMdnResponse Async { get; } = new ConnectorAs2ConfigPropertiesMdnResponse("ASYNC");
         public static ConnectorAs2ConfigPropertiesMdnResponse None { get; } = new ConnectorAs2ConfigPropertiesMdnResponse("NONE");
 
         public static bool operator ==(ConnectorAs2ConfigPropertiesMdnResponse left, ConnectorAs2ConfigPropertiesMdnResponse right) => left.Equals(right);

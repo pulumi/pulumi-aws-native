@@ -44,9 +44,15 @@ type LookupGlobalTableResult struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes                       []GlobalTableGlobalSecondaryIndex                   `pulumi:"globalSecondaryIndexes"`
+	GlobalTableReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings          `pulumi:"globalTableReadOnDemandThroughputSettings"`
+	GlobalTableReadProvisionedThroughputSettings *GlobalTableGlobalReadProvisionedThroughputSettings `pulumi:"globalTableReadProvisionedThroughputSettings"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
+	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
+	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Specifies the consistency mode for a new global table.
 	//
 	// You can specify one of the following consistency modes:
@@ -145,9 +151,31 @@ func (o LookupGlobalTableResultOutput) GlobalSecondaryIndexes() GlobalTableGloba
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
+func (o LookupGlobalTableResultOutput) GlobalTableReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableReadOnDemandThroughputSettings {
+		return v.GlobalTableReadOnDemandThroughputSettings
+	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
+}
+
+func (o LookupGlobalTableResultOutput) GlobalTableReadProvisionedThroughputSettings() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableGlobalReadProvisionedThroughputSettings {
+		return v.GlobalTableReadProvisionedThroughputSettings
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
+}
+
 // The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 func (o LookupGlobalTableResultOutput) GlobalTableWitnesses() GlobalTableWitnessArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableWitness { return v.GlobalTableWitnesses }).(GlobalTableWitnessArrayOutput)
+}
+
+// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+func (o LookupGlobalTableResultOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
+}
+
+// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+func (o LookupGlobalTableResultOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableLocalSecondaryIndex { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
 // Specifies the consistency mode for a new global table.

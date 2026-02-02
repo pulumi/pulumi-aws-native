@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationSetResult:
-    def __init__(__self__, delivery_options=None, reputation_options=None, sending_options=None, suppression_options=None, tags=None, tracking_options=None, vdm_options=None):
+    def __init__(__self__, archiving_options=None, delivery_options=None, reputation_options=None, sending_options=None, suppression_options=None, tags=None, tracking_options=None, vdm_options=None):
+        if archiving_options and not isinstance(archiving_options, dict):
+            raise TypeError("Expected argument 'archiving_options' to be a dict")
+        pulumi.set(__self__, "archiving_options", archiving_options)
         if delivery_options and not isinstance(delivery_options, dict):
             raise TypeError("Expected argument 'delivery_options' to be a dict")
         pulumi.set(__self__, "delivery_options", delivery_options)
@@ -47,6 +50,11 @@ class GetConfigurationSetResult:
         if vdm_options and not isinstance(vdm_options, dict):
             raise TypeError("Expected argument 'vdm_options' to be a dict")
         pulumi.set(__self__, "vdm_options", vdm_options)
+
+    @_builtins.property
+    @pulumi.getter(name="archivingOptions")
+    def archiving_options(self) -> Optional['outputs.ConfigurationSetArchivingOptions']:
+        return pulumi.get(self, "archiving_options")
 
     @_builtins.property
     @pulumi.getter(name="deliveryOptions")
@@ -111,6 +119,7 @@ class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
         if False:
             yield self
         return GetConfigurationSetResult(
+            archiving_options=self.archiving_options,
             delivery_options=self.delivery_options,
             reputation_options=self.reputation_options,
             sending_options=self.sending_options,
@@ -134,6 +143,7 @@ def get_configuration_set(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult).value
 
     return AwaitableGetConfigurationSetResult(
+        archiving_options=pulumi.get(__ret__, 'archiving_options'),
         delivery_options=pulumi.get(__ret__, 'delivery_options'),
         reputation_options=pulumi.get(__ret__, 'reputation_options'),
         sending_options=pulumi.get(__ret__, 'sending_options'),
@@ -154,6 +164,7 @@ def get_configuration_set_output(name: Optional[pulumi.Input[_builtins.str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult)
     return __ret__.apply(lambda __response__: GetConfigurationSetResult(
+        archiving_options=pulumi.get(__response__, 'archiving_options'),
         delivery_options=pulumi.get(__response__, 'delivery_options'),
         reputation_options=pulumi.get(__response__, 'reputation_options'),
         sending_options=pulumi.get(__response__, 'sending_options'),

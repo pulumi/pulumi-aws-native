@@ -304,18 +304,18 @@
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:GetSecurityGroupsForVpc", "iam:CreateServiceLinkedRole", "secretsmanager:CreateSecret", "secretsmanager:TagResource", "pcs:CreateCluster", "pcs:GetCluster", "pcs:ListTagsForResource", "pcs:TagResource" ],
-      "timeoutInMinutes" : 60
+      "timeoutInMinutes" : 130
     },
     "read" : {
       "permissions" : [ "pcs:GetCluster", "pcs:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "pcs:GetCluster", "pcs:UpdateCluster", "pcs:ListTagsForResource", "pcs:TagResource", "pcs:UntagResource" ],
-      "timeoutInMinutes" : 60
+      "timeoutInMinutes" : 130
     },
     "delete" : {
       "permissions" : [ "pcs:DeleteCluster", "pcs:GetCluster" ],
-      "timeoutInMinutes" : 60
+      "timeoutInMinutes" : 130
     },
     "list" : {
       "permissions" : [ "pcs:ListClusters" ]
