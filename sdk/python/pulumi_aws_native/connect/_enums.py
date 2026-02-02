@@ -136,6 +136,10 @@ class DataTableValueLockLevel(_builtins.str, Enum):
     The value lock level of the Data Table
     """
     NONE = "NONE"
+    DATA_TABLE = "DATA_TABLE"
+    PRIMARY_VALUE = "PRIMARY_VALUE"
+    ATTRIBUTE = "ATTRIBUTE"
+    VALUE = "VALUE"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormEvaluationReviewNotificationRecipientType")
@@ -441,6 +445,7 @@ class IntegrationAssociationIntegrationType(_builtins.str, Enum):
     LEX_BOT = "LEX_BOT"
     LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
     APPLICATION = "APPLICATION"
+    CASES_DOMAIN = "CASES_DOMAIN"
 
 
 @pulumi.type_token("aws-native:connect:QueueStatus")

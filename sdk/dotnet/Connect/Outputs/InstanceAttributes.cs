@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly bool? EnhancedContactMonitoring;
         public readonly bool? HighVolumeOutBound;
         public readonly bool InboundCalls;
+        public readonly bool? MessageStreaming;
         public readonly bool? MultiPartyChatConference;
         public readonly bool? MultiPartyConference;
         public readonly bool OutboundCalls;
@@ -44,6 +45,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             bool inboundCalls,
 
+            bool? messageStreaming,
+
             bool? multiPartyChatConference,
 
             bool? multiPartyConference,
@@ -60,6 +63,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             EnhancedContactMonitoring = enhancedContactMonitoring;
             HighVolumeOutBound = highVolumeOutBound;
             InboundCalls = inboundCalls;
+            MessageStreaming = messageStreaming;
             MultiPartyChatConference = multiPartyChatConference;
             MultiPartyConference = multiPartyConference;
             OutboundCalls = outboundCalls;

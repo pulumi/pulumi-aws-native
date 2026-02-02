@@ -22,12 +22,14 @@ __all__ = ['GlobalTableArgs', 'GlobalTable']
 @pulumi.input_type
 class GlobalTableArgs:
     def __init__(__self__, *,
-                 attribute_definitions: pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]],
-                 key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]],
+                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
+                 global_table_read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
+                 global_table_read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]] = None,
+                 key_schema: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
                  multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
@@ -39,8 +41,6 @@ class GlobalTableArgs:
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
                
                > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -48,6 +48,7 @@ class GlobalTableArgs:
                > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
                
                You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
         :param pulumi.Input[_builtins.str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
                
                - `PAY_PER_REQUEST`
@@ -58,6 +59,7 @@ class GlobalTableArgs:
                
                Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]] global_table_witnesses: The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         :param pulumi.Input['GlobalTableMultiRegionConsistency'] multi_region_consistency: Specifies the consistency mode for a new global table.
                
@@ -77,15 +79,21 @@ class GlobalTableArgs:
         :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
-        pulumi.set(__self__, "attribute_definitions", attribute_definitions)
-        pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "replicas", replicas)
+        if attribute_definitions is not None:
+            pulumi.set(__self__, "attribute_definitions", attribute_definitions)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_read_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "global_table_read_on_demand_throughput_settings", global_table_read_on_demand_throughput_settings)
+        if global_table_read_provisioned_throughput_settings is not None:
+            pulumi.set(__self__, "global_table_read_provisioned_throughput_settings", global_table_read_provisioned_throughput_settings)
         if global_table_witnesses is not None:
             pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
+        if key_schema is not None:
+            pulumi.set(__self__, "key_schema", key_schema)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if multi_region_consistency is not None:
@@ -106,30 +114,6 @@ class GlobalTableArgs:
             pulumi.set(__self__, "write_provisioned_throughput_settings", write_provisioned_throughput_settings)
 
     @_builtins.property
-    @pulumi.getter(name="attributeDefinitions")
-    def attribute_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]:
-        """
-        A list of attributes that describe the key schema for the global table and indexes.
-        """
-        return pulumi.get(self, "attribute_definitions")
-
-    @attribute_definitions.setter
-    def attribute_definitions(self, value: pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]):
-        pulumi.set(self, "attribute_definitions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keySchema")
-    def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
-        """
-        Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
-        """
-        return pulumi.get(self, "key_schema")
-
-    @key_schema.setter
-    def key_schema(self, value: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]):
-        pulumi.set(self, "key_schema", value)
-
-    @_builtins.property
     @pulumi.getter
     def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]]:
         """
@@ -146,6 +130,18 @@ class GlobalTableArgs:
     @replicas.setter
     def replicas(self, value: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]]):
         pulumi.set(self, "replicas", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeDefinitions")
+    def attribute_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]]:
+        """
+        A list of attributes that describe the key schema for the global table and indexes.
+        """
+        return pulumi.get(self, "attribute_definitions")
+
+    @attribute_definitions.setter
+    def attribute_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]]):
+        pulumi.set(self, "attribute_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
@@ -179,6 +175,24 @@ class GlobalTableArgs:
         pulumi.set(self, "global_secondary_indexes", value)
 
     @_builtins.property
+    @pulumi.getter(name="globalTableReadOnDemandThroughputSettings")
+    def global_table_read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+        return pulumi.get(self, "global_table_read_on_demand_throughput_settings")
+
+    @global_table_read_on_demand_throughput_settings.setter
+    def global_table_read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+        pulumi.set(self, "global_table_read_on_demand_throughput_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableReadProvisionedThroughputSettings")
+    def global_table_read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]:
+        return pulumi.get(self, "global_table_read_provisioned_throughput_settings")
+
+    @global_table_read_provisioned_throughput_settings.setter
+    def global_table_read_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]):
+        pulumi.set(self, "global_table_read_provisioned_throughput_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
     def global_table_witnesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]]:
         """
@@ -189,6 +203,18 @@ class GlobalTableArgs:
     @global_table_witnesses.setter
     def global_table_witnesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]]):
         pulumi.set(self, "global_table_witnesses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]]:
+        """
+        Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        """
+        return pulumi.get(self, "key_schema")
+
+    @key_schema.setter
+    def key_schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]]):
+        pulumi.set(self, "key_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="localSecondaryIndexes")
@@ -317,6 +343,8 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_read_on_demand_throughput_settings: Optional[pulumi.Input[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
+                 global_table_read_provisioned_throughput_settings: Optional[pulumi.Input[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -400,6 +428,8 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_read_on_demand_throughput_settings: Optional[pulumi.Input[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
+                 global_table_read_provisioned_throughput_settings: Optional[pulumi.Input[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -421,14 +451,12 @@ class GlobalTable(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GlobalTableArgs.__new__(GlobalTableArgs)
 
-            if attribute_definitions is None and not opts.urn:
-                raise TypeError("Missing required property 'attribute_definitions'")
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+            __props__.__dict__["global_table_read_on_demand_throughput_settings"] = global_table_read_on_demand_throughput_settings
+            __props__.__dict__["global_table_read_provisioned_throughput_settings"] = global_table_read_provisioned_throughput_settings
             __props__.__dict__["global_table_witnesses"] = global_table_witnesses
-            if key_schema is None and not opts.urn:
-                raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["multi_region_consistency"] = multi_region_consistency
@@ -445,7 +473,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["table_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keySchema[*]", "localSecondaryIndexes[*]", "tableName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tableName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GlobalTable, __self__).__init__(
             'aws-native:dynamodb:GlobalTable',
@@ -473,6 +501,8 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["attribute_definitions"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["global_secondary_indexes"] = None
+        __props__.__dict__["global_table_read_on_demand_throughput_settings"] = None
+        __props__.__dict__["global_table_read_provisioned_throughput_settings"] = None
         __props__.__dict__["global_table_witnesses"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
@@ -499,7 +529,7 @@ class GlobalTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="attributeDefinitions")
-    def attribute_definitions(self) -> pulumi.Output[Sequence['outputs.GlobalTableAttributeDefinition']]:
+    def attribute_definitions(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableAttributeDefinition']]]:
         """
         A list of attributes that describe the key schema for the global table and indexes.
         """
@@ -529,6 +559,16 @@ class GlobalTable(pulumi.CustomResource):
         return pulumi.get(self, "global_secondary_indexes")
 
     @_builtins.property
+    @pulumi.getter(name="globalTableReadOnDemandThroughputSettings")
+    def global_table_read_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableReadOnDemandThroughputSettings']]:
+        return pulumi.get(self, "global_table_read_on_demand_throughput_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableReadProvisionedThroughputSettings")
+    def global_table_read_provisioned_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']]:
+        return pulumi.get(self, "global_table_read_provisioned_throughput_settings")
+
+    @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
     def global_table_witnesses(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableWitness']]]:
         """
@@ -538,7 +578,7 @@ class GlobalTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keySchema")
-    def key_schema(self) -> pulumi.Output[Sequence['outputs.GlobalTableKeySchema']]:
+    def key_schema(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableKeySchema']]]:
         """
         Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         """

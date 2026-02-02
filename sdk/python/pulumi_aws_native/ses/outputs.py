@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConfigurationSetArchivingOptions',
     'ConfigurationSetDashboardOptions',
     'ConfigurationSetDeliveryOptions',
     'ConfigurationSetEventDestinationCloudWatchDestination',
@@ -122,6 +123,46 @@ __all__ = [
     'VdmAttributesDashboardAttributes',
     'VdmAttributesGuardianAttributes',
 ]
+
+@pulumi.output_type
+class ConfigurationSetArchivingOptions(dict):
+    """
+    An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveArn":
+            suggest = "archive_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetArchivingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetArchivingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetArchivingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_arn: Optional[_builtins.str] = None):
+        """
+        An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+        :param _builtins.str archive_arn: The ARN of the MailManager archive to associate with the configuration set.
+        """
+        if archive_arn is not None:
+            pulumi.set(__self__, "archive_arn", archive_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveArn")
+    def archive_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the MailManager archive to associate with the configuration set.
+        """
+        return pulumi.get(self, "archive_arn")
+
 
 @pulumi.output_type
 class ConfigurationSetDashboardOptions(dict):

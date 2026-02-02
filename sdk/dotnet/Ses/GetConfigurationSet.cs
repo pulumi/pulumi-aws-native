@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Ses
     [OutputType]
     public sealed class GetConfigurationSetResult
     {
+        public readonly Outputs.ConfigurationSetArchivingOptions? ArchivingOptions;
         /// <summary>
         /// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.AwsNative.Ses
 
         [OutputConstructor]
         private GetConfigurationSetResult(
+            Outputs.ConfigurationSetArchivingOptions? archivingOptions,
+
             Outputs.ConfigurationSetDeliveryOptions? deliveryOptions,
 
             Outputs.ConfigurationSetReputationOptions? reputationOptions,
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.Ses
 
             Outputs.ConfigurationSetVdmOptions? vdmOptions)
         {
+            ArchivingOptions = archivingOptions;
             DeliveryOptions = deliveryOptions;
             ReputationOptions = reputationOptions;
             SendingOptions = sendingOptions;

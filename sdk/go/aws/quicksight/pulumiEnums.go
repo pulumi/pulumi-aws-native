@@ -45880,13 +45880,14 @@ func (in *dataSetImportModePtr) ToDataSetImportModePtrOutputWithContext(ctx cont
 type DataSetInputColumnDataType string
 
 const (
-	DataSetInputColumnDataTypeString   = DataSetInputColumnDataType("STRING")
-	DataSetInputColumnDataTypeInteger  = DataSetInputColumnDataType("INTEGER")
-	DataSetInputColumnDataTypeDecimal  = DataSetInputColumnDataType("DECIMAL")
-	DataSetInputColumnDataTypeDatetime = DataSetInputColumnDataType("DATETIME")
-	DataSetInputColumnDataTypeBit      = DataSetInputColumnDataType("BIT")
-	DataSetInputColumnDataTypeBoolean  = DataSetInputColumnDataType("BOOLEAN")
-	DataSetInputColumnDataTypeJson     = DataSetInputColumnDataType("JSON")
+	DataSetInputColumnDataTypeString     = DataSetInputColumnDataType("STRING")
+	DataSetInputColumnDataTypeInteger    = DataSetInputColumnDataType("INTEGER")
+	DataSetInputColumnDataTypeDecimal    = DataSetInputColumnDataType("DECIMAL")
+	DataSetInputColumnDataTypeDatetime   = DataSetInputColumnDataType("DATETIME")
+	DataSetInputColumnDataTypeBit        = DataSetInputColumnDataType("BIT")
+	DataSetInputColumnDataTypeBoolean    = DataSetInputColumnDataType("BOOLEAN")
+	DataSetInputColumnDataTypeJson       = DataSetInputColumnDataType("JSON")
+	DataSetInputColumnDataTypeSemistruct = DataSetInputColumnDataType("SEMISTRUCT")
 )
 
 func (DataSetInputColumnDataType) ElementType() reflect.Type {
@@ -46018,6 +46019,7 @@ func (o DataSetInputColumnDataTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 //	DataSetInputColumnDataTypeBit
 //	DataSetInputColumnDataTypeBoolean
 //	DataSetInputColumnDataTypeJson
+//	DataSetInputColumnDataTypeSemistruct
 type DataSetInputColumnDataTypeInput interface {
 	pulumi.Input
 

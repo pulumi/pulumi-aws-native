@@ -97,6 +97,40 @@ export const CommandNamespace = {
  */
 export type CommandNamespace = (typeof CommandNamespace)[keyof typeof CommandNamespace];
 
+export const CommandOutputFormat = {
+    Json: "JSON",
+    Cbor: "CBOR",
+} as const;
+
+export type CommandOutputFormat = (typeof CommandOutputFormat)[keyof typeof CommandOutputFormat];
+
+export const CommandParameterType = {
+    String: "STRING",
+    Integer: "INTEGER",
+    Double: "DOUBLE",
+    Long: "LONG",
+    Unsignedlong: "UNSIGNEDLONG",
+    Boolean: "BOOLEAN",
+    Binary: "BINARY",
+} as const;
+
+export type CommandParameterType = (typeof CommandParameterType)[keyof typeof CommandParameterType];
+
+export const CommandParameterValueComparisonOperator = {
+    Equals: "EQUALS",
+    NotEquals: "NOT_EQUALS",
+    LessThan: "LESS_THAN",
+    LessThanEquals: "LESS_THAN_EQUALS",
+    GreaterThan: "GREATER_THAN",
+    GreaterThanEquals: "GREATER_THAN_EQUALS",
+    InSet: "IN_SET",
+    NotInSet: "NOT_IN_SET",
+    InRange: "IN_RANGE",
+    NotInRange: "NOT_IN_RANGE",
+} as const;
+
+export type CommandParameterValueComparisonOperator = (typeof CommandParameterValueComparisonOperator)[keyof typeof CommandParameterValueComparisonOperator];
+
 export const CustomMetricMetricType = {
     StringList: "string-list",
     IpAddressList: "ip-address-list",

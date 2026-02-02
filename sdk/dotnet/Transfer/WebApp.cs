@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("endpointDetails")]
+        public Output<Outputs.WebAppEndpointDetails?> EndpointDetails { get; private set; } = null!;
+
         /// <summary>
         /// You can provide a structure that contains the details for the identity provider to use with your web app.
         /// 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        [Output("vpcEndpointId")]
+        public Output<string> VpcEndpointId { get; private set; } = null!;
 
         /// <summary>
         /// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
@@ -92,6 +98,8 @@ namespace Pulumi.AwsNative.Transfer
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "endpointDetails.vpc.securityGroupIds[*]",
+                    "endpointDetails.vpc.vpcId",
                     "identityProviderDetails.instanceArn",
                     "webAppEndpointPolicy",
                 },
@@ -122,6 +130,9 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("accessEndpoint")]
         public Input<string>? AccessEndpoint { get; set; }
+
+        [Input("endpointDetails")]
+        public Input<Inputs.WebAppEndpointDetailsArgs>? EndpointDetails { get; set; }
 
         /// <summary>
         /// You can provide a structure that contains the details for the identity provider to use with your web app.

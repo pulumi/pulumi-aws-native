@@ -90,10 +90,20 @@ namespace Pulumi.AwsNative.DynamoDb
         /// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> GlobalSecondaryIndexes;
+        public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? GlobalTableReadOnDemandThroughputSettings;
+        public readonly Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? GlobalTableReadProvisionedThroughputSettings;
         /// <summary>
         /// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableWitness> GlobalTableWitnesses;
+        /// <summary>
+        /// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GlobalTableKeySchema> KeySchema;
+        /// <summary>
+        /// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex> LocalSecondaryIndexes;
         /// <summary>
         /// Specifies the consistency mode for a new global table.
         /// 
@@ -160,7 +170,15 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> globalSecondaryIndexes,
 
+            Outputs.GlobalTableReadOnDemandThroughputSettings? globalTableReadOnDemandThroughputSettings,
+
+            Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? globalTableReadProvisionedThroughputSettings,
+
             ImmutableArray<Outputs.GlobalTableWitness> globalTableWitnesses,
+
+            ImmutableArray<Outputs.GlobalTableKeySchema> keySchema,
+
+            ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex> localSecondaryIndexes,
 
             Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency? multiRegionConsistency,
 
@@ -186,7 +204,11 @@ namespace Pulumi.AwsNative.DynamoDb
             AttributeDefinitions = attributeDefinitions;
             BillingMode = billingMode;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
+            GlobalTableReadOnDemandThroughputSettings = globalTableReadOnDemandThroughputSettings;
+            GlobalTableReadProvisionedThroughputSettings = globalTableReadProvisionedThroughputSettings;
             GlobalTableWitnesses = globalTableWitnesses;
+            KeySchema = keySchema;
+            LocalSecondaryIndexes = localSecondaryIndexes;
             MultiRegionConsistency = multiRegionConsistency;
             Replicas = replicas;
             SseSpecification = sseSpecification;

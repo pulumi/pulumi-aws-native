@@ -1182,6 +1182,172 @@ func (in *containerFleetLogDestinationPtr) ToContainerFleetLogDestinationPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetLogDestinationPtrOutput)
 }
 
+// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+type ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy string
+
+const (
+	ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyScaleToAndFromZero = ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO")
+	ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyManual             = ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("MANUAL")
+)
+
+func (ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return pulumi.ToOutput(e).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return e.ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy(e).ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(ctx).ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o.ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) *ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy {
+		return &v
+	}).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) Elem() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o.ApplyT(func(v *ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy
+		return ret
+	}).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyInput is an input type that accepts values of the ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy enum
+// A concrete instance of `ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyInput` can be one of the following:
+//
+//	ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyScaleToAndFromZero
+//	ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyManual
+type ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyInput interface {
+	pulumi.Input
+
+	ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput
+	ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput
+}
+
+var containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrType = reflect.TypeOf((**ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+
+type ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput
+	ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput
+}
+
+type containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtr string
+
+func ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtr(v string) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput {
+	return (*containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtr)(&v)
+}
+
+func (*containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtr) ElementType() reflect.Type {
+	return containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrType
+}
+
+func (in *containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtr) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
+func (in *containerFleetManagedCapacityConfigurationZeroCapacityStrategyPtr) ToContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
 // A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
 type ContainerFleetNewGameSessionProtectionPolicy string
 
@@ -4101,6 +4267,172 @@ func (in *fleetIpPermissionProtocolPtr) ToFleetIpPermissionProtocolPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FleetIpPermissionProtocolPtrOutput)
 }
 
+// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+type FleetManagedCapacityConfigurationZeroCapacityStrategy string
+
+const (
+	FleetManagedCapacityConfigurationZeroCapacityStrategyScaleToAndFromZero = FleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO")
+	FleetManagedCapacityConfigurationZeroCapacityStrategyManual             = FleetManagedCapacityConfigurationZeroCapacityStrategy("MANUAL")
+)
+
+func (FleetManagedCapacityConfigurationZeroCapacityStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return pulumi.ToOutput(e).(FleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return e.ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return FleetManagedCapacityConfigurationZeroCapacityStrategy(e).ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(ctx).ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx)
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetManagedCapacityConfigurationZeroCapacityStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetManagedCapacityConfigurationZeroCapacityStrategyOutput struct{ *pulumi.OutputState }
+
+func (FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o.ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetManagedCapacityConfigurationZeroCapacityStrategy) *FleetManagedCapacityConfigurationZeroCapacityStrategy {
+		return &v
+	}).(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetManagedCapacityConfigurationZeroCapacityStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetManagedCapacityConfigurationZeroCapacityStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) Elem() FleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o.ApplyT(func(v *FleetManagedCapacityConfigurationZeroCapacityStrategy) FleetManagedCapacityConfigurationZeroCapacityStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret FleetManagedCapacityConfigurationZeroCapacityStrategy
+		return ret
+	}).(FleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetManagedCapacityConfigurationZeroCapacityStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetManagedCapacityConfigurationZeroCapacityStrategyInput is an input type that accepts values of the FleetManagedCapacityConfigurationZeroCapacityStrategy enum
+// A concrete instance of `FleetManagedCapacityConfigurationZeroCapacityStrategyInput` can be one of the following:
+//
+//	FleetManagedCapacityConfigurationZeroCapacityStrategyScaleToAndFromZero
+//	FleetManagedCapacityConfigurationZeroCapacityStrategyManual
+type FleetManagedCapacityConfigurationZeroCapacityStrategyInput interface {
+	pulumi.Input
+
+	ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyOutput
+	ToFleetManagedCapacityConfigurationZeroCapacityStrategyOutputWithContext(context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyOutput
+}
+
+var fleetManagedCapacityConfigurationZeroCapacityStrategyPtrType = reflect.TypeOf((**FleetManagedCapacityConfigurationZeroCapacityStrategy)(nil)).Elem()
+
+type FleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput interface {
+	pulumi.Input
+
+	ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput
+	ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput
+}
+
+type fleetManagedCapacityConfigurationZeroCapacityStrategyPtr string
+
+func FleetManagedCapacityConfigurationZeroCapacityStrategyPtr(v string) FleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput {
+	return (*fleetManagedCapacityConfigurationZeroCapacityStrategyPtr)(&v)
+}
+
+func (*fleetManagedCapacityConfigurationZeroCapacityStrategyPtr) ElementType() reflect.Type {
+	return fleetManagedCapacityConfigurationZeroCapacityStrategyPtrType
+}
+
+func (in *fleetManagedCapacityConfigurationZeroCapacityStrategyPtr) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput() FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return pulumi.ToOutput(in).(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
+func (in *fleetManagedCapacityConfigurationZeroCapacityStrategyPtr) ToFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
 // A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
 type FleetNewGameSessionProtectionPolicy string
 
@@ -6526,6 +6858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionProtocolPtrInput)(nil)).Elem(), ContainerFleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogDestinationInput)(nil)).Elem(), ContainerFleetLogDestination("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogDestinationPtrInput)(nil)).Elem(), ContainerFleetLogDestination("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyInput)(nil)).Elem(), ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput)(nil)).Elem(), ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), ContainerFleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), ContainerFleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperatorInput)(nil)).Elem(), ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
@@ -6559,6 +6893,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetInstanceRoleCredentialsProviderPtrInput)(nil)).Elem(), FleetInstanceRoleCredentialsProvider("SHARED_CREDENTIAL_FILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolPtrInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationZeroCapacityStrategyInput)(nil)).Elem(), FleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput)(nil)).Elem(), FleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyComparisonOperatorInput)(nil)).Elem(), FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
@@ -6602,6 +6938,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerFleetIpPermissionProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetLogDestinationOutput{})
 	pulumi.RegisterOutputType(ContainerFleetLogDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput{})
+	pulumi.RegisterOutputType(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetNewGameSessionProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(ContainerFleetNewGameSessionProtectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetScalingPolicyComparisonOperatorOutput{})
@@ -6639,6 +6977,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetInstanceRoleCredentialsProviderPtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationZeroCapacityStrategyOutput{})
+	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FleetScalingPolicyComparisonOperatorOutput{})

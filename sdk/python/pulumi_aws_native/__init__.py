@@ -1858,6 +1858,8 @@ _utilities.register(
   "mod": "emrcontainers",
   "fqn": "pulumi_aws_native.emrcontainers",
   "classes": {
+   "aws-native:emrcontainers:Endpoint": "Endpoint",
+   "aws-native:emrcontainers:SecurityConfiguration": "SecurityConfiguration",
    "aws-native:emrcontainers:VirtualCluster": "VirtualCluster"
   }
  },
@@ -2474,6 +2476,7 @@ _utilities.register(
    "aws-native:lightsail:Certificate": "Certificate",
    "aws-native:lightsail:Container": "Container",
    "aws-native:lightsail:Database": "Database",
+   "aws-native:lightsail:DatabaseSnapshot": "DatabaseSnapshot",
    "aws-native:lightsail:Disk": "Disk",
    "aws-native:lightsail:DiskSnapshot": "DiskSnapshot",
    "aws-native:lightsail:Instance": "Instance",

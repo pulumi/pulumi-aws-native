@@ -65,6 +65,7 @@ import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as emr from "./emr";
+import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
 import * as entityresolution from "./entityresolution";
 import * as events from "./events";
@@ -258,6 +259,7 @@ export {
     eks,
     elasticache,
     emr,
+    emrcontainers,
     emrserverless,
     entityresolution,
     events,

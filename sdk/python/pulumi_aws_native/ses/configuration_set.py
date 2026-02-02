@@ -23,6 +23,7 @@ __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
 @pulumi.input_type
 class ConfigurationSetArgs:
     def __init__(__self__, *,
+                 archiving_options: Optional[pulumi.Input['ConfigurationSetArchivingOptionsArgs']] = None,
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
@@ -42,6 +43,8 @@ class ConfigurationSetArgs:
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
+        if archiving_options is not None:
+            pulumi.set(__self__, "archiving_options", archiving_options)
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
         if name is not None:
@@ -58,6 +61,15 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "tracking_options", tracking_options)
         if vdm_options is not None:
             pulumi.set(__self__, "vdm_options", vdm_options)
+
+    @_builtins.property
+    @pulumi.getter(name="archivingOptions")
+    def archiving_options(self) -> Optional[pulumi.Input['ConfigurationSetArchivingOptionsArgs']]:
+        return pulumi.get(self, "archiving_options")
+
+    @archiving_options.setter
+    def archiving_options(self, value: Optional[pulumi.Input['ConfigurationSetArchivingOptionsArgs']]):
+        pulumi.set(self, "archiving_options", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryOptions")
@@ -162,6 +174,7 @@ class ConfigurationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 archiving_options: Optional[pulumi.Input[Union['ConfigurationSetArchivingOptionsArgs', 'ConfigurationSetArchivingOptionsArgsDict']]] = None,
                  delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
@@ -441,6 +454,7 @@ class ConfigurationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 archiving_options: Optional[pulumi.Input[Union['ConfigurationSetArchivingOptionsArgs', 'ConfigurationSetArchivingOptionsArgsDict']]] = None,
                  delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
@@ -458,6 +472,7 @@ class ConfigurationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+            __props__.__dict__["archiving_options"] = archiving_options
             __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
             __props__.__dict__["reputation_options"] = reputation_options
@@ -490,6 +505,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+        __props__.__dict__["archiving_options"] = None
         __props__.__dict__["delivery_options"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["reputation_options"] = None
@@ -499,6 +515,11 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["tracking_options"] = None
         __props__.__dict__["vdm_options"] = None
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="archivingOptions")
+    def archiving_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetArchivingOptions']]:
+        return pulumi.get(self, "archiving_options")
 
     @_builtins.property
     @pulumi.getter(name="deliveryOptions")

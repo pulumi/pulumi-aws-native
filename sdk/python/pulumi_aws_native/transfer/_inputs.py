@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'As2ConfigPropertiesArgs',
     'As2ConfigPropertiesArgsDict',
+    'ConnectorAsyncMdnConfigArgs',
+    'ConnectorAsyncMdnConfigArgsDict',
     'ConnectorEgressConfigArgs',
     'ConnectorEgressConfigArgsDict',
     'ConnectorVpcLatticeEgressConfigArgs',
@@ -44,10 +46,14 @@ __all__ = [
     'UserPosixProfileArgsDict',
     'WebAppCustomizationArgs',
     'WebAppCustomizationArgsDict',
+    'WebAppEndpointDetailsArgs',
+    'WebAppEndpointDetailsArgsDict',
     'WebAppIdentityProviderDetailsArgs',
     'WebAppIdentityProviderDetailsArgsDict',
     'WebAppUnitsPropertiesArgs',
     'WebAppUnitsPropertiesArgsDict',
+    'WebAppVpcArgs',
+    'WebAppVpcArgsDict',
     'WorkflowEfsInputFileLocationArgs',
     'WorkflowEfsInputFileLocationArgsDict',
     'WorkflowInputFileLocationArgs',
@@ -78,6 +84,10 @@ if not MYPY:
     class As2ConfigPropertiesArgsDict(TypedDict):
         """
         Configuration for an AS2 connector.
+        """
+        async_mdn_config: NotRequired[pulumi.Input['ConnectorAsyncMdnConfigArgsDict']]
+        """
+        Configuration for an AS2 connector with ASYNC MDN Response
         """
         basic_auth_secret_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -125,6 +135,7 @@ elif False:
 @pulumi.input_type
 class As2ConfigPropertiesArgs:
     def __init__(__self__, *,
+                 async_mdn_config: Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']] = None,
                  basic_auth_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compression: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']] = None,
                  encryption_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']] = None,
@@ -137,6 +148,7 @@ class As2ConfigPropertiesArgs:
                  signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
         """
         Configuration for an AS2 connector.
+        :param pulumi.Input['ConnectorAsyncMdnConfigArgs'] async_mdn_config: Configuration for an AS2 connector with ASYNC MDN Response
         :param pulumi.Input[_builtins.str] basic_auth_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         :param pulumi.Input['ConnectorAs2ConfigPropertiesCompression'] compression: Compression setting for this AS2 connector configuration.
         :param pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] encryption_algorithm: Encryption algorithm for this AS2 connector configuration.
@@ -148,6 +160,8 @@ class As2ConfigPropertiesArgs:
         :param pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType'] preserve_content_type: Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
         :param pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm'] signing_algorithm: Signing algorithm for this AS2 connector configuration.
         """
+        if async_mdn_config is not None:
+            pulumi.set(__self__, "async_mdn_config", async_mdn_config)
         if basic_auth_secret_id is not None:
             pulumi.set(__self__, "basic_auth_secret_id", basic_auth_secret_id)
         if compression is not None:
@@ -168,6 +182,18 @@ class As2ConfigPropertiesArgs:
             pulumi.set(__self__, "preserve_content_type", preserve_content_type)
         if signing_algorithm is not None:
             pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncMdnConfig")
+    def async_mdn_config(self) -> Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']]:
+        """
+        Configuration for an AS2 connector with ASYNC MDN Response
+        """
+        return pulumi.get(self, "async_mdn_config")
+
+    @async_mdn_config.setter
+    def async_mdn_config(self, value: Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']]):
+        pulumi.set(self, "async_mdn_config", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthSecretId")
@@ -288,6 +314,49 @@ class As2ConfigPropertiesArgs:
     @signing_algorithm.setter
     def signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
         pulumi.set(self, "signing_algorithm", value)
+
+
+if not MYPY:
+    class ConnectorAsyncMdnConfigArgsDict(TypedDict):
+        server_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        url: pulumi.Input[_builtins.str]
+        """
+        URL of the server to receive the MDN response on
+        """
+elif False:
+    ConnectorAsyncMdnConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorAsyncMdnConfigArgs:
+    def __init__(__self__, *,
+                 server_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 url: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] url: URL of the server to receive the MDN response on
+        """
+        pulumi.set(__self__, "server_ids", server_ids)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="serverIds")
+    def server_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "server_ids")
+
+    @server_ids.setter
+    def server_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "server_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL of the server to receive the MDN response on
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
 
 
 if not MYPY:
@@ -1438,6 +1507,29 @@ class WebAppCustomizationArgs:
 
 
 if not MYPY:
+    class WebAppEndpointDetailsArgsDict(TypedDict):
+        vpc: NotRequired[pulumi.Input['WebAppVpcArgsDict']]
+elif False:
+    WebAppEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppEndpointDetailsArgs:
+    def __init__(__self__, *,
+                 vpc: Optional[pulumi.Input['WebAppVpcArgs']] = None):
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> Optional[pulumi.Input['WebAppVpcArgs']]:
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: Optional[pulumi.Input['WebAppVpcArgs']]):
+        pulumi.set(self, "vpc", value)
+
+
+if not MYPY:
     class WebAppIdentityProviderDetailsArgsDict(TypedDict):
         """
         You can provide a structure that contains the details for the identity provider to use with your web app.
@@ -1539,6 +1631,61 @@ class WebAppUnitsPropertiesArgs:
     @provisioned.setter
     def provisioned(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "provisioned", value)
+
+
+if not MYPY:
+    class WebAppVpcArgsDict(TypedDict):
+        """
+        You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    WebAppVpcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppVpcArgs:
+    def __init__(__self__, *,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 if not MYPY:

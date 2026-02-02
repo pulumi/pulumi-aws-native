@@ -1044,6 +1044,8 @@ func (o ContainerFleetIpPermissionArrayOutput) Index(i pulumi.IntInput) Containe
 type ContainerFleetLocationCapacity struct {
 	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
 	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
+	// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+	ManagedCapacityConfiguration *ContainerFleetManagedCapacityConfiguration `pulumi:"managedCapacityConfiguration"`
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location.
@@ -1065,6 +1067,8 @@ type ContainerFleetLocationCapacityInput interface {
 type ContainerFleetLocationCapacityArgs struct {
 	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
 	DesiredEc2Instances pulumi.IntPtrInput `pulumi:"desiredEc2Instances"`
+	// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+	ManagedCapacityConfiguration ContainerFleetManagedCapacityConfigurationPtrInput `pulumi:"managedCapacityConfiguration"`
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location.
@@ -1154,6 +1158,13 @@ func (o ContainerFleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntPt
 	return o.ApplyT(func(v ContainerFleetLocationCapacity) *int { return v.DesiredEc2Instances }).(pulumi.IntPtrOutput)
 }
 
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+func (o ContainerFleetLocationCapacityOutput) ManagedCapacityConfiguration() ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLocationCapacity) *ContainerFleetManagedCapacityConfiguration {
+		return v.ManagedCapacityConfiguration
+	}).(ContainerFleetManagedCapacityConfigurationPtrOutput)
+}
+
 // The maximum value that is allowed for the fleet's instance count for a location.
 func (o ContainerFleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerFleetLocationCapacity) int { return v.MaxSize }).(pulumi.IntOutput)
@@ -1196,6 +1207,16 @@ func (o ContainerFleetLocationCapacityPtrOutput) DesiredEc2Instances() pulumi.In
 		}
 		return v.DesiredEc2Instances
 	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+func (o ContainerFleetLocationCapacityPtrOutput) ManagedCapacityConfiguration() ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLocationCapacity) *ContainerFleetManagedCapacityConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedCapacityConfiguration
+	}).(ContainerFleetManagedCapacityConfigurationPtrOutput)
 }
 
 // The maximum value that is allowed for the fleet's instance count for a location.
@@ -1524,6 +1545,167 @@ func (o ContainerFleetLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtr
 		}
 		return v.S3BucketName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration options for GameLift-managed capacity behavior.
+type ContainerFleetManagedCapacityConfiguration struct {
+	// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+	ScaleInAfterInactivityMinutes *int `pulumi:"scaleInAfterInactivityMinutes"`
+	// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+	ZeroCapacityStrategy ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy `pulumi:"zeroCapacityStrategy"`
+}
+
+// ContainerFleetManagedCapacityConfigurationInput is an input type that accepts ContainerFleetManagedCapacityConfigurationArgs and ContainerFleetManagedCapacityConfigurationOutput values.
+// You can construct a concrete instance of `ContainerFleetManagedCapacityConfigurationInput` via:
+//
+//	ContainerFleetManagedCapacityConfigurationArgs{...}
+type ContainerFleetManagedCapacityConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerFleetManagedCapacityConfigurationOutput() ContainerFleetManagedCapacityConfigurationOutput
+	ToContainerFleetManagedCapacityConfigurationOutputWithContext(context.Context) ContainerFleetManagedCapacityConfigurationOutput
+}
+
+// Configuration options for GameLift-managed capacity behavior.
+type ContainerFleetManagedCapacityConfigurationArgs struct {
+	// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+	ScaleInAfterInactivityMinutes pulumi.IntPtrInput `pulumi:"scaleInAfterInactivityMinutes"`
+	// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+	ZeroCapacityStrategy ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyInput `pulumi:"zeroCapacityStrategy"`
+}
+
+func (ContainerFleetManagedCapacityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (i ContainerFleetManagedCapacityConfigurationArgs) ToContainerFleetManagedCapacityConfigurationOutput() ContainerFleetManagedCapacityConfigurationOutput {
+	return i.ToContainerFleetManagedCapacityConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetManagedCapacityConfigurationArgs) ToContainerFleetManagedCapacityConfigurationOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetManagedCapacityConfigurationOutput)
+}
+
+func (i ContainerFleetManagedCapacityConfigurationArgs) ToContainerFleetManagedCapacityConfigurationPtrOutput() ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return i.ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetManagedCapacityConfigurationArgs) ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetManagedCapacityConfigurationOutput).ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerFleetManagedCapacityConfigurationPtrInput is an input type that accepts ContainerFleetManagedCapacityConfigurationArgs, ContainerFleetManagedCapacityConfigurationPtr and ContainerFleetManagedCapacityConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerFleetManagedCapacityConfigurationPtrInput` via:
+//
+//	        ContainerFleetManagedCapacityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetManagedCapacityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetManagedCapacityConfigurationPtrOutput() ContainerFleetManagedCapacityConfigurationPtrOutput
+	ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(context.Context) ContainerFleetManagedCapacityConfigurationPtrOutput
+}
+
+type containerFleetManagedCapacityConfigurationPtrType ContainerFleetManagedCapacityConfigurationArgs
+
+func ContainerFleetManagedCapacityConfigurationPtr(v *ContainerFleetManagedCapacityConfigurationArgs) ContainerFleetManagedCapacityConfigurationPtrInput {
+	return (*containerFleetManagedCapacityConfigurationPtrType)(v)
+}
+
+func (*containerFleetManagedCapacityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (i *containerFleetManagedCapacityConfigurationPtrType) ToContainerFleetManagedCapacityConfigurationPtrOutput() ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return i.ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetManagedCapacityConfigurationPtrType) ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetManagedCapacityConfigurationPtrOutput)
+}
+
+// Configuration options for GameLift-managed capacity behavior.
+type ContainerFleetManagedCapacityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetManagedCapacityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetManagedCapacityConfigurationOutput) ToContainerFleetManagedCapacityConfigurationOutput() ContainerFleetManagedCapacityConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationOutput) ToContainerFleetManagedCapacityConfigurationOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationOutput) ToContainerFleetManagedCapacityConfigurationPtrOutput() ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return o.ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetManagedCapacityConfigurationOutput) ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetManagedCapacityConfiguration) *ContainerFleetManagedCapacityConfiguration {
+		return &v
+	}).(ContainerFleetManagedCapacityConfigurationPtrOutput)
+}
+
+// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+func (o ContainerFleetManagedCapacityConfigurationOutput) ScaleInAfterInactivityMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetManagedCapacityConfiguration) *int { return v.ScaleInAfterInactivityMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+func (o ContainerFleetManagedCapacityConfigurationOutput) ZeroCapacityStrategy() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o.ApplyT(func(v ContainerFleetManagedCapacityConfiguration) ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy {
+		return v.ZeroCapacityStrategy
+	}).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+type ContainerFleetManagedCapacityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetManagedCapacityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetManagedCapacityConfigurationPtrOutput) ToContainerFleetManagedCapacityConfigurationPtrOutput() ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationPtrOutput) ToContainerFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetManagedCapacityConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetManagedCapacityConfigurationPtrOutput) Elem() ContainerFleetManagedCapacityConfigurationOutput {
+	return o.ApplyT(func(v *ContainerFleetManagedCapacityConfiguration) ContainerFleetManagedCapacityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetManagedCapacityConfiguration
+		return ret
+	}).(ContainerFleetManagedCapacityConfigurationOutput)
+}
+
+// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+func (o ContainerFleetManagedCapacityConfigurationPtrOutput) ScaleInAfterInactivityMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetManagedCapacityConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInAfterInactivityMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+func (o ContainerFleetManagedCapacityConfigurationPtrOutput) ZeroCapacityStrategy() ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetManagedCapacityConfiguration) *ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.ZeroCapacityStrategy
+	}).(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
 }
 
 // Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
@@ -3590,6 +3772,8 @@ func (o FleetIpPermissionArrayOutput) Index(i pulumi.IntInput) FleetIpPermission
 type FleetLocationCapacity struct {
 	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
+	// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+	ManagedCapacityConfiguration *FleetManagedCapacityConfiguration `pulumi:"managedCapacityConfiguration"`
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -3611,6 +3795,8 @@ type FleetLocationCapacityInput interface {
 type FleetLocationCapacityArgs struct {
 	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 	DesiredEc2Instances pulumi.IntPtrInput `pulumi:"desiredEc2Instances"`
+	// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+	ManagedCapacityConfiguration FleetManagedCapacityConfigurationPtrInput `pulumi:"managedCapacityConfiguration"`
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -3700,6 +3886,13 @@ func (o FleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLocationCapacity) *int { return v.DesiredEc2Instances }).(pulumi.IntPtrOutput)
 }
 
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+func (o FleetLocationCapacityOutput) ManagedCapacityConfiguration() FleetManagedCapacityConfigurationPtrOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) *FleetManagedCapacityConfiguration {
+		return v.ManagedCapacityConfiguration
+	}).(FleetManagedCapacityConfigurationPtrOutput)
+}
+
 // The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 func (o FleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLocationCapacity) int { return v.MaxSize }).(pulumi.IntOutput)
@@ -3742,6 +3935,16 @@ func (o FleetLocationCapacityPtrOutput) DesiredEc2Instances() pulumi.IntPtrOutpu
 		}
 		return v.DesiredEc2Instances
 	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+func (o FleetLocationCapacityPtrOutput) ManagedCapacityConfiguration() FleetManagedCapacityConfigurationPtrOutput {
+	return o.ApplyT(func(v *FleetLocationCapacity) *FleetManagedCapacityConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedCapacityConfiguration
+	}).(FleetManagedCapacityConfigurationPtrOutput)
 }
 
 // The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -3877,6 +4080,167 @@ func (o FleetLocationConfigurationArrayOutput) Index(i pulumi.IntInput) FleetLoc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetLocationConfiguration {
 		return vs[0].([]FleetLocationConfiguration)[vs[1].(int)]
 	}).(FleetLocationConfigurationOutput)
+}
+
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+type FleetManagedCapacityConfiguration struct {
+	// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+	ScaleInAfterInactivityMinutes *int `pulumi:"scaleInAfterInactivityMinutes"`
+	// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+	ZeroCapacityStrategy FleetManagedCapacityConfigurationZeroCapacityStrategy `pulumi:"zeroCapacityStrategy"`
+}
+
+// FleetManagedCapacityConfigurationInput is an input type that accepts FleetManagedCapacityConfigurationArgs and FleetManagedCapacityConfigurationOutput values.
+// You can construct a concrete instance of `FleetManagedCapacityConfigurationInput` via:
+//
+//	FleetManagedCapacityConfigurationArgs{...}
+type FleetManagedCapacityConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetManagedCapacityConfigurationOutput() FleetManagedCapacityConfigurationOutput
+	ToFleetManagedCapacityConfigurationOutputWithContext(context.Context) FleetManagedCapacityConfigurationOutput
+}
+
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+type FleetManagedCapacityConfigurationArgs struct {
+	// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+	ScaleInAfterInactivityMinutes pulumi.IntPtrInput `pulumi:"scaleInAfterInactivityMinutes"`
+	// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+	ZeroCapacityStrategy FleetManagedCapacityConfigurationZeroCapacityStrategyInput `pulumi:"zeroCapacityStrategy"`
+}
+
+func (FleetManagedCapacityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (i FleetManagedCapacityConfigurationArgs) ToFleetManagedCapacityConfigurationOutput() FleetManagedCapacityConfigurationOutput {
+	return i.ToFleetManagedCapacityConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetManagedCapacityConfigurationArgs) ToFleetManagedCapacityConfigurationOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetManagedCapacityConfigurationOutput)
+}
+
+func (i FleetManagedCapacityConfigurationArgs) ToFleetManagedCapacityConfigurationPtrOutput() FleetManagedCapacityConfigurationPtrOutput {
+	return i.ToFleetManagedCapacityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetManagedCapacityConfigurationArgs) ToFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetManagedCapacityConfigurationOutput).ToFleetManagedCapacityConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetManagedCapacityConfigurationPtrInput is an input type that accepts FleetManagedCapacityConfigurationArgs, FleetManagedCapacityConfigurationPtr and FleetManagedCapacityConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetManagedCapacityConfigurationPtrInput` via:
+//
+//	        FleetManagedCapacityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetManagedCapacityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetManagedCapacityConfigurationPtrOutput() FleetManagedCapacityConfigurationPtrOutput
+	ToFleetManagedCapacityConfigurationPtrOutputWithContext(context.Context) FleetManagedCapacityConfigurationPtrOutput
+}
+
+type fleetManagedCapacityConfigurationPtrType FleetManagedCapacityConfigurationArgs
+
+func FleetManagedCapacityConfigurationPtr(v *FleetManagedCapacityConfigurationArgs) FleetManagedCapacityConfigurationPtrInput {
+	return (*fleetManagedCapacityConfigurationPtrType)(v)
+}
+
+func (*fleetManagedCapacityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (i *fleetManagedCapacityConfigurationPtrType) ToFleetManagedCapacityConfigurationPtrOutput() FleetManagedCapacityConfigurationPtrOutput {
+	return i.ToFleetManagedCapacityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetManagedCapacityConfigurationPtrType) ToFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetManagedCapacityConfigurationPtrOutput)
+}
+
+// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+type FleetManagedCapacityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetManagedCapacityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (o FleetManagedCapacityConfigurationOutput) ToFleetManagedCapacityConfigurationOutput() FleetManagedCapacityConfigurationOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationOutput) ToFleetManagedCapacityConfigurationOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationOutput) ToFleetManagedCapacityConfigurationPtrOutput() FleetManagedCapacityConfigurationPtrOutput {
+	return o.ToFleetManagedCapacityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetManagedCapacityConfigurationOutput) ToFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetManagedCapacityConfiguration) *FleetManagedCapacityConfiguration {
+		return &v
+	}).(FleetManagedCapacityConfigurationPtrOutput)
+}
+
+// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+func (o FleetManagedCapacityConfigurationOutput) ScaleInAfterInactivityMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetManagedCapacityConfiguration) *int { return v.ScaleInAfterInactivityMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+func (o FleetManagedCapacityConfigurationOutput) ZeroCapacityStrategy() FleetManagedCapacityConfigurationZeroCapacityStrategyOutput {
+	return o.ApplyT(func(v FleetManagedCapacityConfiguration) FleetManagedCapacityConfigurationZeroCapacityStrategy {
+		return v.ZeroCapacityStrategy
+	}).(FleetManagedCapacityConfigurationZeroCapacityStrategyOutput)
+}
+
+type FleetManagedCapacityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetManagedCapacityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetManagedCapacityConfiguration)(nil)).Elem()
+}
+
+func (o FleetManagedCapacityConfigurationPtrOutput) ToFleetManagedCapacityConfigurationPtrOutput() FleetManagedCapacityConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationPtrOutput) ToFleetManagedCapacityConfigurationPtrOutputWithContext(ctx context.Context) FleetManagedCapacityConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetManagedCapacityConfigurationPtrOutput) Elem() FleetManagedCapacityConfigurationOutput {
+	return o.ApplyT(func(v *FleetManagedCapacityConfiguration) FleetManagedCapacityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetManagedCapacityConfiguration
+		return ret
+	}).(FleetManagedCapacityConfigurationOutput)
+}
+
+// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+func (o FleetManagedCapacityConfigurationPtrOutput) ScaleInAfterInactivityMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetManagedCapacityConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInAfterInactivityMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+func (o FleetManagedCapacityConfigurationPtrOutput) ZeroCapacityStrategy() FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput {
+	return o.ApplyT(func(v *FleetManagedCapacityConfiguration) *FleetManagedCapacityConfigurationZeroCapacityStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.ZeroCapacityStrategy
+	}).(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
 }
 
 // A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
@@ -6134,6 +6498,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationConfigurationArrayInput)(nil)).Elem(), ContainerFleetLocationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogConfigurationInput)(nil)).Elem(), ContainerFleetLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogConfigurationPtrInput)(nil)).Elem(), ContainerFleetLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationInput)(nil)).Elem(), ContainerFleetManagedCapacityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationPtrInput)(nil)).Elem(), ContainerFleetManagedCapacityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyInput)(nil)).Elem(), ContainerFleetScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyArrayInput)(nil)).Elem(), ContainerFleetScalingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetTargetConfigurationInput)(nil)).Elem(), ContainerFleetTargetConfigurationArgs{})
@@ -6164,6 +6530,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLocationCapacityPtrInput)(nil)).Elem(), FleetLocationCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLocationConfigurationInput)(nil)).Elem(), FleetLocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLocationConfigurationArrayInput)(nil)).Elem(), FleetLocationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationInput)(nil)).Elem(), FleetManagedCapacityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationPtrInput)(nil)).Elem(), FleetManagedCapacityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyPtrInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationInput)(nil)).Elem(), FleetRuntimeConfigurationArgs{})
@@ -6213,6 +6581,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerFleetLocationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ContainerFleetLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerFleetLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetManagedCapacityConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerFleetManagedCapacityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetScalingPolicyOutput{})
 	pulumi.RegisterOutputType(ContainerFleetScalingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ContainerFleetTargetConfigurationOutput{})
@@ -6243,6 +6613,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetLocationCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetLocationConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetLocationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationOutput{})

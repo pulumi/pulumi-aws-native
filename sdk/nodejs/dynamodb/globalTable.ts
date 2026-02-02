@@ -44,7 +44,7 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * A list of attributes that describe the key schema for the global table and indexes.
      */
-    declare public readonly attributeDefinitions: pulumi.Output<outputs.dynamodb.GlobalTableAttributeDefinition[]>;
+    declare public readonly attributeDefinitions: pulumi.Output<outputs.dynamodb.GlobalTableAttributeDefinition[] | undefined>;
     /**
      * Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
      *
@@ -60,6 +60,8 @@ export class GlobalTable extends pulumi.CustomResource {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     declare public readonly globalSecondaryIndexes: pulumi.Output<outputs.dynamodb.GlobalTableGlobalSecondaryIndex[] | undefined>;
+    declare public readonly globalTableReadOnDemandThroughputSettings: pulumi.Output<outputs.dynamodb.GlobalTableReadOnDemandThroughputSettings | undefined>;
+    declare public readonly globalTableReadProvisionedThroughputSettings: pulumi.Output<outputs.dynamodb.GlobalTableGlobalReadProvisionedThroughputSettings | undefined>;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */
@@ -67,7 +69,7 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
      */
-    declare public readonly keySchema: pulumi.Output<outputs.dynamodb.GlobalTableKeySchema[]>;
+    declare public readonly keySchema: pulumi.Output<outputs.dynamodb.GlobalTableKeySchema[] | undefined>;
     /**
      * Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
      */
@@ -145,18 +147,14 @@ export class GlobalTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.attributeDefinitions === undefined && !opts.urn) {
-                throw new Error("Missing required property 'attributeDefinitions'");
-            }
-            if (args?.keySchema === undefined && !opts.urn) {
-                throw new Error("Missing required property 'keySchema'");
-            }
             if (args?.replicas === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
             resourceInputs["attributeDefinitions"] = args?.attributeDefinitions;
             resourceInputs["billingMode"] = args?.billingMode;
             resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
+            resourceInputs["globalTableReadOnDemandThroughputSettings"] = args?.globalTableReadOnDemandThroughputSettings;
+            resourceInputs["globalTableReadProvisionedThroughputSettings"] = args?.globalTableReadProvisionedThroughputSettings;
             resourceInputs["globalTableWitnesses"] = args?.globalTableWitnesses;
             resourceInputs["keySchema"] = args?.keySchema;
             resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
@@ -177,6 +175,8 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["globalTableReadOnDemandThroughputSettings"] = undefined /*out*/;
+            resourceInputs["globalTableReadProvisionedThroughputSettings"] = undefined /*out*/;
             resourceInputs["globalTableWitnesses"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
@@ -193,7 +193,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["keySchema[*]", "localSecondaryIndexes[*]", "tableName"] };
+        const replaceOnChanges = { replaceOnChanges: ["tableName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GlobalTable.__pulumiType, name, resourceInputs, opts);
     }
@@ -206,7 +206,7 @@ export interface GlobalTableArgs {
     /**
      * A list of attributes that describe the key schema for the global table and indexes.
      */
-    attributeDefinitions: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableAttributeDefinitionArgs>[]>;
+    attributeDefinitions?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableAttributeDefinitionArgs>[]>;
     /**
      * Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
      *
@@ -222,6 +222,8 @@ export interface GlobalTableArgs {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableGlobalSecondaryIndexArgs>[]>;
+    globalTableReadOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadOnDemandThroughputSettingsArgs>;
+    globalTableReadProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableGlobalReadProvisionedThroughputSettingsArgs>;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */
@@ -229,7 +231,7 @@ export interface GlobalTableArgs {
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
      */
-    keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableKeySchemaArgs>[]>;
+    keySchema?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableKeySchemaArgs>[]>;
     /**
      * Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
      */

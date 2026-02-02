@@ -29,13 +29,27 @@ export interface GetVpnConnectionArgs {
 
 export interface GetVpnConnectionResult {
     /**
+     * The ID of the customer gateway at your end of the VPN connection.
+     */
+    readonly customerGatewayId?: string;
+    /**
      * Any tags assigned to the VPN connection.
      */
     readonly tags?: outputs.Tag[];
     /**
+     * The ID of the transit gateway associated with the VPN connection.
+     *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+     */
+    readonly transitGatewayId?: string;
+    /**
      * The ID of the VPN connection.
      */
     readonly vpnConnectionId?: string;
+    /**
+     * The ID of the virtual private gateway at the AWS side of the VPN connection.
+     *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+     */
+    readonly vpnGatewayId?: string;
 }
 /**
  * Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.

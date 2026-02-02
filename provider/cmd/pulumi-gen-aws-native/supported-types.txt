@@ -511,6 +511,8 @@ AWS::EMR::Step
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
 AWS::EMR::WALWorkspace
+AWS::EMRContainers::Endpoint
+AWS::EMRContainers::SecurityConfiguration
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::EVS::Environment
@@ -766,6 +768,7 @@ AWS::Lightsail::Bucket
 AWS::Lightsail::Certificate
 AWS::Lightsail::Container
 AWS::Lightsail::Database
+AWS::Lightsail::DatabaseSnapshot
 AWS::Lightsail::Disk
 AWS::Lightsail::DiskSnapshot
 AWS::Lightsail::Instance

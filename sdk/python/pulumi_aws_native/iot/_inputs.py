@@ -38,12 +38,22 @@ __all__ = [
     'BillingGroupPropertiesPropertiesArgsDict',
     'CaCertificateRegistrationConfigArgs',
     'CaCertificateRegistrationConfigArgsDict',
+    'CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs',
+    'CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict',
+    'CommandParameterValueComparisonOperandArgs',
+    'CommandParameterValueComparisonOperandArgsDict',
+    'CommandParameterValueConditionArgs',
+    'CommandParameterValueConditionArgsDict',
+    'CommandParameterValueNumberRangeArgs',
+    'CommandParameterValueNumberRangeArgsDict',
     'CommandParameterValueArgs',
     'CommandParameterValueArgsDict',
     'CommandParameterArgs',
     'CommandParameterArgsDict',
     'CommandPayloadArgs',
     'CommandPayloadArgsDict',
+    'CommandPreprocessorArgs',
+    'CommandPreprocessorArgsDict',
     'DomainConfigurationAuthorizerConfigArgs',
     'DomainConfigurationAuthorizerConfigArgsDict',
     'DomainConfigurationClientCertificateConfigArgs',
@@ -1040,6 +1050,171 @@ class CaCertificateRegistrationConfigArgs:
 
 
 if not MYPY:
+    class CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict(TypedDict):
+        output_format: pulumi.Input['CommandOutputFormat']
+elif False:
+    CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs:
+    def __init__(__self__, *,
+                 output_format: pulumi.Input['CommandOutputFormat']):
+        pulumi.set(__self__, "output_format", output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> pulumi.Input['CommandOutputFormat']:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: pulumi.Input['CommandOutputFormat']):
+        pulumi.set(self, "output_format", value)
+
+
+if not MYPY:
+    class CommandParameterValueComparisonOperandArgsDict(TypedDict):
+        number: NotRequired[pulumi.Input[_builtins.str]]
+        number_range: NotRequired[pulumi.Input['CommandParameterValueNumberRangeArgsDict']]
+        numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        string: NotRequired[pulumi.Input[_builtins.str]]
+        strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+elif False:
+    CommandParameterValueComparisonOperandArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandParameterValueComparisonOperandArgs:
+    def __init__(__self__, *,
+                 number: Optional[pulumi.Input[_builtins.str]] = None,
+                 number_range: Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']] = None,
+                 numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 string: Optional[pulumi.Input[_builtins.str]] = None,
+                 strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if number is not None:
+            pulumi.set(__self__, "number", number)
+        if number_range is not None:
+            pulumi.set(__self__, "number_range", number_range)
+        if numbers is not None:
+            pulumi.set(__self__, "numbers", numbers)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if strings is not None:
+            pulumi.set(__self__, "strings", strings)
+
+    @_builtins.property
+    @pulumi.getter
+    def number(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "number")
+
+    @number.setter
+    def number(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberRange")
+    def number_range(self) -> Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']]:
+        return pulumi.get(self, "number_range")
+
+    @number_range.setter
+    def number_range(self, value: Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']]):
+        pulumi.set(self, "number_range", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "numbers")
+
+    @numbers.setter
+    def numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "numbers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "string")
+
+    @string.setter
+    def string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "string", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "strings")
+
+    @strings.setter
+    def strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "strings", value)
+
+
+if not MYPY:
+    class CommandParameterValueConditionArgsDict(TypedDict):
+        comparison_operator: pulumi.Input['CommandParameterValueComparisonOperator']
+        operand: pulumi.Input['CommandParameterValueComparisonOperandArgsDict']
+elif False:
+    CommandParameterValueConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandParameterValueConditionArgs:
+    def __init__(__self__, *,
+                 comparison_operator: pulumi.Input['CommandParameterValueComparisonOperator'],
+                 operand: pulumi.Input['CommandParameterValueComparisonOperandArgs']):
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "operand", operand)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> pulumi.Input['CommandParameterValueComparisonOperator']:
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: pulumi.Input['CommandParameterValueComparisonOperator']):
+        pulumi.set(self, "comparison_operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operand(self) -> pulumi.Input['CommandParameterValueComparisonOperandArgs']:
+        return pulumi.get(self, "operand")
+
+    @operand.setter
+    def operand(self, value: pulumi.Input['CommandParameterValueComparisonOperandArgs']):
+        pulumi.set(self, "operand", value)
+
+
+if not MYPY:
+    class CommandParameterValueNumberRangeArgsDict(TypedDict):
+        max: pulumi.Input[_builtins.str]
+        min: pulumi.Input[_builtins.str]
+elif False:
+    CommandParameterValueNumberRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandParameterValueNumberRangeArgs:
+    def __init__(__self__, *,
+                 max: pulumi.Input[_builtins.str],
+                 min: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "max", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
     class CommandParameterValueArgsDict(TypedDict):
         b: NotRequired[pulumi.Input[_builtins.bool]]
         bin: NotRequired[pulumi.Input[_builtins.str]]
@@ -1145,7 +1320,9 @@ if not MYPY:
         name: pulumi.Input[_builtins.str]
         default_value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
         description: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input['CommandParameterType']]
         value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
+        value_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgsDict']]]]
 elif False:
     CommandParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1155,14 +1332,20 @@ class CommandParameterArgs:
                  name: pulumi.Input[_builtins.str],
                  default_value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input['CommandParameterValueArgs']] = None):
+                 type: Optional[pulumi.Input['CommandParameterType']] = None,
+                 value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
+                 value_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]] = None):
         pulumi.set(__self__, "name", name)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_conditions is not None:
+            pulumi.set(__self__, "value_conditions", value_conditions)
 
     @_builtins.property
     @pulumi.getter
@@ -1193,12 +1376,30 @@ class CommandParameterArgs:
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['CommandParameterType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['CommandParameterType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input['CommandParameterValueArgs']]:
         return pulumi.get(self, "value")
 
     @value.setter
     def value(self, value: Optional[pulumi.Input['CommandParameterValueArgs']]):
         pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueConditions")
+    def value_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]:
+        return pulumi.get(self, "value_conditions")
+
+    @value_conditions.setter
+    def value_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]):
+        pulumi.set(self, "value_conditions", value)
 
 
 if not MYPY:
@@ -1235,6 +1436,29 @@ class CommandPayloadArgs:
     @content_type.setter
     def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "content_type", value)
+
+
+if not MYPY:
+    class CommandPreprocessorArgsDict(TypedDict):
+        aws_json_substitution: NotRequired[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict']]
+elif False:
+    CommandPreprocessorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandPreprocessorArgs:
+    def __init__(__self__, *,
+                 aws_json_substitution: Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']] = None):
+        if aws_json_substitution is not None:
+            pulumi.set(__self__, "aws_json_substitution", aws_json_substitution)
+
+    @_builtins.property
+    @pulumi.getter(name="awsJsonSubstitution")
+    def aws_json_substitution(self) -> Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]:
+        return pulumi.get(self, "aws_json_substitution")
+
+    @aws_json_substitution.setter
+    def aws_json_substitution(self, value: Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]):
+        pulumi.set(self, "aws_json_substitution", value)
 
 
 if not MYPY:

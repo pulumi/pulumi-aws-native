@@ -87,7 +87,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"customerGatewayId",
 		"enableAcceleration",
 		"localIpv4NetworkCidr",
 		"localIpv6NetworkCidr",
@@ -96,13 +95,11 @@ func NewVpnConnection(ctx *pulumi.Context,
 		"remoteIpv4NetworkCidr",
 		"remoteIpv6NetworkCidr",
 		"staticRoutesOnly",
-		"transitGatewayId",
 		"transportTransitGatewayAttachmentId",
 		"tunnelBandwidth",
 		"tunnelInsideIpVersion",
 		"type",
 		"vpnConcentratorId",
-		"vpnGatewayId",
 		"vpnTunnelOptionsSpecifications[*]",
 	})
 	opts = append(opts, replaceOnChanges)

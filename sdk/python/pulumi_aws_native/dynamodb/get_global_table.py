@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_witnesses=None, multi_region_consistency=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_read_on_demand_throughput_settings=None, global_table_read_provisioned_throughput_settings=None, global_table_witnesses=None, key_schema=None, local_secondary_indexes=None, multi_region_consistency=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,9 +38,21 @@ class GetGlobalTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_read_on_demand_throughput_settings and not isinstance(global_table_read_on_demand_throughput_settings, dict):
+            raise TypeError("Expected argument 'global_table_read_on_demand_throughput_settings' to be a dict")
+        pulumi.set(__self__, "global_table_read_on_demand_throughput_settings", global_table_read_on_demand_throughput_settings)
+        if global_table_read_provisioned_throughput_settings and not isinstance(global_table_read_provisioned_throughput_settings, dict):
+            raise TypeError("Expected argument 'global_table_read_provisioned_throughput_settings' to be a dict")
+        pulumi.set(__self__, "global_table_read_provisioned_throughput_settings", global_table_read_provisioned_throughput_settings)
         if global_table_witnesses and not isinstance(global_table_witnesses, list):
             raise TypeError("Expected argument 'global_table_witnesses' to be a list")
         pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
+        if key_schema and not isinstance(key_schema, list):
+            raise TypeError("Expected argument 'key_schema' to be a list")
+        pulumi.set(__self__, "key_schema", key_schema)
+        if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
+            raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
+        pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if multi_region_consistency and not isinstance(multi_region_consistency, str):
             raise TypeError("Expected argument 'multi_region_consistency' to be a str")
         pulumi.set(__self__, "multi_region_consistency", multi_region_consistency)
@@ -112,12 +124,38 @@ class GetGlobalTableResult:
         return pulumi.get(self, "global_secondary_indexes")
 
     @_builtins.property
+    @pulumi.getter(name="globalTableReadOnDemandThroughputSettings")
+    def global_table_read_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableReadOnDemandThroughputSettings']:
+        return pulumi.get(self, "global_table_read_on_demand_throughput_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableReadProvisionedThroughputSettings")
+    def global_table_read_provisioned_throughput_settings(self) -> Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']:
+        return pulumi.get(self, "global_table_read_provisioned_throughput_settings")
+
+    @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
     def global_table_witnesses(self) -> Optional[Sequence['outputs.GlobalTableWitness']]:
         """
         The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         """
         return pulumi.get(self, "global_table_witnesses")
+
+    @_builtins.property
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> Optional[Sequence['outputs.GlobalTableKeySchema']]:
+        """
+        Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        """
+        return pulumi.get(self, "key_schema")
+
+    @_builtins.property
+    @pulumi.getter(name="localSecondaryIndexes")
+    def local_secondary_indexes(self) -> Optional[Sequence['outputs.GlobalTableLocalSecondaryIndex']]:
+        """
+        Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        """
+        return pulumi.get(self, "local_secondary_indexes")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionConsistency")
@@ -225,7 +263,11 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             attribute_definitions=self.attribute_definitions,
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
+            global_table_read_on_demand_throughput_settings=self.global_table_read_on_demand_throughput_settings,
+            global_table_read_provisioned_throughput_settings=self.global_table_read_provisioned_throughput_settings,
             global_table_witnesses=self.global_table_witnesses,
+            key_schema=self.key_schema,
+            local_secondary_indexes=self.local_secondary_indexes,
             multi_region_consistency=self.multi_region_consistency,
             replicas=self.replicas,
             sse_specification=self.sse_specification,
@@ -258,7 +300,11 @@ def get_global_table(table_name: Optional[_builtins.str] = None,
         attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
+        global_table_read_on_demand_throughput_settings=pulumi.get(__ret__, 'global_table_read_on_demand_throughput_settings'),
+        global_table_read_provisioned_throughput_settings=pulumi.get(__ret__, 'global_table_read_provisioned_throughput_settings'),
         global_table_witnesses=pulumi.get(__ret__, 'global_table_witnesses'),
+        key_schema=pulumi.get(__ret__, 'key_schema'),
+        local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
         multi_region_consistency=pulumi.get(__ret__, 'multi_region_consistency'),
         replicas=pulumi.get(__ret__, 'replicas'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
@@ -288,7 +334,11 @@ def get_global_table_output(table_name: Optional[pulumi.Input[_builtins.str]] = 
         attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),
         billing_mode=pulumi.get(__response__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
+        global_table_read_on_demand_throughput_settings=pulumi.get(__response__, 'global_table_read_on_demand_throughput_settings'),
+        global_table_read_provisioned_throughput_settings=pulumi.get(__response__, 'global_table_read_provisioned_throughput_settings'),
         global_table_witnesses=pulumi.get(__response__, 'global_table_witnesses'),
+        key_schema=pulumi.get(__response__, 'key_schema'),
+        local_secondary_indexes=pulumi.get(__response__, 'local_secondary_indexes'),
         multi_region_consistency=pulumi.get(__response__, 'multi_region_consistency'),
         replicas=pulumi.get(__response__, 'replicas'),
         sse_specification=pulumi.get(__response__, 'sse_specification'),

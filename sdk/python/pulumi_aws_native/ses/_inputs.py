@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConfigurationSetArchivingOptionsArgs',
+    'ConfigurationSetArchivingOptionsArgsDict',
     'ConfigurationSetDashboardOptionsArgs',
     'ConfigurationSetDashboardOptionsArgsDict',
     'ConfigurationSetDeliveryOptionsArgs',
@@ -227,6 +229,42 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ConfigurationSetArchivingOptionsArgsDict(TypedDict):
+        """
+        An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+        """
+        archive_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the MailManager archive to associate with the configuration set.
+        """
+elif False:
+    ConfigurationSetArchivingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationSetArchivingOptionsArgs:
+    def __init__(__self__, *,
+                 archive_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+        :param pulumi.Input[_builtins.str] archive_arn: The ARN of the MailManager archive to associate with the configuration set.
+        """
+        if archive_arn is not None:
+            pulumi.set(__self__, "archive_arn", archive_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveArn")
+    def archive_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the MailManager archive to associate with the configuration set.
+        """
+        return pulumi.get(self, "archive_arn")
+
+    @archive_arn.setter
+    def archive_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "archive_arn", value)
+
 
 if not MYPY:
     class ConfigurationSetDashboardOptionsArgsDict(TypedDict):

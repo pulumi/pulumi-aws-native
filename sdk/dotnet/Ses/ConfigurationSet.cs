@@ -185,6 +185,9 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:ConfigurationSet")]
     public partial class ConfigurationSet : global::Pulumi.CustomResource
     {
+        [Output("archivingOptions")]
+        public Output<Outputs.ConfigurationSetArchivingOptions?> ArchivingOptions { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         /// </summary>
@@ -282,6 +285,9 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class ConfigurationSetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("archivingOptions")]
+        public Input<Inputs.ConfigurationSetArchivingOptionsArgs>? ArchivingOptions { get; set; }
+
         /// <summary>
         /// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         /// </summary>

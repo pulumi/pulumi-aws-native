@@ -270,6 +270,103 @@ namespace Pulumi.AwsNative.IoT
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct CommandOutputFormat : IEquatable<CommandOutputFormat>
+    {
+        private readonly string _value;
+
+        private CommandOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CommandOutputFormat Json { get; } = new CommandOutputFormat("JSON");
+        public static CommandOutputFormat Cbor { get; } = new CommandOutputFormat("CBOR");
+
+        public static bool operator ==(CommandOutputFormat left, CommandOutputFormat right) => left.Equals(right);
+        public static bool operator !=(CommandOutputFormat left, CommandOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(CommandOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CommandOutputFormat other && Equals(other);
+        public bool Equals(CommandOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CommandParameterType : IEquatable<CommandParameterType>
+    {
+        private readonly string _value;
+
+        private CommandParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CommandParameterType String { get; } = new CommandParameterType("STRING");
+        public static CommandParameterType Integer { get; } = new CommandParameterType("INTEGER");
+        public static CommandParameterType Double { get; } = new CommandParameterType("DOUBLE");
+        public static CommandParameterType Long { get; } = new CommandParameterType("LONG");
+        public static CommandParameterType Unsignedlong { get; } = new CommandParameterType("UNSIGNEDLONG");
+        public static CommandParameterType Boolean { get; } = new CommandParameterType("BOOLEAN");
+        public static CommandParameterType Binary { get; } = new CommandParameterType("BINARY");
+
+        public static bool operator ==(CommandParameterType left, CommandParameterType right) => left.Equals(right);
+        public static bool operator !=(CommandParameterType left, CommandParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(CommandParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CommandParameterType other && Equals(other);
+        public bool Equals(CommandParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CommandParameterValueComparisonOperator : IEquatable<CommandParameterValueComparisonOperator>
+    {
+        private readonly string _value;
+
+        private CommandParameterValueComparisonOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CommandParameterValueComparisonOperator EqualsValue { get; } = new CommandParameterValueComparisonOperator("EQUALS");
+        public static CommandParameterValueComparisonOperator NotEquals { get; } = new CommandParameterValueComparisonOperator("NOT_EQUALS");
+        public static CommandParameterValueComparisonOperator LessThan { get; } = new CommandParameterValueComparisonOperator("LESS_THAN");
+        public static CommandParameterValueComparisonOperator LessThanEquals { get; } = new CommandParameterValueComparisonOperator("LESS_THAN_EQUALS");
+        public static CommandParameterValueComparisonOperator GreaterThan { get; } = new CommandParameterValueComparisonOperator("GREATER_THAN");
+        public static CommandParameterValueComparisonOperator GreaterThanEquals { get; } = new CommandParameterValueComparisonOperator("GREATER_THAN_EQUALS");
+        public static CommandParameterValueComparisonOperator InSet { get; } = new CommandParameterValueComparisonOperator("IN_SET");
+        public static CommandParameterValueComparisonOperator NotInSet { get; } = new CommandParameterValueComparisonOperator("NOT_IN_SET");
+        public static CommandParameterValueComparisonOperator InRange { get; } = new CommandParameterValueComparisonOperator("IN_RANGE");
+        public static CommandParameterValueComparisonOperator NotInRange { get; } = new CommandParameterValueComparisonOperator("NOT_IN_RANGE");
+
+        public static bool operator ==(CommandParameterValueComparisonOperator left, CommandParameterValueComparisonOperator right) => left.Equals(right);
+        public static bool operator !=(CommandParameterValueComparisonOperator left, CommandParameterValueComparisonOperator right) => !left.Equals(right);
+
+        public static explicit operator string(CommandParameterValueComparisonOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CommandParameterValueComparisonOperator other && Equals(other);
+        public bool Equals(CommandParameterValueComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
     /// </summary>

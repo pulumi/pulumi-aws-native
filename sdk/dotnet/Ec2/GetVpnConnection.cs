@@ -73,22 +73,45 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpnConnectionResult
     {
         /// <summary>
+        /// The ID of the customer gateway at your end of the VPN connection.
+        /// </summary>
+        public readonly string? CustomerGatewayId;
+        /// <summary>
         /// Any tags assigned to the VPN connection.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The ID of the transit gateway associated with the VPN connection.
+        ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+        /// </summary>
+        public readonly string? TransitGatewayId;
+        /// <summary>
         /// The ID of the VPN connection.
         /// </summary>
         public readonly string? VpnConnectionId;
+        /// <summary>
+        /// The ID of the virtual private gateway at the AWS side of the VPN connection.
+        ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
+        /// </summary>
+        public readonly string? VpnGatewayId;
 
         [OutputConstructor]
         private GetVpnConnectionResult(
+            string? customerGatewayId,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
-            string? vpnConnectionId)
+            string? transitGatewayId,
+
+            string? vpnConnectionId,
+
+            string? vpnGatewayId)
         {
+            CustomerGatewayId = customerGatewayId;
             Tags = tags;
+            TransitGatewayId = transitGatewayId;
             VpnConnectionId = vpnConnectionId;
+            VpnGatewayId = vpnGatewayId;
         }
     }
 }

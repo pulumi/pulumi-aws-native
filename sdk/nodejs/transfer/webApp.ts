@@ -45,6 +45,7 @@ export class WebApp extends pulumi.CustomResource {
      * Specifies the unique Amazon Resource Name (ARN) for the web app.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly endpointDetails: pulumi.Output<outputs.transfer.WebAppEndpointDetails | undefined>;
     /**
      * You can provide a structure that contains the details for the identity provider to use with your web app.
      *
@@ -55,6 +56,7 @@ export class WebApp extends pulumi.CustomResource {
      * Key-value pairs that can be used to group and search for web apps.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly vpcEndpointId: pulumi.Output<string>;
     /**
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
@@ -89,25 +91,29 @@ export class WebApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'identityProviderDetails'");
             }
             resourceInputs["accessEndpoint"] = args?.accessEndpoint;
+            resourceInputs["endpointDetails"] = args?.endpointDetails;
             resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["webAppCustomization"] = args?.webAppCustomization;
             resourceInputs["webAppEndpointPolicy"] = args?.webAppEndpointPolicy;
             resourceInputs["webAppUnits"] = args?.webAppUnits;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = undefined /*out*/;
             resourceInputs["webAppId"] = undefined /*out*/;
         } else {
             resourceInputs["accessEndpoint"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpointDetails"] = undefined /*out*/;
             resourceInputs["identityProviderDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = undefined /*out*/;
             resourceInputs["webAppCustomization"] = undefined /*out*/;
             resourceInputs["webAppEndpointPolicy"] = undefined /*out*/;
             resourceInputs["webAppId"] = undefined /*out*/;
             resourceInputs["webAppUnits"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["identityProviderDetails.instanceArn", "webAppEndpointPolicy"] };
+        const replaceOnChanges = { replaceOnChanges: ["endpointDetails.vpc.securityGroupIds[*]", "endpointDetails.vpc.vpcId", "identityProviderDetails.instanceArn", "webAppEndpointPolicy"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WebApp.__pulumiType, name, resourceInputs, opts);
     }
@@ -121,6 +127,7 @@ export interface WebAppArgs {
      * The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
      */
     accessEndpoint?: pulumi.Input<string>;
+    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetailsArgs>;
     /**
      * You can provide a structure that contains the details for the identity provider to use with your web app.
      *

@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
+        [Output("globalTableReadOnDemandThroughputSettings")]
+        public Output<Outputs.GlobalTableReadOnDemandThroughputSettings?> GlobalTableReadOnDemandThroughputSettings { get; private set; } = null!;
+
+        [Output("globalTableReadProvisionedThroughputSettings")]
+        public Output<Outputs.GlobalTableGlobalReadProvisionedThroughputSettings?> GlobalTableReadProvisionedThroughputSettings { get; private set; } = null!;
+
         /// <summary>
         /// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         /// </summary>
@@ -172,8 +178,6 @@ namespace Pulumi.AwsNative.DynamoDb
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "keySchema[*]",
-                    "localSecondaryIndexes[*]",
                     "tableName",
                 },
             };
@@ -198,7 +202,7 @@ namespace Pulumi.AwsNative.DynamoDb
 
     public sealed class GlobalTableArgs : global::Pulumi.ResourceArgs
     {
-        [Input("attributeDefinitions", required: true)]
+        [Input("attributeDefinitions")]
         private InputList<Inputs.GlobalTableAttributeDefinitionArgs>? _attributeDefinitions;
 
         /// <summary>
@@ -235,6 +239,12 @@ namespace Pulumi.AwsNative.DynamoDb
             set => _globalSecondaryIndexes = value;
         }
 
+        [Input("globalTableReadOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? GlobalTableReadOnDemandThroughputSettings { get; set; }
+
+        [Input("globalTableReadProvisionedThroughputSettings")]
+        public Input<Inputs.GlobalTableGlobalReadProvisionedThroughputSettingsArgs>? GlobalTableReadProvisionedThroughputSettings { get; set; }
+
         [Input("globalTableWitnesses")]
         private InputList<Inputs.GlobalTableWitnessArgs>? _globalTableWitnesses;
 
@@ -247,7 +257,7 @@ namespace Pulumi.AwsNative.DynamoDb
             set => _globalTableWitnesses = value;
         }
 
-        [Input("keySchema", required: true)]
+        [Input("keySchema")]
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
 
         /// <summary>

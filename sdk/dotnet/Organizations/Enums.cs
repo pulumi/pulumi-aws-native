@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.Organizations
     }
 
     /// <summary>
-    /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY, S3_POLICY, INSPECTOR_POLICY, BEDROCK_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, UPGRADE_ROLLOUT_POLICY
+    /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
     /// </summary>
     [EnumType]
     public readonly struct PolicyType : IEquatable<PolicyType>
@@ -148,18 +148,18 @@ namespace Pulumi.AwsNative.Organizations
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PolicyType ServiceControlPolicy { get; } = new PolicyType("SERVICE_CONTROL_POLICY");
         public static PolicyType AiservicesOptOutPolicy { get; } = new PolicyType("AISERVICES_OPT_OUT_POLICY");
         public static PolicyType BackupPolicy { get; } = new PolicyType("BACKUP_POLICY");
-        public static PolicyType TagPolicy { get; } = new PolicyType("TAG_POLICY");
-        public static PolicyType ChatbotPolicy { get; } = new PolicyType("CHATBOT_POLICY");
-        public static PolicyType ResourceControlPolicy { get; } = new PolicyType("RESOURCE_CONTROL_POLICY");
-        public static PolicyType DeclarativePolicyEc2 { get; } = new PolicyType("DECLARATIVE_POLICY_EC2");
-        public static PolicyType SecurityhubPolicy { get; } = new PolicyType("SECURITYHUB_POLICY");
-        public static PolicyType S3Policy { get; } = new PolicyType("S3_POLICY");
-        public static PolicyType InspectorPolicy { get; } = new PolicyType("INSPECTOR_POLICY");
         public static PolicyType BedrockPolicy { get; } = new PolicyType("BEDROCK_POLICY");
+        public static PolicyType ChatbotPolicy { get; } = new PolicyType("CHATBOT_POLICY");
+        public static PolicyType DeclarativePolicyEc2 { get; } = new PolicyType("DECLARATIVE_POLICY_EC2");
+        public static PolicyType InspectorPolicy { get; } = new PolicyType("INSPECTOR_POLICY");
         public static PolicyType NetworkSecurityDirectorPolicy { get; } = new PolicyType("NETWORK_SECURITY_DIRECTOR_POLICY");
+        public static PolicyType ResourceControlPolicy { get; } = new PolicyType("RESOURCE_CONTROL_POLICY");
+        public static PolicyType S3Policy { get; } = new PolicyType("S3_POLICY");
+        public static PolicyType SecurityhubPolicy { get; } = new PolicyType("SECURITYHUB_POLICY");
+        public static PolicyType ServiceControlPolicy { get; } = new PolicyType("SERVICE_CONTROL_POLICY");
+        public static PolicyType TagPolicy { get; } = new PolicyType("TAG_POLICY");
         public static PolicyType UpgradeRolloutPolicy { get; } = new PolicyType("UPGRADE_ROLLOUT_POLICY");
 
         public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);

@@ -22,6 +22,8 @@ __all__ = [
     'GlobalTableCapacityAutoScalingSettingsArgsDict',
     'GlobalTableContributorInsightsSpecificationArgs',
     'GlobalTableContributorInsightsSpecificationArgsDict',
+    'GlobalTableGlobalReadProvisionedThroughputSettingsArgs',
+    'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict',
     'GlobalTableGlobalSecondaryIndexArgs',
     'GlobalTableGlobalSecondaryIndexArgsDict',
     'GlobalTableKeySchemaArgs',
@@ -320,6 +322,29 @@ class GlobalTableContributorInsightsSpecificationArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]):
         pulumi.set(self, "mode", value)
+
+
+if not MYPY:
+    class GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict(TypedDict):
+        read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalTableGlobalReadProvisionedThroughputSettingsArgs:
+    def __init__(__self__, *,
+                 read_capacity_units: Optional[pulumi.Input[_builtins.int]] = None):
+        if read_capacity_units is not None:
+            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+
+    @_builtins.property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "read_capacity_units")
+
+    @read_capacity_units.setter
+    def read_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "read_capacity_units", value)
 
 
 if not MYPY:

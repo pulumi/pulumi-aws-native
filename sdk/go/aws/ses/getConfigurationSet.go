@@ -29,6 +29,7 @@ type LookupConfigurationSetArgs struct {
 }
 
 type LookupConfigurationSetResult struct {
+	ArchivingOptions *ConfigurationSetArchivingOptions `pulumi:"archivingOptions"`
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
@@ -75,6 +76,10 @@ func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutput
 
 func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutputWithContext(ctx context.Context) LookupConfigurationSetResultOutput {
 	return o
+}
+
+func (o LookupConfigurationSetResultOutput) ArchivingOptions() ConfigurationSetArchivingOptionsPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetArchivingOptions { return v.ArchivingOptions }).(ConfigurationSetArchivingOptionsPtrOutput)
 }
 
 // Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).

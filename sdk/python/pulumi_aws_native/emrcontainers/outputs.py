@@ -14,12 +14,1090 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'EndpointCertificate',
+    'EndpointCloudWatchMonitoringConfiguration',
+    'EndpointConfigurationOverrides',
+    'EndpointContainerLogRotationConfiguration',
+    'EndpointEmreksConfiguration',
+    'EndpointMonitoringConfiguration',
+    'EndpointS3MonitoringConfiguration',
+    'SecurityConfigurationAtRestEncryptionConfiguration',
+    'SecurityConfigurationAuthenticationConfiguration',
+    'SecurityConfigurationAuthorizationConfiguration',
+    'SecurityConfigurationContainerInfo',
+    'SecurityConfigurationContainerProvider',
+    'SecurityConfigurationData',
+    'SecurityConfigurationEksInfo',
+    'SecurityConfigurationEncryptionConfiguration',
+    'SecurityConfigurationIamConfiguration',
+    'SecurityConfigurationIdentityCenterConfiguration',
+    'SecurityConfigurationInTransitEncryptionConfiguration',
+    'SecurityConfigurationLakeFormationConfiguration',
+    'SecurityConfigurationLocalDiskEncryptionConfiguration',
+    'SecurityConfigurationS3EncryptionConfiguration',
+    'SecurityConfigurationSecureNamespaceInfo',
+    'SecurityConfigurationTlsCertificateConfiguration',
     'VirtualClusterContainerInfo',
     'VirtualClusterContainerProvider',
     'VirtualClusterEksInfo',
 ]
+
+@pulumi.output_type
+class EndpointCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "certificateData":
+            suggest = "certificate_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: Optional[_builtins.str] = None,
+                 certificate_data: Optional[_builtins.str] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if certificate_data is not None:
+            pulumi.set(__self__, "certificate_data", certificate_data)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateData")
+    def certificate_data(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "certificate_data")
+
+
+@pulumi.output_type
+class EndpointCloudWatchMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamNamePrefix":
+            suggest = "log_stream_name_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCloudWatchMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCloudWatchMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCloudWatchMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: _builtins.str,
+                 log_stream_name_prefix: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> _builtins.str:
+        return pulumi.get(self, "log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "log_stream_name_prefix")
+
+
+@pulumi.output_type
+class EndpointConfigurationOverrides(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationConfiguration":
+            suggest = "application_configuration"
+        elif key == "monitoringConfiguration":
+            suggest = "monitoring_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_configuration: Optional[Sequence['outputs.EndpointEmreksConfiguration']] = None,
+                 monitoring_configuration: Optional['outputs.EndpointMonitoringConfiguration'] = None):
+        if application_configuration is not None:
+            pulumi.set(__self__, "application_configuration", application_configuration)
+        if monitoring_configuration is not None:
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfiguration")
+    def application_configuration(self) -> Optional[Sequence['outputs.EndpointEmreksConfiguration']]:
+        return pulumi.get(self, "application_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional['outputs.EndpointMonitoringConfiguration']:
+        return pulumi.get(self, "monitoring_configuration")
+
+
+@pulumi.output_type
+class EndpointContainerLogRotationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxFilesToKeep":
+            suggest = "max_files_to_keep"
+        elif key == "rotationSize":
+            suggest = "rotation_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointContainerLogRotationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointContainerLogRotationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointContainerLogRotationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_files_to_keep: _builtins.int,
+                 rotation_size: _builtins.str):
+        pulumi.set(__self__, "max_files_to_keep", max_files_to_keep)
+        pulumi.set(__self__, "rotation_size", rotation_size)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFilesToKeep")
+    def max_files_to_keep(self) -> _builtins.int:
+        return pulumi.get(self, "max_files_to_keep")
+
+    @_builtins.property
+    @pulumi.getter(name="rotationSize")
+    def rotation_size(self) -> _builtins.str:
+        return pulumi.get(self, "rotation_size")
+
+
+@pulumi.output_type
+class EndpointEmreksConfiguration(dict):
+    def __init__(__self__, *,
+                 classification: _builtins.str,
+                 configurations: Optional[Sequence['outputs.EndpointEmreksConfiguration']] = None,
+                 properties: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "classification", classification)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> _builtins.str:
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.EndpointEmreksConfiguration']]:
+        return pulumi.get(self, "configurations")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class EndpointMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchMonitoringConfiguration":
+            suggest = "cloud_watch_monitoring_configuration"
+        elif key == "containerLogRotationConfiguration":
+            suggest = "container_log_rotation_configuration"
+        elif key == "persistentAppUi":
+            suggest = "persistent_app_ui"
+        elif key == "s3MonitoringConfiguration":
+            suggest = "s3_monitoring_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_monitoring_configuration: Optional['outputs.EndpointCloudWatchMonitoringConfiguration'] = None,
+                 container_log_rotation_configuration: Optional['outputs.EndpointContainerLogRotationConfiguration'] = None,
+                 persistent_app_ui: Optional['EndpointMonitoringConfigurationPersistentAppUi'] = None,
+                 s3_monitoring_configuration: Optional['outputs.EndpointS3MonitoringConfiguration'] = None):
+        if cloud_watch_monitoring_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
+        if container_log_rotation_configuration is not None:
+            pulumi.set(__self__, "container_log_rotation_configuration", container_log_rotation_configuration)
+        if persistent_app_ui is not None:
+            pulumi.set(__self__, "persistent_app_ui", persistent_app_ui)
+        if s3_monitoring_configuration is not None:
+            pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchMonitoringConfiguration")
+    def cloud_watch_monitoring_configuration(self) -> Optional['outputs.EndpointCloudWatchMonitoringConfiguration']:
+        return pulumi.get(self, "cloud_watch_monitoring_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="containerLogRotationConfiguration")
+    def container_log_rotation_configuration(self) -> Optional['outputs.EndpointContainerLogRotationConfiguration']:
+        return pulumi.get(self, "container_log_rotation_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="persistentAppUi")
+    def persistent_app_ui(self) -> Optional['EndpointMonitoringConfigurationPersistentAppUi']:
+        return pulumi.get(self, "persistent_app_ui")
+
+    @_builtins.property
+    @pulumi.getter(name="s3MonitoringConfiguration")
+    def s3_monitoring_configuration(self) -> Optional['outputs.EndpointS3MonitoringConfiguration']:
+        return pulumi.get(self, "s3_monitoring_configuration")
+
+
+@pulumi.output_type
+class EndpointS3MonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logUri":
+            suggest = "log_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointS3MonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointS3MonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointS3MonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_uri: _builtins.str):
+        pulumi.set(__self__, "log_uri", log_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> _builtins.str:
+        return pulumi.get(self, "log_uri")
+
+
+@pulumi.output_type
+class SecurityConfigurationAtRestEncryptionConfiguration(dict):
+    """
+    At-rest encryption configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localDiskEncryptionConfiguration":
+            suggest = "local_disk_encryption_configuration"
+        elif key == "s3EncryptionConfiguration":
+            suggest = "s3_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationAtRestEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationAtRestEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationAtRestEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 local_disk_encryption_configuration: Optional['outputs.SecurityConfigurationLocalDiskEncryptionConfiguration'] = None,
+                 s3_encryption_configuration: Optional['outputs.SecurityConfigurationS3EncryptionConfiguration'] = None):
+        """
+        At-rest encryption configuration.
+        """
+        if local_disk_encryption_configuration is not None:
+            pulumi.set(__self__, "local_disk_encryption_configuration", local_disk_encryption_configuration)
+        if s3_encryption_configuration is not None:
+            pulumi.set(__self__, "s3_encryption_configuration", s3_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskEncryptionConfiguration")
+    def local_disk_encryption_configuration(self) -> Optional['outputs.SecurityConfigurationLocalDiskEncryptionConfiguration']:
+        return pulumi.get(self, "local_disk_encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="s3EncryptionConfiguration")
+    def s3_encryption_configuration(self) -> Optional['outputs.SecurityConfigurationS3EncryptionConfiguration']:
+        return pulumi.get(self, "s3_encryption_configuration")
+
+
+@pulumi.output_type
+class SecurityConfigurationAuthenticationConfiguration(dict):
+    """
+    Authentication configuration for the security configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamConfiguration":
+            suggest = "iam_configuration"
+        elif key == "identityCenterConfiguration":
+            suggest = "identity_center_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_configuration: Optional['outputs.SecurityConfigurationIamConfiguration'] = None,
+                 identity_center_configuration: Optional['outputs.SecurityConfigurationIdentityCenterConfiguration'] = None):
+        """
+        Authentication configuration for the security configuration.
+        """
+        if iam_configuration is not None:
+            pulumi.set(__self__, "iam_configuration", iam_configuration)
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="iamConfiguration")
+    def iam_configuration(self) -> Optional['outputs.SecurityConfigurationIamConfiguration']:
+        return pulumi.get(self, "iam_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional['outputs.SecurityConfigurationIdentityCenterConfiguration']:
+        return pulumi.get(self, "identity_center_configuration")
+
+
+@pulumi.output_type
+class SecurityConfigurationAuthorizationConfiguration(dict):
+    """
+    Authorization configuration for the security configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lakeFormationConfiguration":
+            suggest = "lake_formation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationAuthorizationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationAuthorizationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationAuthorizationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lake_formation_configuration: Optional['outputs.SecurityConfigurationLakeFormationConfiguration'] = None):
+        """
+        Authorization configuration for the security configuration.
+        """
+        if lake_formation_configuration is not None:
+            pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="lakeFormationConfiguration")
+    def lake_formation_configuration(self) -> Optional['outputs.SecurityConfigurationLakeFormationConfiguration']:
+        return pulumi.get(self, "lake_formation_configuration")
+
+
+@pulumi.output_type
+class SecurityConfigurationContainerInfo(dict):
+    """
+    Container information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eksInfo":
+            suggest = "eks_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationContainerInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationContainerInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationContainerInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 eks_info: Optional['outputs.SecurityConfigurationEksInfo'] = None):
+        """
+        Container information.
+        """
+        if eks_info is not None:
+            pulumi.set(__self__, "eks_info", eks_info)
+
+    @_builtins.property
+    @pulumi.getter(name="eksInfo")
+    def eks_info(self) -> Optional['outputs.SecurityConfigurationEksInfo']:
+        return pulumi.get(self, "eks_info")
+
+
+@pulumi.output_type
+class SecurityConfigurationContainerProvider(dict):
+    """
+    Container provider information.
+    """
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: 'SecurityConfigurationContainerProviderType',
+                 info: Optional['outputs.SecurityConfigurationContainerInfo'] = None):
+        """
+        Container provider information.
+        :param _builtins.str id: The container provider ID.
+        :param 'SecurityConfigurationContainerProviderType' type: The container provider type.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+        if info is not None:
+            pulumi.set(__self__, "info", info)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The container provider ID.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'SecurityConfigurationContainerProviderType':
+        """
+        The container provider type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> Optional['outputs.SecurityConfigurationContainerInfo']:
+        return pulumi.get(self, "info")
+
+
+@pulumi.output_type
+class SecurityConfigurationData(dict):
+    """
+    Security configuration data containing encryption and authorization settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationConfiguration":
+            suggest = "authentication_configuration"
+        elif key == "authorizationConfiguration":
+            suggest = "authorization_configuration"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_configuration: Optional['outputs.SecurityConfigurationAuthenticationConfiguration'] = None,
+                 authorization_configuration: Optional['outputs.SecurityConfigurationAuthorizationConfiguration'] = None,
+                 encryption_configuration: Optional['outputs.SecurityConfigurationEncryptionConfiguration'] = None):
+        """
+        Security configuration data containing encryption and authorization settings.
+        """
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if authorization_configuration is not None:
+            pulumi.set(__self__, "authorization_configuration", authorization_configuration)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> Optional['outputs.SecurityConfigurationAuthenticationConfiguration']:
+        return pulumi.get(self, "authentication_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfiguration")
+    def authorization_configuration(self) -> Optional['outputs.SecurityConfigurationAuthorizationConfiguration']:
+        return pulumi.get(self, "authorization_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.SecurityConfigurationEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
+
+
+@pulumi.output_type
+class SecurityConfigurationEksInfo(dict):
+    """
+    EKS information.
+    """
+    def __init__(__self__, *,
+                 namespace: Optional[_builtins.str] = None):
+        """
+        EKS information.
+        :param _builtins.str namespace: The EKS namespace.
+        """
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        The EKS namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class SecurityConfigurationEncryptionConfiguration(dict):
+    """
+    Encryption configuration for the security configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "atRestEncryptionConfiguration":
+            suggest = "at_rest_encryption_configuration"
+        elif key == "inTransitEncryptionConfiguration":
+            suggest = "in_transit_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 at_rest_encryption_configuration: Optional['outputs.SecurityConfigurationAtRestEncryptionConfiguration'] = None,
+                 in_transit_encryption_configuration: Optional['outputs.SecurityConfigurationInTransitEncryptionConfiguration'] = None):
+        """
+        Encryption configuration for the security configuration.
+        """
+        if at_rest_encryption_configuration is not None:
+            pulumi.set(__self__, "at_rest_encryption_configuration", at_rest_encryption_configuration)
+        if in_transit_encryption_configuration is not None:
+            pulumi.set(__self__, "in_transit_encryption_configuration", in_transit_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="atRestEncryptionConfiguration")
+    def at_rest_encryption_configuration(self) -> Optional['outputs.SecurityConfigurationAtRestEncryptionConfiguration']:
+        return pulumi.get(self, "at_rest_encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="inTransitEncryptionConfiguration")
+    def in_transit_encryption_configuration(self) -> Optional['outputs.SecurityConfigurationInTransitEncryptionConfiguration']:
+        return pulumi.get(self, "in_transit_encryption_configuration")
+
+
+@pulumi.output_type
+class SecurityConfigurationIamConfiguration(dict):
+    """
+    IAM configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemRole":
+            suggest = "system_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationIamConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationIamConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationIamConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 system_role: Optional[_builtins.str] = None):
+        """
+        IAM configuration.
+        :param _builtins.str system_role: The system role ARN.
+        """
+        if system_role is not None:
+            pulumi.set(__self__, "system_role", system_role)
+
+    @_builtins.property
+    @pulumi.getter(name="systemRole")
+    def system_role(self) -> Optional[_builtins.str]:
+        """
+        The system role ARN.
+        """
+        return pulumi.get(self, "system_role")
+
+
+@pulumi.output_type
+class SecurityConfigurationIdentityCenterConfiguration(dict):
+    """
+    Identity Center configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableIdentityCenter":
+            suggest = "enable_identity_center"
+        elif key == "identityCenterApplicationAssignmentRequired":
+            suggest = "identity_center_application_assignment_required"
+        elif key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationIdentityCenterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationIdentityCenterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationIdentityCenterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_identity_center: Optional[_builtins.bool] = None,
+                 identity_center_application_assignment_required: Optional[_builtins.bool] = None,
+                 identity_center_instance_arn: Optional[_builtins.str] = None):
+        """
+        Identity Center configuration.
+        :param _builtins.bool enable_identity_center: Whether to enable Identity Center integration.
+        :param _builtins.bool identity_center_application_assignment_required: Whether Identity Center application assignment is required.
+        :param _builtins.str identity_center_instance_arn: The ARN of the Identity Center instance.
+        """
+        if enable_identity_center is not None:
+            pulumi.set(__self__, "enable_identity_center", enable_identity_center)
+        if identity_center_application_assignment_required is not None:
+            pulumi.set(__self__, "identity_center_application_assignment_required", identity_center_application_assignment_required)
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="enableIdentityCenter")
+    def enable_identity_center(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable Identity Center integration.
+        """
+        return pulumi.get(self, "enable_identity_center")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterApplicationAssignmentRequired")
+    def identity_center_application_assignment_required(self) -> Optional[_builtins.bool]:
+        """
+        Whether Identity Center application assignment is required.
+        """
+        return pulumi.get(self, "identity_center_application_assignment_required")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the Identity Center instance.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+
+@pulumi.output_type
+class SecurityConfigurationInTransitEncryptionConfiguration(dict):
+    """
+    In-transit encryption configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsCertificateConfiguration":
+            suggest = "tls_certificate_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationInTransitEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationInTransitEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationInTransitEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tls_certificate_configuration: Optional['outputs.SecurityConfigurationTlsCertificateConfiguration'] = None):
+        """
+        In-transit encryption configuration.
+        """
+        if tls_certificate_configuration is not None:
+            pulumi.set(__self__, "tls_certificate_configuration", tls_certificate_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="tlsCertificateConfiguration")
+    def tls_certificate_configuration(self) -> Optional['outputs.SecurityConfigurationTlsCertificateConfiguration']:
+        return pulumi.get(self, "tls_certificate_configuration")
+
+
+@pulumi.output_type
+class SecurityConfigurationLakeFormationConfiguration(dict):
+    """
+    Lake Formation configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizedSessionTagValue":
+            suggest = "authorized_session_tag_value"
+        elif key == "queryAccessControlEnabled":
+            suggest = "query_access_control_enabled"
+        elif key == "queryEngineRoleArn":
+            suggest = "query_engine_role_arn"
+        elif key == "secureNamespaceInfo":
+            suggest = "secure_namespace_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationLakeFormationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationLakeFormationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationLakeFormationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorized_session_tag_value: Optional[_builtins.str] = None,
+                 query_access_control_enabled: Optional[_builtins.bool] = None,
+                 query_engine_role_arn: Optional[_builtins.str] = None,
+                 secure_namespace_info: Optional['outputs.SecurityConfigurationSecureNamespaceInfo'] = None):
+        """
+        Lake Formation configuration.
+        :param _builtins.str authorized_session_tag_value: The session tag to authorize Lake Formation access.
+        :param _builtins.bool query_access_control_enabled: Whether query access control is enabled.
+        :param _builtins.str query_engine_role_arn: The ARN of the query engine role.
+        """
+        if authorized_session_tag_value is not None:
+            pulumi.set(__self__, "authorized_session_tag_value", authorized_session_tag_value)
+        if query_access_control_enabled is not None:
+            pulumi.set(__self__, "query_access_control_enabled", query_access_control_enabled)
+        if query_engine_role_arn is not None:
+            pulumi.set(__self__, "query_engine_role_arn", query_engine_role_arn)
+        if secure_namespace_info is not None:
+            pulumi.set(__self__, "secure_namespace_info", secure_namespace_info)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizedSessionTagValue")
+    def authorized_session_tag_value(self) -> Optional[_builtins.str]:
+        """
+        The session tag to authorize Lake Formation access.
+        """
+        return pulumi.get(self, "authorized_session_tag_value")
+
+    @_builtins.property
+    @pulumi.getter(name="queryAccessControlEnabled")
+    def query_access_control_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether query access control is enabled.
+        """
+        return pulumi.get(self, "query_access_control_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="queryEngineRoleArn")
+    def query_engine_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the query engine role.
+        """
+        return pulumi.get(self, "query_engine_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secureNamespaceInfo")
+    def secure_namespace_info(self) -> Optional['outputs.SecurityConfigurationSecureNamespaceInfo']:
+        return pulumi.get(self, "secure_namespace_info")
+
+
+@pulumi.output_type
+class SecurityConfigurationLocalDiskEncryptionConfiguration(dict):
+    """
+    Local disk encryption configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsKmsKeyId":
+            suggest = "aws_kms_key_id"
+        elif key == "encryptionKeyProviderType":
+            suggest = "encryption_key_provider_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationLocalDiskEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationLocalDiskEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationLocalDiskEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_kms_key_id: Optional[_builtins.str] = None,
+                 encryption_key_provider_type: Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType'] = None):
+        """
+        Local disk encryption configuration.
+        :param _builtins.str aws_kms_key_id: The AWS KMS key ID.
+        :param 'SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType' encryption_key_provider_type: The encryption key provider type.
+        """
+        if aws_kms_key_id is not None:
+            pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
+        if encryption_key_provider_type is not None:
+            pulumi.set(__self__, "encryption_key_provider_type", encryption_key_provider_type)
+
+    @_builtins.property
+    @pulumi.getter(name="awsKmsKeyId")
+    def aws_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS KMS key ID.
+        """
+        return pulumi.get(self, "aws_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyProviderType")
+    def encryption_key_provider_type(self) -> Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']:
+        """
+        The encryption key provider type.
+        """
+        return pulumi.get(self, "encryption_key_provider_type")
+
+
+@pulumi.output_type
+class SecurityConfigurationS3EncryptionConfiguration(dict):
+    """
+    S3 encryption configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionOption":
+            suggest = "encryption_option"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationS3EncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationS3EncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationS3EncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_option: Optional['SecurityConfigurationS3EncryptionConfigurationEncryptionOption'] = None,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        S3 encryption configuration.
+        :param 'SecurityConfigurationS3EncryptionConfigurationEncryptionOption' encryption_option: The S3 encryption option.
+        :param _builtins.str kms_key_id: The KMS key ID for encryption.
+        """
+        if encryption_option is not None:
+            pulumi.set(__self__, "encryption_option", encryption_option)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionOption")
+    def encryption_option(self) -> Optional['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']:
+        """
+        The S3 encryption option.
+        """
+        return pulumi.get(self, "encryption_option")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The KMS key ID for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class SecurityConfigurationSecureNamespaceInfo(dict):
+    """
+    Secure namespace information for Lake Formation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationSecureNamespaceInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationSecureNamespaceInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationSecureNamespaceInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: Optional[_builtins.str] = None,
+                 namespace: Optional[_builtins.str] = None):
+        """
+        Secure namespace information for Lake Formation.
+        :param _builtins.str cluster_id: The ID of the cluster.
+        :param _builtins.str namespace: The namespace.
+        """
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the cluster.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        The namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class SecurityConfigurationTlsCertificateConfiguration(dict):
+    """
+    TLS certificate configuration for in-transit encryption.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateProviderType":
+            suggest = "certificate_provider_type"
+        elif key == "privateKeySecretArn":
+            suggest = "private_key_secret_arn"
+        elif key == "publicKeySecretArn":
+            suggest = "public_key_secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationTlsCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationTlsCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationTlsCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_provider_type: Optional['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType'] = None,
+                 private_key_secret_arn: Optional[_builtins.str] = None,
+                 public_key_secret_arn: Optional[_builtins.str] = None):
+        """
+        TLS certificate configuration for in-transit encryption.
+        :param 'SecurityConfigurationTlsCertificateConfigurationCertificateProviderType' certificate_provider_type: The certificate provider type.
+        :param _builtins.str private_key_secret_arn: The ARN of the secret containing the private key.
+        :param _builtins.str public_key_secret_arn: The ARN of the secret containing the public key.
+        """
+        if certificate_provider_type is not None:
+            pulumi.set(__self__, "certificate_provider_type", certificate_provider_type)
+        if private_key_secret_arn is not None:
+            pulumi.set(__self__, "private_key_secret_arn", private_key_secret_arn)
+        if public_key_secret_arn is not None:
+            pulumi.set(__self__, "public_key_secret_arn", public_key_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateProviderType")
+    def certificate_provider_type(self) -> Optional['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']:
+        """
+        The certificate provider type.
+        """
+        return pulumi.get(self, "certificate_provider_type")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeySecretArn")
+    def private_key_secret_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the secret containing the private key.
+        """
+        return pulumi.get(self, "private_key_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="publicKeySecretArn")
+    def public_key_secret_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the secret containing the public key.
+        """
+        return pulumi.get(self, "public_key_secret_arn")
+
 
 @pulumi.output_type
 class VirtualClusterContainerInfo(dict):

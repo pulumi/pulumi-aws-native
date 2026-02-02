@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Specifies the unique Amazon Resource Name (ARN) for the web app.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.WebAppEndpointDetails? EndpointDetails;
         /// <summary>
         /// You can provide a structure that contains the details for the identity provider to use with your web app.
         /// 
@@ -81,6 +82,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Key-value pairs that can be used to group and search for web apps.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly string? VpcEndpointId;
         /// <summary>
         /// A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
         /// </summary>
@@ -100,9 +102,13 @@ namespace Pulumi.AwsNative.Transfer
 
             string? arn,
 
+            Outputs.WebAppEndpointDetails? endpointDetails,
+
             Outputs.WebAppIdentityProviderDetails? identityProviderDetails,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? vpcEndpointId,
 
             Outputs.WebAppCustomization? webAppCustomization,
 
@@ -112,8 +118,10 @@ namespace Pulumi.AwsNative.Transfer
         {
             AccessEndpoint = accessEndpoint;
             Arn = arn;
+            EndpointDetails = endpointDetails;
             IdentityProviderDetails = identityProviderDetails;
             Tags = tags;
+            VpcEndpointId = vpcEndpointId;
             WebAppCustomization = webAppCustomization;
             WebAppId = webAppId;
             WebAppUnits = webAppUnits;

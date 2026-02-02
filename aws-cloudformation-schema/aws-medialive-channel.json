@@ -212,6 +212,12 @@
         },
         "ChannelGroup" : {
           "type" : "string"
+        },
+        "ChannelEndpointId" : {
+          "type" : "string"
+        },
+        "MediaPackageRegionName" : {
+          "type" : "string"
         }
       }
     },
@@ -392,6 +398,15 @@
         },
         "Strength" : {
           "type" : "string"
+        }
+      }
+    },
+    "MediaPackageAdditionalDestinations" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Destination" : {
+          "$ref" : "#/definitions/OutputLocationRef"
         }
       }
     },
@@ -2757,6 +2772,13 @@
         },
         "TimedMetadataPassthrough" : {
           "type" : "string"
+        },
+        "AdditionalDestinations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/MediaPackageAdditionalDestinations"
+          }
         },
         "NielsenId3Behavior" : {
           "type" : "string"

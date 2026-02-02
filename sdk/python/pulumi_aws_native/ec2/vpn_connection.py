@@ -480,7 +480,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["vpn_tunnel_options_specifications"] = vpn_tunnel_options_specifications
             __props__.__dict__["vpn_connection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId", "vpnTunnelOptionsSpecifications[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpnConnection, __self__).__init__(
             'aws-native:ec2:VpnConnection',

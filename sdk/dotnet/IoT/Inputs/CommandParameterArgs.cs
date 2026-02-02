@@ -21,8 +21,19 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("type")]
+        public Input<Pulumi.AwsNative.IoT.CommandParameterType>? Type { get; set; }
+
         [Input("value")]
         public Input<Inputs.CommandParameterValueArgs>? Value { get; set; }
+
+        [Input("valueConditions")]
+        private InputList<Inputs.CommandParameterValueConditionArgs>? _valueConditions;
+        public InputList<Inputs.CommandParameterValueConditionArgs> ValueConditions
+        {
+            get => _valueConditions ?? (_valueConditions = new InputList<Inputs.CommandParameterValueConditionArgs>());
+            set => _valueConditions = value;
+        }
 
         public CommandParameterArgs()
         {

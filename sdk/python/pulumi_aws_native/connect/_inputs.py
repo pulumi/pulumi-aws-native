@@ -3480,6 +3480,7 @@ if not MYPY:
         enhanced_chat_monitoring: NotRequired[pulumi.Input[_builtins.bool]]
         enhanced_contact_monitoring: NotRequired[pulumi.Input[_builtins.bool]]
         high_volume_out_bound: NotRequired[pulumi.Input[_builtins.bool]]
+        message_streaming: NotRequired[pulumi.Input[_builtins.bool]]
         multi_party_chat_conference: NotRequired[pulumi.Input[_builtins.bool]]
         multi_party_conference: NotRequired[pulumi.Input[_builtins.bool]]
         use_custom_tts_voices: NotRequired[pulumi.Input[_builtins.bool]]
@@ -3498,6 +3499,7 @@ class InstanceAttributesArgs:
                  enhanced_chat_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  enhanced_contact_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  high_volume_out_bound: Optional[pulumi.Input[_builtins.bool]] = None,
+                 message_streaming: Optional[pulumi.Input[_builtins.bool]] = None,
                  multi_party_chat_conference: Optional[pulumi.Input[_builtins.bool]] = None,
                  multi_party_conference: Optional[pulumi.Input[_builtins.bool]] = None,
                  use_custom_tts_voices: Optional[pulumi.Input[_builtins.bool]] = None):
@@ -3517,6 +3519,8 @@ class InstanceAttributesArgs:
             pulumi.set(__self__, "enhanced_contact_monitoring", enhanced_contact_monitoring)
         if high_volume_out_bound is not None:
             pulumi.set(__self__, "high_volume_out_bound", high_volume_out_bound)
+        if message_streaming is not None:
+            pulumi.set(__self__, "message_streaming", message_streaming)
         if multi_party_chat_conference is not None:
             pulumi.set(__self__, "multi_party_chat_conference", multi_party_chat_conference)
         if multi_party_conference is not None:
@@ -3604,6 +3608,15 @@ class InstanceAttributesArgs:
     @high_volume_out_bound.setter
     def high_volume_out_bound(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "high_volume_out_bound", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageStreaming")
+    def message_streaming(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "message_streaming")
+
+    @message_streaming.setter
+    def message_streaming(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "message_streaming", value)
 
     @_builtins.property
     @pulumi.getter(name="multiPartyChatConference")

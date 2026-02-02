@@ -77,6 +77,16 @@ export const ContainerFleetLogDestination = {
  */
 export type ContainerFleetLogDestination = (typeof ContainerFleetLogDestination)[keyof typeof ContainerFleetLogDestination];
 
+export const ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy = {
+    ScaleToAndFromZero: "SCALE_TO_AND_FROM_ZERO",
+    Manual: "MANUAL",
+} as const;
+
+/**
+ * The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+ */
+export type ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy = (typeof ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy)[keyof typeof ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy];
+
 export const ContainerFleetNewGameSessionProtectionPolicy = {
     FullProtection: "FullProtection",
     NoProtection: "NoProtection",
@@ -277,6 +287,16 @@ export const FleetIpPermissionProtocol = {
  * The network communication protocol used by the fleet.
  */
 export type FleetIpPermissionProtocol = (typeof FleetIpPermissionProtocol)[keyof typeof FleetIpPermissionProtocol];
+
+export const FleetManagedCapacityConfigurationZeroCapacityStrategy = {
+    ScaleToAndFromZero: "SCALE_TO_AND_FROM_ZERO",
+    Manual: "MANUAL",
+} as const;
+
+/**
+ * The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+ */
+export type FleetManagedCapacityConfigurationZeroCapacityStrategy = (typeof FleetManagedCapacityConfigurationZeroCapacityStrategy)[keyof typeof FleetManagedCapacityConfigurationZeroCapacityStrategy];
 
 export const FleetNewGameSessionProtectionPolicy = {
     FullProtection: "FullProtection",
