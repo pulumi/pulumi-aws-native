@@ -814,7 +814,8 @@
       "permissions" : [ "iam:PassRole", "ec2:CreateTags", "ec2:RequestSpotFleet", "ec2:DescribeSpotFleetRequests", "ec2:RunInstances" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DescribeSpotFleetRequests", "ec2:CancelSpotFleetRequests" ]
+      "permissions" : [ "ec2:DescribeSpotFleetRequests", "ec2:DescribeSpotFleetInstances", "ec2:DescribeInstanceStatus", "ec2:CancelSpotFleetRequests" ],
+      "timeoutInMinutes" : 40
     },
     "list" : {
       "permissions" : [ "ec2:DescribeSpotFleetRequests" ]

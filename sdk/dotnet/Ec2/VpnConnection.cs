@@ -169,7 +169,6 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "customerGatewayId",
                     "enableAcceleration",
                     "localIpv4NetworkCidr",
                     "localIpv6NetworkCidr",
@@ -178,13 +177,11 @@ namespace Pulumi.AwsNative.Ec2
                     "remoteIpv4NetworkCidr",
                     "remoteIpv6NetworkCidr",
                     "staticRoutesOnly",
-                    "transitGatewayId",
                     "transportTransitGatewayAttachmentId",
                     "tunnelBandwidth",
                     "tunnelInsideIpVersion",
                     "type",
                     "vpnConcentratorId",
-                    "vpnGatewayId",
                     "vpnTunnelOptionsSpecifications[*]",
                 },
             };

@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Organizations
         public Output<ImmutableArray<string>> TargetIds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY, S3_POLICY, INSPECTOR_POLICY, BEDROCK_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, UPGRADE_ROLLOUT_POLICY
+        /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Organizations.PolicyType> Type { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.Organizations
         }
 
         /// <summary>
-        /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY, S3_POLICY, INSPECTOR_POLICY, BEDROCK_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, UPGRADE_ROLLOUT_POLICY
+        /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Organizations.PolicyType> Type { get; set; } = null!;

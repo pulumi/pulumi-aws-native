@@ -25,19 +25,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebAppResult:
-    def __init__(__self__, access_endpoint=None, arn=None, identity_provider_details=None, tags=None, web_app_customization=None, web_app_id=None, web_app_units=None):
+    def __init__(__self__, access_endpoint=None, arn=None, endpoint_details=None, identity_provider_details=None, tags=None, vpc_endpoint_id=None, web_app_customization=None, web_app_id=None, web_app_units=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         pulumi.set(__self__, "access_endpoint", access_endpoint)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if endpoint_details and not isinstance(endpoint_details, dict):
+            raise TypeError("Expected argument 'endpoint_details' to be a dict")
+        pulumi.set(__self__, "endpoint_details", endpoint_details)
         if identity_provider_details and not isinstance(identity_provider_details, dict):
             raise TypeError("Expected argument 'identity_provider_details' to be a dict")
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_id and not isinstance(vpc_endpoint_id, str):
+            raise TypeError("Expected argument 'vpc_endpoint_id' to be a str")
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if web_app_customization and not isinstance(web_app_customization, dict):
             raise TypeError("Expected argument 'web_app_customization' to be a dict")
         pulumi.set(__self__, "web_app_customization", web_app_customization)
@@ -65,6 +71,11 @@ class GetWebAppResult:
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="endpointDetails")
+    def endpoint_details(self) -> Optional['outputs.WebAppEndpointDetails']:
+        return pulumi.get(self, "endpoint_details")
+
+    @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> Optional['outputs.WebAppIdentityProviderDetails']:
         """
@@ -81,6 +92,11 @@ class GetWebAppResult:
         Key-value pairs that can be used to group and search for web apps.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="webAppCustomization")
@@ -115,8 +131,10 @@ class AwaitableGetWebAppResult(GetWebAppResult):
         return GetWebAppResult(
             access_endpoint=self.access_endpoint,
             arn=self.arn,
+            endpoint_details=self.endpoint_details,
             identity_provider_details=self.identity_provider_details,
             tags=self.tags,
+            vpc_endpoint_id=self.vpc_endpoint_id,
             web_app_customization=self.web_app_customization,
             web_app_id=self.web_app_id,
             web_app_units=self.web_app_units)
@@ -138,8 +156,10 @@ def get_web_app(arn: Optional[_builtins.str] = None,
     return AwaitableGetWebAppResult(
         access_endpoint=pulumi.get(__ret__, 'access_endpoint'),
         arn=pulumi.get(__ret__, 'arn'),
+        endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
         identity_provider_details=pulumi.get(__ret__, 'identity_provider_details'),
         tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         web_app_customization=pulumi.get(__ret__, 'web_app_customization'),
         web_app_id=pulumi.get(__ret__, 'web_app_id'),
         web_app_units=pulumi.get(__ret__, 'web_app_units'))
@@ -158,8 +178,10 @@ def get_web_app_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetWebAppResult(
         access_endpoint=pulumi.get(__response__, 'access_endpoint'),
         arn=pulumi.get(__response__, 'arn'),
+        endpoint_details=pulumi.get(__response__, 'endpoint_details'),
         identity_provider_details=pulumi.get(__response__, 'identity_provider_details'),
         tags=pulumi.get(__response__, 'tags'),
+        vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id'),
         web_app_customization=pulumi.get(__response__, 'web_app_customization'),
         web_app_id=pulumi.get(__response__, 'web_app_id'),
         web_app_units=pulumi.get(__response__, 'web_app_units')))

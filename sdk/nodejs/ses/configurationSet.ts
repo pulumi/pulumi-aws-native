@@ -155,6 +155,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSet.__pulumiType;
     }
 
+    declare public readonly archivingOptions: pulumi.Output<outputs.ses.ConfigurationSetArchivingOptions | undefined>;
     /**
      * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */
@@ -199,6 +200,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["archivingOptions"] = args?.archivingOptions;
             resourceInputs["deliveryOptions"] = args?.deliveryOptions;
             resourceInputs["name"] = args?.name;
             resourceInputs["reputationOptions"] = args?.reputationOptions;
@@ -208,6 +210,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["trackingOptions"] = args?.trackingOptions;
             resourceInputs["vdmOptions"] = args?.vdmOptions;
         } else {
+            resourceInputs["archivingOptions"] = undefined /*out*/;
             resourceInputs["deliveryOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["reputationOptions"] = undefined /*out*/;
@@ -228,6 +231,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationSet resource.
  */
 export interface ConfigurationSetArgs {
+    archivingOptions?: pulumi.Input<inputs.ses.ConfigurationSetArchivingOptionsArgs>;
     /**
      * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */

@@ -38,6 +38,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
         /// </summary>
         public readonly Outputs.WebAclCookies? Cookies;
+        public readonly Outputs.WebAclHeaderOrder? HeaderOrder;
         /// <summary>
         /// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
         /// 
@@ -115,6 +116,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.WebAclCookies? cookies,
 
+            Outputs.WebAclHeaderOrder? headerOrder,
+
             Outputs.WebAclHeaders? headers,
 
             Outputs.WebAclJa3Fingerprint? ja3Fingerprint,
@@ -138,6 +141,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             AllQueryArguments = allQueryArguments;
             Body = body;
             Cookies = cookies;
+            HeaderOrder = headerOrder;
             Headers = headers;
             Ja3Fingerprint = ja3Fingerprint;
             Ja4Fingerprint = ja4Fingerprint;

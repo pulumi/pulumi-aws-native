@@ -2469,6 +2469,7 @@ class DataSetInputColumnDataType(_builtins.str, Enum):
     BIT = "BIT"
     BOOLEAN = "BOOLEAN"
     JSON = "JSON"
+    SEMISTRUCT = "SEMISTRUCT"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSetJoinOperationType")

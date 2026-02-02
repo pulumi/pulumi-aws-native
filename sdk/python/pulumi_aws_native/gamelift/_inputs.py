@@ -34,6 +34,8 @@ __all__ = [
     'ContainerFleetLocationConfigurationArgsDict',
     'ContainerFleetLogConfigurationArgs',
     'ContainerFleetLogConfigurationArgsDict',
+    'ContainerFleetManagedCapacityConfigurationArgs',
+    'ContainerFleetManagedCapacityConfigurationArgsDict',
     'ContainerFleetScalingPolicyArgs',
     'ContainerFleetScalingPolicyArgsDict',
     'ContainerFleetTargetConfigurationArgs',
@@ -64,6 +66,8 @@ __all__ = [
     'FleetLocationCapacityArgsDict',
     'FleetLocationConfigurationArgs',
     'FleetLocationConfigurationArgsDict',
+    'FleetManagedCapacityConfigurationArgs',
+    'FleetManagedCapacityConfigurationArgsDict',
     'FleetResourceCreationLimitPolicyArgs',
     'FleetResourceCreationLimitPolicyArgsDict',
     'FleetRuntimeConfigurationArgs',
@@ -553,6 +557,10 @@ if not MYPY:
         """
         Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         """
+        managed_capacity_configuration: NotRequired[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgsDict']]
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
         min_size: NotRequired[pulumi.Input[_builtins.int]]
         """
         The minimum value allowed for the fleet's instance count for a location.
@@ -565,16 +573,20 @@ class ContainerFleetLocationCapacityArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.int],
                  desired_ec2_instances: Optional[pulumi.Input[_builtins.int]] = None,
+                 managed_capacity_configuration: Optional[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs']] = None,
                  min_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
         :param pulumi.Input[_builtins.int] max_size: The maximum value that is allowed for the fleet's instance count for a location.
         :param pulumi.Input[_builtins.int] desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+        :param pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs'] managed_capacity_configuration: Configuration options for Amazon GameLift Servers-managed capacity behavior.
         :param pulumi.Input[_builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location.
         """
         pulumi.set(__self__, "max_size", max_size)
         if desired_ec2_instances is not None:
             pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+        if managed_capacity_configuration is not None:
+            pulumi.set(__self__, "managed_capacity_configuration", managed_capacity_configuration)
         if min_size is not None:
             pulumi.set(__self__, "min_size", min_size)
 
@@ -601,6 +613,18 @@ class ContainerFleetLocationCapacityArgs:
     @desired_ec2_instances.setter
     def desired_ec2_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "desired_ec2_instances", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedCapacityConfiguration")
+    def managed_capacity_configuration(self) -> Optional[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs']]:
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
+        return pulumi.get(self, "managed_capacity_configuration")
+
+    @managed_capacity_configuration.setter
+    def managed_capacity_configuration(self, value: Optional[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs']]):
+        pulumi.set(self, "managed_capacity_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
@@ -762,6 +786,61 @@ class ContainerFleetLogConfigurationArgs:
     @s3_bucket_name.setter
     def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
+
+
+if not MYPY:
+    class ContainerFleetManagedCapacityConfigurationArgsDict(TypedDict):
+        """
+        Configuration options for GameLift-managed capacity behavior.
+        """
+        zero_capacity_strategy: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']
+        """
+        The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        """
+        scale_in_after_inactivity_minutes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+elif False:
+    ContainerFleetManagedCapacityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerFleetManagedCapacityConfigurationArgs:
+    def __init__(__self__, *,
+                 zero_capacity_strategy: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy'],
+                 scale_in_after_inactivity_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Configuration options for GameLift-managed capacity behavior.
+        :param pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy'] zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        :param pulumi.Input[_builtins.int] scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+        pulumi.set(__self__, "zero_capacity_strategy", zero_capacity_strategy)
+        if scale_in_after_inactivity_minutes is not None:
+            pulumi.set(__self__, "scale_in_after_inactivity_minutes", scale_in_after_inactivity_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="zeroCapacityStrategy")
+    def zero_capacity_strategy(self) -> pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']:
+        """
+        The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        """
+        return pulumi.get(self, "zero_capacity_strategy")
+
+    @zero_capacity_strategy.setter
+    def zero_capacity_strategy(self, value: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']):
+        pulumi.set(self, "zero_capacity_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfterInactivityMinutes")
+    def scale_in_after_inactivity_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+        return pulumi.get(self, "scale_in_after_inactivity_minutes")
+
+    @scale_in_after_inactivity_minutes.setter
+    def scale_in_after_inactivity_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "scale_in_after_inactivity_minutes", value)
 
 
 if not MYPY:
@@ -1996,6 +2075,10 @@ if not MYPY:
         """
         Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         """
+        managed_capacity_configuration: NotRequired[pulumi.Input['FleetManagedCapacityConfigurationArgsDict']]
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
         min_size: NotRequired[pulumi.Input[_builtins.int]]
         """
         The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -2008,16 +2091,20 @@ class FleetLocationCapacityArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.int],
                  desired_ec2_instances: Optional[pulumi.Input[_builtins.int]] = None,
+                 managed_capacity_configuration: Optional[pulumi.Input['FleetManagedCapacityConfigurationArgs']] = None,
                  min_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
         :param pulumi.Input[_builtins.int] max_size: The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[_builtins.int] desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        :param pulumi.Input['FleetManagedCapacityConfigurationArgs'] managed_capacity_configuration: Configuration options for Amazon GameLift Servers-managed capacity behavior.
         :param pulumi.Input[_builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
         pulumi.set(__self__, "max_size", max_size)
         if desired_ec2_instances is not None:
             pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+        if managed_capacity_configuration is not None:
+            pulumi.set(__self__, "managed_capacity_configuration", managed_capacity_configuration)
         if min_size is not None:
             pulumi.set(__self__, "min_size", min_size)
 
@@ -2044,6 +2131,18 @@ class FleetLocationCapacityArgs:
     @desired_ec2_instances.setter
     def desired_ec2_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "desired_ec2_instances", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedCapacityConfiguration")
+    def managed_capacity_configuration(self) -> Optional[pulumi.Input['FleetManagedCapacityConfigurationArgs']]:
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
+        return pulumi.get(self, "managed_capacity_configuration")
+
+    @managed_capacity_configuration.setter
+    def managed_capacity_configuration(self, value: Optional[pulumi.Input['FleetManagedCapacityConfigurationArgs']]):
+        pulumi.set(self, "managed_capacity_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
@@ -2117,6 +2216,61 @@ class FleetLocationConfigurationArgs:
     @location_capacity.setter
     def location_capacity(self, value: Optional[pulumi.Input['FleetLocationCapacityArgs']]):
         pulumi.set(self, "location_capacity", value)
+
+
+if not MYPY:
+    class FleetManagedCapacityConfigurationArgsDict(TypedDict):
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
+        zero_capacity_strategy: pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy']
+        """
+        The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        """
+        scale_in_after_inactivity_minutes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+elif False:
+    FleetManagedCapacityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetManagedCapacityConfigurationArgs:
+    def __init__(__self__, *,
+                 zero_capacity_strategy: pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy'],
+                 scale_in_after_inactivity_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        :param pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy'] zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        :param pulumi.Input[_builtins.int] scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+        pulumi.set(__self__, "zero_capacity_strategy", zero_capacity_strategy)
+        if scale_in_after_inactivity_minutes is not None:
+            pulumi.set(__self__, "scale_in_after_inactivity_minutes", scale_in_after_inactivity_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="zeroCapacityStrategy")
+    def zero_capacity_strategy(self) -> pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy']:
+        """
+        The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        """
+        return pulumi.get(self, "zero_capacity_strategy")
+
+    @zero_capacity_strategy.setter
+    def zero_capacity_strategy(self, value: pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy']):
+        pulumi.set(self, "zero_capacity_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfterInactivityMinutes")
+    def scale_in_after_inactivity_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+        return pulumi.get(self, "scale_in_after_inactivity_minutes")
+
+    @scale_in_after_inactivity_minutes.setter
+    def scale_in_after_inactivity_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "scale_in_after_inactivity_minutes", value)
 
 
 if not MYPY:

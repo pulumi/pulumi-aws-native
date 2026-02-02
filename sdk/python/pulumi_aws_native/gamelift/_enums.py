@@ -14,6 +14,7 @@ __all__ = [
     'ContainerFleetDeploymentConfigurationProtectionStrategy',
     'ContainerFleetIpPermissionProtocol',
     'ContainerFleetLogDestination',
+    'ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy',
     'ContainerFleetNewGameSessionProtectionPolicy',
     'ContainerFleetScalingPolicyComparisonOperator',
     'ContainerFleetScalingPolicyMetricName',
@@ -32,6 +33,7 @@ __all__ = [
     'FleetComputeType',
     'FleetInstanceRoleCredentialsProvider',
     'FleetIpPermissionProtocol',
+    'FleetManagedCapacityConfigurationZeroCapacityStrategy',
     'FleetNewGameSessionProtectionPolicy',
     'FleetScalingPolicyComparisonOperator',
     'FleetScalingPolicyMetricName',
@@ -115,6 +117,15 @@ class ContainerFleetLogDestination(_builtins.str, Enum):
     NONE = "NONE"
     CLOUDWATCH = "CLOUDWATCH"
     S3 = "S3"
+
+
+@pulumi.type_token("aws-native:gamelift:ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy")
+class ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy(_builtins.str, Enum):
+    """
+    The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+    """
+    SCALE_TO_AND_FROM_ZERO = "SCALE_TO_AND_FROM_ZERO"
+    MANUAL = "MANUAL"
 
 
 @pulumi.type_token("aws-native:gamelift:ContainerFleetNewGameSessionProtectionPolicy")
@@ -298,6 +309,15 @@ class FleetIpPermissionProtocol(_builtins.str, Enum):
     """
     TCP = "TCP"
     UDP = "UDP"
+
+
+@pulumi.type_token("aws-native:gamelift:FleetManagedCapacityConfigurationZeroCapacityStrategy")
+class FleetManagedCapacityConfigurationZeroCapacityStrategy(_builtins.str, Enum):
+    """
+    The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+    """
+    SCALE_TO_AND_FROM_ZERO = "SCALE_TO_AND_FROM_ZERO"
+    MANUAL = "MANUAL"
 
 
 @pulumi.type_token("aws-native:gamelift:FleetNewGameSessionProtectionPolicy")

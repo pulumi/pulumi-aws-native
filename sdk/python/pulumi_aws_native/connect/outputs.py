@@ -2824,6 +2824,8 @@ class InstanceAttributes(dict):
             suggest = "enhanced_contact_monitoring"
         elif key == "highVolumeOutBound":
             suggest = "high_volume_out_bound"
+        elif key == "messageStreaming":
+            suggest = "message_streaming"
         elif key == "multiPartyChatConference":
             suggest = "multi_party_chat_conference"
         elif key == "multiPartyConference":
@@ -2852,6 +2854,7 @@ class InstanceAttributes(dict):
                  enhanced_chat_monitoring: Optional[_builtins.bool] = None,
                  enhanced_contact_monitoring: Optional[_builtins.bool] = None,
                  high_volume_out_bound: Optional[_builtins.bool] = None,
+                 message_streaming: Optional[_builtins.bool] = None,
                  multi_party_chat_conference: Optional[_builtins.bool] = None,
                  multi_party_conference: Optional[_builtins.bool] = None,
                  use_custom_tts_voices: Optional[_builtins.bool] = None):
@@ -2871,6 +2874,8 @@ class InstanceAttributes(dict):
             pulumi.set(__self__, "enhanced_contact_monitoring", enhanced_contact_monitoring)
         if high_volume_out_bound is not None:
             pulumi.set(__self__, "high_volume_out_bound", high_volume_out_bound)
+        if message_streaming is not None:
+            pulumi.set(__self__, "message_streaming", message_streaming)
         if multi_party_chat_conference is not None:
             pulumi.set(__self__, "multi_party_chat_conference", multi_party_chat_conference)
         if multi_party_conference is not None:
@@ -2922,6 +2927,11 @@ class InstanceAttributes(dict):
     @pulumi.getter(name="highVolumeOutBound")
     def high_volume_out_bound(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "high_volume_out_bound")
+
+    @_builtins.property
+    @pulumi.getter(name="messageStreaming")
+    def message_streaming(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "message_streaming")
 
     @_builtins.property
     @pulumi.getter(name="multiPartyChatConference")

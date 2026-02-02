@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.Lightsail
 {
     /// <summary>
+    /// The Lightsail resource type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatabaseSnapshotResourceType : IEquatable<DatabaseSnapshotResourceType>
+    {
+        private readonly string _value;
+
+        private DatabaseSnapshotResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatabaseSnapshotResourceType RelationalDatabaseSnapshot { get; } = new DatabaseSnapshotResourceType("RelationalDatabaseSnapshot");
+
+        public static bool operator ==(DatabaseSnapshotResourceType left, DatabaseSnapshotResourceType right) => left.Equals(right);
+        public static bool operator !=(DatabaseSnapshotResourceType left, DatabaseSnapshotResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(DatabaseSnapshotResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatabaseSnapshotResourceType other && Equals(other);
+        public bool Equals(DatabaseSnapshotResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the Addon
     /// </summary>
     [EnumType]

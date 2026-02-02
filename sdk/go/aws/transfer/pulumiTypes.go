@@ -23,6 +23,8 @@ type AgreementTag struct {
 
 // Configuration for an AS2 connector.
 type As2ConfigProperties struct {
+	// Configuration for an AS2 connector with ASYNC MDN Response
+	AsyncMdnConfig *ConnectorAsyncMdnConfig `pulumi:"asyncMdnConfig"`
 	// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
 	BasicAuthSecretId *string `pulumi:"basicAuthSecretId"`
 	// Compression setting for this AS2 connector configuration.
@@ -58,6 +60,8 @@ type As2ConfigPropertiesInput interface {
 
 // Configuration for an AS2 connector.
 type As2ConfigPropertiesArgs struct {
+	// Configuration for an AS2 connector with ASYNC MDN Response
+	AsyncMdnConfig ConnectorAsyncMdnConfigPtrInput `pulumi:"asyncMdnConfig"`
 	// ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
 	BasicAuthSecretId pulumi.StringPtrInput `pulumi:"basicAuthSecretId"`
 	// Compression setting for this AS2 connector configuration.
@@ -158,6 +162,11 @@ func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesPtrOutputWithContext(ctx
 	}).(As2ConfigPropertiesPtrOutput)
 }
 
+// Configuration for an AS2 connector with ASYNC MDN Response
+func (o As2ConfigPropertiesOutput) AsyncMdnConfig() ConnectorAsyncMdnConfigPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAsyncMdnConfig { return v.AsyncMdnConfig }).(ConnectorAsyncMdnConfigPtrOutput)
+}
+
 // ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
 func (o As2ConfigPropertiesOutput) BasicAuthSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v As2ConfigProperties) *string { return v.BasicAuthSecretId }).(pulumi.StringPtrOutput)
@@ -236,6 +245,16 @@ func (o As2ConfigPropertiesPtrOutput) Elem() As2ConfigPropertiesOutput {
 		var ret As2ConfigProperties
 		return ret
 	}).(As2ConfigPropertiesOutput)
+}
+
+// Configuration for an AS2 connector with ASYNC MDN Response
+func (o As2ConfigPropertiesPtrOutput) AsyncMdnConfig() ConnectorAsyncMdnConfigPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAsyncMdnConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AsyncMdnConfig
+	}).(ConnectorAsyncMdnConfigPtrOutput)
 }
 
 // ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
@@ -344,6 +363,158 @@ type CertificateTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+type ConnectorAsyncMdnConfig struct {
+	ServerIds []string `pulumi:"serverIds"`
+	// URL of the server to receive the MDN response on
+	Url string `pulumi:"url"`
+}
+
+// ConnectorAsyncMdnConfigInput is an input type that accepts ConnectorAsyncMdnConfigArgs and ConnectorAsyncMdnConfigOutput values.
+// You can construct a concrete instance of `ConnectorAsyncMdnConfigInput` via:
+//
+//	ConnectorAsyncMdnConfigArgs{...}
+type ConnectorAsyncMdnConfigInput interface {
+	pulumi.Input
+
+	ToConnectorAsyncMdnConfigOutput() ConnectorAsyncMdnConfigOutput
+	ToConnectorAsyncMdnConfigOutputWithContext(context.Context) ConnectorAsyncMdnConfigOutput
+}
+
+type ConnectorAsyncMdnConfigArgs struct {
+	ServerIds pulumi.StringArrayInput `pulumi:"serverIds"`
+	// URL of the server to receive the MDN response on
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (ConnectorAsyncMdnConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAsyncMdnConfig)(nil)).Elem()
+}
+
+func (i ConnectorAsyncMdnConfigArgs) ToConnectorAsyncMdnConfigOutput() ConnectorAsyncMdnConfigOutput {
+	return i.ToConnectorAsyncMdnConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorAsyncMdnConfigArgs) ToConnectorAsyncMdnConfigOutputWithContext(ctx context.Context) ConnectorAsyncMdnConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAsyncMdnConfigOutput)
+}
+
+func (i ConnectorAsyncMdnConfigArgs) ToConnectorAsyncMdnConfigPtrOutput() ConnectorAsyncMdnConfigPtrOutput {
+	return i.ToConnectorAsyncMdnConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorAsyncMdnConfigArgs) ToConnectorAsyncMdnConfigPtrOutputWithContext(ctx context.Context) ConnectorAsyncMdnConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAsyncMdnConfigOutput).ToConnectorAsyncMdnConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorAsyncMdnConfigPtrInput is an input type that accepts ConnectorAsyncMdnConfigArgs, ConnectorAsyncMdnConfigPtr and ConnectorAsyncMdnConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorAsyncMdnConfigPtrInput` via:
+//
+//	        ConnectorAsyncMdnConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorAsyncMdnConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorAsyncMdnConfigPtrOutput() ConnectorAsyncMdnConfigPtrOutput
+	ToConnectorAsyncMdnConfigPtrOutputWithContext(context.Context) ConnectorAsyncMdnConfigPtrOutput
+}
+
+type connectorAsyncMdnConfigPtrType ConnectorAsyncMdnConfigArgs
+
+func ConnectorAsyncMdnConfigPtr(v *ConnectorAsyncMdnConfigArgs) ConnectorAsyncMdnConfigPtrInput {
+	return (*connectorAsyncMdnConfigPtrType)(v)
+}
+
+func (*connectorAsyncMdnConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAsyncMdnConfig)(nil)).Elem()
+}
+
+func (i *connectorAsyncMdnConfigPtrType) ToConnectorAsyncMdnConfigPtrOutput() ConnectorAsyncMdnConfigPtrOutput {
+	return i.ToConnectorAsyncMdnConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorAsyncMdnConfigPtrType) ToConnectorAsyncMdnConfigPtrOutputWithContext(ctx context.Context) ConnectorAsyncMdnConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAsyncMdnConfigPtrOutput)
+}
+
+type ConnectorAsyncMdnConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAsyncMdnConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAsyncMdnConfig)(nil)).Elem()
+}
+
+func (o ConnectorAsyncMdnConfigOutput) ToConnectorAsyncMdnConfigOutput() ConnectorAsyncMdnConfigOutput {
+	return o
+}
+
+func (o ConnectorAsyncMdnConfigOutput) ToConnectorAsyncMdnConfigOutputWithContext(ctx context.Context) ConnectorAsyncMdnConfigOutput {
+	return o
+}
+
+func (o ConnectorAsyncMdnConfigOutput) ToConnectorAsyncMdnConfigPtrOutput() ConnectorAsyncMdnConfigPtrOutput {
+	return o.ToConnectorAsyncMdnConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAsyncMdnConfigOutput) ToConnectorAsyncMdnConfigPtrOutputWithContext(ctx context.Context) ConnectorAsyncMdnConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAsyncMdnConfig) *ConnectorAsyncMdnConfig {
+		return &v
+	}).(ConnectorAsyncMdnConfigPtrOutput)
+}
+
+func (o ConnectorAsyncMdnConfigOutput) ServerIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorAsyncMdnConfig) []string { return v.ServerIds }).(pulumi.StringArrayOutput)
+}
+
+// URL of the server to receive the MDN response on
+func (o ConnectorAsyncMdnConfigOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAsyncMdnConfig) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ConnectorAsyncMdnConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAsyncMdnConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAsyncMdnConfig)(nil)).Elem()
+}
+
+func (o ConnectorAsyncMdnConfigPtrOutput) ToConnectorAsyncMdnConfigPtrOutput() ConnectorAsyncMdnConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorAsyncMdnConfigPtrOutput) ToConnectorAsyncMdnConfigPtrOutputWithContext(ctx context.Context) ConnectorAsyncMdnConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorAsyncMdnConfigPtrOutput) Elem() ConnectorAsyncMdnConfigOutput {
+	return o.ApplyT(func(v *ConnectorAsyncMdnConfig) ConnectorAsyncMdnConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAsyncMdnConfig
+		return ret
+	}).(ConnectorAsyncMdnConfigOutput)
+}
+
+func (o ConnectorAsyncMdnConfigPtrOutput) ServerIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorAsyncMdnConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// URL of the server to receive the MDN response on
+func (o ConnectorAsyncMdnConfigPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAsyncMdnConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConnectorEgressConfig struct {
@@ -2833,6 +3004,139 @@ func (o WebAppCustomizationPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WebAppEndpointDetails struct {
+	Vpc *WebAppVpc `pulumi:"vpc"`
+}
+
+// WebAppEndpointDetailsInput is an input type that accepts WebAppEndpointDetailsArgs and WebAppEndpointDetailsOutput values.
+// You can construct a concrete instance of `WebAppEndpointDetailsInput` via:
+//
+//	WebAppEndpointDetailsArgs{...}
+type WebAppEndpointDetailsInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointDetailsOutput() WebAppEndpointDetailsOutput
+	ToWebAppEndpointDetailsOutputWithContext(context.Context) WebAppEndpointDetailsOutput
+}
+
+type WebAppEndpointDetailsArgs struct {
+	Vpc WebAppVpcPtrInput `pulumi:"vpc"`
+}
+
+func (WebAppEndpointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsOutput() WebAppEndpointDetailsOutput {
+	return i.ToWebAppEndpointDetailsOutputWithContext(context.Background())
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsOutputWithContext(ctx context.Context) WebAppEndpointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsOutput)
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return i.ToWebAppEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppEndpointDetailsArgs) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsOutput).ToWebAppEndpointDetailsPtrOutputWithContext(ctx)
+}
+
+// WebAppEndpointDetailsPtrInput is an input type that accepts WebAppEndpointDetailsArgs, WebAppEndpointDetailsPtr and WebAppEndpointDetailsPtrOutput values.
+// You can construct a concrete instance of `WebAppEndpointDetailsPtrInput` via:
+//
+//	        WebAppEndpointDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppEndpointDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput
+	ToWebAppEndpointDetailsPtrOutputWithContext(context.Context) WebAppEndpointDetailsPtrOutput
+}
+
+type webAppEndpointDetailsPtrType WebAppEndpointDetailsArgs
+
+func WebAppEndpointDetailsPtr(v *WebAppEndpointDetailsArgs) WebAppEndpointDetailsPtrInput {
+	return (*webAppEndpointDetailsPtrType)(v)
+}
+
+func (*webAppEndpointDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (i *webAppEndpointDetailsPtrType) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return i.ToWebAppEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppEndpointDetailsPtrType) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppEndpointDetailsPtrOutput)
+}
+
+type WebAppEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsOutput() WebAppEndpointDetailsOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsOutputWithContext(ctx context.Context) WebAppEndpointDetailsOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return o.ToWebAppEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppEndpointDetailsOutput) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppEndpointDetails) *WebAppEndpointDetails {
+		return &v
+	}).(WebAppEndpointDetailsPtrOutput)
+}
+
+func (o WebAppEndpointDetailsOutput) Vpc() WebAppVpcPtrOutput {
+	return o.ApplyT(func(v WebAppEndpointDetails) *WebAppVpc { return v.Vpc }).(WebAppVpcPtrOutput)
+}
+
+type WebAppEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppEndpointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppEndpointDetails)(nil)).Elem()
+}
+
+func (o WebAppEndpointDetailsPtrOutput) ToWebAppEndpointDetailsPtrOutput() WebAppEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsPtrOutput) ToWebAppEndpointDetailsPtrOutputWithContext(ctx context.Context) WebAppEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppEndpointDetailsPtrOutput) Elem() WebAppEndpointDetailsOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetails) WebAppEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppEndpointDetails
+		return ret
+	}).(WebAppEndpointDetailsOutput)
+}
+
+func (o WebAppEndpointDetailsPtrOutput) Vpc() WebAppVpcPtrOutput {
+	return o.ApplyT(func(v *WebAppEndpointDetails) *WebAppVpc {
+		if v == nil {
+			return nil
+		}
+		return v.Vpc
+	}).(WebAppVpcPtrOutput)
+}
+
 // You can provide a structure that contains the details for the identity provider to use with your web app.
 type WebAppIdentityProviderDetails struct {
 	// The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
@@ -3107,6 +3411,172 @@ func (o WebAppUnitsPropertiesPtrOutput) Provisioned() pulumi.IntPtrOutput {
 		}
 		return &v.Provisioned
 	}).(pulumi.IntPtrOutput)
+}
+
+// You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+type WebAppVpc struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+	VpcId            *string  `pulumi:"vpcId"`
+}
+
+// WebAppVpcInput is an input type that accepts WebAppVpcArgs and WebAppVpcOutput values.
+// You can construct a concrete instance of `WebAppVpcInput` via:
+//
+//	WebAppVpcArgs{...}
+type WebAppVpcInput interface {
+	pulumi.Input
+
+	ToWebAppVpcOutput() WebAppVpcOutput
+	ToWebAppVpcOutputWithContext(context.Context) WebAppVpcOutput
+}
+
+// You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+type WebAppVpcArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (WebAppVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVpc)(nil)).Elem()
+}
+
+func (i WebAppVpcArgs) ToWebAppVpcOutput() WebAppVpcOutput {
+	return i.ToWebAppVpcOutputWithContext(context.Background())
+}
+
+func (i WebAppVpcArgs) ToWebAppVpcOutputWithContext(ctx context.Context) WebAppVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVpcOutput)
+}
+
+func (i WebAppVpcArgs) ToWebAppVpcPtrOutput() WebAppVpcPtrOutput {
+	return i.ToWebAppVpcPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppVpcArgs) ToWebAppVpcPtrOutputWithContext(ctx context.Context) WebAppVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVpcOutput).ToWebAppVpcPtrOutputWithContext(ctx)
+}
+
+// WebAppVpcPtrInput is an input type that accepts WebAppVpcArgs, WebAppVpcPtr and WebAppVpcPtrOutput values.
+// You can construct a concrete instance of `WebAppVpcPtrInput` via:
+//
+//	        WebAppVpcArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppVpcPtrInput interface {
+	pulumi.Input
+
+	ToWebAppVpcPtrOutput() WebAppVpcPtrOutput
+	ToWebAppVpcPtrOutputWithContext(context.Context) WebAppVpcPtrOutput
+}
+
+type webAppVpcPtrType WebAppVpcArgs
+
+func WebAppVpcPtr(v *WebAppVpcArgs) WebAppVpcPtrInput {
+	return (*webAppVpcPtrType)(v)
+}
+
+func (*webAppVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppVpc)(nil)).Elem()
+}
+
+func (i *webAppVpcPtrType) ToWebAppVpcPtrOutput() WebAppVpcPtrOutput {
+	return i.ToWebAppVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppVpcPtrType) ToWebAppVpcPtrOutputWithContext(ctx context.Context) WebAppVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVpcPtrOutput)
+}
+
+// You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+type WebAppVpcOutput struct{ *pulumi.OutputState }
+
+func (WebAppVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVpc)(nil)).Elem()
+}
+
+func (o WebAppVpcOutput) ToWebAppVpcOutput() WebAppVpcOutput {
+	return o
+}
+
+func (o WebAppVpcOutput) ToWebAppVpcOutputWithContext(ctx context.Context) WebAppVpcOutput {
+	return o
+}
+
+func (o WebAppVpcOutput) ToWebAppVpcPtrOutput() WebAppVpcPtrOutput {
+	return o.ToWebAppVpcPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppVpcOutput) ToWebAppVpcPtrOutputWithContext(ctx context.Context) WebAppVpcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppVpc) *WebAppVpc {
+		return &v
+	}).(WebAppVpcPtrOutput)
+}
+
+func (o WebAppVpcOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAppVpc) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o WebAppVpcOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAppVpc) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o WebAppVpcOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppVpc) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type WebAppVpcPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppVpc)(nil)).Elem()
+}
+
+func (o WebAppVpcPtrOutput) ToWebAppVpcPtrOutput() WebAppVpcPtrOutput {
+	return o
+}
+
+func (o WebAppVpcPtrOutput) ToWebAppVpcPtrOutputWithContext(ctx context.Context) WebAppVpcPtrOutput {
+	return o
+}
+
+func (o WebAppVpcPtrOutput) Elem() WebAppVpcOutput {
+	return o.ApplyT(func(v *WebAppVpc) WebAppVpc {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppVpc
+		return ret
+	}).(WebAppVpcOutput)
+}
+
+func (o WebAppVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebAppVpcPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WebAppVpcPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the details for an EFS file.
@@ -4929,6 +5399,8 @@ type WorkflowTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesPtrInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAsyncMdnConfigInput)(nil)).Elem(), ConnectorAsyncMdnConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAsyncMdnConfigPtrInput)(nil)).Elem(), ConnectorAsyncMdnConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressConfigInput)(nil)).Elem(), ConnectorEgressConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressConfigPtrInput)(nil)).Elem(), ConnectorEgressConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcLatticeEgressConfigInput)(nil)).Elem(), ConnectorVpcLatticeEgressConfigArgs{})
@@ -4955,9 +5427,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppCustomizationInput)(nil)).Elem(), WebAppCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppCustomizationPtrInput)(nil)).Elem(), WebAppCustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointDetailsInput)(nil)).Elem(), WebAppEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppEndpointDetailsPtrInput)(nil)).Elem(), WebAppEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsInput)(nil)).Elem(), WebAppIdentityProviderDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppUnitsPropertiesInput)(nil)).Elem(), WebAppUnitsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAppUnitsPropertiesPtrInput)(nil)).Elem(), WebAppUnitsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppVpcInput)(nil)).Elem(), WebAppVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppVpcPtrInput)(nil)).Elem(), WebAppVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationPtrInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInputFileLocationInput)(nil)).Elem(), WorkflowInputFileLocationArgs{})
@@ -4982,6 +5458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAsyncMdnConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorAsyncMdnConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorEgressConfigOutput{})
 	pulumi.RegisterOutputType(ConnectorEgressConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorVpcLatticeEgressConfigOutput{})
@@ -5008,10 +5486,14 @@ func init() {
 	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(WebAppCustomizationOutput{})
 	pulumi.RegisterOutputType(WebAppCustomizationPtrOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(WebAppEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsOutput{})
 	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WebAppUnitsPropertiesOutput{})
 	pulumi.RegisterOutputType(WebAppUnitsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebAppVpcOutput{})
+	pulumi.RegisterOutputType(WebAppVpcPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowInputFileLocationOutput{})

@@ -230,6 +230,37 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy : IEquatable<ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy>
+    {
+        private readonly string _value;
+
+        private ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy ScaleToAndFromZero { get; } = new ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO");
+        public static ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy Manual { get; } = new ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("MANUAL");
+
+        public static bool operator ==(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy left, ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy left, ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy other && Equals(other);
+        public bool Equals(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
     /// </summary>
     [EnumType]
@@ -801,6 +832,37 @@ namespace Pulumi.AwsNative.GameLift
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FleetIpPermissionProtocol other && Equals(other);
         public bool Equals(FleetIpPermissionProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetManagedCapacityConfigurationZeroCapacityStrategy : IEquatable<FleetManagedCapacityConfigurationZeroCapacityStrategy>
+    {
+        private readonly string _value;
+
+        private FleetManagedCapacityConfigurationZeroCapacityStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetManagedCapacityConfigurationZeroCapacityStrategy ScaleToAndFromZero { get; } = new FleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO");
+        public static FleetManagedCapacityConfigurationZeroCapacityStrategy Manual { get; } = new FleetManagedCapacityConfigurationZeroCapacityStrategy("MANUAL");
+
+        public static bool operator ==(FleetManagedCapacityConfigurationZeroCapacityStrategy left, FleetManagedCapacityConfigurationZeroCapacityStrategy right) => left.Equals(right);
+        public static bool operator !=(FleetManagedCapacityConfigurationZeroCapacityStrategy left, FleetManagedCapacityConfigurationZeroCapacityStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(FleetManagedCapacityConfigurationZeroCapacityStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetManagedCapacityConfigurationZeroCapacityStrategy other && Equals(other);
+        public bool Equals(FleetManagedCapacityConfigurationZeroCapacityStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

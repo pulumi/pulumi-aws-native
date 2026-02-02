@@ -12,6 +12,7 @@ from .bucket import *
 from .certificate import *
 from .container import *
 from .database import *
+from .database_snapshot import *
 from .disk import *
 from .disk_snapshot import *
 from .get_alarm import *
@@ -19,6 +20,7 @@ from .get_bucket import *
 from .get_certificate import *
 from .get_container import *
 from .get_database import *
+from .get_database_snapshot import *
 from .get_disk import *
 from .get_disk_snapshot import *
 from .get_instance import *

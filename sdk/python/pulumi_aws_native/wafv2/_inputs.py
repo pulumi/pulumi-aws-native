@@ -76,6 +76,8 @@ __all__ = [
     'RuleGroupGeoMatchStatementArgsDict',
     'RuleGroupHeaderMatchPatternArgs',
     'RuleGroupHeaderMatchPatternArgsDict',
+    'RuleGroupHeaderOrderArgs',
+    'RuleGroupHeaderOrderArgsDict',
     'RuleGroupHeadersArgs',
     'RuleGroupHeadersArgsDict',
     'RuleGroupImmunityTimePropertyArgs',
@@ -228,6 +230,8 @@ __all__ = [
     'WebAclGeoMatchStatementArgsDict',
     'WebAclHeaderMatchPatternArgs',
     'WebAclHeaderMatchPatternArgsDict',
+    'WebAclHeaderOrderArgs',
+    'WebAclHeaderOrderArgsDict',
     'WebAclHeadersArgs',
     'WebAclHeadersArgsDict',
     'WebAclImmunityTimePropertyArgs',
@@ -1877,6 +1881,7 @@ if not MYPY:
 
         Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
         """
+        header_order: NotRequired[pulumi.Input['RuleGroupHeaderOrderArgsDict']]
         headers: NotRequired[pulumi.Input['RuleGroupHeadersArgsDict']]
         """
         Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
@@ -1954,6 +1959,7 @@ class RuleGroupFieldToMatchArgs:
                  all_query_arguments: Optional[Any] = None,
                  body: Optional[pulumi.Input['RuleGroupBodyArgs']] = None,
                  cookies: Optional[pulumi.Input['RuleGroupCookiesArgs']] = None,
+                 header_order: Optional[pulumi.Input['RuleGroupHeaderOrderArgs']] = None,
                  headers: Optional[pulumi.Input['RuleGroupHeadersArgs']] = None,
                  ja3_fingerprint: Optional[pulumi.Input['RuleGroupJa3FingerprintArgs']] = None,
                  ja4_fingerprint: Optional[pulumi.Input['RuleGroupJa4FingerprintArgs']] = None,
@@ -2024,6 +2030,8 @@ class RuleGroupFieldToMatchArgs:
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_order is not None:
+            pulumi.set(__self__, "header_order", header_order)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -2090,6 +2098,15 @@ class RuleGroupFieldToMatchArgs:
     @cookies.setter
     def cookies(self, value: Optional[pulumi.Input['RuleGroupCookiesArgs']]):
         pulumi.set(self, "cookies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerOrder")
+    def header_order(self) -> Optional[pulumi.Input['RuleGroupHeaderOrderArgs']]:
+        return pulumi.get(self, "header_order")
+
+    @header_order.setter
+    def header_order(self, value: Optional[pulumi.Input['RuleGroupHeaderOrderArgs']]):
+        pulumi.set(self, "header_order", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2455,6 +2472,34 @@ class RuleGroupHeaderMatchPatternArgs:
     @included_headers.setter
     def included_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_headers", value)
+
+
+if not MYPY:
+    class RuleGroupHeaderOrderArgsDict(TypedDict):
+        """
+        The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+        """
+        oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
+elif False:
+    RuleGroupHeaderOrderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupHeaderOrderArgs:
+    def __init__(__self__, *,
+                 oversize_handling: pulumi.Input['RuleGroupOversizeHandling']):
+        """
+        The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> pulumi.Input['RuleGroupOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: pulumi.Input['RuleGroupOversizeHandling']):
+        pulumi.set(self, "oversize_handling", value)
 
 
 if not MYPY:
@@ -7832,6 +7877,7 @@ if not MYPY:
 
         Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
         """
+        header_order: NotRequired[pulumi.Input['WebAclHeaderOrderArgsDict']]
         headers: NotRequired[pulumi.Input['WebAclHeadersArgsDict']]
         """
         Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
@@ -7909,6 +7955,7 @@ class WebAclFieldToMatchArgs:
                  all_query_arguments: Optional[Any] = None,
                  body: Optional[pulumi.Input['WebAclBodyArgs']] = None,
                  cookies: Optional[pulumi.Input['WebAclCookiesArgs']] = None,
+                 header_order: Optional[pulumi.Input['WebAclHeaderOrderArgs']] = None,
                  headers: Optional[pulumi.Input['WebAclHeadersArgs']] = None,
                  ja3_fingerprint: Optional[pulumi.Input['WebAclJa3FingerprintArgs']] = None,
                  ja4_fingerprint: Optional[pulumi.Input['WebAclJa4FingerprintArgs']] = None,
@@ -7979,6 +8026,8 @@ class WebAclFieldToMatchArgs:
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_order is not None:
+            pulumi.set(__self__, "header_order", header_order)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -8045,6 +8094,15 @@ class WebAclFieldToMatchArgs:
     @cookies.setter
     def cookies(self, value: Optional[pulumi.Input['WebAclCookiesArgs']]):
         pulumi.set(self, "cookies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerOrder")
+    def header_order(self) -> Optional[pulumi.Input['WebAclHeaderOrderArgs']]:
+        return pulumi.get(self, "header_order")
+
+    @header_order.setter
+    def header_order(self, value: Optional[pulumi.Input['WebAclHeaderOrderArgs']]):
+        pulumi.set(self, "header_order", value)
 
     @_builtins.property
     @pulumi.getter
@@ -8465,6 +8523,34 @@ class WebAclHeaderMatchPatternArgs:
     @included_headers.setter
     def included_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_headers", value)
+
+
+if not MYPY:
+    class WebAclHeaderOrderArgsDict(TypedDict):
+        """
+        The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+        """
+        oversize_handling: pulumi.Input['WebAclOversizeHandling']
+elif False:
+    WebAclHeaderOrderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclHeaderOrderArgs:
+    def __init__(__self__, *,
+                 oversize_handling: pulumi.Input['WebAclOversizeHandling']):
+        """
+        The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @_builtins.property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> pulumi.Input['WebAclOversizeHandling']:
+        return pulumi.get(self, "oversize_handling")
+
+    @oversize_handling.setter
+    def oversize_handling(self, value: pulumi.Input['WebAclOversizeHandling']):
+        pulumi.set(self, "oversize_handling", value)
 
 
 if not MYPY:
