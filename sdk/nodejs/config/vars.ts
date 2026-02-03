@@ -156,12 +156,12 @@ Object.defineProperty(exports, "roleArn", {
 });
 
 /**
- * Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+ * Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
  */
-export declare const s3ForcePathStyle: boolean | undefined;
-Object.defineProperty(exports, "s3ForcePathStyle", {
+export declare const s3UsePathStyle: boolean | undefined;
+Object.defineProperty(exports, "s3UsePathStyle", {
     get() {
-        return __config.getObject<boolean>("s3ForcePathStyle");
+        return __config.getObject<boolean>("s3UsePathStyle");
     },
     enumerable: true,
 });

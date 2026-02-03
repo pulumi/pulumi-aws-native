@@ -33,7 +33,7 @@ class ProviderArgs:
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_force_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
+                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
                  secret_key: Optional[pulumi.Input[_builtins.str]] = None,
                  shared_credentials_file: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -57,7 +57,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
-        :param pulumi.Input[_builtins.bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+        :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[_builtins.str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         :param pulumi.Input[_builtins.bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
@@ -96,8 +96,8 @@ class ProviderArgs:
             pulumi.set(__self__, "profile", profile)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
-        if s3_force_path_style is not None:
-            pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
+        if s3_use_path_style is not None:
+            pulumi.set(__self__, "s3_use_path_style", s3_use_path_style)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if shared_credentials_file is None:
@@ -282,16 +282,16 @@ class ProviderArgs:
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
-    @pulumi.getter(name="s3ForcePathStyle")
-    def s3_force_path_style(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    @pulumi.getter(name="s3UsePathStyle")
+    def s3_use_path_style(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+        Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         """
-        return pulumi.get(self, "s3_force_path_style")
+        return pulumi.get(self, "s3_use_path_style")
 
-    @s3_force_path_style.setter
-    def s3_force_path_style(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "s3_force_path_style", value)
+    @s3_use_path_style.setter
+    def s3_use_path_style(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "s3_use_path_style", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
@@ -409,7 +409,7 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_force_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
+                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
                  secret_key: Optional[pulumi.Input[_builtins.str]] = None,
                  shared_credentials_file: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -437,7 +437,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[_builtins.str] region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
-        :param pulumi.Input[_builtins.bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+        :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[_builtins.str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         :param pulumi.Input[_builtins.bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
@@ -484,7 +484,7 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_force_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
+                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
                  secret_key: Optional[pulumi.Input[_builtins.str]] = None,
                  shared_credentials_file: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -521,7 +521,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
-            __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
+            __props__.__dict__["s3_use_path_style"] = pulumi.Output.from_input(s3_use_path_style).apply(pulumi.runtime.to_json) if s3_use_path_style is not None else None
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             if shared_credentials_file is None:
                 shared_credentials_file = _utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
