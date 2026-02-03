@@ -76,9 +76,9 @@ func GetRoleArn(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws-native:roleArn")
 }
 
-// Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
-func GetS3ForcePathStyle(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "aws-native:s3ForcePathStyle")
+// Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+func GetS3UsePathStyle(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "aws-native:s3UsePathStyle")
 }
 
 // The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.

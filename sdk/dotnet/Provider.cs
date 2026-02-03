@@ -174,10 +174,10 @@ namespace Pulumi.AwsNative
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+        /// Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         /// </summary>
-        [Input("s3ForcePathStyle", json: true)]
-        public Input<bool>? S3ForcePathStyle { get; set; }
+        [Input("s3UsePathStyle", json: true)]
+        public Input<bool>? S3UsePathStyle { get; set; }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;
