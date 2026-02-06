@@ -39,6 +39,9 @@ type CloudControlApiClient interface {
 
 	// GetResourceRequestStatus returns the current status of a resource operation request.
 	GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error)
+
+	// GetResourceRequestStatusWithHooks returns the current status of a resource operation request with hook information.
+	GetResourceRequestStatusWithHooks(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error)
 }
 
 // NewCloudControlApiClient creates a wrapper around the AWS SDK's Cloud Control client.
@@ -133,4 +136,14 @@ func (client *ccApiClientImpl) GetResourceRequestStatus(ctx context.Context, req
 		return nil, err
 	}
 	return res.ProgressEvent, nil
+}
+
+func (client *ccApiClientImpl) GetResourceRequestStatusWithHooks(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error) {
+	res, err := client.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
+		RequestToken: aws.String(requestToken),
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	return res.ProgressEvent, res.HooksProgressEvent, nil
 }
