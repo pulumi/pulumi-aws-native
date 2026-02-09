@@ -40,6 +40,7 @@ __all__ = [
     'UserPoolDeviceConfiguration',
     'UserPoolDomainCustomDomainConfigType',
     'UserPoolEmailConfiguration',
+    'UserPoolInboundFederation',
     'UserPoolInviteMessageTemplate',
     'UserPoolLambdaConfig',
     'UserPoolNumberAttributeConstraints',
@@ -1327,6 +1328,46 @@ class UserPoolEmailConfiguration(dict):
 
 
 @pulumi.output_type
+class UserPoolInboundFederation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolInboundFederation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolInboundFederation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolInboundFederation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: Optional[_builtins.str] = None,
+                 lambda_version: Optional[_builtins.str] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
 class UserPoolInviteMessageTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1405,6 +1446,8 @@ class UserPoolLambdaConfig(dict):
             suggest = "custom_sms_sender"
         elif key == "defineAuthChallenge":
             suggest = "define_auth_challenge"
+        elif key == "inboundFederation":
+            suggest = "inbound_federation"
         elif key == "kmsKeyId":
             suggest = "kms_key_id"
         elif key == "postAuthentication":
@@ -1441,6 +1484,7 @@ class UserPoolLambdaConfig(dict):
                  custom_message: Optional[_builtins.str] = None,
                  custom_sms_sender: Optional['outputs.UserPoolCustomSmsSender'] = None,
                  define_auth_challenge: Optional[_builtins.str] = None,
+                 inbound_federation: Optional['outputs.UserPoolInboundFederation'] = None,
                  kms_key_id: Optional[_builtins.str] = None,
                  post_authentication: Optional[_builtins.str] = None,
                  post_confirmation: Optional[_builtins.str] = None,
@@ -1478,6 +1522,8 @@ class UserPoolLambdaConfig(dict):
             pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
             pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        if inbound_federation is not None:
+            pulumi.set(__self__, "inbound_federation", inbound_federation)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if post_authentication is not None:
@@ -1536,6 +1582,11 @@ class UserPoolLambdaConfig(dict):
         The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         return pulumi.get(self, "define_auth_challenge")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundFederation")
+    def inbound_federation(self) -> Optional['outputs.UserPoolInboundFederation']:
+        return pulumi.get(self, "inbound_federation")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")

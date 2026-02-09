@@ -80,6 +80,8 @@ __all__ = [
     'BotCustomVocabularyItemArgsDict',
     'BotCustomVocabularyArgs',
     'BotCustomVocabularyArgsDict',
+    'BotDeepgramSpeechModelConfigArgs',
+    'BotDeepgramSpeechModelConfigArgsDict',
     'BotDefaultConditionalBranchArgs',
     'BotDefaultConditionalBranchArgsDict',
     'BotDialogActionArgs',
@@ -222,6 +224,10 @@ __all__ = [
     'BotSlotArgsDict',
     'BotSpecificationsArgs',
     'BotSpecificationsArgsDict',
+    'BotSpeechModelConfigArgs',
+    'BotSpeechModelConfigArgsDict',
+    'BotSpeechRecognitionSettingsArgs',
+    'BotSpeechRecognitionSettingsArgsDict',
     'BotSsmlMessageArgs',
     'BotSsmlMessageArgsDict',
     'BotStillWaitingResponseSpecificationArgs',
@@ -1578,6 +1584,41 @@ class BotCustomVocabularyArgs:
     @custom_vocabulary_items.setter
     def custom_vocabulary_items(self, value: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]):
         pulumi.set(self, "custom_vocabulary_items", value)
+
+
+if not MYPY:
+    class BotDeepgramSpeechModelConfigArgsDict(TypedDict):
+        api_token_secret_arn: pulumi.Input[_builtins.str]
+        model_id: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    BotDeepgramSpeechModelConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotDeepgramSpeechModelConfigArgs:
+    def __init__(__self__, *,
+                 api_token_secret_arn: pulumi.Input[_builtins.str],
+                 model_id: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "api_token_secret_arn", api_token_secret_arn)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenSecretArn")
+    def api_token_secret_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "api_token_secret_arn")
+
+    @api_token_secret_arn.setter
+    def api_token_secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_token_secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "model_id", value)
 
 
 if not MYPY:
@@ -3836,6 +3877,7 @@ if not MYPY:
         One or more slot types defined for the locale.
         """
         speech_detection_sensitivity: NotRequired[pulumi.Input['BotSpeechDetectionSensitivity']]
+        speech_recognition_settings: NotRequired[pulumi.Input['BotSpeechRecognitionSettingsArgsDict']]
         unified_speech_settings: NotRequired[pulumi.Input['BotUnifiedSpeechSettingsArgsDict']]
         voice_settings: NotRequired[pulumi.Input['BotVoiceSettingsArgsDict']]
         """
@@ -3862,6 +3904,7 @@ class BotLocaleArgs:
                  intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
                  slot_types: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]]] = None,
                  speech_detection_sensitivity: Optional[pulumi.Input['BotSpeechDetectionSensitivity']] = None,
+                 speech_recognition_settings: Optional[pulumi.Input['BotSpeechRecognitionSettingsArgs']] = None,
                  unified_speech_settings: Optional[pulumi.Input['BotUnifiedSpeechSettingsArgs']] = None,
                  voice_settings: Optional[pulumi.Input['BotVoiceSettingsArgs']] = None):
         """
@@ -3894,6 +3937,8 @@ class BotLocaleArgs:
             pulumi.set(__self__, "slot_types", slot_types)
         if speech_detection_sensitivity is not None:
             pulumi.set(__self__, "speech_detection_sensitivity", speech_detection_sensitivity)
+        if speech_recognition_settings is not None:
+            pulumi.set(__self__, "speech_recognition_settings", speech_recognition_settings)
         if unified_speech_settings is not None:
             pulumi.set(__self__, "unified_speech_settings", unified_speech_settings)
         if voice_settings is not None:
@@ -3988,6 +4033,15 @@ class BotLocaleArgs:
     @speech_detection_sensitivity.setter
     def speech_detection_sensitivity(self, value: Optional[pulumi.Input['BotSpeechDetectionSensitivity']]):
         pulumi.set(self, "speech_detection_sensitivity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="speechRecognitionSettings")
+    def speech_recognition_settings(self) -> Optional[pulumi.Input['BotSpeechRecognitionSettingsArgs']]:
+        return pulumi.get(self, "speech_recognition_settings")
+
+    @speech_recognition_settings.setter
+    def speech_recognition_settings(self, value: Optional[pulumi.Input['BotSpeechRecognitionSettingsArgs']]):
+        pulumi.set(self, "speech_recognition_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="unifiedSpeechSettings")
@@ -6627,6 +6681,65 @@ class BotSpecificationsArgs:
     @slot_type_name.setter
     def slot_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "slot_type_name", value)
+
+
+if not MYPY:
+    class BotSpeechModelConfigArgsDict(TypedDict):
+        deepgram_config: NotRequired[pulumi.Input['BotDeepgramSpeechModelConfigArgsDict']]
+elif False:
+    BotSpeechModelConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotSpeechModelConfigArgs:
+    def __init__(__self__, *,
+                 deepgram_config: Optional[pulumi.Input['BotDeepgramSpeechModelConfigArgs']] = None):
+        if deepgram_config is not None:
+            pulumi.set(__self__, "deepgram_config", deepgram_config)
+
+    @_builtins.property
+    @pulumi.getter(name="deepgramConfig")
+    def deepgram_config(self) -> Optional[pulumi.Input['BotDeepgramSpeechModelConfigArgs']]:
+        return pulumi.get(self, "deepgram_config")
+
+    @deepgram_config.setter
+    def deepgram_config(self, value: Optional[pulumi.Input['BotDeepgramSpeechModelConfigArgs']]):
+        pulumi.set(self, "deepgram_config", value)
+
+
+if not MYPY:
+    class BotSpeechRecognitionSettingsArgsDict(TypedDict):
+        speech_model_config: NotRequired[pulumi.Input['BotSpeechModelConfigArgsDict']]
+        speech_model_preference: NotRequired[pulumi.Input['BotSpeechModelPreference']]
+elif False:
+    BotSpeechRecognitionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotSpeechRecognitionSettingsArgs:
+    def __init__(__self__, *,
+                 speech_model_config: Optional[pulumi.Input['BotSpeechModelConfigArgs']] = None,
+                 speech_model_preference: Optional[pulumi.Input['BotSpeechModelPreference']] = None):
+        if speech_model_config is not None:
+            pulumi.set(__self__, "speech_model_config", speech_model_config)
+        if speech_model_preference is not None:
+            pulumi.set(__self__, "speech_model_preference", speech_model_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="speechModelConfig")
+    def speech_model_config(self) -> Optional[pulumi.Input['BotSpeechModelConfigArgs']]:
+        return pulumi.get(self, "speech_model_config")
+
+    @speech_model_config.setter
+    def speech_model_config(self, value: Optional[pulumi.Input['BotSpeechModelConfigArgs']]):
+        pulumi.set(self, "speech_model_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="speechModelPreference")
+    def speech_model_preference(self) -> Optional[pulumi.Input['BotSpeechModelPreference']]:
+        return pulumi.get(self, "speech_model_preference")
+
+    @speech_model_preference.setter
+    def speech_model_preference(self, value: Optional[pulumi.Input['BotSpeechModelPreference']]):
+        pulumi.set(self, "speech_model_preference", value)
 
 
 if not MYPY:

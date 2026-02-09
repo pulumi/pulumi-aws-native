@@ -15,6 +15,8 @@ __all__ = [
     'LogGroupClass',
     'MetricFilterMetricTransformationUnit',
     'QueryDefinitionQueryLanguage',
+    'ScheduledQueryLastExecutionStatus',
+    'ScheduledQueryState',
     'SubscriptionFilterDistribution',
     'TransformerEventSource',
     'TransformerOcsfVersion',
@@ -129,6 +131,20 @@ class QueryDefinitionQueryLanguage(_builtins.str, Enum):
     CWLI = "CWLI"
     SQL = "SQL"
     PPL = "PPL"
+
+
+@pulumi.type_token("aws-native:logs:ScheduledQueryLastExecutionStatus")
+class ScheduledQueryLastExecutionStatus(_builtins.str, Enum):
+    INVALID_QUERY = "InvalidQuery"
+    COMPLETE = "Complete"
+    FAILED = "Failed"
+    TIMEOUT = "Timeout"
+
+
+@pulumi.type_token("aws-native:logs:ScheduledQueryState")
+class ScheduledQueryState(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:logs:SubscriptionFilterDistribution")

@@ -58,8 +58,6 @@ __all__ = [
     'ClusterLifeCycleConfigArgsDict',
     'ClusterOnDemandOptionsArgs',
     'ClusterOnDemandOptionsArgsDict',
-    'ClusterOrchestratorEksConfigArgs',
-    'ClusterOrchestratorEksConfigArgsDict',
     'ClusterOrchestratorArgs',
     'ClusterOrchestratorArgsDict',
     'ClusterRestrictedInstanceGroupArgs',
@@ -68,6 +66,8 @@ __all__ = [
     'ClusterRollingUpdatePolicyArgsDict',
     'ClusterScheduledUpdateConfigArgs',
     'ClusterScheduledUpdateConfigArgsDict',
+    'ClusterSlurmConfigArgs',
+    'ClusterSlurmConfigArgsDict',
     'ClusterSpotOptionsArgs',
     'ClusterSpotOptionsArgsDict',
     'ClusterTieredStorageConfigArgs',
@@ -1483,6 +1483,7 @@ if not MYPY:
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
         override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
         scheduled_update_config: NotRequired[pulumi.Input['ClusterScheduledUpdateConfigArgsDict']]
+        slurm_config: NotRequired[pulumi.Input['ClusterSlurmConfigArgsDict']]
         threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
         """
         The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -1511,6 +1512,7 @@ class ClusterInstanceGroupArgs:
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
                  scheduled_update_config: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']] = None,
+                 slurm_config: Optional[pulumi.Input['ClusterSlurmConfigArgs']] = None,
                  threads_per_core: Optional[pulumi.Input[_builtins.int]] = None,
                  training_plan_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -1544,6 +1546,8 @@ class ClusterInstanceGroupArgs:
             pulumi.set(__self__, "override_vpc_config", override_vpc_config)
         if scheduled_update_config is not None:
             pulumi.set(__self__, "scheduled_update_config", scheduled_update_config)
+        if slurm_config is not None:
+            pulumi.set(__self__, "slurm_config", slurm_config)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
         if training_plan_arn is not None:
@@ -1683,6 +1687,15 @@ class ClusterInstanceGroupArgs:
     @scheduled_update_config.setter
     def scheduled_update_config(self, value: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']]):
         pulumi.set(self, "scheduled_update_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="slurmConfig")
+    def slurm_config(self) -> Optional[pulumi.Input['ClusterSlurmConfigArgs']]:
+        return pulumi.get(self, "slurm_config")
+
+    @slurm_config.setter
+    def slurm_config(self, value: Optional[pulumi.Input['ClusterSlurmConfigArgs']]):
+        pulumi.set(self, "slurm_config", value)
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
@@ -1916,73 +1929,21 @@ class ClusterOnDemandOptionsArgs:
 
 
 if not MYPY:
-    class ClusterOrchestratorEksConfigArgsDict(TypedDict):
-        """
-        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-        """
-        cluster_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-        """
-elif False:
-    ClusterOrchestratorEksConfigArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ClusterOrchestratorEksConfigArgs:
-    def __init__(__self__, *,
-                 cluster_arn: pulumi.Input[_builtins.str]):
-        """
-        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-        :param pulumi.Input[_builtins.str] cluster_arn: The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-        """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterArn")
-    def cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-        """
-        return pulumi.get(self, "cluster_arn")
-
-    @cluster_arn.setter
-    def cluster_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_arn", value)
-
-
-if not MYPY:
     class ClusterOrchestratorArgsDict(TypedDict):
         """
-        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
         """
-        eks: pulumi.Input['ClusterOrchestratorEksConfigArgsDict']
-        """
-        The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-        """
+        pass
 elif False:
     ClusterOrchestratorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterOrchestratorArgs:
-    def __init__(__self__, *,
-                 eks: pulumi.Input['ClusterOrchestratorEksConfigArgs']):
+    def __init__(__self__):
         """
-        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
-        :param pulumi.Input['ClusterOrchestratorEksConfigArgs'] eks: The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
+        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
         """
-        pulumi.set(__self__, "eks", eks)
-
-    @_builtins.property
-    @pulumi.getter
-    def eks(self) -> pulumi.Input['ClusterOrchestratorEksConfigArgs']:
-        """
-        The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-        """
-        return pulumi.get(self, "eks")
-
-    @eks.setter
-    def eks(self, value: pulumi.Input['ClusterOrchestratorEksConfigArgs']):
-        pulumi.set(self, "eks", value)
+        pass
 
 
 if not MYPY:
@@ -2254,6 +2215,61 @@ class ClusterScheduledUpdateConfigArgs:
     @deployment_config.setter
     def deployment_config(self, value: Optional[pulumi.Input['ClusterDeploymentConfigArgs']]):
         pulumi.set(self, "deployment_config", value)
+
+
+if not MYPY:
+    class ClusterSlurmConfigArgsDict(TypedDict):
+        """
+        Slurm configuration for the instance group.
+        """
+        node_type: pulumi.Input['ClusterSlurmConfigNodeType']
+        """
+        The type of Slurm node for this instance group.
+        """
+        partition_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+        """
+elif False:
+    ClusterSlurmConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterSlurmConfigArgs:
+    def __init__(__self__, *,
+                 node_type: pulumi.Input['ClusterSlurmConfigNodeType'],
+                 partition_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Slurm configuration for the instance group.
+        :param pulumi.Input['ClusterSlurmConfigNodeType'] node_type: The type of Slurm node for this instance group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_names: The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+        """
+        pulumi.set(__self__, "node_type", node_type)
+        if partition_names is not None:
+            pulumi.set(__self__, "partition_names", partition_names)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input['ClusterSlurmConfigNodeType']:
+        """
+        The type of Slurm node for this instance group.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input['ClusterSlurmConfigNodeType']):
+        pulumi.set(self, "node_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionNames")
+    def partition_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+        """
+        return pulumi.get(self, "partition_names")
+
+    @partition_names.setter
+    def partition_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "partition_names", value)
 
 
 if not MYPY:

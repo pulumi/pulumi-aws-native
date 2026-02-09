@@ -50,8 +50,6 @@ export interface GetGlobalTableResult {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     readonly globalSecondaryIndexes?: outputs.dynamodb.GlobalTableGlobalSecondaryIndex[];
-    readonly globalTableReadOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableReadOnDemandThroughputSettings;
-    readonly globalTableReadProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableGlobalReadProvisionedThroughputSettings;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */
@@ -75,6 +73,8 @@ export interface GetGlobalTableResult {
      * If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
      */
     readonly multiRegionConsistency?: enums.dynamodb.GlobalTableMultiRegionConsistency;
+    readonly readOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableReadOnDemandThroughputSettings;
+    readonly readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableGlobalReadProvisionedThroughputSettings;
     /**
      * Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
      *

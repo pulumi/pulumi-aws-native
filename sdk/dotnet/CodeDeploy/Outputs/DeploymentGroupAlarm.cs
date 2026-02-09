@@ -7,24 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Outputs
+namespace Pulumi.AwsNative.CodeDeploy.Outputs
 {
 
     /// <summary>
-    /// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+    /// Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
     /// </summary>
     [OutputType]
-    public sealed class ClusterOrchestratorEksConfig
+    public sealed class DeploymentGroupAlarm
     {
         /// <summary>
-        /// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+        /// The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
         /// </summary>
-        public readonly string ClusterArn;
+        public readonly string? Name;
 
         [OutputConstructor]
-        private ClusterOrchestratorEksConfig(string clusterArn)
+        private DeploymentGroupAlarm(string? name)
         {
-            ClusterArn = clusterArn;
+            Name = name;
         }
     }
 }

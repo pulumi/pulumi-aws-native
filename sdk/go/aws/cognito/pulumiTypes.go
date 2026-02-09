@@ -3584,6 +3584,154 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolInboundFederation struct {
+	LambdaArn     *string `pulumi:"lambdaArn"`
+	LambdaVersion *string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolInboundFederationInput is an input type that accepts UserPoolInboundFederationArgs and UserPoolInboundFederationOutput values.
+// You can construct a concrete instance of `UserPoolInboundFederationInput` via:
+//
+//	UserPoolInboundFederationArgs{...}
+type UserPoolInboundFederationInput interface {
+	pulumi.Input
+
+	ToUserPoolInboundFederationOutput() UserPoolInboundFederationOutput
+	ToUserPoolInboundFederationOutputWithContext(context.Context) UserPoolInboundFederationOutput
+}
+
+type UserPoolInboundFederationArgs struct {
+	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolInboundFederationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolInboundFederation)(nil)).Elem()
+}
+
+func (i UserPoolInboundFederationArgs) ToUserPoolInboundFederationOutput() UserPoolInboundFederationOutput {
+	return i.ToUserPoolInboundFederationOutputWithContext(context.Background())
+}
+
+func (i UserPoolInboundFederationArgs) ToUserPoolInboundFederationOutputWithContext(ctx context.Context) UserPoolInboundFederationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolInboundFederationOutput)
+}
+
+func (i UserPoolInboundFederationArgs) ToUserPoolInboundFederationPtrOutput() UserPoolInboundFederationPtrOutput {
+	return i.ToUserPoolInboundFederationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolInboundFederationArgs) ToUserPoolInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolInboundFederationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolInboundFederationOutput).ToUserPoolInboundFederationPtrOutputWithContext(ctx)
+}
+
+// UserPoolInboundFederationPtrInput is an input type that accepts UserPoolInboundFederationArgs, UserPoolInboundFederationPtr and UserPoolInboundFederationPtrOutput values.
+// You can construct a concrete instance of `UserPoolInboundFederationPtrInput` via:
+//
+//	        UserPoolInboundFederationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolInboundFederationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolInboundFederationPtrOutput() UserPoolInboundFederationPtrOutput
+	ToUserPoolInboundFederationPtrOutputWithContext(context.Context) UserPoolInboundFederationPtrOutput
+}
+
+type userPoolInboundFederationPtrType UserPoolInboundFederationArgs
+
+func UserPoolInboundFederationPtr(v *UserPoolInboundFederationArgs) UserPoolInboundFederationPtrInput {
+	return (*userPoolInboundFederationPtrType)(v)
+}
+
+func (*userPoolInboundFederationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolInboundFederation)(nil)).Elem()
+}
+
+func (i *userPoolInboundFederationPtrType) ToUserPoolInboundFederationPtrOutput() UserPoolInboundFederationPtrOutput {
+	return i.ToUserPoolInboundFederationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolInboundFederationPtrType) ToUserPoolInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolInboundFederationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolInboundFederationPtrOutput)
+}
+
+type UserPoolInboundFederationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolInboundFederationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolInboundFederation)(nil)).Elem()
+}
+
+func (o UserPoolInboundFederationOutput) ToUserPoolInboundFederationOutput() UserPoolInboundFederationOutput {
+	return o
+}
+
+func (o UserPoolInboundFederationOutput) ToUserPoolInboundFederationOutputWithContext(ctx context.Context) UserPoolInboundFederationOutput {
+	return o
+}
+
+func (o UserPoolInboundFederationOutput) ToUserPoolInboundFederationPtrOutput() UserPoolInboundFederationPtrOutput {
+	return o.ToUserPoolInboundFederationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolInboundFederationOutput) ToUserPoolInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolInboundFederationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolInboundFederation) *UserPoolInboundFederation {
+		return &v
+	}).(UserPoolInboundFederationPtrOutput)
+}
+
+func (o UserPoolInboundFederationOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolInboundFederation) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolInboundFederationOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolInboundFederation) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolInboundFederationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolInboundFederationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolInboundFederation)(nil)).Elem()
+}
+
+func (o UserPoolInboundFederationPtrOutput) ToUserPoolInboundFederationPtrOutput() UserPoolInboundFederationPtrOutput {
+	return o
+}
+
+func (o UserPoolInboundFederationPtrOutput) ToUserPoolInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolInboundFederationPtrOutput {
+	return o
+}
+
+func (o UserPoolInboundFederationPtrOutput) Elem() UserPoolInboundFederationOutput {
+	return o.ApplyT(func(v *UserPoolInboundFederation) UserPoolInboundFederation {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolInboundFederation
+		return ret
+	}).(UserPoolInboundFederationOutput)
+}
+
+func (o UserPoolInboundFederationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolInboundFederation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolInboundFederationPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolInboundFederation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserPoolInviteMessageTemplate struct {
 	// The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 	EmailMessage *string `pulumi:"emailMessage"`
@@ -3769,7 +3917,8 @@ type UserPoolLambdaConfig struct {
 	// The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
 	CustomSmsSender *UserPoolCustomSmsSender `pulumi:"customSmsSender"`
 	// The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-	DefineAuthChallenge *string `pulumi:"defineAuthChallenge"`
+	DefineAuthChallenge *string                    `pulumi:"defineAuthChallenge"`
+	InboundFederation   *UserPoolInboundFederation `pulumi:"inboundFederation"`
 	// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
@@ -3813,7 +3962,8 @@ type UserPoolLambdaConfigArgs struct {
 	// The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
 	CustomSmsSender UserPoolCustomSmsSenderPtrInput `pulumi:"customSmsSender"`
 	// The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-	DefineAuthChallenge pulumi.StringPtrInput `pulumi:"defineAuthChallenge"`
+	DefineAuthChallenge pulumi.StringPtrInput             `pulumi:"defineAuthChallenge"`
+	InboundFederation   UserPoolInboundFederationPtrInput `pulumi:"inboundFederation"`
 	// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
@@ -3938,6 +4088,10 @@ func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
+func (o UserPoolLambdaConfigOutput) InboundFederation() UserPoolInboundFederationPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolInboundFederation { return v.InboundFederation }).(UserPoolInboundFederationPtrOutput)
+}
+
 // The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
 func (o UserPoolLambdaConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -4057,6 +4211,15 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 		}
 		return v.DefineAuthChallenge
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolLambdaConfigPtrOutput) InboundFederation() UserPoolInboundFederationPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolInboundFederation {
+		if v == nil {
+			return nil
+		}
+		return v.InboundFederation
+	}).(UserPoolInboundFederationPtrOutput)
 }
 
 // The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
@@ -7843,6 +8006,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainCustomDomainConfigTypePtrInput)(nil)).Elem(), UserPoolDomainCustomDomainConfigTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationPtrInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInboundFederationInput)(nil)).Elem(), UserPoolInboundFederationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInboundFederationPtrInput)(nil)).Elem(), UserPoolInboundFederationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInviteMessageTemplateInput)(nil)).Elem(), UserPoolInviteMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInviteMessageTemplatePtrInput)(nil)).Elem(), UserPoolInviteMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigInput)(nil)).Elem(), UserPoolLambdaConfigArgs{})
@@ -7937,6 +8102,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolDomainCustomDomainConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolInboundFederationOutput{})
+	pulumi.RegisterOutputType(UserPoolInboundFederationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolInviteMessageTemplateOutput{})
 	pulumi.RegisterOutputType(UserPoolInviteMessageTemplatePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigOutput{})

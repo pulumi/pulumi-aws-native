@@ -1068,6 +1068,3568 @@ func (o DeploymentConfigZonalConfigPtrOutput) MonitorDurationInSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
+type DeploymentGroupAlarm struct {
+	// The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+	Name *string `pulumi:"name"`
+}
+
+// DeploymentGroupAlarmInput is an input type that accepts DeploymentGroupAlarmArgs and DeploymentGroupAlarmOutput values.
+// You can construct a concrete instance of `DeploymentGroupAlarmInput` via:
+//
+//	DeploymentGroupAlarmArgs{...}
+type DeploymentGroupAlarmInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAlarmOutput() DeploymentGroupAlarmOutput
+	ToDeploymentGroupAlarmOutputWithContext(context.Context) DeploymentGroupAlarmOutput
+}
+
+// Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
+type DeploymentGroupAlarmArgs struct {
+	// The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DeploymentGroupAlarmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupAlarm)(nil)).Elem()
+}
+
+func (i DeploymentGroupAlarmArgs) ToDeploymentGroupAlarmOutput() DeploymentGroupAlarmOutput {
+	return i.ToDeploymentGroupAlarmOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupAlarmArgs) ToDeploymentGroupAlarmOutputWithContext(ctx context.Context) DeploymentGroupAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmOutput)
+}
+
+// DeploymentGroupAlarmArrayInput is an input type that accepts DeploymentGroupAlarmArray and DeploymentGroupAlarmArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupAlarmArrayInput` via:
+//
+//	DeploymentGroupAlarmArray{ DeploymentGroupAlarmArgs{...} }
+type DeploymentGroupAlarmArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAlarmArrayOutput() DeploymentGroupAlarmArrayOutput
+	ToDeploymentGroupAlarmArrayOutputWithContext(context.Context) DeploymentGroupAlarmArrayOutput
+}
+
+type DeploymentGroupAlarmArray []DeploymentGroupAlarmInput
+
+func (DeploymentGroupAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupAlarm)(nil)).Elem()
+}
+
+func (i DeploymentGroupAlarmArray) ToDeploymentGroupAlarmArrayOutput() DeploymentGroupAlarmArrayOutput {
+	return i.ToDeploymentGroupAlarmArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupAlarmArray) ToDeploymentGroupAlarmArrayOutputWithContext(ctx context.Context) DeploymentGroupAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmArrayOutput)
+}
+
+// Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
+type DeploymentGroupAlarmOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupAlarm)(nil)).Elem()
+}
+
+func (o DeploymentGroupAlarmOutput) ToDeploymentGroupAlarmOutput() DeploymentGroupAlarmOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmOutput) ToDeploymentGroupAlarmOutputWithContext(ctx context.Context) DeploymentGroupAlarmOutput {
+	return o
+}
+
+// The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+func (o DeploymentGroupAlarmOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupAlarm) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupAlarmArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupAlarm)(nil)).Elem()
+}
+
+func (o DeploymentGroupAlarmArrayOutput) ToDeploymentGroupAlarmArrayOutput() DeploymentGroupAlarmArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmArrayOutput) ToDeploymentGroupAlarmArrayOutputWithContext(ctx context.Context) DeploymentGroupAlarmArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmArrayOutput) Index(i pulumi.IntInput) DeploymentGroupAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupAlarm {
+		return vs[0].([]DeploymentGroupAlarm)[vs[1].(int)]
+	}).(DeploymentGroupAlarmOutput)
+}
+
+// Configures CloudWatch alarms for an AWS CodeDeploy deployment group.
+type DeploymentGroupAlarmConfiguration struct {
+	// A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
+	Alarms []DeploymentGroupAlarm `pulumi:"alarms"`
+	// Indicates whether the alarm configuration is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
+	IgnorePollAlarmFailure *bool `pulumi:"ignorePollAlarmFailure"`
+}
+
+// DeploymentGroupAlarmConfigurationInput is an input type that accepts DeploymentGroupAlarmConfigurationArgs and DeploymentGroupAlarmConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentGroupAlarmConfigurationInput` via:
+//
+//	DeploymentGroupAlarmConfigurationArgs{...}
+type DeploymentGroupAlarmConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAlarmConfigurationOutput() DeploymentGroupAlarmConfigurationOutput
+	ToDeploymentGroupAlarmConfigurationOutputWithContext(context.Context) DeploymentGroupAlarmConfigurationOutput
+}
+
+// Configures CloudWatch alarms for an AWS CodeDeploy deployment group.
+type DeploymentGroupAlarmConfigurationArgs struct {
+	// A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
+	Alarms DeploymentGroupAlarmArrayInput `pulumi:"alarms"`
+	// Indicates whether the alarm configuration is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
+	IgnorePollAlarmFailure pulumi.BoolPtrInput `pulumi:"ignorePollAlarmFailure"`
+}
+
+func (DeploymentGroupAlarmConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupAlarmConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationOutput() DeploymentGroupAlarmConfigurationOutput {
+	return i.ToDeploymentGroupAlarmConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationOutput)
+}
+
+func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationPtrOutput() DeploymentGroupAlarmConfigurationPtrOutput {
+	return i.ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationOutput).ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupAlarmConfigurationPtrInput is an input type that accepts DeploymentGroupAlarmConfigurationArgs, DeploymentGroupAlarmConfigurationPtr and DeploymentGroupAlarmConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupAlarmConfigurationPtrInput` via:
+//
+//	        DeploymentGroupAlarmConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupAlarmConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAlarmConfigurationPtrOutput() DeploymentGroupAlarmConfigurationPtrOutput
+	ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(context.Context) DeploymentGroupAlarmConfigurationPtrOutput
+}
+
+type deploymentGroupAlarmConfigurationPtrType DeploymentGroupAlarmConfigurationArgs
+
+func DeploymentGroupAlarmConfigurationPtr(v *DeploymentGroupAlarmConfigurationArgs) DeploymentGroupAlarmConfigurationPtrInput {
+	return (*deploymentGroupAlarmConfigurationPtrType)(v)
+}
+
+func (*deploymentGroupAlarmConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupAlarmConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentGroupAlarmConfigurationPtrType) ToDeploymentGroupAlarmConfigurationPtrOutput() DeploymentGroupAlarmConfigurationPtrOutput {
+	return i.ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupAlarmConfigurationPtrType) ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationPtrOutput)
+}
+
+// Configures CloudWatch alarms for an AWS CodeDeploy deployment group.
+type DeploymentGroupAlarmConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupAlarmConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupAlarmConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationOutput() DeploymentGroupAlarmConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationPtrOutput() DeploymentGroupAlarmConfigurationPtrOutput {
+	return o.ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupAlarmConfiguration) *DeploymentGroupAlarmConfiguration {
+		return &v
+	}).(DeploymentGroupAlarmConfigurationPtrOutput)
+}
+
+// A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
+func (o DeploymentGroupAlarmConfigurationOutput) Alarms() DeploymentGroupAlarmArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) []DeploymentGroupAlarm { return v.Alarms }).(DeploymentGroupAlarmArrayOutput)
+}
+
+// Indicates whether the alarm configuration is enabled.
+func (o DeploymentGroupAlarmConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
+func (o DeploymentGroupAlarmConfigurationOutput) IgnorePollAlarmFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *bool { return v.IgnorePollAlarmFailure }).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentGroupAlarmConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupAlarmConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupAlarmConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentGroupAlarmConfigurationPtrOutput) ToDeploymentGroupAlarmConfigurationPtrOutput() DeploymentGroupAlarmConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmConfigurationPtrOutput) ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmConfigurationPtrOutput) Elem() DeploymentGroupAlarmConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) DeploymentGroupAlarmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupAlarmConfiguration
+		return ret
+	}).(DeploymentGroupAlarmConfigurationOutput)
+}
+
+// A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
+func (o DeploymentGroupAlarmConfigurationPtrOutput) Alarms() DeploymentGroupAlarmArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) []DeploymentGroupAlarm {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(DeploymentGroupAlarmArrayOutput)
+}
+
+// Indicates whether the alarm configuration is enabled.
+func (o DeploymentGroupAlarmConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
+func (o DeploymentGroupAlarmConfigurationPtrOutput) IgnorePollAlarmFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnorePollAlarmFailure
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
+type DeploymentGroupAutoRollbackConfiguration struct {
+	// Indicates whether a defined automatic rollback configuration is currently enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The event type or types that trigger a rollback.
+	Events []string `pulumi:"events"`
+}
+
+// DeploymentGroupAutoRollbackConfigurationInput is an input type that accepts DeploymentGroupAutoRollbackConfigurationArgs and DeploymentGroupAutoRollbackConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentGroupAutoRollbackConfigurationInput` via:
+//
+//	DeploymentGroupAutoRollbackConfigurationArgs{...}
+type DeploymentGroupAutoRollbackConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAutoRollbackConfigurationOutput() DeploymentGroupAutoRollbackConfigurationOutput
+	ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(context.Context) DeploymentGroupAutoRollbackConfigurationOutput
+}
+
+// Configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
+type DeploymentGroupAutoRollbackConfigurationArgs struct {
+	// Indicates whether a defined automatic rollback configuration is currently enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The event type or types that trigger a rollback.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+}
+
+func (DeploymentGroupAutoRollbackConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationOutput() DeploymentGroupAutoRollbackConfigurationOutput {
+	return i.ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationOutput)
+}
+
+func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationPtrOutput() DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return i.ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationOutput).ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupAutoRollbackConfigurationPtrInput is an input type that accepts DeploymentGroupAutoRollbackConfigurationArgs, DeploymentGroupAutoRollbackConfigurationPtr and DeploymentGroupAutoRollbackConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupAutoRollbackConfigurationPtrInput` via:
+//
+//	        DeploymentGroupAutoRollbackConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupAutoRollbackConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAutoRollbackConfigurationPtrOutput() DeploymentGroupAutoRollbackConfigurationPtrOutput
+	ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput
+}
+
+type deploymentGroupAutoRollbackConfigurationPtrType DeploymentGroupAutoRollbackConfigurationArgs
+
+func DeploymentGroupAutoRollbackConfigurationPtr(v *DeploymentGroupAutoRollbackConfigurationArgs) DeploymentGroupAutoRollbackConfigurationPtrInput {
+	return (*deploymentGroupAutoRollbackConfigurationPtrType)(v)
+}
+
+func (*deploymentGroupAutoRollbackConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentGroupAutoRollbackConfigurationPtrType) ToDeploymentGroupAutoRollbackConfigurationPtrOutput() DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return i.ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupAutoRollbackConfigurationPtrType) ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
+}
+
+// Configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
+type DeploymentGroupAutoRollbackConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupAutoRollbackConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationOutput() DeploymentGroupAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationPtrOutput() DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return o.ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupAutoRollbackConfiguration) *DeploymentGroupAutoRollbackConfiguration {
+		return &v
+	}).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
+}
+
+// Indicates whether a defined automatic rollback configuration is currently enabled.
+func (o DeploymentGroupAutoRollbackConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The event type or types that trigger a rollback.
+func (o DeploymentGroupAutoRollbackConfigurationOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+type DeploymentGroupAutoRollbackConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupAutoRollbackConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToDeploymentGroupAutoRollbackConfigurationPtrOutput() DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Elem() DeploymentGroupAutoRollbackConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) DeploymentGroupAutoRollbackConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupAutoRollbackConfiguration
+		return ret
+	}).(DeploymentGroupAutoRollbackConfigurationOutput)
+}
+
+// Indicates whether a defined automatic rollback configuration is currently enabled.
+func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The event type or types that trigger a rollback.
+func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// Information about blue/green deployment options for a deployment group.
+type DeploymentGroupBlueGreenDeploymentConfiguration struct {
+	// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
+	DeploymentReadyOption *DeploymentGroupDeploymentReadyOption `pulumi:"deploymentReadyOption"`
+	// Information about how instances are provisioned for a replacement environment in a blue/green deployment.
+	GreenFleetProvisioningOption *DeploymentGroupGreenFleetProvisioningOption `pulumi:"greenFleetProvisioningOption"`
+	// Information about whether to terminate instances in the original fleet during a blue/green deployment.
+	TerminateBlueInstancesOnDeploymentSuccess *DeploymentGroupBlueInstanceTerminationOption `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
+}
+
+// DeploymentGroupBlueGreenDeploymentConfigurationInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigurationArgs and DeploymentGroupBlueGreenDeploymentConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigurationInput` via:
+//
+//	DeploymentGroupBlueGreenDeploymentConfigurationArgs{...}
+type DeploymentGroupBlueGreenDeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueGreenDeploymentConfigurationOutput() DeploymentGroupBlueGreenDeploymentConfigurationOutput
+	ToDeploymentGroupBlueGreenDeploymentConfigurationOutputWithContext(context.Context) DeploymentGroupBlueGreenDeploymentConfigurationOutput
+}
+
+// Information about blue/green deployment options for a deployment group.
+type DeploymentGroupBlueGreenDeploymentConfigurationArgs struct {
+	// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
+	DeploymentReadyOption DeploymentGroupDeploymentReadyOptionPtrInput `pulumi:"deploymentReadyOption"`
+	// Information about how instances are provisioned for a replacement environment in a blue/green deployment.
+	GreenFleetProvisioningOption DeploymentGroupGreenFleetProvisioningOptionPtrInput `pulumi:"greenFleetProvisioningOption"`
+	// Information about whether to terminate instances in the original fleet during a blue/green deployment.
+	TerminateBlueInstancesOnDeploymentSuccess DeploymentGroupBlueInstanceTerminationOptionPtrInput `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentGroupBlueGreenDeploymentConfigurationArgs) ToDeploymentGroupBlueGreenDeploymentConfigurationOutput() DeploymentGroupBlueGreenDeploymentConfigurationOutput {
+	return i.ToDeploymentGroupBlueGreenDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupBlueGreenDeploymentConfigurationArgs) ToDeploymentGroupBlueGreenDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigurationOutput)
+}
+
+func (i DeploymentGroupBlueGreenDeploymentConfigurationArgs) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutput() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return i.ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupBlueGreenDeploymentConfigurationArgs) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigurationOutput).ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupBlueGreenDeploymentConfigurationPtrInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigurationArgs, DeploymentGroupBlueGreenDeploymentConfigurationPtr and DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigurationPtrInput` via:
+//
+//	        DeploymentGroupBlueGreenDeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupBlueGreenDeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutput() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput
+	ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(context.Context) DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput
+}
+
+type deploymentGroupBlueGreenDeploymentConfigurationPtrType DeploymentGroupBlueGreenDeploymentConfigurationArgs
+
+func DeploymentGroupBlueGreenDeploymentConfigurationPtr(v *DeploymentGroupBlueGreenDeploymentConfigurationArgs) DeploymentGroupBlueGreenDeploymentConfigurationPtrInput {
+	return (*deploymentGroupBlueGreenDeploymentConfigurationPtrType)(v)
+}
+
+func (*deploymentGroupBlueGreenDeploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupBlueGreenDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentGroupBlueGreenDeploymentConfigurationPtrType) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutput() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return i.ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupBlueGreenDeploymentConfigurationPtrType) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput)
+}
+
+// Information about blue/green deployment options for a deployment group.
+type DeploymentGroupBlueGreenDeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupBlueGreenDeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) ToDeploymentGroupBlueGreenDeploymentConfigurationOutput() DeploymentGroupBlueGreenDeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) ToDeploymentGroupBlueGreenDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutput() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return o.ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupBlueGreenDeploymentConfiguration {
+		return &v
+	}).(DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput)
+}
+
+// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) DeploymentReadyOption() DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupDeploymentReadyOption {
+		return v.DeploymentReadyOption
+	}).(DeploymentGroupDeploymentReadyOptionPtrOutput)
+}
+
+// Information about how instances are provisioned for a replacement environment in a blue/green deployment.
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) GreenFleetProvisioningOption() DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupGreenFleetProvisioningOption {
+		return v.GreenFleetProvisioningOption
+	}).(DeploymentGroupGreenFleetProvisioningOptionPtrOutput)
+}
+
+// Information about whether to terminate instances in the original fleet during a blue/green deployment.
+func (o DeploymentGroupBlueGreenDeploymentConfigurationOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupBlueInstanceTerminationOption {
+		return v.TerminateBlueInstancesOnDeploymentSuccess
+	}).(DeploymentGroupBlueInstanceTerminationOptionPtrOutput)
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupBlueGreenDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutput() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) ToDeploymentGroupBlueGreenDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfiguration) DeploymentGroupBlueGreenDeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupBlueGreenDeploymentConfiguration
+		return ret
+	}).(DeploymentGroupBlueGreenDeploymentConfigurationOutput)
+}
+
+// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
+func (o DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) DeploymentReadyOption() DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupDeploymentReadyOption {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentReadyOption
+	}).(DeploymentGroupDeploymentReadyOptionPtrOutput)
+}
+
+// Information about how instances are provisioned for a replacement environment in a blue/green deployment.
+func (o DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) GreenFleetProvisioningOption() DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupGreenFleetProvisioningOption {
+		if v == nil {
+			return nil
+		}
+		return v.GreenFleetProvisioningOption
+	}).(DeploymentGroupGreenFleetProvisioningOptionPtrOutput)
+}
+
+// Information about whether to terminate instances in the original fleet during a blue/green deployment.
+func (o DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfiguration) *DeploymentGroupBlueInstanceTerminationOption {
+		if v == nil {
+			return nil
+		}
+		return v.TerminateBlueInstancesOnDeploymentSuccess
+	}).(DeploymentGroupBlueInstanceTerminationOptionPtrOutput)
+}
+
+// Information about whether instances in the original environment are terminated when a blue/green deployment is successful. BlueInstanceTerminationOption does not apply to Lambda deployments.
+type DeploymentGroupBlueInstanceTerminationOption struct {
+	// The action to take on instances in the original environment after a successful blue/green deployment.
+	Action *string `pulumi:"action"`
+	// For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
+	TerminationWaitTimeInMinutes *int `pulumi:"terminationWaitTimeInMinutes"`
+}
+
+// DeploymentGroupBlueInstanceTerminationOptionInput is an input type that accepts DeploymentGroupBlueInstanceTerminationOptionArgs and DeploymentGroupBlueInstanceTerminationOptionOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueInstanceTerminationOptionInput` via:
+//
+//	DeploymentGroupBlueInstanceTerminationOptionArgs{...}
+type DeploymentGroupBlueInstanceTerminationOptionInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueInstanceTerminationOptionOutput() DeploymentGroupBlueInstanceTerminationOptionOutput
+	ToDeploymentGroupBlueInstanceTerminationOptionOutputWithContext(context.Context) DeploymentGroupBlueInstanceTerminationOptionOutput
+}
+
+// Information about whether instances in the original environment are terminated when a blue/green deployment is successful. BlueInstanceTerminationOption does not apply to Lambda deployments.
+type DeploymentGroupBlueInstanceTerminationOptionArgs struct {
+	// The action to take on instances in the original environment after a successful blue/green deployment.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
+	TerminationWaitTimeInMinutes pulumi.IntPtrInput `pulumi:"terminationWaitTimeInMinutes"`
+}
+
+func (DeploymentGroupBlueInstanceTerminationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupBlueInstanceTerminationOption)(nil)).Elem()
+}
+
+func (i DeploymentGroupBlueInstanceTerminationOptionArgs) ToDeploymentGroupBlueInstanceTerminationOptionOutput() DeploymentGroupBlueInstanceTerminationOptionOutput {
+	return i.ToDeploymentGroupBlueInstanceTerminationOptionOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupBlueInstanceTerminationOptionArgs) ToDeploymentGroupBlueInstanceTerminationOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueInstanceTerminationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueInstanceTerminationOptionOutput)
+}
+
+func (i DeploymentGroupBlueInstanceTerminationOptionArgs) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutput() DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return i.ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupBlueInstanceTerminationOptionArgs) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueInstanceTerminationOptionOutput).ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupBlueInstanceTerminationOptionPtrInput is an input type that accepts DeploymentGroupBlueInstanceTerminationOptionArgs, DeploymentGroupBlueInstanceTerminationOptionPtr and DeploymentGroupBlueInstanceTerminationOptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueInstanceTerminationOptionPtrInput` via:
+//
+//	        DeploymentGroupBlueInstanceTerminationOptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupBlueInstanceTerminationOptionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueInstanceTerminationOptionPtrOutput() DeploymentGroupBlueInstanceTerminationOptionPtrOutput
+	ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(context.Context) DeploymentGroupBlueInstanceTerminationOptionPtrOutput
+}
+
+type deploymentGroupBlueInstanceTerminationOptionPtrType DeploymentGroupBlueInstanceTerminationOptionArgs
+
+func DeploymentGroupBlueInstanceTerminationOptionPtr(v *DeploymentGroupBlueInstanceTerminationOptionArgs) DeploymentGroupBlueInstanceTerminationOptionPtrInput {
+	return (*deploymentGroupBlueInstanceTerminationOptionPtrType)(v)
+}
+
+func (*deploymentGroupBlueInstanceTerminationOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupBlueInstanceTerminationOption)(nil)).Elem()
+}
+
+func (i *deploymentGroupBlueInstanceTerminationOptionPtrType) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutput() DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return i.ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupBlueInstanceTerminationOptionPtrType) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueInstanceTerminationOptionPtrOutput)
+}
+
+// Information about whether instances in the original environment are terminated when a blue/green deployment is successful. BlueInstanceTerminationOption does not apply to Lambda deployments.
+type DeploymentGroupBlueInstanceTerminationOptionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupBlueInstanceTerminationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupBlueInstanceTerminationOption)(nil)).Elem()
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionOutput) ToDeploymentGroupBlueInstanceTerminationOptionOutput() DeploymentGroupBlueInstanceTerminationOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionOutput) ToDeploymentGroupBlueInstanceTerminationOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueInstanceTerminationOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionOutput) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutput() DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return o.ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionOutput) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueInstanceTerminationOption) *DeploymentGroupBlueInstanceTerminationOption {
+		return &v
+	}).(DeploymentGroupBlueInstanceTerminationOptionPtrOutput)
+}
+
+// The action to take on instances in the original environment after a successful blue/green deployment.
+func (o DeploymentGroupBlueInstanceTerminationOptionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupBlueInstanceTerminationOption) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
+func (o DeploymentGroupBlueInstanceTerminationOptionOutput) TerminationWaitTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupBlueInstanceTerminationOption) *int { return v.TerminationWaitTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentGroupBlueInstanceTerminationOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupBlueInstanceTerminationOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupBlueInstanceTerminationOption)(nil)).Elem()
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionPtrOutput) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutput() DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionPtrOutput) ToDeploymentGroupBlueInstanceTerminationOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueInstanceTerminationOptionPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueInstanceTerminationOptionPtrOutput) Elem() DeploymentGroupBlueInstanceTerminationOptionOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueInstanceTerminationOption) DeploymentGroupBlueInstanceTerminationOption {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupBlueInstanceTerminationOption
+		return ret
+	}).(DeploymentGroupBlueInstanceTerminationOptionOutput)
+}
+
+// The action to take on instances in the original environment after a successful blue/green deployment.
+func (o DeploymentGroupBlueInstanceTerminationOptionPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueInstanceTerminationOption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+// For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
+func (o DeploymentGroupBlueInstanceTerminationOptionPtrOutput) TerminationWaitTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupBlueInstanceTerminationOption) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationWaitTimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies an AWS CodeDeploy application revision to be deployed to instances in the deployment group. If you specify an application revision, your target revision is deployed as soon as the provisioning process is complete.
+type DeploymentGroupDeployment struct {
+	// A description of the deployment.
+	Description *string `pulumi:"description"`
+	// If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
+	IgnoreApplicationStopFailures *bool `pulumi:"ignoreApplicationStopFailures"`
+	// Information about the location of stored application artifacts and the service from which to retrieve them.
+	Revision DeploymentGroupRevisionLocation `pulumi:"revision"`
+}
+
+// DeploymentGroupDeploymentInput is an input type that accepts DeploymentGroupDeploymentArgs and DeploymentGroupDeploymentOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentInput` via:
+//
+//	DeploymentGroupDeploymentArgs{...}
+type DeploymentGroupDeploymentInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentOutput() DeploymentGroupDeploymentOutput
+	ToDeploymentGroupDeploymentOutputWithContext(context.Context) DeploymentGroupDeploymentOutput
+}
+
+// Specifies an AWS CodeDeploy application revision to be deployed to instances in the deployment group. If you specify an application revision, your target revision is deployed as soon as the provisioning process is complete.
+type DeploymentGroupDeploymentArgs struct {
+	// A description of the deployment.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
+	IgnoreApplicationStopFailures pulumi.BoolPtrInput `pulumi:"ignoreApplicationStopFailures"`
+	// Information about the location of stored application artifacts and the service from which to retrieve them.
+	Revision DeploymentGroupRevisionLocationInput `pulumi:"revision"`
+}
+
+func (DeploymentGroupDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupDeployment)(nil)).Elem()
+}
+
+func (i DeploymentGroupDeploymentArgs) ToDeploymentGroupDeploymentOutput() DeploymentGroupDeploymentOutput {
+	return i.ToDeploymentGroupDeploymentOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupDeploymentArgs) ToDeploymentGroupDeploymentOutputWithContext(ctx context.Context) DeploymentGroupDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentOutput)
+}
+
+func (i DeploymentGroupDeploymentArgs) ToDeploymentGroupDeploymentPtrOutput() DeploymentGroupDeploymentPtrOutput {
+	return i.ToDeploymentGroupDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupDeploymentArgs) ToDeploymentGroupDeploymentPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentOutput).ToDeploymentGroupDeploymentPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupDeploymentPtrInput is an input type that accepts DeploymentGroupDeploymentArgs, DeploymentGroupDeploymentPtr and DeploymentGroupDeploymentPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentPtrInput` via:
+//
+//	        DeploymentGroupDeploymentArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentPtrOutput() DeploymentGroupDeploymentPtrOutput
+	ToDeploymentGroupDeploymentPtrOutputWithContext(context.Context) DeploymentGroupDeploymentPtrOutput
+}
+
+type deploymentGroupDeploymentPtrType DeploymentGroupDeploymentArgs
+
+func DeploymentGroupDeploymentPtr(v *DeploymentGroupDeploymentArgs) DeploymentGroupDeploymentPtrInput {
+	return (*deploymentGroupDeploymentPtrType)(v)
+}
+
+func (*deploymentGroupDeploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupDeployment)(nil)).Elem()
+}
+
+func (i *deploymentGroupDeploymentPtrType) ToDeploymentGroupDeploymentPtrOutput() DeploymentGroupDeploymentPtrOutput {
+	return i.ToDeploymentGroupDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupDeploymentPtrType) ToDeploymentGroupDeploymentPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentPtrOutput)
+}
+
+// Specifies an AWS CodeDeploy application revision to be deployed to instances in the deployment group. If you specify an application revision, your target revision is deployed as soon as the provisioning process is complete.
+type DeploymentGroupDeploymentOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupDeployment)(nil)).Elem()
+}
+
+func (o DeploymentGroupDeploymentOutput) ToDeploymentGroupDeploymentOutput() DeploymentGroupDeploymentOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentOutput) ToDeploymentGroupDeploymentOutputWithContext(ctx context.Context) DeploymentGroupDeploymentOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentOutput) ToDeploymentGroupDeploymentPtrOutput() DeploymentGroupDeploymentPtrOutput {
+	return o.ToDeploymentGroupDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupDeploymentOutput) ToDeploymentGroupDeploymentPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupDeployment) *DeploymentGroupDeployment {
+		return &v
+	}).(DeploymentGroupDeploymentPtrOutput)
+}
+
+// A description of the deployment.
+func (o DeploymentGroupDeploymentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupDeployment) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
+func (o DeploymentGroupDeploymentOutput) IgnoreApplicationStopFailures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupDeployment) *bool { return v.IgnoreApplicationStopFailures }).(pulumi.BoolPtrOutput)
+}
+
+// Information about the location of stored application artifacts and the service from which to retrieve them.
+func (o DeploymentGroupDeploymentOutput) Revision() DeploymentGroupRevisionLocationOutput {
+	return o.ApplyT(func(v DeploymentGroupDeployment) DeploymentGroupRevisionLocation { return v.Revision }).(DeploymentGroupRevisionLocationOutput)
+}
+
+type DeploymentGroupDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupDeployment)(nil)).Elem()
+}
+
+func (o DeploymentGroupDeploymentPtrOutput) ToDeploymentGroupDeploymentPtrOutput() DeploymentGroupDeploymentPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentPtrOutput) ToDeploymentGroupDeploymentPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentPtrOutput) Elem() DeploymentGroupDeploymentOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeployment) DeploymentGroupDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupDeployment
+		return ret
+	}).(DeploymentGroupDeploymentOutput)
+}
+
+// A description of the deployment.
+func (o DeploymentGroupDeploymentPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeployment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
+func (o DeploymentGroupDeploymentPtrOutput) IgnoreApplicationStopFailures() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeployment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreApplicationStopFailures
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Information about the location of stored application artifacts and the service from which to retrieve them.
+func (o DeploymentGroupDeploymentPtrOutput) Revision() DeploymentGroupRevisionLocationPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeployment) *DeploymentGroupRevisionLocation {
+		if v == nil {
+			return nil
+		}
+		return &v.Revision
+	}).(DeploymentGroupRevisionLocationPtrOutput)
+}
+
+// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+type DeploymentGroupDeploymentReadyOption struct {
+	// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+	ActionOnTimeout *string `pulumi:"actionOnTimeout"`
+	// The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+	WaitTimeInMinutes *int `pulumi:"waitTimeInMinutes"`
+}
+
+// DeploymentGroupDeploymentReadyOptionInput is an input type that accepts DeploymentGroupDeploymentReadyOptionArgs and DeploymentGroupDeploymentReadyOptionOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentReadyOptionInput` via:
+//
+//	DeploymentGroupDeploymentReadyOptionArgs{...}
+type DeploymentGroupDeploymentReadyOptionInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentReadyOptionOutput() DeploymentGroupDeploymentReadyOptionOutput
+	ToDeploymentGroupDeploymentReadyOptionOutputWithContext(context.Context) DeploymentGroupDeploymentReadyOptionOutput
+}
+
+// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+type DeploymentGroupDeploymentReadyOptionArgs struct {
+	// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+	ActionOnTimeout pulumi.StringPtrInput `pulumi:"actionOnTimeout"`
+	// The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+	WaitTimeInMinutes pulumi.IntPtrInput `pulumi:"waitTimeInMinutes"`
+}
+
+func (DeploymentGroupDeploymentReadyOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupDeploymentReadyOption)(nil)).Elem()
+}
+
+func (i DeploymentGroupDeploymentReadyOptionArgs) ToDeploymentGroupDeploymentReadyOptionOutput() DeploymentGroupDeploymentReadyOptionOutput {
+	return i.ToDeploymentGroupDeploymentReadyOptionOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupDeploymentReadyOptionArgs) ToDeploymentGroupDeploymentReadyOptionOutputWithContext(ctx context.Context) DeploymentGroupDeploymentReadyOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentReadyOptionOutput)
+}
+
+func (i DeploymentGroupDeploymentReadyOptionArgs) ToDeploymentGroupDeploymentReadyOptionPtrOutput() DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return i.ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupDeploymentReadyOptionArgs) ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentReadyOptionOutput).ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupDeploymentReadyOptionPtrInput is an input type that accepts DeploymentGroupDeploymentReadyOptionArgs, DeploymentGroupDeploymentReadyOptionPtr and DeploymentGroupDeploymentReadyOptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentReadyOptionPtrInput` via:
+//
+//	        DeploymentGroupDeploymentReadyOptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupDeploymentReadyOptionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentReadyOptionPtrOutput() DeploymentGroupDeploymentReadyOptionPtrOutput
+	ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(context.Context) DeploymentGroupDeploymentReadyOptionPtrOutput
+}
+
+type deploymentGroupDeploymentReadyOptionPtrType DeploymentGroupDeploymentReadyOptionArgs
+
+func DeploymentGroupDeploymentReadyOptionPtr(v *DeploymentGroupDeploymentReadyOptionArgs) DeploymentGroupDeploymentReadyOptionPtrInput {
+	return (*deploymentGroupDeploymentReadyOptionPtrType)(v)
+}
+
+func (*deploymentGroupDeploymentReadyOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupDeploymentReadyOption)(nil)).Elem()
+}
+
+func (i *deploymentGroupDeploymentReadyOptionPtrType) ToDeploymentGroupDeploymentReadyOptionPtrOutput() DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return i.ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupDeploymentReadyOptionPtrType) ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentReadyOptionPtrOutput)
+}
+
+// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+type DeploymentGroupDeploymentReadyOptionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupDeploymentReadyOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupDeploymentReadyOption)(nil)).Elem()
+}
+
+func (o DeploymentGroupDeploymentReadyOptionOutput) ToDeploymentGroupDeploymentReadyOptionOutput() DeploymentGroupDeploymentReadyOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentReadyOptionOutput) ToDeploymentGroupDeploymentReadyOptionOutputWithContext(ctx context.Context) DeploymentGroupDeploymentReadyOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentReadyOptionOutput) ToDeploymentGroupDeploymentReadyOptionPtrOutput() DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return o.ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupDeploymentReadyOptionOutput) ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupDeploymentReadyOption) *DeploymentGroupDeploymentReadyOption {
+		return &v
+	}).(DeploymentGroupDeploymentReadyOptionPtrOutput)
+}
+
+// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+func (o DeploymentGroupDeploymentReadyOptionOutput) ActionOnTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupDeploymentReadyOption) *string { return v.ActionOnTimeout }).(pulumi.StringPtrOutput)
+}
+
+// The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+func (o DeploymentGroupDeploymentReadyOptionOutput) WaitTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupDeploymentReadyOption) *int { return v.WaitTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentGroupDeploymentReadyOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupDeploymentReadyOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupDeploymentReadyOption)(nil)).Elem()
+}
+
+func (o DeploymentGroupDeploymentReadyOptionPtrOutput) ToDeploymentGroupDeploymentReadyOptionPtrOutput() DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentReadyOptionPtrOutput) ToDeploymentGroupDeploymentReadyOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentReadyOptionPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentReadyOptionPtrOutput) Elem() DeploymentGroupDeploymentReadyOptionOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeploymentReadyOption) DeploymentGroupDeploymentReadyOption {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupDeploymentReadyOption
+		return ret
+	}).(DeploymentGroupDeploymentReadyOptionOutput)
+}
+
+// Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+func (o DeploymentGroupDeploymentReadyOptionPtrOutput) ActionOnTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeploymentReadyOption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionOnTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+func (o DeploymentGroupDeploymentReadyOptionPtrOutput) WaitTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeploymentReadyOption) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WaitTimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+type DeploymentGroupDeploymentStyle struct {
+	// Indicates whether to route deployment traffic behind a load balancer.
+	DeploymentOption *string `pulumi:"deploymentOption"`
+	// Indicates whether to run an in-place or blue/green deployment.
+	DeploymentType *string `pulumi:"deploymentType"`
+}
+
+// DeploymentGroupDeploymentStyleInput is an input type that accepts DeploymentGroupDeploymentStyleArgs and DeploymentGroupDeploymentStyleOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentStyleInput` via:
+//
+//	DeploymentGroupDeploymentStyleArgs{...}
+type DeploymentGroupDeploymentStyleInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentStyleOutput() DeploymentGroupDeploymentStyleOutput
+	ToDeploymentGroupDeploymentStyleOutputWithContext(context.Context) DeploymentGroupDeploymentStyleOutput
+}
+
+// Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+type DeploymentGroupDeploymentStyleArgs struct {
+	// Indicates whether to route deployment traffic behind a load balancer.
+	DeploymentOption pulumi.StringPtrInput `pulumi:"deploymentOption"`
+	// Indicates whether to run an in-place or blue/green deployment.
+	DeploymentType pulumi.StringPtrInput `pulumi:"deploymentType"`
+}
+
+func (DeploymentGroupDeploymentStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupDeploymentStyle)(nil)).Elem()
+}
+
+func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStyleOutput() DeploymentGroupDeploymentStyleOutput {
+	return i.ToDeploymentGroupDeploymentStyleOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStyleOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStyleOutput)
+}
+
+func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStylePtrOutput() DeploymentGroupDeploymentStylePtrOutput {
+	return i.ToDeploymentGroupDeploymentStylePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStyleOutput).ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupDeploymentStylePtrInput is an input type that accepts DeploymentGroupDeploymentStyleArgs, DeploymentGroupDeploymentStylePtr and DeploymentGroupDeploymentStylePtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentStylePtrInput` via:
+//
+//	        DeploymentGroupDeploymentStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupDeploymentStylePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentStylePtrOutput() DeploymentGroupDeploymentStylePtrOutput
+	ToDeploymentGroupDeploymentStylePtrOutputWithContext(context.Context) DeploymentGroupDeploymentStylePtrOutput
+}
+
+type deploymentGroupDeploymentStylePtrType DeploymentGroupDeploymentStyleArgs
+
+func DeploymentGroupDeploymentStylePtr(v *DeploymentGroupDeploymentStyleArgs) DeploymentGroupDeploymentStylePtrInput {
+	return (*deploymentGroupDeploymentStylePtrType)(v)
+}
+
+func (*deploymentGroupDeploymentStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupDeploymentStyle)(nil)).Elem()
+}
+
+func (i *deploymentGroupDeploymentStylePtrType) ToDeploymentGroupDeploymentStylePtrOutput() DeploymentGroupDeploymentStylePtrOutput {
+	return i.ToDeploymentGroupDeploymentStylePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupDeploymentStylePtrType) ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStylePtrOutput)
+}
+
+// Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+type DeploymentGroupDeploymentStyleOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupDeploymentStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupDeploymentStyle)(nil)).Elem()
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStyleOutput() DeploymentGroupDeploymentStyleOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStyleOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStyleOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePtrOutput() DeploymentGroupDeploymentStylePtrOutput {
+	return o.ToDeploymentGroupDeploymentStylePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupDeploymentStyle) *DeploymentGroupDeploymentStyle {
+		return &v
+	}).(DeploymentGroupDeploymentStylePtrOutput)
+}
+
+// Indicates whether to route deployment traffic behind a load balancer.
+func (o DeploymentGroupDeploymentStyleOutput) DeploymentOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to run an in-place or blue/green deployment.
+func (o DeploymentGroupDeploymentStyleOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupDeploymentStylePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupDeploymentStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupDeploymentStyle)(nil)).Elem()
+}
+
+func (o DeploymentGroupDeploymentStylePtrOutput) ToDeploymentGroupDeploymentStylePtrOutput() DeploymentGroupDeploymentStylePtrOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentStylePtrOutput) ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStylePtrOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentStylePtrOutput) Elem() DeploymentGroupDeploymentStyleOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) DeploymentGroupDeploymentStyle {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupDeploymentStyle
+		return ret
+	}).(DeploymentGroupDeploymentStyleOutput)
+}
+
+// Indicates whether to route deployment traffic behind a load balancer.
+func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to run an in-place or blue/green deployment.
+func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about an Amazon EC2 tag filter.
+type DeploymentGroupEc2TagFilter struct {
+	// The tag filter key.
+	Key *string `pulumi:"key"`
+	// The tag filter type.
+	Type *string `pulumi:"type"`
+	// The tag filter value.
+	Value *string `pulumi:"value"`
+}
+
+// DeploymentGroupEc2TagFilterInput is an input type that accepts DeploymentGroupEc2TagFilterArgs and DeploymentGroupEc2TagFilterOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagFilterInput` via:
+//
+//	DeploymentGroupEc2TagFilterArgs{...}
+type DeploymentGroupEc2TagFilterInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagFilterOutput() DeploymentGroupEc2TagFilterOutput
+	ToDeploymentGroupEc2TagFilterOutputWithContext(context.Context) DeploymentGroupEc2TagFilterOutput
+}
+
+// Information about an Amazon EC2 tag filter.
+type DeploymentGroupEc2TagFilterArgs struct {
+	// The tag filter key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The tag filter type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The tag filter value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DeploymentGroupEc2TagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagFilter)(nil)).Elem()
+}
+
+func (i DeploymentGroupEc2TagFilterArgs) ToDeploymentGroupEc2TagFilterOutput() DeploymentGroupEc2TagFilterOutput {
+	return i.ToDeploymentGroupEc2TagFilterOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2TagFilterArgs) ToDeploymentGroupEc2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterOutput)
+}
+
+// DeploymentGroupEc2TagFilterArrayInput is an input type that accepts DeploymentGroupEc2TagFilterArray and DeploymentGroupEc2TagFilterArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagFilterArrayInput` via:
+//
+//	DeploymentGroupEc2TagFilterArray{ DeploymentGroupEc2TagFilterArgs{...} }
+type DeploymentGroupEc2TagFilterArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagFilterArrayOutput() DeploymentGroupEc2TagFilterArrayOutput
+	ToDeploymentGroupEc2TagFilterArrayOutputWithContext(context.Context) DeploymentGroupEc2TagFilterArrayOutput
+}
+
+type DeploymentGroupEc2TagFilterArray []DeploymentGroupEc2TagFilterInput
+
+func (DeploymentGroupEc2TagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagFilter)(nil)).Elem()
+}
+
+func (i DeploymentGroupEc2TagFilterArray) ToDeploymentGroupEc2TagFilterArrayOutput() DeploymentGroupEc2TagFilterArrayOutput {
+	return i.ToDeploymentGroupEc2TagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2TagFilterArray) ToDeploymentGroupEc2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterArrayOutput)
+}
+
+// Information about an Amazon EC2 tag filter.
+type DeploymentGroupEc2TagFilterOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2TagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagFilter)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutput() DeploymentGroupEc2TagFilterOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterOutput {
+	return o
+}
+
+// The tag filter key.
+func (o DeploymentGroupEc2TagFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The tag filter type.
+func (o DeploymentGroupEc2TagFilterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The tag filter value.
+func (o DeploymentGroupEc2TagFilterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupEc2TagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2TagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagFilter)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArrayOutput() DeploymentGroupEc2TagFilterArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagFilter {
+		return vs[0].([]DeploymentGroupEc2TagFilter)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagFilterOutput)
+}
+
+// Specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+type DeploymentGroupEc2TagSet struct {
+	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
+	Ec2TagSetList []DeploymentGroupEc2TagSetListObject `pulumi:"ec2TagSetList"`
+}
+
+// DeploymentGroupEc2TagSetInput is an input type that accepts DeploymentGroupEc2TagSetArgs and DeploymentGroupEc2TagSetOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetInput` via:
+//
+//	DeploymentGroupEc2TagSetArgs{...}
+type DeploymentGroupEc2TagSetInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetOutput() DeploymentGroupEc2TagSetOutput
+	ToDeploymentGroupEc2TagSetOutputWithContext(context.Context) DeploymentGroupEc2TagSetOutput
+}
+
+// Specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+type DeploymentGroupEc2TagSetArgs struct {
+	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
+	Ec2TagSetList DeploymentGroupEc2TagSetListObjectArrayInput `pulumi:"ec2TagSetList"`
+}
+
+func (DeploymentGroupEc2TagSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSet)(nil)).Elem()
+}
+
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetOutput() DeploymentGroupEc2TagSetOutput {
+	return i.ToDeploymentGroupEc2TagSetOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetOutput)
+}
+
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return i.ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetOutput).ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupEc2TagSetPtrInput is an input type that accepts DeploymentGroupEc2TagSetArgs, DeploymentGroupEc2TagSetPtr and DeploymentGroupEc2TagSetPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetPtrInput` via:
+//
+//	        DeploymentGroupEc2TagSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupEc2TagSetPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput
+	ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Context) DeploymentGroupEc2TagSetPtrOutput
+}
+
+type deploymentGroupEc2TagSetPtrType DeploymentGroupEc2TagSetArgs
+
+func DeploymentGroupEc2TagSetPtr(v *DeploymentGroupEc2TagSetArgs) DeploymentGroupEc2TagSetPtrInput {
+	return (*deploymentGroupEc2TagSetPtrType)(v)
+}
+
+func (*deploymentGroupEc2TagSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupEc2TagSet)(nil)).Elem()
+}
+
+func (i *deploymentGroupEc2TagSetPtrType) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return i.ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupEc2TagSetPtrType) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetPtrOutput)
+}
+
+// Specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+type DeploymentGroupEc2TagSetOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2TagSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSet)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutput() DeploymentGroupEc2TagSetOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return o.ToDeploymentGroupEc2TagSetPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupEc2TagSet) *DeploymentGroupEc2TagSet {
+		return &v
+	}).(DeploymentGroupEc2TagSetPtrOutput)
+}
+
+// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
+func (o DeploymentGroupEc2TagSetOutput) Ec2TagSetList() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagSet) []DeploymentGroupEc2TagSetListObject { return v.Ec2TagSetList }).(DeploymentGroupEc2TagSetListObjectArrayOutput)
+}
+
+type DeploymentGroupEc2TagSetPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2TagSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupEc2TagSet)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2TagSetPtrOutput) ToDeploymentGroupEc2TagSetPtrOutput() DeploymentGroupEc2TagSetPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetPtrOutput) ToDeploymentGroupEc2TagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetPtrOutput) Elem() DeploymentGroupEc2TagSetOutput {
+	return o.ApplyT(func(v *DeploymentGroupEc2TagSet) DeploymentGroupEc2TagSet {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupEc2TagSet
+		return ret
+	}).(DeploymentGroupEc2TagSetOutput)
+}
+
+// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
+func (o DeploymentGroupEc2TagSetPtrOutput) Ec2TagSetList() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupEc2TagSet) []DeploymentGroupEc2TagSetListObject {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2TagSetList
+	}).(DeploymentGroupEc2TagSetListObjectArrayOutput)
+}
+
+// The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+type DeploymentGroupEc2TagSetListObject struct {
+	// A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+	Ec2TagGroup []DeploymentGroupEc2TagFilter `pulumi:"ec2TagGroup"`
+}
+
+// DeploymentGroupEc2TagSetListObjectInput is an input type that accepts DeploymentGroupEc2TagSetListObjectArgs and DeploymentGroupEc2TagSetListObjectOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetListObjectInput` via:
+//
+//	DeploymentGroupEc2TagSetListObjectArgs{...}
+type DeploymentGroupEc2TagSetListObjectInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetListObjectOutput() DeploymentGroupEc2TagSetListObjectOutput
+	ToDeploymentGroupEc2TagSetListObjectOutputWithContext(context.Context) DeploymentGroupEc2TagSetListObjectOutput
+}
+
+// The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+type DeploymentGroupEc2TagSetListObjectArgs struct {
+	// A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+	Ec2TagGroup DeploymentGroupEc2TagFilterArrayInput `pulumi:"ec2TagGroup"`
+}
+
+func (DeploymentGroupEc2TagSetListObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSetListObject)(nil)).Elem()
+}
+
+func (i DeploymentGroupEc2TagSetListObjectArgs) ToDeploymentGroupEc2TagSetListObjectOutput() DeploymentGroupEc2TagSetListObjectOutput {
+	return i.ToDeploymentGroupEc2TagSetListObjectOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2TagSetListObjectArgs) ToDeploymentGroupEc2TagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetListObjectOutput)
+}
+
+// DeploymentGroupEc2TagSetListObjectArrayInput is an input type that accepts DeploymentGroupEc2TagSetListObjectArray and DeploymentGroupEc2TagSetListObjectArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetListObjectArrayInput` via:
+//
+//	DeploymentGroupEc2TagSetListObjectArray{ DeploymentGroupEc2TagSetListObjectArgs{...} }
+type DeploymentGroupEc2TagSetListObjectArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetListObjectArrayOutput() DeploymentGroupEc2TagSetListObjectArrayOutput
+	ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(context.Context) DeploymentGroupEc2TagSetListObjectArrayOutput
+}
+
+type DeploymentGroupEc2TagSetListObjectArray []DeploymentGroupEc2TagSetListObjectInput
+
+func (DeploymentGroupEc2TagSetListObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagSetListObject)(nil)).Elem()
+}
+
+func (i DeploymentGroupEc2TagSetListObjectArray) ToDeploymentGroupEc2TagSetListObjectArrayOutput() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return i.ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEc2TagSetListObjectArray) ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetListObjectArrayOutput)
+}
+
+// The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+type DeploymentGroupEc2TagSetListObjectOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2TagSetListObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEc2TagSetListObject)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2TagSetListObjectOutput) ToDeploymentGroupEc2TagSetListObjectOutput() DeploymentGroupEc2TagSetListObjectOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetListObjectOutput) ToDeploymentGroupEc2TagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectOutput {
+	return o
+}
+
+// A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+func (o DeploymentGroupEc2TagSetListObjectOutput) Ec2TagGroup() DeploymentGroupEc2TagFilterArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupEc2TagSetListObject) []DeploymentGroupEc2TagFilter { return v.Ec2TagGroup }).(DeploymentGroupEc2TagFilterArrayOutput)
+}
+
+type DeploymentGroupEc2TagSetListObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEc2TagSetListObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEc2TagSetListObject)(nil)).Elem()
+}
+
+func (o DeploymentGroupEc2TagSetListObjectArrayOutput) ToDeploymentGroupEc2TagSetListObjectArrayOutput() DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetListObjectArrayOutput) ToDeploymentGroupEc2TagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetListObjectArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetListObjectArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetListObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagSetListObject {
+		return vs[0].([]DeploymentGroupEc2TagSetListObject)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagSetListObjectOutput)
+}
+
+// Contains the service and cluster names used to identify an Amazon ECS deployment's target.
+type DeploymentGroupEcsService struct {
+	// The name of the cluster that the Amazon ECS service is associated with.
+	ClusterName string `pulumi:"clusterName"`
+	// The name of the target Amazon ECS service.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// DeploymentGroupEcsServiceInput is an input type that accepts DeploymentGroupEcsServiceArgs and DeploymentGroupEcsServiceOutput values.
+// You can construct a concrete instance of `DeploymentGroupEcsServiceInput` via:
+//
+//	DeploymentGroupEcsServiceArgs{...}
+type DeploymentGroupEcsServiceInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput
+	ToDeploymentGroupEcsServiceOutputWithContext(context.Context) DeploymentGroupEcsServiceOutput
+}
+
+// Contains the service and cluster names used to identify an Amazon ECS deployment's target.
+type DeploymentGroupEcsServiceArgs struct {
+	// The name of the cluster that the Amazon ECS service is associated with.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the target Amazon ECS service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (DeploymentGroupEcsServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEcsService)(nil)).Elem()
+}
+
+func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput {
+	return i.ToDeploymentGroupEcsServiceOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServiceOutput)
+}
+
+// DeploymentGroupEcsServiceArrayInput is an input type that accepts DeploymentGroupEcsServiceArray and DeploymentGroupEcsServiceArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEcsServiceArrayInput` via:
+//
+//	DeploymentGroupEcsServiceArray{ DeploymentGroupEcsServiceArgs{...} }
+type DeploymentGroupEcsServiceArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEcsServiceArrayOutput() DeploymentGroupEcsServiceArrayOutput
+	ToDeploymentGroupEcsServiceArrayOutputWithContext(context.Context) DeploymentGroupEcsServiceArrayOutput
+}
+
+type DeploymentGroupEcsServiceArray []DeploymentGroupEcsServiceInput
+
+func (DeploymentGroupEcsServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEcsService)(nil)).Elem()
+}
+
+func (i DeploymentGroupEcsServiceArray) ToDeploymentGroupEcsServiceArrayOutput() DeploymentGroupEcsServiceArrayOutput {
+	return i.ToDeploymentGroupEcsServiceArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupEcsServiceArray) ToDeploymentGroupEcsServiceArrayOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServiceArrayOutput)
+}
+
+// Contains the service and cluster names used to identify an Amazon ECS deployment's target.
+type DeploymentGroupEcsServiceOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEcsServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupEcsService)(nil)).Elem()
+}
+
+func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput {
+	return o
+}
+
+func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput {
+	return o
+}
+
+// The name of the cluster that the Amazon ECS service is associated with.
+func (o DeploymentGroupEcsServiceOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// The name of the target Amazon ECS service.
+func (o DeploymentGroupEcsServiceOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type DeploymentGroupEcsServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupEcsServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupEcsService)(nil)).Elem()
+}
+
+func (o DeploymentGroupEcsServiceArrayOutput) ToDeploymentGroupEcsServiceArrayOutput() DeploymentGroupEcsServiceArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEcsServiceArrayOutput) ToDeploymentGroupEcsServiceArrayOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEcsServiceArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEcsServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEcsService {
+		return vs[0].([]DeploymentGroupEcsService)[vs[1].(int)]
+	}).(DeploymentGroupEcsServiceOutput)
+}
+
+// The ELBInfo property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group. If you specify the ELBInfo property, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for AWS CodeDeploy to route your traffic using the specified load balancers.
+type DeploymentGroupElbInfo struct {
+	// For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
+	Name *string `pulumi:"name"`
+}
+
+// DeploymentGroupElbInfoInput is an input type that accepts DeploymentGroupElbInfoArgs and DeploymentGroupElbInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupElbInfoInput` via:
+//
+//	DeploymentGroupElbInfoArgs{...}
+type DeploymentGroupElbInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupElbInfoOutput() DeploymentGroupElbInfoOutput
+	ToDeploymentGroupElbInfoOutputWithContext(context.Context) DeploymentGroupElbInfoOutput
+}
+
+// The ELBInfo property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group. If you specify the ELBInfo property, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for AWS CodeDeploy to route your traffic using the specified load balancers.
+type DeploymentGroupElbInfoArgs struct {
+	// For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DeploymentGroupElbInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupElbInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupElbInfoArgs) ToDeploymentGroupElbInfoOutput() DeploymentGroupElbInfoOutput {
+	return i.ToDeploymentGroupElbInfoOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupElbInfoArgs) ToDeploymentGroupElbInfoOutputWithContext(ctx context.Context) DeploymentGroupElbInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupElbInfoOutput)
+}
+
+// DeploymentGroupElbInfoArrayInput is an input type that accepts DeploymentGroupElbInfoArray and DeploymentGroupElbInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupElbInfoArrayInput` via:
+//
+//	DeploymentGroupElbInfoArray{ DeploymentGroupElbInfoArgs{...} }
+type DeploymentGroupElbInfoArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupElbInfoArrayOutput() DeploymentGroupElbInfoArrayOutput
+	ToDeploymentGroupElbInfoArrayOutputWithContext(context.Context) DeploymentGroupElbInfoArrayOutput
+}
+
+type DeploymentGroupElbInfoArray []DeploymentGroupElbInfoInput
+
+func (DeploymentGroupElbInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupElbInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupElbInfoArray) ToDeploymentGroupElbInfoArrayOutput() DeploymentGroupElbInfoArrayOutput {
+	return i.ToDeploymentGroupElbInfoArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupElbInfoArray) ToDeploymentGroupElbInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupElbInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupElbInfoArrayOutput)
+}
+
+// The ELBInfo property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group. If you specify the ELBInfo property, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for AWS CodeDeploy to route your traffic using the specified load balancers.
+type DeploymentGroupElbInfoOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupElbInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupElbInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupElbInfoOutput) ToDeploymentGroupElbInfoOutput() DeploymentGroupElbInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupElbInfoOutput) ToDeploymentGroupElbInfoOutputWithContext(ctx context.Context) DeploymentGroupElbInfoOutput {
+	return o
+}
+
+// For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
+func (o DeploymentGroupElbInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupElbInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupElbInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupElbInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupElbInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupElbInfoArrayOutput) ToDeploymentGroupElbInfoArrayOutput() DeploymentGroupElbInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupElbInfoArrayOutput) ToDeploymentGroupElbInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupElbInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupElbInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupElbInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupElbInfo {
+		return vs[0].([]DeploymentGroupElbInfo)[vs[1].(int)]
+	}).(DeploymentGroupElbInfoOutput)
+}
+
+// Specifies the location of an application revision that is stored in GitHub.
+type DeploymentGroupGitHubLocation struct {
+	// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
+	CommitId string `pulumi:"commitId"`
+	// The GitHub account and repository pair that stores the application revision to be deployed.
+	Repository string `pulumi:"repository"`
+}
+
+// DeploymentGroupGitHubLocationInput is an input type that accepts DeploymentGroupGitHubLocationArgs and DeploymentGroupGitHubLocationOutput values.
+// You can construct a concrete instance of `DeploymentGroupGitHubLocationInput` via:
+//
+//	DeploymentGroupGitHubLocationArgs{...}
+type DeploymentGroupGitHubLocationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupGitHubLocationOutput() DeploymentGroupGitHubLocationOutput
+	ToDeploymentGroupGitHubLocationOutputWithContext(context.Context) DeploymentGroupGitHubLocationOutput
+}
+
+// Specifies the location of an application revision that is stored in GitHub.
+type DeploymentGroupGitHubLocationArgs struct {
+	// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
+	CommitId pulumi.StringInput `pulumi:"commitId"`
+	// The GitHub account and repository pair that stores the application revision to be deployed.
+	Repository pulumi.StringInput `pulumi:"repository"`
+}
+
+func (DeploymentGroupGitHubLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupGitHubLocation)(nil)).Elem()
+}
+
+func (i DeploymentGroupGitHubLocationArgs) ToDeploymentGroupGitHubLocationOutput() DeploymentGroupGitHubLocationOutput {
+	return i.ToDeploymentGroupGitHubLocationOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupGitHubLocationArgs) ToDeploymentGroupGitHubLocationOutputWithContext(ctx context.Context) DeploymentGroupGitHubLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupGitHubLocationOutput)
+}
+
+func (i DeploymentGroupGitHubLocationArgs) ToDeploymentGroupGitHubLocationPtrOutput() DeploymentGroupGitHubLocationPtrOutput {
+	return i.ToDeploymentGroupGitHubLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupGitHubLocationArgs) ToDeploymentGroupGitHubLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupGitHubLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupGitHubLocationOutput).ToDeploymentGroupGitHubLocationPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupGitHubLocationPtrInput is an input type that accepts DeploymentGroupGitHubLocationArgs, DeploymentGroupGitHubLocationPtr and DeploymentGroupGitHubLocationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupGitHubLocationPtrInput` via:
+//
+//	        DeploymentGroupGitHubLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupGitHubLocationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupGitHubLocationPtrOutput() DeploymentGroupGitHubLocationPtrOutput
+	ToDeploymentGroupGitHubLocationPtrOutputWithContext(context.Context) DeploymentGroupGitHubLocationPtrOutput
+}
+
+type deploymentGroupGitHubLocationPtrType DeploymentGroupGitHubLocationArgs
+
+func DeploymentGroupGitHubLocationPtr(v *DeploymentGroupGitHubLocationArgs) DeploymentGroupGitHubLocationPtrInput {
+	return (*deploymentGroupGitHubLocationPtrType)(v)
+}
+
+func (*deploymentGroupGitHubLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupGitHubLocation)(nil)).Elem()
+}
+
+func (i *deploymentGroupGitHubLocationPtrType) ToDeploymentGroupGitHubLocationPtrOutput() DeploymentGroupGitHubLocationPtrOutput {
+	return i.ToDeploymentGroupGitHubLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupGitHubLocationPtrType) ToDeploymentGroupGitHubLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupGitHubLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupGitHubLocationPtrOutput)
+}
+
+// Specifies the location of an application revision that is stored in GitHub.
+type DeploymentGroupGitHubLocationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupGitHubLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupGitHubLocation)(nil)).Elem()
+}
+
+func (o DeploymentGroupGitHubLocationOutput) ToDeploymentGroupGitHubLocationOutput() DeploymentGroupGitHubLocationOutput {
+	return o
+}
+
+func (o DeploymentGroupGitHubLocationOutput) ToDeploymentGroupGitHubLocationOutputWithContext(ctx context.Context) DeploymentGroupGitHubLocationOutput {
+	return o
+}
+
+func (o DeploymentGroupGitHubLocationOutput) ToDeploymentGroupGitHubLocationPtrOutput() DeploymentGroupGitHubLocationPtrOutput {
+	return o.ToDeploymentGroupGitHubLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupGitHubLocationOutput) ToDeploymentGroupGitHubLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupGitHubLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupGitHubLocation) *DeploymentGroupGitHubLocation {
+		return &v
+	}).(DeploymentGroupGitHubLocationPtrOutput)
+}
+
+// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
+func (o DeploymentGroupGitHubLocationOutput) CommitId() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupGitHubLocation) string { return v.CommitId }).(pulumi.StringOutput)
+}
+
+// The GitHub account and repository pair that stores the application revision to be deployed.
+func (o DeploymentGroupGitHubLocationOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupGitHubLocation) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+type DeploymentGroupGitHubLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupGitHubLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupGitHubLocation)(nil)).Elem()
+}
+
+func (o DeploymentGroupGitHubLocationPtrOutput) ToDeploymentGroupGitHubLocationPtrOutput() DeploymentGroupGitHubLocationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupGitHubLocationPtrOutput) ToDeploymentGroupGitHubLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupGitHubLocationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupGitHubLocationPtrOutput) Elem() DeploymentGroupGitHubLocationOutput {
+	return o.ApplyT(func(v *DeploymentGroupGitHubLocation) DeploymentGroupGitHubLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupGitHubLocation
+		return ret
+	}).(DeploymentGroupGitHubLocationOutput)
+}
+
+// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
+func (o DeploymentGroupGitHubLocationPtrOutput) CommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupGitHubLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CommitId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GitHub account and repository pair that stores the application revision to be deployed.
+func (o DeploymentGroupGitHubLocationPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupGitHubLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the instances that belong to the replacement environment in a blue/green deployment.
+type DeploymentGroupGreenFleetProvisioningOption struct {
+	// The method used to add instances to a replacement environment.
+	Action *string `pulumi:"action"`
+}
+
+// DeploymentGroupGreenFleetProvisioningOptionInput is an input type that accepts DeploymentGroupGreenFleetProvisioningOptionArgs and DeploymentGroupGreenFleetProvisioningOptionOutput values.
+// You can construct a concrete instance of `DeploymentGroupGreenFleetProvisioningOptionInput` via:
+//
+//	DeploymentGroupGreenFleetProvisioningOptionArgs{...}
+type DeploymentGroupGreenFleetProvisioningOptionInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupGreenFleetProvisioningOptionOutput() DeploymentGroupGreenFleetProvisioningOptionOutput
+	ToDeploymentGroupGreenFleetProvisioningOptionOutputWithContext(context.Context) DeploymentGroupGreenFleetProvisioningOptionOutput
+}
+
+// Information about the instances that belong to the replacement environment in a blue/green deployment.
+type DeploymentGroupGreenFleetProvisioningOptionArgs struct {
+	// The method used to add instances to a replacement environment.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+}
+
+func (DeploymentGroupGreenFleetProvisioningOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupGreenFleetProvisioningOption)(nil)).Elem()
+}
+
+func (i DeploymentGroupGreenFleetProvisioningOptionArgs) ToDeploymentGroupGreenFleetProvisioningOptionOutput() DeploymentGroupGreenFleetProvisioningOptionOutput {
+	return i.ToDeploymentGroupGreenFleetProvisioningOptionOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupGreenFleetProvisioningOptionArgs) ToDeploymentGroupGreenFleetProvisioningOptionOutputWithContext(ctx context.Context) DeploymentGroupGreenFleetProvisioningOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupGreenFleetProvisioningOptionOutput)
+}
+
+func (i DeploymentGroupGreenFleetProvisioningOptionArgs) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutput() DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return i.ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupGreenFleetProvisioningOptionArgs) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupGreenFleetProvisioningOptionOutput).ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupGreenFleetProvisioningOptionPtrInput is an input type that accepts DeploymentGroupGreenFleetProvisioningOptionArgs, DeploymentGroupGreenFleetProvisioningOptionPtr and DeploymentGroupGreenFleetProvisioningOptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupGreenFleetProvisioningOptionPtrInput` via:
+//
+//	        DeploymentGroupGreenFleetProvisioningOptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupGreenFleetProvisioningOptionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupGreenFleetProvisioningOptionPtrOutput() DeploymentGroupGreenFleetProvisioningOptionPtrOutput
+	ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(context.Context) DeploymentGroupGreenFleetProvisioningOptionPtrOutput
+}
+
+type deploymentGroupGreenFleetProvisioningOptionPtrType DeploymentGroupGreenFleetProvisioningOptionArgs
+
+func DeploymentGroupGreenFleetProvisioningOptionPtr(v *DeploymentGroupGreenFleetProvisioningOptionArgs) DeploymentGroupGreenFleetProvisioningOptionPtrInput {
+	return (*deploymentGroupGreenFleetProvisioningOptionPtrType)(v)
+}
+
+func (*deploymentGroupGreenFleetProvisioningOptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupGreenFleetProvisioningOption)(nil)).Elem()
+}
+
+func (i *deploymentGroupGreenFleetProvisioningOptionPtrType) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutput() DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return i.ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupGreenFleetProvisioningOptionPtrType) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupGreenFleetProvisioningOptionPtrOutput)
+}
+
+// Information about the instances that belong to the replacement environment in a blue/green deployment.
+type DeploymentGroupGreenFleetProvisioningOptionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupGreenFleetProvisioningOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupGreenFleetProvisioningOption)(nil)).Elem()
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionOutput) ToDeploymentGroupGreenFleetProvisioningOptionOutput() DeploymentGroupGreenFleetProvisioningOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionOutput) ToDeploymentGroupGreenFleetProvisioningOptionOutputWithContext(ctx context.Context) DeploymentGroupGreenFleetProvisioningOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionOutput) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutput() DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return o.ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionOutput) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupGreenFleetProvisioningOption) *DeploymentGroupGreenFleetProvisioningOption {
+		return &v
+	}).(DeploymentGroupGreenFleetProvisioningOptionPtrOutput)
+}
+
+// The method used to add instances to a replacement environment.
+func (o DeploymentGroupGreenFleetProvisioningOptionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupGreenFleetProvisioningOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupGreenFleetProvisioningOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupGreenFleetProvisioningOption)(nil)).Elem()
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionPtrOutput) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutput() DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionPtrOutput) ToDeploymentGroupGreenFleetProvisioningOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupGreenFleetProvisioningOptionPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupGreenFleetProvisioningOptionPtrOutput) Elem() DeploymentGroupGreenFleetProvisioningOptionOutput {
+	return o.ApplyT(func(v *DeploymentGroupGreenFleetProvisioningOption) DeploymentGroupGreenFleetProvisioningOption {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupGreenFleetProvisioningOption
+		return ret
+	}).(DeploymentGroupGreenFleetProvisioningOptionOutput)
+}
+
+// The method used to add instances to a replacement environment.
+func (o DeploymentGroupGreenFleetProvisioningOptionPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupGreenFleetProvisioningOption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL.
+type DeploymentGroupLoadBalancerInfo struct {
+	// An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
+	ElbInfoList []DeploymentGroupElbInfo `pulumi:"elbInfoList"`
+	// An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
+	TargetGroupInfoList []DeploymentGroupTargetGroupInfo `pulumi:"targetGroupInfoList"`
+	// The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
+	TargetGroupPairInfoList []DeploymentGroupTargetGroupPairInfo `pulumi:"targetGroupPairInfoList"`
+}
+
+// DeploymentGroupLoadBalancerInfoInput is an input type that accepts DeploymentGroupLoadBalancerInfoArgs and DeploymentGroupLoadBalancerInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoInput` via:
+//
+//	DeploymentGroupLoadBalancerInfoArgs{...}
+type DeploymentGroupLoadBalancerInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoOutput() DeploymentGroupLoadBalancerInfoOutput
+	ToDeploymentGroupLoadBalancerInfoOutputWithContext(context.Context) DeploymentGroupLoadBalancerInfoOutput
+}
+
+// Specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL.
+type DeploymentGroupLoadBalancerInfoArgs struct {
+	// An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
+	ElbInfoList DeploymentGroupElbInfoArrayInput `pulumi:"elbInfoList"`
+	// An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
+	TargetGroupInfoList DeploymentGroupTargetGroupInfoArrayInput `pulumi:"targetGroupInfoList"`
+	// The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
+	TargetGroupPairInfoList DeploymentGroupTargetGroupPairInfoArrayInput `pulumi:"targetGroupPairInfoList"`
+}
+
+func (DeploymentGroupLoadBalancerInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoOutput() DeploymentGroupLoadBalancerInfoOutput {
+	return i.ToDeploymentGroupLoadBalancerInfoOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoOutput)
+}
+
+func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoPtrOutput() DeploymentGroupLoadBalancerInfoPtrOutput {
+	return i.ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoOutput).ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupLoadBalancerInfoPtrInput is an input type that accepts DeploymentGroupLoadBalancerInfoArgs, DeploymentGroupLoadBalancerInfoPtr and DeploymentGroupLoadBalancerInfoPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoPtrInput` via:
+//
+//	        DeploymentGroupLoadBalancerInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupLoadBalancerInfoPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoPtrOutput() DeploymentGroupLoadBalancerInfoPtrOutput
+	ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(context.Context) DeploymentGroupLoadBalancerInfoPtrOutput
+}
+
+type deploymentGroupLoadBalancerInfoPtrType DeploymentGroupLoadBalancerInfoArgs
+
+func DeploymentGroupLoadBalancerInfoPtr(v *DeploymentGroupLoadBalancerInfoArgs) DeploymentGroupLoadBalancerInfoPtrInput {
+	return (*deploymentGroupLoadBalancerInfoPtrType)(v)
+}
+
+func (*deploymentGroupLoadBalancerInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupLoadBalancerInfo)(nil)).Elem()
+}
+
+func (i *deploymentGroupLoadBalancerInfoPtrType) ToDeploymentGroupLoadBalancerInfoPtrOutput() DeploymentGroupLoadBalancerInfoPtrOutput {
+	return i.ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupLoadBalancerInfoPtrType) ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoPtrOutput)
+}
+
+// Specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL.
+type DeploymentGroupLoadBalancerInfoOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupLoadBalancerInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoOutput() DeploymentGroupLoadBalancerInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoPtrOutput() DeploymentGroupLoadBalancerInfoPtrOutput {
+	return o.ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfo {
+		return &v
+	}).(DeploymentGroupLoadBalancerInfoPtrOutput)
+}
+
+// An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
+func (o DeploymentGroupLoadBalancerInfoOutput) ElbInfoList() DeploymentGroupElbInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupElbInfo { return v.ElbInfoList }).(DeploymentGroupElbInfoArrayOutput)
+}
+
+// An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
+func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupInfoList() DeploymentGroupTargetGroupInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupInfo { return v.TargetGroupInfoList }).(DeploymentGroupTargetGroupInfoArrayOutput)
+}
+
+// The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
+func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupPairInfoList() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupPairInfo {
+		return v.TargetGroupPairInfoList
+	}).(DeploymentGroupTargetGroupPairInfoArrayOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupLoadBalancerInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupLoadBalancerInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToDeploymentGroupLoadBalancerInfoPtrOutput() DeploymentGroupLoadBalancerInfoPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoOutput {
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) DeploymentGroupLoadBalancerInfo {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupLoadBalancerInfo
+		return ret
+	}).(DeploymentGroupLoadBalancerInfoOutput)
+}
+
+// An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) ElbInfoList() DeploymentGroupElbInfoArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) []DeploymentGroupElbInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ElbInfoList
+	}).(DeploymentGroupElbInfoArrayOutput)
+}
+
+// An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupInfoList() DeploymentGroupTargetGroupInfoArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupInfo {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroupInfoList
+	}).(DeploymentGroupTargetGroupInfoArrayOutput)
+}
+
+// The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupPairInfoList() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) []DeploymentGroupTargetGroupPairInfo {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroupPairInfoList
+	}).(DeploymentGroupTargetGroupPairInfoArrayOutput)
+}
+
+// Specifies a list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+type DeploymentGroupOnPremisesTagSet struct {
+	// A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+	OnPremisesTagSetList []DeploymentGroupOnPremisesTagSetListObject `pulumi:"onPremisesTagSetList"`
+}
+
+// DeploymentGroupOnPremisesTagSetInput is an input type that accepts DeploymentGroupOnPremisesTagSetArgs and DeploymentGroupOnPremisesTagSetOutput values.
+// You can construct a concrete instance of `DeploymentGroupOnPremisesTagSetInput` via:
+//
+//	DeploymentGroupOnPremisesTagSetArgs{...}
+type DeploymentGroupOnPremisesTagSetInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOnPremisesTagSetOutput() DeploymentGroupOnPremisesTagSetOutput
+	ToDeploymentGroupOnPremisesTagSetOutputWithContext(context.Context) DeploymentGroupOnPremisesTagSetOutput
+}
+
+// Specifies a list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+type DeploymentGroupOnPremisesTagSetArgs struct {
+	// A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+	OnPremisesTagSetList DeploymentGroupOnPremisesTagSetListObjectArrayInput `pulumi:"onPremisesTagSetList"`
+}
+
+func (DeploymentGroupOnPremisesTagSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupOnPremisesTagSet)(nil)).Elem()
+}
+
+func (i DeploymentGroupOnPremisesTagSetArgs) ToDeploymentGroupOnPremisesTagSetOutput() DeploymentGroupOnPremisesTagSetOutput {
+	return i.ToDeploymentGroupOnPremisesTagSetOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupOnPremisesTagSetArgs) ToDeploymentGroupOnPremisesTagSetOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesTagSetOutput)
+}
+
+func (i DeploymentGroupOnPremisesTagSetArgs) ToDeploymentGroupOnPremisesTagSetPtrOutput() DeploymentGroupOnPremisesTagSetPtrOutput {
+	return i.ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupOnPremisesTagSetArgs) ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesTagSetOutput).ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupOnPremisesTagSetPtrInput is an input type that accepts DeploymentGroupOnPremisesTagSetArgs, DeploymentGroupOnPremisesTagSetPtr and DeploymentGroupOnPremisesTagSetPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupOnPremisesTagSetPtrInput` via:
+//
+//	        DeploymentGroupOnPremisesTagSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupOnPremisesTagSetPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOnPremisesTagSetPtrOutput() DeploymentGroupOnPremisesTagSetPtrOutput
+	ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(context.Context) DeploymentGroupOnPremisesTagSetPtrOutput
+}
+
+type deploymentGroupOnPremisesTagSetPtrType DeploymentGroupOnPremisesTagSetArgs
+
+func DeploymentGroupOnPremisesTagSetPtr(v *DeploymentGroupOnPremisesTagSetArgs) DeploymentGroupOnPremisesTagSetPtrInput {
+	return (*deploymentGroupOnPremisesTagSetPtrType)(v)
+}
+
+func (*deploymentGroupOnPremisesTagSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupOnPremisesTagSet)(nil)).Elem()
+}
+
+func (i *deploymentGroupOnPremisesTagSetPtrType) ToDeploymentGroupOnPremisesTagSetPtrOutput() DeploymentGroupOnPremisesTagSetPtrOutput {
+	return i.ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupOnPremisesTagSetPtrType) ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesTagSetPtrOutput)
+}
+
+// Specifies a list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+type DeploymentGroupOnPremisesTagSetOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupOnPremisesTagSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupOnPremisesTagSet)(nil)).Elem()
+}
+
+func (o DeploymentGroupOnPremisesTagSetOutput) ToDeploymentGroupOnPremisesTagSetOutput() DeploymentGroupOnPremisesTagSetOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetOutput) ToDeploymentGroupOnPremisesTagSetOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetOutput) ToDeploymentGroupOnPremisesTagSetPtrOutput() DeploymentGroupOnPremisesTagSetPtrOutput {
+	return o.ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupOnPremisesTagSetOutput) ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupOnPremisesTagSet) *DeploymentGroupOnPremisesTagSet {
+		return &v
+	}).(DeploymentGroupOnPremisesTagSetPtrOutput)
+}
+
+// A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+func (o DeploymentGroupOnPremisesTagSetOutput) OnPremisesTagSetList() DeploymentGroupOnPremisesTagSetListObjectArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupOnPremisesTagSet) []DeploymentGroupOnPremisesTagSetListObject {
+		return v.OnPremisesTagSetList
+	}).(DeploymentGroupOnPremisesTagSetListObjectArrayOutput)
+}
+
+type DeploymentGroupOnPremisesTagSetPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupOnPremisesTagSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupOnPremisesTagSet)(nil)).Elem()
+}
+
+func (o DeploymentGroupOnPremisesTagSetPtrOutput) ToDeploymentGroupOnPremisesTagSetPtrOutput() DeploymentGroupOnPremisesTagSetPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetPtrOutput) ToDeploymentGroupOnPremisesTagSetPtrOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetPtrOutput) Elem() DeploymentGroupOnPremisesTagSetOutput {
+	return o.ApplyT(func(v *DeploymentGroupOnPremisesTagSet) DeploymentGroupOnPremisesTagSet {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupOnPremisesTagSet
+		return ret
+	}).(DeploymentGroupOnPremisesTagSetOutput)
+}
+
+// A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+func (o DeploymentGroupOnPremisesTagSetPtrOutput) OnPremisesTagSetList() DeploymentGroupOnPremisesTagSetListObjectArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupOnPremisesTagSet) []DeploymentGroupOnPremisesTagSetListObject {
+		if v == nil {
+			return nil
+		}
+		return v.OnPremisesTagSetList
+	}).(DeploymentGroupOnPremisesTagSetListObjectArrayOutput)
+}
+
+// Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+type DeploymentGroupOnPremisesTagSetListObject struct {
+	// Information about groups of on-premises instance tags.
+	OnPremisesTagGroup []DeploymentGroupTagFilter `pulumi:"onPremisesTagGroup"`
+}
+
+// DeploymentGroupOnPremisesTagSetListObjectInput is an input type that accepts DeploymentGroupOnPremisesTagSetListObjectArgs and DeploymentGroupOnPremisesTagSetListObjectOutput values.
+// You can construct a concrete instance of `DeploymentGroupOnPremisesTagSetListObjectInput` via:
+//
+//	DeploymentGroupOnPremisesTagSetListObjectArgs{...}
+type DeploymentGroupOnPremisesTagSetListObjectInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOnPremisesTagSetListObjectOutput() DeploymentGroupOnPremisesTagSetListObjectOutput
+	ToDeploymentGroupOnPremisesTagSetListObjectOutputWithContext(context.Context) DeploymentGroupOnPremisesTagSetListObjectOutput
+}
+
+// Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+type DeploymentGroupOnPremisesTagSetListObjectArgs struct {
+	// Information about groups of on-premises instance tags.
+	OnPremisesTagGroup DeploymentGroupTagFilterArrayInput `pulumi:"onPremisesTagGroup"`
+}
+
+func (DeploymentGroupOnPremisesTagSetListObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupOnPremisesTagSetListObject)(nil)).Elem()
+}
+
+func (i DeploymentGroupOnPremisesTagSetListObjectArgs) ToDeploymentGroupOnPremisesTagSetListObjectOutput() DeploymentGroupOnPremisesTagSetListObjectOutput {
+	return i.ToDeploymentGroupOnPremisesTagSetListObjectOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupOnPremisesTagSetListObjectArgs) ToDeploymentGroupOnPremisesTagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetListObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesTagSetListObjectOutput)
+}
+
+// DeploymentGroupOnPremisesTagSetListObjectArrayInput is an input type that accepts DeploymentGroupOnPremisesTagSetListObjectArray and DeploymentGroupOnPremisesTagSetListObjectArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupOnPremisesTagSetListObjectArrayInput` via:
+//
+//	DeploymentGroupOnPremisesTagSetListObjectArray{ DeploymentGroupOnPremisesTagSetListObjectArgs{...} }
+type DeploymentGroupOnPremisesTagSetListObjectArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOnPremisesTagSetListObjectArrayOutput() DeploymentGroupOnPremisesTagSetListObjectArrayOutput
+	ToDeploymentGroupOnPremisesTagSetListObjectArrayOutputWithContext(context.Context) DeploymentGroupOnPremisesTagSetListObjectArrayOutput
+}
+
+type DeploymentGroupOnPremisesTagSetListObjectArray []DeploymentGroupOnPremisesTagSetListObjectInput
+
+func (DeploymentGroupOnPremisesTagSetListObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupOnPremisesTagSetListObject)(nil)).Elem()
+}
+
+func (i DeploymentGroupOnPremisesTagSetListObjectArray) ToDeploymentGroupOnPremisesTagSetListObjectArrayOutput() DeploymentGroupOnPremisesTagSetListObjectArrayOutput {
+	return i.ToDeploymentGroupOnPremisesTagSetListObjectArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupOnPremisesTagSetListObjectArray) ToDeploymentGroupOnPremisesTagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetListObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesTagSetListObjectArrayOutput)
+}
+
+// Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+type DeploymentGroupOnPremisesTagSetListObjectOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupOnPremisesTagSetListObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupOnPremisesTagSetListObject)(nil)).Elem()
+}
+
+func (o DeploymentGroupOnPremisesTagSetListObjectOutput) ToDeploymentGroupOnPremisesTagSetListObjectOutput() DeploymentGroupOnPremisesTagSetListObjectOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetListObjectOutput) ToDeploymentGroupOnPremisesTagSetListObjectOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetListObjectOutput {
+	return o
+}
+
+// Information about groups of on-premises instance tags.
+func (o DeploymentGroupOnPremisesTagSetListObjectOutput) OnPremisesTagGroup() DeploymentGroupTagFilterArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupOnPremisesTagSetListObject) []DeploymentGroupTagFilter {
+		return v.OnPremisesTagGroup
+	}).(DeploymentGroupTagFilterArrayOutput)
+}
+
+type DeploymentGroupOnPremisesTagSetListObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupOnPremisesTagSetListObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupOnPremisesTagSetListObject)(nil)).Elem()
+}
+
+func (o DeploymentGroupOnPremisesTagSetListObjectArrayOutput) ToDeploymentGroupOnPremisesTagSetListObjectArrayOutput() DeploymentGroupOnPremisesTagSetListObjectArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetListObjectArrayOutput) ToDeploymentGroupOnPremisesTagSetListObjectArrayOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesTagSetListObjectArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesTagSetListObjectArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOnPremisesTagSetListObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupOnPremisesTagSetListObject {
+		return vs[0].([]DeploymentGroupOnPremisesTagSetListObject)[vs[1].(int)]
+	}).(DeploymentGroupOnPremisesTagSetListObjectOutput)
+}
+
+// Defines the location of the CodeDeploy application revision to deploy.
+type DeploymentGroupRevisionLocation struct {
+	// Information about the location of application artifacts stored in GitHub.
+	GitHubLocation *DeploymentGroupGitHubLocation `pulumi:"gitHubLocation"`
+	// The type of application revision.
+	RevisionType *string `pulumi:"revisionType"`
+	// Information about the location of a revision stored in Amazon S3.
+	S3Location *DeploymentGroupS3Location `pulumi:"s3Location"`
+}
+
+// DeploymentGroupRevisionLocationInput is an input type that accepts DeploymentGroupRevisionLocationArgs and DeploymentGroupRevisionLocationOutput values.
+// You can construct a concrete instance of `DeploymentGroupRevisionLocationInput` via:
+//
+//	DeploymentGroupRevisionLocationArgs{...}
+type DeploymentGroupRevisionLocationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupRevisionLocationOutput() DeploymentGroupRevisionLocationOutput
+	ToDeploymentGroupRevisionLocationOutputWithContext(context.Context) DeploymentGroupRevisionLocationOutput
+}
+
+// Defines the location of the CodeDeploy application revision to deploy.
+type DeploymentGroupRevisionLocationArgs struct {
+	// Information about the location of application artifacts stored in GitHub.
+	GitHubLocation DeploymentGroupGitHubLocationPtrInput `pulumi:"gitHubLocation"`
+	// The type of application revision.
+	RevisionType pulumi.StringPtrInput `pulumi:"revisionType"`
+	// Information about the location of a revision stored in Amazon S3.
+	S3Location DeploymentGroupS3LocationPtrInput `pulumi:"s3Location"`
+}
+
+func (DeploymentGroupRevisionLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupRevisionLocation)(nil)).Elem()
+}
+
+func (i DeploymentGroupRevisionLocationArgs) ToDeploymentGroupRevisionLocationOutput() DeploymentGroupRevisionLocationOutput {
+	return i.ToDeploymentGroupRevisionLocationOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupRevisionLocationArgs) ToDeploymentGroupRevisionLocationOutputWithContext(ctx context.Context) DeploymentGroupRevisionLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupRevisionLocationOutput)
+}
+
+func (i DeploymentGroupRevisionLocationArgs) ToDeploymentGroupRevisionLocationPtrOutput() DeploymentGroupRevisionLocationPtrOutput {
+	return i.ToDeploymentGroupRevisionLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupRevisionLocationArgs) ToDeploymentGroupRevisionLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupRevisionLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupRevisionLocationOutput).ToDeploymentGroupRevisionLocationPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupRevisionLocationPtrInput is an input type that accepts DeploymentGroupRevisionLocationArgs, DeploymentGroupRevisionLocationPtr and DeploymentGroupRevisionLocationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupRevisionLocationPtrInput` via:
+//
+//	        DeploymentGroupRevisionLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupRevisionLocationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupRevisionLocationPtrOutput() DeploymentGroupRevisionLocationPtrOutput
+	ToDeploymentGroupRevisionLocationPtrOutputWithContext(context.Context) DeploymentGroupRevisionLocationPtrOutput
+}
+
+type deploymentGroupRevisionLocationPtrType DeploymentGroupRevisionLocationArgs
+
+func DeploymentGroupRevisionLocationPtr(v *DeploymentGroupRevisionLocationArgs) DeploymentGroupRevisionLocationPtrInput {
+	return (*deploymentGroupRevisionLocationPtrType)(v)
+}
+
+func (*deploymentGroupRevisionLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupRevisionLocation)(nil)).Elem()
+}
+
+func (i *deploymentGroupRevisionLocationPtrType) ToDeploymentGroupRevisionLocationPtrOutput() DeploymentGroupRevisionLocationPtrOutput {
+	return i.ToDeploymentGroupRevisionLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupRevisionLocationPtrType) ToDeploymentGroupRevisionLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupRevisionLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupRevisionLocationPtrOutput)
+}
+
+// Defines the location of the CodeDeploy application revision to deploy.
+type DeploymentGroupRevisionLocationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupRevisionLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupRevisionLocation)(nil)).Elem()
+}
+
+func (o DeploymentGroupRevisionLocationOutput) ToDeploymentGroupRevisionLocationOutput() DeploymentGroupRevisionLocationOutput {
+	return o
+}
+
+func (o DeploymentGroupRevisionLocationOutput) ToDeploymentGroupRevisionLocationOutputWithContext(ctx context.Context) DeploymentGroupRevisionLocationOutput {
+	return o
+}
+
+func (o DeploymentGroupRevisionLocationOutput) ToDeploymentGroupRevisionLocationPtrOutput() DeploymentGroupRevisionLocationPtrOutput {
+	return o.ToDeploymentGroupRevisionLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupRevisionLocationOutput) ToDeploymentGroupRevisionLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupRevisionLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupRevisionLocation) *DeploymentGroupRevisionLocation {
+		return &v
+	}).(DeploymentGroupRevisionLocationPtrOutput)
+}
+
+// Information about the location of application artifacts stored in GitHub.
+func (o DeploymentGroupRevisionLocationOutput) GitHubLocation() DeploymentGroupGitHubLocationPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupRevisionLocation) *DeploymentGroupGitHubLocation { return v.GitHubLocation }).(DeploymentGroupGitHubLocationPtrOutput)
+}
+
+// The type of application revision.
+func (o DeploymentGroupRevisionLocationOutput) RevisionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupRevisionLocation) *string { return v.RevisionType }).(pulumi.StringPtrOutput)
+}
+
+// Information about the location of a revision stored in Amazon S3.
+func (o DeploymentGroupRevisionLocationOutput) S3Location() DeploymentGroupS3LocationPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupRevisionLocation) *DeploymentGroupS3Location { return v.S3Location }).(DeploymentGroupS3LocationPtrOutput)
+}
+
+type DeploymentGroupRevisionLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupRevisionLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupRevisionLocation)(nil)).Elem()
+}
+
+func (o DeploymentGroupRevisionLocationPtrOutput) ToDeploymentGroupRevisionLocationPtrOutput() DeploymentGroupRevisionLocationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupRevisionLocationPtrOutput) ToDeploymentGroupRevisionLocationPtrOutputWithContext(ctx context.Context) DeploymentGroupRevisionLocationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupRevisionLocationPtrOutput) Elem() DeploymentGroupRevisionLocationOutput {
+	return o.ApplyT(func(v *DeploymentGroupRevisionLocation) DeploymentGroupRevisionLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupRevisionLocation
+		return ret
+	}).(DeploymentGroupRevisionLocationOutput)
+}
+
+// Information about the location of application artifacts stored in GitHub.
+func (o DeploymentGroupRevisionLocationPtrOutput) GitHubLocation() DeploymentGroupGitHubLocationPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupRevisionLocation) *DeploymentGroupGitHubLocation {
+		if v == nil {
+			return nil
+		}
+		return v.GitHubLocation
+	}).(DeploymentGroupGitHubLocationPtrOutput)
+}
+
+// The type of application revision.
+func (o DeploymentGroupRevisionLocationPtrOutput) RevisionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupRevisionLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RevisionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the location of a revision stored in Amazon S3.
+func (o DeploymentGroupRevisionLocationPtrOutput) S3Location() DeploymentGroupS3LocationPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupRevisionLocation) *DeploymentGroupS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3Location
+	}).(DeploymentGroupS3LocationPtrOutput)
+}
+
+// Information about the location of application artifacts stored in Amazon S3.
+type DeploymentGroupS3Location struct {
+	// The name of the Amazon S3 bucket where the application revision is stored.
+	Bucket string `pulumi:"bucket"`
+	// The file type of the application revision.
+	BundleType *string `pulumi:"bundleType"`
+	// The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
+	ETag *string `pulumi:"eTag"`
+	// The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
+	Key string `pulumi:"key"`
+	// A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default.
+	Version *string `pulumi:"version"`
+}
+
+// DeploymentGroupS3LocationInput is an input type that accepts DeploymentGroupS3LocationArgs and DeploymentGroupS3LocationOutput values.
+// You can construct a concrete instance of `DeploymentGroupS3LocationInput` via:
+//
+//	DeploymentGroupS3LocationArgs{...}
+type DeploymentGroupS3LocationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupS3LocationOutput() DeploymentGroupS3LocationOutput
+	ToDeploymentGroupS3LocationOutputWithContext(context.Context) DeploymentGroupS3LocationOutput
+}
+
+// Information about the location of application artifacts stored in Amazon S3.
+type DeploymentGroupS3LocationArgs struct {
+	// The name of the Amazon S3 bucket where the application revision is stored.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The file type of the application revision.
+	BundleType pulumi.StringPtrInput `pulumi:"bundleType"`
+	// The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DeploymentGroupS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupS3Location)(nil)).Elem()
+}
+
+func (i DeploymentGroupS3LocationArgs) ToDeploymentGroupS3LocationOutput() DeploymentGroupS3LocationOutput {
+	return i.ToDeploymentGroupS3LocationOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupS3LocationArgs) ToDeploymentGroupS3LocationOutputWithContext(ctx context.Context) DeploymentGroupS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupS3LocationOutput)
+}
+
+func (i DeploymentGroupS3LocationArgs) ToDeploymentGroupS3LocationPtrOutput() DeploymentGroupS3LocationPtrOutput {
+	return i.ToDeploymentGroupS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupS3LocationArgs) ToDeploymentGroupS3LocationPtrOutputWithContext(ctx context.Context) DeploymentGroupS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupS3LocationOutput).ToDeploymentGroupS3LocationPtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupS3LocationPtrInput is an input type that accepts DeploymentGroupS3LocationArgs, DeploymentGroupS3LocationPtr and DeploymentGroupS3LocationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupS3LocationPtrInput` via:
+//
+//	        DeploymentGroupS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupS3LocationPtrOutput() DeploymentGroupS3LocationPtrOutput
+	ToDeploymentGroupS3LocationPtrOutputWithContext(context.Context) DeploymentGroupS3LocationPtrOutput
+}
+
+type deploymentGroupS3LocationPtrType DeploymentGroupS3LocationArgs
+
+func DeploymentGroupS3LocationPtr(v *DeploymentGroupS3LocationArgs) DeploymentGroupS3LocationPtrInput {
+	return (*deploymentGroupS3LocationPtrType)(v)
+}
+
+func (*deploymentGroupS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupS3Location)(nil)).Elem()
+}
+
+func (i *deploymentGroupS3LocationPtrType) ToDeploymentGroupS3LocationPtrOutput() DeploymentGroupS3LocationPtrOutput {
+	return i.ToDeploymentGroupS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupS3LocationPtrType) ToDeploymentGroupS3LocationPtrOutputWithContext(ctx context.Context) DeploymentGroupS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupS3LocationPtrOutput)
+}
+
+// Information about the location of application artifacts stored in Amazon S3.
+type DeploymentGroupS3LocationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupS3Location)(nil)).Elem()
+}
+
+func (o DeploymentGroupS3LocationOutput) ToDeploymentGroupS3LocationOutput() DeploymentGroupS3LocationOutput {
+	return o
+}
+
+func (o DeploymentGroupS3LocationOutput) ToDeploymentGroupS3LocationOutputWithContext(ctx context.Context) DeploymentGroupS3LocationOutput {
+	return o
+}
+
+func (o DeploymentGroupS3LocationOutput) ToDeploymentGroupS3LocationPtrOutput() DeploymentGroupS3LocationPtrOutput {
+	return o.ToDeploymentGroupS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupS3LocationOutput) ToDeploymentGroupS3LocationPtrOutputWithContext(ctx context.Context) DeploymentGroupS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupS3Location) *DeploymentGroupS3Location {
+		return &v
+	}).(DeploymentGroupS3LocationPtrOutput)
+}
+
+// The name of the Amazon S3 bucket where the application revision is stored.
+func (o DeploymentGroupS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The file type of the application revision.
+func (o DeploymentGroupS3LocationOutput) BundleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupS3Location) *string { return v.BundleType }).(pulumi.StringPtrOutput)
+}
+
+// The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
+func (o DeploymentGroupS3LocationOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupS3Location) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
+func (o DeploymentGroupS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGroupS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default.
+func (o DeploymentGroupS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupS3Location)(nil)).Elem()
+}
+
+func (o DeploymentGroupS3LocationPtrOutput) ToDeploymentGroupS3LocationPtrOutput() DeploymentGroupS3LocationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupS3LocationPtrOutput) ToDeploymentGroupS3LocationPtrOutputWithContext(ctx context.Context) DeploymentGroupS3LocationPtrOutput {
+	return o
+}
+
+func (o DeploymentGroupS3LocationPtrOutput) Elem() DeploymentGroupS3LocationOutput {
+	return o.ApplyT(func(v *DeploymentGroupS3Location) DeploymentGroupS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupS3Location
+		return ret
+	}).(DeploymentGroupS3LocationOutput)
+}
+
+// The name of the Amazon S3 bucket where the application revision is stored.
+func (o DeploymentGroupS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The file type of the application revision.
+func (o DeploymentGroupS3LocationPtrOutput) BundleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BundleType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
+func (o DeploymentGroupS3LocationPtrOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ETag
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
+func (o DeploymentGroupS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default.
+func (o DeploymentGroupS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroupS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about a tag.
+type DeploymentGroupTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// Specifies which on-premises instances to associate with the deployment group.
+type DeploymentGroupTagFilter struct {
+	// The on-premises instance tag filter key.
+	Key *string `pulumi:"key"`
+	// The on-premises instance tag filter type
+	Type *string `pulumi:"type"`
+	// The on-premises instance tag filter value.
+	Value *string `pulumi:"value"`
+}
+
+// DeploymentGroupTagFilterInput is an input type that accepts DeploymentGroupTagFilterArgs and DeploymentGroupTagFilterOutput values.
+// You can construct a concrete instance of `DeploymentGroupTagFilterInput` via:
+//
+//	DeploymentGroupTagFilterArgs{...}
+type DeploymentGroupTagFilterInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTagFilterOutput() DeploymentGroupTagFilterOutput
+	ToDeploymentGroupTagFilterOutputWithContext(context.Context) DeploymentGroupTagFilterOutput
+}
+
+// Specifies which on-premises instances to associate with the deployment group.
+type DeploymentGroupTagFilterArgs struct {
+	// The on-premises instance tag filter key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The on-premises instance tag filter type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The on-premises instance tag filter value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DeploymentGroupTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTagFilter)(nil)).Elem()
+}
+
+func (i DeploymentGroupTagFilterArgs) ToDeploymentGroupTagFilterOutput() DeploymentGroupTagFilterOutput {
+	return i.ToDeploymentGroupTagFilterOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTagFilterArgs) ToDeploymentGroupTagFilterOutputWithContext(ctx context.Context) DeploymentGroupTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTagFilterOutput)
+}
+
+// DeploymentGroupTagFilterArrayInput is an input type that accepts DeploymentGroupTagFilterArray and DeploymentGroupTagFilterArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTagFilterArrayInput` via:
+//
+//	DeploymentGroupTagFilterArray{ DeploymentGroupTagFilterArgs{...} }
+type DeploymentGroupTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTagFilterArrayOutput() DeploymentGroupTagFilterArrayOutput
+	ToDeploymentGroupTagFilterArrayOutputWithContext(context.Context) DeploymentGroupTagFilterArrayOutput
+}
+
+type DeploymentGroupTagFilterArray []DeploymentGroupTagFilterInput
+
+func (DeploymentGroupTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTagFilter)(nil)).Elem()
+}
+
+func (i DeploymentGroupTagFilterArray) ToDeploymentGroupTagFilterArrayOutput() DeploymentGroupTagFilterArrayOutput {
+	return i.ToDeploymentGroupTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTagFilterArray) ToDeploymentGroupTagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTagFilterArrayOutput)
+}
+
+// Specifies which on-premises instances to associate with the deployment group.
+type DeploymentGroupTagFilterOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTagFilter)(nil)).Elem()
+}
+
+func (o DeploymentGroupTagFilterOutput) ToDeploymentGroupTagFilterOutput() DeploymentGroupTagFilterOutput {
+	return o
+}
+
+func (o DeploymentGroupTagFilterOutput) ToDeploymentGroupTagFilterOutputWithContext(ctx context.Context) DeploymentGroupTagFilterOutput {
+	return o
+}
+
+// The on-premises instance tag filter key.
+func (o DeploymentGroupTagFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The on-premises instance tag filter type
+func (o DeploymentGroupTagFilterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The on-premises instance tag filter value.
+func (o DeploymentGroupTagFilterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTagFilter)(nil)).Elem()
+}
+
+func (o DeploymentGroupTagFilterArrayOutput) ToDeploymentGroupTagFilterArrayOutput() DeploymentGroupTagFilterArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTagFilterArrayOutput) ToDeploymentGroupTagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupTagFilterArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTagFilter {
+		return vs[0].([]DeploymentGroupTagFilter)[vs[1].(int)]
+	}).(DeploymentGroupTagFilterOutput)
+}
+
+// Specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+type DeploymentGroupTargetGroupInfo struct {
+	// For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. No duplicates allowed.
+	Name *string `pulumi:"name"`
+}
+
+// DeploymentGroupTargetGroupInfoInput is an input type that accepts DeploymentGroupTargetGroupInfoArgs and DeploymentGroupTargetGroupInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupTargetGroupInfoInput` via:
+//
+//	DeploymentGroupTargetGroupInfoArgs{...}
+type DeploymentGroupTargetGroupInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTargetGroupInfoOutput() DeploymentGroupTargetGroupInfoOutput
+	ToDeploymentGroupTargetGroupInfoOutputWithContext(context.Context) DeploymentGroupTargetGroupInfoOutput
+}
+
+// Specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+type DeploymentGroupTargetGroupInfoArgs struct {
+	// For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. No duplicates allowed.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DeploymentGroupTargetGroupInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTargetGroupInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupTargetGroupInfoArgs) ToDeploymentGroupTargetGroupInfoOutput() DeploymentGroupTargetGroupInfoOutput {
+	return i.ToDeploymentGroupTargetGroupInfoOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTargetGroupInfoArgs) ToDeploymentGroupTargetGroupInfoOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTargetGroupInfoOutput)
+}
+
+// DeploymentGroupTargetGroupInfoArrayInput is an input type that accepts DeploymentGroupTargetGroupInfoArray and DeploymentGroupTargetGroupInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTargetGroupInfoArrayInput` via:
+//
+//	DeploymentGroupTargetGroupInfoArray{ DeploymentGroupTargetGroupInfoArgs{...} }
+type DeploymentGroupTargetGroupInfoArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTargetGroupInfoArrayOutput() DeploymentGroupTargetGroupInfoArrayOutput
+	ToDeploymentGroupTargetGroupInfoArrayOutputWithContext(context.Context) DeploymentGroupTargetGroupInfoArrayOutput
+}
+
+type DeploymentGroupTargetGroupInfoArray []DeploymentGroupTargetGroupInfoInput
+
+func (DeploymentGroupTargetGroupInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTargetGroupInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupTargetGroupInfoArray) ToDeploymentGroupTargetGroupInfoArrayOutput() DeploymentGroupTargetGroupInfoArrayOutput {
+	return i.ToDeploymentGroupTargetGroupInfoArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTargetGroupInfoArray) ToDeploymentGroupTargetGroupInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTargetGroupInfoArrayOutput)
+}
+
+// Specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+type DeploymentGroupTargetGroupInfoOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTargetGroupInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTargetGroupInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupTargetGroupInfoOutput) ToDeploymentGroupTargetGroupInfoOutput() DeploymentGroupTargetGroupInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupInfoOutput) ToDeploymentGroupTargetGroupInfoOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupInfoOutput {
+	return o
+}
+
+// For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. No duplicates allowed.
+func (o DeploymentGroupTargetGroupInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupTargetGroupInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTargetGroupInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTargetGroupInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupTargetGroupInfoArrayOutput) ToDeploymentGroupTargetGroupInfoArrayOutput() DeploymentGroupTargetGroupInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupInfoArrayOutput) ToDeploymentGroupTargetGroupInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTargetGroupInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTargetGroupInfo {
+		return vs[0].([]DeploymentGroupTargetGroupInfo)[vs[1].(int)]
+	}).(DeploymentGroupTargetGroupInfoOutput)
+}
+
+// The TargetGroupInfo property type specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+type DeploymentGroupTargetGroupPairInfo struct {
+	// The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
+	ProdTrafficRoute *DeploymentGroupTrafficRoute `pulumi:"prodTrafficRoute"`
+	// One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
+	TargetGroups []DeploymentGroupTargetGroupInfo `pulumi:"targetGroups"`
+	// An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
+	TestTrafficRoute *DeploymentGroupTrafficRoute `pulumi:"testTrafficRoute"`
+}
+
+// DeploymentGroupTargetGroupPairInfoInput is an input type that accepts DeploymentGroupTargetGroupPairInfoArgs and DeploymentGroupTargetGroupPairInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupTargetGroupPairInfoInput` via:
+//
+//	DeploymentGroupTargetGroupPairInfoArgs{...}
+type DeploymentGroupTargetGroupPairInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTargetGroupPairInfoOutput() DeploymentGroupTargetGroupPairInfoOutput
+	ToDeploymentGroupTargetGroupPairInfoOutputWithContext(context.Context) DeploymentGroupTargetGroupPairInfoOutput
+}
+
+// The TargetGroupInfo property type specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+type DeploymentGroupTargetGroupPairInfoArgs struct {
+	// The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
+	ProdTrafficRoute DeploymentGroupTrafficRoutePtrInput `pulumi:"prodTrafficRoute"`
+	// One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
+	TargetGroups DeploymentGroupTargetGroupInfoArrayInput `pulumi:"targetGroups"`
+	// An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
+	TestTrafficRoute DeploymentGroupTrafficRoutePtrInput `pulumi:"testTrafficRoute"`
+}
+
+func (DeploymentGroupTargetGroupPairInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArgs) ToDeploymentGroupTargetGroupPairInfoOutput() DeploymentGroupTargetGroupPairInfoOutput {
+	return i.ToDeploymentGroupTargetGroupPairInfoOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArgs) ToDeploymentGroupTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTargetGroupPairInfoOutput)
+}
+
+// DeploymentGroupTargetGroupPairInfoArrayInput is an input type that accepts DeploymentGroupTargetGroupPairInfoArray and DeploymentGroupTargetGroupPairInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTargetGroupPairInfoArrayInput` via:
+//
+//	DeploymentGroupTargetGroupPairInfoArray{ DeploymentGroupTargetGroupPairInfoArgs{...} }
+type DeploymentGroupTargetGroupPairInfoArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTargetGroupPairInfoArrayOutput() DeploymentGroupTargetGroupPairInfoArrayOutput
+	ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(context.Context) DeploymentGroupTargetGroupPairInfoArrayOutput
+}
+
+type DeploymentGroupTargetGroupPairInfoArray []DeploymentGroupTargetGroupPairInfoInput
+
+func (DeploymentGroupTargetGroupPairInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArray) ToDeploymentGroupTargetGroupPairInfoArrayOutput() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return i.ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTargetGroupPairInfoArray) ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTargetGroupPairInfoArrayOutput)
+}
+
+// The TargetGroupInfo property type specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+type DeploymentGroupTargetGroupPairInfoOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTargetGroupPairInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) ToDeploymentGroupTargetGroupPairInfoOutput() DeploymentGroupTargetGroupPairInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoOutput) ToDeploymentGroupTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoOutput {
+	return o
+}
+
+// The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
+func (o DeploymentGroupTargetGroupPairInfoOutput) ProdTrafficRoute() DeploymentGroupTrafficRoutePtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupPairInfo) *DeploymentGroupTrafficRoute { return v.ProdTrafficRoute }).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+// One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
+func (o DeploymentGroupTargetGroupPairInfoOutput) TargetGroups() DeploymentGroupTargetGroupInfoArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupPairInfo) []DeploymentGroupTargetGroupInfo { return v.TargetGroups }).(DeploymentGroupTargetGroupInfoArrayOutput)
+}
+
+// An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
+func (o DeploymentGroupTargetGroupPairInfoOutput) TestTrafficRoute() DeploymentGroupTrafficRoutePtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTargetGroupPairInfo) *DeploymentGroupTrafficRoute { return v.TestTrafficRoute }).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+type DeploymentGroupTargetGroupPairInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTargetGroupPairInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTargetGroupPairInfo)(nil)).Elem()
+}
+
+func (o DeploymentGroupTargetGroupPairInfoArrayOutput) ToDeploymentGroupTargetGroupPairInfoArrayOutput() DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoArrayOutput) ToDeploymentGroupTargetGroupPairInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupTargetGroupPairInfoArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTargetGroupPairInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTargetGroupPairInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTargetGroupPairInfo {
+		return vs[0].([]DeploymentGroupTargetGroupPairInfo)[vs[1].(int)]
+	}).(DeploymentGroupTargetGroupPairInfoOutput)
+}
+
+// Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
+type DeploymentGroupTrafficRoute struct {
+	// The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+	ListenerArns []string `pulumi:"listenerArns"`
+}
+
+// DeploymentGroupTrafficRouteInput is an input type that accepts DeploymentGroupTrafficRouteArgs and DeploymentGroupTrafficRouteOutput values.
+// You can construct a concrete instance of `DeploymentGroupTrafficRouteInput` via:
+//
+//	DeploymentGroupTrafficRouteArgs{...}
+type DeploymentGroupTrafficRouteInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTrafficRouteOutput() DeploymentGroupTrafficRouteOutput
+	ToDeploymentGroupTrafficRouteOutputWithContext(context.Context) DeploymentGroupTrafficRouteOutput
+}
+
+// Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
+type DeploymentGroupTrafficRouteArgs struct {
+	// The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+	ListenerArns pulumi.StringArrayInput `pulumi:"listenerArns"`
+}
+
+func (DeploymentGroupTrafficRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRouteOutput() DeploymentGroupTrafficRouteOutput {
+	return i.ToDeploymentGroupTrafficRouteOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupTrafficRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTrafficRouteOutput)
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return i.ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTrafficRouteArgs) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTrafficRouteOutput).ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx)
+}
+
+// DeploymentGroupTrafficRoutePtrInput is an input type that accepts DeploymentGroupTrafficRouteArgs, DeploymentGroupTrafficRoutePtr and DeploymentGroupTrafficRoutePtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupTrafficRoutePtrInput` via:
+//
+//	        DeploymentGroupTrafficRouteArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentGroupTrafficRoutePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput
+	ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Context) DeploymentGroupTrafficRoutePtrOutput
+}
+
+type deploymentGroupTrafficRoutePtrType DeploymentGroupTrafficRouteArgs
+
+func DeploymentGroupTrafficRoutePtr(v *DeploymentGroupTrafficRouteArgs) DeploymentGroupTrafficRoutePtrInput {
+	return (*deploymentGroupTrafficRoutePtrType)(v)
+}
+
+func (*deploymentGroupTrafficRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (i *deploymentGroupTrafficRoutePtrType) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return i.ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentGroupTrafficRoutePtrType) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+// Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
+type DeploymentGroupTrafficRouteOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTrafficRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRouteOutput() DeploymentGroupTrafficRouteOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupTrafficRouteOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return o.ToDeploymentGroupTrafficRoutePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentGroupTrafficRouteOutput) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupTrafficRoute) *DeploymentGroupTrafficRoute {
+		return &v
+	}).(DeploymentGroupTrafficRoutePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+func (o DeploymentGroupTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupTrafficRoute) []string { return v.ListenerArns }).(pulumi.StringArrayOutput)
+}
+
+type DeploymentGroupTrafficRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTrafficRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentGroupTrafficRoute)(nil)).Elem()
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) ToDeploymentGroupTrafficRoutePtrOutput() DeploymentGroupTrafficRoutePtrOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) ToDeploymentGroupTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupTrafficRoutePtrOutput {
+	return o
+}
+
+func (o DeploymentGroupTrafficRoutePtrOutput) Elem() DeploymentGroupTrafficRouteOutput {
+	return o.ApplyT(func(v *DeploymentGroupTrafficRoute) DeploymentGroupTrafficRoute {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupTrafficRoute
+		return ret
+	}).(DeploymentGroupTrafficRouteOutput)
+}
+
+// The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+func (o DeploymentGroupTrafficRoutePtrOutput) ListenerArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentGroupTrafficRoute) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Information about notification triggers for the deployment group.
+type DeploymentGroupTriggerConfig struct {
+	// The event type or types that trigger notifications.
+	TriggerEvents []string `pulumi:"triggerEvents"`
+	// The name of the notification trigger.
+	TriggerName *string `pulumi:"triggerName"`
+	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
+	TriggerTargetArn *string `pulumi:"triggerTargetArn"`
+}
+
+// DeploymentGroupTriggerConfigInput is an input type that accepts DeploymentGroupTriggerConfigArgs and DeploymentGroupTriggerConfigOutput values.
+// You can construct a concrete instance of `DeploymentGroupTriggerConfigInput` via:
+//
+//	DeploymentGroupTriggerConfigArgs{...}
+type DeploymentGroupTriggerConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTriggerConfigOutput() DeploymentGroupTriggerConfigOutput
+	ToDeploymentGroupTriggerConfigOutputWithContext(context.Context) DeploymentGroupTriggerConfigOutput
+}
+
+// Information about notification triggers for the deployment group.
+type DeploymentGroupTriggerConfigArgs struct {
+	// The event type or types that trigger notifications.
+	TriggerEvents pulumi.StringArrayInput `pulumi:"triggerEvents"`
+	// The name of the notification trigger.
+	TriggerName pulumi.StringPtrInput `pulumi:"triggerName"`
+	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
+	TriggerTargetArn pulumi.StringPtrInput `pulumi:"triggerTargetArn"`
+}
+
+func (DeploymentGroupTriggerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTriggerConfig)(nil)).Elem()
+}
+
+func (i DeploymentGroupTriggerConfigArgs) ToDeploymentGroupTriggerConfigOutput() DeploymentGroupTriggerConfigOutput {
+	return i.ToDeploymentGroupTriggerConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTriggerConfigArgs) ToDeploymentGroupTriggerConfigOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTriggerConfigOutput)
+}
+
+// DeploymentGroupTriggerConfigArrayInput is an input type that accepts DeploymentGroupTriggerConfigArray and DeploymentGroupTriggerConfigArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTriggerConfigArrayInput` via:
+//
+//	DeploymentGroupTriggerConfigArray{ DeploymentGroupTriggerConfigArgs{...} }
+type DeploymentGroupTriggerConfigArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTriggerConfigArrayOutput() DeploymentGroupTriggerConfigArrayOutput
+	ToDeploymentGroupTriggerConfigArrayOutputWithContext(context.Context) DeploymentGroupTriggerConfigArrayOutput
+}
+
+type DeploymentGroupTriggerConfigArray []DeploymentGroupTriggerConfigInput
+
+func (DeploymentGroupTriggerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTriggerConfig)(nil)).Elem()
+}
+
+func (i DeploymentGroupTriggerConfigArray) ToDeploymentGroupTriggerConfigArrayOutput() DeploymentGroupTriggerConfigArrayOutput {
+	return i.ToDeploymentGroupTriggerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroupTriggerConfigArray) ToDeploymentGroupTriggerConfigArrayOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTriggerConfigArrayOutput)
+}
+
+// Information about notification triggers for the deployment group.
+type DeploymentGroupTriggerConfigOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTriggerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupTriggerConfig)(nil)).Elem()
+}
+
+func (o DeploymentGroupTriggerConfigOutput) ToDeploymentGroupTriggerConfigOutput() DeploymentGroupTriggerConfigOutput {
+	return o
+}
+
+func (o DeploymentGroupTriggerConfigOutput) ToDeploymentGroupTriggerConfigOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigOutput {
+	return o
+}
+
+// The event type or types that trigger notifications.
+func (o DeploymentGroupTriggerConfigOutput) TriggerEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGroupTriggerConfig) []string { return v.TriggerEvents }).(pulumi.StringArrayOutput)
+}
+
+// The name of the notification trigger.
+func (o DeploymentGroupTriggerConfigOutput) TriggerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTriggerConfig) *string { return v.TriggerName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
+func (o DeploymentGroupTriggerConfigOutput) TriggerTargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentGroupTriggerConfig) *string { return v.TriggerTargetArn }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentGroupTriggerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGroupTriggerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGroupTriggerConfig)(nil)).Elem()
+}
+
+func (o DeploymentGroupTriggerConfigArrayOutput) ToDeploymentGroupTriggerConfigArrayOutput() DeploymentGroupTriggerConfigArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTriggerConfigArrayOutput) ToDeploymentGroupTriggerConfigArrayOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTriggerConfigArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTriggerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTriggerConfig {
+		return vs[0].([]DeploymentGroupTriggerConfig)[vs[1].(int)]
+	}).(DeploymentGroupTriggerConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPtrInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsArgs{})
@@ -1081,6 +4643,56 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigPtrInput)(nil)).Elem(), DeploymentConfigTrafficRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigInput)(nil)).Elem(), DeploymentConfigZonalConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigPtrInput)(nil)).Elem(), DeploymentConfigZonalConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmInput)(nil)).Elem(), DeploymentGroupAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmArrayInput)(nil)).Elem(), DeploymentGroupAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmConfigurationInput)(nil)).Elem(), DeploymentGroupAlarmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmConfigurationPtrInput)(nil)).Elem(), DeploymentGroupAlarmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAutoRollbackConfigurationInput)(nil)).Elem(), DeploymentGroupAutoRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAutoRollbackConfigurationPtrInput)(nil)).Elem(), DeploymentGroupAutoRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigurationInput)(nil)).Elem(), DeploymentGroupBlueGreenDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigurationPtrInput)(nil)).Elem(), DeploymentGroupBlueGreenDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupBlueInstanceTerminationOptionInput)(nil)).Elem(), DeploymentGroupBlueInstanceTerminationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupBlueInstanceTerminationOptionPtrInput)(nil)).Elem(), DeploymentGroupBlueInstanceTerminationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentInput)(nil)).Elem(), DeploymentGroupDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentPtrInput)(nil)).Elem(), DeploymentGroupDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentReadyOptionInput)(nil)).Elem(), DeploymentGroupDeploymentReadyOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentReadyOptionPtrInput)(nil)).Elem(), DeploymentGroupDeploymentReadyOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentStyleInput)(nil)).Elem(), DeploymentGroupDeploymentStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupDeploymentStylePtrInput)(nil)).Elem(), DeploymentGroupDeploymentStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagFilterInput)(nil)).Elem(), DeploymentGroupEc2TagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagFilterArrayInput)(nil)).Elem(), DeploymentGroupEc2TagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetInput)(nil)).Elem(), DeploymentGroupEc2TagSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetPtrInput)(nil)).Elem(), DeploymentGroupEc2TagSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetListObjectInput)(nil)).Elem(), DeploymentGroupEc2TagSetListObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEc2TagSetListObjectArrayInput)(nil)).Elem(), DeploymentGroupEc2TagSetListObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEcsServiceInput)(nil)).Elem(), DeploymentGroupEcsServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupEcsServiceArrayInput)(nil)).Elem(), DeploymentGroupEcsServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupElbInfoInput)(nil)).Elem(), DeploymentGroupElbInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupElbInfoArrayInput)(nil)).Elem(), DeploymentGroupElbInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGitHubLocationInput)(nil)).Elem(), DeploymentGroupGitHubLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGitHubLocationPtrInput)(nil)).Elem(), DeploymentGroupGitHubLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGreenFleetProvisioningOptionInput)(nil)).Elem(), DeploymentGroupGreenFleetProvisioningOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupGreenFleetProvisioningOptionPtrInput)(nil)).Elem(), DeploymentGroupGreenFleetProvisioningOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupLoadBalancerInfoInput)(nil)).Elem(), DeploymentGroupLoadBalancerInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupLoadBalancerInfoPtrInput)(nil)).Elem(), DeploymentGroupLoadBalancerInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupOnPremisesTagSetInput)(nil)).Elem(), DeploymentGroupOnPremisesTagSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupOnPremisesTagSetPtrInput)(nil)).Elem(), DeploymentGroupOnPremisesTagSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupOnPremisesTagSetListObjectInput)(nil)).Elem(), DeploymentGroupOnPremisesTagSetListObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupOnPremisesTagSetListObjectArrayInput)(nil)).Elem(), DeploymentGroupOnPremisesTagSetListObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupRevisionLocationInput)(nil)).Elem(), DeploymentGroupRevisionLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupRevisionLocationPtrInput)(nil)).Elem(), DeploymentGroupRevisionLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupS3LocationInput)(nil)).Elem(), DeploymentGroupS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupS3LocationPtrInput)(nil)).Elem(), DeploymentGroupS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagFilterInput)(nil)).Elem(), DeploymentGroupTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTagFilterArrayInput)(nil)).Elem(), DeploymentGroupTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupInfoInput)(nil)).Elem(), DeploymentGroupTargetGroupInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupInfoArrayInput)(nil)).Elem(), DeploymentGroupTargetGroupInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupPairInfoInput)(nil)).Elem(), DeploymentGroupTargetGroupPairInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTargetGroupPairInfoArrayInput)(nil)).Elem(), DeploymentGroupTargetGroupPairInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTrafficRouteInput)(nil)).Elem(), DeploymentGroupTrafficRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTrafficRoutePtrInput)(nil)).Elem(), DeploymentGroupTrafficRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTriggerConfigInput)(nil)).Elem(), DeploymentGroupTriggerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupTriggerConfigArrayInput)(nil)).Elem(), DeploymentGroupTriggerConfigArray{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPerZoneOutput{})
@@ -1093,4 +4705,54 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentConfigTrafficRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigZonalConfigOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigZonalConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupAlarmOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupAlarmArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupAlarmConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupAlarmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupAutoRollbackConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupAutoRollbackConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupBlueGreenDeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupBlueInstanceTerminationOptionOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupBlueInstanceTerminationOptionPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupDeploymentOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupDeploymentReadyOptionOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupDeploymentReadyOptionPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupDeploymentStyleOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupDeploymentStylePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagFilterOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagFilterArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetListObjectOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEc2TagSetListObjectArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEcsServiceOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupEcsServiceArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupElbInfoOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupElbInfoArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupGitHubLocationOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupGitHubLocationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupGreenFleetProvisioningOptionOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupGreenFleetProvisioningOptionPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupOnPremisesTagSetOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupOnPremisesTagSetPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupOnPremisesTagSetListObjectOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupOnPremisesTagSetListObjectArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupRevisionLocationOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupRevisionLocationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupS3LocationOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTagFilterOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTargetGroupInfoOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTargetGroupInfoArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTargetGroupPairInfoOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTargetGroupPairInfoArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTrafficRouteOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTrafficRoutePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTriggerConfigOutput{})
+	pulumi.RegisterOutputType(DeploymentGroupTriggerConfigArrayOutput{})
 }

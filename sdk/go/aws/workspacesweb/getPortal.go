@@ -62,7 +62,8 @@ type LookupPortalResult struct {
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
 	// The ARN of the web portal.
-	PortalArn *string `pulumi:"portalArn"`
+	PortalArn          *string `pulumi:"portalArn"`
+	PortalCustomDomain *string `pulumi:"portalCustomDomain"`
 	// The endpoint URL of the web portal that users access in order to start streaming sessions.
 	PortalEndpoint *string `pulumi:"portalEndpoint"`
 	// The status of the web portal.
@@ -182,6 +183,10 @@ func (o LookupPortalResultOutput) NetworkSettingsArn() pulumi.StringPtrOutput {
 // The ARN of the web portal.
 func (o LookupPortalResultOutput) PortalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPortalResultOutput) PortalCustomDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalCustomDomain }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint URL of the web portal that users access in order to start streaming sessions.

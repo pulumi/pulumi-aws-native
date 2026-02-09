@@ -152,7 +152,7 @@ namespace Pulumi.AwsNative.Rum.Inputs
         /// 
         /// If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
         /// 
-        /// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+        /// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
         /// </summary>
         [Input("valueKey")]
         public Input<string>? ValueKey { get; set; }

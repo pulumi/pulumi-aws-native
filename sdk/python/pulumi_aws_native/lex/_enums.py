@@ -18,6 +18,7 @@ __all__ = [
     'BotSlotShape',
     'BotSlotValueResolutionStrategy',
     'BotSpeechDetectionSensitivity',
+    'BotSpeechModelPreference',
     'BotVoiceSettingsEngine',
 ]
 
@@ -99,6 +100,13 @@ class BotSpeechDetectionSensitivity(_builtins.str, Enum):
     DEFAULT = "Default"
     HIGH_NOISE_TOLERANCE = "HighNoiseTolerance"
     MAXIMUM_NOISE_TOLERANCE = "MaximumNoiseTolerance"
+
+
+@pulumi.type_token("aws-native:lex:BotSpeechModelPreference")
+class BotSpeechModelPreference(_builtins.str, Enum):
+    STANDARD = "Standard"
+    NEURAL = "Neural"
+    DEEPGRAM = "Deepgram"
 
 
 @pulumi.type_token("aws-native:lex:BotVoiceSettingsEngine")

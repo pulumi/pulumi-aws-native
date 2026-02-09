@@ -26,6 +26,10 @@ __all__ = [
     'MetricFilterMetricTransformationArgsDict',
     'ResourceConfigPropertiesArgs',
     'ResourceConfigPropertiesArgsDict',
+    'ScheduledQueryDestinationConfigurationArgs',
+    'ScheduledQueryDestinationConfigurationArgsDict',
+    'ScheduledQueryS3ConfigurationArgs',
+    'ScheduledQueryS3ConfigurationArgsDict',
     'TransformerAddKeyEntryArgs',
     'TransformerAddKeyEntryArgsDict',
     'TransformerCopyValueEntryArgs',
@@ -503,6 +507,63 @@ class ResourceConfigPropertiesArgs:
     @open_search_resource_config.setter
     def open_search_resource_config(self, value: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']]):
         pulumi.set(self, "open_search_resource_config", value)
+
+
+if not MYPY:
+    class ScheduledQueryDestinationConfigurationArgsDict(TypedDict):
+        s3_configuration: NotRequired[pulumi.Input['ScheduledQueryS3ConfigurationArgsDict']]
+elif False:
+    ScheduledQueryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScheduledQueryDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 s3_configuration: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']] = None):
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']]:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+if not MYPY:
+    class ScheduledQueryS3ConfigurationArgsDict(TypedDict):
+        destination_identifier: pulumi.Input[_builtins.str]
+        role_arn: pulumi.Input[_builtins.str]
+elif False:
+    ScheduledQueryS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScheduledQueryS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_identifier: pulumi.Input[_builtins.str],
+                 role_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "destination_identifier", destination_identifier)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIdentifier")
+    def destination_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "destination_identifier")
+
+    @destination_identifier.setter
+    def destination_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
 
 
 if not MYPY:

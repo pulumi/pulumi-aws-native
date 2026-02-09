@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetIndexResult',
@@ -23,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetIndexResult:
-    def __init__(__self__, creation_time=None, index_arn=None):
+    def __init__(__self__, creation_time=None, index_arn=None, tags=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if index_arn and not isinstance(index_arn, str):
             raise TypeError("Expected argument 'index_arn' to be a str")
         pulumi.set(__self__, "index_arn", index_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
@@ -51,6 +55,14 @@ class GetIndexResult:
         """
         return pulumi.get(self, "index_arn")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        User tags (key-value pairs) to associate with the index.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetIndexResult(GetIndexResult):
     # pylint: disable=using-constant-test
@@ -59,7 +71,8 @@ class AwaitableGetIndexResult(GetIndexResult):
             yield self
         return GetIndexResult(
             creation_time=self.creation_time,
-            index_arn=self.index_arn)
+            index_arn=self.index_arn,
+            tags=self.tags)
 
 
 def get_index(index_arn: Optional[_builtins.str] = None,
@@ -79,7 +92,8 @@ def get_index(index_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetIndexResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
-        index_arn=pulumi.get(__ret__, 'index_arn'))
+        index_arn=pulumi.get(__ret__, 'index_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_index_output(index_arn: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
@@ -96,4 +110,5 @@ def get_index_output(index_arn: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3vectors:getIndex', __args__, opts=opts, typ=GetIndexResult)
     return __ret__.apply(lambda __response__: GetIndexResult(
         creation_time=pulumi.get(__response__, 'creation_time'),
-        index_arn=pulumi.get(__response__, 'index_arn')))
+        index_arn=pulumi.get(__response__, 'index_arn'),
+        tags=pulumi.get(__response__, 'tags')))

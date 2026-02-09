@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         /// </summary>
         public readonly string? DefineAuthChallenge;
+        public readonly Outputs.UserPoolInboundFederation? InboundFederation;
         /// <summary>
         /// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
         /// </summary>
@@ -84,6 +85,8 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
             string? defineAuthChallenge,
 
+            Outputs.UserPoolInboundFederation? inboundFederation,
+
             string? kmsKeyId,
 
             string? postAuthentication,
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
             CustomMessage = customMessage;
             CustomSmsSender = customSmsSender;
             DefineAuthChallenge = defineAuthChallenge;
+            InboundFederation = inboundFederation;
             KmsKeyId = kmsKeyId;
             PostAuthentication = postAuthentication;
             PostConfirmation = postConfirmation;

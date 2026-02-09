@@ -621,6 +621,9 @@
       "properties" : {
         "PipelineLockingMethod" : {
           "type" : "string"
+        },
+        "CustomEpoch" : {
+          "type" : "string"
         }
       }
     },
@@ -2151,6 +2154,15 @@
         }
       }
     },
+    "DisabledLockingSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CustomEpoch" : {
+          "type" : "string"
+        }
+      }
+    },
     "MsSmoothOutputSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -3089,6 +3101,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "DisabledLockingSettings" : {
+          "$ref" : "#/definitions/DisabledLockingSettings"
+        },
         "EpochLockingSettings" : {
           "$ref" : "#/definitions/EpochLockingSettings"
         },
@@ -3390,6 +3405,9 @@
         },
         "MinBitrate" : {
           "type" : "integer"
+        },
+        "TimecodeInsertion" : {
+          "type" : "string"
         },
         "MinIInterval" : {
           "type" : "integer"

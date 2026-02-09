@@ -11,20 +11,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+    /// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
     /// </summary>
     [OutputType]
     public sealed class ClusterOrchestrator
     {
-        /// <summary>
-        /// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-        /// </summary>
-        public readonly Outputs.ClusterOrchestratorEksConfig Eks;
-
         [OutputConstructor]
-        private ClusterOrchestrator(Outputs.ClusterOrchestratorEksConfig eks)
+        private ClusterOrchestrator()
         {
-            Eks = eks;
         }
     }
 }

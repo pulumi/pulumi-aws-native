@@ -24,7 +24,7 @@ type UserProfile struct {
 	// The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue pulumi.StringPtrOutput `pulumi:"singleSignOnUserValue"`
 	// A list of tags to apply to the user profile.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The user profile Amazon Resource Name (ARN).
 	UserProfileArn pulumi.StringOutput `pulumi:"userProfileArn"`
 	// A name for the UserProfile.
@@ -47,6 +47,7 @@ func NewUserProfile(ctx *pulumi.Context,
 		"domainId",
 		"singleSignOnUserIdentifier",
 		"singleSignOnUserValue",
+		"tags[*]",
 		"userProfileName",
 		"userSettings.rStudioServerProAppSettings.accessStatus",
 		"userSettings.rStudioServerProAppSettings.userGroup",
@@ -92,7 +93,7 @@ type userProfileArgs struct {
 	// The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue *string `pulumi:"singleSignOnUserValue"`
 	// A list of tags to apply to the user profile.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// A name for the UserProfile.
 	UserProfileName *string `pulumi:"userProfileName"`
 	// A collection of settings.
@@ -108,7 +109,7 @@ type UserProfileArgs struct {
 	// The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 	SingleSignOnUserValue pulumi.StringPtrInput
 	// A list of tags to apply to the user profile.
-	Tags aws.TagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// A name for the UserProfile.
 	UserProfileName pulumi.StringPtrInput
 	// A collection of settings.
@@ -168,8 +169,8 @@ func (o UserProfileOutput) SingleSignOnUserValue() pulumi.StringPtrOutput {
 }
 
 // A list of tags to apply to the user profile.
-func (o UserProfileOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *UserProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+func (o UserProfileOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *UserProfile) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The user profile Amazon Resource Name (ARN).

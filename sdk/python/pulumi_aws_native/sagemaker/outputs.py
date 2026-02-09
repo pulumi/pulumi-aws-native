@@ -39,10 +39,10 @@ __all__ = [
     'ClusterLifeCycleConfig',
     'ClusterOnDemandOptions',
     'ClusterOrchestrator',
-    'ClusterOrchestratorEksConfig',
     'ClusterRestrictedInstanceGroup',
     'ClusterRollingUpdatePolicy',
     'ClusterScheduledUpdateConfig',
+    'ClusterSlurmConfig',
     'ClusterSpotOptions',
     'ClusterTieredStorageConfig',
     'ClusterVpcConfig',
@@ -1110,6 +1110,8 @@ class ClusterInstanceGroup(dict):
             suggest = "override_vpc_config"
         elif key == "scheduledUpdateConfig":
             suggest = "scheduled_update_config"
+        elif key == "slurmConfig":
+            suggest = "slurm_config"
         elif key == "threadsPerCore":
             suggest = "threads_per_core"
         elif key == "trainingPlanArn":
@@ -1141,6 +1143,7 @@ class ClusterInstanceGroup(dict):
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
                  scheduled_update_config: Optional['outputs.ClusterScheduledUpdateConfig'] = None,
+                 slurm_config: Optional['outputs.ClusterSlurmConfig'] = None,
                  threads_per_core: Optional[_builtins.int] = None,
                  training_plan_arn: Optional[_builtins.str] = None):
         """
@@ -1174,6 +1177,8 @@ class ClusterInstanceGroup(dict):
             pulumi.set(__self__, "override_vpc_config", override_vpc_config)
         if scheduled_update_config is not None:
             pulumi.set(__self__, "scheduled_update_config", scheduled_update_config)
+        if slurm_config is not None:
+            pulumi.set(__self__, "slurm_config", slurm_config)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
         if training_plan_arn is not None:
@@ -1257,6 +1262,11 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="scheduledUpdateConfig")
     def scheduled_update_config(self) -> Optional['outputs.ClusterScheduledUpdateConfig']:
         return pulumi.get(self, "scheduled_update_config")
+
+    @_builtins.property
+    @pulumi.getter(name="slurmConfig")
+    def slurm_config(self) -> Optional['outputs.ClusterSlurmConfig']:
+        return pulumi.get(self, "slurm_config")
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
@@ -1426,62 +1436,13 @@ class ClusterOnDemandOptions(dict):
 @pulumi.output_type
 class ClusterOrchestrator(dict):
     """
-    Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+    Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
     """
-    def __init__(__self__, *,
-                 eks: 'outputs.ClusterOrchestratorEksConfig'):
+    def __init__(__self__):
         """
-        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
-        :param 'ClusterOrchestratorEksConfig' eks: The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
+        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
         """
-        pulumi.set(__self__, "eks", eks)
-
-    @_builtins.property
-    @pulumi.getter
-    def eks(self) -> 'outputs.ClusterOrchestratorEksConfig':
-        """
-        The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-        """
-        return pulumi.get(self, "eks")
-
-
-@pulumi.output_type
-class ClusterOrchestratorEksConfig(dict):
-    """
-    Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clusterArn":
-            suggest = "cluster_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterOrchestratorEksConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterOrchestratorEksConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterOrchestratorEksConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cluster_arn: _builtins.str):
-        """
-        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-        :param _builtins.str cluster_arn: The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-        """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterArn")
-    def cluster_arn(self) -> _builtins.str:
-        """
-        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-        """
-        return pulumi.get(self, "cluster_arn")
+        pass
 
 
 @pulumi.output_type
@@ -1723,6 +1684,59 @@ class ClusterScheduledUpdateConfig(dict):
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
         return pulumi.get(self, "deployment_config")
+
+
+@pulumi.output_type
+class ClusterSlurmConfig(dict):
+    """
+    Slurm configuration for the instance group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeType":
+            suggest = "node_type"
+        elif key == "partitionNames":
+            suggest = "partition_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSlurmConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSlurmConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSlurmConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_type: 'ClusterSlurmConfigNodeType',
+                 partition_names: Optional[Sequence[_builtins.str]] = None):
+        """
+        Slurm configuration for the instance group.
+        :param 'ClusterSlurmConfigNodeType' node_type: The type of Slurm node for this instance group.
+        :param Sequence[_builtins.str] partition_names: The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+        """
+        pulumi.set(__self__, "node_type", node_type)
+        if partition_names is not None:
+            pulumi.set(__self__, "partition_names", partition_names)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> 'ClusterSlurmConfigNodeType':
+        """
+        The type of Slurm node for this instance group.
+        """
+        return pulumi.get(self, "node_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionNames")
+    def partition_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+        """
+        return pulumi.get(self, "partition_names")
 
 
 @pulumi.output_type

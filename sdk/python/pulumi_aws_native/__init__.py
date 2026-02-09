@@ -1291,7 +1291,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codedeploy",
   "classes": {
    "aws-native:codedeploy:Application": "Application",
-   "aws-native:codedeploy:DeploymentConfig": "DeploymentConfig"
+   "aws-native:codedeploy:DeploymentConfig": "DeploymentConfig",
+   "aws-native:codedeploy:DeploymentGroup": "DeploymentGroup"
   }
  },
  {
@@ -2517,6 +2518,7 @@ _utilities.register(
    "aws-native:logs:MetricFilter": "MetricFilter",
    "aws-native:logs:QueryDefinition": "QueryDefinition",
    "aws-native:logs:ResourcePolicy": "ResourcePolicy",
+   "aws-native:logs:ScheduledQuery": "ScheduledQuery",
    "aws-native:logs:SubscriptionFilter": "SubscriptionFilter",
    "aws-native:logs:Transformer": "Transformer"
   }
@@ -2648,6 +2650,7 @@ _utilities.register(
    "aws-native:msk:Configuration": "Configuration",
    "aws-native:msk:Replicator": "Replicator",
    "aws-native:msk:ServerlessCluster": "ServerlessCluster",
+   "aws-native:msk:Topic": "Topic",
    "aws-native:msk:VpcConnection": "VpcConnection"
   }
  },

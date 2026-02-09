@@ -58,7 +58,9 @@ __all__ = [
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
     'TrafficDistributionGroupStatus',
+    'UserChannel',
     'UserPhoneType',
+    'UserVoiceEnhancementMode',
     'WorkspaceFontFamily',
     'WorkspaceMediaType',
     'WorkspaceVisibility',
@@ -616,6 +618,17 @@ class TrafficDistributionGroupStatus(_builtins.str, Enum):
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 
 
+@pulumi.type_token("aws-native:connect:UserChannel")
+class UserChannel(_builtins.str, Enum):
+    """
+    The channels that agents can handle in the Contact Control Panel (CCP).
+    """
+    VOICE = "VOICE"
+    CHAT = "CHAT"
+    TASK = "TASK"
+    EMAIL = "EMAIL"
+
+
 @pulumi.type_token("aws-native:connect:UserPhoneType")
 class UserPhoneType(_builtins.str, Enum):
     """
@@ -623,6 +636,16 @@ class UserPhoneType(_builtins.str, Enum):
     """
     SOFT_PHONE = "SOFT_PHONE"
     DESK_PHONE = "DESK_PHONE"
+
+
+@pulumi.type_token("aws-native:connect:UserVoiceEnhancementMode")
+class UserVoiceEnhancementMode(_builtins.str, Enum):
+    """
+    The Voice Enhancement Mode setting.
+    """
+    NONE = "NONE"
+    VOICE_ISOLATION = "VOICE_ISOLATION"
+    NOISE_SUPPRESSION = "NOISE_SUPPRESSION"
 
 
 @pulumi.type_token("aws-native:connect:WorkspaceFontFamily")

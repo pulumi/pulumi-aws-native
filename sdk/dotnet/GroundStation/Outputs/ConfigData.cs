@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
         /// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
         /// </summary>
         public readonly Outputs.ConfigS3RecordingConfig? S3RecordingConfig;
+        public readonly Outputs.ConfigTelemetrySinkConfig? TelemetrySinkConfig;
         /// <summary>
         /// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
         /// </summary>
@@ -54,6 +55,8 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
             Outputs.ConfigS3RecordingConfig? s3RecordingConfig,
 
+            Outputs.ConfigTelemetrySinkConfig? telemetrySinkConfig,
+
             Outputs.ConfigTrackingConfig? trackingConfig,
 
             Outputs.ConfigUplinkEchoConfig? uplinkEchoConfig)
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
             AntennaUplinkConfig = antennaUplinkConfig;
             DataflowEndpointConfig = dataflowEndpointConfig;
             S3RecordingConfig = s3RecordingConfig;
+            TelemetrySinkConfig = telemetrySinkConfig;
             TrackingConfig = trackingConfig;
             UplinkEchoConfig = uplinkEchoConfig;
         }

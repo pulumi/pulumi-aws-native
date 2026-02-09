@@ -291,6 +291,64 @@ namespace Pulumi.AwsNative.Logs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ScheduledQueryLastExecutionStatus : IEquatable<ScheduledQueryLastExecutionStatus>
+    {
+        private readonly string _value;
+
+        private ScheduledQueryLastExecutionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduledQueryLastExecutionStatus InvalidQuery { get; } = new ScheduledQueryLastExecutionStatus("InvalidQuery");
+        public static ScheduledQueryLastExecutionStatus Complete { get; } = new ScheduledQueryLastExecutionStatus("Complete");
+        public static ScheduledQueryLastExecutionStatus Failed { get; } = new ScheduledQueryLastExecutionStatus("Failed");
+        public static ScheduledQueryLastExecutionStatus Timeout { get; } = new ScheduledQueryLastExecutionStatus("Timeout");
+
+        public static bool operator ==(ScheduledQueryLastExecutionStatus left, ScheduledQueryLastExecutionStatus right) => left.Equals(right);
+        public static bool operator !=(ScheduledQueryLastExecutionStatus left, ScheduledQueryLastExecutionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledQueryLastExecutionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledQueryLastExecutionStatus other && Equals(other);
+        public bool Equals(ScheduledQueryLastExecutionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ScheduledQueryState : IEquatable<ScheduledQueryState>
+    {
+        private readonly string _value;
+
+        private ScheduledQueryState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduledQueryState Enabled { get; } = new ScheduledQueryState("ENABLED");
+        public static ScheduledQueryState Disabled { get; } = new ScheduledQueryState("DISABLED");
+
+        public static bool operator ==(ScheduledQueryState left, ScheduledQueryState right) => left.Equals(right);
+        public static bool operator !=(ScheduledQueryState left, ScheduledQueryState right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledQueryState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledQueryState other && Equals(other);
+        public bool Equals(ScheduledQueryState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
     /// </summary>

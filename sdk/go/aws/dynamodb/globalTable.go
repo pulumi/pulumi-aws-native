@@ -30,9 +30,8 @@ type GlobalTable struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes                       GlobalTableGlobalSecondaryIndexArrayOutput                  `pulumi:"globalSecondaryIndexes"`
-	GlobalTableReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrOutput          `pulumi:"globalTableReadOnDemandThroughputSettings"`
-	GlobalTableReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput `pulumi:"globalTableReadProvisionedThroughputSettings"`
+	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
+	GlobalTableSourceArn   pulumi.StringPtrOutput                     `pulumi:"globalTableSourceArn"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses GlobalTableWitnessArrayOutput `pulumi:"globalTableWitnesses"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
@@ -47,7 +46,9 @@ type GlobalTable struct {
 	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
 	//
 	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
-	MultiRegionConsistency GlobalTableMultiRegionConsistencyPtrOutput `pulumi:"multiRegionConsistency"`
+	MultiRegionConsistency            GlobalTableMultiRegionConsistencyPtrOutput                  `pulumi:"multiRegionConsistency"`
+	ReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrOutput          `pulumi:"readOnDemandThroughputSettings"`
+	ReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput `pulumi:"readProvisionedThroughputSettings"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -139,9 +140,8 @@ type globalTableArgs struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes                       []GlobalTableGlobalSecondaryIndex                   `pulumi:"globalSecondaryIndexes"`
-	GlobalTableReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings          `pulumi:"globalTableReadOnDemandThroughputSettings"`
-	GlobalTableReadProvisionedThroughputSettings *GlobalTableGlobalReadProvisionedThroughputSettings `pulumi:"globalTableReadProvisionedThroughputSettings"`
+	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	GlobalTableSourceArn   *string                           `pulumi:"globalTableSourceArn"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
@@ -156,7 +156,9 @@ type globalTableArgs struct {
 	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
 	//
 	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
-	MultiRegionConsistency *GlobalTableMultiRegionConsistency `pulumi:"multiRegionConsistency"`
+	MultiRegionConsistency            *GlobalTableMultiRegionConsistency                  `pulumi:"multiRegionConsistency"`
+	ReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings          `pulumi:"readOnDemandThroughputSettings"`
+	ReadProvisionedThroughputSettings *GlobalTableGlobalReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -197,9 +199,8 @@ type GlobalTableArgs struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes                       GlobalTableGlobalSecondaryIndexArrayInput
-	GlobalTableReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrInput
-	GlobalTableReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput
+	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayInput
+	GlobalTableSourceArn   pulumi.StringPtrInput
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses GlobalTableWitnessArrayInput
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
@@ -214,7 +215,9 @@ type GlobalTableArgs struct {
 	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
 	//
 	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
-	MultiRegionConsistency GlobalTableMultiRegionConsistencyPtrInput
+	MultiRegionConsistency            GlobalTableMultiRegionConsistencyPtrInput
+	ReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrInput
+	ReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -305,16 +308,8 @@ func (o GlobalTableOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIn
 	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
-func (o GlobalTableOutput) GlobalTableReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
-	return o.ApplyT(func(v *GlobalTable) GlobalTableReadOnDemandThroughputSettingsPtrOutput {
-		return v.GlobalTableReadOnDemandThroughputSettings
-	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
-}
-
-func (o GlobalTableOutput) GlobalTableReadProvisionedThroughputSettings() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
-	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
-		return v.GlobalTableReadProvisionedThroughputSettings
-	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
+func (o GlobalTableOutput) GlobalTableSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.GlobalTableSourceArn }).(pulumi.StringPtrOutput)
 }
 
 // The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
@@ -342,6 +337,18 @@ func (o GlobalTableOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryInde
 // If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
 func (o GlobalTableOutput) MultiRegionConsistency() GlobalTableMultiRegionConsistencyPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableMultiRegionConsistencyPtrOutput { return v.MultiRegionConsistency }).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
+func (o GlobalTableOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+		return v.ReadOnDemandThroughputSettings
+	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
+}
+
+func (o GlobalTableOutput) ReadProvisionedThroughputSettings() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+		return v.ReadProvisionedThroughputSettings
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
 }
 
 // Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.

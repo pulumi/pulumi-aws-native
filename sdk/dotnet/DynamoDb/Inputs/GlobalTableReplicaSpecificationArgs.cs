@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
             set => _globalSecondaryIndexes = value;
         }
 
+        [Input("globalTableSettingsReplicationMode")]
+        public Input<Pulumi.AwsNative.DynamoDb.GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode>? GlobalTableSettingsReplicationMode { get; set; }
+
         /// <summary>
         /// Defines the Kinesis Data Streams configuration for the specified replica.
         /// </summary>

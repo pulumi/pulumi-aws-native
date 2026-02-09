@@ -312,6 +312,13 @@ func (o IndexMetadataConfigurationPtrOutput) NonFilterableMetadataKeys() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+type IndexTag struct {
+	// Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Key string `pulumi:"key"`
+	// Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Value string `pulumi:"value"`
+}
+
 // The encryption configuration for the vector bucket.
 type VectorBucketEncryptionConfiguration struct {
 	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
@@ -541,6 +548,13 @@ func (o VectorBucketPolicyPolicyPtrOutput) Elem() VectorBucketPolicyPolicyOutput
 		var ret VectorBucketPolicyPolicy
 		return ret
 	}).(VectorBucketPolicyPolicyOutput)
+}
+
+type VectorBucketTag struct {
+	// Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Key string `pulumi:"key"`
+	// Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Value string `pulumi:"value"`
 }
 
 func init() {

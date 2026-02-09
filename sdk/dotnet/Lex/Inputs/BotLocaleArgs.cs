@@ -66,6 +66,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("speechDetectionSensitivity")]
         public Input<Pulumi.AwsNative.Lex.BotSpeechDetectionSensitivity>? SpeechDetectionSensitivity { get; set; }
 
+        [Input("speechRecognitionSettings")]
+        public Input<Inputs.BotSpeechRecognitionSettingsArgs>? SpeechRecognitionSettings { get; set; }
+
         [Input("unifiedSpeechSettings")]
         public Input<Inputs.BotUnifiedSpeechSettingsArgs>? UnifiedSpeechSettings { get; set; }
 

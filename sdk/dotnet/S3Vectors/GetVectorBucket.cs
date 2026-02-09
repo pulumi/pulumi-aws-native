@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.S3Vectors
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
+        /// User tags (key-value pairs) to associate with the vector bucket.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
         /// 
         /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
@@ -84,9 +88,12 @@ namespace Pulumi.AwsNative.S3Vectors
         private GetVectorBucketResult(
             string? creationTime,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? vectorBucketArn)
         {
             CreationTime = creationTime;
+            Tags = tags;
             VectorBucketArn = vectorBucketArn;
         }
     }

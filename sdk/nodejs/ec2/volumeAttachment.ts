@@ -41,6 +41,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * The device name (for example, ``/dev/sdh`` or ``xvdh``).
      */
     declare public readonly device: pulumi.Output<string | undefined>;
+    declare public readonly ebsCardIndex: pulumi.Output<number | undefined>;
     /**
      * The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
      */
@@ -68,15 +69,17 @@ export class VolumeAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumeId'");
             }
             resourceInputs["device"] = args?.device;
+            resourceInputs["ebsCardIndex"] = args?.ebsCardIndex;
             resourceInputs["instanceId"] = args?.instanceId;
             resourceInputs["volumeId"] = args?.volumeId;
         } else {
             resourceInputs["device"] = undefined /*out*/;
+            resourceInputs["ebsCardIndex"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["device", "instanceId", "volumeId"] };
+        const replaceOnChanges = { replaceOnChanges: ["device", "ebsCardIndex", "instanceId", "volumeId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VolumeAttachment.__pulumiType, name, resourceInputs, opts);
     }
@@ -90,6 +93,7 @@ export interface VolumeAttachmentArgs {
      * The device name (for example, ``/dev/sdh`` or ``xvdh``).
      */
     device?: pulumi.Input<string>;
+    ebsCardIndex?: pulumi.Input<number>;
     /**
      * The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
      */

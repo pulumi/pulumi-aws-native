@@ -8910,6 +8910,11 @@ func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The resource to associate with the tenant
 type TenantResourceAssociation struct {
 	// The ARN of the resource to associate with the tenant

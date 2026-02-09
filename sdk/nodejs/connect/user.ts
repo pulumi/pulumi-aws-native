@@ -38,6 +38,14 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
+     * After Contact Work configurations of a user.
+     */
+    declare public readonly afterContactWorkConfigs: pulumi.Output<outputs.connect.UserAfterContactWorkConfigPerChannel[] | undefined>;
+    /**
+     * Auto-accept configurations of a user.
+     */
+    declare public readonly autoAcceptConfigs: pulumi.Output<outputs.connect.UserAutoAcceptConfig[] | undefined>;
+    /**
      * The identifier of the user account in the directory used for identity management.
      */
     declare public readonly directoryUserId: pulumi.Output<string | undefined>;
@@ -58,9 +66,17 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
+     * Persistent Connection configurations of a user.
+     */
+    declare public readonly persistentConnectionConfigs: pulumi.Output<outputs.connect.UserPersistentConnectionConfig[] | undefined>;
+    /**
      * The phone settings for the user.
      */
-    declare public readonly phoneConfig: pulumi.Output<outputs.connect.UserPhoneConfig>;
+    declare public readonly phoneConfig: pulumi.Output<outputs.connect.UserPhoneConfig | undefined>;
+    /**
+     * Phone Number configurations of a user.
+     */
+    declare public readonly phoneNumberConfigs: pulumi.Output<outputs.connect.UserPhoneNumberConfig[] | undefined>;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -85,6 +101,10 @@ export class User extends pulumi.CustomResource {
      * The user name for the account.
      */
     declare public readonly username: pulumi.Output<string>;
+    /**
+     * Voice Enhancement configurations of a user.
+     */
+    declare public readonly voiceEnhancementConfigs: pulumi.Output<outputs.connect.UserVoiceEnhancementConfig[] | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -100,40 +120,47 @@ export class User extends pulumi.CustomResource {
             if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if (args?.phoneConfig === undefined && !opts.urn) {
-                throw new Error("Missing required property 'phoneConfig'");
-            }
             if (args?.routingProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingProfileArn'");
             }
             if (args?.securityProfileArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityProfileArns'");
             }
+            resourceInputs["afterContactWorkConfigs"] = args?.afterContactWorkConfigs;
+            resourceInputs["autoAcceptConfigs"] = args?.autoAcceptConfigs;
             resourceInputs["directoryUserId"] = args?.directoryUserId;
             resourceInputs["hierarchyGroupArn"] = args?.hierarchyGroupArn;
             resourceInputs["identityInfo"] = args?.identityInfo;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["password"] = args?.password;
+            resourceInputs["persistentConnectionConfigs"] = args?.persistentConnectionConfigs;
             resourceInputs["phoneConfig"] = args?.phoneConfig;
+            resourceInputs["phoneNumberConfigs"] = args?.phoneNumberConfigs;
             resourceInputs["routingProfileArn"] = args?.routingProfileArn;
             resourceInputs["securityProfileArns"] = args?.securityProfileArns;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["userProficiencies"] = args?.userProficiencies;
             resourceInputs["username"] = args?.username;
+            resourceInputs["voiceEnhancementConfigs"] = args?.voiceEnhancementConfigs;
             resourceInputs["userArn"] = undefined /*out*/;
         } else {
+            resourceInputs["afterContactWorkConfigs"] = undefined /*out*/;
+            resourceInputs["autoAcceptConfigs"] = undefined /*out*/;
             resourceInputs["directoryUserId"] = undefined /*out*/;
             resourceInputs["hierarchyGroupArn"] = undefined /*out*/;
             resourceInputs["identityInfo"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["persistentConnectionConfigs"] = undefined /*out*/;
             resourceInputs["phoneConfig"] = undefined /*out*/;
+            resourceInputs["phoneNumberConfigs"] = undefined /*out*/;
             resourceInputs["routingProfileArn"] = undefined /*out*/;
             resourceInputs["securityProfileArns"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userArn"] = undefined /*out*/;
             resourceInputs["userProficiencies"] = undefined /*out*/;
             resourceInputs["username"] = undefined /*out*/;
+            resourceInputs["voiceEnhancementConfigs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(User.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +171,14 @@ export class User extends pulumi.CustomResource {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * After Contact Work configurations of a user.
+     */
+    afterContactWorkConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserAfterContactWorkConfigPerChannelArgs>[]>;
+    /**
+     * Auto-accept configurations of a user.
+     */
+    autoAcceptConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserAutoAcceptConfigArgs>[]>;
     /**
      * The identifier of the user account in the directory used for identity management.
      */
@@ -165,9 +200,17 @@ export interface UserArgs {
      */
     password?: pulumi.Input<string>;
     /**
+     * Persistent Connection configurations of a user.
+     */
+    persistentConnectionConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserPersistentConnectionConfigArgs>[]>;
+    /**
      * The phone settings for the user.
      */
-    phoneConfig: pulumi.Input<inputs.connect.UserPhoneConfigArgs>;
+    phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfigArgs>;
+    /**
+     * Phone Number configurations of a user.
+     */
+    phoneNumberConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserPhoneNumberConfigArgs>[]>;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -188,4 +231,8 @@ export interface UserArgs {
      * The user name for the account.
      */
     username?: pulumi.Input<string>;
+    /**
+     * Voice Enhancement configurations of a user.
+     */
+    voiceEnhancementConfigs?: pulumi.Input<pulumi.Input<inputs.connect.UserVoiceEnhancementConfigArgs>[]>;
 }

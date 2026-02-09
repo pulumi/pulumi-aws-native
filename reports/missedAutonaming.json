@@ -5434,14 +5434,14 @@
       },
       "availabilityMode": {
         "type": "string",
-        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n\nA zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*."
       },
       "availabilityZoneAddresses": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ec2:NatGatewayAvailabilityZoneAddress"
         },
-        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n\nA regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*."
       },
       "connectivityType": {
         "type": "string",
@@ -7071,6 +7071,9 @@
       "device": {
         "type": "string",
         "description": "The device name (for example, ``/dev/sdh`` or ``xvdh``)."
+      },
+      "ebsCardIndex": {
+        "type": "integer"
       },
       "instanceId": {
         "type": "string",
@@ -15230,6 +15233,13 @@
   "aws-native:ses:Template": {
     "cfTypeName": "AWS::SES::Template",
     "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags (keys and values) associated with the email template."
+      },
       "template": {
         "$ref": "#/types/aws-native:ses:Template",
         "description": "The content of the email, composed of a subject line and either an HTML part or a text-only part.",
@@ -16901,6 +16911,9 @@
       "networkSettingsArn": {
         "type": "string",
         "description": "The ARN of the network settings that is associated with the web portal."
+      },
+      "portalCustomDomain": {
+        "type": "string"
       },
       "sessionLoggerArn": {
         "type": "string",

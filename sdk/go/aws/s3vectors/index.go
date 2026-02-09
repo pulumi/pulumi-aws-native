@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -45,6 +46,8 @@ type Index struct {
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
 	// The metadata configuration for the vector index.
 	MetadataConfiguration IndexMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
+	// User tags (key-value pairs) to associate with the index.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
 	VectorBucketArn pulumi.StringPtrOutput `pulumi:"vectorBucketArn"`
 	// The name of the vector bucket that contains the vector index.
@@ -132,6 +135,8 @@ type indexArgs struct {
 	IndexName *string `pulumi:"indexName"`
 	// The metadata configuration for the vector index.
 	MetadataConfiguration *IndexMetadataConfiguration `pulumi:"metadataConfiguration"`
+	// User tags (key-value pairs) to associate with the index.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
 	VectorBucketArn *string `pulumi:"vectorBucketArn"`
 	// The name of the vector bucket that contains the vector index.
@@ -161,6 +166,8 @@ type IndexArgs struct {
 	IndexName pulumi.StringPtrInput
 	// The metadata configuration for the vector index.
 	MetadataConfiguration IndexMetadataConfigurationPtrInput
+	// User tags (key-value pairs) to associate with the index.
+	Tags aws.TagArrayInput
 	// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
 	VectorBucketArn pulumi.StringPtrInput
 	// The name of the vector bucket that contains the vector index.
@@ -255,6 +262,11 @@ func (o IndexOutput) IndexName() pulumi.StringPtrOutput {
 // The metadata configuration for the vector index.
 func (o IndexOutput) MetadataConfiguration() IndexMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *Index) IndexMetadataConfigurationPtrOutput { return v.MetadataConfiguration }).(IndexMetadataConfigurationPtrOutput)
+}
+
+// User tags (key-value pairs) to associate with the index.
+func (o IndexOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Index) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.

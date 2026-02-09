@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -90,6 +91,8 @@ type Template struct {
 	pulumi.CustomResourceState
 
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The tags (keys and values) associated with the email template.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template TemplateTypePtrOutput `pulumi:"template"`
 }
@@ -138,12 +141,16 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
+	// The tags (keys and values) associated with the email template.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template *TemplateType `pulumi:"template"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
+	// The tags (keys and values) associated with the email template.
+	Tags aws.TagArrayInput
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template TemplateTypePtrInput
 }
@@ -187,6 +194,11 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 
 func (o TemplateOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// The tags (keys and values) associated with the email template.
+func (o TemplateOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Template) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The content of the email, composed of a subject line and either an HTML part or a text-only part.

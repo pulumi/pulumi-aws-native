@@ -77,6 +77,12 @@ namespace Pulumi.AwsNative.S3Vectors
         public Output<Outputs.IndexMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// User tags (key-value pairs) to associate with the index.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
         /// </summary>
         [Output("vectorBucketArn")]
@@ -188,6 +194,18 @@ namespace Pulumi.AwsNative.S3Vectors
         /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.IndexMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the index.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.

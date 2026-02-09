@@ -21,7 +21,8 @@ class VolumeAttachmentArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[_builtins.str],
                  volume_id: pulumi.Input[_builtins.str],
-                 device: Optional[pulumi.Input[_builtins.str]] = None):
+                 device: Optional[pulumi.Input[_builtins.str]] = None,
+                 ebs_card_index: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
@@ -32,6 +33,8 @@ class VolumeAttachmentArgs:
         pulumi.set(__self__, "volume_id", volume_id)
         if device is not None:
             pulumi.set(__self__, "device", device)
+        if ebs_card_index is not None:
+            pulumi.set(__self__, "ebs_card_index", ebs_card_index)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
@@ -69,6 +72,15 @@ class VolumeAttachmentArgs:
     def device(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "device", value)
 
+    @_builtins.property
+    @pulumi.getter(name="ebsCardIndex")
+    def ebs_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "ebs_card_index")
+
+    @ebs_card_index.setter
+    def ebs_card_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ebs_card_index", value)
+
 
 @pulumi.type_token("aws-native:ec2:VolumeAttachment")
 class VolumeAttachment(pulumi.CustomResource):
@@ -77,6 +89,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[_builtins.str]] = None,
+                 ebs_card_index: Optional[pulumi.Input[_builtins.int]] = None,
                  instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -120,6 +133,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[_builtins.str]] = None,
+                 ebs_card_index: Optional[pulumi.Input[_builtins.int]] = None,
                  instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -132,13 +146,14 @@ class VolumeAttachment(pulumi.CustomResource):
             __props__ = VolumeAttachmentArgs.__new__(VolumeAttachmentArgs)
 
             __props__.__dict__["device"] = device
+            __props__.__dict__["ebs_card_index"] = ebs_card_index
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device", "instanceId", "volumeId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device", "ebsCardIndex", "instanceId", "volumeId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VolumeAttachment, __self__).__init__(
             'aws-native:ec2:VolumeAttachment',
@@ -163,6 +178,7 @@ class VolumeAttachment(pulumi.CustomResource):
         __props__ = VolumeAttachmentArgs.__new__(VolumeAttachmentArgs)
 
         __props__.__dict__["device"] = None
+        __props__.__dict__["ebs_card_index"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["volume_id"] = None
         return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
@@ -174,6 +190,11 @@ class VolumeAttachment(pulumi.CustomResource):
         The device name (for example, ``/dev/sdh`` or ``xvdh``).
         """
         return pulumi.get(self, "device")
+
+    @_builtins.property
+    @pulumi.getter(name="ebsCardIndex")
+    def ebs_card_index(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "ebs_card_index")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")

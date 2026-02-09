@@ -43,6 +43,12 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("projection", required: true)]
         public Input<Inputs.GlobalTableProjectionArgs> Projection { get; set; } = null!;
 
+        [Input("readOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
+
+        [Input("readProvisionedThroughputSettings")]
+        public Input<Inputs.GlobalTableGlobalReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }
+
         /// <summary>
         /// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
         /// </summary>

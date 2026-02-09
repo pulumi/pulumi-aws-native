@@ -39,6 +39,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotType> SlotTypes;
         public readonly Pulumi.AwsNative.Lex.BotSpeechDetectionSensitivity? SpeechDetectionSensitivity;
+        public readonly Outputs.BotSpeechRecognitionSettings? SpeechRecognitionSettings;
         public readonly Outputs.BotUnifiedSpeechSettings? UnifiedSpeechSettings;
         /// <summary>
         /// Defines settings for using an Amazon Polly voice to communicate with a user.
@@ -70,6 +71,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Pulumi.AwsNative.Lex.BotSpeechDetectionSensitivity? speechDetectionSensitivity,
 
+            Outputs.BotSpeechRecognitionSettings? speechRecognitionSettings,
+
             Outputs.BotUnifiedSpeechSettings? unifiedSpeechSettings,
 
             Outputs.BotVoiceSettings? voiceSettings)
@@ -82,6 +85,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             NluConfidenceThreshold = nluConfidenceThreshold;
             SlotTypes = slotTypes;
             SpeechDetectionSensitivity = speechDetectionSensitivity;
+            SpeechRecognitionSettings = speechRecognitionSettings;
             UnifiedSpeechSettings = unifiedSpeechSettings;
             VoiceSettings = voiceSettings;
         }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,6 +36,8 @@ type Grant struct {
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
 	// Granted license status.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// A list of tags to attach.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The version of the grant.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -97,6 +100,8 @@ type grantArgs struct {
 	Principals []string `pulumi:"principals"`
 	// Granted license status.
 	Status *string `pulumi:"status"`
+	// A list of tags to attach.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Grant resource.
@@ -119,6 +124,8 @@ type GrantArgs struct {
 	Principals pulumi.StringArrayInput
 	// Granted license status.
 	Status pulumi.StringPtrInput
+	// A list of tags to attach.
+	Tags aws.TagArrayInput
 }
 
 func (GrantArgs) ElementType() reflect.Type {
@@ -197,6 +204,11 @@ func (o GrantOutput) Principals() pulumi.StringArrayOutput {
 // Granted license status.
 func (o GrantOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to attach.
+func (o GrantOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Grant) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The version of the grant.

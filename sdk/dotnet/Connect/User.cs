@@ -16,6 +16,18 @@ namespace Pulumi.AwsNative.Connect
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// After Contact Work configurations of a user.
+        /// </summary>
+        [Output("afterContactWorkConfigs")]
+        public Output<ImmutableArray<Outputs.UserAfterContactWorkConfigPerChannel>> AfterContactWorkConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// Auto-accept configurations of a user.
+        /// </summary>
+        [Output("autoAcceptConfigs")]
+        public Output<ImmutableArray<Outputs.UserAutoAcceptConfig>> AutoAcceptConfigs { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the user account in the directory used for identity management.
         /// </summary>
         [Output("directoryUserId")]
@@ -46,10 +58,22 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
+        /// Persistent Connection configurations of a user.
+        /// </summary>
+        [Output("persistentConnectionConfigs")]
+        public Output<ImmutableArray<Outputs.UserPersistentConnectionConfig>> PersistentConnectionConfigs { get; private set; } = null!;
+
+        /// <summary>
         /// The phone settings for the user.
         /// </summary>
         [Output("phoneConfig")]
-        public Output<Outputs.UserPhoneConfig> PhoneConfig { get; private set; } = null!;
+        public Output<Outputs.UserPhoneConfig?> PhoneConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Phone Number configurations of a user.
+        /// </summary>
+        [Output("phoneNumberConfigs")]
+        public Output<ImmutableArray<Outputs.UserPhoneNumberConfig>> PhoneNumberConfigs { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the routing profile for the user.
@@ -86,6 +110,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
+
+        /// <summary>
+        /// Voice Enhancement configurations of a user.
+        /// </summary>
+        [Output("voiceEnhancementConfigs")]
+        public Output<ImmutableArray<Outputs.UserVoiceEnhancementConfig>> VoiceEnhancementConfigs { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,6 +162,30 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
+        [Input("afterContactWorkConfigs")]
+        private InputList<Inputs.UserAfterContactWorkConfigPerChannelArgs>? _afterContactWorkConfigs;
+
+        /// <summary>
+        /// After Contact Work configurations of a user.
+        /// </summary>
+        public InputList<Inputs.UserAfterContactWorkConfigPerChannelArgs> AfterContactWorkConfigs
+        {
+            get => _afterContactWorkConfigs ?? (_afterContactWorkConfigs = new InputList<Inputs.UserAfterContactWorkConfigPerChannelArgs>());
+            set => _afterContactWorkConfigs = value;
+        }
+
+        [Input("autoAcceptConfigs")]
+        private InputList<Inputs.UserAutoAcceptConfigArgs>? _autoAcceptConfigs;
+
+        /// <summary>
+        /// Auto-accept configurations of a user.
+        /// </summary>
+        public InputList<Inputs.UserAutoAcceptConfigArgs> AutoAcceptConfigs
+        {
+            get => _autoAcceptConfigs ?? (_autoAcceptConfigs = new InputList<Inputs.UserAutoAcceptConfigArgs>());
+            set => _autoAcceptConfigs = value;
+        }
+
         /// <summary>
         /// The identifier of the user account in the directory used for identity management.
         /// </summary>
@@ -162,11 +216,35 @@ namespace Pulumi.AwsNative.Connect
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("persistentConnectionConfigs")]
+        private InputList<Inputs.UserPersistentConnectionConfigArgs>? _persistentConnectionConfigs;
+
+        /// <summary>
+        /// Persistent Connection configurations of a user.
+        /// </summary>
+        public InputList<Inputs.UserPersistentConnectionConfigArgs> PersistentConnectionConfigs
+        {
+            get => _persistentConnectionConfigs ?? (_persistentConnectionConfigs = new InputList<Inputs.UserPersistentConnectionConfigArgs>());
+            set => _persistentConnectionConfigs = value;
+        }
+
         /// <summary>
         /// The phone settings for the user.
         /// </summary>
-        [Input("phoneConfig", required: true)]
-        public Input<Inputs.UserPhoneConfigArgs> PhoneConfig { get; set; } = null!;
+        [Input("phoneConfig")]
+        public Input<Inputs.UserPhoneConfigArgs>? PhoneConfig { get; set; }
+
+        [Input("phoneNumberConfigs")]
+        private InputList<Inputs.UserPhoneNumberConfigArgs>? _phoneNumberConfigs;
+
+        /// <summary>
+        /// Phone Number configurations of a user.
+        /// </summary>
+        public InputList<Inputs.UserPhoneNumberConfigArgs> PhoneNumberConfigs
+        {
+            get => _phoneNumberConfigs ?? (_phoneNumberConfigs = new InputList<Inputs.UserPhoneNumberConfigArgs>());
+            set => _phoneNumberConfigs = value;
+        }
 
         /// <summary>
         /// The identifier of the routing profile for the user.
@@ -215,6 +293,18 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
+
+        [Input("voiceEnhancementConfigs")]
+        private InputList<Inputs.UserVoiceEnhancementConfigArgs>? _voiceEnhancementConfigs;
+
+        /// <summary>
+        /// Voice Enhancement configurations of a user.
+        /// </summary>
+        public InputList<Inputs.UserVoiceEnhancementConfigArgs> VoiceEnhancementConfigs
+        {
+            get => _voiceEnhancementConfigs ?? (_voiceEnhancementConfigs = new InputList<Inputs.UserVoiceEnhancementConfigArgs>());
+            set => _voiceEnhancementConfigs = value;
+        }
 
         public UserArgs()
         {

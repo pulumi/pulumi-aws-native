@@ -40,7 +40,7 @@ export class License extends pulumi.CustomResource {
     /**
      * Beneficiary of the license.
      */
-    declare public readonly beneficiary: pulumi.Output<string | undefined>;
+    declare public readonly beneficiary: pulumi.Output<string>;
     /**
      * Configuration for consumption of the license.
      */
@@ -76,11 +76,15 @@ export class License extends pulumi.CustomResource {
     /**
      * ProductSKU of the license.
      */
-    declare public readonly productSku: pulumi.Output<string | undefined>;
+    declare public readonly productSku: pulumi.Output<string>;
     /**
      * License status.
      */
     declare public readonly status: pulumi.Output<string | undefined>;
+    /**
+     * A list of tags to attach.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Date and time range during which the license is valid, in ISO8601-UTC format.
      */
@@ -101,6 +105,9 @@ export class License extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.beneficiary === undefined && !opts.urn) {
+                throw new Error("Missing required property 'beneficiary'");
+            }
             if (args?.consumptionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumptionConfiguration'");
             }
@@ -116,6 +123,9 @@ export class License extends pulumi.CustomResource {
             if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
+            if (args?.productSku === undefined && !opts.urn) {
+                throw new Error("Missing required property 'productSku'");
+            }
             if (args?.validity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
@@ -129,6 +139,7 @@ export class License extends pulumi.CustomResource {
             resourceInputs["productName"] = args?.productName;
             resourceInputs["productSku"] = args?.productSku;
             resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["validity"] = args?.validity;
             resourceInputs["licenseArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -144,6 +155,7 @@ export class License extends pulumi.CustomResource {
             resourceInputs["productName"] = undefined /*out*/;
             resourceInputs["productSku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["validity"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -159,7 +171,7 @@ export interface LicenseArgs {
     /**
      * Beneficiary of the license.
      */
-    beneficiary?: pulumi.Input<string>;
+    beneficiary: pulumi.Input<string>;
     /**
      * Configuration for consumption of the license.
      */
@@ -191,11 +203,15 @@ export interface LicenseArgs {
     /**
      * ProductSKU of the license.
      */
-    productSku?: pulumi.Input<string>;
+    productSku: pulumi.Input<string>;
     /**
      * License status.
      */
     status?: pulumi.Input<string>;
+    /**
+     * A list of tags to attach.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Date and time range during which the license is valid, in ISO8601-UTC format.
      */

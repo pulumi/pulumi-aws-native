@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,8 +30,6 @@ type LookupUserProfileArgs struct {
 }
 
 type LookupUserProfileResult struct {
-	// A list of tags to apply to the user profile.
-	Tags []aws.Tag `pulumi:"tags"`
 	// The user profile Amazon Resource Name (ARN).
 	UserProfileArn *string `pulumi:"userProfileArn"`
 	// A collection of settings.
@@ -71,11 +68,6 @@ func (o LookupUserProfileResultOutput) ToLookupUserProfileResultOutput() LookupU
 
 func (o LookupUserProfileResultOutput) ToLookupUserProfileResultOutputWithContext(ctx context.Context) LookupUserProfileResultOutput {
 	return o
-}
-
-// A list of tags to apply to the user profile.
-func (o LookupUserProfileResultOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v LookupUserProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The user profile Amazon Resource Name (ARN).

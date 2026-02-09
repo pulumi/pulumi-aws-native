@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, restricted_instance_groups=None, tags=None, tiered_storage_config=None):
+    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, orchestrator=None, restricted_instance_groups=None, tags=None, tiered_storage_config=None):
         if auto_scaling and not isinstance(auto_scaling, dict):
             raise TypeError("Expected argument 'auto_scaling' to be a dict")
         pulumi.set(__self__, "auto_scaling", auto_scaling)
@@ -54,6 +54,9 @@ class GetClusterResult:
         if node_recovery and not isinstance(node_recovery, str):
             raise TypeError("Expected argument 'node_recovery' to be a str")
         pulumi.set(__self__, "node_recovery", node_recovery)
+        if orchestrator and not isinstance(orchestrator, dict):
+            raise TypeError("Expected argument 'orchestrator' to be a dict")
+        pulumi.set(__self__, "orchestrator", orchestrator)
         if restricted_instance_groups and not isinstance(restricted_instance_groups, list):
             raise TypeError("Expected argument 'restricted_instance_groups' to be a list")
         pulumi.set(__self__, "restricted_instance_groups", restricted_instance_groups)
@@ -134,6 +137,14 @@ class GetClusterResult:
         return pulumi.get(self, "node_recovery")
 
     @_builtins.property
+    @pulumi.getter
+    def orchestrator(self) -> Optional['outputs.ClusterOrchestrator']:
+        """
+        The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+        """
+        return pulumi.get(self, "orchestrator")
+
+    @_builtins.property
     @pulumi.getter(name="restrictedInstanceGroups")
     def restricted_instance_groups(self) -> Optional[Sequence['outputs.ClusterRestrictedInstanceGroup']]:
         return pulumi.get(self, "restricted_instance_groups")
@@ -167,6 +178,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             instance_groups=self.instance_groups,
             node_provisioning_mode=self.node_provisioning_mode,
             node_recovery=self.node_recovery,
+            orchestrator=self.orchestrator,
             restricted_instance_groups=self.restricted_instance_groups,
             tags=self.tags,
             tiered_storage_config=self.tiered_storage_config)
@@ -195,6 +207,7 @@ def get_cluster(cluster_arn: Optional[_builtins.str] = None,
         instance_groups=pulumi.get(__ret__, 'instance_groups'),
         node_provisioning_mode=pulumi.get(__ret__, 'node_provisioning_mode'),
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
+        orchestrator=pulumi.get(__ret__, 'orchestrator'),
         restricted_instance_groups=pulumi.get(__ret__, 'restricted_instance_groups'),
         tags=pulumi.get(__ret__, 'tags'),
         tiered_storage_config=pulumi.get(__ret__, 'tiered_storage_config'))
@@ -220,6 +233,7 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None
         instance_groups=pulumi.get(__response__, 'instance_groups'),
         node_provisioning_mode=pulumi.get(__response__, 'node_provisioning_mode'),
         node_recovery=pulumi.get(__response__, 'node_recovery'),
+        orchestrator=pulumi.get(__response__, 'orchestrator'),
         restricted_instance_groups=pulumi.get(__response__, 'restricted_instance_groups'),
         tags=pulumi.get(__response__, 'tags'),
         tiered_storage_config=pulumi.get(__response__, 'tiered_storage_config')))

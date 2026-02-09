@@ -81,6 +81,7 @@ export interface GetPortalResult {
      * The ARN of the web portal.
      */
     readonly portalArn?: string;
+    readonly portalCustomDomain?: string;
     /**
      * The endpoint URL of the web portal that users access in order to start streaming sessions.
      */

@@ -26,7 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserResult:
-    def __init__(__self__, directory_user_id=None, hierarchy_group_arn=None, identity_info=None, instance_arn=None, phone_config=None, routing_profile_arn=None, security_profile_arns=None, tags=None, user_arn=None, user_proficiencies=None, username=None):
+    def __init__(__self__, after_contact_work_configs=None, auto_accept_configs=None, directory_user_id=None, hierarchy_group_arn=None, identity_info=None, instance_arn=None, persistent_connection_configs=None, phone_config=None, phone_number_configs=None, routing_profile_arn=None, security_profile_arns=None, tags=None, user_arn=None, user_proficiencies=None, username=None, voice_enhancement_configs=None):
+        if after_contact_work_configs and not isinstance(after_contact_work_configs, list):
+            raise TypeError("Expected argument 'after_contact_work_configs' to be a list")
+        pulumi.set(__self__, "after_contact_work_configs", after_contact_work_configs)
+        if auto_accept_configs and not isinstance(auto_accept_configs, list):
+            raise TypeError("Expected argument 'auto_accept_configs' to be a list")
+        pulumi.set(__self__, "auto_accept_configs", auto_accept_configs)
         if directory_user_id and not isinstance(directory_user_id, str):
             raise TypeError("Expected argument 'directory_user_id' to be a str")
         pulumi.set(__self__, "directory_user_id", directory_user_id)
@@ -39,9 +45,15 @@ class GetUserResult:
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if persistent_connection_configs and not isinstance(persistent_connection_configs, list):
+            raise TypeError("Expected argument 'persistent_connection_configs' to be a list")
+        pulumi.set(__self__, "persistent_connection_configs", persistent_connection_configs)
         if phone_config and not isinstance(phone_config, dict):
             raise TypeError("Expected argument 'phone_config' to be a dict")
         pulumi.set(__self__, "phone_config", phone_config)
+        if phone_number_configs and not isinstance(phone_number_configs, list):
+            raise TypeError("Expected argument 'phone_number_configs' to be a list")
+        pulumi.set(__self__, "phone_number_configs", phone_number_configs)
         if routing_profile_arn and not isinstance(routing_profile_arn, str):
             raise TypeError("Expected argument 'routing_profile_arn' to be a str")
         pulumi.set(__self__, "routing_profile_arn", routing_profile_arn)
@@ -60,6 +72,25 @@ class GetUserResult:
         if username and not isinstance(username, str):
             raise TypeError("Expected argument 'username' to be a str")
         pulumi.set(__self__, "username", username)
+        if voice_enhancement_configs and not isinstance(voice_enhancement_configs, list):
+            raise TypeError("Expected argument 'voice_enhancement_configs' to be a list")
+        pulumi.set(__self__, "voice_enhancement_configs", voice_enhancement_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkConfigs")
+    def after_contact_work_configs(self) -> Optional[Sequence['outputs.UserAfterContactWorkConfigPerChannel']]:
+        """
+        After Contact Work configurations of a user.
+        """
+        return pulumi.get(self, "after_contact_work_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="autoAcceptConfigs")
+    def auto_accept_configs(self) -> Optional[Sequence['outputs.UserAutoAcceptConfig']]:
+        """
+        Auto-accept configurations of a user.
+        """
+        return pulumi.get(self, "auto_accept_configs")
 
     @_builtins.property
     @pulumi.getter(name="directoryUserId")
@@ -94,12 +125,28 @@ class GetUserResult:
         return pulumi.get(self, "instance_arn")
 
     @_builtins.property
+    @pulumi.getter(name="persistentConnectionConfigs")
+    def persistent_connection_configs(self) -> Optional[Sequence['outputs.UserPersistentConnectionConfig']]:
+        """
+        Persistent Connection configurations of a user.
+        """
+        return pulumi.get(self, "persistent_connection_configs")
+
+    @_builtins.property
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> Optional['outputs.UserPhoneConfig']:
         """
         The phone settings for the user.
         """
         return pulumi.get(self, "phone_config")
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumberConfigs")
+    def phone_number_configs(self) -> Optional[Sequence['outputs.UserPhoneNumberConfig']]:
+        """
+        Phone Number configurations of a user.
+        """
+        return pulumi.get(self, "phone_number_configs")
 
     @_builtins.property
     @pulumi.getter(name="routingProfileArn")
@@ -149,6 +196,14 @@ class GetUserResult:
         """
         return pulumi.get(self, "username")
 
+    @_builtins.property
+    @pulumi.getter(name="voiceEnhancementConfigs")
+    def voice_enhancement_configs(self) -> Optional[Sequence['outputs.UserVoiceEnhancementConfig']]:
+        """
+        Voice Enhancement configurations of a user.
+        """
+        return pulumi.get(self, "voice_enhancement_configs")
+
 
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
@@ -156,17 +211,22 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            after_contact_work_configs=self.after_contact_work_configs,
+            auto_accept_configs=self.auto_accept_configs,
             directory_user_id=self.directory_user_id,
             hierarchy_group_arn=self.hierarchy_group_arn,
             identity_info=self.identity_info,
             instance_arn=self.instance_arn,
+            persistent_connection_configs=self.persistent_connection_configs,
             phone_config=self.phone_config,
+            phone_number_configs=self.phone_number_configs,
             routing_profile_arn=self.routing_profile_arn,
             security_profile_arns=self.security_profile_arns,
             tags=self.tags,
             user_arn=self.user_arn,
             user_proficiencies=self.user_proficiencies,
-            username=self.username)
+            username=self.username,
+            voice_enhancement_configs=self.voice_enhancement_configs)
 
 
 def get_user(user_arn: Optional[_builtins.str] = None,
@@ -183,17 +243,22 @@ def get_user(user_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        after_contact_work_configs=pulumi.get(__ret__, 'after_contact_work_configs'),
+        auto_accept_configs=pulumi.get(__ret__, 'auto_accept_configs'),
         directory_user_id=pulumi.get(__ret__, 'directory_user_id'),
         hierarchy_group_arn=pulumi.get(__ret__, 'hierarchy_group_arn'),
         identity_info=pulumi.get(__ret__, 'identity_info'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        persistent_connection_configs=pulumi.get(__ret__, 'persistent_connection_configs'),
         phone_config=pulumi.get(__ret__, 'phone_config'),
+        phone_number_configs=pulumi.get(__ret__, 'phone_number_configs'),
         routing_profile_arn=pulumi.get(__ret__, 'routing_profile_arn'),
         security_profile_arns=pulumi.get(__ret__, 'security_profile_arns'),
         tags=pulumi.get(__ret__, 'tags'),
         user_arn=pulumi.get(__ret__, 'user_arn'),
         user_proficiencies=pulumi.get(__ret__, 'user_proficiencies'),
-        username=pulumi.get(__ret__, 'username'))
+        username=pulumi.get(__ret__, 'username'),
+        voice_enhancement_configs=pulumi.get(__ret__, 'voice_enhancement_configs'))
 def get_user_output(user_arn: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -207,14 +272,19 @@ def get_user_output(user_arn: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
+        after_contact_work_configs=pulumi.get(__response__, 'after_contact_work_configs'),
+        auto_accept_configs=pulumi.get(__response__, 'auto_accept_configs'),
         directory_user_id=pulumi.get(__response__, 'directory_user_id'),
         hierarchy_group_arn=pulumi.get(__response__, 'hierarchy_group_arn'),
         identity_info=pulumi.get(__response__, 'identity_info'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
+        persistent_connection_configs=pulumi.get(__response__, 'persistent_connection_configs'),
         phone_config=pulumi.get(__response__, 'phone_config'),
+        phone_number_configs=pulumi.get(__response__, 'phone_number_configs'),
         routing_profile_arn=pulumi.get(__response__, 'routing_profile_arn'),
         security_profile_arns=pulumi.get(__response__, 'security_profile_arns'),
         tags=pulumi.get(__response__, 'tags'),
         user_arn=pulumi.get(__response__, 'user_arn'),
         user_proficiencies=pulumi.get(__response__, 'user_proficiencies'),
-        username=pulumi.get(__response__, 'username')))
+        username=pulumi.get(__response__, 'username'),
+        voice_enhancement_configs=pulumi.get(__response__, 'voice_enhancement_configs')))

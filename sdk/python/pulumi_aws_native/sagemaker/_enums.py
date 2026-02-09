@@ -15,6 +15,7 @@ __all__ = [
     'ClusterKubernetesTaintEffect',
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
+    'ClusterSlurmConfigNodeType',
     'ClusterStatus',
     'ClusterTieredStorageConfigMode',
     'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType',
@@ -371,6 +372,16 @@ class ClusterNodeRecovery(_builtins.str, Enum):
     """
     AUTOMATIC = "Automatic"
     NONE = "None"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterSlurmConfigNodeType")
+class ClusterSlurmConfigNodeType(_builtins.str, Enum):
+    """
+    The type of Slurm node for this instance group.
+    """
+    CONTROLLER = "Controller"
+    LOGIN = "Login"
+    COMPUTE = "Compute"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterStatus")

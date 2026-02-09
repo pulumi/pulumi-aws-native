@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -30,6 +33,10 @@ export interface GetVectorBucketResult {
      * Example: `2024-12-21T10:30:00Z`
      */
     readonly creationTime?: string;
+    /**
+     * User tags (key-value pairs) to associate with the vector bucket.
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * Returns the Amazon Resource Name (ARN) of the specified vector bucket.
      *

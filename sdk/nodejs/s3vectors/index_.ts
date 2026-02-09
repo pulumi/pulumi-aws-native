@@ -83,6 +83,10 @@ export class Index extends pulumi.CustomResource {
      */
     declare public readonly metadataConfiguration: pulumi.Output<outputs.s3vectors.IndexMetadataConfiguration | undefined>;
     /**
+     * User tags (key-value pairs) to associate with the index.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
      */
     declare public readonly vectorBucketArn: pulumi.Output<string | undefined>;
@@ -117,6 +121,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
             resourceInputs["indexName"] = args?.indexName;
             resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vectorBucketArn"] = args?.vectorBucketArn;
             resourceInputs["vectorBucketName"] = args?.vectorBucketName;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -130,6 +135,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["indexArn"] = undefined /*out*/;
             resourceInputs["indexName"] = undefined /*out*/;
             resourceInputs["metadataConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vectorBucketArn"] = undefined /*out*/;
             resourceInputs["vectorBucketName"] = undefined /*out*/;
         }
@@ -177,6 +183,10 @@ export interface IndexArgs {
      * The metadata configuration for the vector index.
      */
     metadataConfiguration?: pulumi.Input<inputs.s3vectors.IndexMetadataConfigurationArgs>;
+    /**
+     * User tags (key-value pairs) to associate with the index.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
      */

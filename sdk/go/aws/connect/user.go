@@ -17,6 +17,10 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
+	// After Contact Work configurations of a user.
+	AfterContactWorkConfigs UserAfterContactWorkConfigPerChannelArrayOutput `pulumi:"afterContactWorkConfigs"`
+	// Auto-accept configurations of a user.
+	AutoAcceptConfigs UserAutoAcceptConfigArrayOutput `pulumi:"autoAcceptConfigs"`
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId pulumi.StringPtrOutput `pulumi:"directoryUserId"`
 	// The identifier of the hierarchy group for the user.
@@ -27,8 +31,12 @@ type User struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Persistent Connection configurations of a user.
+	PersistentConnectionConfigs UserPersistentConnectionConfigArrayOutput `pulumi:"persistentConnectionConfigs"`
 	// The phone settings for the user.
-	PhoneConfig UserPhoneConfigOutput `pulumi:"phoneConfig"`
+	PhoneConfig UserPhoneConfigPtrOutput `pulumi:"phoneConfig"`
+	// Phone Number configurations of a user.
+	PhoneNumberConfigs UserPhoneNumberConfigArrayOutput `pulumi:"phoneNumberConfigs"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn pulumi.StringOutput `pulumi:"routingProfileArn"`
 	// One or more security profile arns for the user
@@ -41,6 +49,8 @@ type User struct {
 	UserProficiencies UserProficiencyArrayOutput `pulumi:"userProficiencies"`
 	// The user name for the account.
 	Username pulumi.StringOutput `pulumi:"username"`
+	// Voice Enhancement configurations of a user.
+	VoiceEnhancementConfigs UserVoiceEnhancementConfigArrayOutput `pulumi:"voiceEnhancementConfigs"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -52,9 +62,6 @@ func NewUser(ctx *pulumi.Context,
 
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
-	}
-	if args.PhoneConfig == nil {
-		return nil, errors.New("invalid value for required argument 'PhoneConfig'")
 	}
 	if args.RoutingProfileArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingProfileArn'")
@@ -95,6 +102,10 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
+	// After Contact Work configurations of a user.
+	AfterContactWorkConfigs []UserAfterContactWorkConfigPerChannel `pulumi:"afterContactWorkConfigs"`
+	// Auto-accept configurations of a user.
+	AutoAcceptConfigs []UserAutoAcceptConfig `pulumi:"autoAcceptConfigs"`
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId *string `pulumi:"directoryUserId"`
 	// The identifier of the hierarchy group for the user.
@@ -105,8 +116,12 @@ type userArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
 	Password *string `pulumi:"password"`
+	// Persistent Connection configurations of a user.
+	PersistentConnectionConfigs []UserPersistentConnectionConfig `pulumi:"persistentConnectionConfigs"`
 	// The phone settings for the user.
-	PhoneConfig UserPhoneConfig `pulumi:"phoneConfig"`
+	PhoneConfig *UserPhoneConfig `pulumi:"phoneConfig"`
+	// Phone Number configurations of a user.
+	PhoneNumberConfigs []UserPhoneNumberConfig `pulumi:"phoneNumberConfigs"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn string `pulumi:"routingProfileArn"`
 	// One or more security profile arns for the user
@@ -117,10 +132,16 @@ type userArgs struct {
 	UserProficiencies []UserProficiency `pulumi:"userProficiencies"`
 	// The user name for the account.
 	Username *string `pulumi:"username"`
+	// Voice Enhancement configurations of a user.
+	VoiceEnhancementConfigs []UserVoiceEnhancementConfig `pulumi:"voiceEnhancementConfigs"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
+	// After Contact Work configurations of a user.
+	AfterContactWorkConfigs UserAfterContactWorkConfigPerChannelArrayInput
+	// Auto-accept configurations of a user.
+	AutoAcceptConfigs UserAutoAcceptConfigArrayInput
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId pulumi.StringPtrInput
 	// The identifier of the hierarchy group for the user.
@@ -131,8 +152,12 @@ type UserArgs struct {
 	InstanceArn pulumi.StringInput
 	// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
 	Password pulumi.StringPtrInput
+	// Persistent Connection configurations of a user.
+	PersistentConnectionConfigs UserPersistentConnectionConfigArrayInput
 	// The phone settings for the user.
-	PhoneConfig UserPhoneConfigInput
+	PhoneConfig UserPhoneConfigPtrInput
+	// Phone Number configurations of a user.
+	PhoneNumberConfigs UserPhoneNumberConfigArrayInput
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn pulumi.StringInput
 	// One or more security profile arns for the user
@@ -143,6 +168,8 @@ type UserArgs struct {
 	UserProficiencies UserProficiencyArrayInput
 	// The user name for the account.
 	Username pulumi.StringPtrInput
+	// Voice Enhancement configurations of a user.
+	VoiceEnhancementConfigs UserVoiceEnhancementConfigArrayInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -182,6 +209,16 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// After Contact Work configurations of a user.
+func (o UserOutput) AfterContactWorkConfigs() UserAfterContactWorkConfigPerChannelArrayOutput {
+	return o.ApplyT(func(v *User) UserAfterContactWorkConfigPerChannelArrayOutput { return v.AfterContactWorkConfigs }).(UserAfterContactWorkConfigPerChannelArrayOutput)
+}
+
+// Auto-accept configurations of a user.
+func (o UserOutput) AutoAcceptConfigs() UserAutoAcceptConfigArrayOutput {
+	return o.ApplyT(func(v *User) UserAutoAcceptConfigArrayOutput { return v.AutoAcceptConfigs }).(UserAutoAcceptConfigArrayOutput)
+}
+
 // The identifier of the user account in the directory used for identity management.
 func (o UserOutput) DirectoryUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.DirectoryUserId }).(pulumi.StringPtrOutput)
@@ -207,9 +244,19 @@ func (o UserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// Persistent Connection configurations of a user.
+func (o UserOutput) PersistentConnectionConfigs() UserPersistentConnectionConfigArrayOutput {
+	return o.ApplyT(func(v *User) UserPersistentConnectionConfigArrayOutput { return v.PersistentConnectionConfigs }).(UserPersistentConnectionConfigArrayOutput)
+}
+
 // The phone settings for the user.
-func (o UserOutput) PhoneConfig() UserPhoneConfigOutput {
-	return o.ApplyT(func(v *User) UserPhoneConfigOutput { return v.PhoneConfig }).(UserPhoneConfigOutput)
+func (o UserOutput) PhoneConfig() UserPhoneConfigPtrOutput {
+	return o.ApplyT(func(v *User) UserPhoneConfigPtrOutput { return v.PhoneConfig }).(UserPhoneConfigPtrOutput)
+}
+
+// Phone Number configurations of a user.
+func (o UserOutput) PhoneNumberConfigs() UserPhoneNumberConfigArrayOutput {
+	return o.ApplyT(func(v *User) UserPhoneNumberConfigArrayOutput { return v.PhoneNumberConfigs }).(UserPhoneNumberConfigArrayOutput)
 }
 
 // The identifier of the routing profile for the user.
@@ -240,6 +287,11 @@ func (o UserOutput) UserProficiencies() UserProficiencyArrayOutput {
 // The user name for the account.
 func (o UserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
+// Voice Enhancement configurations of a user.
+func (o UserOutput) VoiceEnhancementConfigs() UserVoiceEnhancementConfigArrayOutput {
+	return o.ApplyT(func(v *User) UserVoiceEnhancementConfigArrayOutput { return v.VoiceEnhancementConfigs }).(UserVoiceEnhancementConfigArrayOutput)
 }
 
 func init() {

@@ -25,7 +25,7 @@ export const AppMonitorMetricDestinationDestination = {
 } as const;
 
 /**
- * Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+ * Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
  */
 export type AppMonitorMetricDestinationDestination = (typeof AppMonitorMetricDestinationDestination)[keyof typeof AppMonitorMetricDestinationDestination];
 

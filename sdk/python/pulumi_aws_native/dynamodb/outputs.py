@@ -272,6 +272,10 @@ class GlobalTableGlobalSecondaryIndex(dict):
             suggest = "index_name"
         elif key == "keySchema":
             suggest = "key_schema"
+        elif key == "readOnDemandThroughputSettings":
+            suggest = "read_on_demand_throughput_settings"
+        elif key == "readProvisionedThroughputSettings":
+            suggest = "read_provisioned_throughput_settings"
         elif key == "warmThroughput":
             suggest = "warm_throughput"
         elif key == "writeOnDemandThroughputSettings":
@@ -294,6 +298,8 @@ class GlobalTableGlobalSecondaryIndex(dict):
                  index_name: _builtins.str,
                  key_schema: Sequence['outputs.GlobalTableKeySchema'],
                  projection: 'outputs.GlobalTableProjection',
+                 read_on_demand_throughput_settings: Optional['outputs.GlobalTableReadOnDemandThroughputSettings'] = None,
+                 read_provisioned_throughput_settings: Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings'] = None,
                  warm_throughput: Optional['outputs.GlobalTableWarmThroughput'] = None,
                  write_on_demand_throughput_settings: Optional['outputs.GlobalTableWriteOnDemandThroughputSettings'] = None,
                  write_provisioned_throughput_settings: Optional['outputs.GlobalTableWriteProvisionedThroughputSettings'] = None):
@@ -315,6 +321,10 @@ class GlobalTableGlobalSecondaryIndex(dict):
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
+        if read_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "read_on_demand_throughput_settings", read_on_demand_throughput_settings)
+        if read_provisioned_throughput_settings is not None:
+            pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if warm_throughput is not None:
             pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_on_demand_throughput_settings is not None:
@@ -352,6 +362,16 @@ class GlobalTableGlobalSecondaryIndex(dict):
         Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         """
         return pulumi.get(self, "projection")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnDemandThroughputSettings")
+    def read_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableReadOnDemandThroughputSettings']:
+        return pulumi.get(self, "read_on_demand_throughput_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="readProvisionedThroughputSettings")
+    def read_provisioned_throughput_settings(self) -> Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']:
+        return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")
@@ -852,6 +872,8 @@ class GlobalTableReplicaSpecification(dict):
             suggest = "deletion_protection_enabled"
         elif key == "globalSecondaryIndexes":
             suggest = "global_secondary_indexes"
+        elif key == "globalTableSettingsReplicationMode":
+            suggest = "global_table_settings_replication_mode"
         elif key == "kinesisStreamSpecification":
             suggest = "kinesis_stream_specification"
         elif key == "pointInTimeRecoverySpecification":
@@ -885,6 +907,7 @@ class GlobalTableReplicaSpecification(dict):
                  contributor_insights_specification: Optional['outputs.GlobalTableContributorInsightsSpecification'] = None,
                  deletion_protection_enabled: Optional[_builtins.bool] = None,
                  global_secondary_indexes: Optional[Sequence['outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification']] = None,
+                 global_table_settings_replication_mode: Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode'] = None,
                  kinesis_stream_specification: Optional['outputs.GlobalTableKinesisStreamSpecification'] = None,
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
                  read_on_demand_throughput_settings: Optional['outputs.GlobalTableReadOnDemandThroughputSettings'] = None,
@@ -920,6 +943,8 @@ class GlobalTableReplicaSpecification(dict):
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_settings_replication_mode is not None:
+            pulumi.set(__self__, "global_table_settings_replication_mode", global_table_settings_replication_mode)
         if kinesis_stream_specification is not None:
             pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
         if point_in_time_recovery_specification is not None:
@@ -970,6 +995,11 @@ class GlobalTableReplicaSpecification(dict):
         Defines additional settings for the global secondary indexes of this replica.
         """
         return pulumi.get(self, "global_secondary_indexes")
+
+    @_builtins.property
+    @pulumi.getter(name="globalTableSettingsReplicationMode")
+    def global_table_settings_replication_mode(self) -> Optional['GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode']:
+        return pulumi.get(self, "global_table_settings_replication_mode")
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamSpecification")

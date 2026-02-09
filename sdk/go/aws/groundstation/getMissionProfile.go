@@ -53,6 +53,8 @@ type LookupMissionProfileResult struct {
 	StreamsKmsRole *string `pulumi:"streamsKmsRole"`
 	// Tags assigned to the mission profile.
 	Tags []aws.Tag `pulumi:"tags"`
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	TelemetrySinkConfigArn *string `pulumi:"telemetrySinkConfigArn"`
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn *string `pulumi:"trackingConfigArn"`
 }
@@ -144,6 +146,11 @@ func (o LookupMissionProfileResultOutput) StreamsKmsRole() pulumi.StringPtrOutpu
 // Tags assigned to the mission profile.
 func (o LookupMissionProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+func (o LookupMissionProfileResultOutput) TelemetrySinkConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMissionProfileResult) *string { return v.TelemetrySinkConfigArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.

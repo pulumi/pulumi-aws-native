@@ -1681,6 +1681,39 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The channels that agents can handle in the Contact Control Panel (CCP).
+    /// </summary>
+    [EnumType]
+    public readonly struct UserChannel : IEquatable<UserChannel>
+    {
+        private readonly string _value;
+
+        private UserChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserChannel Voice { get; } = new UserChannel("VOICE");
+        public static UserChannel Chat { get; } = new UserChannel("CHAT");
+        public static UserChannel Task { get; } = new UserChannel("TASK");
+        public static UserChannel Email { get; } = new UserChannel("EMAIL");
+
+        public static bool operator ==(UserChannel left, UserChannel right) => left.Equals(right);
+        public static bool operator !=(UserChannel left, UserChannel right) => !left.Equals(right);
+
+        public static explicit operator string(UserChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserChannel other && Equals(other);
+        public bool Equals(UserChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The phone type.
     /// </summary>
     [EnumType]
@@ -1704,6 +1737,38 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserPhoneType other && Equals(other);
         public bool Equals(UserPhoneType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Voice Enhancement Mode setting.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserVoiceEnhancementMode : IEquatable<UserVoiceEnhancementMode>
+    {
+        private readonly string _value;
+
+        private UserVoiceEnhancementMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserVoiceEnhancementMode None { get; } = new UserVoiceEnhancementMode("NONE");
+        public static UserVoiceEnhancementMode VoiceIsolation { get; } = new UserVoiceEnhancementMode("VOICE_ISOLATION");
+        public static UserVoiceEnhancementMode NoiseSuppression { get; } = new UserVoiceEnhancementMode("NOISE_SUPPRESSION");
+
+        public static bool operator ==(UserVoiceEnhancementMode left, UserVoiceEnhancementMode right) => left.Equals(right);
+        public static bool operator !=(UserVoiceEnhancementMode left, UserVoiceEnhancementMode right) => !left.Equals(right);
+
+        public static explicit operator string(UserVoiceEnhancementMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserVoiceEnhancementMode other && Equals(other);
+        public bool Equals(UserVoiceEnhancementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

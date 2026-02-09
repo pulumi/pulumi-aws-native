@@ -11,6 +11,7 @@ __all__ = [
     'ConfigEirpUnits',
     'ConfigFrequencyUnits',
     'ConfigPolarization',
+    'ConfigTelemetrySinkType',
     'ConfigTrackingConfigAutotrack',
     'DataflowEndpointGroupAgentStatus',
     'DataflowEndpointGroupAuditResults',
@@ -43,6 +44,11 @@ class ConfigPolarization(_builtins.str, Enum):
     LEFT_HAND = "LEFT_HAND"
     RIGHT_HAND = "RIGHT_HAND"
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:groundstation:ConfigTelemetrySinkType")
+class ConfigTelemetrySinkType(_builtins.str, Enum):
+    KINESIS_DATA_STREAM = "KINESIS_DATA_STREAM"
 
 
 @pulumi.type_token("aws-native:groundstation:ConfigTrackingConfigAutotrack")

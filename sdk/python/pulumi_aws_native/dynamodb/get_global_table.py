@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_read_on_demand_throughput_settings=None, global_table_read_provisioned_throughput_settings=None, global_table_witnesses=None, key_schema=None, local_secondary_indexes=None, multi_region_consistency=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_witnesses=None, key_schema=None, local_secondary_indexes=None, multi_region_consistency=None, read_on_demand_throughput_settings=None, read_provisioned_throughput_settings=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,12 +38,6 @@ class GetGlobalTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
-        if global_table_read_on_demand_throughput_settings and not isinstance(global_table_read_on_demand_throughput_settings, dict):
-            raise TypeError("Expected argument 'global_table_read_on_demand_throughput_settings' to be a dict")
-        pulumi.set(__self__, "global_table_read_on_demand_throughput_settings", global_table_read_on_demand_throughput_settings)
-        if global_table_read_provisioned_throughput_settings and not isinstance(global_table_read_provisioned_throughput_settings, dict):
-            raise TypeError("Expected argument 'global_table_read_provisioned_throughput_settings' to be a dict")
-        pulumi.set(__self__, "global_table_read_provisioned_throughput_settings", global_table_read_provisioned_throughput_settings)
         if global_table_witnesses and not isinstance(global_table_witnesses, list):
             raise TypeError("Expected argument 'global_table_witnesses' to be a list")
         pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
@@ -56,6 +50,12 @@ class GetGlobalTableResult:
         if multi_region_consistency and not isinstance(multi_region_consistency, str):
             raise TypeError("Expected argument 'multi_region_consistency' to be a str")
         pulumi.set(__self__, "multi_region_consistency", multi_region_consistency)
+        if read_on_demand_throughput_settings and not isinstance(read_on_demand_throughput_settings, dict):
+            raise TypeError("Expected argument 'read_on_demand_throughput_settings' to be a dict")
+        pulumi.set(__self__, "read_on_demand_throughput_settings", read_on_demand_throughput_settings)
+        if read_provisioned_throughput_settings and not isinstance(read_provisioned_throughput_settings, dict):
+            raise TypeError("Expected argument 'read_provisioned_throughput_settings' to be a dict")
+        pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if replicas and not isinstance(replicas, list):
             raise TypeError("Expected argument 'replicas' to be a list")
         pulumi.set(__self__, "replicas", replicas)
@@ -124,16 +124,6 @@ class GetGlobalTableResult:
         return pulumi.get(self, "global_secondary_indexes")
 
     @_builtins.property
-    @pulumi.getter(name="globalTableReadOnDemandThroughputSettings")
-    def global_table_read_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableReadOnDemandThroughputSettings']:
-        return pulumi.get(self, "global_table_read_on_demand_throughput_settings")
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableReadProvisionedThroughputSettings")
-    def global_table_read_provisioned_throughput_settings(self) -> Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']:
-        return pulumi.get(self, "global_table_read_provisioned_throughput_settings")
-
-    @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
     def global_table_witnesses(self) -> Optional[Sequence['outputs.GlobalTableWitness']]:
         """
@@ -171,6 +161,16 @@ class GetGlobalTableResult:
         If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
         """
         return pulumi.get(self, "multi_region_consistency")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnDemandThroughputSettings")
+    def read_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableReadOnDemandThroughputSettings']:
+        return pulumi.get(self, "read_on_demand_throughput_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="readProvisionedThroughputSettings")
+    def read_provisioned_throughput_settings(self) -> Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']:
+        return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @_builtins.property
     @pulumi.getter
@@ -263,12 +263,12 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             attribute_definitions=self.attribute_definitions,
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
-            global_table_read_on_demand_throughput_settings=self.global_table_read_on_demand_throughput_settings,
-            global_table_read_provisioned_throughput_settings=self.global_table_read_provisioned_throughput_settings,
             global_table_witnesses=self.global_table_witnesses,
             key_schema=self.key_schema,
             local_secondary_indexes=self.local_secondary_indexes,
             multi_region_consistency=self.multi_region_consistency,
+            read_on_demand_throughput_settings=self.read_on_demand_throughput_settings,
+            read_provisioned_throughput_settings=self.read_provisioned_throughput_settings,
             replicas=self.replicas,
             sse_specification=self.sse_specification,
             stream_arn=self.stream_arn,
@@ -300,12 +300,12 @@ def get_global_table(table_name: Optional[_builtins.str] = None,
         attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
-        global_table_read_on_demand_throughput_settings=pulumi.get(__ret__, 'global_table_read_on_demand_throughput_settings'),
-        global_table_read_provisioned_throughput_settings=pulumi.get(__ret__, 'global_table_read_provisioned_throughput_settings'),
         global_table_witnesses=pulumi.get(__ret__, 'global_table_witnesses'),
         key_schema=pulumi.get(__ret__, 'key_schema'),
         local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
         multi_region_consistency=pulumi.get(__ret__, 'multi_region_consistency'),
+        read_on_demand_throughput_settings=pulumi.get(__ret__, 'read_on_demand_throughput_settings'),
+        read_provisioned_throughput_settings=pulumi.get(__ret__, 'read_provisioned_throughput_settings'),
         replicas=pulumi.get(__ret__, 'replicas'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
@@ -334,12 +334,12 @@ def get_global_table_output(table_name: Optional[pulumi.Input[_builtins.str]] = 
         attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),
         billing_mode=pulumi.get(__response__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
-        global_table_read_on_demand_throughput_settings=pulumi.get(__response__, 'global_table_read_on_demand_throughput_settings'),
-        global_table_read_provisioned_throughput_settings=pulumi.get(__response__, 'global_table_read_provisioned_throughput_settings'),
         global_table_witnesses=pulumi.get(__response__, 'global_table_witnesses'),
         key_schema=pulumi.get(__response__, 'key_schema'),
         local_secondary_indexes=pulumi.get(__response__, 'local_secondary_indexes'),
         multi_region_consistency=pulumi.get(__response__, 'multi_region_consistency'),
+        read_on_demand_throughput_settings=pulumi.get(__response__, 'read_on_demand_throughput_settings'),
+        read_provisioned_throughput_settings=pulumi.get(__response__, 'read_provisioned_throughput_settings'),
         replicas=pulumi.get(__response__, 'replicas'),
         sse_specification=pulumi.get(__response__, 'sse_specification'),
         stream_arn=pulumi.get(__response__, 'stream_arn'),

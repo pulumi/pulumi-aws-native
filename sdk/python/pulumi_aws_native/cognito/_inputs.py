@@ -62,6 +62,8 @@ __all__ = [
     'UserPoolDomainCustomDomainConfigTypeArgsDict',
     'UserPoolEmailConfigurationArgs',
     'UserPoolEmailConfigurationArgsDict',
+    'UserPoolInboundFederationArgs',
+    'UserPoolInboundFederationArgsDict',
     'UserPoolInviteMessageTemplateArgs',
     'UserPoolInviteMessageTemplateArgsDict',
     'UserPoolLambdaConfigArgs',
@@ -1501,6 +1503,42 @@ class UserPoolEmailConfigurationArgs:
 
 
 if not MYPY:
+    class UserPoolInboundFederationArgsDict(TypedDict):
+        lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+        lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    UserPoolInboundFederationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolInboundFederationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 lambda_version: Optional[pulumi.Input[_builtins.str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_version", value)
+
+
+if not MYPY:
     class UserPoolInviteMessageTemplateArgsDict(TypedDict):
         email_message: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1594,6 +1632,7 @@ if not MYPY:
         """
         The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
+        inbound_federation: NotRequired[pulumi.Input['UserPoolInboundFederationArgsDict']]
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
@@ -1643,6 +1682,7 @@ class UserPoolLambdaConfigArgs:
                  custom_message: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_sms_sender: Optional[pulumi.Input['UserPoolCustomSmsSenderArgs']] = None,
                  define_auth_challenge: Optional[pulumi.Input[_builtins.str]] = None,
+                 inbound_federation: Optional[pulumi.Input['UserPoolInboundFederationArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  post_authentication: Optional[pulumi.Input[_builtins.str]] = None,
                  post_confirmation: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1680,6 +1720,8 @@ class UserPoolLambdaConfigArgs:
             pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
             pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        if inbound_federation is not None:
+            pulumi.set(__self__, "inbound_federation", inbound_federation)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if post_authentication is not None:
@@ -1758,6 +1800,15 @@ class UserPoolLambdaConfigArgs:
     @define_auth_challenge.setter
     def define_auth_challenge(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "define_auth_challenge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundFederation")
+    def inbound_federation(self) -> Optional[pulumi.Input['UserPoolInboundFederationArgs']]:
+        return pulumi.get(self, "inbound_federation")
+
+    @inbound_federation.setter
+    def inbound_federation(self, value: Optional[pulumi.Input['UserPoolInboundFederationArgs']]):
+        pulumi.set(self, "inbound_federation", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")

@@ -29,6 +29,10 @@ type LookupUserArgs struct {
 }
 
 type LookupUserResult struct {
+	// After Contact Work configurations of a user.
+	AfterContactWorkConfigs []UserAfterContactWorkConfigPerChannel `pulumi:"afterContactWorkConfigs"`
+	// Auto-accept configurations of a user.
+	AutoAcceptConfigs []UserAutoAcceptConfig `pulumi:"autoAcceptConfigs"`
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId *string `pulumi:"directoryUserId"`
 	// The identifier of the hierarchy group for the user.
@@ -37,8 +41,12 @@ type LookupUserResult struct {
 	IdentityInfo *UserIdentityInfo `pulumi:"identityInfo"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn *string `pulumi:"instanceArn"`
+	// Persistent Connection configurations of a user.
+	PersistentConnectionConfigs []UserPersistentConnectionConfig `pulumi:"persistentConnectionConfigs"`
 	// The phone settings for the user.
 	PhoneConfig *UserPhoneConfig `pulumi:"phoneConfig"`
+	// Phone Number configurations of a user.
+	PhoneNumberConfigs []UserPhoneNumberConfig `pulumi:"phoneNumberConfigs"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileArn *string `pulumi:"routingProfileArn"`
 	// One or more security profile arns for the user
@@ -51,6 +59,8 @@ type LookupUserResult struct {
 	UserProficiencies []UserProficiency `pulumi:"userProficiencies"`
 	// The user name for the account.
 	Username *string `pulumi:"username"`
+	// Voice Enhancement configurations of a user.
+	VoiceEnhancementConfigs []UserVoiceEnhancementConfig `pulumi:"voiceEnhancementConfigs"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -85,6 +95,16 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
+// After Contact Work configurations of a user.
+func (o LookupUserResultOutput) AfterContactWorkConfigs() UserAfterContactWorkConfigPerChannelArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserAfterContactWorkConfigPerChannel { return v.AfterContactWorkConfigs }).(UserAfterContactWorkConfigPerChannelArrayOutput)
+}
+
+// Auto-accept configurations of a user.
+func (o LookupUserResultOutput) AutoAcceptConfigs() UserAutoAcceptConfigArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserAutoAcceptConfig { return v.AutoAcceptConfigs }).(UserAutoAcceptConfigArrayOutput)
+}
+
 // The identifier of the user account in the directory used for identity management.
 func (o LookupUserResultOutput) DirectoryUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.DirectoryUserId }).(pulumi.StringPtrOutput)
@@ -105,9 +125,19 @@ func (o LookupUserResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
 }
 
+// Persistent Connection configurations of a user.
+func (o LookupUserResultOutput) PersistentConnectionConfigs() UserPersistentConnectionConfigArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserPersistentConnectionConfig { return v.PersistentConnectionConfigs }).(UserPersistentConnectionConfigArrayOutput)
+}
+
 // The phone settings for the user.
 func (o LookupUserResultOutput) PhoneConfig() UserPhoneConfigPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *UserPhoneConfig { return v.PhoneConfig }).(UserPhoneConfigPtrOutput)
+}
+
+// Phone Number configurations of a user.
+func (o LookupUserResultOutput) PhoneNumberConfigs() UserPhoneNumberConfigArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserPhoneNumberConfig { return v.PhoneNumberConfigs }).(UserPhoneNumberConfigArrayOutput)
 }
 
 // The identifier of the routing profile for the user.
@@ -138,6 +168,11 @@ func (o LookupUserResultOutput) UserProficiencies() UserProficiencyArrayOutput {
 // The user name for the account.
 func (o LookupUserResultOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// Voice Enhancement configurations of a user.
+func (o LookupUserResultOutput) VoiceEnhancementConfigs() UserVoiceEnhancementConfigArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserVoiceEnhancementConfig { return v.VoiceEnhancementConfigs }).(UserVoiceEnhancementConfigArrayOutput)
 }
 
 func init() {
