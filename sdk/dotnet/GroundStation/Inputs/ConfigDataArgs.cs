@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         [Input("s3RecordingConfig")]
         public Input<Inputs.ConfigS3RecordingConfigArgs>? S3RecordingConfig { get; set; }
 
+        [Input("telemetrySinkConfig")]
+        public Input<Inputs.ConfigTelemetrySinkConfigArgs>? TelemetrySinkConfig { get; set; }
+
         /// <summary>
         /// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
         /// </summary>

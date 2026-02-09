@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// <summary>
         /// The phone type.
         /// </summary>
-        public readonly Pulumi.AwsNative.Connect.UserPhoneType PhoneType;
+        public readonly Pulumi.AwsNative.Connect.UserPhoneType? PhoneType;
 
         [OutputConstructor]
         private UserPhoneConfig(
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             bool? persistentConnection,
 
-            Pulumi.AwsNative.Connect.UserPhoneType phoneType)
+            Pulumi.AwsNative.Connect.UserPhoneType? phoneType)
         {
             AfterContactWorkTimeLimit = afterContactWorkTimeLimit;
             AutoAccept = autoAccept;

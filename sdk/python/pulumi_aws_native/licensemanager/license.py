@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LicenseArgs', 'License']
@@ -21,47 +23,61 @@ __all__ = ['LicenseArgs', 'License']
 @pulumi.input_type
 class LicenseArgs:
     def __init__(__self__, *,
+                 beneficiary: pulumi.Input[_builtins.str],
                  consumption_configuration: pulumi.Input['LicenseConsumptionConfigurationArgs'],
                  entitlements: pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]],
                  home_region: pulumi.Input[_builtins.str],
                  issuer: pulumi.Input['LicenseIssuerDataArgs'],
                  product_name: pulumi.Input[_builtins.str],
+                 product_sku: pulumi.Input[_builtins.str],
                  validity: pulumi.Input['LicenseValidityDateFormatArgs'],
-                 beneficiary: Optional[pulumi.Input[_builtins.str]] = None,
                  license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]] = None,
                  license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a License resource.
+        :param pulumi.Input[_builtins.str] beneficiary: Beneficiary of the license.
         :param pulumi.Input['LicenseConsumptionConfigurationArgs'] consumption_configuration: Configuration for consumption of the license.
         :param pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]] entitlements: License entitlements.
         :param pulumi.Input[_builtins.str] home_region: Home region for the created license.
         :param pulumi.Input['LicenseIssuerDataArgs'] issuer: License issuer.
         :param pulumi.Input[_builtins.str] product_name: Product name for the created license.
+        :param pulumi.Input[_builtins.str] product_sku: ProductSKU of the license.
         :param pulumi.Input['LicenseValidityDateFormatArgs'] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
-        :param pulumi.Input[_builtins.str] beneficiary: Beneficiary of the license.
         :param pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]] license_metadata: License metadata.
         :param pulumi.Input[_builtins.str] license_name: Name for the created license.
-        :param pulumi.Input[_builtins.str] product_sku: ProductSKU of the license.
         :param pulumi.Input[_builtins.str] status: License status.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to attach.
         """
+        pulumi.set(__self__, "beneficiary", beneficiary)
         pulumi.set(__self__, "consumption_configuration", consumption_configuration)
         pulumi.set(__self__, "entitlements", entitlements)
         pulumi.set(__self__, "home_region", home_region)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "product_name", product_name)
+        pulumi.set(__self__, "product_sku", product_sku)
         pulumi.set(__self__, "validity", validity)
-        if beneficiary is not None:
-            pulumi.set(__self__, "beneficiary", beneficiary)
         if license_metadata is not None:
             pulumi.set(__self__, "license_metadata", license_metadata)
         if license_name is not None:
             pulumi.set(__self__, "license_name", license_name)
-        if product_sku is not None:
-            pulumi.set(__self__, "product_sku", product_sku)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def beneficiary(self) -> pulumi.Input[_builtins.str]:
+        """
+        Beneficiary of the license.
+        """
+        return pulumi.get(self, "beneficiary")
+
+    @beneficiary.setter
+    def beneficiary(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "beneficiary", value)
 
     @_builtins.property
     @pulumi.getter(name="consumptionConfiguration")
@@ -124,6 +140,18 @@ class LicenseArgs:
         pulumi.set(self, "product_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="productSku")
+    def product_sku(self) -> pulumi.Input[_builtins.str]:
+        """
+        ProductSKU of the license.
+        """
+        return pulumi.get(self, "product_sku")
+
+    @product_sku.setter
+    def product_sku(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "product_sku", value)
+
+    @_builtins.property
     @pulumi.getter
     def validity(self) -> pulumi.Input['LicenseValidityDateFormatArgs']:
         """
@@ -134,18 +162,6 @@ class LicenseArgs:
     @validity.setter
     def validity(self, value: pulumi.Input['LicenseValidityDateFormatArgs']):
         pulumi.set(self, "validity", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def beneficiary(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Beneficiary of the license.
-        """
-        return pulumi.get(self, "beneficiary")
-
-    @beneficiary.setter
-    def beneficiary(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "beneficiary", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseMetadata")
@@ -172,18 +188,6 @@ class LicenseArgs:
         pulumi.set(self, "license_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="productSku")
-    def product_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ProductSKU of the license.
-        """
-        return pulumi.get(self, "product_sku")
-
-    @product_sku.setter
-    def product_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "product_sku", value)
-
-    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -194,6 +198,18 @@ class LicenseArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of tags to attach.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.type_token("aws-native:licensemanager:License")
@@ -212,6 +228,7 @@ class License(pulumi.CustomResource):
                  product_name: Optional[pulumi.Input[_builtins.str]] = None,
                  product_sku: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  validity: Optional[pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']]] = None,
                  __props__=None):
         """
@@ -229,6 +246,7 @@ class License(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] product_name: Product name for the created license.
         :param pulumi.Input[_builtins.str] product_sku: ProductSKU of the license.
         :param pulumi.Input[_builtins.str] status: License status.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach.
         :param pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
         """
         ...
@@ -265,6 +283,7 @@ class License(pulumi.CustomResource):
                  product_name: Optional[pulumi.Input[_builtins.str]] = None,
                  product_sku: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  validity: Optional[pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -275,6 +294,8 @@ class License(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LicenseArgs.__new__(LicenseArgs)
 
+            if beneficiary is None and not opts.urn:
+                raise TypeError("Missing required property 'beneficiary'")
             __props__.__dict__["beneficiary"] = beneficiary
             if consumption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'consumption_configuration'")
@@ -293,8 +314,11 @@ class License(pulumi.CustomResource):
             if product_name is None and not opts.urn:
                 raise TypeError("Missing required property 'product_name'")
             __props__.__dict__["product_name"] = product_name
+            if product_sku is None and not opts.urn:
+                raise TypeError("Missing required property 'product_sku'")
             __props__.__dict__["product_sku"] = product_sku
             __props__.__dict__["status"] = status
+            __props__.__dict__["tags"] = tags
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity
@@ -333,13 +357,14 @@ class License(pulumi.CustomResource):
         __props__.__dict__["product_name"] = None
         __props__.__dict__["product_sku"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["validity"] = None
         __props__.__dict__["version"] = None
         return License(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
-    def beneficiary(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def beneficiary(self) -> pulumi.Output[_builtins.str]:
         """
         Beneficiary of the license.
         """
@@ -411,7 +436,7 @@ class License(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="productSku")
-    def product_sku(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def product_sku(self) -> pulumi.Output[_builtins.str]:
         """
         ProductSKU of the license.
         """
@@ -424,6 +449,14 @@ class License(pulumi.CustomResource):
         License status.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of tags to attach.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter

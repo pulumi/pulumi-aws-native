@@ -92,6 +92,14 @@ export const BotSpeechDetectionSensitivity = {
 
 export type BotSpeechDetectionSensitivity = (typeof BotSpeechDetectionSensitivity)[keyof typeof BotSpeechDetectionSensitivity];
 
+export const BotSpeechModelPreference = {
+    Standard: "Standard",
+    Neural: "Neural",
+    Deepgram: "Deepgram",
+} as const;
+
+export type BotSpeechModelPreference = (typeof BotSpeechModelPreference)[keyof typeof BotSpeechModelPreference];
+
 export const BotVoiceSettingsEngine = {
     Standard: "standard",
     Neural: "neural",

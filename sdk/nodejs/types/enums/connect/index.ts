@@ -604,6 +604,18 @@ export const TrafficDistributionGroupStatus = {
  */
 export type TrafficDistributionGroupStatus = (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
 
+export const UserChannel = {
+    Voice: "VOICE",
+    Chat: "CHAT",
+    Task: "TASK",
+    Email: "EMAIL",
+} as const;
+
+/**
+ * The channels that agents can handle in the Contact Control Panel (CCP).
+ */
+export type UserChannel = (typeof UserChannel)[keyof typeof UserChannel];
+
 export const UserPhoneType = {
     SoftPhone: "SOFT_PHONE",
     DeskPhone: "DESK_PHONE",
@@ -613,6 +625,17 @@ export const UserPhoneType = {
  * The phone type.
  */
 export type UserPhoneType = (typeof UserPhoneType)[keyof typeof UserPhoneType];
+
+export const UserVoiceEnhancementMode = {
+    None: "NONE",
+    VoiceIsolation: "VOICE_ISOLATION",
+    NoiseSuppression: "NOISE_SUPPRESSION",
+} as const;
+
+/**
+ * The Voice Enhancement Mode setting.
+ */
+export type UserVoiceEnhancementMode = (typeof UserVoiceEnhancementMode)[keyof typeof UserVoiceEnhancementMode];
 
 export const WorkspaceFontFamily = {
     Arial: "ARIAL",

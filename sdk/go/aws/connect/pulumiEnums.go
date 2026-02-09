@@ -8429,6 +8429,176 @@ func (o TrafficDistributionGroupStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
+// The channels that agents can handle in the Contact Control Panel (CCP).
+type UserChannel string
+
+const (
+	UserChannelVoice = UserChannel("VOICE")
+	UserChannelChat  = UserChannel("CHAT")
+	UserChannelTask  = UserChannel("TASK")
+	UserChannelEmail = UserChannel("EMAIL")
+)
+
+func (UserChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserChannel)(nil)).Elem()
+}
+
+func (e UserChannel) ToUserChannelOutput() UserChannelOutput {
+	return pulumi.ToOutput(e).(UserChannelOutput)
+}
+
+func (e UserChannel) ToUserChannelOutputWithContext(ctx context.Context) UserChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserChannelOutput)
+}
+
+func (e UserChannel) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return e.ToUserChannelPtrOutputWithContext(context.Background())
+}
+
+func (e UserChannel) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return UserChannel(e).ToUserChannelOutputWithContext(ctx).ToUserChannelPtrOutputWithContext(ctx)
+}
+
+func (e UserChannel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserChannel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserChannel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserChannel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserChannelOutput struct{ *pulumi.OutputState }
+
+func (UserChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserChannel)(nil)).Elem()
+}
+
+func (o UserChannelOutput) ToUserChannelOutput() UserChannelOutput {
+	return o
+}
+
+func (o UserChannelOutput) ToUserChannelOutputWithContext(ctx context.Context) UserChannelOutput {
+	return o
+}
+
+func (o UserChannelOutput) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return o.ToUserChannelPtrOutputWithContext(context.Background())
+}
+
+func (o UserChannelOutput) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserChannel) *UserChannel {
+		return &v
+	}).(UserChannelPtrOutput)
+}
+
+func (o UserChannelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserChannelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserChannel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserChannelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserChannelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserChannel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserChannelPtrOutput struct{ *pulumi.OutputState }
+
+func (UserChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserChannel)(nil)).Elem()
+}
+
+func (o UserChannelPtrOutput) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return o
+}
+
+func (o UserChannelPtrOutput) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return o
+}
+
+func (o UserChannelPtrOutput) Elem() UserChannelOutput {
+	return o.ApplyT(func(v *UserChannel) UserChannel {
+		if v != nil {
+			return *v
+		}
+		var ret UserChannel
+		return ret
+	}).(UserChannelOutput)
+}
+
+func (o UserChannelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserChannelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserChannel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserChannelInput is an input type that accepts values of the UserChannel enum
+// A concrete instance of `UserChannelInput` can be one of the following:
+//
+//	UserChannelVoice
+//	UserChannelChat
+//	UserChannelTask
+//	UserChannelEmail
+type UserChannelInput interface {
+	pulumi.Input
+
+	ToUserChannelOutput() UserChannelOutput
+	ToUserChannelOutputWithContext(context.Context) UserChannelOutput
+}
+
+var userChannelPtrType = reflect.TypeOf((**UserChannel)(nil)).Elem()
+
+type UserChannelPtrInput interface {
+	pulumi.Input
+
+	ToUserChannelPtrOutput() UserChannelPtrOutput
+	ToUserChannelPtrOutputWithContext(context.Context) UserChannelPtrOutput
+}
+
+type userChannelPtr string
+
+func UserChannelPtr(v string) UserChannelPtrInput {
+	return (*userChannelPtr)(&v)
+}
+
+func (*userChannelPtr) ElementType() reflect.Type {
+	return userChannelPtrType
+}
+
+func (in *userChannelPtr) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return pulumi.ToOutput(in).(UserChannelPtrOutput)
+}
+
+func (in *userChannelPtr) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserChannelPtrOutput)
+}
+
 // The phone type.
 type UserPhoneType string
 
@@ -8593,6 +8763,174 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutput() UserPhoneTypePtrOutput {
 
 func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Context) UserPhoneTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserPhoneTypePtrOutput)
+}
+
+// The Voice Enhancement Mode setting.
+type UserVoiceEnhancementMode string
+
+const (
+	UserVoiceEnhancementModeNone             = UserVoiceEnhancementMode("NONE")
+	UserVoiceEnhancementModeVoiceIsolation   = UserVoiceEnhancementMode("VOICE_ISOLATION")
+	UserVoiceEnhancementModeNoiseSuppression = UserVoiceEnhancementMode("NOISE_SUPPRESSION")
+)
+
+func (UserVoiceEnhancementMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserVoiceEnhancementMode)(nil)).Elem()
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModeOutput() UserVoiceEnhancementModeOutput {
+	return pulumi.ToOutput(e).(UserVoiceEnhancementModeOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModeOutputWithContext(ctx context.Context) UserVoiceEnhancementModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserVoiceEnhancementModeOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return e.ToUserVoiceEnhancementModePtrOutputWithContext(context.Background())
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return UserVoiceEnhancementMode(e).ToUserVoiceEnhancementModeOutputWithContext(ctx).ToUserVoiceEnhancementModePtrOutputWithContext(ctx)
+}
+
+func (e UserVoiceEnhancementMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserVoiceEnhancementMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserVoiceEnhancementModeOutput struct{ *pulumi.OutputState }
+
+func (UserVoiceEnhancementModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserVoiceEnhancementMode)(nil)).Elem()
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModeOutput() UserVoiceEnhancementModeOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModeOutputWithContext(ctx context.Context) UserVoiceEnhancementModeOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return o.ToUserVoiceEnhancementModePtrOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserVoiceEnhancementMode) *UserVoiceEnhancementMode {
+		return &v
+	}).(UserVoiceEnhancementModePtrOutput)
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserVoiceEnhancementMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserVoiceEnhancementMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserVoiceEnhancementModePtrOutput struct{ *pulumi.OutputState }
+
+func (UserVoiceEnhancementModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserVoiceEnhancementMode)(nil)).Elem()
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModePtrOutput) Elem() UserVoiceEnhancementModeOutput {
+	return o.ApplyT(func(v *UserVoiceEnhancementMode) UserVoiceEnhancementMode {
+		if v != nil {
+			return *v
+		}
+		var ret UserVoiceEnhancementMode
+		return ret
+	}).(UserVoiceEnhancementModeOutput)
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserVoiceEnhancementMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserVoiceEnhancementModeInput is an input type that accepts values of the UserVoiceEnhancementMode enum
+// A concrete instance of `UserVoiceEnhancementModeInput` can be one of the following:
+//
+//	UserVoiceEnhancementModeNone
+//	UserVoiceEnhancementModeVoiceIsolation
+//	UserVoiceEnhancementModeNoiseSuppression
+type UserVoiceEnhancementModeInput interface {
+	pulumi.Input
+
+	ToUserVoiceEnhancementModeOutput() UserVoiceEnhancementModeOutput
+	ToUserVoiceEnhancementModeOutputWithContext(context.Context) UserVoiceEnhancementModeOutput
+}
+
+var userVoiceEnhancementModePtrType = reflect.TypeOf((**UserVoiceEnhancementMode)(nil)).Elem()
+
+type UserVoiceEnhancementModePtrInput interface {
+	pulumi.Input
+
+	ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput
+	ToUserVoiceEnhancementModePtrOutputWithContext(context.Context) UserVoiceEnhancementModePtrOutput
+}
+
+type userVoiceEnhancementModePtr string
+
+func UserVoiceEnhancementModePtr(v string) UserVoiceEnhancementModePtrInput {
+	return (*userVoiceEnhancementModePtr)(&v)
+}
+
+func (*userVoiceEnhancementModePtr) ElementType() reflect.Type {
+	return userVoiceEnhancementModePtrType
+}
+
+func (in *userVoiceEnhancementModePtr) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return pulumi.ToOutput(in).(UserVoiceEnhancementModePtrOutput)
+}
+
+func (in *userVoiceEnhancementModePtr) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserVoiceEnhancementModePtrOutput)
 }
 
 type WorkspaceFontFamily string
@@ -9203,8 +9541,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusPtrInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelInput)(nil)).Elem(), UserChannel("VOICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelPtrInput)(nil)).Elem(), UserChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementModeInput)(nil)).Elem(), UserVoiceEnhancementMode("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementModePtrInput)(nil)).Elem(), UserVoiceEnhancementMode("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyPtrInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaTypeInput)(nil)).Elem(), WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON"))
@@ -9313,8 +9655,12 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateStatusPtrOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(UserChannelOutput{})
+	pulumi.RegisterOutputType(UserChannelPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypeOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypePtrOutput{})
+	pulumi.RegisterOutputType(UserVoiceEnhancementModeOutput{})
+	pulumi.RegisterOutputType(UserVoiceEnhancementModePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceFontFamilyOutput{})
 	pulumi.RegisterOutputType(WorkspaceFontFamilyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceMediaTypeOutput{})

@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type GrantTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type LicenseBorrowConfiguration struct {
 	// Indicates whether early check-ins are allowed.
 	AllowEarlyCheckIn bool `pulumi:"allowEarlyCheckIn"`
@@ -783,6 +791,14 @@ func (o LicenseProvisionalConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulum
 		}
 		return &v.MaxTimeToLiveInMinutes
 	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LicenseTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
 }
 
 type LicenseValidityDateFormat struct {

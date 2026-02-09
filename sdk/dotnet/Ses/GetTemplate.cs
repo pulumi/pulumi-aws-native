@@ -59,6 +59,10 @@ namespace Pulumi.AwsNative.Ses
     {
         public readonly string? Id;
         /// <summary>
+        /// The tags (keys and values) associated with the email template.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The content of the email, composed of a subject line and either an HTML part or a text-only part.
         /// </summary>
         public readonly Outputs.Template? TemplateValue;
@@ -67,9 +71,12 @@ namespace Pulumi.AwsNative.Ses
         private GetTemplateResult(
             string? id,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.Template? template)
         {
             Id = id;
+            Tags = tags;
             TemplateValue = template;
         }
     }

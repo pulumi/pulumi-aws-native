@@ -674,6 +674,169 @@ func (in *configPolarizationPtr) ToConfigPolarizationPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigPolarizationPtrOutput)
 }
 
+type ConfigTelemetrySinkType string
+
+const (
+	ConfigTelemetrySinkTypeKinesisDataStream = ConfigTelemetrySinkType("KINESIS_DATA_STREAM")
+)
+
+func (ConfigTelemetrySinkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTelemetrySinkType)(nil)).Elem()
+}
+
+func (e ConfigTelemetrySinkType) ToConfigTelemetrySinkTypeOutput() ConfigTelemetrySinkTypeOutput {
+	return pulumi.ToOutput(e).(ConfigTelemetrySinkTypeOutput)
+}
+
+func (e ConfigTelemetrySinkType) ToConfigTelemetrySinkTypeOutputWithContext(ctx context.Context) ConfigTelemetrySinkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfigTelemetrySinkTypeOutput)
+}
+
+func (e ConfigTelemetrySinkType) ToConfigTelemetrySinkTypePtrOutput() ConfigTelemetrySinkTypePtrOutput {
+	return e.ToConfigTelemetrySinkTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConfigTelemetrySinkType) ToConfigTelemetrySinkTypePtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkTypePtrOutput {
+	return ConfigTelemetrySinkType(e).ToConfigTelemetrySinkTypeOutputWithContext(ctx).ToConfigTelemetrySinkTypePtrOutputWithContext(ctx)
+}
+
+func (e ConfigTelemetrySinkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigTelemetrySinkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigTelemetrySinkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigTelemetrySinkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfigTelemetrySinkTypeOutput struct{ *pulumi.OutputState }
+
+func (ConfigTelemetrySinkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTelemetrySinkType)(nil)).Elem()
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToConfigTelemetrySinkTypeOutput() ConfigTelemetrySinkTypeOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToConfigTelemetrySinkTypeOutputWithContext(ctx context.Context) ConfigTelemetrySinkTypeOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToConfigTelemetrySinkTypePtrOutput() ConfigTelemetrySinkTypePtrOutput {
+	return o.ToConfigTelemetrySinkTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToConfigTelemetrySinkTypePtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigTelemetrySinkType) *ConfigTelemetrySinkType {
+		return &v
+	}).(ConfigTelemetrySinkTypePtrOutput)
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigTelemetrySinkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigTelemetrySinkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigTelemetrySinkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigTelemetrySinkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigTelemetrySinkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTelemetrySinkType)(nil)).Elem()
+}
+
+func (o ConfigTelemetrySinkTypePtrOutput) ToConfigTelemetrySinkTypePtrOutput() ConfigTelemetrySinkTypePtrOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkTypePtrOutput) ToConfigTelemetrySinkTypePtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkTypePtrOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkTypePtrOutput) Elem() ConfigTelemetrySinkTypeOutput {
+	return o.ApplyT(func(v *ConfigTelemetrySinkType) ConfigTelemetrySinkType {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigTelemetrySinkType
+		return ret
+	}).(ConfigTelemetrySinkTypeOutput)
+}
+
+func (o ConfigTelemetrySinkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigTelemetrySinkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfigTelemetrySinkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfigTelemetrySinkTypeInput is an input type that accepts values of the ConfigTelemetrySinkType enum
+// A concrete instance of `ConfigTelemetrySinkTypeInput` can be one of the following:
+//
+//	ConfigTelemetrySinkTypeKinesisDataStream
+type ConfigTelemetrySinkTypeInput interface {
+	pulumi.Input
+
+	ToConfigTelemetrySinkTypeOutput() ConfigTelemetrySinkTypeOutput
+	ToConfigTelemetrySinkTypeOutputWithContext(context.Context) ConfigTelemetrySinkTypeOutput
+}
+
+var configTelemetrySinkTypePtrType = reflect.TypeOf((**ConfigTelemetrySinkType)(nil)).Elem()
+
+type ConfigTelemetrySinkTypePtrInput interface {
+	pulumi.Input
+
+	ToConfigTelemetrySinkTypePtrOutput() ConfigTelemetrySinkTypePtrOutput
+	ToConfigTelemetrySinkTypePtrOutputWithContext(context.Context) ConfigTelemetrySinkTypePtrOutput
+}
+
+type configTelemetrySinkTypePtr string
+
+func ConfigTelemetrySinkTypePtr(v string) ConfigTelemetrySinkTypePtrInput {
+	return (*configTelemetrySinkTypePtr)(&v)
+}
+
+func (*configTelemetrySinkTypePtr) ElementType() reflect.Type {
+	return configTelemetrySinkTypePtrType
+}
+
+func (in *configTelemetrySinkTypePtr) ToConfigTelemetrySinkTypePtrOutput() ConfigTelemetrySinkTypePtrOutput {
+	return pulumi.ToOutput(in).(ConfigTelemetrySinkTypePtrOutput)
+}
+
+func (in *configTelemetrySinkTypePtr) ToConfigTelemetrySinkTypePtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfigTelemetrySinkTypePtrOutput)
+}
+
 // Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
 type ConfigTrackingConfigAutotrack string
 
@@ -1371,6 +1534,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigFrequencyUnitsPtrInput)(nil)).Elem(), ConfigFrequencyUnits("GHz"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigPolarizationInput)(nil)).Elem(), ConfigPolarization("LEFT_HAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigPolarizationPtrInput)(nil)).Elem(), ConfigPolarization("LEFT_HAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTelemetrySinkTypeInput)(nil)).Elem(), ConfigTelemetrySinkType("KINESIS_DATA_STREAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTelemetrySinkTypePtrInput)(nil)).Elem(), ConfigTelemetrySinkType("KINESIS_DATA_STREAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigAutotrackInput)(nil)).Elem(), ConfigTrackingConfigAutotrack("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigAutotrackPtrInput)(nil)).Elem(), ConfigTrackingConfigAutotrack("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupAgentStatusInput)(nil)).Elem(), DataflowEndpointGroupAgentStatus("SUCCESS"))
@@ -1385,6 +1550,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigFrequencyUnitsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigPolarizationOutput{})
 	pulumi.RegisterOutputType(ConfigPolarizationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigTelemetrySinkTypeOutput{})
+	pulumi.RegisterOutputType(ConfigTelemetrySinkTypePtrOutput{})
 	pulumi.RegisterOutputType(ConfigTrackingConfigAutotrackOutput{})
 	pulumi.RegisterOutputType(ConfigTrackingConfigAutotrackPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupAgentStatusOutput{})

@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
+        [Output("portalCustomDomain")]
+        public Output<string?> PortalCustomDomain { get; private set; } = null!;
+
         /// <summary>
         /// The endpoint URL of the web portal that users access in order to start streaming sessions.
         /// </summary>
@@ -296,6 +299,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }
+
+        [Input("portalCustomDomain")]
+        public Input<string>? PortalCustomDomain { get; set; }
 
         /// <summary>
         /// The ARN of the session logger that is associated with the portal.

@@ -90,8 +90,6 @@ namespace Pulumi.AwsNative.DynamoDb
         /// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> GlobalSecondaryIndexes;
-        public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? GlobalTableReadOnDemandThroughputSettings;
-        public readonly Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? GlobalTableReadProvisionedThroughputSettings;
         /// <summary>
         /// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         /// </summary>
@@ -115,6 +113,8 @@ namespace Pulumi.AwsNative.DynamoDb
         /// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
         /// </summary>
         public readonly Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency? MultiRegionConsistency;
+        public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? ReadOnDemandThroughputSettings;
+        public readonly Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         /// <summary>
         /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
         /// 
@@ -170,10 +170,6 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> globalSecondaryIndexes,
 
-            Outputs.GlobalTableReadOnDemandThroughputSettings? globalTableReadOnDemandThroughputSettings,
-
-            Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? globalTableReadProvisionedThroughputSettings,
-
             ImmutableArray<Outputs.GlobalTableWitness> globalTableWitnesses,
 
             ImmutableArray<Outputs.GlobalTableKeySchema> keySchema,
@@ -181,6 +177,10 @@ namespace Pulumi.AwsNative.DynamoDb
             ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex> localSecondaryIndexes,
 
             Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency? multiRegionConsistency,
+
+            Outputs.GlobalTableReadOnDemandThroughputSettings? readOnDemandThroughputSettings,
+
+            Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? readProvisionedThroughputSettings,
 
             ImmutableArray<Outputs.GlobalTableReplicaSpecification> replicas,
 
@@ -204,12 +204,12 @@ namespace Pulumi.AwsNative.DynamoDb
             AttributeDefinitions = attributeDefinitions;
             BillingMode = billingMode;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
-            GlobalTableReadOnDemandThroughputSettings = globalTableReadOnDemandThroughputSettings;
-            GlobalTableReadProvisionedThroughputSettings = globalTableReadProvisionedThroughputSettings;
             GlobalTableWitnesses = globalTableWitnesses;
             KeySchema = keySchema;
             LocalSecondaryIndexes = localSecondaryIndexes;
             MultiRegionConsistency = multiRegionConsistency;
+            ReadOnDemandThroughputSettings = readOnDemandThroughputSettings;
+            ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
             Replicas = replicas;
             SseSpecification = sseSpecification;
             StreamArn = streamArn;

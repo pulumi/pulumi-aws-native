@@ -85,6 +85,11 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetScheduledQueryArgs, GetScheduledQueryResult, GetScheduledQueryOutputArgs } from "./getScheduledQuery";
+export const getScheduledQuery: typeof import("./getScheduledQuery").getScheduledQuery = null as any;
+export const getScheduledQueryOutput: typeof import("./getScheduledQuery").getScheduledQueryOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledQuery","getScheduledQueryOutput"], () => require("./getScheduledQuery"));
+
 export { GetSubscriptionFilterArgs, GetSubscriptionFilterResult, GetSubscriptionFilterOutputArgs } from "./getSubscriptionFilter";
 export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").getSubscriptionFilter = null as any;
 export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
@@ -130,6 +135,11 @@ export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
+export { ScheduledQueryArgs } from "./scheduledQuery";
+export type ScheduledQuery = import("./scheduledQuery").ScheduledQuery;
+export const ScheduledQuery: typeof import("./scheduledQuery").ScheduledQuery = null as any;
+utilities.lazyLoad(exports, ["ScheduledQuery"], () => require("./scheduledQuery"));
+
 export { SubscriptionFilterArgs } from "./subscriptionFilter";
 export type SubscriptionFilter = import("./subscriptionFilter").SubscriptionFilter;
 export const SubscriptionFilter: typeof import("./subscriptionFilter").SubscriptionFilter = null as any;
@@ -172,6 +182,8 @@ const _module = {
                 return new QueryDefinition(name, <any>undefined, { urn })
             case "aws-native:logs:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws-native:logs:ScheduledQuery":
+                return new ScheduledQuery(name, <any>undefined, { urn })
             case "aws-native:logs:SubscriptionFilter":
                 return new SubscriptionFilter(name, <any>undefined, { urn })
             case "aws-native:logs:Transformer":

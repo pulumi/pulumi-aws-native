@@ -419,6 +419,38 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The type of Slurm node for this instance group.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSlurmConfigNodeType : IEquatable<ClusterSlurmConfigNodeType>
+    {
+        private readonly string _value;
+
+        private ClusterSlurmConfigNodeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSlurmConfigNodeType Controller { get; } = new ClusterSlurmConfigNodeType("Controller");
+        public static ClusterSlurmConfigNodeType Login { get; } = new ClusterSlurmConfigNodeType("Login");
+        public static ClusterSlurmConfigNodeType Compute { get; } = new ClusterSlurmConfigNodeType("Compute");
+
+        public static bool operator ==(ClusterSlurmConfigNodeType left, ClusterSlurmConfigNodeType right) => left.Equals(right);
+        public static bool operator !=(ClusterSlurmConfigNodeType left, ClusterSlurmConfigNodeType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSlurmConfigNodeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSlurmConfigNodeType other && Equals(other);
+        public bool Equals(ClusterSlurmConfigNodeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the HyperPod Cluster.
     /// </summary>
     [EnumType]

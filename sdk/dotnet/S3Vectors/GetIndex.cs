@@ -79,15 +79,22 @@ namespace Pulumi.AwsNative.S3Vectors
         /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
         /// </summary>
         public readonly string? IndexArn;
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the index.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIndexResult(
             string? creationTime,
 
-            string? indexArn)
+            string? indexArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreationTime = creationTime;
             IndexArn = indexArn;
+            Tags = tags;
         }
     }
 }

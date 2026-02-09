@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("device")]
         public Output<string?> Device { get; private set; } = null!;
 
+        [Output("ebsCardIndex")]
+        public Output<int?> EbsCardIndex { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
         /// </summary>
@@ -62,6 +65,7 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "device",
+                    "ebsCardIndex",
                     "instanceId",
                     "volumeId",
                 },
@@ -92,6 +96,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("device")]
         public Input<string>? Device { get; set; }
+
+        [Input("ebsCardIndex")]
+        public Input<int>? EbsCardIndex { get; set; }
 
         /// <summary>
         /// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.

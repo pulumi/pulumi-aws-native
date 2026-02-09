@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupIndexResult struct {
 	//
 	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 	IndexArn *string `pulumi:"indexArn"`
+	// User tags (key-value pairs) to associate with the index.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
@@ -86,6 +89,11 @@ func (o LookupIndexResultOutput) CreationTime() pulumi.StringPtrOutput {
 // Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 func (o LookupIndexResultOutput) IndexArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
+}
+
+// User tags (key-value pairs) to associate with the index.
+func (o LookupIndexResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

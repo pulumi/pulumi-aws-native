@@ -55,7 +55,8 @@ type Portal struct {
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrOutput `pulumi:"networkSettingsArn"`
 	// The ARN of the web portal.
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
+	PortalArn          pulumi.StringOutput    `pulumi:"portalArn"`
+	PortalCustomDomain pulumi.StringPtrOutput `pulumi:"portalCustomDomain"`
 	// The endpoint URL of the web portal that users access in order to start streaming sessions.
 	PortalEndpoint pulumi.StringOutput `pulumi:"portalEndpoint"`
 	// The status of the web portal.
@@ -157,6 +158,7 @@ type portalArgs struct {
 	MaxConcurrentSessions *float64 `pulumi:"maxConcurrentSessions"`
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
+	PortalCustomDomain *string `pulumi:"portalCustomDomain"`
 	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
 	// The tags to add to the web portal. A tag is a key-value pair.
@@ -205,6 +207,7 @@ type PortalArgs struct {
 	MaxConcurrentSessions pulumi.Float64PtrInput
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrInput
+	PortalCustomDomain pulumi.StringPtrInput
 	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn pulumi.StringPtrInput
 	// The tags to add to the web portal. A tag is a key-value pair.
@@ -331,6 +334,10 @@ func (o PortalOutput) NetworkSettingsArn() pulumi.StringPtrOutput {
 // The ARN of the web portal.
 func (o PortalOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
+}
+
+func (o PortalOutput) PortalCustomDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.PortalCustomDomain }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint URL of the web portal that users access in order to start streaming sessions.

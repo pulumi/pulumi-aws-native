@@ -121,6 +121,33 @@ namespace Pulumi.AwsNative.GroundStation
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ConfigTelemetrySinkType : IEquatable<ConfigTelemetrySinkType>
+    {
+        private readonly string _value;
+
+        private ConfigTelemetrySinkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigTelemetrySinkType KinesisDataStream { get; } = new ConfigTelemetrySinkType("KINESIS_DATA_STREAM");
+
+        public static bool operator ==(ConfigTelemetrySinkType left, ConfigTelemetrySinkType right) => left.Equals(right);
+        public static bool operator !=(ConfigTelemetrySinkType left, ConfigTelemetrySinkType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigTelemetrySinkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigTelemetrySinkType other && Equals(other);
+        public bool Equals(ConfigTelemetrySinkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
     /// </summary>

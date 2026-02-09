@@ -62,6 +62,8 @@ __all__ = [
     'DomainS3VectorsEngineArgsDict',
     'DomainSamlOptionsArgs',
     'DomainSamlOptionsArgsDict',
+    'DomainServerlessVectorAccelerationArgs',
+    'DomainServerlessVectorAccelerationArgsDict',
     'DomainSnapshotOptionsArgs',
     'DomainSnapshotOptionsArgsDict',
     'DomainSoftwareUpdateOptionsArgs',
@@ -362,15 +364,19 @@ class DomainAdvancedSecurityOptionsInputArgs:
 if not MYPY:
     class DomainAimlOptionsArgsDict(TypedDict):
         s3_vectors_engine: NotRequired[pulumi.Input['DomainS3VectorsEngineArgsDict']]
+        serverless_vector_acceleration: NotRequired[pulumi.Input['DomainServerlessVectorAccelerationArgsDict']]
 elif False:
     DomainAimlOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainAimlOptionsArgs:
     def __init__(__self__, *,
-                 s3_vectors_engine: Optional[pulumi.Input['DomainS3VectorsEngineArgs']] = None):
+                 s3_vectors_engine: Optional[pulumi.Input['DomainS3VectorsEngineArgs']] = None,
+                 serverless_vector_acceleration: Optional[pulumi.Input['DomainServerlessVectorAccelerationArgs']] = None):
         if s3_vectors_engine is not None:
             pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+        if serverless_vector_acceleration is not None:
+            pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
 
     @_builtins.property
     @pulumi.getter(name="s3VectorsEngine")
@@ -380,6 +386,15 @@ class DomainAimlOptionsArgs:
     @s3_vectors_engine.setter
     def s3_vectors_engine(self, value: Optional[pulumi.Input['DomainS3VectorsEngineArgs']]):
         pulumi.set(self, "s3_vectors_engine", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> Optional[pulumi.Input['DomainServerlessVectorAccelerationArgs']]:
+        return pulumi.get(self, "serverless_vector_acceleration")
+
+    @serverless_vector_acceleration.setter
+    def serverless_vector_acceleration(self, value: Optional[pulumi.Input['DomainServerlessVectorAccelerationArgs']]):
+        pulumi.set(self, "serverless_vector_acceleration", value)
 
 
 if not MYPY:
@@ -1940,6 +1955,38 @@ class DomainSamlOptionsArgs:
     @subject_key.setter
     def subject_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subject_key", value)
+
+
+if not MYPY:
+    class DomainServerlessVectorAccelerationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable serverless vector acceleration.
+        """
+elif False:
+    DomainServerlessVectorAccelerationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainServerlessVectorAccelerationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable serverless vector acceleration.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable serverless vector acceleration.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

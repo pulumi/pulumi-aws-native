@@ -772,6 +772,294 @@ func (o ResourceConfigPropertiesOutput) OpenSearchResourceConfig() IntegrationOp
 	}).(IntegrationOpenSearchResourceConfigPtrOutput)
 }
 
+type ScheduledQueryDestinationConfiguration struct {
+	S3Configuration *ScheduledQueryS3Configuration `pulumi:"s3Configuration"`
+}
+
+// ScheduledQueryDestinationConfigurationInput is an input type that accepts ScheduledQueryDestinationConfigurationArgs and ScheduledQueryDestinationConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryDestinationConfigurationInput` via:
+//
+//	ScheduledQueryDestinationConfigurationArgs{...}
+type ScheduledQueryDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryDestinationConfigurationOutput() ScheduledQueryDestinationConfigurationOutput
+	ToScheduledQueryDestinationConfigurationOutputWithContext(context.Context) ScheduledQueryDestinationConfigurationOutput
+}
+
+type ScheduledQueryDestinationConfigurationArgs struct {
+	S3Configuration ScheduledQueryS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+}
+
+func (ScheduledQueryDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryDestinationConfiguration)(nil)).Elem()
+}
+
+func (i ScheduledQueryDestinationConfigurationArgs) ToScheduledQueryDestinationConfigurationOutput() ScheduledQueryDestinationConfigurationOutput {
+	return i.ToScheduledQueryDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryDestinationConfigurationArgs) ToScheduledQueryDestinationConfigurationOutputWithContext(ctx context.Context) ScheduledQueryDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDestinationConfigurationOutput)
+}
+
+func (i ScheduledQueryDestinationConfigurationArgs) ToScheduledQueryDestinationConfigurationPtrOutput() ScheduledQueryDestinationConfigurationPtrOutput {
+	return i.ToScheduledQueryDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryDestinationConfigurationArgs) ToScheduledQueryDestinationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDestinationConfigurationOutput).ToScheduledQueryDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryDestinationConfigurationPtrInput is an input type that accepts ScheduledQueryDestinationConfigurationArgs, ScheduledQueryDestinationConfigurationPtr and ScheduledQueryDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryDestinationConfigurationPtrInput` via:
+//
+//	        ScheduledQueryDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledQueryDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryDestinationConfigurationPtrOutput() ScheduledQueryDestinationConfigurationPtrOutput
+	ToScheduledQueryDestinationConfigurationPtrOutputWithContext(context.Context) ScheduledQueryDestinationConfigurationPtrOutput
+}
+
+type scheduledQueryDestinationConfigurationPtrType ScheduledQueryDestinationConfigurationArgs
+
+func ScheduledQueryDestinationConfigurationPtr(v *ScheduledQueryDestinationConfigurationArgs) ScheduledQueryDestinationConfigurationPtrInput {
+	return (*scheduledQueryDestinationConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *scheduledQueryDestinationConfigurationPtrType) ToScheduledQueryDestinationConfigurationPtrOutput() ScheduledQueryDestinationConfigurationPtrOutput {
+	return i.ToScheduledQueryDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryDestinationConfigurationPtrType) ToScheduledQueryDestinationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDestinationConfigurationPtrOutput)
+}
+
+type ScheduledQueryDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryDestinationConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryDestinationConfigurationOutput) ToScheduledQueryDestinationConfigurationOutput() ScheduledQueryDestinationConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryDestinationConfigurationOutput) ToScheduledQueryDestinationConfigurationOutputWithContext(ctx context.Context) ScheduledQueryDestinationConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryDestinationConfigurationOutput) ToScheduledQueryDestinationConfigurationPtrOutput() ScheduledQueryDestinationConfigurationPtrOutput {
+	return o.ToScheduledQueryDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryDestinationConfigurationOutput) ToScheduledQueryDestinationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryDestinationConfiguration) *ScheduledQueryDestinationConfiguration {
+		return &v
+	}).(ScheduledQueryDestinationConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryDestinationConfigurationOutput) S3Configuration() ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryDestinationConfiguration) *ScheduledQueryS3Configuration {
+		return v.S3Configuration
+	}).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+type ScheduledQueryDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryDestinationConfiguration)(nil)).Elem()
+}
+
+func (o ScheduledQueryDestinationConfigurationPtrOutput) ToScheduledQueryDestinationConfigurationPtrOutput() ScheduledQueryDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryDestinationConfigurationPtrOutput) ToScheduledQueryDestinationConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryDestinationConfigurationPtrOutput) Elem() ScheduledQueryDestinationConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryDestinationConfiguration) ScheduledQueryDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryDestinationConfiguration
+		return ret
+	}).(ScheduledQueryDestinationConfigurationOutput)
+}
+
+func (o ScheduledQueryDestinationConfigurationPtrOutput) S3Configuration() ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryDestinationConfiguration) *ScheduledQueryS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3Configuration
+	}).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+type ScheduledQueryS3Configuration struct {
+	DestinationIdentifier string `pulumi:"destinationIdentifier"`
+	RoleArn               string `pulumi:"roleArn"`
+}
+
+// ScheduledQueryS3ConfigurationInput is an input type that accepts ScheduledQueryS3ConfigurationArgs and ScheduledQueryS3ConfigurationOutput values.
+// You can construct a concrete instance of `ScheduledQueryS3ConfigurationInput` via:
+//
+//	ScheduledQueryS3ConfigurationArgs{...}
+type ScheduledQueryS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToScheduledQueryS3ConfigurationOutput() ScheduledQueryS3ConfigurationOutput
+	ToScheduledQueryS3ConfigurationOutputWithContext(context.Context) ScheduledQueryS3ConfigurationOutput
+}
+
+type ScheduledQueryS3ConfigurationArgs struct {
+	DestinationIdentifier pulumi.StringInput `pulumi:"destinationIdentifier"`
+	RoleArn               pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (ScheduledQueryS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationOutput() ScheduledQueryS3ConfigurationOutput {
+	return i.ToScheduledQueryS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationOutput)
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return i.ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationOutput).ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryS3ConfigurationPtrInput is an input type that accepts ScheduledQueryS3ConfigurationArgs, ScheduledQueryS3ConfigurationPtr and ScheduledQueryS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryS3ConfigurationPtrInput` via:
+//
+//	        ScheduledQueryS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledQueryS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput
+	ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Context) ScheduledQueryS3ConfigurationPtrOutput
+}
+
+type scheduledQueryS3ConfigurationPtrType ScheduledQueryS3ConfigurationArgs
+
+func ScheduledQueryS3ConfigurationPtr(v *ScheduledQueryS3ConfigurationArgs) ScheduledQueryS3ConfigurationPtrInput {
+	return (*scheduledQueryS3ConfigurationPtrType)(v)
+}
+
+func (*scheduledQueryS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (i *scheduledQueryS3ConfigurationPtrType) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return i.ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryS3ConfigurationPtrType) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+type ScheduledQueryS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutput() ScheduledQueryS3ConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ToScheduledQueryS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryS3Configuration) *ScheduledQueryS3Configuration {
+		return &v
+	}).(ScheduledQueryS3ConfigurationPtrOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) DestinationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryS3Configuration) string { return v.DestinationIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryS3Configuration)(nil)).Elem()
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) ToScheduledQueryS3ConfigurationPtrOutput() ScheduledQueryS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) ToScheduledQueryS3ConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) Elem() ScheduledQueryS3ConfigurationOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) ScheduledQueryS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryS3Configuration
+		return ret
+	}).(ScheduledQueryS3ConfigurationOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) DestinationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledQueryS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type TransformerAddKeyEntry struct {
 	// The key of the new entry to be added to the log event
 	Key string `pulumi:"key"`
@@ -5378,6 +5666,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationInput)(nil)).Elem(), MetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationArrayInput)(nil)).Elem(), MetricFilterMetricTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigPropertiesInput)(nil)).Elem(), ResourceConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDestinationConfigurationInput)(nil)).Elem(), ScheduledQueryDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDestinationConfigurationPtrInput)(nil)).Elem(), ScheduledQueryDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryS3ConfigurationInput)(nil)).Elem(), ScheduledQueryS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryS3ConfigurationPtrInput)(nil)).Elem(), ScheduledQueryS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerAddKeyEntryInput)(nil)).Elem(), TransformerAddKeyEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerAddKeyEntryArrayInput)(nil)).Elem(), TransformerAddKeyEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerCopyValueEntryInput)(nil)).Elem(), TransformerCopyValueEntryArgs{})
@@ -5449,6 +5741,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationArrayOutput{})
 	pulumi.RegisterOutputType(ResourceConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TransformerAddKeyEntryOutput{})
 	pulumi.RegisterOutputType(TransformerAddKeyEntryArrayOutput{})
 	pulumi.RegisterOutputType(TransformerCopyValueEntryOutput{})

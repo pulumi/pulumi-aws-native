@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -69,6 +72,10 @@ export class Grant extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
+     * A list of tags to attach.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The version of the grant.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
@@ -90,6 +97,7 @@ export class Grant extends pulumi.CustomResource {
             resourceInputs["licenseArn"] = args?.licenseArn;
             resourceInputs["principals"] = args?.principals;
             resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["grantArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
@@ -100,6 +108,7 @@ export class Grant extends pulumi.CustomResource {
             resourceInputs["licenseArn"] = undefined /*out*/;
             resourceInputs["principals"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,4 +150,8 @@ export interface GrantArgs {
      * Granted license status.
      */
     status?: pulumi.Input<string>;
+    /**
+     * A list of tags to attach.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

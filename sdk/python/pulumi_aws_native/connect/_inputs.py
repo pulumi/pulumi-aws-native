@@ -204,6 +204,12 @@ __all__ = [
     'TaskTemplateReadOnlyFieldInfoArgsDict',
     'TaskTemplateRequiredFieldInfoArgs',
     'TaskTemplateRequiredFieldInfoArgsDict',
+    'UserAfterContactWorkConfigPerChannelArgs',
+    'UserAfterContactWorkConfigPerChannelArgsDict',
+    'UserAfterContactWorkConfigArgs',
+    'UserAfterContactWorkConfigArgsDict',
+    'UserAutoAcceptConfigArgs',
+    'UserAutoAcceptConfigArgsDict',
     'UserHierarchyStructureLevelFiveArgs',
     'UserHierarchyStructureLevelFiveArgsDict',
     'UserHierarchyStructureLevelFourArgs',
@@ -218,10 +224,16 @@ __all__ = [
     'UserHierarchyStructurePropertiesArgsDict',
     'UserIdentityInfoArgs',
     'UserIdentityInfoArgsDict',
+    'UserPersistentConnectionConfigArgs',
+    'UserPersistentConnectionConfigArgsDict',
     'UserPhoneConfigArgs',
     'UserPhoneConfigArgsDict',
+    'UserPhoneNumberConfigArgs',
+    'UserPhoneNumberConfigArgsDict',
     'UserProficiencyArgs',
     'UserProficiencyArgsDict',
+    'UserVoiceEnhancementConfigArgs',
+    'UserVoiceEnhancementConfigArgsDict',
     'ValidationPropertiesEnumPropertiesArgs',
     'ValidationPropertiesEnumPropertiesArgsDict',
     'ValidationPropertiesArgs',
@@ -5859,6 +5871,141 @@ class TaskTemplateRequiredFieldInfoArgs:
 
 
 if not MYPY:
+    class UserAfterContactWorkConfigPerChannelArgsDict(TypedDict):
+        """
+        After Contact Work configuration per channel.
+        """
+        after_contact_work_config: pulumi.Input['UserAfterContactWorkConfigArgsDict']
+        channel: pulumi.Input['UserChannel']
+        agent_first_callback_after_contact_work_config: NotRequired[pulumi.Input['UserAfterContactWorkConfigArgsDict']]
+elif False:
+    UserAfterContactWorkConfigPerChannelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAfterContactWorkConfigPerChannelArgs:
+    def __init__(__self__, *,
+                 after_contact_work_config: pulumi.Input['UserAfterContactWorkConfigArgs'],
+                 channel: pulumi.Input['UserChannel'],
+                 agent_first_callback_after_contact_work_config: Optional[pulumi.Input['UserAfterContactWorkConfigArgs']] = None):
+        """
+        After Contact Work configuration per channel.
+        """
+        pulumi.set(__self__, "after_contact_work_config", after_contact_work_config)
+        pulumi.set(__self__, "channel", channel)
+        if agent_first_callback_after_contact_work_config is not None:
+            pulumi.set(__self__, "agent_first_callback_after_contact_work_config", agent_first_callback_after_contact_work_config)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkConfig")
+    def after_contact_work_config(self) -> pulumi.Input['UserAfterContactWorkConfigArgs']:
+        return pulumi.get(self, "after_contact_work_config")
+
+    @after_contact_work_config.setter
+    def after_contact_work_config(self, value: pulumi.Input['UserAfterContactWorkConfigArgs']):
+        pulumi.set(self, "after_contact_work_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['UserChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['UserChannel']):
+        pulumi.set(self, "channel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentFirstCallbackAfterContactWorkConfig")
+    def agent_first_callback_after_contact_work_config(self) -> Optional[pulumi.Input['UserAfterContactWorkConfigArgs']]:
+        return pulumi.get(self, "agent_first_callback_after_contact_work_config")
+
+    @agent_first_callback_after_contact_work_config.setter
+    def agent_first_callback_after_contact_work_config(self, value: Optional[pulumi.Input['UserAfterContactWorkConfigArgs']]):
+        pulumi.set(self, "agent_first_callback_after_contact_work_config", value)
+
+
+if not MYPY:
+    class UserAfterContactWorkConfigArgsDict(TypedDict):
+        """
+        After Contact Work configuration.
+        """
+        after_contact_work_time_limit: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    UserAfterContactWorkConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAfterContactWorkConfigArgs:
+    def __init__(__self__, *,
+                 after_contact_work_time_limit: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        After Contact Work configuration.
+        """
+        if after_contact_work_time_limit is not None:
+            pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkTimeLimit")
+    def after_contact_work_time_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "after_contact_work_time_limit")
+
+    @after_contact_work_time_limit.setter
+    def after_contact_work_time_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "after_contact_work_time_limit", value)
+
+
+if not MYPY:
+    class UserAutoAcceptConfigArgsDict(TypedDict):
+        """
+        Auto-accept configuration per channel.
+        """
+        auto_accept: pulumi.Input[_builtins.bool]
+        channel: pulumi.Input['UserChannel']
+        agent_first_callback_auto_accept: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    UserAutoAcceptConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAutoAcceptConfigArgs:
+    def __init__(__self__, *,
+                 auto_accept: pulumi.Input[_builtins.bool],
+                 channel: pulumi.Input['UserChannel'],
+                 agent_first_callback_auto_accept: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Auto-accept configuration per channel.
+        """
+        pulumi.set(__self__, "auto_accept", auto_accept)
+        pulumi.set(__self__, "channel", channel)
+        if agent_first_callback_auto_accept is not None:
+            pulumi.set(__self__, "agent_first_callback_auto_accept", agent_first_callback_auto_accept)
+
+    @_builtins.property
+    @pulumi.getter(name="autoAccept")
+    def auto_accept(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "auto_accept")
+
+    @auto_accept.setter
+    def auto_accept(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "auto_accept", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['UserChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['UserChannel']):
+        pulumi.set(self, "channel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentFirstCallbackAutoAccept")
+    def agent_first_callback_auto_accept(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "agent_first_callback_auto_accept")
+
+    @agent_first_callback_auto_accept.setter
+    def agent_first_callback_auto_accept(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "agent_first_callback_auto_accept", value)
+
+
+if not MYPY:
     class UserHierarchyStructureLevelFiveArgsDict(TypedDict):
         """
         Information about level five.
@@ -6458,13 +6605,49 @@ class UserIdentityInfoArgs:
 
 
 if not MYPY:
+    class UserPersistentConnectionConfigArgsDict(TypedDict):
+        """
+        Persistent Connection configuration per channel.
+        """
+        channel: pulumi.Input['UserChannel']
+        persistent_connection: pulumi.Input[_builtins.bool]
+elif False:
+    UserPersistentConnectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPersistentConnectionConfigArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input['UserChannel'],
+                 persistent_connection: pulumi.Input[_builtins.bool]):
+        """
+        Persistent Connection configuration per channel.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "persistent_connection", persistent_connection)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['UserChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['UserChannel']):
+        pulumi.set(self, "channel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="persistentConnection")
+    def persistent_connection(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "persistent_connection")
+
+    @persistent_connection.setter
+    def persistent_connection(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "persistent_connection", value)
+
+
+if not MYPY:
     class UserPhoneConfigArgsDict(TypedDict):
         """
         Contains information about the phone configuration settings for a user.
-        """
-        phone_type: pulumi.Input['UserPhoneType']
-        """
-        The phone type.
         """
         after_contact_work_time_limit: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -6484,28 +6667,31 @@ if not MYPY:
         """
         The persistent connection setting for the user.
         """
+        phone_type: NotRequired[pulumi.Input['UserPhoneType']]
+        """
+        The phone type.
+        """
 elif False:
     UserPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPhoneConfigArgs:
     def __init__(__self__, *,
-                 phone_type: pulumi.Input['UserPhoneType'],
                  after_contact_work_time_limit: Optional[pulumi.Input[_builtins.int]] = None,
                  auto_accept: Optional[pulumi.Input[_builtins.bool]] = None,
                  desk_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_connection: Optional[pulumi.Input[_builtins.bool]] = None):
+                 persistent_connection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 phone_type: Optional[pulumi.Input['UserPhoneType']] = None):
         """
         Contains information about the phone configuration settings for a user.
-        :param pulumi.Input['UserPhoneType'] phone_type: The phone type.
         :param pulumi.Input[_builtins.int] after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
                
                > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
         :param pulumi.Input[_builtins.bool] auto_accept: The Auto accept setting.
         :param pulumi.Input[_builtins.str] desk_phone_number: The phone number for the user's desk phone.
         :param pulumi.Input[_builtins.bool] persistent_connection: The persistent connection setting for the user.
+        :param pulumi.Input['UserPhoneType'] phone_type: The phone type.
         """
-        pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
             pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
         if auto_accept is not None:
@@ -6514,18 +6700,8 @@ class UserPhoneConfigArgs:
             pulumi.set(__self__, "desk_phone_number", desk_phone_number)
         if persistent_connection is not None:
             pulumi.set(__self__, "persistent_connection", persistent_connection)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneType")
-    def phone_type(self) -> pulumi.Input['UserPhoneType']:
-        """
-        The phone type.
-        """
-        return pulumi.get(self, "phone_type")
-
-    @phone_type.setter
-    def phone_type(self, value: pulumi.Input['UserPhoneType']):
-        pulumi.set(self, "phone_type", value)
+        if phone_type is not None:
+            pulumi.set(__self__, "phone_type", phone_type)
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")
@@ -6576,6 +6752,71 @@ class UserPhoneConfigArgs:
     @persistent_connection.setter
     def persistent_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "persistent_connection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneType")
+    def phone_type(self) -> Optional[pulumi.Input['UserPhoneType']]:
+        """
+        The phone type.
+        """
+        return pulumi.get(self, "phone_type")
+
+    @phone_type.setter
+    def phone_type(self, value: Optional[pulumi.Input['UserPhoneType']]):
+        pulumi.set(self, "phone_type", value)
+
+
+if not MYPY:
+    class UserPhoneNumberConfigArgsDict(TypedDict):
+        """
+        Phone Number configuration per channel.
+        """
+        channel: pulumi.Input['UserChannel']
+        phone_type: pulumi.Input['UserPhoneType']
+        phone_number: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    UserPhoneNumberConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPhoneNumberConfigArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input['UserChannel'],
+                 phone_type: pulumi.Input['UserPhoneType'],
+                 phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Phone Number configuration per channel.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "phone_type", phone_type)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['UserChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['UserChannel']):
+        pulumi.set(self, "channel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneType")
+    def phone_type(self) -> pulumi.Input['UserPhoneType']:
+        return pulumi.get(self, "phone_type")
+
+    @phone_type.setter
+    def phone_type(self, value: pulumi.Input['UserPhoneType']):
+        pulumi.set(self, "phone_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "phone_number", value)
 
 
 if not MYPY:
@@ -6649,6 +6890,46 @@ class UserProficiencyArgs:
     @level.setter
     def level(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "level", value)
+
+
+if not MYPY:
+    class UserVoiceEnhancementConfigArgsDict(TypedDict):
+        """
+        Voice Enhancement configuration per channel.
+        """
+        channel: pulumi.Input['UserChannel']
+        voice_enhancement_mode: pulumi.Input['UserVoiceEnhancementMode']
+elif False:
+    UserVoiceEnhancementConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserVoiceEnhancementConfigArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input['UserChannel'],
+                 voice_enhancement_mode: pulumi.Input['UserVoiceEnhancementMode']):
+        """
+        Voice Enhancement configuration per channel.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "voice_enhancement_mode", voice_enhancement_mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['UserChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['UserChannel']):
+        pulumi.set(self, "channel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="voiceEnhancementMode")
+    def voice_enhancement_mode(self) -> pulumi.Input['UserVoiceEnhancementMode']:
+        return pulumi.get(self, "voice_enhancement_mode")
+
+    @voice_enhancement_mode.setter
+    def voice_enhancement_mode(self, value: pulumi.Input['UserVoiceEnhancementMode']):
+        pulumi.set(self, "voice_enhancement_mode", value)
 
 
 if not MYPY:

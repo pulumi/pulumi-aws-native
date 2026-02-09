@@ -118,6 +118,22 @@ export const QueryDefinitionQueryLanguage = {
  */
 export type QueryDefinitionQueryLanguage = (typeof QueryDefinitionQueryLanguage)[keyof typeof QueryDefinitionQueryLanguage];
 
+export const ScheduledQueryLastExecutionStatus = {
+    InvalidQuery: "InvalidQuery",
+    Complete: "Complete",
+    Failed: "Failed",
+    Timeout: "Timeout",
+} as const;
+
+export type ScheduledQueryLastExecutionStatus = (typeof ScheduledQueryLastExecutionStatus)[keyof typeof ScheduledQueryLastExecutionStatus];
+
+export const ScheduledQueryState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ScheduledQueryState = (typeof ScheduledQueryState)[keyof typeof ScheduledQueryState];
+
 export const SubscriptionFilterDistribution = {
     Random: "Random",
     ByLogStream: "ByLogStream",

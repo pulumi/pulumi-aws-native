@@ -39,6 +39,13 @@ export const GlobalTableMultiRegionConsistency = {
  */
 export type GlobalTableMultiRegionConsistency = (typeof GlobalTableMultiRegionConsistency)[keyof typeof GlobalTableMultiRegionConsistency];
 
+export const GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode = (typeof GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode)[keyof typeof GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode];
+
 export const TableContributorInsightsSpecificationMode = {
     AccessedAndThrottledKeys: "ACCESSED_AND_THROTTLED_KEYS",
     ThrottledKeys: "THROTTLED_KEYS",

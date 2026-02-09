@@ -58,6 +58,10 @@ export interface GetClusterResult {
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
     readonly nodeRecovery?: enums.sagemaker.ClusterNodeRecovery;
+    /**
+     * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+     */
+    readonly orchestrator?: outputs.sagemaker.ClusterOrchestrator;
     readonly restrictedInstanceGroups?: outputs.sagemaker.ClusterRestrictedInstanceGroup[];
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.

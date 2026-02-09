@@ -227,6 +227,7 @@ AWS::CodeBuild::Fleet
 AWS::CodeConnections::Connection
 AWS::CodeDeploy::Application
 AWS::CodeDeploy::DeploymentConfig
+AWS::CodeDeploy::DeploymentGroup
 AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodePipeline::CustomActionType
@@ -795,6 +796,7 @@ AWS::Logs::LogStream
 AWS::Logs::MetricFilter
 AWS::Logs::QueryDefinition
 AWS::Logs::ResourcePolicy
+AWS::Logs::ScheduledQuery
 AWS::Logs::SubscriptionFilter
 AWS::Logs::Transformer
 AWS::LookoutMetrics::Alert
@@ -809,6 +811,7 @@ AWS::MSK::ClusterPolicy
 AWS::MSK::Configuration
 AWS::MSK::Replicator
 AWS::MSK::ServerlessCluster
+AWS::MSK::Topic
 AWS::MSK::VpcConnection
 AWS::MWAA::Environment
 AWS::MWAAServerless::Workflow

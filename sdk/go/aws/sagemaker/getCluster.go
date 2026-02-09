@@ -45,7 +45,9 @@ type LookupClusterResult struct {
 	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
 	NodeProvisioningMode *ClusterNodeProvisioningMode `pulumi:"nodeProvisioningMode"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
-	NodeRecovery             *ClusterNodeRecovery             `pulumi:"nodeRecovery"`
+	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
+	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+	Orchestrator             *ClusterOrchestrator             `pulumi:"orchestrator"`
 	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags                []aws.Tag                   `pulumi:"tags"`
@@ -126,6 +128,11 @@ func (o LookupClusterResultOutput) NodeProvisioningMode() ClusterNodeProvisionin
 // If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 func (o LookupClusterResultOutput) NodeRecovery() ClusterNodeRecoveryPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterNodeRecovery { return v.NodeRecovery }).(ClusterNodeRecoveryPtrOutput)
+}
+
+// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+func (o LookupClusterResultOutput) Orchestrator() ClusterOrchestratorPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterOrchestrator { return v.Orchestrator }).(ClusterOrchestratorPtrOutput)
 }
 
 func (o LookupClusterResultOutput) RestrictedInstanceGroups() ClusterRestrictedInstanceGroupArrayOutput {

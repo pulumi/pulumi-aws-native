@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws-native:codedeploy:DeploymentConfig":
 		r = &DeploymentConfig{}
+	case "aws-native:codedeploy:DeploymentGroup":
+		r = &DeploymentGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

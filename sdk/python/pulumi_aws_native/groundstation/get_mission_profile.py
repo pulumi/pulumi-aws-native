@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMissionProfileResult:
-    def __init__(__self__, arn=None, contact_post_pass_duration_seconds=None, contact_pre_pass_duration_seconds=None, dataflow_edges=None, id=None, minimum_viable_contact_duration_seconds=None, name=None, region=None, streams_kms_key=None, streams_kms_role=None, tags=None, tracking_config_arn=None):
+    def __init__(__self__, arn=None, contact_post_pass_duration_seconds=None, contact_pre_pass_duration_seconds=None, dataflow_edges=None, id=None, minimum_viable_contact_duration_seconds=None, name=None, region=None, streams_kms_key=None, streams_kms_role=None, tags=None, telemetry_sink_config_arn=None, tracking_config_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetMissionProfileResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if telemetry_sink_config_arn and not isinstance(telemetry_sink_config_arn, str):
+            raise TypeError("Expected argument 'telemetry_sink_config_arn' to be a str")
+        pulumi.set(__self__, "telemetry_sink_config_arn", telemetry_sink_config_arn)
         if tracking_config_arn and not isinstance(tracking_config_arn, str):
             raise TypeError("Expected argument 'tracking_config_arn' to be a str")
         pulumi.set(__self__, "tracking_config_arn", tracking_config_arn)
@@ -152,6 +155,14 @@ class GetMissionProfileResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="telemetrySinkConfigArn")
+    def telemetry_sink_config_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+        """
+        return pulumi.get(self, "telemetry_sink_config_arn")
+
+    @_builtins.property
     @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> Optional[_builtins.str]:
         """
@@ -177,6 +188,7 @@ class AwaitableGetMissionProfileResult(GetMissionProfileResult):
             streams_kms_key=self.streams_kms_key,
             streams_kms_role=self.streams_kms_role,
             tags=self.tags,
+            telemetry_sink_config_arn=self.telemetry_sink_config_arn,
             tracking_config_arn=self.tracking_config_arn)
 
 
@@ -208,6 +220,7 @@ def get_mission_profile(arn: Optional[_builtins.str] = None,
         streams_kms_key=pulumi.get(__ret__, 'streams_kms_key'),
         streams_kms_role=pulumi.get(__ret__, 'streams_kms_role'),
         tags=pulumi.get(__ret__, 'tags'),
+        telemetry_sink_config_arn=pulumi.get(__ret__, 'telemetry_sink_config_arn'),
         tracking_config_arn=pulumi.get(__ret__, 'tracking_config_arn'))
 def get_mission_profile_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -236,4 +249,5 @@ def get_mission_profile_output(arn: Optional[pulumi.Input[_builtins.str]] = None
         streams_kms_key=pulumi.get(__response__, 'streams_kms_key'),
         streams_kms_role=pulumi.get(__response__, 'streams_kms_role'),
         tags=pulumi.get(__response__, 'tags'),
+        telemetry_sink_config_arn=pulumi.get(__response__, 'telemetry_sink_config_arn'),
         tracking_config_arn=pulumi.get(__response__, 'tracking_config_arn')))

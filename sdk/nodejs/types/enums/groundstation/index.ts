@@ -32,6 +32,12 @@ export const ConfigPolarization = {
 
 export type ConfigPolarization = (typeof ConfigPolarization)[keyof typeof ConfigPolarization];
 
+export const ConfigTelemetrySinkType = {
+    KinesisDataStream: "KINESIS_DATA_STREAM",
+} as const;
+
+export type ConfigTelemetrySinkType = (typeof ConfigTelemetrySinkType)[keyof typeof ConfigTelemetrySinkType];
+
 export const ConfigTrackingConfigAutotrack = {
     Required: "REQUIRED",
     Preferred: "PREFERRED",

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,6 +49,10 @@ type LookupLicenseResult struct {
 	ProductName *string `pulumi:"productName"`
 	// ProductSKU of the license.
 	ProductSku *string `pulumi:"productSku"`
+	// License status.
+	Status *string `pulumi:"status"`
+	// A list of tags to attach.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
 	Validity *LicenseValidityDateFormat `pulumi:"validity"`
 	// The version of the license.
@@ -134,6 +139,16 @@ func (o LookupLicenseResultOutput) ProductName() pulumi.StringPtrOutput {
 // ProductSKU of the license.
 func (o LookupLicenseResultOutput) ProductSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseResult) *string { return v.ProductSku }).(pulumi.StringPtrOutput)
+}
+
+// License status.
+func (o LookupLicenseResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLicenseResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to attach.
+func (o LookupLicenseResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupLicenseResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Date and time range during which the license is valid, in ISO8601-UTC format.

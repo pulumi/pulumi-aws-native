@@ -103,6 +103,7 @@ export class Portal extends pulumi.CustomResource {
      * The ARN of the web portal.
      */
     declare public /*out*/ readonly portalArn: pulumi.Output<string>;
+    declare public readonly portalCustomDomain: pulumi.Output<string | undefined>;
     /**
      * The endpoint URL of the web portal that users access in order to start streaming sessions.
      */
@@ -165,6 +166,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["ipAccessSettingsArn"] = args?.ipAccessSettingsArn;
             resourceInputs["maxConcurrentSessions"] = args?.maxConcurrentSessions;
             resourceInputs["networkSettingsArn"] = args?.networkSettingsArn;
+            resourceInputs["portalCustomDomain"] = args?.portalCustomDomain;
             resourceInputs["sessionLoggerArn"] = args?.sessionLoggerArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trustStoreArn"] = args?.trustStoreArn;
@@ -192,6 +194,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["maxConcurrentSessions"] = undefined /*out*/;
             resourceInputs["networkSettingsArn"] = undefined /*out*/;
             resourceInputs["portalArn"] = undefined /*out*/;
+            resourceInputs["portalCustomDomain"] = undefined /*out*/;
             resourceInputs["portalEndpoint"] = undefined /*out*/;
             resourceInputs["portalStatus"] = undefined /*out*/;
             resourceInputs["rendererType"] = undefined /*out*/;
@@ -268,6 +271,7 @@ export interface PortalArgs {
      * The ARN of the network settings that is associated with the web portal.
      */
     networkSettingsArn?: pulumi.Input<string>;
+    portalCustomDomain?: pulumi.Input<string>;
     /**
      * The ARN of the session logger that is associated with the portal.
      */

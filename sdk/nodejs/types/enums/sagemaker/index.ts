@@ -245,6 +245,17 @@ export const ClusterNodeRecovery = {
  */
 export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
 
+export const ClusterSlurmConfigNodeType = {
+    Controller: "Controller",
+    Login: "Login",
+    Compute: "Compute",
+} as const;
+
+/**
+ * The type of Slurm node for this instance group.
+ */
+export type ClusterSlurmConfigNodeType = (typeof ClusterSlurmConfigNodeType)[keyof typeof ClusterSlurmConfigNodeType];
+
 export const ClusterStatus = {
     Creating: "Creating",
     Deleting: "Deleting",

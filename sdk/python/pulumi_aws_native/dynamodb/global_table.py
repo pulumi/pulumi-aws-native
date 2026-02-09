@@ -26,12 +26,13 @@ class GlobalTableArgs:
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
-                 global_table_read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
-                 global_table_read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']] = None,
+                 global_table_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
                  multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
+                 read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
+                 read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']] = None,
                  sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -86,10 +87,8 @@ class GlobalTableArgs:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
-        if global_table_read_on_demand_throughput_settings is not None:
-            pulumi.set(__self__, "global_table_read_on_demand_throughput_settings", global_table_read_on_demand_throughput_settings)
-        if global_table_read_provisioned_throughput_settings is not None:
-            pulumi.set(__self__, "global_table_read_provisioned_throughput_settings", global_table_read_provisioned_throughput_settings)
+        if global_table_source_arn is not None:
+            pulumi.set(__self__, "global_table_source_arn", global_table_source_arn)
         if global_table_witnesses is not None:
             pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
         if key_schema is not None:
@@ -98,6 +97,10 @@ class GlobalTableArgs:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if multi_region_consistency is not None:
             pulumi.set(__self__, "multi_region_consistency", multi_region_consistency)
+        if read_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "read_on_demand_throughput_settings", read_on_demand_throughput_settings)
+        if read_provisioned_throughput_settings is not None:
+            pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -175,22 +178,13 @@ class GlobalTableArgs:
         pulumi.set(self, "global_secondary_indexes", value)
 
     @_builtins.property
-    @pulumi.getter(name="globalTableReadOnDemandThroughputSettings")
-    def global_table_read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
-        return pulumi.get(self, "global_table_read_on_demand_throughput_settings")
+    @pulumi.getter(name="globalTableSourceArn")
+    def global_table_source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "global_table_source_arn")
 
-    @global_table_read_on_demand_throughput_settings.setter
-    def global_table_read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
-        pulumi.set(self, "global_table_read_on_demand_throughput_settings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableReadProvisionedThroughputSettings")
-    def global_table_read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]:
-        return pulumi.get(self, "global_table_read_provisioned_throughput_settings")
-
-    @global_table_read_provisioned_throughput_settings.setter
-    def global_table_read_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]):
-        pulumi.set(self, "global_table_read_provisioned_throughput_settings", value)
+    @global_table_source_arn.setter
+    def global_table_source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "global_table_source_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
@@ -246,6 +240,24 @@ class GlobalTableArgs:
     @multi_region_consistency.setter
     def multi_region_consistency(self, value: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']]):
         pulumi.set(self, "multi_region_consistency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readOnDemandThroughputSettings")
+    def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+        return pulumi.get(self, "read_on_demand_throughput_settings")
+
+    @read_on_demand_throughput_settings.setter
+    def read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+        pulumi.set(self, "read_on_demand_throughput_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readProvisionedThroughputSettings")
+    def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]:
+        return pulumi.get(self, "read_provisioned_throughput_settings")
+
+    @read_provisioned_throughput_settings.setter
+    def read_provisioned_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableGlobalReadProvisionedThroughputSettingsArgs']]):
+        pulumi.set(self, "read_provisioned_throughput_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
@@ -343,12 +355,13 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 global_table_read_on_demand_throughput_settings: Optional[pulumi.Input[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
-                 global_table_read_provisioned_throughput_settings: Optional[pulumi.Input[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
+                 global_table_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
                  multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
+                 read_on_demand_throughput_settings: Optional[pulumi.Input[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
+                 read_provisioned_throughput_settings: Optional[pulumi.Input[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -428,12 +441,13 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 global_table_read_on_demand_throughput_settings: Optional[pulumi.Input[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
-                 global_table_read_provisioned_throughput_settings: Optional[pulumi.Input[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
+                 global_table_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
                  multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
+                 read_on_demand_throughput_settings: Optional[pulumi.Input[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
+                 read_provisioned_throughput_settings: Optional[pulumi.Input[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -454,12 +468,13 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
-            __props__.__dict__["global_table_read_on_demand_throughput_settings"] = global_table_read_on_demand_throughput_settings
-            __props__.__dict__["global_table_read_provisioned_throughput_settings"] = global_table_read_provisioned_throughput_settings
+            __props__.__dict__["global_table_source_arn"] = global_table_source_arn
             __props__.__dict__["global_table_witnesses"] = global_table_witnesses
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["multi_region_consistency"] = multi_region_consistency
+            __props__.__dict__["read_on_demand_throughput_settings"] = read_on_demand_throughput_settings
+            __props__.__dict__["read_provisioned_throughput_settings"] = read_provisioned_throughput_settings
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
@@ -501,12 +516,13 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["attribute_definitions"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["global_secondary_indexes"] = None
-        __props__.__dict__["global_table_read_on_demand_throughput_settings"] = None
-        __props__.__dict__["global_table_read_provisioned_throughput_settings"] = None
+        __props__.__dict__["global_table_source_arn"] = None
         __props__.__dict__["global_table_witnesses"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
         __props__.__dict__["multi_region_consistency"] = None
+        __props__.__dict__["read_on_demand_throughput_settings"] = None
+        __props__.__dict__["read_provisioned_throughput_settings"] = None
         __props__.__dict__["replicas"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
@@ -559,14 +575,9 @@ class GlobalTable(pulumi.CustomResource):
         return pulumi.get(self, "global_secondary_indexes")
 
     @_builtins.property
-    @pulumi.getter(name="globalTableReadOnDemandThroughputSettings")
-    def global_table_read_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableReadOnDemandThroughputSettings']]:
-        return pulumi.get(self, "global_table_read_on_demand_throughput_settings")
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableReadProvisionedThroughputSettings")
-    def global_table_read_provisioned_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']]:
-        return pulumi.get(self, "global_table_read_provisioned_throughput_settings")
+    @pulumi.getter(name="globalTableSourceArn")
+    def global_table_source_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "global_table_source_arn")
 
     @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
@@ -606,6 +617,16 @@ class GlobalTable(pulumi.CustomResource):
         If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
         """
         return pulumi.get(self, "multi_region_consistency")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnDemandThroughputSettings")
+    def read_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableReadOnDemandThroughputSettings']]:
+        return pulumi.get(self, "read_on_demand_throughput_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="readProvisionedThroughputSettings")
+    def read_provisioned_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableGlobalReadProvisionedThroughputSettings']]:
+        return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @_builtins.property
     @pulumi.getter

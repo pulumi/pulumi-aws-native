@@ -510,7 +510,8 @@ type ConfigData struct {
 	// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
 	DataflowEndpointConfig *ConfigDataflowEndpointConfig `pulumi:"dataflowEndpointConfig"`
 	// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
-	S3RecordingConfig *ConfigS3RecordingConfig `pulumi:"s3RecordingConfig"`
+	S3RecordingConfig   *ConfigS3RecordingConfig   `pulumi:"s3RecordingConfig"`
+	TelemetrySinkConfig *ConfigTelemetrySinkConfig `pulumi:"telemetrySinkConfig"`
 	// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
 	TrackingConfig *ConfigTrackingConfig `pulumi:"trackingConfig"`
 	// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
@@ -538,7 +539,8 @@ type ConfigDataArgs struct {
 	// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
 	DataflowEndpointConfig ConfigDataflowEndpointConfigPtrInput `pulumi:"dataflowEndpointConfig"`
 	// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
-	S3RecordingConfig ConfigS3RecordingConfigPtrInput `pulumi:"s3RecordingConfig"`
+	S3RecordingConfig   ConfigS3RecordingConfigPtrInput   `pulumi:"s3RecordingConfig"`
+	TelemetrySinkConfig ConfigTelemetrySinkConfigPtrInput `pulumi:"telemetrySinkConfig"`
 	// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
 	TrackingConfig ConfigTrackingConfigPtrInput `pulumi:"trackingConfig"`
 	// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
@@ -594,6 +596,10 @@ func (o ConfigDataOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigP
 // Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
 func (o ConfigDataOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigS3RecordingConfig { return v.S3RecordingConfig }).(ConfigS3RecordingConfigPtrOutput)
+}
+
+func (o ConfigDataOutput) TelemetrySinkConfig() ConfigTelemetrySinkConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigTelemetrySinkConfig { return v.TelemetrySinkConfig }).(ConfigTelemetrySinkConfigPtrOutput)
 }
 
 // Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
@@ -678,6 +684,15 @@ func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutpu
 		}
 		return v.S3RecordingConfig
 	}).(ConfigS3RecordingConfigPtrOutput)
+}
+
+func (o ConfigDataPtrOutput) TelemetrySinkConfig() ConfigTelemetrySinkConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigTelemetrySinkConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TelemetrySinkConfig
+	}).(ConfigTelemetrySinkConfigPtrOutput)
 }
 
 // Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
@@ -1614,6 +1629,154 @@ func (o ConfigFrequencyBandwidthPtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type ConfigKinesisDataStreamData struct {
+	KinesisDataStreamArn string `pulumi:"kinesisDataStreamArn"`
+	KinesisRoleArn       string `pulumi:"kinesisRoleArn"`
+}
+
+// ConfigKinesisDataStreamDataInput is an input type that accepts ConfigKinesisDataStreamDataArgs and ConfigKinesisDataStreamDataOutput values.
+// You can construct a concrete instance of `ConfigKinesisDataStreamDataInput` via:
+//
+//	ConfigKinesisDataStreamDataArgs{...}
+type ConfigKinesisDataStreamDataInput interface {
+	pulumi.Input
+
+	ToConfigKinesisDataStreamDataOutput() ConfigKinesisDataStreamDataOutput
+	ToConfigKinesisDataStreamDataOutputWithContext(context.Context) ConfigKinesisDataStreamDataOutput
+}
+
+type ConfigKinesisDataStreamDataArgs struct {
+	KinesisDataStreamArn pulumi.StringInput `pulumi:"kinesisDataStreamArn"`
+	KinesisRoleArn       pulumi.StringInput `pulumi:"kinesisRoleArn"`
+}
+
+func (ConfigKinesisDataStreamDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigKinesisDataStreamData)(nil)).Elem()
+}
+
+func (i ConfigKinesisDataStreamDataArgs) ToConfigKinesisDataStreamDataOutput() ConfigKinesisDataStreamDataOutput {
+	return i.ToConfigKinesisDataStreamDataOutputWithContext(context.Background())
+}
+
+func (i ConfigKinesisDataStreamDataArgs) ToConfigKinesisDataStreamDataOutputWithContext(ctx context.Context) ConfigKinesisDataStreamDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigKinesisDataStreamDataOutput)
+}
+
+func (i ConfigKinesisDataStreamDataArgs) ToConfigKinesisDataStreamDataPtrOutput() ConfigKinesisDataStreamDataPtrOutput {
+	return i.ToConfigKinesisDataStreamDataPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigKinesisDataStreamDataArgs) ToConfigKinesisDataStreamDataPtrOutputWithContext(ctx context.Context) ConfigKinesisDataStreamDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigKinesisDataStreamDataOutput).ToConfigKinesisDataStreamDataPtrOutputWithContext(ctx)
+}
+
+// ConfigKinesisDataStreamDataPtrInput is an input type that accepts ConfigKinesisDataStreamDataArgs, ConfigKinesisDataStreamDataPtr and ConfigKinesisDataStreamDataPtrOutput values.
+// You can construct a concrete instance of `ConfigKinesisDataStreamDataPtrInput` via:
+//
+//	        ConfigKinesisDataStreamDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigKinesisDataStreamDataPtrInput interface {
+	pulumi.Input
+
+	ToConfigKinesisDataStreamDataPtrOutput() ConfigKinesisDataStreamDataPtrOutput
+	ToConfigKinesisDataStreamDataPtrOutputWithContext(context.Context) ConfigKinesisDataStreamDataPtrOutput
+}
+
+type configKinesisDataStreamDataPtrType ConfigKinesisDataStreamDataArgs
+
+func ConfigKinesisDataStreamDataPtr(v *ConfigKinesisDataStreamDataArgs) ConfigKinesisDataStreamDataPtrInput {
+	return (*configKinesisDataStreamDataPtrType)(v)
+}
+
+func (*configKinesisDataStreamDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigKinesisDataStreamData)(nil)).Elem()
+}
+
+func (i *configKinesisDataStreamDataPtrType) ToConfigKinesisDataStreamDataPtrOutput() ConfigKinesisDataStreamDataPtrOutput {
+	return i.ToConfigKinesisDataStreamDataPtrOutputWithContext(context.Background())
+}
+
+func (i *configKinesisDataStreamDataPtrType) ToConfigKinesisDataStreamDataPtrOutputWithContext(ctx context.Context) ConfigKinesisDataStreamDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigKinesisDataStreamDataPtrOutput)
+}
+
+type ConfigKinesisDataStreamDataOutput struct{ *pulumi.OutputState }
+
+func (ConfigKinesisDataStreamDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigKinesisDataStreamData)(nil)).Elem()
+}
+
+func (o ConfigKinesisDataStreamDataOutput) ToConfigKinesisDataStreamDataOutput() ConfigKinesisDataStreamDataOutput {
+	return o
+}
+
+func (o ConfigKinesisDataStreamDataOutput) ToConfigKinesisDataStreamDataOutputWithContext(ctx context.Context) ConfigKinesisDataStreamDataOutput {
+	return o
+}
+
+func (o ConfigKinesisDataStreamDataOutput) ToConfigKinesisDataStreamDataPtrOutput() ConfigKinesisDataStreamDataPtrOutput {
+	return o.ToConfigKinesisDataStreamDataPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigKinesisDataStreamDataOutput) ToConfigKinesisDataStreamDataPtrOutputWithContext(ctx context.Context) ConfigKinesisDataStreamDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigKinesisDataStreamData) *ConfigKinesisDataStreamData {
+		return &v
+	}).(ConfigKinesisDataStreamDataPtrOutput)
+}
+
+func (o ConfigKinesisDataStreamDataOutput) KinesisDataStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigKinesisDataStreamData) string { return v.KinesisDataStreamArn }).(pulumi.StringOutput)
+}
+
+func (o ConfigKinesisDataStreamDataOutput) KinesisRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigKinesisDataStreamData) string { return v.KinesisRoleArn }).(pulumi.StringOutput)
+}
+
+type ConfigKinesisDataStreamDataPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigKinesisDataStreamDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigKinesisDataStreamData)(nil)).Elem()
+}
+
+func (o ConfigKinesisDataStreamDataPtrOutput) ToConfigKinesisDataStreamDataPtrOutput() ConfigKinesisDataStreamDataPtrOutput {
+	return o
+}
+
+func (o ConfigKinesisDataStreamDataPtrOutput) ToConfigKinesisDataStreamDataPtrOutputWithContext(ctx context.Context) ConfigKinesisDataStreamDataPtrOutput {
+	return o
+}
+
+func (o ConfigKinesisDataStreamDataPtrOutput) Elem() ConfigKinesisDataStreamDataOutput {
+	return o.ApplyT(func(v *ConfigKinesisDataStreamData) ConfigKinesisDataStreamData {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigKinesisDataStreamData
+		return ret
+	}).(ConfigKinesisDataStreamDataOutput)
+}
+
+func (o ConfigKinesisDataStreamDataPtrOutput) KinesisDataStreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigKinesisDataStreamData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KinesisDataStreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigKinesisDataStreamDataPtrOutput) KinesisRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigKinesisDataStreamData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KinesisRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigS3RecordingConfig struct {
 	// S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
 	BucketArn *string `pulumi:"bucketArn"`
@@ -1993,6 +2156,287 @@ type ConfigTag struct {
 	Key *string `pulumi:"key"`
 	// Value of the tag.
 	Value *string `pulumi:"value"`
+}
+
+type ConfigTelemetrySinkConfig struct {
+	TelemetrySinkData ConfigTelemetrySinkData `pulumi:"telemetrySinkData"`
+	TelemetrySinkType ConfigTelemetrySinkType `pulumi:"telemetrySinkType"`
+}
+
+// ConfigTelemetrySinkConfigInput is an input type that accepts ConfigTelemetrySinkConfigArgs and ConfigTelemetrySinkConfigOutput values.
+// You can construct a concrete instance of `ConfigTelemetrySinkConfigInput` via:
+//
+//	ConfigTelemetrySinkConfigArgs{...}
+type ConfigTelemetrySinkConfigInput interface {
+	pulumi.Input
+
+	ToConfigTelemetrySinkConfigOutput() ConfigTelemetrySinkConfigOutput
+	ToConfigTelemetrySinkConfigOutputWithContext(context.Context) ConfigTelemetrySinkConfigOutput
+}
+
+type ConfigTelemetrySinkConfigArgs struct {
+	TelemetrySinkData ConfigTelemetrySinkDataInput `pulumi:"telemetrySinkData"`
+	TelemetrySinkType ConfigTelemetrySinkTypeInput `pulumi:"telemetrySinkType"`
+}
+
+func (ConfigTelemetrySinkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTelemetrySinkConfig)(nil)).Elem()
+}
+
+func (i ConfigTelemetrySinkConfigArgs) ToConfigTelemetrySinkConfigOutput() ConfigTelemetrySinkConfigOutput {
+	return i.ToConfigTelemetrySinkConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigTelemetrySinkConfigArgs) ToConfigTelemetrySinkConfigOutputWithContext(ctx context.Context) ConfigTelemetrySinkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTelemetrySinkConfigOutput)
+}
+
+func (i ConfigTelemetrySinkConfigArgs) ToConfigTelemetrySinkConfigPtrOutput() ConfigTelemetrySinkConfigPtrOutput {
+	return i.ToConfigTelemetrySinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigTelemetrySinkConfigArgs) ToConfigTelemetrySinkConfigPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTelemetrySinkConfigOutput).ToConfigTelemetrySinkConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigTelemetrySinkConfigPtrInput is an input type that accepts ConfigTelemetrySinkConfigArgs, ConfigTelemetrySinkConfigPtr and ConfigTelemetrySinkConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigTelemetrySinkConfigPtrInput` via:
+//
+//	        ConfigTelemetrySinkConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigTelemetrySinkConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigTelemetrySinkConfigPtrOutput() ConfigTelemetrySinkConfigPtrOutput
+	ToConfigTelemetrySinkConfigPtrOutputWithContext(context.Context) ConfigTelemetrySinkConfigPtrOutput
+}
+
+type configTelemetrySinkConfigPtrType ConfigTelemetrySinkConfigArgs
+
+func ConfigTelemetrySinkConfigPtr(v *ConfigTelemetrySinkConfigArgs) ConfigTelemetrySinkConfigPtrInput {
+	return (*configTelemetrySinkConfigPtrType)(v)
+}
+
+func (*configTelemetrySinkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTelemetrySinkConfig)(nil)).Elem()
+}
+
+func (i *configTelemetrySinkConfigPtrType) ToConfigTelemetrySinkConfigPtrOutput() ConfigTelemetrySinkConfigPtrOutput {
+	return i.ToConfigTelemetrySinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configTelemetrySinkConfigPtrType) ToConfigTelemetrySinkConfigPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTelemetrySinkConfigPtrOutput)
+}
+
+type ConfigTelemetrySinkConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigTelemetrySinkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTelemetrySinkConfig)(nil)).Elem()
+}
+
+func (o ConfigTelemetrySinkConfigOutput) ToConfigTelemetrySinkConfigOutput() ConfigTelemetrySinkConfigOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkConfigOutput) ToConfigTelemetrySinkConfigOutputWithContext(ctx context.Context) ConfigTelemetrySinkConfigOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkConfigOutput) ToConfigTelemetrySinkConfigPtrOutput() ConfigTelemetrySinkConfigPtrOutput {
+	return o.ToConfigTelemetrySinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigTelemetrySinkConfigOutput) ToConfigTelemetrySinkConfigPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigTelemetrySinkConfig) *ConfigTelemetrySinkConfig {
+		return &v
+	}).(ConfigTelemetrySinkConfigPtrOutput)
+}
+
+func (o ConfigTelemetrySinkConfigOutput) TelemetrySinkData() ConfigTelemetrySinkDataOutput {
+	return o.ApplyT(func(v ConfigTelemetrySinkConfig) ConfigTelemetrySinkData { return v.TelemetrySinkData }).(ConfigTelemetrySinkDataOutput)
+}
+
+func (o ConfigTelemetrySinkConfigOutput) TelemetrySinkType() ConfigTelemetrySinkTypeOutput {
+	return o.ApplyT(func(v ConfigTelemetrySinkConfig) ConfigTelemetrySinkType { return v.TelemetrySinkType }).(ConfigTelemetrySinkTypeOutput)
+}
+
+type ConfigTelemetrySinkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigTelemetrySinkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTelemetrySinkConfig)(nil)).Elem()
+}
+
+func (o ConfigTelemetrySinkConfigPtrOutput) ToConfigTelemetrySinkConfigPtrOutput() ConfigTelemetrySinkConfigPtrOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkConfigPtrOutput) ToConfigTelemetrySinkConfigPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkConfigPtrOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkConfigPtrOutput) Elem() ConfigTelemetrySinkConfigOutput {
+	return o.ApplyT(func(v *ConfigTelemetrySinkConfig) ConfigTelemetrySinkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigTelemetrySinkConfig
+		return ret
+	}).(ConfigTelemetrySinkConfigOutput)
+}
+
+func (o ConfigTelemetrySinkConfigPtrOutput) TelemetrySinkData() ConfigTelemetrySinkDataPtrOutput {
+	return o.ApplyT(func(v *ConfigTelemetrySinkConfig) *ConfigTelemetrySinkData {
+		if v == nil {
+			return nil
+		}
+		return &v.TelemetrySinkData
+	}).(ConfigTelemetrySinkDataPtrOutput)
+}
+
+func (o ConfigTelemetrySinkConfigPtrOutput) TelemetrySinkType() ConfigTelemetrySinkTypePtrOutput {
+	return o.ApplyT(func(v *ConfigTelemetrySinkConfig) *ConfigTelemetrySinkType {
+		if v == nil {
+			return nil
+		}
+		return &v.TelemetrySinkType
+	}).(ConfigTelemetrySinkTypePtrOutput)
+}
+
+type ConfigTelemetrySinkData struct {
+	KinesisDataStreamData *ConfigKinesisDataStreamData `pulumi:"kinesisDataStreamData"`
+}
+
+// ConfigTelemetrySinkDataInput is an input type that accepts ConfigTelemetrySinkDataArgs and ConfigTelemetrySinkDataOutput values.
+// You can construct a concrete instance of `ConfigTelemetrySinkDataInput` via:
+//
+//	ConfigTelemetrySinkDataArgs{...}
+type ConfigTelemetrySinkDataInput interface {
+	pulumi.Input
+
+	ToConfigTelemetrySinkDataOutput() ConfigTelemetrySinkDataOutput
+	ToConfigTelemetrySinkDataOutputWithContext(context.Context) ConfigTelemetrySinkDataOutput
+}
+
+type ConfigTelemetrySinkDataArgs struct {
+	KinesisDataStreamData ConfigKinesisDataStreamDataPtrInput `pulumi:"kinesisDataStreamData"`
+}
+
+func (ConfigTelemetrySinkDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTelemetrySinkData)(nil)).Elem()
+}
+
+func (i ConfigTelemetrySinkDataArgs) ToConfigTelemetrySinkDataOutput() ConfigTelemetrySinkDataOutput {
+	return i.ToConfigTelemetrySinkDataOutputWithContext(context.Background())
+}
+
+func (i ConfigTelemetrySinkDataArgs) ToConfigTelemetrySinkDataOutputWithContext(ctx context.Context) ConfigTelemetrySinkDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTelemetrySinkDataOutput)
+}
+
+func (i ConfigTelemetrySinkDataArgs) ToConfigTelemetrySinkDataPtrOutput() ConfigTelemetrySinkDataPtrOutput {
+	return i.ToConfigTelemetrySinkDataPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigTelemetrySinkDataArgs) ToConfigTelemetrySinkDataPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTelemetrySinkDataOutput).ToConfigTelemetrySinkDataPtrOutputWithContext(ctx)
+}
+
+// ConfigTelemetrySinkDataPtrInput is an input type that accepts ConfigTelemetrySinkDataArgs, ConfigTelemetrySinkDataPtr and ConfigTelemetrySinkDataPtrOutput values.
+// You can construct a concrete instance of `ConfigTelemetrySinkDataPtrInput` via:
+//
+//	        ConfigTelemetrySinkDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigTelemetrySinkDataPtrInput interface {
+	pulumi.Input
+
+	ToConfigTelemetrySinkDataPtrOutput() ConfigTelemetrySinkDataPtrOutput
+	ToConfigTelemetrySinkDataPtrOutputWithContext(context.Context) ConfigTelemetrySinkDataPtrOutput
+}
+
+type configTelemetrySinkDataPtrType ConfigTelemetrySinkDataArgs
+
+func ConfigTelemetrySinkDataPtr(v *ConfigTelemetrySinkDataArgs) ConfigTelemetrySinkDataPtrInput {
+	return (*configTelemetrySinkDataPtrType)(v)
+}
+
+func (*configTelemetrySinkDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTelemetrySinkData)(nil)).Elem()
+}
+
+func (i *configTelemetrySinkDataPtrType) ToConfigTelemetrySinkDataPtrOutput() ConfigTelemetrySinkDataPtrOutput {
+	return i.ToConfigTelemetrySinkDataPtrOutputWithContext(context.Background())
+}
+
+func (i *configTelemetrySinkDataPtrType) ToConfigTelemetrySinkDataPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTelemetrySinkDataPtrOutput)
+}
+
+type ConfigTelemetrySinkDataOutput struct{ *pulumi.OutputState }
+
+func (ConfigTelemetrySinkDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTelemetrySinkData)(nil)).Elem()
+}
+
+func (o ConfigTelemetrySinkDataOutput) ToConfigTelemetrySinkDataOutput() ConfigTelemetrySinkDataOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkDataOutput) ToConfigTelemetrySinkDataOutputWithContext(ctx context.Context) ConfigTelemetrySinkDataOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkDataOutput) ToConfigTelemetrySinkDataPtrOutput() ConfigTelemetrySinkDataPtrOutput {
+	return o.ToConfigTelemetrySinkDataPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigTelemetrySinkDataOutput) ToConfigTelemetrySinkDataPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigTelemetrySinkData) *ConfigTelemetrySinkData {
+		return &v
+	}).(ConfigTelemetrySinkDataPtrOutput)
+}
+
+func (o ConfigTelemetrySinkDataOutput) KinesisDataStreamData() ConfigKinesisDataStreamDataPtrOutput {
+	return o.ApplyT(func(v ConfigTelemetrySinkData) *ConfigKinesisDataStreamData { return v.KinesisDataStreamData }).(ConfigKinesisDataStreamDataPtrOutput)
+}
+
+type ConfigTelemetrySinkDataPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigTelemetrySinkDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTelemetrySinkData)(nil)).Elem()
+}
+
+func (o ConfigTelemetrySinkDataPtrOutput) ToConfigTelemetrySinkDataPtrOutput() ConfigTelemetrySinkDataPtrOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkDataPtrOutput) ToConfigTelemetrySinkDataPtrOutputWithContext(ctx context.Context) ConfigTelemetrySinkDataPtrOutput {
+	return o
+}
+
+func (o ConfigTelemetrySinkDataPtrOutput) Elem() ConfigTelemetrySinkDataOutput {
+	return o.ApplyT(func(v *ConfigTelemetrySinkData) ConfigTelemetrySinkData {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigTelemetrySinkData
+		return ret
+	}).(ConfigTelemetrySinkDataOutput)
+}
+
+func (o ConfigTelemetrySinkDataPtrOutput) KinesisDataStreamData() ConfigKinesisDataStreamDataPtrOutput {
+	return o.ApplyT(func(v *ConfigTelemetrySinkData) *ConfigKinesisDataStreamData {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisDataStreamData
+	}).(ConfigKinesisDataStreamDataPtrOutput)
 }
 
 type ConfigTrackingConfig struct {
@@ -6402,10 +6846,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigFrequencyPtrInput)(nil)).Elem(), ConfigFrequencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigFrequencyBandwidthInput)(nil)).Elem(), ConfigFrequencyBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigFrequencyBandwidthPtrInput)(nil)).Elem(), ConfigFrequencyBandwidthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigKinesisDataStreamDataInput)(nil)).Elem(), ConfigKinesisDataStreamDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigKinesisDataStreamDataPtrInput)(nil)).Elem(), ConfigKinesisDataStreamDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigS3RecordingConfigInput)(nil)).Elem(), ConfigS3RecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigS3RecordingConfigPtrInput)(nil)).Elem(), ConfigS3RecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigSpectrumConfigInput)(nil)).Elem(), ConfigSpectrumConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigSpectrumConfigPtrInput)(nil)).Elem(), ConfigSpectrumConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTelemetrySinkConfigInput)(nil)).Elem(), ConfigTelemetrySinkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTelemetrySinkConfigPtrInput)(nil)).Elem(), ConfigTelemetrySinkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTelemetrySinkDataInput)(nil)).Elem(), ConfigTelemetrySinkDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTelemetrySinkDataPtrInput)(nil)).Elem(), ConfigTelemetrySinkDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigInput)(nil)).Elem(), ConfigTrackingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigPtrInput)(nil)).Elem(), ConfigTrackingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigUplinkEchoConfigInput)(nil)).Elem(), ConfigUplinkEchoConfigArgs{})
@@ -6478,10 +6928,16 @@ func init() {
 	pulumi.RegisterOutputType(ConfigFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(ConfigFrequencyBandwidthOutput{})
 	pulumi.RegisterOutputType(ConfigFrequencyBandwidthPtrOutput{})
+	pulumi.RegisterOutputType(ConfigKinesisDataStreamDataOutput{})
+	pulumi.RegisterOutputType(ConfigKinesisDataStreamDataPtrOutput{})
 	pulumi.RegisterOutputType(ConfigS3RecordingConfigOutput{})
 	pulumi.RegisterOutputType(ConfigS3RecordingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigSpectrumConfigOutput{})
 	pulumi.RegisterOutputType(ConfigSpectrumConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigTelemetrySinkConfigOutput{})
+	pulumi.RegisterOutputType(ConfigTelemetrySinkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigTelemetrySinkDataOutput{})
+	pulumi.RegisterOutputType(ConfigTelemetrySinkDataPtrOutput{})
 	pulumi.RegisterOutputType(ConfigTrackingConfigOutput{})
 	pulumi.RegisterOutputType(ConfigTrackingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigUplinkEchoConfigOutput{})

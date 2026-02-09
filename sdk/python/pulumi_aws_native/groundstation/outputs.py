@@ -27,8 +27,11 @@ __all__ = [
     'ConfigEirp',
     'ConfigFrequency',
     'ConfigFrequencyBandwidth',
+    'ConfigKinesisDataStreamData',
     'ConfigS3RecordingConfig',
     'ConfigSpectrumConfig',
+    'ConfigTelemetrySinkConfig',
+    'ConfigTelemetrySinkData',
     'ConfigTrackingConfig',
     'ConfigUplinkEchoConfig',
     'ConfigUplinkSpectrumConfig',
@@ -239,6 +242,8 @@ class ConfigData(dict):
             suggest = "dataflow_endpoint_config"
         elif key == "s3RecordingConfig":
             suggest = "s3_recording_config"
+        elif key == "telemetrySinkConfig":
+            suggest = "telemetry_sink_config"
         elif key == "trackingConfig":
             suggest = "tracking_config"
         elif key == "uplinkEchoConfig":
@@ -261,6 +266,7 @@ class ConfigData(dict):
                  antenna_uplink_config: Optional['outputs.ConfigAntennaUplinkConfig'] = None,
                  dataflow_endpoint_config: Optional['outputs.ConfigDataflowEndpointConfig'] = None,
                  s3_recording_config: Optional['outputs.ConfigS3RecordingConfig'] = None,
+                 telemetry_sink_config: Optional['outputs.ConfigTelemetrySinkConfig'] = None,
                  tracking_config: Optional['outputs.ConfigTrackingConfig'] = None,
                  uplink_echo_config: Optional['outputs.ConfigUplinkEchoConfig'] = None):
         """
@@ -282,6 +288,8 @@ class ConfigData(dict):
             pulumi.set(__self__, "dataflow_endpoint_config", dataflow_endpoint_config)
         if s3_recording_config is not None:
             pulumi.set(__self__, "s3_recording_config", s3_recording_config)
+        if telemetry_sink_config is not None:
+            pulumi.set(__self__, "telemetry_sink_config", telemetry_sink_config)
         if tracking_config is not None:
             pulumi.set(__self__, "tracking_config", tracking_config)
         if uplink_echo_config is not None:
@@ -326,6 +334,11 @@ class ConfigData(dict):
         Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
         """
         return pulumi.get(self, "s3_recording_config")
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkConfig")
+    def telemetry_sink_config(self) -> Optional['outputs.ConfigTelemetrySinkConfig']:
+        return pulumi.get(self, "telemetry_sink_config")
 
     @_builtins.property
     @pulumi.getter(name="trackingConfig")
@@ -568,6 +581,44 @@ class ConfigFrequencyBandwidth(dict):
 
 
 @pulumi.output_type
+class ConfigKinesisDataStreamData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisDataStreamArn":
+            suggest = "kinesis_data_stream_arn"
+        elif key == "kinesisRoleArn":
+            suggest = "kinesis_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigKinesisDataStreamData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigKinesisDataStreamData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigKinesisDataStreamData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kinesis_data_stream_arn: _builtins.str,
+                 kinesis_role_arn: _builtins.str):
+        pulumi.set(__self__, "kinesis_data_stream_arn", kinesis_data_stream_arn)
+        pulumi.set(__self__, "kinesis_role_arn", kinesis_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamArn")
+    def kinesis_data_stream_arn(self) -> _builtins.str:
+        return pulumi.get(self, "kinesis_data_stream_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisRoleArn")
+    def kinesis_role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "kinesis_role_arn")
+
+
+@pulumi.output_type
 class ConfigS3RecordingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -699,6 +750,74 @@ class ConfigSpectrumConfig(dict):
         The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
         """
         return pulumi.get(self, "polarization")
+
+
+@pulumi.output_type
+class ConfigTelemetrySinkConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "telemetrySinkData":
+            suggest = "telemetry_sink_data"
+        elif key == "telemetrySinkType":
+            suggest = "telemetry_sink_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigTelemetrySinkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigTelemetrySinkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigTelemetrySinkConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 telemetry_sink_data: 'outputs.ConfigTelemetrySinkData',
+                 telemetry_sink_type: 'ConfigTelemetrySinkType'):
+        pulumi.set(__self__, "telemetry_sink_data", telemetry_sink_data)
+        pulumi.set(__self__, "telemetry_sink_type", telemetry_sink_type)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkData")
+    def telemetry_sink_data(self) -> 'outputs.ConfigTelemetrySinkData':
+        return pulumi.get(self, "telemetry_sink_data")
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkType")
+    def telemetry_sink_type(self) -> 'ConfigTelemetrySinkType':
+        return pulumi.get(self, "telemetry_sink_type")
+
+
+@pulumi.output_type
+class ConfigTelemetrySinkData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisDataStreamData":
+            suggest = "kinesis_data_stream_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigTelemetrySinkData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigTelemetrySinkData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigTelemetrySinkData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kinesis_data_stream_data: Optional['outputs.ConfigKinesisDataStreamData'] = None):
+        if kinesis_data_stream_data is not None:
+            pulumi.set(__self__, "kinesis_data_stream_data", kinesis_data_stream_data)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamData")
+    def kinesis_data_stream_data(self) -> Optional['outputs.ConfigKinesisDataStreamData']:
+        return pulumi.get(self, "kinesis_data_stream_data")
 
 
 @pulumi.output_type

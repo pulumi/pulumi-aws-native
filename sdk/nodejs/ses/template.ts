@@ -79,6 +79,10 @@ export class Template extends pulumi.CustomResource {
 
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * The tags (keys and values) associated with the email template.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The content of the email, composed of a subject line and either an HTML part or a text-only part.
      */
     declare public readonly template: pulumi.Output<outputs.ses.Template | undefined>;
@@ -94,10 +98,12 @@ export class Template extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["template"] = args?.template;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["template"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -111,6 +117,10 @@ export class Template extends pulumi.CustomResource {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
+    /**
+     * The tags (keys and values) associated with the email template.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The content of the email, composed of a subject line and either an HTML part or a text-only part.
      */

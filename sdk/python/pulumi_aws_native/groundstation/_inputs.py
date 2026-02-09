@@ -36,10 +36,16 @@ __all__ = [
     'ConfigFrequencyBandwidthArgsDict',
     'ConfigFrequencyArgs',
     'ConfigFrequencyArgsDict',
+    'ConfigKinesisDataStreamDataArgs',
+    'ConfigKinesisDataStreamDataArgsDict',
     'ConfigS3RecordingConfigArgs',
     'ConfigS3RecordingConfigArgsDict',
     'ConfigSpectrumConfigArgs',
     'ConfigSpectrumConfigArgsDict',
+    'ConfigTelemetrySinkConfigArgs',
+    'ConfigTelemetrySinkConfigArgsDict',
+    'ConfigTelemetrySinkDataArgs',
+    'ConfigTelemetrySinkDataArgsDict',
     'ConfigTrackingConfigArgs',
     'ConfigTrackingConfigArgsDict',
     'ConfigUplinkEchoConfigArgs',
@@ -346,6 +352,7 @@ if not MYPY:
         """
         Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
         """
+        telemetry_sink_config: NotRequired[pulumi.Input['ConfigTelemetrySinkConfigArgsDict']]
         tracking_config: NotRequired[pulumi.Input['ConfigTrackingConfigArgsDict']]
         """
         Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
@@ -365,6 +372,7 @@ class ConfigDataArgs:
                  antenna_uplink_config: Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']] = None,
                  dataflow_endpoint_config: Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']] = None,
                  s3_recording_config: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']] = None,
+                 telemetry_sink_config: Optional[pulumi.Input['ConfigTelemetrySinkConfigArgs']] = None,
                  tracking_config: Optional[pulumi.Input['ConfigTrackingConfigArgs']] = None,
                  uplink_echo_config: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']] = None):
         """
@@ -386,6 +394,8 @@ class ConfigDataArgs:
             pulumi.set(__self__, "dataflow_endpoint_config", dataflow_endpoint_config)
         if s3_recording_config is not None:
             pulumi.set(__self__, "s3_recording_config", s3_recording_config)
+        if telemetry_sink_config is not None:
+            pulumi.set(__self__, "telemetry_sink_config", telemetry_sink_config)
         if tracking_config is not None:
             pulumi.set(__self__, "tracking_config", tracking_config)
         if uplink_echo_config is not None:
@@ -450,6 +460,15 @@ class ConfigDataArgs:
     @s3_recording_config.setter
     def s3_recording_config(self, value: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']]):
         pulumi.set(self, "s3_recording_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkConfig")
+    def telemetry_sink_config(self) -> Optional[pulumi.Input['ConfigTelemetrySinkConfigArgs']]:
+        return pulumi.get(self, "telemetry_sink_config")
+
+    @telemetry_sink_config.setter
+    def telemetry_sink_config(self, value: Optional[pulumi.Input['ConfigTelemetrySinkConfigArgs']]):
+        pulumi.set(self, "telemetry_sink_config", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingConfig")
@@ -709,6 +728,40 @@ class ConfigFrequencyArgs:
 
 
 if not MYPY:
+    class ConfigKinesisDataStreamDataArgsDict(TypedDict):
+        kinesis_data_stream_arn: pulumi.Input[_builtins.str]
+        kinesis_role_arn: pulumi.Input[_builtins.str]
+elif False:
+    ConfigKinesisDataStreamDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigKinesisDataStreamDataArgs:
+    def __init__(__self__, *,
+                 kinesis_data_stream_arn: pulumi.Input[_builtins.str],
+                 kinesis_role_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "kinesis_data_stream_arn", kinesis_data_stream_arn)
+        pulumi.set(__self__, "kinesis_role_arn", kinesis_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamArn")
+    def kinesis_data_stream_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "kinesis_data_stream_arn")
+
+    @kinesis_data_stream_arn.setter
+    def kinesis_data_stream_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kinesis_data_stream_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisRoleArn")
+    def kinesis_role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "kinesis_role_arn")
+
+    @kinesis_role_arn.setter
+    def kinesis_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kinesis_role_arn", value)
+
+
+if not MYPY:
     class ConfigS3RecordingConfigArgsDict(TypedDict):
         bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -868,6 +921,63 @@ class ConfigSpectrumConfigArgs:
     @polarization.setter
     def polarization(self, value: Optional[pulumi.Input['ConfigPolarization']]):
         pulumi.set(self, "polarization", value)
+
+
+if not MYPY:
+    class ConfigTelemetrySinkConfigArgsDict(TypedDict):
+        telemetry_sink_data: pulumi.Input['ConfigTelemetrySinkDataArgsDict']
+        telemetry_sink_type: pulumi.Input['ConfigTelemetrySinkType']
+elif False:
+    ConfigTelemetrySinkConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigTelemetrySinkConfigArgs:
+    def __init__(__self__, *,
+                 telemetry_sink_data: pulumi.Input['ConfigTelemetrySinkDataArgs'],
+                 telemetry_sink_type: pulumi.Input['ConfigTelemetrySinkType']):
+        pulumi.set(__self__, "telemetry_sink_data", telemetry_sink_data)
+        pulumi.set(__self__, "telemetry_sink_type", telemetry_sink_type)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkData")
+    def telemetry_sink_data(self) -> pulumi.Input['ConfigTelemetrySinkDataArgs']:
+        return pulumi.get(self, "telemetry_sink_data")
+
+    @telemetry_sink_data.setter
+    def telemetry_sink_data(self, value: pulumi.Input['ConfigTelemetrySinkDataArgs']):
+        pulumi.set(self, "telemetry_sink_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkType")
+    def telemetry_sink_type(self) -> pulumi.Input['ConfigTelemetrySinkType']:
+        return pulumi.get(self, "telemetry_sink_type")
+
+    @telemetry_sink_type.setter
+    def telemetry_sink_type(self, value: pulumi.Input['ConfigTelemetrySinkType']):
+        pulumi.set(self, "telemetry_sink_type", value)
+
+
+if not MYPY:
+    class ConfigTelemetrySinkDataArgsDict(TypedDict):
+        kinesis_data_stream_data: NotRequired[pulumi.Input['ConfigKinesisDataStreamDataArgsDict']]
+elif False:
+    ConfigTelemetrySinkDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigTelemetrySinkDataArgs:
+    def __init__(__self__, *,
+                 kinesis_data_stream_data: Optional[pulumi.Input['ConfigKinesisDataStreamDataArgs']] = None):
+        if kinesis_data_stream_data is not None:
+            pulumi.set(__self__, "kinesis_data_stream_data", kinesis_data_stream_data)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamData")
+    def kinesis_data_stream_data(self) -> Optional[pulumi.Input['ConfigKinesisDataStreamDataArgs']]:
+        return pulumi.get(self, "kinesis_data_stream_data")
+
+    @kinesis_data_stream_data.setter
+    def kinesis_data_stream_data(self, value: Optional[pulumi.Input['ConfigKinesisDataStreamDataArgs']]):
+        pulumi.set(self, "kinesis_data_stream_data", value)
 
 
 if not MYPY:

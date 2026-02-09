@@ -1332,6 +1332,263 @@ func (in *queryDefinitionQueryLanguagePtr) ToQueryDefinitionQueryLanguagePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(QueryDefinitionQueryLanguagePtrOutput)
 }
 
+type ScheduledQueryLastExecutionStatus string
+
+const (
+	ScheduledQueryLastExecutionStatusInvalidQuery = ScheduledQueryLastExecutionStatus("InvalidQuery")
+	ScheduledQueryLastExecutionStatusComplete     = ScheduledQueryLastExecutionStatus("Complete")
+	ScheduledQueryLastExecutionStatusFailed       = ScheduledQueryLastExecutionStatus("Failed")
+	ScheduledQueryLastExecutionStatusTimeout      = ScheduledQueryLastExecutionStatus("Timeout")
+)
+
+type ScheduledQueryLastExecutionStatusOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryLastExecutionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryLastExecutionStatus)(nil)).Elem()
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToScheduledQueryLastExecutionStatusOutput() ScheduledQueryLastExecutionStatusOutput {
+	return o
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToScheduledQueryLastExecutionStatusOutputWithContext(ctx context.Context) ScheduledQueryLastExecutionStatusOutput {
+	return o
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToScheduledQueryLastExecutionStatusPtrOutput() ScheduledQueryLastExecutionStatusPtrOutput {
+	return o.ToScheduledQueryLastExecutionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToScheduledQueryLastExecutionStatusPtrOutputWithContext(ctx context.Context) ScheduledQueryLastExecutionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryLastExecutionStatus) *ScheduledQueryLastExecutionStatus {
+		return &v
+	}).(ScheduledQueryLastExecutionStatusPtrOutput)
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScheduledQueryLastExecutionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryLastExecutionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScheduledQueryLastExecutionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryLastExecutionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryLastExecutionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryLastExecutionStatus)(nil)).Elem()
+}
+
+func (o ScheduledQueryLastExecutionStatusPtrOutput) ToScheduledQueryLastExecutionStatusPtrOutput() ScheduledQueryLastExecutionStatusPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryLastExecutionStatusPtrOutput) ToScheduledQueryLastExecutionStatusPtrOutputWithContext(ctx context.Context) ScheduledQueryLastExecutionStatusPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryLastExecutionStatusPtrOutput) Elem() ScheduledQueryLastExecutionStatusOutput {
+	return o.ApplyT(func(v *ScheduledQueryLastExecutionStatus) ScheduledQueryLastExecutionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryLastExecutionStatus
+		return ret
+	}).(ScheduledQueryLastExecutionStatusOutput)
+}
+
+func (o ScheduledQueryLastExecutionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryLastExecutionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScheduledQueryLastExecutionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryStateEnum string
+
+const (
+	ScheduledQueryStateEnumEnabled  = ScheduledQueryStateEnum("ENABLED")
+	ScheduledQueryStateEnumDisabled = ScheduledQueryStateEnum("DISABLED")
+)
+
+func (ScheduledQueryStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryStateEnum)(nil)).Elem()
+}
+
+func (e ScheduledQueryStateEnum) ToScheduledQueryStateEnumOutput() ScheduledQueryStateEnumOutput {
+	return pulumi.ToOutput(e).(ScheduledQueryStateEnumOutput)
+}
+
+func (e ScheduledQueryStateEnum) ToScheduledQueryStateEnumOutputWithContext(ctx context.Context) ScheduledQueryStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ScheduledQueryStateEnumOutput)
+}
+
+func (e ScheduledQueryStateEnum) ToScheduledQueryStateEnumPtrOutput() ScheduledQueryStateEnumPtrOutput {
+	return e.ToScheduledQueryStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e ScheduledQueryStateEnum) ToScheduledQueryStateEnumPtrOutputWithContext(ctx context.Context) ScheduledQueryStateEnumPtrOutput {
+	return ScheduledQueryStateEnum(e).ToScheduledQueryStateEnumOutputWithContext(ctx).ToScheduledQueryStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e ScheduledQueryStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScheduledQueryStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScheduledQueryStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScheduledQueryStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ScheduledQueryStateEnumOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryStateEnum)(nil)).Elem()
+}
+
+func (o ScheduledQueryStateEnumOutput) ToScheduledQueryStateEnumOutput() ScheduledQueryStateEnumOutput {
+	return o
+}
+
+func (o ScheduledQueryStateEnumOutput) ToScheduledQueryStateEnumOutputWithContext(ctx context.Context) ScheduledQueryStateEnumOutput {
+	return o
+}
+
+func (o ScheduledQueryStateEnumOutput) ToScheduledQueryStateEnumPtrOutput() ScheduledQueryStateEnumPtrOutput {
+	return o.ToScheduledQueryStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryStateEnumOutput) ToScheduledQueryStateEnumPtrOutputWithContext(ctx context.Context) ScheduledQueryStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryStateEnum) *ScheduledQueryStateEnum {
+		return &v
+	}).(ScheduledQueryStateEnumPtrOutput)
+}
+
+func (o ScheduledQueryStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScheduledQueryStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScheduledQueryStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryStateEnum)(nil)).Elem()
+}
+
+func (o ScheduledQueryStateEnumPtrOutput) ToScheduledQueryStateEnumPtrOutput() ScheduledQueryStateEnumPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryStateEnumPtrOutput) ToScheduledQueryStateEnumPtrOutputWithContext(ctx context.Context) ScheduledQueryStateEnumPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryStateEnumPtrOutput) Elem() ScheduledQueryStateEnumOutput {
+	return o.ApplyT(func(v *ScheduledQueryStateEnum) ScheduledQueryStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryStateEnum
+		return ret
+	}).(ScheduledQueryStateEnumOutput)
+}
+
+func (o ScheduledQueryStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScheduledQueryStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ScheduledQueryStateEnumInput is an input type that accepts values of the ScheduledQueryStateEnum enum
+// A concrete instance of `ScheduledQueryStateEnumInput` can be one of the following:
+//
+//	ScheduledQueryStateEnumEnabled
+//	ScheduledQueryStateEnumDisabled
+type ScheduledQueryStateEnumInput interface {
+	pulumi.Input
+
+	ToScheduledQueryStateEnumOutput() ScheduledQueryStateEnumOutput
+	ToScheduledQueryStateEnumOutputWithContext(context.Context) ScheduledQueryStateEnumOutput
+}
+
+var scheduledQueryStateEnumPtrType = reflect.TypeOf((**ScheduledQueryStateEnum)(nil)).Elem()
+
+type ScheduledQueryStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryStateEnumPtrOutput() ScheduledQueryStateEnumPtrOutput
+	ToScheduledQueryStateEnumPtrOutputWithContext(context.Context) ScheduledQueryStateEnumPtrOutput
+}
+
+type scheduledQueryStateEnumPtr string
+
+func ScheduledQueryStateEnumPtr(v string) ScheduledQueryStateEnumPtrInput {
+	return (*scheduledQueryStateEnumPtr)(&v)
+}
+
+func (*scheduledQueryStateEnumPtr) ElementType() reflect.Type {
+	return scheduledQueryStateEnumPtrType
+}
+
+func (in *scheduledQueryStateEnumPtr) ToScheduledQueryStateEnumPtrOutput() ScheduledQueryStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(ScheduledQueryStateEnumPtrOutput)
+}
+
+func (in *scheduledQueryStateEnumPtr) ToScheduledQueryStateEnumPtrOutputWithContext(ctx context.Context) ScheduledQueryStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ScheduledQueryStateEnumPtrOutput)
+}
+
 // The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 type SubscriptionFilterDistribution string
 
@@ -2183,6 +2440,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitPtrInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryLanguageInput)(nil)).Elem(), QueryDefinitionQueryLanguage("CWLI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryLanguagePtrInput)(nil)).Elem(), QueryDefinitionQueryLanguage("CWLI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryStateEnumInput)(nil)).Elem(), ScheduledQueryStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryStateEnumPtrInput)(nil)).Elem(), ScheduledQueryStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionPtrInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEventSourceInput)(nil)).Elem(), TransformerEventSource("CloudTrail"))
@@ -2209,6 +2468,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitPtrOutput{})
 	pulumi.RegisterOutputType(QueryDefinitionQueryLanguageOutput{})
 	pulumi.RegisterOutputType(QueryDefinitionQueryLanguagePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryLastExecutionStatusOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryLastExecutionStatusPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryStateEnumOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionPtrOutput{})
 	pulumi.RegisterOutputType(TransformerEventSourceOutput{})

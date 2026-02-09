@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetGrantResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGrantResult:
-    def __init__(__self__, grant_arn=None, grant_name=None, home_region=None, license_arn=None, version=None):
+    def __init__(__self__, grant_arn=None, grant_name=None, home_region=None, license_arn=None, tags=None, version=None):
         if grant_arn and not isinstance(grant_arn, str):
             raise TypeError("Expected argument 'grant_arn' to be a str")
         pulumi.set(__self__, "grant_arn", grant_arn)
@@ -36,6 +37,9 @@ class GetGrantResult:
         if license_arn and not isinstance(license_arn, str):
             raise TypeError("Expected argument 'license_arn' to be a str")
         pulumi.set(__self__, "license_arn", license_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -74,6 +78,14 @@ class GetGrantResult:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to attach.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
         The version of the grant.
@@ -91,6 +103,7 @@ class AwaitableGetGrantResult(GetGrantResult):
             grant_name=self.grant_name,
             home_region=self.home_region,
             license_arn=self.license_arn,
+            tags=self.tags,
             version=self.version)
 
 
@@ -112,6 +125,7 @@ def get_grant(grant_arn: Optional[_builtins.str] = None,
         grant_name=pulumi.get(__ret__, 'grant_name'),
         home_region=pulumi.get(__ret__, 'home_region'),
         license_arn=pulumi.get(__ret__, 'license_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_grant_output(grant_arn: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantResult]:
@@ -130,4 +144,5 @@ def get_grant_output(grant_arn: Optional[pulumi.Input[_builtins.str]] = None,
         grant_name=pulumi.get(__response__, 'grant_name'),
         home_region=pulumi.get(__response__, 'home_region'),
         license_arn=pulumi.get(__response__, 'license_arn'),
+        tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

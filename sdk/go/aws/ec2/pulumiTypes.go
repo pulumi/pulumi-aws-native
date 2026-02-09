@@ -19300,16 +19300,18 @@ type LocalGatewayVirtualInterfaceTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
+//
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 type NatGatewayAvailabilityZoneAddress struct {
 	// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
 	AllocationIds []string `pulumi:"allocationIds"`
 	// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 }
 
@@ -19324,16 +19326,18 @@ type NatGatewayAvailabilityZoneAddressInput interface {
 	ToNatGatewayAvailabilityZoneAddressOutputWithContext(context.Context) NatGatewayAvailabilityZoneAddressOutput
 }
 
+// For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
+//
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 type NatGatewayAvailabilityZoneAddressArgs struct {
 	// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
 	AllocationIds pulumi.StringArrayInput `pulumi:"allocationIds"`
 	// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 }
 
@@ -19374,6 +19378,10 @@ func (i NatGatewayAvailabilityZoneAddressArray) ToNatGatewayAvailabilityZoneAddr
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayAvailabilityZoneAddressArrayOutput)
 }
 
+// For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
+//
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 type NatGatewayAvailabilityZoneAddressOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayAvailabilityZoneAddressOutput) ElementType() reflect.Type {
@@ -19395,14 +19403,14 @@ func (o NatGatewayAvailabilityZoneAddressOutput) AllocationIds() pulumi.StringAr
 
 // For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
 //
-// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
 //
-// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }

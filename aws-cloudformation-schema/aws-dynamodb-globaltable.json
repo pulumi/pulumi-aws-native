@@ -5,7 +5,7 @@
   "createOnlyProperties" : [ "/properties/TableName" ],
   "primaryIdentifier" : [ "/properties/TableName" ],
   "required" : [ "Replicas" ],
-  "conditionalCreateOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/KeySchema" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/GlobalTableSourceArn", "/properties/KeySchema" ],
   "propertyTransform" : {
     "/properties/Replicas/*/GlobalTableSettingsReplicationMode" : "GlobalTableSettingsReplicationMode $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"DISABLED\") $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"ENABLED_WITH_OVERRIDES\")"
   },
@@ -28,7 +28,7 @@
     }
   },
   "additionalIdentifiers" : [ [ "/properties/Arn" ], [ "/properties/StreamArn" ] ],
-  "writeOnlyProperties" : [ "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity" ],
+  "writeOnlyProperties" : [ "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalTableSourceArn" ],
   "additionalProperties" : false,
   "definitions" : {
     "LocalSecondaryIndex" : {
@@ -66,6 +66,10 @@
         },
         "ContributorInsightsSpecification" : {
           "$ref" : "#/definitions/ContributorInsightsSpecification"
+        },
+        "GlobalTableSettingsReplicationMode" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ]
         },
         "PointInTimeRecoverySpecification" : {
           "$ref" : "#/definitions/PointInTimeRecoverySpecification"
@@ -205,8 +209,14 @@
         "WarmThroughput" : {
           "$ref" : "#/definitions/WarmThroughput"
         },
+        "ReadProvisionedThroughputSettings" : {
+          "$ref" : "#/definitions/GlobalReadProvisionedThroughputSettings"
+        },
         "WriteProvisionedThroughputSettings" : {
           "$ref" : "#/definitions/WriteProvisionedThroughputSettings"
+        },
+        "ReadOnDemandThroughputSettings" : {
+          "$ref" : "#/definitions/ReadOnDemandThroughputSettings"
         },
         "WriteOnDemandThroughputSettings" : {
           "$ref" : "#/definitions/WriteOnDemandThroughputSettings"
@@ -491,9 +501,6 @@
     "StreamSpecification" : {
       "$ref" : "#/definitions/StreamSpecification"
     },
-    "GlobalTableReadOnDemandThroughputSettings" : {
-      "$ref" : "#/definitions/ReadOnDemandThroughputSettings"
-    },
     "WarmThroughput" : {
       "$ref" : "#/definitions/WarmThroughput"
     },
@@ -508,6 +515,9 @@
     },
     "WriteProvisionedThroughputSettings" : {
       "$ref" : "#/definitions/WriteProvisionedThroughputSettings"
+    },
+    "GlobalTableSourceArn" : {
+      "type" : "string"
     },
     "WriteOnDemandThroughputSettings" : {
       "$ref" : "#/definitions/WriteOnDemandThroughputSettings"
@@ -533,9 +543,6 @@
       "items" : {
         "$ref" : "#/definitions/AttributeDefinition"
       }
-    },
-    "GlobalTableReadProvisionedThroughputSettings" : {
-      "$ref" : "#/definitions/GlobalReadProvisionedThroughputSettings"
     },
     "BillingMode" : {
       "type" : "string"
@@ -570,6 +577,12 @@
     },
     "StreamArn" : {
       "type" : "string"
+    },
+    "ReadProvisionedThroughputSettings" : {
+      "$ref" : "#/definitions/GlobalReadProvisionedThroughputSettings"
+    },
+    "ReadOnDemandThroughputSettings" : {
+      "$ref" : "#/definitions/ReadOnDemandThroughputSettings"
     },
     "TimeToLiveSpecification" : {
       "$ref" : "#/definitions/TimeToLiveSpecification"

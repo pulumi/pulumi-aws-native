@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupGrantResult struct {
 	HomeRegion *string `pulumi:"homeRegion"`
 	// License Arn for the grant.
 	LicenseArn *string `pulumi:"licenseArn"`
+	// A list of tags to attach.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The version of the grant.
 	Version *string `pulumi:"version"`
 }
@@ -90,6 +93,11 @@ func (o LookupGrantResultOutput) HomeRegion() pulumi.StringPtrOutput {
 // License Arn for the grant.
 func (o LookupGrantResultOutput) LicenseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGrantResult) *string { return v.LicenseArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to attach.
+func (o LookupGrantResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGrantResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The version of the grant.

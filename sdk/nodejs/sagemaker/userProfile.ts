@@ -52,7 +52,7 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the user profile.
      */
-    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The user profile Amazon Resource Name (ARN).
      */
@@ -97,7 +97,7 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["userSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "userProfileName", "userSettings.rStudioServerProAppSettings.accessStatus", "userSettings.rStudioServerProAppSettings.userGroup"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "tags[*]", "userProfileName", "userSettings.rStudioServerProAppSettings.accessStatus", "userSettings.rStudioServerProAppSettings.userGroup"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -122,7 +122,7 @@ export interface UserProfileArgs {
     /**
      * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * A name for the UserProfile.
      */

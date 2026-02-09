@@ -510,7 +510,8 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSamlOpt
 }
 
 type DomainAimlOptions struct {
-	S3VectorsEngine *DomainS3VectorsEngine `pulumi:"s3VectorsEngine"`
+	S3VectorsEngine              *DomainS3VectorsEngine              `pulumi:"s3VectorsEngine"`
+	ServerlessVectorAcceleration *DomainServerlessVectorAcceleration `pulumi:"serverlessVectorAcceleration"`
 }
 
 // DomainAimlOptionsInput is an input type that accepts DomainAimlOptionsArgs and DomainAimlOptionsOutput values.
@@ -525,7 +526,8 @@ type DomainAimlOptionsInput interface {
 }
 
 type DomainAimlOptionsArgs struct {
-	S3VectorsEngine DomainS3VectorsEnginePtrInput `pulumi:"s3VectorsEngine"`
+	S3VectorsEngine              DomainS3VectorsEnginePtrInput              `pulumi:"s3VectorsEngine"`
+	ServerlessVectorAcceleration DomainServerlessVectorAccelerationPtrInput `pulumi:"serverlessVectorAcceleration"`
 }
 
 func (DomainAimlOptionsArgs) ElementType() reflect.Type {
@@ -609,6 +611,10 @@ func (o DomainAimlOptionsOutput) S3VectorsEngine() DomainS3VectorsEnginePtrOutpu
 	return o.ApplyT(func(v DomainAimlOptions) *DomainS3VectorsEngine { return v.S3VectorsEngine }).(DomainS3VectorsEnginePtrOutput)
 }
 
+func (o DomainAimlOptionsOutput) ServerlessVectorAcceleration() DomainServerlessVectorAccelerationPtrOutput {
+	return o.ApplyT(func(v DomainAimlOptions) *DomainServerlessVectorAcceleration { return v.ServerlessVectorAcceleration }).(DomainServerlessVectorAccelerationPtrOutput)
+}
+
 type DomainAimlOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainAimlOptionsPtrOutput) ElementType() reflect.Type {
@@ -640,6 +646,15 @@ func (o DomainAimlOptionsPtrOutput) S3VectorsEngine() DomainS3VectorsEnginePtrOu
 		}
 		return v.S3VectorsEngine
 	}).(DomainS3VectorsEnginePtrOutput)
+}
+
+func (o DomainAimlOptionsPtrOutput) ServerlessVectorAcceleration() DomainServerlessVectorAccelerationPtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) *DomainServerlessVectorAcceleration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessVectorAcceleration
+	}).(DomainServerlessVectorAccelerationPtrOutput)
 }
 
 type DomainClusterConfig struct {
@@ -4106,6 +4121,143 @@ func (o DomainSamlOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainServerlessVectorAcceleration struct {
+	// Whether to enable serverless vector acceleration.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DomainServerlessVectorAccelerationInput is an input type that accepts DomainServerlessVectorAccelerationArgs and DomainServerlessVectorAccelerationOutput values.
+// You can construct a concrete instance of `DomainServerlessVectorAccelerationInput` via:
+//
+//	DomainServerlessVectorAccelerationArgs{...}
+type DomainServerlessVectorAccelerationInput interface {
+	pulumi.Input
+
+	ToDomainServerlessVectorAccelerationOutput() DomainServerlessVectorAccelerationOutput
+	ToDomainServerlessVectorAccelerationOutputWithContext(context.Context) DomainServerlessVectorAccelerationOutput
+}
+
+type DomainServerlessVectorAccelerationArgs struct {
+	// Whether to enable serverless vector acceleration.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DomainServerlessVectorAccelerationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (i DomainServerlessVectorAccelerationArgs) ToDomainServerlessVectorAccelerationOutput() DomainServerlessVectorAccelerationOutput {
+	return i.ToDomainServerlessVectorAccelerationOutputWithContext(context.Background())
+}
+
+func (i DomainServerlessVectorAccelerationArgs) ToDomainServerlessVectorAccelerationOutputWithContext(ctx context.Context) DomainServerlessVectorAccelerationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainServerlessVectorAccelerationOutput)
+}
+
+func (i DomainServerlessVectorAccelerationArgs) ToDomainServerlessVectorAccelerationPtrOutput() DomainServerlessVectorAccelerationPtrOutput {
+	return i.ToDomainServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainServerlessVectorAccelerationArgs) ToDomainServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainServerlessVectorAccelerationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainServerlessVectorAccelerationOutput).ToDomainServerlessVectorAccelerationPtrOutputWithContext(ctx)
+}
+
+// DomainServerlessVectorAccelerationPtrInput is an input type that accepts DomainServerlessVectorAccelerationArgs, DomainServerlessVectorAccelerationPtr and DomainServerlessVectorAccelerationPtrOutput values.
+// You can construct a concrete instance of `DomainServerlessVectorAccelerationPtrInput` via:
+//
+//	        DomainServerlessVectorAccelerationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainServerlessVectorAccelerationPtrInput interface {
+	pulumi.Input
+
+	ToDomainServerlessVectorAccelerationPtrOutput() DomainServerlessVectorAccelerationPtrOutput
+	ToDomainServerlessVectorAccelerationPtrOutputWithContext(context.Context) DomainServerlessVectorAccelerationPtrOutput
+}
+
+type domainServerlessVectorAccelerationPtrType DomainServerlessVectorAccelerationArgs
+
+func DomainServerlessVectorAccelerationPtr(v *DomainServerlessVectorAccelerationArgs) DomainServerlessVectorAccelerationPtrInput {
+	return (*domainServerlessVectorAccelerationPtrType)(v)
+}
+
+func (*domainServerlessVectorAccelerationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (i *domainServerlessVectorAccelerationPtrType) ToDomainServerlessVectorAccelerationPtrOutput() DomainServerlessVectorAccelerationPtrOutput {
+	return i.ToDomainServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainServerlessVectorAccelerationPtrType) ToDomainServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainServerlessVectorAccelerationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainServerlessVectorAccelerationPtrOutput)
+}
+
+type DomainServerlessVectorAccelerationOutput struct{ *pulumi.OutputState }
+
+func (DomainServerlessVectorAccelerationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (o DomainServerlessVectorAccelerationOutput) ToDomainServerlessVectorAccelerationOutput() DomainServerlessVectorAccelerationOutput {
+	return o
+}
+
+func (o DomainServerlessVectorAccelerationOutput) ToDomainServerlessVectorAccelerationOutputWithContext(ctx context.Context) DomainServerlessVectorAccelerationOutput {
+	return o
+}
+
+func (o DomainServerlessVectorAccelerationOutput) ToDomainServerlessVectorAccelerationPtrOutput() DomainServerlessVectorAccelerationPtrOutput {
+	return o.ToDomainServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainServerlessVectorAccelerationOutput) ToDomainServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainServerlessVectorAccelerationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainServerlessVectorAcceleration) *DomainServerlessVectorAcceleration {
+		return &v
+	}).(DomainServerlessVectorAccelerationPtrOutput)
+}
+
+// Whether to enable serverless vector acceleration.
+func (o DomainServerlessVectorAccelerationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainServerlessVectorAcceleration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainServerlessVectorAccelerationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainServerlessVectorAccelerationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (o DomainServerlessVectorAccelerationPtrOutput) ToDomainServerlessVectorAccelerationPtrOutput() DomainServerlessVectorAccelerationPtrOutput {
+	return o
+}
+
+func (o DomainServerlessVectorAccelerationPtrOutput) ToDomainServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainServerlessVectorAccelerationPtrOutput {
+	return o
+}
+
+func (o DomainServerlessVectorAccelerationPtrOutput) Elem() DomainServerlessVectorAccelerationOutput {
+	return o.ApplyT(func(v *DomainServerlessVectorAcceleration) DomainServerlessVectorAcceleration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainServerlessVectorAcceleration
+		return ret
+	}).(DomainServerlessVectorAccelerationOutput)
+}
+
+// Whether to enable serverless vector acceleration.
+func (o DomainServerlessVectorAccelerationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainServerlessVectorAcceleration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DomainServiceSoftwareOptions struct {
 	// The timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
 	AutomatedUpdateDate *string `pulumi:"automatedUpdateDate"`
@@ -5254,6 +5406,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3VectorsEnginePtrInput)(nil)).Elem(), DomainS3VectorsEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsInput)(nil)).Elem(), DomainSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsPtrInput)(nil)).Elem(), DomainSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainServerlessVectorAccelerationInput)(nil)).Elem(), DomainServerlessVectorAccelerationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainServerlessVectorAccelerationPtrInput)(nil)).Elem(), DomainServerlessVectorAccelerationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
@@ -5312,6 +5466,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainS3VectorsEnginePtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainServerlessVectorAccelerationOutput{})
+	pulumi.RegisterOutputType(DomainServerlessVectorAccelerationPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})

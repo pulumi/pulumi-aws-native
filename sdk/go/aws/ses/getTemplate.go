@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type LookupTemplateArgs struct {
 
 type LookupTemplateResult struct {
 	Id *string `pulumi:"id"`
+	// The tags (keys and values) associated with the email template.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template *TemplateType `pulumi:"template"`
 }
@@ -65,6 +68,11 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx 
 
 func (o LookupTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The tags (keys and values) associated with the email template.
+func (o LookupTemplateResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The content of the email, composed of a subject line and either an HTML part or a text-only part.

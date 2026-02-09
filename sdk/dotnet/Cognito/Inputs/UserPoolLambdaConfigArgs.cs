@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("defineAuthChallenge")]
         public Input<string>? DefineAuthChallenge { get; set; }
 
+        [Input("inboundFederation")]
+        public Input<Inputs.UserPoolInboundFederationArgs>? InboundFederation { get; set; }
+
         /// <summary>
         /// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
         /// </summary>

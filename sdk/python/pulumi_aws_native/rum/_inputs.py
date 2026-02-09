@@ -504,7 +504,7 @@ if not MYPY:
 
         If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 
-        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
         """
 elif False:
     AppMonitorMetricDefinitionArgsDict: TypeAlias = Mapping[str, Any]
@@ -625,7 +625,7 @@ class AppMonitorMetricDefinitionArgs:
                
                If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
                
-               If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+               If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
         """
         pulumi.set(__self__, "name", name)
         if dimension_keys is not None:
@@ -803,7 +803,7 @@ class AppMonitorMetricDefinitionArgs:
 
         If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 
-        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
         """
         return pulumi.get(self, "value_key")
 
@@ -819,15 +819,17 @@ if not MYPY:
         """
         destination: pulumi.Input['AppMonitorMetricDestinationDestination']
         """
-        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
         """
         destination_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+
+        This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         """
         iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
         This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         """
@@ -847,9 +849,11 @@ class AppMonitorMetricDestinationArgs:
                  metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None):
         """
         An structure which defines the destination and the metrics that you want to send.
-        :param pulumi.Input['AppMonitorMetricDestinationDestination'] destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[_builtins.str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+        :param pulumi.Input['AppMonitorMetricDestinationDestination'] destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
+        :param pulumi.Input[_builtins.str] destination_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+               
+               This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        :param pulumi.Input[_builtins.str] iam_role_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
                
                This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         :param pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]] metric_definitions: An array of structures which define the metrics that you want to send.
@@ -866,7 +870,7 @@ class AppMonitorMetricDestinationArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input['AppMonitorMetricDestinationDestination']:
         """
-        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
         """
         return pulumi.get(self, "destination")
 
@@ -878,7 +882,9 @@ class AppMonitorMetricDestinationArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+
+        This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -890,7 +896,7 @@ class AppMonitorMetricDestinationArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
         This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         """

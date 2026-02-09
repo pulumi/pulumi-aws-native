@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetTemplateResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTemplateResult:
-    def __init__(__self__, id=None, template=None):
+    def __init__(__self__, id=None, tags=None, template=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if template and not isinstance(template, dict):
             raise TypeError("Expected argument 'template' to be a dict")
         pulumi.set(__self__, "template", template)
@@ -36,6 +40,14 @@ class GetTemplateResult:
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags (keys and values) associated with the email template.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
@@ -53,6 +65,7 @@ class AwaitableGetTemplateResult(GetTemplateResult):
             yield self
         return GetTemplateResult(
             id=self.id,
+            tags=self.tags,
             template=self.template)
 
 
@@ -68,6 +81,7 @@ def get_template(id: Optional[_builtins.str] = None,
 
     return AwaitableGetTemplateResult(
         id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'))
 def get_template_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
@@ -80,4 +94,5 @@ def get_template_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
     return __ret__.apply(lambda __response__: GetTemplateResult(
         id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
         template=pulumi.get(__response__, 'template')))

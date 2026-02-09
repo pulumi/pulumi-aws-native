@@ -40,6 +40,7 @@ __all__ = [
     'DomainOffPeakWindowOptions',
     'DomainS3VectorsEngine',
     'DomainSamlOptions',
+    'DomainServerlessVectorAcceleration',
     'DomainServiceSoftwareOptions',
     'DomainSnapshotOptions',
     'DomainSoftwareUpdateOptions',
@@ -274,6 +275,8 @@ class DomainAimlOptions(dict):
         suggest = None
         if key == "s3VectorsEngine":
             suggest = "s3_vectors_engine"
+        elif key == "serverlessVectorAcceleration":
+            suggest = "serverless_vector_acceleration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainAimlOptions. Access the value via the '{suggest}' property getter instead.")
@@ -287,14 +290,22 @@ class DomainAimlOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s3_vectors_engine: Optional['outputs.DomainS3VectorsEngine'] = None):
+                 s3_vectors_engine: Optional['outputs.DomainS3VectorsEngine'] = None,
+                 serverless_vector_acceleration: Optional['outputs.DomainServerlessVectorAcceleration'] = None):
         if s3_vectors_engine is not None:
             pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+        if serverless_vector_acceleration is not None:
+            pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
 
     @_builtins.property
     @pulumi.getter(name="s3VectorsEngine")
     def s3_vectors_engine(self) -> Optional['outputs.DomainS3VectorsEngine']:
         return pulumi.get(self, "s3_vectors_engine")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> Optional['outputs.DomainServerlessVectorAcceleration']:
+        return pulumi.get(self, "serverless_vector_acceleration")
 
 
 @pulumi.output_type
@@ -1558,6 +1569,25 @@ class DomainSamlOptions(dict):
         Element of the SAML assertion to use for the user name. Default is `NameID` .
         """
         return pulumi.get(self, "subject_key")
+
+
+@pulumi.output_type
+class DomainServerlessVectorAcceleration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enabled: Whether to enable serverless vector acceleration.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable serverless vector acceleration.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

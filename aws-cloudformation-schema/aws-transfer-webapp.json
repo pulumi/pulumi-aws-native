@@ -210,7 +210,7 @@
       "permissions" : [ "transfer:DescribeWebApp", "transfer:DescribeWebAppCustomization" ]
     },
     "update" : {
-      "permissions" : [ "transfer:DescribeWebApp", "transfer:DescribeWebAppCustomization", "transfer:UpdateWebApp", "transfer:UpdateWebAppCustomization", "transfer:DeleteWebAppCustomization", "transfer:UnTagResource", "transfer:TagResource", "iam:PassRole", "sso:PutApplicationGrant", "sso:GetApplicationGrant", "sso:ListApplicationGrants", "sso:UpdateApplication", "sso:DescribeApplication", "sso:ListApplications", "ec2:ModifyVpcEndpoint" ]
+      "permissions" : [ "transfer:DescribeWebApp", "transfer:DescribeWebAppCustomization", "transfer:UpdateWebApp", "transfer:UpdateWebAppCustomization", "transfer:DeleteWebAppCustomization", "transfer:UnTagResource", "transfer:TagResource", "iam:PassRole", "sso:PutApplicationGrant", "sso:GetApplicationGrant", "sso:ListApplicationGrants", "sso:UpdateApplication", "sso:DescribeApplication", "sso:ListApplications", "ec2:DescribeVpcEndpoints", "ec2:ModifyVpcEndpoint" ]
     },
     "delete" : {
       "permissions" : [ "transfer:DeleteWebApp", "sso:DescribeApplication", "sso:DeleteApplication", "ec2:DescribeVpcEndpoints", "ec2:DeleteVpcEndpoints" ]

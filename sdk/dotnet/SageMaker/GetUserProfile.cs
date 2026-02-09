@@ -76,10 +76,6 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetUserProfileResult
     {
         /// <summary>
-        /// A list of tags to apply to the user profile.
-        /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
-        /// <summary>
         /// The user profile Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? UserProfileArn;
@@ -90,13 +86,10 @@ namespace Pulumi.AwsNative.SageMaker
 
         [OutputConstructor]
         private GetUserProfileResult(
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
-
             string? userProfileArn,
 
             Outputs.UserProfileUserSettings? userSettings)
         {
-            Tags = tags;
             UserProfileArn = userProfileArn;
             UserSettings = userSettings;
         }
