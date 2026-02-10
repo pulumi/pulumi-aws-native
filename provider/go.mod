@@ -31,8 +31,8 @@ require (
 	github.com/pulumi/providertest v0.5.1
 	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.100.0
 	github.com/pulumi/pulumi-go-provider v0.26.0
-	github.com/pulumi/pulumi/pkg/v3 v3.219.1-0.20260209153940-7b8489e7507e
-	github.com/pulumi/pulumi/sdk/v3 v3.219.1-0.20260208071218-1bd84f1343e1
+	github.com/pulumi/pulumi/pkg/v3 v3.220.0
+	github.com/pulumi/pulumi/sdk/v3 v3.220.0
 	github.com/stretchr/testify v1.10.0
 	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.14.4
