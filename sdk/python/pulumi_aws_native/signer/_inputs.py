@@ -20,20 +20,15 @@ __all__ = [
     'SigningProfileSignatureValidityPeriodArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input['SigningProfileSignatureValidityPeriodType']]
-        """
-        The time unit for signature validity: DAYS | MONTHS | YEARS.
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The numerical value of the time unit for signature validity.
-        """
-elif False:
-    SigningProfileSignatureValidityPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input['SigningProfileSignatureValidityPeriodType']]
+    """
+    The time unit for signature validity: DAYS | MONTHS | YEARS.
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The numerical value of the time unit for signature validity.
+    """
 
 @pulumi.input_type
 class SigningProfileSignatureValidityPeriodArgs:

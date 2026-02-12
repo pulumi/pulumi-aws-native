@@ -338,19 +338,14 @@ __all__ = [
     'WebAclXssMatchStatementArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LoggingConfigurationConditionActionConditionPropertiesArgsDict(TypedDict):
-        """
-        A single action condition.
-        """
-        action: pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction']
-        """
-        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
-        """
-elif False:
-    LoggingConfigurationConditionActionConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingConfigurationConditionActionConditionPropertiesArgsDict(TypedDict):
+    """
+    A single action condition.
+    """
+    action: pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction']
+    """
+    Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+    """
 
 @pulumi.input_type
 class LoggingConfigurationConditionActionConditionPropertiesArgs:
@@ -375,17 +370,14 @@ class LoggingConfigurationConditionActionConditionPropertiesArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class LoggingConfigurationConditionLabelNameConditionPropertiesArgsDict(TypedDict):
-        """
-        A single label name condition.
-        """
-        label_name: pulumi.Input[_builtins.str]
-        """
-        The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
-        """
-elif False:
-    LoggingConfigurationConditionLabelNameConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingConfigurationConditionLabelNameConditionPropertiesArgsDict(TypedDict):
+    """
+    A single label name condition.
+    """
+    label_name: pulumi.Input[_builtins.str]
+    """
+    The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+    """
 
 @pulumi.input_type
 class LoggingConfigurationConditionLabelNameConditionPropertiesArgs:
@@ -410,18 +402,15 @@ class LoggingConfigurationConditionLabelNameConditionPropertiesArgs:
         pulumi.set(self, "label_name", value)
 
 
-if not MYPY:
-    class LoggingConfigurationConditionArgsDict(TypedDict):
-        action_condition: NotRequired[pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgsDict']]
-        """
-        A single action condition.
-        """
-        label_name_condition: NotRequired[pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgsDict']]
-        """
-        A single label name condition.
-        """
-elif False:
-    LoggingConfigurationConditionArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingConfigurationConditionArgsDict(TypedDict):
+    action_condition: NotRequired[pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgsDict']]
+    """
+    A single action condition.
+    """
+    label_name_condition: NotRequired[pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgsDict']]
+    """
+    A single label name condition.
+    """
 
 @pulumi.input_type
 class LoggingConfigurationConditionArgs:
@@ -462,17 +451,14 @@ class LoggingConfigurationConditionArgs:
         pulumi.set(self, "label_name_condition", value)
 
 
-if not MYPY:
-    class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgsDict(TypedDict):
-        """
-        Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the query header to inspect.
-        """
-elif False:
-    LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgsDict(TypedDict):
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the query header to inspect.
+    """
 
 @pulumi.input_type
 class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
@@ -497,29 +483,26 @@ class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LoggingConfigurationFieldToMatchArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        method: NotRequired[Any]
-        """
-        Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
-        """
-        query_string: NotRequired[Any]
-        """
-        Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
-        """
-        single_header: NotRequired[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgsDict']]
-        """
-        Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-        """
-        uri_path: NotRequired[Any]
-        """
-        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
-        """
-elif False:
-    LoggingConfigurationFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingConfigurationFieldToMatchArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    method: NotRequired[Any]
+    """
+    Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
+    """
+    query_string: NotRequired[Any]
+    """
+    Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
+    """
+    single_header: NotRequired[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgsDict']]
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+    """
+    uri_path: NotRequired[Any]
+    """
+    Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
+    """
 
 @pulumi.input_type
 class LoggingConfigurationFieldToMatchArgs:
@@ -593,22 +576,19 @@ class LoggingConfigurationFieldToMatchArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class LoggingConfigurationFilterArgsDict(TypedDict):
-        behavior: pulumi.Input['LoggingConfigurationFilterBehavior']
-        """
-        How to handle logs that satisfy the filter's conditions and requirement. 
-        """
-        conditions: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgsDict']]]
-        """
-        Match conditions for the filter.
-        """
-        requirement: pulumi.Input['LoggingConfigurationFilterRequirement']
-        """
-        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
-        """
-elif False:
-    LoggingConfigurationFilterArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingConfigurationFilterArgsDict(TypedDict):
+    behavior: pulumi.Input['LoggingConfigurationFilterBehavior']
+    """
+    How to handle logs that satisfy the filter's conditions and requirement. 
+    """
+    conditions: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgsDict']]]
+    """
+    Match conditions for the filter.
+    """
+    requirement: pulumi.Input['LoggingConfigurationFilterRequirement']
+    """
+    Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+    """
 
 @pulumi.input_type
 class LoggingConfigurationFilterArgs:
@@ -662,21 +642,18 @@ class LoggingConfigurationFilterArgs:
         pulumi.set(self, "requirement", value)
 
 
-if not MYPY:
-    class LoggingFilterPropertiesArgsDict(TypedDict):
-        """
-        Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-        """
-        default_behavior: pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior']
-        """
-        Default handling for logs that don't match any of the specified filtering conditions.
-        """
-        filters: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgsDict']]]
-        """
-        The filters that you want to apply to the logs.
-        """
-elif False:
-    LoggingFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingFilterPropertiesArgsDict(TypedDict):
+    """
+    Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+    """
+    default_behavior: pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior']
+    """
+    Default handling for logs that don't match any of the specified filtering conditions.
+    """
+    filters: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgsDict']]]
+    """
+    The filters that you want to apply to the logs.
+    """
 
 @pulumi.input_type
 class LoggingFilterPropertiesArgs:
@@ -716,19 +693,16 @@ class LoggingFilterPropertiesArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class RuleGroupAllowActionArgsDict(TypedDict):
-        """
-        Allow traffic towards application.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request.
+class RuleGroupAllowActionArgsDict(TypedDict):
+    """
+    Allow traffic towards application.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupAllowActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupAllowActionArgs:
@@ -758,14 +732,11 @@ class RuleGroupAllowActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class RuleGroupAndStatementArgsDict(TypedDict):
-        statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgsDict']]]
-        """
-        The statements to combine with AND logic. You can use any statements that can be nested.
-        """
-elif False:
-    RuleGroupAndStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupAndStatementArgsDict(TypedDict):
+    statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgsDict']]]
+    """
+    The statements to combine with AND logic. You can use any statements that can be nested.
+    """
 
 @pulumi.input_type
 class RuleGroupAndStatementArgs:
@@ -789,18 +760,15 @@ class RuleGroupAndStatementArgs:
         pulumi.set(self, "statements", value)
 
 
-if not MYPY:
-    class RuleGroupAsnMatchStatementArgsDict(TypedDict):
-        asn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
-        """
-        forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
-        """
-elif False:
-    RuleGroupAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupAsnMatchStatementArgsDict(TypedDict):
+    asn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+    """
+    forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+    """
 
 @pulumi.input_type
 class RuleGroupAsnMatchStatementArgs:
@@ -841,19 +809,16 @@ class RuleGroupAsnMatchStatementArgs:
         pulumi.set(self, "forwarded_ip_config", value)
 
 
-if not MYPY:
-    class RuleGroupBlockActionArgsDict(TypedDict):
-        """
-        Block traffic towards application.
-        """
-        custom_response: NotRequired[pulumi.Input['RuleGroupCustomResponseArgsDict']]
-        """
-        Defines a custom response for the web request.
+class RuleGroupBlockActionArgsDict(TypedDict):
+    """
+    Block traffic towards application.
+    """
+    custom_response: NotRequired[pulumi.Input['RuleGroupCustomResponseArgsDict']]
+    """
+    Defines a custom response for the web request.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupBlockActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupBlockActionArgs:
@@ -883,33 +848,30 @@ class RuleGroupBlockActionArgs:
         pulumi.set(self, "custom_response", value)
 
 
-if not MYPY:
-    class RuleGroupBodyArgsDict(TypedDict):
-        """
-        The body of a web request. This immediately follows the request headers.
-        """
-        oversize_handling: NotRequired[pulumi.Input['RuleGroupOversizeHandling']]
-        """
-        What AWS WAF should do if the body is larger than AWS WAF can inspect.
+class RuleGroupBodyArgsDict(TypedDict):
+    """
+    The body of a web request. This immediately follows the request headers.
+    """
+    oversize_handling: NotRequired[pulumi.Input['RuleGroupOversizeHandling']]
+    """
+    What AWS WAF should do if the body is larger than AWS WAF can inspect.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
+    You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
 
-        Default: `CONTINUE`
-        """
-elif False:
-    RuleGroupBodyArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `CONTINUE`
+    """
 
 @pulumi.input_type
 class RuleGroupBodyArgs:
@@ -967,64 +929,61 @@ class RuleGroupBodyArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class RuleGroupByteMatchStatementArgsDict(TypedDict):
-        """
-        Byte Match statement.
-        """
-        field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        positional_constraint: pulumi.Input['RuleGroupPositionalConstraint']
-        """
-        The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
+class RuleGroupByteMatchStatementArgsDict(TypedDict):
+    """
+    Byte Match statement.
+    """
+    field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    positional_constraint: pulumi.Input['RuleGroupPositionalConstraint']
+    """
+    The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
 
-        *CONTAINS*
+    *CONTAINS*
 
-        The specified part of the web request must include the value of `SearchString` , but the location doesn't matter.
+    The specified part of the web request must include the value of `SearchString` , but the location doesn't matter.
 
-        *CONTAINS_WORD*
+    *CONTAINS_WORD*
 
-        The specified part of the web request must include the value of `SearchString` , and `SearchString` must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, `SearchString` must be a word, which means that both of the following are true:
+    The specified part of the web request must include the value of `SearchString` , and `SearchString` must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, `SearchString` must be a word, which means that both of the following are true:
 
-        - `SearchString` is at the beginning of the specified part of the web request or is preceded by a character other than an alphanumeric character or underscore (_). Examples include the value of a header and `;BadBot` .
-        - `SearchString` is at the end of the specified part of the web request or is followed by a character other than an alphanumeric character or underscore (_), for example, `BadBot;` and `-BadBot;` .
+    - `SearchString` is at the beginning of the specified part of the web request or is preceded by a character other than an alphanumeric character or underscore (_). Examples include the value of a header and `;BadBot` .
+    - `SearchString` is at the end of the specified part of the web request or is followed by a character other than an alphanumeric character or underscore (_), for example, `BadBot;` and `-BadBot;` .
 
-        *EXACTLY*
+    *EXACTLY*
 
-        The value of the specified part of the web request must exactly match the value of `SearchString` .
+    The value of the specified part of the web request must exactly match the value of `SearchString` .
 
-        *STARTS_WITH*
+    *STARTS_WITH*
 
-        The value of `SearchString` must appear at the beginning of the specified part of the web request.
+    The value of `SearchString` must appear at the beginning of the specified part of the web request.
 
-        *ENDS_WITH*
+    *ENDS_WITH*
 
-        The value of `SearchString` must appear at the end of the specified part of the web request.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-        search_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
+    The value of `SearchString` must appear at the end of the specified part of the web request.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
+    search_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 
-        Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
+    Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
 
-        For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
+    For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 
-        You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-        """
-        search_string_base64: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        String to search for in a web request component, base64-encoded. If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
+    You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
+    """
+    search_string_base64: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    String to search for in a web request component, base64-encoded. If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 
-        You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-        """
-elif False:
-    RuleGroupByteMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
+    """
 
 @pulumi.input_type
 class RuleGroupByteMatchStatementArgs:
@@ -1173,19 +1132,16 @@ class RuleGroupByteMatchStatementArgs:
         pulumi.set(self, "search_string_base64", value)
 
 
-if not MYPY:
-    class RuleGroupCaptchaActionArgsDict(TypedDict):
-        """
-        Checks valid token exists with request.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
+class RuleGroupCaptchaActionArgsDict(TypedDict):
+    """
+    Checks valid token exists with request.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupCaptchaActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupCaptchaActionArgs:
@@ -1215,14 +1171,11 @@ class RuleGroupCaptchaActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class RuleGroupCaptchaConfigArgsDict(TypedDict):
-        immunity_time_property: NotRequired[pulumi.Input['RuleGroupImmunityTimePropertyArgsDict']]
-        """
-        Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
-        """
-elif False:
-    RuleGroupCaptchaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupCaptchaConfigArgsDict(TypedDict):
+    immunity_time_property: NotRequired[pulumi.Input['RuleGroupImmunityTimePropertyArgsDict']]
+    """
+    Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
+    """
 
 @pulumi.input_type
 class RuleGroupCaptchaConfigArgs:
@@ -1247,19 +1200,16 @@ class RuleGroupCaptchaConfigArgs:
         pulumi.set(self, "immunity_time_property", value)
 
 
-if not MYPY:
-    class RuleGroupChallengeActionArgsDict(TypedDict):
-        """
-        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
+class RuleGroupChallengeActionArgsDict(TypedDict):
+    """
+    Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupChallengeActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupChallengeActionArgs:
@@ -1289,14 +1239,11 @@ class RuleGroupChallengeActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class RuleGroupChallengeConfigArgsDict(TypedDict):
-        immunity_time_property: NotRequired[pulumi.Input['RuleGroupImmunityTimePropertyArgsDict']]
-        """
-        Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
-        """
-elif False:
-    RuleGroupChallengeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupChallengeConfigArgsDict(TypedDict):
+    immunity_time_property: NotRequired[pulumi.Input['RuleGroupImmunityTimePropertyArgsDict']]
+    """
+    Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
+    """
 
 @pulumi.input_type
 class RuleGroupChallengeConfigArgs:
@@ -1321,25 +1268,22 @@ class RuleGroupChallengeConfigArgs:
         pulumi.set(self, "immunity_time_property", value)
 
 
-if not MYPY:
-    class RuleGroupCookieMatchPatternArgsDict(TypedDict):
-        """
-        The pattern to look for in the request cookies.
-        """
-        all: NotRequired[Any]
-        """
-        Inspect all parts of the web request cookies.
-        """
-        excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the cookies whose keys don't match any of the strings specified here.
-        """
-        included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the cookies that have a key that matches one of the strings specified here.
-        """
-elif False:
-    RuleGroupCookieMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupCookieMatchPatternArgsDict(TypedDict):
+    """
+    The pattern to look for in the request cookies.
+    """
+    all: NotRequired[Any]
+    """
+    Inspect all parts of the web request cookies.
+    """
+    excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the cookies whose keys don't match any of the strings specified here.
+    """
+    included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the cookies that have a key that matches one of the strings specified here.
+    """
 
 @pulumi.input_type
 class RuleGroupCookieMatchPatternArgs:
@@ -1397,37 +1341,34 @@ class RuleGroupCookieMatchPatternArgs:
         pulumi.set(self, "included_cookies", value)
 
 
-if not MYPY:
-    class RuleGroupCookiesArgsDict(TypedDict):
-        """
-        Includes cookies of a web request.
-        """
-        match_pattern: pulumi.Input['RuleGroupCookieMatchPatternArgsDict']
-        """
-        The filter to use to identify the subset of cookies to inspect in a web request.
+class RuleGroupCookiesArgsDict(TypedDict):
+    """
+    Includes cookies of a web request.
+    """
+    match_pattern: pulumi.Input['RuleGroupCookieMatchPatternArgsDict']
+    """
+    The filter to use to identify the subset of cookies to inspect in a web request.
 
-        You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
+    You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
 
-        Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`
-        """
-        match_scope: pulumi.Input['RuleGroupMapMatchScope']
-        """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
+    Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`
+    """
+    match_scope: pulumi.Input['RuleGroupMapMatchScope']
+    """
+    The parts of the cookies to inspect with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
 
-        `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        """
-        oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
-        """
-        What AWS WAF should do if the cookies of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF .
+    `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
+    """
+    oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
+    """
+    What AWS WAF should do if the cookies of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF .
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available cookies normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    RuleGroupCookiesArgsDict: TypeAlias = Mapping[str, Any]
+    - `CONTINUE` - Inspect the available cookies normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupCookiesArgs:
@@ -1506,19 +1447,16 @@ class RuleGroupCookiesArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class RuleGroupCountActionArgsDict(TypedDict):
-        """
-        Count traffic towards application.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request.
+class RuleGroupCountActionArgsDict(TypedDict):
+    """
+    Count traffic towards application.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['RuleGroupCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupCountActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupCountActionArgs:
@@ -1548,23 +1486,20 @@ class RuleGroupCountActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class RuleGroupCustomHttpHeaderArgsDict(TypedDict):
-        """
-        HTTP header.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the custom header.
+class RuleGroupCustomHttpHeaderArgsDict(TypedDict):
+    """
+    HTTP header.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the custom header.
 
-        For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the custom header.
-        """
-elif False:
-    RuleGroupCustomHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+    For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the custom header.
+    """
 
 @pulumi.input_type
 class RuleGroupCustomHttpHeaderArgs:
@@ -1608,17 +1543,14 @@ class RuleGroupCustomHttpHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RuleGroupCustomRequestHandlingArgsDict(TypedDict):
-        """
-        Custom request handling.
-        """
-        insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgsDict']]]
-        """
-        Collection of HTTP headers.
-        """
-elif False:
-    RuleGroupCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupCustomRequestHandlingArgsDict(TypedDict):
+    """
+    Custom request handling.
+    """
+    insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgsDict']]]
+    """
+    Collection of HTTP headers.
+    """
 
 @pulumi.input_type
 class RuleGroupCustomRequestHandlingArgs:
@@ -1643,25 +1575,22 @@ class RuleGroupCustomRequestHandlingArgs:
         pulumi.set(self, "insert_headers", value)
 
 
-if not MYPY:
-    class RuleGroupCustomResponseBodyArgsDict(TypedDict):
-        """
-        Custom response body.
-        """
-        content: pulumi.Input[_builtins.str]
-        """
-        The payload of the custom response.
+class RuleGroupCustomResponseBodyArgsDict(TypedDict):
+    """
+    Custom response body.
+    """
+    content: pulumi.Input[_builtins.str]
+    """
+    The payload of the custom response.
 
-        You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
+    You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 
-        For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
-        """
-        content_type: pulumi.Input['RuleGroupResponseContentType']
-        """
-        The type of content in the payload that you are defining in the `Content` string.
-        """
-elif False:
-    RuleGroupCustomResponseBodyArgsDict: TypeAlias = Mapping[str, Any]
+    For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+    """
+    content_type: pulumi.Input['RuleGroupResponseContentType']
+    """
+    The type of content in the payload that you are defining in the `Content` string.
+    """
 
 @pulumi.input_type
 class RuleGroupCustomResponseBodyArgs:
@@ -1709,27 +1638,24 @@ class RuleGroupCustomResponseBodyArgs:
         pulumi.set(self, "content_type", value)
 
 
-if not MYPY:
-    class RuleGroupCustomResponseArgsDict(TypedDict):
-        """
-        Custom response.
-        """
-        response_code: pulumi.Input[_builtins.int]
-        """
-        The HTTP status code to return to the client.
+class RuleGroupCustomResponseArgsDict(TypedDict):
+    """
+    Custom response.
+    """
+    response_code: pulumi.Input[_builtins.int]
+    """
+    The HTTP status code to return to the client.
 
-        For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
-        """
-        custom_response_body_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom response body key.
-        """
-        response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgsDict']]]]
-        """
-        Collection of HTTP headers.
-        """
-elif False:
-    RuleGroupCustomResponseArgsDict: TypeAlias = Mapping[str, Any]
+    For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
+    """
+    custom_response_body_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom response body key.
+    """
+    response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgsDict']]]]
+    """
+    Collection of HTTP headers.
+    """
 
 @pulumi.input_type
 class RuleGroupCustomResponseArgs:
@@ -1790,18 +1716,15 @@ class RuleGroupCustomResponseArgs:
         pulumi.set(self, "response_headers", value)
 
 
-if not MYPY:
-    class RuleGroupFieldToMatchSingleHeaderPropertiesArgsDict(TypedDict):
-        """
-        Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+class RuleGroupFieldToMatchSingleHeaderPropertiesArgsDict(TypedDict):
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 
-        Example JSON: `"SingleHeader": { "Name": "haystack" }`
+    Example JSON: `"SingleHeader": { "Name": "haystack" }`
 
-        Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
-        """
-        name: pulumi.Input[_builtins.str]
-elif False:
-    RuleGroupFieldToMatchSingleHeaderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+    """
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class RuleGroupFieldToMatchSingleHeaderPropertiesArgs:
@@ -1826,14 +1749,11 @@ class RuleGroupFieldToMatchSingleHeaderPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgsDict(TypedDict):
-        """
-        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-        """
-        name: pulumi.Input[_builtins.str]
-elif False:
-    RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgsDict(TypedDict):
+    """
+    One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+    """
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs:
@@ -1854,104 +1774,101 @@ class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleGroupFieldToMatchArgsDict(TypedDict):
-        """
-        Field of the request to match.
-        """
-        all_query_arguments: NotRequired[Any]
-        """
-        All query arguments of a web request.
-        """
-        body: NotRequired[pulumi.Input['RuleGroupBodyArgsDict']]
-        """
-        Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+class RuleGroupFieldToMatchArgsDict(TypedDict):
+    """
+    Field of the request to match.
+    """
+    all_query_arguments: NotRequired[Any]
+    """
+    All query arguments of a web request.
+    """
+    body: NotRequired[pulumi.Input['RuleGroupBodyArgsDict']]
+    """
+    Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        For information about how to handle oversized request bodies, see the `Body` object configuration.
-        """
-        cookies: NotRequired[pulumi.Input['RuleGroupCookiesArgsDict']]
-        """
-        Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
+    For information about how to handle oversized request bodies, see the `Body` object configuration.
+    """
+    cookies: NotRequired[pulumi.Input['RuleGroupCookiesArgsDict']]
+    """
+    Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 
-        Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-        """
-        header_order: NotRequired[pulumi.Input['RuleGroupHeaderOrderArgsDict']]
-        headers: NotRequired[pulumi.Input['RuleGroupHeadersArgsDict']]
-        """
-        Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
+    Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+    """
+    header_order: NotRequired[pulumi.Input['RuleGroupHeaderOrderArgsDict']]
+    headers: NotRequired[pulumi.Input['RuleGroupHeadersArgsDict']]
+    """
+    Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 
-        Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
-        """
-        ja3_fingerprint: NotRequired[pulumi.Input['RuleGroupJa3FingerprintArgsDict']]
-        """
-        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+    Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
+    """
+    ja3_fingerprint: NotRequired[pulumi.Input['RuleGroupJa3FingerprintArgsDict']]
+    """
+    Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+    > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
 
-        You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+    You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
-        Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
-        """
-        ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupJa4FingerprintArgsDict']]
-        """
-        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+    Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+    """
+    ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupJa4FingerprintArgsDict']]
+    """
+    Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+    > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
 
-        You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+    You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
-        Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
-        """
-        json_body: NotRequired[pulumi.Input['RuleGroupJsonBodyArgsDict']]
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+    Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+    """
+    json_body: NotRequired[pulumi.Input['RuleGroupJsonBodyArgsDict']]
+    """
+    Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
-        """
-        method: NotRequired[Any]
-        """
-        The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
-        """
-        query_string: NotRequired[Any]
-        """
-        The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        """
-        single_header: NotRequired[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgsDict']]
-        """
-        Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+    For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
+    """
+    method: NotRequired[Any]
+    """
+    The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
+    """
+    query_string: NotRequired[Any]
+    """
+    The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+    """
+    single_header: NotRequired[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgsDict']]
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 
-        Example JSON: `"SingleHeader": { "Name": "haystack" }`
+    Example JSON: `"SingleHeader": { "Name": "haystack" }`
 
-        Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
-        """
-        single_query_argument: NotRequired[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgsDict']]
-        """
-        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-        """
-        uri_fragment: NotRequired[pulumi.Input['RuleGroupUriFragmentArgsDict']]
-        """
-        Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+    Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+    """
+    single_query_argument: NotRequired[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgsDict']]
+    """
+    One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+    """
+    uri_fragment: NotRequired[pulumi.Input['RuleGroupUriFragmentArgsDict']]
+    """
+    Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
 
-        Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-        """
-        uri_path: NotRequired[Any]
-        """
-        The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
-        """
-elif False:
-    RuleGroupFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+    Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+    """
+    uri_path: NotRequired[Any]
+    """
+    The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
+    """
 
 @pulumi.input_type
 class RuleGroupFieldToMatchArgs:
@@ -2257,27 +2174,24 @@ class RuleGroupFieldToMatchArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class RuleGroupForwardedIpConfigurationArgsDict(TypedDict):
-        fallback_behavior: pulumi.Input['RuleGroupForwardedIpConfigurationFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+class RuleGroupForwardedIpConfigurationArgsDict(TypedDict):
+    fallback_behavior: pulumi.Input['RuleGroupForwardedIpConfigurationFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-        header_name: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
+    header_name: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-elif False:
-    RuleGroupForwardedIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
 
 @pulumi.input_type
 class RuleGroupForwardedIpConfigurationArgs:
@@ -2334,22 +2248,19 @@ class RuleGroupForwardedIpConfigurationArgs:
         pulumi.set(self, "header_name", value)
 
 
-if not MYPY:
-    class RuleGroupGeoMatchStatementArgsDict(TypedDict):
-        country_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of two-character country codes that you want to match against, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
+class RuleGroupGeoMatchStatementArgsDict(TypedDict):
+    country_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of two-character country codes that you want to match against, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
 
-        When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.
-        """
-        forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+    When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.
+    """
+    forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-elif False:
-    RuleGroupGeoMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
 
 @pulumi.input_type
 class RuleGroupGeoMatchStatementArgs:
@@ -2398,25 +2309,22 @@ class RuleGroupGeoMatchStatementArgs:
         pulumi.set(self, "forwarded_ip_config", value)
 
 
-if not MYPY:
-    class RuleGroupHeaderMatchPatternArgsDict(TypedDict):
-        """
-        The pattern to look for in the request headers.
-        """
-        all: NotRequired[Any]
-        """
-        Inspect all parts of the web request headers.
-        """
-        excluded_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the headers whose keys don't match any of the strings specified here.
-        """
-        included_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the headers that have a key that matches one of the strings specified here.
-        """
-elif False:
-    RuleGroupHeaderMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupHeaderMatchPatternArgsDict(TypedDict):
+    """
+    The pattern to look for in the request headers.
+    """
+    all: NotRequired[Any]
+    """
+    Inspect all parts of the web request headers.
+    """
+    excluded_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the headers whose keys don't match any of the strings specified here.
+    """
+    included_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the headers that have a key that matches one of the strings specified here.
+    """
 
 @pulumi.input_type
 class RuleGroupHeaderMatchPatternArgs:
@@ -2474,14 +2382,11 @@ class RuleGroupHeaderMatchPatternArgs:
         pulumi.set(self, "included_headers", value)
 
 
-if not MYPY:
-    class RuleGroupHeaderOrderArgsDict(TypedDict):
-        """
-        The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
-        """
-        oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
-elif False:
-    RuleGroupHeaderOrderArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupHeaderOrderArgsDict(TypedDict):
+    """
+    The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+    """
+    oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
 
 @pulumi.input_type
 class RuleGroupHeaderOrderArgs:
@@ -2502,37 +2407,34 @@ class RuleGroupHeaderOrderArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class RuleGroupHeadersArgsDict(TypedDict):
-        """
-        Includes headers of a web request.
-        """
-        match_pattern: pulumi.Input['RuleGroupHeaderMatchPatternArgsDict']
-        """
-        The filter to use to identify the subset of headers to inspect in a web request.
+class RuleGroupHeadersArgsDict(TypedDict):
+    """
+    Includes headers of a web request.
+    """
+    match_pattern: pulumi.Input['RuleGroupHeaderMatchPatternArgsDict']
+    """
+    The filter to use to identify the subset of headers to inspect in a web request.
 
-        You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
+    You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
 
-        Example JSON: `"MatchPattern": { "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] }`
-        """
-        match_scope: pulumi.Input['RuleGroupMapMatchScope']
-        """
-        The parts of the headers to match with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
+    Example JSON: `"MatchPattern": { "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] }`
+    """
+    match_scope: pulumi.Input['RuleGroupMapMatchScope']
+    """
+    The parts of the headers to match with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
 
-        `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        """
-        oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
-        """
-        What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+    `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
+    """
+    oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
+    """
+    What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available headers normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    RuleGroupHeadersArgsDict: TypeAlias = Mapping[str, Any]
+    - `CONTINUE` - Inspect the available headers normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupHeadersArgs:
@@ -2611,16 +2513,13 @@ class RuleGroupHeadersArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class RuleGroupImmunityTimePropertyArgsDict(TypedDict):
-        immunity_time: pulumi.Input[_builtins.int]
-        """
-        The amount of time, in seconds, that a `CAPTCHA` or challenge timestamp is considered valid by AWS WAF . The default setting is 300.
+class RuleGroupImmunityTimePropertyArgsDict(TypedDict):
+    immunity_time: pulumi.Input[_builtins.int]
+    """
+    The amount of time, in seconds, that a `CAPTCHA` or challenge timestamp is considered valid by AWS WAF . The default setting is 300.
 
-        For the Challenge action, the minimum setting is 300.
-        """
-elif False:
-    RuleGroupImmunityTimePropertyArgsDict: TypeAlias = Mapping[str, Any]
+    For the Challenge action, the minimum setting is 300.
+    """
 
 @pulumi.input_type
 class RuleGroupImmunityTimePropertyArgs:
@@ -2648,37 +2547,34 @@ class RuleGroupImmunityTimePropertyArgs:
         pulumi.set(self, "immunity_time", value)
 
 
-if not MYPY:
-    class RuleGroupIpSetForwardedIpConfigurationArgsDict(TypedDict):
-        fallback_behavior: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+class RuleGroupIpSetForwardedIpConfigurationArgsDict(TypedDict):
+    fallback_behavior: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-        header_name: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
+    header_name: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-        position: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationPosition']
-        """
-        The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
+    position: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationPosition']
+    """
+    The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
 
-        The options for this setting are the following:
+    The options for this setting are the following:
 
-        - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
-        - LAST - Inspect the last IP address in the list of IP addresses in the header.
-        - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-        """
-elif False:
-    RuleGroupIpSetForwardedIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+    - LAST - Inspect the last IP address in the list of IP addresses in the header.
+    - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+    """
 
 @pulumi.input_type
 class RuleGroupIpSetForwardedIpConfigurationArgs:
@@ -2762,20 +2658,17 @@ class RuleGroupIpSetForwardedIpConfigurationArgs:
         pulumi.set(self, "position", value)
 
 
-if not MYPY:
-    class RuleGroupIpSetReferenceStatementArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
-        """
-        ip_set_forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+class RuleGroupIpSetReferenceStatementArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
+    """
+    ip_set_forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-elif False:
-    RuleGroupIpSetReferenceStatementArgsDict: TypeAlias = Mapping[str, Any]
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
 
 @pulumi.input_type
 class RuleGroupIpSetReferenceStatementArgs:
@@ -2819,22 +2712,19 @@ class RuleGroupIpSetReferenceStatementArgs:
         pulumi.set(self, "ip_set_forwarded_ip_config", value)
 
 
-if not MYPY:
-    class RuleGroupJa3FingerprintArgsDict(TypedDict):
-        """
-        Includes the JA3 fingerprint of a web request.
-        """
-        fallback_behavior: pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+class RuleGroupJa3FingerprintArgsDict(TypedDict):
+    """
+    Includes the JA3 fingerprint of a web request.
+    """
+    fallback_behavior: pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    RuleGroupJa3FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupJa3FingerprintArgs:
@@ -2869,22 +2759,19 @@ class RuleGroupJa3FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class RuleGroupJa4FingerprintArgsDict(TypedDict):
-        """
-        Includes the JA4 fingerprint of a web request.
-        """
-        fallback_behavior: pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+class RuleGroupJa4FingerprintArgsDict(TypedDict):
+    """
+    Includes the JA4 fingerprint of a web request.
+    """
+    fallback_behavior: pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    RuleGroupJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupJa4FingerprintArgs:
@@ -2919,55 +2806,52 @@ class RuleGroupJa4FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class RuleGroupJsonBodyArgsDict(TypedDict):
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers.
-        """
-        match_pattern: pulumi.Input['RuleGroupJsonMatchPatternArgsDict']
-        """
-        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-        """
-        match_scope: pulumi.Input['RuleGroupJsonMatchScope']
-        """
-        The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
+class RuleGroupJsonBodyArgsDict(TypedDict):
+    """
+    Inspect the request body as JSON. The request body immediately follows the request headers.
+    """
+    match_pattern: pulumi.Input['RuleGroupJsonMatchPatternArgsDict']
+    """
+    The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+    """
+    match_scope: pulumi.Input['RuleGroupJsonMatchScope']
+    """
+    The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
 
-        `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        """
-        invalid_fallback_behavior: NotRequired[pulumi.Input['RuleGroupBodyParsingFallbackBehavior']]
-        """
-        What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+    `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
+    """
+    invalid_fallback_behavior: NotRequired[pulumi.Input['RuleGroupBodyParsingFallbackBehavior']]
+    """
+    What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
 
-        - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+    If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 
-        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
-        """
-        oversize_handling: NotRequired[pulumi.Input['RuleGroupOversizeHandling']]
-        """
-        What AWS WAF should do if the body is larger than AWS WAF can inspect.
+    > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+    """
+    oversize_handling: NotRequired[pulumi.Input['RuleGroupOversizeHandling']]
+    """
+    What AWS WAF should do if the body is larger than AWS WAF can inspect.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
+    You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
 
-        Default: `CONTINUE`
-        """
-elif False:
-    RuleGroupJsonBodyArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `CONTINUE`
+    """
 
 @pulumi.input_type
 class RuleGroupJsonBodyArgs:
@@ -3091,27 +2975,24 @@ class RuleGroupJsonBodyArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class RuleGroupJsonMatchPatternArgsDict(TypedDict):
-        """
-        The pattern to look for in the JSON body.
-        """
-        all: NotRequired[Any]
-        """
-        Inspect all parts of the web request's JSON body.
-        """
-        included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
+class RuleGroupJsonMatchPatternArgsDict(TypedDict):
+    """
+    The pattern to look for in the JSON body.
+    """
+    all: NotRequired[Any]
+    """
+    Inspect all parts of the web request's JSON body.
+    """
+    included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 
-        Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        You must specify either this setting or the `All` setting, but not both.
+    You must specify either this setting or the `All` setting, but not both.
 
-        > Don't use this option to include all paths. Instead, use the `All` setting.
-        """
-elif False:
-    RuleGroupJsonMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
+    > Don't use this option to include all paths. Instead, use the `All` setting.
+    """
 
 @pulumi.input_type
 class RuleGroupJsonMatchPatternArgs:
@@ -3165,23 +3046,20 @@ class RuleGroupJsonMatchPatternArgs:
         pulumi.set(self, "included_paths", value)
 
 
-if not MYPY:
-    class RuleGroupLabelMatchStatementArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:
+class RuleGroupLabelMatchStatementArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:
 
-        - If the `Scope` indicates `LABEL` , then this specification must include the name and can include any number of preceding namespace specifications and prefix up to providing the fully qualified label name.
-        - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
+    - If the `Scope` indicates `LABEL` , then this specification must include the name and can include any number of preceding namespace specifications and prefix up to providing the fully qualified label name.
+    - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 
-        Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
-        """
-        scope: pulumi.Input['RuleGroupLabelMatchScope']
-        """
-        Specify whether you want to match using the label name or just the namespace.
-        """
-elif False:
-    RuleGroupLabelMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
+    """
+    scope: pulumi.Input['RuleGroupLabelMatchScope']
+    """
+    Specify whether you want to match using the label name or just the namespace.
+    """
 
 @pulumi.input_type
 class RuleGroupLabelMatchStatementArgs:
@@ -3230,14 +3108,11 @@ class RuleGroupLabelMatchStatementArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class RuleGroupLabelSummaryArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An individual label specification.
-        """
-elif False:
-    RuleGroupLabelSummaryArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupLabelSummaryArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An individual label specification.
+    """
 
 @pulumi.input_type
 class RuleGroupLabelSummaryArgs:
@@ -3262,14 +3137,11 @@ class RuleGroupLabelSummaryArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleGroupLabelArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The label string.
-        """
-elif False:
-    RuleGroupLabelArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupLabelArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The label string.
+    """
 
 @pulumi.input_type
 class RuleGroupLabelArgs:
@@ -3293,14 +3165,11 @@ class RuleGroupLabelArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleGroupNotStatementArgsDict(TypedDict):
-        statement: pulumi.Input['RuleGroupStatementArgsDict']
-        """
-        The statement to negate. You can use any statement that can be nested.
-        """
-elif False:
-    RuleGroupNotStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupNotStatementArgsDict(TypedDict):
+    statement: pulumi.Input['RuleGroupStatementArgsDict']
+    """
+    The statement to negate. You can use any statement that can be nested.
+    """
 
 @pulumi.input_type
 class RuleGroupNotStatementArgs:
@@ -3324,14 +3193,11 @@ class RuleGroupNotStatementArgs:
         pulumi.set(self, "statement", value)
 
 
-if not MYPY:
-    class RuleGroupOrStatementArgsDict(TypedDict):
-        statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgsDict']]]
-        """
-        The statements to combine with OR logic. You can use any statements that can be nested.
-        """
-elif False:
-    RuleGroupOrStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupOrStatementArgsDict(TypedDict):
+    statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgsDict']]]
+    """
+    The statements to combine with OR logic. You can use any statements that can be nested.
+    """
 
 @pulumi.input_type
 class RuleGroupOrStatementArgs:
@@ -3355,71 +3221,68 @@ class RuleGroupOrStatementArgs:
         pulumi.set(self, "statements", value)
 
 
-if not MYPY:
-    class RuleGroupRateBasedStatementCustomKeyArgsDict(TypedDict):
-        """
-        Specifies a single custom aggregate key for a rate-base rule.
-        """
-        asn: NotRequired[pulumi.Input['RuleGroupRateLimitAsnArgsDict']]
-        """
-        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
-        """
-        cookie: NotRequired[pulumi.Input['RuleGroupRateLimitCookieArgsDict']]
-        """
-        Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
-        """
-        forwarded_ip: NotRequired[pulumi.Input['RuleGroupRateLimitForwardedIpArgsDict']]
-        """
-        Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
+class RuleGroupRateBasedStatementCustomKeyArgsDict(TypedDict):
+    """
+    Specifies a single custom aggregate key for a rate-base rule.
+    """
+    asn: NotRequired[pulumi.Input['RuleGroupRateLimitAsnArgsDict']]
+    """
+    Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
+    """
+    cookie: NotRequired[pulumi.Input['RuleGroupRateLimitCookieArgsDict']]
+    """
+    Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+    """
+    forwarded_ip: NotRequired[pulumi.Input['RuleGroupRateLimitForwardedIpArgsDict']]
+    """
+    Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
 
-        When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the forwarded IP address by specifying `FORWARDED_IP` in your rate-based statement's `AggregateKeyType` .
+    When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the forwarded IP address by specifying `FORWARDED_IP` in your rate-based statement's `AggregateKeyType` .
 
-        With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
-        """
-        header: NotRequired[pulumi.Input['RuleGroupRateLimitHeaderArgsDict']]
-        """
-        Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
-        """
-        http_method: NotRequired[pulumi.Input['RuleGroupRateLimitHttpMethodArgsDict']]
-        """
-        Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
-        """
-        ip: NotRequired[pulumi.Input['RuleGroupRateLimitIpArgsDict']]
-        """
-        Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.
+    With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
+    """
+    header: NotRequired[pulumi.Input['RuleGroupRateLimitHeaderArgsDict']]
+    """
+    Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+    """
+    http_method: NotRequired[pulumi.Input['RuleGroupRateLimitHttpMethodArgsDict']]
+    """
+    Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
+    """
+    ip: NotRequired[pulumi.Input['RuleGroupRateLimitIpArgsDict']]
+    """
+    Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.
 
-        When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
-        """
-        ja3_fingerprint: NotRequired[pulumi.Input['RuleGroupRateLimitJa3FingerprintArgsDict']]
-        """
-        Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
-        """
-        ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRateLimitJa4FingerprintArgsDict']]
-        """
-        Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
-        """
-        label_namespace: NotRequired[pulumi.Input['RuleGroupRateLimitLabelNamespaceArgsDict']]
-        """
-        Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+    When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
+    """
+    ja3_fingerprint: NotRequired[pulumi.Input['RuleGroupRateLimitJa3FingerprintArgsDict']]
+    """
+    Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+    """
+    ja4_fingerprint: NotRequired[pulumi.Input['RuleGroupRateLimitJa4FingerprintArgsDict']]
+    """
+    Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+    """
+    label_namespace: NotRequired[pulumi.Input['RuleGroupRateLimitLabelNamespaceArgsDict']]
+    """
+    Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 
-        This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
+    This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 
-        For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
-        """
-        query_argument: NotRequired[pulumi.Input['RuleGroupRateLimitQueryArgumentArgsDict']]
-        """
-        Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
-        """
-        query_string: NotRequired[pulumi.Input['RuleGroupRateLimitQueryStringArgsDict']]
-        """
-        Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
-        """
-        uri_path: NotRequired[pulumi.Input['RuleGroupRateLimitUriPathArgsDict']]
-        """
-        Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
-        """
-elif False:
-    RuleGroupRateBasedStatementCustomKeyArgsDict: TypeAlias = Mapping[str, Any]
+    For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
+    """
+    query_argument: NotRequired[pulumi.Input['RuleGroupRateLimitQueryArgumentArgsDict']]
+    """
+    Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+    """
+    query_string: NotRequired[pulumi.Input['RuleGroupRateLimitQueryStringArgsDict']]
+    """
+    Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+    """
+    uri_path: NotRequired[pulumi.Input['RuleGroupRateLimitUriPathArgsDict']]
+    """
+    Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+    """
 
 @pulumi.input_type
 class RuleGroupRateBasedStatementCustomKeyArgs:
@@ -3641,66 +3504,63 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class RuleGroupRateBasedStatementArgsDict(TypedDict):
-        aggregate_key_type: pulumi.Input['RuleGroupRateBasedStatementAggregateKeyType']
-        """
-        Setting that indicates how to aggregate the request counts.
+class RuleGroupRateBasedStatementArgsDict(TypedDict):
+    aggregate_key_type: pulumi.Input['RuleGroupRateBasedStatementAggregateKeyType']
+    """
+    Setting that indicates how to aggregate the request counts.
 
-        > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
 
-        - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+    - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
 
-        With this option, you must configure the `ScopeDownStatement` property.
-        - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+    With this option, you must configure the `ScopeDownStatement` property.
+    - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
 
-        With this option, you must specify the aggregate keys in the `CustomKeys` property.
+    With this option, you must specify the aggregate keys in the `CustomKeys` property.
 
-        To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
-        - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+    To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+    - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
 
-        With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+    With this option, you must specify the header to use in the `ForwardedIPConfig` property.
 
-        To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        - `IP` - Aggregate the request counts on the IP address from the web request origin.
+    To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    - `IP` - Aggregate the request counts on the IP address from the web request origin.
 
-        To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        """
-        limit: pulumi.Input[_builtins.int]
-        """
-        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+    To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    """
+    limit: pulumi.Input[_builtins.int]
+    """
+    The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
-        Examples:
+    Examples:
 
-        - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
-        - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
-        """
-        custom_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgsDict']]]]
-        """
-        Specifies the aggregate keys to use in a rate-base rule.
-        """
-        evaluation_window_sec: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. For example, for a setting of 120, when AWS WAF checks the rate, it counts the requests for the 2 minutes immediately preceding the current time. Valid settings are 60, 120, 300, and 600.
+    - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
+    - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
+    """
+    custom_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgsDict']]]]
+    """
+    Specifies the aggregate keys to use in a rate-base rule.
+    """
+    evaluation_window_sec: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. For example, for a setting of 120, when AWS WAF checks the rate, it counts the requests for the 2 minutes immediately preceding the current time. Valid settings are 60, 120, 300, and 600.
 
-        This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+    This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
 
-        Default: `300` (5 minutes)
-        """
-        forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+    Default: `300` (5 minutes)
+    """
+    forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
 
-        This is required if you specify a forwarded IP in the rule's aggregate key settings.
-        """
-        scope_down_statement: NotRequired[pulumi.Input['RuleGroupStatementArgsDict']]
-        """
-        An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
-        """
-elif False:
-    RuleGroupRateBasedStatementArgsDict: TypeAlias = Mapping[str, Any]
+    This is required if you specify a forwarded IP in the rule's aggregate key settings.
+    """
+    scope_down_statement: NotRequired[pulumi.Input['RuleGroupStatementArgsDict']]
+    """
+    An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupRateBasedStatementArgs:
@@ -3867,14 +3727,11 @@ class RuleGroupRateBasedStatementArgs:
         pulumi.set(self, "scope_down_statement", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitAsnArgsDict(TypedDict):
-        """
-        Specifies the request's ASN as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    RuleGroupRateLimitAsnArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitAsnArgsDict(TypedDict):
+    """
+    Specifies the request's ASN as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class RuleGroupRateLimitAsnArgs:
@@ -3885,21 +3742,18 @@ class RuleGroupRateLimitAsnArgs:
         pass
 
 
-if not MYPY:
-    class RuleGroupRateLimitCookieArgsDict(TypedDict):
-        """
-        Specifies a cookie as an aggregate key for a rate-based rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the cookie to use.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    RuleGroupRateLimitCookieArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitCookieArgsDict(TypedDict):
+    """
+    Specifies a cookie as an aggregate key for a rate-based rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the cookie to use.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitCookieArgs:
@@ -3939,14 +3793,11 @@ class RuleGroupRateLimitCookieArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitForwardedIpArgsDict(TypedDict):
-        """
-        Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    RuleGroupRateLimitForwardedIpArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitForwardedIpArgsDict(TypedDict):
+    """
+    Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class RuleGroupRateLimitForwardedIpArgs:
@@ -3957,21 +3808,18 @@ class RuleGroupRateLimitForwardedIpArgs:
         pass
 
 
-if not MYPY:
-    class RuleGroupRateLimitHeaderArgsDict(TypedDict):
-        """
-        Specifies a header as an aggregate key for a rate-based rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the header to use.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    RuleGroupRateLimitHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitHeaderArgsDict(TypedDict):
+    """
+    Specifies a header as an aggregate key for a rate-based rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the header to use.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitHeaderArgs:
@@ -4011,14 +3859,11 @@ class RuleGroupRateLimitHeaderArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitHttpMethodArgsDict(TypedDict):
-        """
-        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    RuleGroupRateLimitHttpMethodArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitHttpMethodArgsDict(TypedDict):
+    """
+    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class RuleGroupRateLimitHttpMethodArgs:
@@ -4029,14 +3874,11 @@ class RuleGroupRateLimitHttpMethodArgs:
         pass
 
 
-if not MYPY:
-    class RuleGroupRateLimitIpArgsDict(TypedDict):
-        """
-        Specifies the IP address in the web request as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    RuleGroupRateLimitIpArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitIpArgsDict(TypedDict):
+    """
+    Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class RuleGroupRateLimitIpArgs:
@@ -4047,22 +3889,19 @@ class RuleGroupRateLimitIpArgs:
         pass
 
 
-if not MYPY:
-    class RuleGroupRateLimitJa3FingerprintArgsDict(TypedDict):
-        """
-        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
-        """
-        fallback_behavior: pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+class RuleGroupRateLimitJa3FingerprintArgsDict(TypedDict):
+    """
+    Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+    """
+    fallback_behavior: pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    RuleGroupRateLimitJa3FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitJa3FingerprintArgs:
@@ -4097,22 +3936,19 @@ class RuleGroupRateLimitJa3FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitJa4FingerprintArgsDict(TypedDict):
-        """
-        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
-        """
-        fallback_behavior: pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+class RuleGroupRateLimitJa4FingerprintArgsDict(TypedDict):
+    """
+    Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+    """
+    fallback_behavior: pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    RuleGroupRateLimitJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitJa4FingerprintArgs:
@@ -4147,17 +3983,14 @@ class RuleGroupRateLimitJa4FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitLabelNamespaceArgsDict(TypedDict):
-        """
-        Specifies a label namespace to use as an aggregate key for a rate-based rule.
-        """
-        namespace: pulumi.Input[_builtins.str]
-        """
-        The namespace to use for aggregation.
-        """
-elif False:
-    RuleGroupRateLimitLabelNamespaceArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitLabelNamespaceArgsDict(TypedDict):
+    """
+    Specifies a label namespace to use as an aggregate key for a rate-based rule.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The namespace to use for aggregation.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitLabelNamespaceArgs:
@@ -4182,21 +4015,18 @@ class RuleGroupRateLimitLabelNamespaceArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitQueryArgumentArgsDict(TypedDict):
-        """
-        Specifies a query argument in the request as an aggregate key for a rate-based rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the query argument to use.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    RuleGroupRateLimitQueryArgumentArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitQueryArgumentArgsDict(TypedDict):
+    """
+    Specifies a query argument in the request as an aggregate key for a rate-based rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the query argument to use.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitQueryArgumentArgs:
@@ -4236,17 +4066,14 @@ class RuleGroupRateLimitQueryArgumentArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitQueryStringArgsDict(TypedDict):
-        """
-        Specifies the request's query string as an aggregate key for a rate-based rule.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    RuleGroupRateLimitQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitQueryStringArgsDict(TypedDict):
+    """
+    Specifies the request's query string as an aggregate key for a rate-based rule.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitQueryStringArgs:
@@ -4271,17 +4098,14 @@ class RuleGroupRateLimitQueryStringArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRateLimitUriPathArgsDict(TypedDict):
-        """
-        Specifies the request's URI Path as an aggregate key for a rate-based rule.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    RuleGroupRateLimitUriPathArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRateLimitUriPathArgsDict(TypedDict):
+    """
+    Specifies the request's URI Path as an aggregate key for a rate-based rule.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class RuleGroupRateLimitUriPathArgs:
@@ -4306,22 +4130,19 @@ class RuleGroupRateLimitUriPathArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRegexMatchStatementArgsDict(TypedDict):
-        field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        regex_string: pulumi.Input[_builtins.str]
-        """
-        The string representing the regular expression.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    RuleGroupRegexMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRegexMatchStatementArgsDict(TypedDict):
+    field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    regex_string: pulumi.Input[_builtins.str]
+    """
+    The string representing the regular expression.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class RuleGroupRegexMatchStatementArgs:
@@ -4375,22 +4196,19 @@ class RuleGroupRegexMatchStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRegexPatternSetReferenceStatementArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
-        """
-        field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    RuleGroupRegexPatternSetReferenceStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupRegexPatternSetReferenceStatementArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
+    """
+    field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class RuleGroupRegexPatternSetReferenceStatementArgs:
@@ -4444,46 +4262,43 @@ class RuleGroupRegexPatternSetReferenceStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupRuleActionArgsDict(TypedDict):
-        """
-        Action taken when Rule matches its condition.
-        """
-        allow: NotRequired[pulumi.Input['RuleGroupAllowActionArgsDict']]
-        """
-        Instructs AWS WAF to allow the web request.
-        """
-        block: NotRequired[pulumi.Input['RuleGroupBlockActionArgsDict']]
-        """
-        Instructs AWS WAF to block the web request.
-        """
-        captcha: NotRequired[pulumi.Input['RuleGroupCaptchaActionArgsDict']]
-        """
-        Specifies that AWS WAF should run a `CAPTCHA` check against the request:
+class RuleGroupRuleActionArgsDict(TypedDict):
+    """
+    Action taken when Rule matches its condition.
+    """
+    allow: NotRequired[pulumi.Input['RuleGroupAllowActionArgsDict']]
+    """
+    Instructs AWS WAF to allow the web request.
+    """
+    block: NotRequired[pulumi.Input['RuleGroupBlockActionArgsDict']]
+    """
+    Instructs AWS WAF to block the web request.
+    """
+    captcha: NotRequired[pulumi.Input['RuleGroupCaptchaActionArgsDict']]
+    """
+    Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 
-        - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-        - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+    - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
+    - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
 
-        AWS WAF generates a response that it sends back to the client, which includes the following:
+    AWS WAF generates a response that it sends back to the client, which includes the following:
 
-        - The header `x-amzn-waf-action` with a value of `captcha` .
-        - The HTTP status code `405 Method Not Allowed` .
-        - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
+    - The header `x-amzn-waf-action` with a value of `captcha` .
+    - The HTTP status code `405 Method Not Allowed` .
+    - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
 
-        You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
+    You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 
-        This action option is available for rules. It isn't available for web ACL default actions.
-        """
-        challenge: NotRequired[pulumi.Input['RuleGroupChallengeActionArgsDict']]
-        """
-        Instructs AWS WAF to run a `Challenge` check against the web request.
-        """
-        count: NotRequired[pulumi.Input['RuleGroupCountActionArgsDict']]
-        """
-        Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-        """
-elif False:
-    RuleGroupRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+    This action option is available for rules. It isn't available for web ACL default actions.
+    """
+    challenge: NotRequired[pulumi.Input['RuleGroupChallengeActionArgsDict']]
+    """
+    Instructs AWS WAF to run a `Challenge` check against the web request.
+    """
+    count: NotRequired[pulumi.Input['RuleGroupCountActionArgsDict']]
+    """
+    Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+    """
 
 @pulumi.input_type
 class RuleGroupRuleActionArgs:
@@ -4599,49 +4414,46 @@ class RuleGroupRuleActionArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class RuleGroupRuleArgsDict(TypedDict):
-        """
-        Rule of RuleGroup that contains condition and action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the rule.
+class RuleGroupRuleArgsDict(TypedDict):
+    """
+    Rule of RuleGroup that contains condition and action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the rule.
 
-        If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-        """
-        statement: pulumi.Input['RuleGroupStatementArgsDict']
-        """
-        The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
-        """
-        visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgsDict']
-        """
-        Defines and enables Amazon CloudWatch metrics and web request sample collection.
+    If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+    """
+    statement: pulumi.Input['RuleGroupStatementArgsDict']
+    """
+    The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
+    """
+    visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgsDict']
+    """
+    Defines and enables Amazon CloudWatch metrics and web request sample collection.
 
-        If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
-        """
-        action: NotRequired[pulumi.Input['RuleGroupRuleActionArgsDict']]
-        """
-        The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
-        """
-        captcha_config: NotRequired[pulumi.Input['RuleGroupCaptchaConfigArgsDict']]
-        """
-        Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
-        """
-        challenge_config: NotRequired[pulumi.Input['RuleGroupChallengeConfigArgsDict']]
-        """
-        Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
-        """
-        rule_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelArgsDict']]]]
-        """
-        Collection of Rule Labels.
-        """
-elif False:
-    RuleGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
+    If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
+    """
+    action: NotRequired[pulumi.Input['RuleGroupRuleActionArgsDict']]
+    """
+    The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
+    """
+    captcha_config: NotRequired[pulumi.Input['RuleGroupCaptchaConfigArgsDict']]
+    """
+    Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
+    """
+    challenge_config: NotRequired[pulumi.Input['RuleGroupChallengeConfigArgsDict']]
+    """
+    Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
+    """
+    rule_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelArgsDict']]]]
+    """
+    Collection of Rule Labels.
+    """
 
 @pulumi.input_type
 class RuleGroupRuleArgs:
@@ -4783,29 +4595,26 @@ class RuleGroupRuleArgs:
         pulumi.set(self, "rule_labels", value)
 
 
-if not MYPY:
-    class RuleGroupSizeConstraintStatementArgsDict(TypedDict):
-        """
-        Size Constraint statement.
-        """
-        comparison_operator: pulumi.Input['RuleGroupSizeConstraintStatementComparisonOperator']
-        """
-        The operator to use to compare the request part to the size setting.
-        """
-        field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        size: pulumi.Input[_builtins.float]
-        """
-        The size, in byte, to compare to the request part, after any transformations.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    RuleGroupSizeConstraintStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupSizeConstraintStatementArgsDict(TypedDict):
+    """
+    Size Constraint statement.
+    """
+    comparison_operator: pulumi.Input['RuleGroupSizeConstraintStatementComparisonOperator']
+    """
+    The operator to use to compare the request part to the size setting.
+    """
+    field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    size: pulumi.Input[_builtins.float]
+    """
+    The size, in byte, to compare to the request part, after any transformations.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class RuleGroupSizeConstraintStatementArgs:
@@ -4875,31 +4684,28 @@ class RuleGroupSizeConstraintStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class RuleGroupSqliMatchStatementArgsDict(TypedDict):
-        """
-        Sqli Match Statement.
-        """
-        field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-        sensitivity_level: NotRequired[pulumi.Input['RuleGroupSensitivityLevel']]
-        """
-        The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
+class RuleGroupSqliMatchStatementArgsDict(TypedDict):
+    """
+    Sqli Match Statement.
+    """
+    field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
+    sensitivity_level: NotRequired[pulumi.Input['RuleGroupSensitivityLevel']]
+    """
+    The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 
-        `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
+    `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
 
-        `LOW` is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives.
+    `LOW` is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives.
 
-        Default: `LOW`
-        """
-elif False:
-    RuleGroupSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `LOW`
+    """
 
 @pulumi.input_type
 class RuleGroupSqliMatchStatementArgs:
@@ -4967,133 +4773,130 @@ class RuleGroupSqliMatchStatementArgs:
         pulumi.set(self, "sensitivity_level", value)
 
 
-if not MYPY:
-    class RuleGroupStatementArgsDict(TypedDict):
-        """
-        First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
-        """
-        and_statement: NotRequired[pulumi.Input['RuleGroupAndStatementArgsDict']]
-        """
-        A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-        """
-        asn_match_statement: NotRequired[pulumi.Input['RuleGroupAsnMatchStatementArgsDict']]
-        """
-        A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+class RuleGroupStatementArgsDict(TypedDict):
+    """
+    First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
+    """
+    and_statement: NotRequired[pulumi.Input['RuleGroupAndStatementArgsDict']]
+    """
+    A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
+    """
+    asn_match_statement: NotRequired[pulumi.Input['RuleGroupAsnMatchStatementArgsDict']]
+    """
+    A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
 
-        For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-        """
-        byte_match_statement: NotRequired[pulumi.Input['RuleGroupByteMatchStatementArgsDict']]
-        """
-        A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
-        """
-        geo_match_statement: NotRequired[pulumi.Input['RuleGroupGeoMatchStatementArgsDict']]
-        """
-        A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
+    For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+    """
+    byte_match_statement: NotRequired[pulumi.Input['RuleGroupByteMatchStatementArgsDict']]
+    """
+    A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
+    """
+    geo_match_statement: NotRequired[pulumi.Input['RuleGroupGeoMatchStatementArgsDict']]
+    """
+    A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
 
-        - To manage requests only by country, you can use this statement by itself and specify the countries that you want to match against in the `CountryCodes` array.
-        - Otherwise, configure your geo match rule with Count action so that it only labels requests. Then, add one or more label match rules to run after the geo match rule and configure them to match against the geographic labels and handle the requests as needed.
+    - To manage requests only by country, you can use this statement by itself and specify the countries that you want to match against in the `CountryCodes` array.
+    - Otherwise, configure your geo match rule with Count action so that it only labels requests. Then, add one or more label match rules to run after the geo match rule and configure them to match against the geographic labels and handle the requests as needed.
 
-        AWS WAF labels requests using the alpha-2 country and region codes from the International Organization for Standardization (ISO) 3166 standard. AWS WAF determines the codes using either the IP address in the web request origin or, if you specify it, the address in the geo match `ForwardedIPConfig` .
+    AWS WAF labels requests using the alpha-2 country and region codes from the International Organization for Standardization (ISO) 3166 standard. AWS WAF determines the codes using either the IP address in the web request origin or, if you specify it, the address in the geo match `ForwardedIPConfig` .
 
-        If you use the web request origin, the label formats are `awswaf:clientip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:clientip:geo:country:<ISO country code>` .
+    If you use the web request origin, the label formats are `awswaf:clientip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:clientip:geo:country:<ISO country code>` .
 
-        If you use a forwarded IP address, the label formats are `awswaf:forwardedip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:forwardedip:geo:country:<ISO country code>` .
+    If you use a forwarded IP address, the label formats are `awswaf:forwardedip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:forwardedip:geo:country:<ISO country code>` .
 
-        For additional details, see [Geographic match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-        """
-        ip_set_reference_statement: NotRequired[pulumi.Input['RuleGroupIpSetReferenceStatementArgsDict']]
-        """
-        A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
+    For additional details, see [Geographic match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+    """
+    ip_set_reference_statement: NotRequired[pulumi.Input['RuleGroupIpSetReferenceStatementArgsDict']]
+    """
+    A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 
-        Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-        """
-        label_match_statement: NotRequired[pulumi.Input['RuleGroupLabelMatchStatementArgsDict']]
-        """
-        A rule statement to match against labels that have been added to the web request by rules that have already run in the web ACL.
+    Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
+    """
+    label_match_statement: NotRequired[pulumi.Input['RuleGroupLabelMatchStatementArgsDict']]
+    """
+    A rule statement to match against labels that have been added to the web request by rules that have already run in the web ACL.
 
-        The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
-        """
-        not_statement: NotRequired[pulumi.Input['RuleGroupNotStatementArgsDict']]
-        """
-        A logical rule statement used to negate the results of another rule statement. You provide one `Statement` within the `NotStatement` .
-        """
-        or_statement: NotRequired[pulumi.Input['RuleGroupOrStatementArgsDict']]
-        """
-        A logical rule statement used to combine other rule statements with OR logic. You provide more than one `Statement` within the `OrStatement` .
-        """
-        rate_based_statement: NotRequired[pulumi.Input['RuleGroupRateBasedStatementArgsDict']]
-        """
-        A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
+    The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
+    """
+    not_statement: NotRequired[pulumi.Input['RuleGroupNotStatementArgsDict']]
+    """
+    A logical rule statement used to negate the results of another rule statement. You provide one `Statement` within the `NotStatement` .
+    """
+    or_statement: NotRequired[pulumi.Input['RuleGroupOrStatementArgsDict']]
+    """
+    A logical rule statement used to combine other rule statements with OR logic. You provide more than one `Statement` within the `OrStatement` .
+    """
+    rate_based_statement: NotRequired[pulumi.Input['RuleGroupRateBasedStatementArgsDict']]
+    """
+    A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
 
-        > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
+    > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
 
-        You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
+    You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
 
-        Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition.
+    Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition.
 
-        For example, assume the rule evaluates web requests with the following IP address and HTTP method values:
+    For example, assume the rule evaluates web requests with the following IP address and HTTP method values:
 
-        - IP address 10.1.1.1, HTTP method POST
-        - IP address 10.1.1.1, HTTP method GET
-        - IP address 127.0.0.0, HTTP method POST
-        - IP address 10.1.1.1, HTTP method GET
+    - IP address 10.1.1.1, HTTP method POST
+    - IP address 10.1.1.1, HTTP method GET
+    - IP address 127.0.0.0, HTTP method POST
+    - IP address 10.1.1.1, HTTP method GET
 
-        The rule would create different aggregation instances according to your aggregation criteria, for example:
+    The rule would create different aggregation instances according to your aggregation criteria, for example:
 
-        - If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and AWS WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following:
+    - If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and AWS WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following:
 
-        - IP address 10.1.1.1: count 3
-        - IP address 127.0.0.0: count 1
-        - If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following:
+    - IP address 10.1.1.1: count 3
+    - IP address 127.0.0.0: count 1
+    - If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following:
 
-        - HTTP method POST: count 2
-        - HTTP method GET: count 2
-        - If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following:
+    - HTTP method POST: count 2
+    - HTTP method GET: count 2
+    - If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following:
 
-        - IP address 10.1.1.1, HTTP method POST: count 1
-        - IP address 10.1.1.1, HTTP method GET: count 2
-        - IP address 127.0.0.0, HTTP method POST: count 1
+    - IP address 10.1.1.1, HTTP method POST: count 1
+    - IP address 10.1.1.1, HTTP method GET: count 2
+    - IP address 127.0.0.0, HTTP method POST: count 1
 
-        For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which AWS WAF counts and rate-limits individually.
+    For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which AWS WAF counts and rate-limits individually.
 
-        You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule.
+    You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule.
 
-        You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
+    You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 
-        For additional information about the options, see [Rate limiting web requests using rate-based rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html) in the *AWS WAF Developer Guide* .
+    For additional information about the options, see [Rate limiting web requests using rate-based rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html) in the *AWS WAF Developer Guide* .
 
-        If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that AWS WAF is currently rate limiting for a rule through the API call `GetRateBasedStatementManagedKeys` . This option is not available for other aggregation configurations.
+    If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that AWS WAF is currently rate limiting for a rule through the API call `GetRateBasedStatementManagedKeys` . This option is not available for other aggregation configurations.
 
-        AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
-        """
-        regex_match_statement: NotRequired[pulumi.Input['RuleGroupRegexMatchStatementArgsDict']]
-        """
-        A rule statement used to search web request components for a match against a single regular expression.
-        """
-        regex_pattern_set_reference_statement: NotRequired[pulumi.Input['RuleGroupRegexPatternSetReferenceStatementArgsDict']]
-        """
-        A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
+    AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
+    """
+    regex_match_statement: NotRequired[pulumi.Input['RuleGroupRegexMatchStatementArgsDict']]
+    """
+    A rule statement used to search web request components for a match against a single regular expression.
+    """
+    regex_pattern_set_reference_statement: NotRequired[pulumi.Input['RuleGroupRegexPatternSetReferenceStatementArgsDict']]
+    """
+    A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 
-        Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-        """
-        size_constraint_statement: NotRequired[pulumi.Input['RuleGroupSizeConstraintStatementArgsDict']]
-        """
-        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
+    Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
+    """
+    size_constraint_statement: NotRequired[pulumi.Input['RuleGroupSizeConstraintStatementArgsDict']]
+    """
+    A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
 
-        If you configure AWS WAF to inspect the request body, AWS WAF inspects only the number of bytes in the body up to the limit for the web ACL and protected resource type. If you know that the request body for your web requests should never exceed the inspection limit, you can use a size constraint statement to block requests that have a larger request body size. For more information about the inspection limits, see `Body` and `JsonBody` settings for the `FieldToMatch` data type.
+    If you configure AWS WAF to inspect the request body, AWS WAF inspects only the number of bytes in the body up to the limit for the web ACL and protected resource type. If you know that the request body for your web requests should never exceed the inspection limit, you can use a size constraint statement to block requests that have a larger request body size. For more information about the inspection limits, see `Body` and `JsonBody` settings for the `FieldToMatch` data type.
 
-        If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-        """
-        sqli_match_statement: NotRequired[pulumi.Input['RuleGroupSqliMatchStatementArgsDict']]
-        """
-        A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
-        """
-        xss_match_statement: NotRequired[pulumi.Input['RuleGroupXssMatchStatementArgsDict']]
-        """
-        A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
-        """
-elif False:
-    RuleGroupStatementArgsDict: TypeAlias = Mapping[str, Any]
+    If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
+    """
+    sqli_match_statement: NotRequired[pulumi.Input['RuleGroupSqliMatchStatementArgsDict']]
+    """
+    A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
+    """
+    xss_match_statement: NotRequired[pulumi.Input['RuleGroupXssMatchStatementArgsDict']]
+    """
+    A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
+    """
 
 @pulumi.input_type
 class RuleGroupStatementArgs:
@@ -5455,21 +5258,18 @@ class RuleGroupStatementArgs:
         pulumi.set(self, "xss_match_statement", value)
 
 
-if not MYPY:
-    class RuleGroupTextTransformationArgsDict(TypedDict):
-        """
-        Text Transformation on the Search String before match.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
-        """
-        type: pulumi.Input['RuleGroupTextTransformationType']
-        """
-        For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupTextTransformationArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupTextTransformationArgsDict(TypedDict):
+    """
+    Text Transformation on the Search String before match.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
+    """
+    type: pulumi.Input['RuleGroupTextTransformationType']
+    """
+    For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupTextTransformationArgs:
@@ -5509,27 +5309,24 @@ class RuleGroupTextTransformationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RuleGroupUriFragmentArgsDict(TypedDict):
-        """
-        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
-        """
-        fallback_behavior: NotRequired[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']]
-        """
-        What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+class RuleGroupUriFragmentArgsDict(TypedDict):
+    """
+    The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+    """
+    fallback_behavior: NotRequired[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']]
+    """
+    What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
 
-        - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+    If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 
-        Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+    Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
 
-        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    RuleGroupUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+    > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleGroupUriFragmentArgs:
@@ -5575,32 +5372,29 @@ class RuleGroupUriFragmentArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class RuleGroupVisibilityConfigArgsDict(TypedDict):
-        """
-        Visibility Metric of the RuleGroup.
-        """
-        cloud_watch_metrics_enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
+class RuleGroupVisibilityConfigArgsDict(TypedDict):
+    """
+    Visibility Metric of the RuleGroup.
+    """
+    cloud_watch_metrics_enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
 
-        For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
-        see [The web ACL default action](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html) in the *AWS WAF Developer Guide* .
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
-        """
-        sampled_requests_enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+    For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
+    see [The web ACL default action](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html) in the *AWS WAF Developer Guide* .
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
+    """
+    sampled_requests_enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 
-        If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+    If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
 
-        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
-        """
-elif False:
-    RuleGroupVisibilityConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
+    """
 
 @pulumi.input_type
 class RuleGroupVisibilityConfigArgs:
@@ -5669,21 +5463,18 @@ class RuleGroupVisibilityConfigArgs:
         pulumi.set(self, "sampled_requests_enabled", value)
 
 
-if not MYPY:
-    class RuleGroupXssMatchStatementArgsDict(TypedDict):
-        """
-        Xss Match Statement.
-        """
-        field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    RuleGroupXssMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+class RuleGroupXssMatchStatementArgsDict(TypedDict):
+    """
+    Xss Match Statement.
+    """
+    field_to_match: pulumi.Input['RuleGroupFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class RuleGroupXssMatchStatementArgs:
@@ -5723,19 +5514,16 @@ class RuleGroupXssMatchStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclAllowActionArgsDict(TypedDict):
-        """
-        Allow traffic towards application.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request.
+class WebAclAllowActionArgsDict(TypedDict):
+    """
+    Allow traffic towards application.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    WebAclAllowActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class WebAclAllowActionArgs:
@@ -5765,14 +5553,11 @@ class WebAclAllowActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class WebAclAndStatementArgsDict(TypedDict):
-        statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgsDict']]]
-        """
-        The statements to combine with AND logic. You can use any statements that can be nested.
-        """
-elif False:
-    WebAclAndStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclAndStatementArgsDict(TypedDict):
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgsDict']]]
+    """
+    The statements to combine with AND logic. You can use any statements that can be nested.
+    """
 
 @pulumi.input_type
 class WebAclAndStatementArgs:
@@ -5796,15 +5581,12 @@ class WebAclAndStatementArgs:
         pulumi.set(self, "statements", value)
 
 
-if not MYPY:
-    class WebAclApplicationAttributeArgsDict(TypedDict):
-        """
-        Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
-        """
-        name: pulumi.Input[_builtins.str]
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    WebAclApplicationAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclApplicationAttributeArgsDict(TypedDict):
+    """
+    Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+    """
+    name: pulumi.Input[_builtins.str]
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class WebAclApplicationAttributeArgs:
@@ -5836,17 +5618,14 @@ class WebAclApplicationAttributeArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class WebAclApplicationConfigArgsDict(TypedDict):
-        """
-        Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
-        """
-        attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgsDict']]]
-        """
-        Contains the attribute name and a list of values for that attribute.
-        """
-elif False:
-    WebAclApplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclApplicationConfigArgsDict(TypedDict):
+    """
+    Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+    """
+    attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgsDict']]]
+    """
+    Contains the attribute name and a list of values for that attribute.
+    """
 
 @pulumi.input_type
 class WebAclApplicationConfigArgs:
@@ -5871,18 +5650,15 @@ class WebAclApplicationConfigArgs:
         pulumi.set(self, "attributes", value)
 
 
-if not MYPY:
-    class WebAclAsnMatchStatementArgsDict(TypedDict):
-        asn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
-        """
-        forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
-        """
-elif False:
-    WebAclAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclAsnMatchStatementArgsDict(TypedDict):
+    asn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+    """
+    forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+    """
 
 @pulumi.input_type
 class WebAclAsnMatchStatementArgs:
@@ -5923,23 +5699,20 @@ class WebAclAsnMatchStatementArgs:
         pulumi.set(self, "forwarded_ip_config", value)
 
 
-if not MYPY:
-    class WebAclAssociationConfigArgsDict(TypedDict):
-        """
-        AssociationConfig for body inspection
-        """
-        request_body: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgsDict']]]]
-        """
-        Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
+class WebAclAssociationConfigArgsDict(TypedDict):
+    """
+    AssociationConfig for body inspection
+    """
+    request_body: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgsDict']]]]
+    """
+    Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
 
-        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+    > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
 
-        Example JSON: `{ "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }`
+    Example JSON: `{ "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }`
 
-        For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        """
-elif False:
-    WebAclAssociationConfigArgsDict: TypeAlias = Mapping[str, Any]
+    For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    """
 
 @pulumi.input_type
 class WebAclAssociationConfigArgs:
@@ -5977,43 +5750,40 @@ class WebAclAssociationConfigArgs:
         pulumi.set(self, "request_body", value)
 
 
-if not MYPY:
-    class WebAclAwsManagedRulesAcfpRuleSetArgsDict(TypedDict):
-        """
-        Configures how to use the Account creation fraud prevention managed rule group in the web ACL
-        """
-        creation_path: pulumi.Input[_builtins.str]
-        """
-        The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
+class WebAclAwsManagedRulesAcfpRuleSetArgsDict(TypedDict):
+    """
+    Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+    """
+    creation_path: pulumi.Input[_builtins.str]
+    """
+    The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
 
-        For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
-        """
-        registration_page_path: pulumi.Input[_builtins.str]
-        """
-        The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users.
+    For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
+    """
+    registration_page_path: pulumi.Input[_builtins.str]
+    """
+    The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users.
 
-        > This page must accept `GET` text/html requests. 
+    > This page must accept `GET` text/html requests. 
 
-        For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
-        """
-        request_inspection: pulumi.Input['WebAclRequestInspectionAcfpArgsDict']
-        """
-        The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
-        """
-        enable_regex_in_path: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow the use of regular expressions in the registration page path and the account creation path.
-        """
-        response_inspection: NotRequired[pulumi.Input['WebAclResponseInspectionArgsDict']]
-        """
-        The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
+    For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
+    """
+    request_inspection: pulumi.Input['WebAclRequestInspectionAcfpArgsDict']
+    """
+    The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
+    """
+    enable_regex_in_path: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow the use of regular expressions in the registration page path and the account creation path.
+    """
+    response_inspection: NotRequired[pulumi.Input['WebAclResponseInspectionArgsDict']]
+    """
+    The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
 
-        > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+    > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
 
-        The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
-        """
-elif False:
-    WebAclAwsManagedRulesAcfpRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+    The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
+    """
 
 @pulumi.input_type
 class WebAclAwsManagedRulesAcfpRuleSetArgs:
@@ -6120,29 +5890,26 @@ class WebAclAwsManagedRulesAcfpRuleSetArgs:
         pulumi.set(self, "response_inspection", value)
 
 
-if not MYPY:
-    class WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict(TypedDict):
-        """
-        Configures how to use the AntiDDOS AWS managed rule group in the web ACL
-        """
-        client_side_action_config: pulumi.Input['WebAclClientSideActionConfigArgsDict']
-        """
-        Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
-        """
-        sensitivity_to_block: NotRequired[pulumi.Input['WebAclSensitivityToAct']]
-        """
-        The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+class WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict(TypedDict):
+    """
+    Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+    """
+    client_side_action_config: pulumi.Input['WebAclClientSideActionConfigArgsDict']
+    """
+    Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
+    """
+    sensitivity_to_block: NotRequired[pulumi.Input['WebAclSensitivityToAct']]
+    """
+    The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
 
-        The higher the sensitivity, the more levels of labeling that the rule matches:
+    The higher the sensitivity, the more levels of labeling that the rule matches:
 
-        - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
-        - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
-        - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+    - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+    - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+    - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
 
-        Default: `LOW`
-        """
-elif False:
-    WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `LOW`
+    """
 
 @pulumi.input_type
 class WebAclAwsManagedRulesAntiDDoSRuleSetArgs:
@@ -6199,35 +5966,32 @@ class WebAclAwsManagedRulesAntiDDoSRuleSetArgs:
         pulumi.set(self, "sensitivity_to_block", value)
 
 
-if not MYPY:
-    class WebAclAwsManagedRulesAtpRuleSetArgsDict(TypedDict):
-        """
-        Configures how to use the Account Takeover Prevention managed rule group in the web ACL
-        """
-        login_path: pulumi.Input[_builtins.str]
-        """
-        The path of the login endpoint for your application. For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` . Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login` , `/web/login/` , `/web/loginPage` , and `/web/login/thisPage` , but doesn't match the login path `/home/web/login` or `/website/login` .
+class WebAclAwsManagedRulesAtpRuleSetArgsDict(TypedDict):
+    """
+    Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+    """
+    login_path: pulumi.Input[_builtins.str]
+    """
+    The path of the login endpoint for your application. For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` . Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login` , `/web/login/` , `/web/loginPage` , and `/web/login/thisPage` , but doesn't match the login path `/home/web/login` or `/website/login` .
 
-        The rule group inspects only HTTP `POST` requests to your specified login endpoint.
-        """
-        enable_regex_in_path: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow the use of regular expressions in the login page path.
-        """
-        request_inspection: NotRequired[pulumi.Input['WebAclRequestInspectionArgsDict']]
-        """
-        The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
-        """
-        response_inspection: NotRequired[pulumi.Input['WebAclResponseInspectionArgsDict']]
-        """
-        The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
+    The rule group inspects only HTTP `POST` requests to your specified login endpoint.
+    """
+    enable_regex_in_path: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow the use of regular expressions in the login page path.
+    """
+    request_inspection: NotRequired[pulumi.Input['WebAclRequestInspectionArgsDict']]
+    """
+    The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
+    """
+    response_inspection: NotRequired[pulumi.Input['WebAclResponseInspectionArgsDict']]
+    """
+    The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 
-        > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+    > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
 
-        The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
-        """
-elif False:
-    WebAclAwsManagedRulesAtpRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+    The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
+    """
 
 @pulumi.input_type
 class WebAclAwsManagedRulesAtpRuleSetArgs:
@@ -6312,28 +6076,25 @@ class WebAclAwsManagedRulesAtpRuleSetArgs:
         pulumi.set(self, "response_inspection", value)
 
 
-if not MYPY:
-    class WebAclAwsManagedRulesBotControlRuleSetArgsDict(TypedDict):
-        """
-        Configures how to use the Bot Control managed rule group in the web ACL
-        """
-        inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']
-        """
-        The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
-        """
-        enable_machine_learning: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Applies only to the targeted inspection level.
+class WebAclAwsManagedRulesBotControlRuleSetArgsDict(TypedDict):
+    """
+    Configures how to use the Bot Control managed rule group in the web ACL
+    """
+    inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel']
+    """
+    The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
+    """
+    enable_machine_learning: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Applies only to the targeted inspection level.
 
-        Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Machine learning is required for the Bot Control rules `TGT_ML_CoordinatedActivityLow` and `TGT_ML_CoordinatedActivityMedium` , which
-        inspect for anomalous behavior that might indicate distributed, coordinated bot activity.
+    Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Machine learning is required for the Bot Control rules `TGT_ML_CoordinatedActivityLow` and `TGT_ML_CoordinatedActivityMedium` , which
+    inspect for anomalous behavior that might indicate distributed, coordinated bot activity.
 
-        For more information about this choice, see the listing for these rules in the table at [Bot Control rules listing](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html#aws-managed-rule-groups-bot-rules) in the *AWS WAF Developer Guide* .
+    For more information about this choice, see the listing for these rules in the table at [Bot Control rules listing](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html#aws-managed-rule-groups-bot-rules) in the *AWS WAF Developer Guide* .
 
-        Default: `TRUE`
-        """
-elif False:
-    WebAclAwsManagedRulesBotControlRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `TRUE`
+    """
 
 @pulumi.input_type
 class WebAclAwsManagedRulesBotControlRuleSetArgs:
@@ -6388,19 +6149,16 @@ class WebAclAwsManagedRulesBotControlRuleSetArgs:
         pulumi.set(self, "enable_machine_learning", value)
 
 
-if not MYPY:
-    class WebAclBlockActionArgsDict(TypedDict):
-        """
-        Block traffic towards application.
-        """
-        custom_response: NotRequired[pulumi.Input['WebAclCustomResponseArgsDict']]
-        """
-        Defines a custom response for the web request.
+class WebAclBlockActionArgsDict(TypedDict):
+    """
+    Block traffic towards application.
+    """
+    custom_response: NotRequired[pulumi.Input['WebAclCustomResponseArgsDict']]
+    """
+    Defines a custom response for the web request.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    WebAclBlockActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class WebAclBlockActionArgs:
@@ -6430,33 +6188,30 @@ class WebAclBlockActionArgs:
         pulumi.set(self, "custom_response", value)
 
 
-if not MYPY:
-    class WebAclBodyArgsDict(TypedDict):
-        """
-        The body of a web request. This immediately follows the request headers.
-        """
-        oversize_handling: NotRequired[pulumi.Input['WebAclOversizeHandling']]
-        """
-        What AWS WAF should do if the body is larger than AWS WAF can inspect.
+class WebAclBodyArgsDict(TypedDict):
+    """
+    The body of a web request. This immediately follows the request headers.
+    """
+    oversize_handling: NotRequired[pulumi.Input['WebAclOversizeHandling']]
+    """
+    What AWS WAF should do if the body is larger than AWS WAF can inspect.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
+    You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
 
-        Default: `CONTINUE`
-        """
-elif False:
-    WebAclBodyArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `CONTINUE`
+    """
 
 @pulumi.input_type
 class WebAclBodyArgs:
@@ -6514,64 +6269,61 @@ class WebAclBodyArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class WebAclByteMatchStatementArgsDict(TypedDict):
-        """
-        Byte Match statement.
-        """
-        field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        positional_constraint: pulumi.Input['WebAclPositionalConstraint']
-        """
-        The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
+class WebAclByteMatchStatementArgsDict(TypedDict):
+    """
+    Byte Match statement.
+    """
+    field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    positional_constraint: pulumi.Input['WebAclPositionalConstraint']
+    """
+    The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
 
-        *CONTAINS*
+    *CONTAINS*
 
-        The specified part of the web request must include the value of `SearchString` , but the location doesn't matter.
+    The specified part of the web request must include the value of `SearchString` , but the location doesn't matter.
 
-        *CONTAINS_WORD*
+    *CONTAINS_WORD*
 
-        The specified part of the web request must include the value of `SearchString` , and `SearchString` must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, `SearchString` must be a word, which means that both of the following are true:
+    The specified part of the web request must include the value of `SearchString` , and `SearchString` must contain only alphanumeric characters or underscore (A-Z, a-z, 0-9, or _). In addition, `SearchString` must be a word, which means that both of the following are true:
 
-        - `SearchString` is at the beginning of the specified part of the web request or is preceded by a character other than an alphanumeric character or underscore (_). Examples include the value of a header and `;BadBot` .
-        - `SearchString` is at the end of the specified part of the web request or is followed by a character other than an alphanumeric character or underscore (_), for example, `BadBot;` and `-BadBot;` .
+    - `SearchString` is at the beginning of the specified part of the web request or is preceded by a character other than an alphanumeric character or underscore (_). Examples include the value of a header and `;BadBot` .
+    - `SearchString` is at the end of the specified part of the web request or is followed by a character other than an alphanumeric character or underscore (_), for example, `BadBot;` and `-BadBot;` .
 
-        *EXACTLY*
+    *EXACTLY*
 
-        The value of the specified part of the web request must exactly match the value of `SearchString` .
+    The value of the specified part of the web request must exactly match the value of `SearchString` .
 
-        *STARTS_WITH*
+    *STARTS_WITH*
 
-        The value of `SearchString` must appear at the beginning of the specified part of the web request.
+    The value of `SearchString` must appear at the beginning of the specified part of the web request.
 
-        *ENDS_WITH*
+    *ENDS_WITH*
 
-        The value of `SearchString` must appear at the end of the specified part of the web request.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-        search_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
+    The value of `SearchString` must appear at the end of the specified part of the web request.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
+    search_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 
-        Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
+    Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
 
-        For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
+    For example, suppose the value of `Type` is `HEADER` and the value of `Data` is `User-Agent` . If you want to search the `User-Agent` header for the value `BadBot` , you provide the string `BadBot` in the value of `SearchString` .
 
-        You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-        """
-        search_string_base64: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        String to search for in a web request component, base64-encoded. If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
+    You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
+    """
+    search_string_base64: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    String to search for in a web request component, base64-encoded. If you don't want to encode the string, specify the unencoded value in `SearchString` instead.
 
-        You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
-        """
-elif False:
-    WebAclByteMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
+    """
 
 @pulumi.input_type
 class WebAclByteMatchStatementArgs:
@@ -6720,19 +6472,16 @@ class WebAclByteMatchStatementArgs:
         pulumi.set(self, "search_string_base64", value)
 
 
-if not MYPY:
-    class WebAclCaptchaActionArgsDict(TypedDict):
-        """
-        Checks valid token exists with request.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
+class WebAclCaptchaActionArgsDict(TypedDict):
+    """
+    Checks valid token exists with request.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    WebAclCaptchaActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class WebAclCaptchaActionArgs:
@@ -6762,14 +6511,11 @@ class WebAclCaptchaActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class WebAclCaptchaConfigArgsDict(TypedDict):
-        immunity_time_property: NotRequired[pulumi.Input['WebAclImmunityTimePropertyArgsDict']]
-        """
-        Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
-        """
-elif False:
-    WebAclCaptchaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclCaptchaConfigArgsDict(TypedDict):
+    immunity_time_property: NotRequired[pulumi.Input['WebAclImmunityTimePropertyArgsDict']]
+    """
+    Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
+    """
 
 @pulumi.input_type
 class WebAclCaptchaConfigArgs:
@@ -6794,19 +6540,16 @@ class WebAclCaptchaConfigArgs:
         pulumi.set(self, "immunity_time_property", value)
 
 
-if not MYPY:
-    class WebAclChallengeActionArgsDict(TypedDict):
-        """
-        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
+class WebAclChallengeActionArgsDict(TypedDict):
+    """
+    Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-        """
-elif False:
-    WebAclChallengeActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+    """
 
 @pulumi.input_type
 class WebAclChallengeActionArgs:
@@ -6836,14 +6579,11 @@ class WebAclChallengeActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class WebAclChallengeConfigArgsDict(TypedDict):
-        immunity_time_property: NotRequired[pulumi.Input['WebAclImmunityTimePropertyArgsDict']]
-        """
-        Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
-        """
-elif False:
-    WebAclChallengeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclChallengeConfigArgsDict(TypedDict):
+    immunity_time_property: NotRequired[pulumi.Input['WebAclImmunityTimePropertyArgsDict']]
+    """
+    Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
+    """
 
 @pulumi.input_type
 class WebAclChallengeConfigArgs:
@@ -6868,21 +6608,18 @@ class WebAclChallengeConfigArgs:
         pulumi.set(self, "immunity_time_property", value)
 
 
-if not MYPY:
-    class WebAclClientSideActionConfigArgsDict(TypedDict):
-        """
-        Client side action config for AntiDDOS AMR.
-        """
-        challenge: pulumi.Input['WebAclClientSideActionArgsDict']
-        """
-        Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+class WebAclClientSideActionConfigArgsDict(TypedDict):
+    """
+    Client side action config for AntiDDOS AMR.
+    """
+    challenge: pulumi.Input['WebAclClientSideActionArgsDict']
+    """
+    Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
 
-        > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
+    > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
 
-        You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
-        """
-elif False:
-    WebAclClientSideActionConfigArgsDict: TypeAlias = Mapping[str, Any]
+    You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
+    """
 
 @pulumi.input_type
 class WebAclClientSideActionConfigArgs:
@@ -6915,57 +6652,54 @@ class WebAclClientSideActionConfigArgs:
         pulumi.set(self, "challenge", value)
 
 
-if not MYPY:
-    class WebAclClientSideActionArgsDict(TypedDict):
-        """
-        Client side action config for AntiDDOS AMR.
-        """
-        usage_of_action: pulumi.Input['WebAclUsageOfAction']
-        """
-        Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+class WebAclClientSideActionArgsDict(TypedDict):
+    """
+    Client side action config for AntiDDOS AMR.
+    """
+    usage_of_action: pulumi.Input['WebAclUsageOfAction']
+    """
+    Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
 
-        - If usage is enabled:
+    - If usage is enabled:
 
-        - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
-        - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
-        - If usage is disabled:
+    - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+    - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+    - If usage is disabled:
 
-        - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
-        - The two rules are not evaluated.
-        - None of the other `ClientSideAction` settings have any effect.
+    - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+    - The two rules are not evaluated.
+    - None of the other `ClientSideAction` settings have any effect.
 
-        > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
-        > 
-        > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
-        """
-        exempt_uri_regular_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRegexArgsDict']]]]
-        """
-        The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+    > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+    > 
+    > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
+    """
+    exempt_uri_regular_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRegexArgsDict']]]]
+    """
+    The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
 
-        The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+    The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
 
-        AWS recommends using a regular expression.
+    AWS recommends using a regular expression.
 
-        This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+    This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
 
-        AWS recommends starting with the following setting. Review and update it for your application's needs:
+    AWS recommends starting with the following setting. Review and update it for your application's needs:
 
-        `\\/api\\/|\\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
-        """
-        sensitivity: NotRequired[pulumi.Input['WebAclSensitivityToAct']]
-        """
-        The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+    `\\/api\\/|\\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
+    """
+    sensitivity: NotRequired[pulumi.Input['WebAclSensitivityToAct']]
+    """
+    The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
 
-        The higher the sensitivity, the more levels of labeling that the rule matches:
+    The higher the sensitivity, the more levels of labeling that the rule matches:
 
-        - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
-        - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
-        - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+    - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+    - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+    - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
 
-        Default: `HIGH`
-        """
-elif False:
-    WebAclClientSideActionArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `HIGH`
+    """
 
 @pulumi.input_type
 class WebAclClientSideActionArgs:
@@ -7086,25 +6820,22 @@ class WebAclClientSideActionArgs:
         pulumi.set(self, "sensitivity", value)
 
 
-if not MYPY:
-    class WebAclCookieMatchPatternArgsDict(TypedDict):
-        """
-        The pattern to look for in the request cookies.
-        """
-        all: NotRequired[Any]
-        """
-        Inspect all parts of the web request cookies.
-        """
-        excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the cookies whose keys don't match any of the strings specified here.
-        """
-        included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the cookies that have a key that matches one of the strings specified here.
-        """
-elif False:
-    WebAclCookieMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclCookieMatchPatternArgsDict(TypedDict):
+    """
+    The pattern to look for in the request cookies.
+    """
+    all: NotRequired[Any]
+    """
+    Inspect all parts of the web request cookies.
+    """
+    excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the cookies whose keys don't match any of the strings specified here.
+    """
+    included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the cookies that have a key that matches one of the strings specified here.
+    """
 
 @pulumi.input_type
 class WebAclCookieMatchPatternArgs:
@@ -7162,37 +6893,34 @@ class WebAclCookieMatchPatternArgs:
         pulumi.set(self, "included_cookies", value)
 
 
-if not MYPY:
-    class WebAclCookiesArgsDict(TypedDict):
-        """
-        Includes cookies of a web request.
-        """
-        match_pattern: pulumi.Input['WebAclCookieMatchPatternArgsDict']
-        """
-        The filter to use to identify the subset of cookies to inspect in a web request.
+class WebAclCookiesArgsDict(TypedDict):
+    """
+    Includes cookies of a web request.
+    """
+    match_pattern: pulumi.Input['WebAclCookieMatchPatternArgsDict']
+    """
+    The filter to use to identify the subset of cookies to inspect in a web request.
 
-        You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
+    You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
 
-        Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`
-        """
-        match_scope: pulumi.Input['WebAclMapMatchScope']
-        """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
+    Example JSON: `"MatchPattern": { "IncludedCookies": [ "session-id-time", "session-id" ] }`
+    """
+    match_scope: pulumi.Input['WebAclMapMatchScope']
+    """
+    The parts of the cookies to inspect with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
 
-        `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        """
-        oversize_handling: pulumi.Input['WebAclOversizeHandling']
-        """
-        What AWS WAF should do if the cookies of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF .
+    `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
+    """
+    oversize_handling: pulumi.Input['WebAclOversizeHandling']
+    """
+    What AWS WAF should do if the cookies of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF .
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available cookies normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    WebAclCookiesArgsDict: TypeAlias = Mapping[str, Any]
+    - `CONTINUE` - Inspect the available cookies normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class WebAclCookiesArgs:
@@ -7271,19 +6999,16 @@ class WebAclCookiesArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class WebAclCountActionArgsDict(TypedDict):
-        """
-        Allow traffic towards application.
-        """
-        custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
-        """
-        Defines custom handling for the web request.
+class WebAclCountActionArgsDict(TypedDict):
+    """
+    Allow traffic towards application.
+    """
+    custom_request_handling: NotRequired[pulumi.Input['WebAclCustomRequestHandlingArgsDict']]
+    """
+    Defines custom handling for the web request.
 
-        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    WebAclCountActionArgsDict: TypeAlias = Mapping[str, Any]
+    For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class WebAclCountActionArgs:
@@ -7313,23 +7038,20 @@ class WebAclCountActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
-if not MYPY:
-    class WebAclCustomHttpHeaderArgsDict(TypedDict):
-        """
-        HTTP header.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the custom header.
+class WebAclCustomHttpHeaderArgsDict(TypedDict):
+    """
+    HTTP header.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the custom header.
 
-        For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the custom header.
-        """
-elif False:
-    WebAclCustomHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+    For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the custom header.
+    """
 
 @pulumi.input_type
 class WebAclCustomHttpHeaderArgs:
@@ -7373,17 +7095,14 @@ class WebAclCustomHttpHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WebAclCustomRequestHandlingArgsDict(TypedDict):
-        """
-        Custom request handling.
-        """
-        insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgsDict']]]
-        """
-        Collection of HTTP headers.
-        """
-elif False:
-    WebAclCustomRequestHandlingArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclCustomRequestHandlingArgsDict(TypedDict):
+    """
+    Custom request handling.
+    """
+    insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgsDict']]]
+    """
+    Collection of HTTP headers.
+    """
 
 @pulumi.input_type
 class WebAclCustomRequestHandlingArgs:
@@ -7408,25 +7127,22 @@ class WebAclCustomRequestHandlingArgs:
         pulumi.set(self, "insert_headers", value)
 
 
-if not MYPY:
-    class WebAclCustomResponseBodyArgsDict(TypedDict):
-        """
-        Custom response body.
-        """
-        content: pulumi.Input[_builtins.str]
-        """
-        The payload of the custom response.
+class WebAclCustomResponseBodyArgsDict(TypedDict):
+    """
+    Custom response body.
+    """
+    content: pulumi.Input[_builtins.str]
+    """
+    The payload of the custom response.
 
-        You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
+    You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
 
-        For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
-        """
-        content_type: pulumi.Input['WebAclResponseContentType']
-        """
-        The type of content in the payload that you are defining in the `Content` string.
-        """
-elif False:
-    WebAclCustomResponseBodyArgsDict: TypeAlias = Mapping[str, Any]
+    For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+    """
+    content_type: pulumi.Input['WebAclResponseContentType']
+    """
+    The type of content in the payload that you are defining in the `Content` string.
+    """
 
 @pulumi.input_type
 class WebAclCustomResponseBodyArgs:
@@ -7474,27 +7190,24 @@ class WebAclCustomResponseBodyArgs:
         pulumi.set(self, "content_type", value)
 
 
-if not MYPY:
-    class WebAclCustomResponseArgsDict(TypedDict):
-        """
-        Custom response.
-        """
-        response_code: pulumi.Input[_builtins.int]
-        """
-        The HTTP status code to return to the client.
+class WebAclCustomResponseArgsDict(TypedDict):
+    """
+    Custom response.
+    """
+    response_code: pulumi.Input[_builtins.int]
+    """
+    The HTTP status code to return to the client.
 
-        For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
-        """
-        custom_response_body_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom response body key.
-        """
-        response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgsDict']]]]
-        """
-        Collection of HTTP headers.
-        """
-elif False:
-    WebAclCustomResponseArgsDict: TypeAlias = Mapping[str, Any]
+    For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
+    """
+    custom_response_body_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom response body key.
+    """
+    response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgsDict']]]]
+    """
+    Collection of HTTP headers.
+    """
 
 @pulumi.input_type
 class WebAclCustomResponseArgs:
@@ -7555,14 +7268,11 @@ class WebAclCustomResponseArgs:
         pulumi.set(self, "response_headers", value)
 
 
-if not MYPY:
-    class WebAclDataProtectionConfigArgsDict(TypedDict):
-        data_protections: pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgsDict']]]
-        """
-        An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
-        """
-elif False:
-    WebAclDataProtectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclDataProtectionConfigArgsDict(TypedDict):
+    data_protections: pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectArgsDict']]]
+    """
+    An array of data protection configurations for specific web request field types. This is defined for each web ACL. AWS WAF applies the specified protection to all web requests that the web ACL inspects.
+    """
 
 @pulumi.input_type
 class WebAclDataProtectionConfigArgs:
@@ -7586,14 +7296,11 @@ class WebAclDataProtectionConfigArgs:
         pulumi.set(self, "data_protections", value)
 
 
-if not MYPY:
-    class WebAclDataProtectArgsDict(TypedDict):
-        action: pulumi.Input['WebAclDataProtectionAction']
-        field: pulumi.Input['WebAclFieldToProtectArgsDict']
-        exclude_rate_based_details: NotRequired[pulumi.Input[_builtins.bool]]
-        exclude_rule_match_details: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    WebAclDataProtectArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclDataProtectArgsDict(TypedDict):
+    action: pulumi.Input['WebAclDataProtectionAction']
+    field: pulumi.Input['WebAclFieldToProtectArgsDict']
+    exclude_rate_based_details: NotRequired[pulumi.Input[_builtins.bool]]
+    exclude_rule_match_details: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class WebAclDataProtectArgs:
@@ -7646,21 +7353,18 @@ class WebAclDataProtectArgs:
         pulumi.set(self, "exclude_rule_match_details", value)
 
 
-if not MYPY:
-    class WebAclDefaultActionArgsDict(TypedDict):
-        """
-        Default Action WebACL will take against ingress traffic when there is no matching Rule.
-        """
-        allow: NotRequired[pulumi.Input['WebAclAllowActionArgsDict']]
-        """
-        Specifies that AWS WAF should allow requests by default.
-        """
-        block: NotRequired[pulumi.Input['WebAclBlockActionArgsDict']]
-        """
-        Specifies that AWS WAF should block requests by default.
-        """
-elif False:
-    WebAclDefaultActionArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclDefaultActionArgsDict(TypedDict):
+    """
+    Default Action WebACL will take against ingress traffic when there is no matching Rule.
+    """
+    allow: NotRequired[pulumi.Input['WebAclAllowActionArgsDict']]
+    """
+    Specifies that AWS WAF should allow requests by default.
+    """
+    block: NotRequired[pulumi.Input['WebAclBlockActionArgsDict']]
+    """
+    Specifies that AWS WAF should block requests by default.
+    """
 
 @pulumi.input_type
 class WebAclDefaultActionArgs:
@@ -7702,17 +7406,14 @@ class WebAclDefaultActionArgs:
         pulumi.set(self, "block", value)
 
 
-if not MYPY:
-    class WebAclExcludedRuleArgsDict(TypedDict):
-        """
-        Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the rule whose action you want to override to `Count` .
-        """
-elif False:
-    WebAclExcludedRuleArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclExcludedRuleArgsDict(TypedDict):
+    """
+    Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the rule whose action you want to override to `Count` .
+    """
 
 @pulumi.input_type
 class WebAclExcludedRuleArgs:
@@ -7737,20 +7438,17 @@ class WebAclExcludedRuleArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WebAclFieldIdentifierArgsDict(TypedDict):
-        identifier: pulumi.Input[_builtins.str]
-        """
-        The name of the field.
+class WebAclFieldIdentifierArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The name of the field.
 
-        When the `PayloadType` in the request inspection is `JSON` , this identifier must be in JSON pointer syntax. For example `/form/username` . For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    When the `PayloadType` in the request inspection is `JSON` , this identifier must be in JSON pointer syntax. For example `/form/username` . For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        When the `PayloadType` is `FORM_ENCODED` , use the HTML form names. For example, `username` .
+    When the `PayloadType` is `FORM_ENCODED` , use the HTML form names. For example, `username` .
 
-        For more information, see the descriptions for each field type in the request inspection properties.
-        """
-elif False:
-    WebAclFieldIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see the descriptions for each field type in the request inspection properties.
+    """
 
 @pulumi.input_type
 class WebAclFieldIdentifierArgs:
@@ -7786,18 +7484,15 @@ class WebAclFieldIdentifierArgs:
         pulumi.set(self, "identifier", value)
 
 
-if not MYPY:
-    class WebAclFieldToMatchSingleHeaderPropertiesArgsDict(TypedDict):
-        """
-        Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+class WebAclFieldToMatchSingleHeaderPropertiesArgsDict(TypedDict):
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 
-        Example JSON: `"SingleHeader": { "Name": "haystack" }`
+    Example JSON: `"SingleHeader": { "Name": "haystack" }`
 
-        Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
-        """
-        name: pulumi.Input[_builtins.str]
-elif False:
-    WebAclFieldToMatchSingleHeaderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+    """
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class WebAclFieldToMatchSingleHeaderPropertiesArgs:
@@ -7822,14 +7517,11 @@ class WebAclFieldToMatchSingleHeaderPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WebAclFieldToMatchSingleQueryArgumentPropertiesArgsDict(TypedDict):
-        """
-        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-        """
-        name: pulumi.Input[_builtins.str]
-elif False:
-    WebAclFieldToMatchSingleQueryArgumentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclFieldToMatchSingleQueryArgumentPropertiesArgsDict(TypedDict):
+    """
+    One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+    """
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class WebAclFieldToMatchSingleQueryArgumentPropertiesArgs:
@@ -7850,104 +7542,101 @@ class WebAclFieldToMatchSingleQueryArgumentPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WebAclFieldToMatchArgsDict(TypedDict):
-        """
-        Field of the request to match.
-        """
-        all_query_arguments: NotRequired[Any]
-        """
-        All query arguments of a web request.
-        """
-        body: NotRequired[pulumi.Input['WebAclBodyArgsDict']]
-        """
-        Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+class WebAclFieldToMatchArgsDict(TypedDict):
+    """
+    Field of the request to match.
+    """
+    all_query_arguments: NotRequired[Any]
+    """
+    All query arguments of a web request.
+    """
+    body: NotRequired[pulumi.Input['WebAclBodyArgsDict']]
+    """
+    Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        For information about how to handle oversized request bodies, see the `Body` object configuration.
-        """
-        cookies: NotRequired[pulumi.Input['WebAclCookiesArgsDict']]
-        """
-        Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
+    For information about how to handle oversized request bodies, see the `Body` object configuration.
+    """
+    cookies: NotRequired[pulumi.Input['WebAclCookiesArgsDict']]
+    """
+    Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 
-        Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-        """
-        header_order: NotRequired[pulumi.Input['WebAclHeaderOrderArgsDict']]
-        headers: NotRequired[pulumi.Input['WebAclHeadersArgsDict']]
-        """
-        Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
+    Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+    """
+    header_order: NotRequired[pulumi.Input['WebAclHeaderOrderArgsDict']]
+    headers: NotRequired[pulumi.Input['WebAclHeadersArgsDict']]
+    """
+    Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 
-        Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
-        """
-        ja3_fingerprint: NotRequired[pulumi.Input['WebAclJa3FingerprintArgsDict']]
-        """
-        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+    Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
+    """
+    ja3_fingerprint: NotRequired[pulumi.Input['WebAclJa3FingerprintArgsDict']]
+    """
+    Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+    > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
 
-        You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+    You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
-        Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
-        """
-        ja4_fingerprint: NotRequired[pulumi.Input['WebAclJa4FingerprintArgsDict']]
-        """
-        Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+    Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+    """
+    ja4_fingerprint: NotRequired[pulumi.Input['WebAclJa4FingerprintArgsDict']]
+    """
+    Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+    > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
 
-        You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+    You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
-        Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
-        """
-        json_body: NotRequired[pulumi.Input['WebAclJsonBodyArgsDict']]
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+    Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+    """
+    json_body: NotRequired[pulumi.Input['WebAclJsonBodyArgsDict']]
+    """
+    Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
-        """
-        method: NotRequired[Any]
-        """
-        The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
-        """
-        query_string: NotRequired[Any]
-        """
-        The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        """
-        single_header: NotRequired[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgsDict']]
-        """
-        Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
+    For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
+    """
+    method: NotRequired[Any]
+    """
+    The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
+    """
+    query_string: NotRequired[Any]
+    """
+    The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+    """
+    single_header: NotRequired[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgsDict']]
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, `User-Agent` or `Referer` . This setting isn't case sensitive.
 
-        Example JSON: `"SingleHeader": { "Name": "haystack" }`
+    Example JSON: `"SingleHeader": { "Name": "haystack" }`
 
-        Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
-        """
-        single_query_argument: NotRequired[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgsDict']]
-        """
-        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-        """
-        uri_fragment: NotRequired[pulumi.Input['WebAclUriFragmentArgsDict']]
-        """
-        Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
+    Alternately, you can filter and inspect all headers with the `Headers` `FieldToMatch` setting.
+    """
+    single_query_argument: NotRequired[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgsDict']]
+    """
+    One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+    """
+    uri_fragment: NotRequired[pulumi.Input['WebAclUriFragmentArgsDict']]
+    """
+    Inspect fragments of the request URI. You must configure scope and pattern matching filters in the `UriFragment` object, to define the fragment of a URI that AWS WAF inspects.
 
-        Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-        """
-        uri_path: NotRequired[Any]
-        """
-        The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
-        """
-elif False:
-    WebAclFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+    Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize URI fragment content in the `UriFragment` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
+    """
+    uri_path: NotRequired[Any]
+    """
+    The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
+    """
 
 @pulumi.input_type
 class WebAclFieldToMatchArgs:
@@ -8253,21 +7942,18 @@ class WebAclFieldToMatchArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class WebAclFieldToProtectArgsDict(TypedDict):
-        """
-        Field in log to protect.
-        """
-        field_type: pulumi.Input['WebAclFieldToProtectFieldType']
-        """
-        Field type to protect
-        """
-        field_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of field keys to protect
-        """
-elif False:
-    WebAclFieldToProtectArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclFieldToProtectArgsDict(TypedDict):
+    """
+    Field in log to protect.
+    """
+    field_type: pulumi.Input['WebAclFieldToProtectFieldType']
+    """
+    Field type to protect
+    """
+    field_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of field keys to protect
+    """
 
 @pulumi.input_type
 class WebAclFieldToProtectArgs:
@@ -8308,27 +7994,24 @@ class WebAclFieldToProtectArgs:
         pulumi.set(self, "field_keys", value)
 
 
-if not MYPY:
-    class WebAclForwardedIpConfigurationArgsDict(TypedDict):
-        fallback_behavior: pulumi.Input['WebAclForwardedIpConfigurationFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+class WebAclForwardedIpConfigurationArgsDict(TypedDict):
+    fallback_behavior: pulumi.Input['WebAclForwardedIpConfigurationFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-        header_name: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
+    header_name: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-elif False:
-    WebAclForwardedIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
 
 @pulumi.input_type
 class WebAclForwardedIpConfigurationArgs:
@@ -8385,22 +8068,19 @@ class WebAclForwardedIpConfigurationArgs:
         pulumi.set(self, "header_name", value)
 
 
-if not MYPY:
-    class WebAclGeoMatchStatementArgsDict(TypedDict):
-        country_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of two-character country codes that you want to match against, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
+class WebAclGeoMatchStatementArgsDict(TypedDict):
+    country_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of two-character country codes that you want to match against, for example, `[ "US", "CN" ]` , from the alpha-2 country ISO codes of the ISO 3166 international standard.
 
-        When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.
-        """
-        forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+    When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.
+    """
+    forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-elif False:
-    WebAclGeoMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
 
 @pulumi.input_type
 class WebAclGeoMatchStatementArgs:
@@ -8449,25 +8129,22 @@ class WebAclGeoMatchStatementArgs:
         pulumi.set(self, "forwarded_ip_config", value)
 
 
-if not MYPY:
-    class WebAclHeaderMatchPatternArgsDict(TypedDict):
-        """
-        The pattern to look for in the request headers.
-        """
-        all: NotRequired[Any]
-        """
-        Inspect all parts of the web request headers.
-        """
-        excluded_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the headers whose keys don't match any of the strings specified here.
-        """
-        included_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inspect only the headers that have a key that matches one of the strings specified here.
-        """
-elif False:
-    WebAclHeaderMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclHeaderMatchPatternArgsDict(TypedDict):
+    """
+    The pattern to look for in the request headers.
+    """
+    all: NotRequired[Any]
+    """
+    Inspect all parts of the web request headers.
+    """
+    excluded_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the headers whose keys don't match any of the strings specified here.
+    """
+    included_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inspect only the headers that have a key that matches one of the strings specified here.
+    """
 
 @pulumi.input_type
 class WebAclHeaderMatchPatternArgs:
@@ -8525,14 +8202,11 @@ class WebAclHeaderMatchPatternArgs:
         pulumi.set(self, "included_headers", value)
 
 
-if not MYPY:
-    class WebAclHeaderOrderArgsDict(TypedDict):
-        """
-        The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
-        """
-        oversize_handling: pulumi.Input['WebAclOversizeHandling']
-elif False:
-    WebAclHeaderOrderArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclHeaderOrderArgsDict(TypedDict):
+    """
+    The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+    """
+    oversize_handling: pulumi.Input['WebAclOversizeHandling']
 
 @pulumi.input_type
 class WebAclHeaderOrderArgs:
@@ -8553,37 +8227,34 @@ class WebAclHeaderOrderArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class WebAclHeadersArgsDict(TypedDict):
-        """
-        Includes headers of a web request.
-        """
-        match_pattern: pulumi.Input['WebAclHeaderMatchPatternArgsDict']
-        """
-        The filter to use to identify the subset of headers to inspect in a web request.
+class WebAclHeadersArgsDict(TypedDict):
+    """
+    Includes headers of a web request.
+    """
+    match_pattern: pulumi.Input['WebAclHeaderMatchPatternArgsDict']
+    """
+    The filter to use to identify the subset of headers to inspect in a web request.
 
-        You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
+    You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
 
-        Example JSON: `"MatchPattern": { "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] }`
-        """
-        match_scope: pulumi.Input['WebAclMapMatchScope']
-        """
-        The parts of the headers to match with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
+    Example JSON: `"MatchPattern": { "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] }`
+    """
+    match_scope: pulumi.Input['WebAclMapMatchScope']
+    """
+    The parts of the headers to match with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
 
-        `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        """
-        oversize_handling: pulumi.Input['WebAclOversizeHandling']
-        """
-        What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+    `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
+    """
+    oversize_handling: pulumi.Input['WebAclOversizeHandling']
+    """
+    What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available headers normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    WebAclHeadersArgsDict: TypeAlias = Mapping[str, Any]
+    - `CONTINUE` - Inspect the available headers normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class WebAclHeadersArgs:
@@ -8662,16 +8333,13 @@ class WebAclHeadersArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class WebAclImmunityTimePropertyArgsDict(TypedDict):
-        immunity_time: pulumi.Input[_builtins.int]
-        """
-        The amount of time, in seconds, that a `CAPTCHA` or challenge timestamp is considered valid by AWS WAF . The default setting is 300.
+class WebAclImmunityTimePropertyArgsDict(TypedDict):
+    immunity_time: pulumi.Input[_builtins.int]
+    """
+    The amount of time, in seconds, that a `CAPTCHA` or challenge timestamp is considered valid by AWS WAF . The default setting is 300.
 
-        For the Challenge action, the minimum setting is 300.
-        """
-elif False:
-    WebAclImmunityTimePropertyArgsDict: TypeAlias = Mapping[str, Any]
+    For the Challenge action, the minimum setting is 300.
+    """
 
 @pulumi.input_type
 class WebAclImmunityTimePropertyArgs:
@@ -8699,37 +8367,34 @@ class WebAclImmunityTimePropertyArgs:
         pulumi.set(self, "immunity_time", value)
 
 
-if not MYPY:
-    class WebAclIpSetForwardedIpConfigurationArgsDict(TypedDict):
-        fallback_behavior: pulumi.Input['WebAclIpSetForwardedIpConfigurationFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+class WebAclIpSetForwardedIpConfigurationArgsDict(TypedDict):
+    fallback_behavior: pulumi.Input['WebAclIpSetForwardedIpConfigurationFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-        header_name: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
+    header_name: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to `X-Forwarded-For` .
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-        position: pulumi.Input['WebAclIpSetForwardedIpConfigurationPosition']
-        """
-        The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
+    position: pulumi.Input['WebAclIpSetForwardedIpConfigurationPosition']
+    """
+    The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
 
-        The options for this setting are the following:
+    The options for this setting are the following:
 
-        - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
-        - LAST - Inspect the last IP address in the list of IP addresses in the header.
-        - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
-        """
-elif False:
-    WebAclIpSetForwardedIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+    - LAST - Inspect the last IP address in the list of IP addresses in the header.
+    - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+    """
 
 @pulumi.input_type
 class WebAclIpSetForwardedIpConfigurationArgs:
@@ -8813,20 +8478,17 @@ class WebAclIpSetForwardedIpConfigurationArgs:
         pulumi.set(self, "position", value)
 
 
-if not MYPY:
-    class WebAclIpSetReferenceStatementArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
-        """
-        ip_set_forwarded_ip_config: NotRequired[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+class WebAclIpSetReferenceStatementArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the `IPSet` that this statement references.
+    """
+    ip_set_forwarded_ip_config: NotRequired[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-        """
-elif False:
-    WebAclIpSetReferenceStatementArgsDict: TypeAlias = Mapping[str, Any]
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+    """
 
 @pulumi.input_type
 class WebAclIpSetReferenceStatementArgs:
@@ -8870,22 +8532,19 @@ class WebAclIpSetReferenceStatementArgs:
         pulumi.set(self, "ip_set_forwarded_ip_config", value)
 
 
-if not MYPY:
-    class WebAclJa3FingerprintArgsDict(TypedDict):
-        """
-        Includes the JA3 fingerprint of a web request.
-        """
-        fallback_behavior: pulumi.Input['WebAclJa3FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+class WebAclJa3FingerprintArgsDict(TypedDict):
+    """
+    Includes the JA3 fingerprint of a web request.
+    """
+    fallback_behavior: pulumi.Input['WebAclJa3FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    WebAclJa3FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class WebAclJa3FingerprintArgs:
@@ -8920,22 +8579,19 @@ class WebAclJa3FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class WebAclJa4FingerprintArgsDict(TypedDict):
-        """
-        Includes the JA4 fingerprint of a web request.
-        """
-        fallback_behavior: pulumi.Input['WebAclJa4FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
+class WebAclJa4FingerprintArgsDict(TypedDict):
+    """
+    Includes the JA4 fingerprint of a web request.
+    """
+    fallback_behavior: pulumi.Input['WebAclJa4FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    WebAclJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class WebAclJa4FingerprintArgs:
@@ -8970,55 +8626,52 @@ class WebAclJa4FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class WebAclJsonBodyArgsDict(TypedDict):
-        """
-        Inspect the request body as JSON. The request body immediately follows the request headers.
-        """
-        match_pattern: pulumi.Input['WebAclJsonMatchPatternArgsDict']
-        """
-        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
-        """
-        match_scope: pulumi.Input['WebAclJsonMatchScope']
-        """
-        The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
+class WebAclJsonBodyArgsDict(TypedDict):
+    """
+    Inspect the request body as JSON. The request body immediately follows the request headers.
+    """
+    match_pattern: pulumi.Input['WebAclJsonMatchPatternArgsDict']
+    """
+    The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+    """
+    match_scope: pulumi.Input['WebAclJsonMatchScope']
+    """
+    The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
 
-        `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        """
-        invalid_fallback_behavior: NotRequired[pulumi.Input['WebAclBodyParsingFallbackBehavior']]
-        """
-        What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+    `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
+    """
+    invalid_fallback_behavior: NotRequired[pulumi.Input['WebAclBodyParsingFallbackBehavior']]
+    """
+    What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
 
-        - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+    If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 
-        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
-        """
-        oversize_handling: NotRequired[pulumi.Input['WebAclOversizeHandling']]
-        """
-        What AWS WAF should do if the body is larger than AWS WAF can inspect.
+    > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+    """
+    oversize_handling: NotRequired[pulumi.Input['WebAclOversizeHandling']]
+    """
+    What AWS WAF should do if the body is larger than AWS WAF can inspect.
 
-        AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+    AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 
-        - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
-        - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
-        - For AWS Amplify , use the CloudFront limit.
+    - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+    - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+    - For AWS Amplify , use the CloudFront limit.
 
-        The options for oversize handling are the following:
+    The options for oversize handling are the following:
 
-        - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `CONTINUE` - Inspect the available body contents normally, according to the rule inspection criteria.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
+    You can combine the `MATCH` or `NO_MATCH` settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit.
 
-        Default: `CONTINUE`
-        """
-elif False:
-    WebAclJsonBodyArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `CONTINUE`
+    """
 
 @pulumi.input_type
 class WebAclJsonBodyArgs:
@@ -9142,27 +8795,24 @@ class WebAclJsonBodyArgs:
         pulumi.set(self, "oversize_handling", value)
 
 
-if not MYPY:
-    class WebAclJsonMatchPatternArgsDict(TypedDict):
-        """
-        The pattern to look for in the JSON body.
-        """
-        all: NotRequired[Any]
-        """
-        Inspect all parts of the web request's JSON body.
-        """
-        included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
+class WebAclJsonMatchPatternArgsDict(TypedDict):
+    """
+    The pattern to look for in the JSON body.
+    """
+    all: NotRequired[Any]
+    """
+    Inspect all parts of the web request's JSON body.
+    """
+    included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
 
-        Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    Provide the include paths using JSON Pointer syntax. For example, `"IncludedPaths": ["/dogs/0/name", "/dogs/1/name"]` . For information about this syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        You must specify either this setting or the `All` setting, but not both.
+    You must specify either this setting or the `All` setting, but not both.
 
-        > Don't use this option to include all paths. Instead, use the `All` setting.
-        """
-elif False:
-    WebAclJsonMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
+    > Don't use this option to include all paths. Instead, use the `All` setting.
+    """
 
 @pulumi.input_type
 class WebAclJsonMatchPatternArgs:
@@ -9216,23 +8866,20 @@ class WebAclJsonMatchPatternArgs:
         pulumi.set(self, "included_paths", value)
 
 
-if not MYPY:
-    class WebAclLabelMatchStatementArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:
+class WebAclLabelMatchStatementArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The string to match against. The setting you provide for this depends on the match statement's `Scope` setting:
 
-        - If the `Scope` indicates `LABEL` , then this specification must include the name and can include any number of preceding namespace specifications and prefix up to providing the fully qualified label name.
-        - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
+    - If the `Scope` indicates `LABEL` , then this specification must include the name and can include any number of preceding namespace specifications and prefix up to providing the fully qualified label name.
+    - If the `Scope` indicates `NAMESPACE` , then this specification can include any number of contiguous namespace strings, and can include the entire label namespace prefix from the rule group or web ACL where the label originates.
 
-        Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
-        """
-        scope: pulumi.Input['WebAclLabelMatchScope']
-        """
-        Specify whether you want to match using the label name or just the namespace.
-        """
-elif False:
-    WebAclLabelMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    Labels are case sensitive and components of a label must be separated by colon, for example `NS1:NS2:name` .
+    """
+    scope: pulumi.Input['WebAclLabelMatchScope']
+    """
+    Specify whether you want to match using the label name or just the namespace.
+    """
 
 @pulumi.input_type
 class WebAclLabelMatchStatementArgs:
@@ -9281,14 +8928,11 @@ class WebAclLabelMatchStatementArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class WebAclLabelArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The label string.
-        """
-elif False:
-    WebAclLabelArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclLabelArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The label string.
+    """
 
 @pulumi.input_type
 class WebAclLabelArgs:
@@ -9312,53 +8956,50 @@ class WebAclLabelArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WebAclManagedRuleGroupConfigArgsDict(TypedDict):
-        """
-        ManagedRuleGroupConfig.
-        """
-        aws_managed_rules_acfp_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgsDict']]
-        """
-        Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
+class WebAclManagedRuleGroupConfigArgsDict(TypedDict):
+    """
+    ManagedRuleGroupConfig.
+    """
+    aws_managed_rules_acfp_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgsDict']]
+    """
+    Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
 
-        For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
-        """
-        aws_managed_rules_anti_d_do_s_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict']]
-        """
-        Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+    For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
+    """
+    aws_managed_rules_anti_d_do_s_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict']]
+    """
+    Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
 
-        For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
-        """
-        aws_managed_rules_atp_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgsDict']]
-        """
-        Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
+    For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
+    """
+    aws_managed_rules_atp_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgsDict']]
+    """
+    Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
 
-        This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
+    This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
 
-        For information about using the ATP managed rule group, see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html) and [AWS WAF Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) in the *AWS WAF Developer Guide* .
-        """
-        aws_managed_rules_bot_control_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetArgsDict']]
-        """
-        Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. For information about using the Bot Control managed rule group, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) and [AWS WAF Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html) in the *AWS WAF Developer Guide* .
-        """
-        login_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
-        """
-        password_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
-        """
-        > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
-        """
-        payload_type: NotRequired[pulumi.Input['WebAclManagedRuleGroupConfigPayloadType']]
-        """
-        > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
-        """
-        username_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
-        """
-        > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
-        """
-elif False:
-    WebAclManagedRuleGroupConfigArgsDict: TypeAlias = Mapping[str, Any]
+    For information about using the ATP managed rule group, see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html) and [AWS WAF Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) in the *AWS WAF Developer Guide* .
+    """
+    aws_managed_rules_bot_control_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetArgsDict']]
+    """
+    Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. For information about using the Bot Control managed rule group, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) and [AWS WAF Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html) in the *AWS WAF Developer Guide* .
+    """
+    login_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
+    """
+    password_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
+    """
+    > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+    """
+    payload_type: NotRequired[pulumi.Input['WebAclManagedRuleGroupConfigPayloadType']]
+    """
+    > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+    """
+    username_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
+    """
+    > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+    """
 
 @pulumi.input_type
 class WebAclManagedRuleGroupConfigArgs:
@@ -9512,40 +9153,37 @@ class WebAclManagedRuleGroupConfigArgs:
         pulumi.set(self, "username_field", value)
 
 
-if not MYPY:
-    class WebAclManagedRuleGroupStatementArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.
-        """
-        vendor_name: pulumi.Input[_builtins.str]
-        """
-        The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.
-        """
-        excluded_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgsDict']]]]
-        """
-        Rules in the referenced rule group whose actions are set to `Count` .
+class WebAclManagedRuleGroupStatementArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.
+    """
+    vendor_name: pulumi.Input[_builtins.str]
+    """
+    The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.
+    """
+    excluded_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgsDict']]]]
+    """
+    Rules in the referenced rule group whose actions are set to `Count` .
 
-        > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
-        """
-        managed_rule_group_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclManagedRuleGroupConfigArgsDict']]]]
-        """
-        Collection of ManagedRuleGroupConfig.
-        """
-        rule_action_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgsDict']]]]
-        """
-        Action overrides for rules in the rule group.
-        """
-        scope_down_statement: NotRequired[pulumi.Input['WebAclStatementArgsDict']]
-        """
-        An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the managed rule group to use. If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.
-        """
-elif False:
-    WebAclManagedRuleGroupStatementArgsDict: TypeAlias = Mapping[str, Any]
+    > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+    """
+    managed_rule_group_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclManagedRuleGroupConfigArgsDict']]]]
+    """
+    Collection of ManagedRuleGroupConfig.
+    """
+    rule_action_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgsDict']]]]
+    """
+    Action overrides for rules in the rule group.
+    """
+    scope_down_statement: NotRequired[pulumi.Input['WebAclStatementArgsDict']]
+    """
+    An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the managed rule group to use. If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.
+    """
 
 @pulumi.input_type
 class WebAclManagedRuleGroupStatementArgs:
@@ -9668,14 +9306,11 @@ class WebAclManagedRuleGroupStatementArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class WebAclNotStatementArgsDict(TypedDict):
-        statement: pulumi.Input['WebAclStatementArgsDict']
-        """
-        The statement to negate. You can use any statement that can be nested.
-        """
-elif False:
-    WebAclNotStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclNotStatementArgsDict(TypedDict):
+    statement: pulumi.Input['WebAclStatementArgsDict']
+    """
+    The statement to negate. You can use any statement that can be nested.
+    """
 
 @pulumi.input_type
 class WebAclNotStatementArgs:
@@ -9699,17 +9334,14 @@ class WebAclNotStatementArgs:
         pulumi.set(self, "statement", value)
 
 
-if not MYPY:
-    class WebAclOnSourceDDoSProtectionConfigArgsDict(TypedDict):
-        """
-        Configures the options for on-source DDoS protection provided by supported resource type.
-        """
-        alb_low_reputation_mode: pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']
-        """
-        The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
-        """
-elif False:
-    WebAclOnSourceDDoSProtectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclOnSourceDDoSProtectionConfigArgsDict(TypedDict):
+    """
+    Configures the options for on-source DDoS protection provided by supported resource type.
+    """
+    alb_low_reputation_mode: pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']
+    """
+    The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
+    """
 
 @pulumi.input_type
 class WebAclOnSourceDDoSProtectionConfigArgs:
@@ -9734,14 +9366,11 @@ class WebAclOnSourceDDoSProtectionConfigArgs:
         pulumi.set(self, "alb_low_reputation_mode", value)
 
 
-if not MYPY:
-    class WebAclOrStatementArgsDict(TypedDict):
-        statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgsDict']]]
-        """
-        The statements to combine with OR logic. You can use any statements that can be nested.
-        """
-elif False:
-    WebAclOrStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclOrStatementArgsDict(TypedDict):
+    statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgsDict']]]
+    """
+    The statements to combine with OR logic. You can use any statements that can be nested.
+    """
 
 @pulumi.input_type
 class WebAclOrStatementArgs:
@@ -9765,21 +9394,18 @@ class WebAclOrStatementArgs:
         pulumi.set(self, "statements", value)
 
 
-if not MYPY:
-    class WebAclOverrideActionArgsDict(TypedDict):
-        """
-        Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
-        """
-        count: NotRequired[Any]
-        """
-        Count traffic towards application.
-        """
-        none: NotRequired[Any]
-        """
-        Keep the RuleGroup or ManagedRuleGroup behavior as is.
-        """
-elif False:
-    WebAclOverrideActionArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclOverrideActionArgsDict(TypedDict):
+    """
+    Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
+    """
+    count: NotRequired[Any]
+    """
+    Count traffic towards application.
+    """
+    none: NotRequired[Any]
+    """
+    Keep the RuleGroup or ManagedRuleGroup behavior as is.
+    """
 
 @pulumi.input_type
 class WebAclOverrideActionArgs:
@@ -9821,71 +9447,68 @@ class WebAclOverrideActionArgs:
         pulumi.set(self, "none", value)
 
 
-if not MYPY:
-    class WebAclRateBasedStatementCustomKeyArgsDict(TypedDict):
-        """
-        Specifies a single custom aggregate key for a rate-base rule.
-        """
-        asn: NotRequired[pulumi.Input['WebAclRateLimitAsnArgsDict']]
-        """
-        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
-        """
-        cookie: NotRequired[pulumi.Input['WebAclRateLimitCookieArgsDict']]
-        """
-        Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
-        """
-        forwarded_ip: NotRequired[pulumi.Input['WebAclRateLimitForwardedIpArgsDict']]
-        """
-        Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
+class WebAclRateBasedStatementCustomKeyArgsDict(TypedDict):
+    """
+    Specifies a single custom aggregate key for a rate-base rule.
+    """
+    asn: NotRequired[pulumi.Input['WebAclRateLimitAsnArgsDict']]
+    """
+    Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
+    """
+    cookie: NotRequired[pulumi.Input['WebAclRateLimitCookieArgsDict']]
+    """
+    Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+    """
+    forwarded_ip: NotRequired[pulumi.Input['WebAclRateLimitForwardedIpArgsDict']]
+    """
+    Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
 
-        When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the forwarded IP address by specifying `FORWARDED_IP` in your rate-based statement's `AggregateKeyType` .
+    When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the forwarded IP address by specifying `FORWARDED_IP` in your rate-based statement's `AggregateKeyType` .
 
-        With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
-        """
-        header: NotRequired[pulumi.Input['WebAclRateLimitHeaderArgsDict']]
-        """
-        Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
-        """
-        http_method: NotRequired[pulumi.Input['WebAclRateLimitHttpMethodArgsDict']]
-        """
-        Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
-        """
-        ip: NotRequired[pulumi.Input['WebAclRateLimitIpArgsDict']]
-        """
-        Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.
+    With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
+    """
+    header: NotRequired[pulumi.Input['WebAclRateLimitHeaderArgsDict']]
+    """
+    Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+    """
+    http_method: NotRequired[pulumi.Input['WebAclRateLimitHttpMethodArgsDict']]
+    """
+    Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
+    """
+    ip: NotRequired[pulumi.Input['WebAclRateLimitIpArgsDict']]
+    """
+    Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.
 
-        When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
-        """
-        ja3_fingerprint: NotRequired[pulumi.Input['WebAclRateLimitJa3FingerprintArgsDict']]
-        """
-        Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
-        """
-        ja4_fingerprint: NotRequired[pulumi.Input['WebAclRateLimitJa4FingerprintArgsDict']]
-        """
-        Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
-        """
-        label_namespace: NotRequired[pulumi.Input['WebAclRateLimitLabelNamespaceArgsDict']]
-        """
-        Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+    When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
+    """
+    ja3_fingerprint: NotRequired[pulumi.Input['WebAclRateLimitJa3FingerprintArgsDict']]
+    """
+    Use the request's JA3 fingerprint as an aggregate key. If you use a single JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+    """
+    ja4_fingerprint: NotRequired[pulumi.Input['WebAclRateLimitJa4FingerprintArgsDict']]
+    """
+    Use the request's JA4 fingerprint as an aggregate key. If you use a single JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.
+    """
+    label_namespace: NotRequired[pulumi.Input['WebAclRateLimitLabelNamespaceArgsDict']]
+    """
+    Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 
-        This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
+    This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 
-        For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
-        """
-        query_argument: NotRequired[pulumi.Input['WebAclRateLimitQueryArgumentArgsDict']]
-        """
-        Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
-        """
-        query_string: NotRequired[pulumi.Input['WebAclRateLimitQueryStringArgsDict']]
-        """
-        Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
-        """
-        uri_path: NotRequired[pulumi.Input['WebAclRateLimitUriPathArgsDict']]
-        """
-        Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
-        """
-elif False:
-    WebAclRateBasedStatementCustomKeyArgsDict: TypeAlias = Mapping[str, Any]
+    For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
+    """
+    query_argument: NotRequired[pulumi.Input['WebAclRateLimitQueryArgumentArgsDict']]
+    """
+    Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+    """
+    query_string: NotRequired[pulumi.Input['WebAclRateLimitQueryStringArgsDict']]
+    """
+    Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+    """
+    uri_path: NotRequired[pulumi.Input['WebAclRateLimitUriPathArgsDict']]
+    """
+    Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+    """
 
 @pulumi.input_type
 class WebAclRateBasedStatementCustomKeyArgs:
@@ -10107,66 +9730,63 @@ class WebAclRateBasedStatementCustomKeyArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class WebAclRateBasedStatementArgsDict(TypedDict):
-        aggregate_key_type: pulumi.Input['WebAclRateBasedStatementAggregateKeyType']
-        """
-        Setting that indicates how to aggregate the request counts.
+class WebAclRateBasedStatementArgsDict(TypedDict):
+    aggregate_key_type: pulumi.Input['WebAclRateBasedStatementAggregateKeyType']
+    """
+    Setting that indicates how to aggregate the request counts.
 
-        > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
 
-        - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+    - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
 
-        With this option, you must configure the `ScopeDownStatement` property.
-        - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+    With this option, you must configure the `ScopeDownStatement` property.
+    - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
 
-        With this option, you must specify the aggregate keys in the `CustomKeys` property.
+    With this option, you must specify the aggregate keys in the `CustomKeys` property.
 
-        To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
-        - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+    To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+    - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
 
-        With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+    With this option, you must specify the header to use in the `ForwardedIPConfig` property.
 
-        To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        - `IP` - Aggregate the request counts on the IP address from the web request origin.
+    To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    - `IP` - Aggregate the request counts on the IP address from the web request origin.
 
-        To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        """
-        limit: pulumi.Input[_builtins.int]
-        """
-        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+    To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    """
+    limit: pulumi.Input[_builtins.int]
+    """
+    The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
-        Examples:
+    Examples:
 
-        - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
-        - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
-        """
-        custom_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgsDict']]]]
-        """
-        Specifies the aggregate keys to use in a rate-base rule.
-        """
-        evaluation_window_sec: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. For example, for a setting of 120, when AWS WAF checks the rate, it counts the requests for the 2 minutes immediately preceding the current time. Valid settings are 60, 120, 300, and 600.
+    - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
+    - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
+    """
+    custom_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgsDict']]]]
+    """
+    Specifies the aggregate keys to use in a rate-base rule.
+    """
+    evaluation_window_sec: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. For example, for a setting of 120, when AWS WAF checks the rate, it counts the requests for the 2 minutes immediately preceding the current time. Valid settings are 60, 120, 300, and 600.
 
-        This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+    This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
 
-        Default: `300` (5 minutes)
-        """
-        forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
-        """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+    Default: `300` (5 minutes)
+    """
+    forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
+    """
+    The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
 
-        This is required if you specify a forwarded IP in the rule's aggregate key settings.
-        """
-        scope_down_statement: NotRequired[pulumi.Input['WebAclStatementArgsDict']]
-        """
-        An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
-        """
-elif False:
-    WebAclRateBasedStatementArgsDict: TypeAlias = Mapping[str, Any]
+    This is required if you specify a forwarded IP in the rule's aggregate key settings.
+    """
+    scope_down_statement: NotRequired[pulumi.Input['WebAclStatementArgsDict']]
+    """
+    An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+    """
 
 @pulumi.input_type
 class WebAclRateBasedStatementArgs:
@@ -10333,14 +9953,11 @@ class WebAclRateBasedStatementArgs:
         pulumi.set(self, "scope_down_statement", value)
 
 
-if not MYPY:
-    class WebAclRateLimitAsnArgsDict(TypedDict):
-        """
-        Specifies the request's ASN as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    WebAclRateLimitAsnArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitAsnArgsDict(TypedDict):
+    """
+    Specifies the request's ASN as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class WebAclRateLimitAsnArgs:
@@ -10351,21 +9968,18 @@ class WebAclRateLimitAsnArgs:
         pass
 
 
-if not MYPY:
-    class WebAclRateLimitCookieArgsDict(TypedDict):
-        """
-        Specifies a cookie as an aggregate key for a rate-based rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the cookie to use.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    WebAclRateLimitCookieArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitCookieArgsDict(TypedDict):
+    """
+    Specifies a cookie as an aggregate key for a rate-based rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the cookie to use.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitCookieArgs:
@@ -10405,14 +10019,11 @@ class WebAclRateLimitCookieArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRateLimitForwardedIpArgsDict(TypedDict):
-        """
-        Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    WebAclRateLimitForwardedIpArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitForwardedIpArgsDict(TypedDict):
+    """
+    Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class WebAclRateLimitForwardedIpArgs:
@@ -10423,21 +10034,18 @@ class WebAclRateLimitForwardedIpArgs:
         pass
 
 
-if not MYPY:
-    class WebAclRateLimitHeaderArgsDict(TypedDict):
-        """
-        Specifies a header as an aggregate key for a rate-based rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the header to use.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    WebAclRateLimitHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitHeaderArgsDict(TypedDict):
+    """
+    Specifies a header as an aggregate key for a rate-based rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the header to use.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitHeaderArgs:
@@ -10477,14 +10085,11 @@ class WebAclRateLimitHeaderArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRateLimitHttpMethodArgsDict(TypedDict):
-        """
-        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    WebAclRateLimitHttpMethodArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitHttpMethodArgsDict(TypedDict):
+    """
+    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class WebAclRateLimitHttpMethodArgs:
@@ -10495,14 +10100,11 @@ class WebAclRateLimitHttpMethodArgs:
         pass
 
 
-if not MYPY:
-    class WebAclRateLimitIpArgsDict(TypedDict):
-        """
-        Specifies the IP address in the web request as an aggregate key for a rate-based rule.
-        """
-        pass
-elif False:
-    WebAclRateLimitIpArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitIpArgsDict(TypedDict):
+    """
+    Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+    """
+    pass
 
 @pulumi.input_type
 class WebAclRateLimitIpArgs:
@@ -10513,22 +10115,19 @@ class WebAclRateLimitIpArgs:
         pass
 
 
-if not MYPY:
-    class WebAclRateLimitJa3FingerprintArgsDict(TypedDict):
-        """
-        Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
-        """
-        fallback_behavior: pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
+class WebAclRateLimitJa3FingerprintArgsDict(TypedDict):
+    """
+    Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+    """
+    fallback_behavior: pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    WebAclRateLimitJa3FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitJa3FingerprintArgs:
@@ -10563,22 +10162,19 @@ class WebAclRateLimitJa3FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class WebAclRateLimitJa4FingerprintArgsDict(TypedDict):
-        """
-        Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
-        """
-        fallback_behavior: pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']
-        """
-        The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
+class WebAclRateLimitJa4FingerprintArgsDict(TypedDict):
+    """
+    Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+    """
+    fallback_behavior: pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']
+    """
+    The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
 
-        You can specify the following fallback behaviors:
+    You can specify the following fallback behaviors:
 
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
-        """
-elif False:
-    WebAclRateLimitJa4FingerprintArgsDict: TypeAlias = Mapping[str, Any]
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitJa4FingerprintArgs:
@@ -10613,17 +10209,14 @@ class WebAclRateLimitJa4FingerprintArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class WebAclRateLimitLabelNamespaceArgsDict(TypedDict):
-        """
-        Specifies a label namespace to use as an aggregate key for a rate-based rule.
-        """
-        namespace: pulumi.Input[_builtins.str]
-        """
-        The namespace to use for aggregation.
-        """
-elif False:
-    WebAclRateLimitLabelNamespaceArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitLabelNamespaceArgsDict(TypedDict):
+    """
+    Specifies a label namespace to use as an aggregate key for a rate-based rule.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The namespace to use for aggregation.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitLabelNamespaceArgs:
@@ -10648,21 +10241,18 @@ class WebAclRateLimitLabelNamespaceArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class WebAclRateLimitQueryArgumentArgsDict(TypedDict):
-        """
-        Specifies a query argument in the request as an aggregate key for a rate-based rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the query argument to use.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    WebAclRateLimitQueryArgumentArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitQueryArgumentArgsDict(TypedDict):
+    """
+    Specifies a query argument in the request as an aggregate key for a rate-based rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the query argument to use.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitQueryArgumentArgs:
@@ -10702,17 +10292,14 @@ class WebAclRateLimitQueryArgumentArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRateLimitQueryStringArgsDict(TypedDict):
-        """
-        Specifies the request's query string as an aggregate key for a rate-based rule.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    WebAclRateLimitQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitQueryStringArgsDict(TypedDict):
+    """
+    Specifies the request's query string as an aggregate key for a rate-based rule.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitQueryStringArgs:
@@ -10737,17 +10324,14 @@ class WebAclRateLimitQueryStringArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRateLimitUriPathArgsDict(TypedDict):
-        """
-        Specifies the request's URI Path as an aggregate key for a rate-based rule.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
-        """
-elif False:
-    WebAclRateLimitUriPathArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRateLimitUriPathArgsDict(TypedDict):
+    """
+    Specifies the request's URI Path as an aggregate key for a rate-based rule.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
+    """
 
 @pulumi.input_type
 class WebAclRateLimitUriPathArgs:
@@ -10772,22 +10356,19 @@ class WebAclRateLimitUriPathArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRegexMatchStatementArgsDict(TypedDict):
-        field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        regex_string: pulumi.Input[_builtins.str]
-        """
-        The string representing the regular expression.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    WebAclRegexMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRegexMatchStatementArgsDict(TypedDict):
+    field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    regex_string: pulumi.Input[_builtins.str]
+    """
+    The string representing the regular expression.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class WebAclRegexMatchStatementArgs:
@@ -10841,22 +10422,19 @@ class WebAclRegexMatchStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRegexPatternSetReferenceStatementArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
-        """
-        field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    WebAclRegexPatternSetReferenceStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRegexPatternSetReferenceStatementArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
+    """
+    field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class WebAclRegexPatternSetReferenceStatementArgs:
@@ -10910,14 +10488,11 @@ class WebAclRegexPatternSetReferenceStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclRegexArgsDict(TypedDict):
-        """
-        Regex
-        """
-        regex_string: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WebAclRegexArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRegexArgsDict(TypedDict):
+    """
+    Regex
+    """
+    regex_string: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WebAclRegexArgs:
@@ -10939,19 +10514,16 @@ class WebAclRegexArgs:
         pulumi.set(self, "regex_string", value)
 
 
-if not MYPY:
-    class WebAclRequestBodyAssociatedResourceTypeConfigArgsDict(TypedDict):
-        """
-        Configures the inspection size in the request body.
-        """
-        default_size_inspection_limit: pulumi.Input['WebAclSizeInspectionLimit']
-        """
-        Specifies the maximum size of the web request body component that an associated CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body.
+class WebAclRequestBodyAssociatedResourceTypeConfigArgsDict(TypedDict):
+    """
+    Configures the inspection size in the request body.
+    """
+    default_size_inspection_limit: pulumi.Input['WebAclSizeInspectionLimit']
+    """
+    Specifies the maximum size of the web request body component that an associated CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body.
 
-        Default: `16 KB (16,384 bytes)`
-        """
-elif False:
-    WebAclRequestBodyAssociatedResourceTypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `16 KB (16,384 bytes)`
+    """
 
 @pulumi.input_type
 class WebAclRequestBodyAssociatedResourceTypeConfigArgs:
@@ -10980,86 +10552,83 @@ class WebAclRequestBodyAssociatedResourceTypeConfigArgs:
         pulumi.set(self, "default_size_inspection_limit", value)
 
 
-if not MYPY:
-    class WebAclRequestInspectionAcfpArgsDict(TypedDict):
-        """
-        Configures the inspection of sign-up requests
-        """
-        payload_type: pulumi.Input['WebAclRequestInspectionAcfpPayloadType']
-        """
-        The payload type for your account creation endpoint, either JSON or form encoded.
-        """
-        address_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgsDict']]]]
-        """
-        The names of the fields in the request payload that contain your customer's primary physical address.
+class WebAclRequestInspectionAcfpArgsDict(TypedDict):
+    """
+    Configures the inspection of sign-up requests
+    """
+    payload_type: pulumi.Input['WebAclRequestInspectionAcfpPayloadType']
+    """
+    The payload type for your account creation endpoint, either JSON or form encoded.
+    """
+    address_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgsDict']]]]
+    """
+    The names of the fields in the request payload that contain your customer's primary physical address.
 
-        Order the address fields in the array exactly as they are ordered in the request payload.
+    Order the address fields in the array exactly as they are ordered in the request payload.
 
-        How you specify the address fields depends on the request inspection payload type.
+    How you specify the address fields depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field identifiers in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field identifiers in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "primaryaddressline1": "THE_ADDRESS1", "primaryaddressline2": "THE_ADDRESS2", "primaryaddressline3": "THE_ADDRESS3" } }` , the address field idenfiers are `/form/primaryaddressline1` , `/form/primaryaddressline2` , and `/form/primaryaddressline3` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "primaryaddressline1": "THE_ADDRESS1", "primaryaddressline2": "THE_ADDRESS2", "primaryaddressline3": "THE_ADDRESS3" } }` , the address field idenfiers are `/form/primaryaddressline1` , `/form/primaryaddressline2` , and `/form/primaryaddressline3` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with input elements named `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` , the address fields identifiers are `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` .
-        """
-        email_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
-        """
-        The name of the field in the request payload that contains your customer's email.
+    For example, for an HTML form with input elements named `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` , the address fields identifiers are `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` .
+    """
+    email_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
+    """
+    The name of the field in the request payload that contains your customer's email.
 
-        How you specify this depends on the request inspection payload type.
+    How you specify this depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
-        """
-        password_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
-        """
-        The name of the field in the request payload that contains your customer's password.
+    For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
+    """
+    password_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
+    """
+    The name of the field in the request payload that contains your customer's password.
 
-        How you specify this depends on the request inspection payload type.
+    How you specify this depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
-        """
-        phone_number_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgsDict']]]]
-        """
-        The names of the fields in the request payload that contain your customer's primary phone number.
+    For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
+    """
+    phone_number_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgsDict']]]]
+    """
+    The names of the fields in the request payload that contain your customer's primary phone number.
 
-        Order the phone number fields in the array exactly as they are ordered in the request payload.
+    Order the phone number fields in the array exactly as they are ordered in the request payload.
 
-        How you specify the phone number fields depends on the request inspection payload type.
+    How you specify the phone number fields depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field identifiers in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field identifiers in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "primaryphoneline1": "THE_PHONE1", "primaryphoneline2": "THE_PHONE2", "primaryphoneline3": "THE_PHONE3" } }` , the phone number field identifiers are `/form/primaryphoneline1` , `/form/primaryphoneline2` , and `/form/primaryphoneline3` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "primaryphoneline1": "THE_PHONE1", "primaryphoneline2": "THE_PHONE2", "primaryphoneline3": "THE_PHONE3" } }` , the phone number field identifiers are `/form/primaryphoneline1` , `/form/primaryphoneline2` , and `/form/primaryphoneline3` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with input elements named `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` , the phone number field identifiers are `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` .
-        """
-        username_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
-        """
-        The name of the field in the request payload that contains your customer's username.
+    For example, for an HTML form with input elements named `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` , the phone number field identifiers are `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` .
+    """
+    username_field: NotRequired[pulumi.Input['WebAclFieldIdentifierArgsDict']]
+    """
+    The name of the field in the request payload that contains your customer's username.
 
-        How you specify this depends on the request inspection payload type.
+    How you specify this depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
-        """
-elif False:
-    WebAclRequestInspectionAcfpArgsDict: TypeAlias = Mapping[str, Any]
+    For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
+    """
 
 @pulumi.input_type
 class WebAclRequestInspectionAcfpArgs:
@@ -11262,43 +10831,40 @@ class WebAclRequestInspectionAcfpArgs:
         pulumi.set(self, "username_field", value)
 
 
-if not MYPY:
-    class WebAclRequestInspectionArgsDict(TypedDict):
-        """
-        Configures the inspection of login requests
-        """
-        password_field: pulumi.Input['WebAclFieldIdentifierArgsDict']
-        """
-        The name of the field in the request payload that contains your customer's password.
+class WebAclRequestInspectionArgsDict(TypedDict):
+    """
+    Configures the inspection of login requests
+    """
+    password_field: pulumi.Input['WebAclFieldIdentifierArgsDict']
+    """
+    The name of the field in the request payload that contains your customer's password.
 
-        How you specify this depends on the request inspection payload type.
+    How you specify this depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
-        """
-        payload_type: pulumi.Input['WebAclRequestInspectionPayloadType']
-        """
-        The payload type for your login endpoint, either JSON or form encoded.
-        """
-        username_field: pulumi.Input['WebAclFieldIdentifierArgsDict']
-        """
-        The name of the field in the request payload that contains your customer's username.
+    For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
+    """
+    payload_type: pulumi.Input['WebAclRequestInspectionPayloadType']
+    """
+    The payload type for your login endpoint, either JSON or form encoded.
+    """
+    username_field: pulumi.Input['WebAclFieldIdentifierArgsDict']
+    """
+    The name of the field in the request payload that contains your customer's username.
 
-        How you specify this depends on the request inspection payload type.
+    How you specify this depends on the request inspection payload type.
 
-        - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+    - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
 
-        For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
-        - For form encoded payload types, use the HTML form names.
+    For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+    - For form encoded payload types, use the HTML form names.
 
-        For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
-        """
-elif False:
-    WebAclRequestInspectionArgsDict: TypeAlias = Mapping[str, Any]
+    For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
+    """
 
 @pulumi.input_type
 class WebAclRequestInspectionArgs:
@@ -11389,25 +10955,22 @@ class WebAclRequestInspectionArgs:
         pulumi.set(self, "username_field", value)
 
 
-if not MYPY:
-    class WebAclResponseInspectionBodyContainsArgsDict(TypedDict):
-        """
-        Response body contents that indicate success or failure of a login request
-        """
-        failure_strings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Strings in the body of the response that indicate a failed login or account creation attempt. To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+class WebAclResponseInspectionBodyContainsArgsDict(TypedDict):
+    """
+    Response body contents that indicate success or failure of a login request
+    """
+    failure_strings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Strings in the body of the response that indicate a failed login or account creation attempt. To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
 
-        JSON example: `"FailureStrings": [ "Request failed" ]`
-        """
-        success_strings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Strings in the body of the response that indicate a successful login or account creation attempt. To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+    JSON example: `"FailureStrings": [ "Request failed" ]`
+    """
+    success_strings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Strings in the body of the response that indicate a successful login or account creation attempt. To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
 
-        JSON examples: `"SuccessStrings": [ "Login successful" ]` and `"SuccessStrings": [ "Account creation successful", "Welcome to our site!" ]`
-        """
-elif False:
-    WebAclResponseInspectionBodyContainsArgsDict: TypeAlias = Mapping[str, Any]
+    JSON examples: `"SuccessStrings": [ "Login successful" ]` and `"SuccessStrings": [ "Account creation successful", "Welcome to our site!" ]`
+    """
 
 @pulumi.input_type
 class WebAclResponseInspectionBodyContainsArgs:
@@ -11455,31 +11018,28 @@ class WebAclResponseInspectionBodyContainsArgs:
         pulumi.set(self, "success_strings", value)
 
 
-if not MYPY:
-    class WebAclResponseInspectionHeaderArgsDict(TypedDict):
-        """
-        Response headers that indicate success or failure of a login request
-        """
-        failure_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+class WebAclResponseInspectionHeaderArgsDict(TypedDict):
+    """
+    Response headers that indicate success or failure of a login request
+    """
+    failure_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 
-        JSON examples: `"FailureValues": [ "LoginFailed", "Failed login" ]` and `"FailureValues": [ "AccountCreationFailed" ]`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the header to match against. The name must be an exact match, including case.
+    JSON examples: `"FailureValues": [ "LoginFailed", "Failed login" ]` and `"FailureValues": [ "AccountCreationFailed" ]`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the header to match against. The name must be an exact match, including case.
 
-        JSON example: `"Name": [ "RequestResult" ]`
-        """
-        success_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values in the response header with the specified name that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+    JSON example: `"Name": [ "RequestResult" ]`
+    """
+    success_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values in the response header with the specified name that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 
-        JSON examples: `"SuccessValues": [ "LoginPassed", "Successful login" ]` and `"SuccessValues": [ "AccountCreated", "Successful account creation" ]`
-        """
-elif False:
-    WebAclResponseInspectionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+    JSON examples: `"SuccessValues": [ "LoginPassed", "Successful login" ]` and `"SuccessValues": [ "AccountCreated", "Successful account creation" ]`
+    """
 
 @pulumi.input_type
 class WebAclResponseInspectionHeaderArgs:
@@ -11546,31 +11106,28 @@ class WebAclResponseInspectionHeaderArgs:
         pulumi.set(self, "success_values", value)
 
 
-if not MYPY:
-    class WebAclResponseInspectionJsonArgsDict(TypedDict):
-        """
-        Response JSON that indicate success or failure of a login request
-        """
-        failure_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values for the specified identifier in the response JSON that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+class WebAclResponseInspectionJsonArgsDict(TypedDict):
+    """
+    Response JSON that indicate success or failure of a login request
+    """
+    failure_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values for the specified identifier in the response JSON that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 
-        JSON example: `"FailureValues": [ "False", "Failed" ]`
-        """
-        identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier for the value to match against in the JSON. The identifier must be an exact match, including case.
+    JSON example: `"FailureValues": [ "False", "Failed" ]`
+    """
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier for the value to match against in the JSON. The identifier must be an exact match, including case.
 
-        JSON examples: `"Identifier": [ "/login/success" ]` and `"Identifier": [ "/sign-up/success" ]`
-        """
-        success_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values for the specified identifier in the response JSON that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
+    JSON examples: `"Identifier": [ "/login/success" ]` and `"Identifier": [ "/sign-up/success" ]`
+    """
+    success_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values for the specified identifier in the response JSON that indicate a successful login or account creation attempt. To be counted as a success, the value must be an exact match, including case. Each value must be unique among the success and failure values.
 
-        JSON example: `"SuccessValues": [ "True", "Succeeded" ]`
-        """
-elif False:
-    WebAclResponseInspectionJsonArgsDict: TypeAlias = Mapping[str, Any]
+    JSON example: `"SuccessValues": [ "True", "Succeeded" ]`
+    """
 
 @pulumi.input_type
 class WebAclResponseInspectionJsonArgs:
@@ -11637,25 +11194,22 @@ class WebAclResponseInspectionJsonArgs:
         pulumi.set(self, "success_values", value)
 
 
-if not MYPY:
-    class WebAclResponseInspectionStatusCodeArgsDict(TypedDict):
-        """
-        Response status codes that indicate success or failure of a login request
-        """
-        failure_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        Status codes in the response that indicate a failed login or account creation attempt. To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+class WebAclResponseInspectionStatusCodeArgsDict(TypedDict):
+    """
+    Response status codes that indicate success or failure of a login request
+    """
+    failure_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    Status codes in the response that indicate a failed login or account creation attempt. To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
 
-        JSON example: `"FailureCodes": [ 400, 404 ]`
-        """
-        success_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        Status codes in the response that indicate a successful login or account creation attempt. To be counted as a success, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+    JSON example: `"FailureCodes": [ 400, 404 ]`
+    """
+    success_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    Status codes in the response that indicate a successful login or account creation attempt. To be counted as a success, the response status code must match one of these. Each code must be unique among the success and failure status codes.
 
-        JSON example: `"SuccessCodes": [ 200, 201 ]`
-        """
-elif False:
-    WebAclResponseInspectionStatusCodeArgsDict: TypeAlias = Mapping[str, Any]
+    JSON example: `"SuccessCodes": [ 200, 201 ]`
+    """
 
 @pulumi.input_type
 class WebAclResponseInspectionStatusCodeArgs:
@@ -11703,29 +11257,26 @@ class WebAclResponseInspectionStatusCodeArgs:
         pulumi.set(self, "success_codes", value)
 
 
-if not MYPY:
-    class WebAclResponseInspectionArgsDict(TypedDict):
-        """
-        Configures the inspection of login responses
-        """
-        body_contains: NotRequired[pulumi.Input['WebAclResponseInspectionBodyContainsArgsDict']]
-        """
-        Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
-        """
-        header: NotRequired[pulumi.Input['WebAclResponseInspectionHeaderArgsDict']]
-        """
-        Configures inspection of the response header for success and failure indicators.
-        """
-        json: NotRequired[pulumi.Input['WebAclResponseInspectionJsonArgsDict']]
-        """
-        Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
-        """
-        status_code: NotRequired[pulumi.Input['WebAclResponseInspectionStatusCodeArgsDict']]
-        """
-        Configures inspection of the response status code for success and failure indicators.
-        """
-elif False:
-    WebAclResponseInspectionArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclResponseInspectionArgsDict(TypedDict):
+    """
+    Configures the inspection of login responses
+    """
+    body_contains: NotRequired[pulumi.Input['WebAclResponseInspectionBodyContainsArgsDict']]
+    """
+    Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
+    """
+    header: NotRequired[pulumi.Input['WebAclResponseInspectionHeaderArgsDict']]
+    """
+    Configures inspection of the response header for success and failure indicators.
+    """
+    json: NotRequired[pulumi.Input['WebAclResponseInspectionJsonArgsDict']]
+    """
+    Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
+    """
+    status_code: NotRequired[pulumi.Input['WebAclResponseInspectionStatusCodeArgsDict']]
+    """
+    Configures inspection of the response status code for success and failure indicators.
+    """
 
 @pulumi.input_type
 class WebAclResponseInspectionArgs:
@@ -11799,21 +11350,18 @@ class WebAclResponseInspectionArgs:
         pulumi.set(self, "status_code", value)
 
 
-if not MYPY:
-    class WebAclRuleActionOverrideArgsDict(TypedDict):
-        """
-        Action override for rules in the rule group.
-        """
-        action_to_use: pulumi.Input['WebAclRuleActionArgsDict']
-        """
-        The override action to use, in place of the configured action of the rule in the rule group.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the rule to override.
-        """
-elif False:
-    WebAclRuleActionOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclRuleActionOverrideArgsDict(TypedDict):
+    """
+    Action override for rules in the rule group.
+    """
+    action_to_use: pulumi.Input['WebAclRuleActionArgsDict']
+    """
+    The override action to use, in place of the configured action of the rule in the rule group.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the rule to override.
+    """
 
 @pulumi.input_type
 class WebAclRuleActionOverrideArgs:
@@ -11853,46 +11401,43 @@ class WebAclRuleActionOverrideArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WebAclRuleActionArgsDict(TypedDict):
-        """
-        Action taken when Rule matches its condition.
-        """
-        allow: NotRequired[pulumi.Input['WebAclAllowActionArgsDict']]
-        """
-        Instructs AWS WAF to allow the web request.
-        """
-        block: NotRequired[pulumi.Input['WebAclBlockActionArgsDict']]
-        """
-        Instructs AWS WAF to block the web request.
-        """
-        captcha: NotRequired[pulumi.Input['WebAclCaptchaActionArgsDict']]
-        """
-        Specifies that AWS WAF should run a `CAPTCHA` check against the request:
+class WebAclRuleActionArgsDict(TypedDict):
+    """
+    Action taken when Rule matches its condition.
+    """
+    allow: NotRequired[pulumi.Input['WebAclAllowActionArgsDict']]
+    """
+    Instructs AWS WAF to allow the web request.
+    """
+    block: NotRequired[pulumi.Input['WebAclBlockActionArgsDict']]
+    """
+    Instructs AWS WAF to block the web request.
+    """
+    captcha: NotRequired[pulumi.Input['WebAclCaptchaActionArgsDict']]
+    """
+    Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 
-        - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-        - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+    - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
+    - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
 
-        AWS WAF generates a response that it sends back to the client, which includes the following:
+    AWS WAF generates a response that it sends back to the client, which includes the following:
 
-        - The header `x-amzn-waf-action` with a value of `captcha` .
-        - The HTTP status code `405 Method Not Allowed` .
-        - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
+    - The header `x-amzn-waf-action` with a value of `captcha` .
+    - The HTTP status code `405 Method Not Allowed` .
+    - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
 
-        You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
+    You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 
-        This action option is available for rules. It isn't available for web ACL default actions.
-        """
-        challenge: NotRequired[pulumi.Input['WebAclChallengeActionArgsDict']]
-        """
-        Instructs AWS WAF to run a `Challenge` check against the web request.
-        """
-        count: NotRequired[pulumi.Input['WebAclCountActionArgsDict']]
-        """
-        Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-        """
-elif False:
-    WebAclRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+    This action option is available for rules. It isn't available for web ACL default actions.
+    """
+    challenge: NotRequired[pulumi.Input['WebAclChallengeActionArgsDict']]
+    """
+    Instructs AWS WAF to run a `Challenge` check against the web request.
+    """
+    count: NotRequired[pulumi.Input['WebAclCountActionArgsDict']]
+    """
+    Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+    """
 
 @pulumi.input_type
 class WebAclRuleActionArgs:
@@ -12008,24 +11553,21 @@ class WebAclRuleActionArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class WebAclRuleGroupReferenceStatementArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the entity.
-        """
-        excluded_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgsDict']]]]
-        """
-        Rules in the referenced rule group whose actions are set to `Count` .
+class WebAclRuleGroupReferenceStatementArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the entity.
+    """
+    excluded_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgsDict']]]]
+    """
+    Rules in the referenced rule group whose actions are set to `Count` .
 
-        > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
-        """
-        rule_action_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgsDict']]]]
-        """
-        Action overrides for rules in the rule group.
-        """
-elif False:
-    WebAclRuleGroupReferenceStatementArgsDict: TypeAlias = Mapping[str, Any]
+    > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+    """
+    rule_action_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgsDict']]]]
+    """
+    Action overrides for rules in the rule group.
+    """
 
 @pulumi.input_type
 class WebAclRuleGroupReferenceStatementArgs:
@@ -12085,67 +11627,64 @@ class WebAclRuleGroupReferenceStatementArgs:
         pulumi.set(self, "rule_action_overrides", value)
 
 
-if not MYPY:
-    class WebAclRuleArgsDict(TypedDict):
-        """
-        Rule of WebACL that contains condition and action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the rule.
+class WebAclRuleArgsDict(TypedDict):
+    """
+    Rule of WebACL that contains condition and action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the rule.
 
-        If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
-        """
-        statement: pulumi.Input['WebAclStatementArgsDict']
-        """
-        The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
-        """
-        visibility_config: pulumi.Input['WebAclVisibilityConfigArgsDict']
-        """
-        Defines and enables Amazon CloudWatch metrics and web request sample collection.
+    If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+    """
+    statement: pulumi.Input['WebAclStatementArgsDict']
+    """
+    The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
+    """
+    visibility_config: pulumi.Input['WebAclVisibilityConfigArgsDict']
+    """
+    Defines and enables Amazon CloudWatch metrics and web request sample collection.
 
-        If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
-        """
-        action: NotRequired[pulumi.Input['WebAclRuleActionArgsDict']]
-        """
-        The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting.
+    If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
+    """
+    action: NotRequired[pulumi.Input['WebAclRuleActionArgsDict']]
+    """
+    The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting.
 
-        This is used only for rules whose statements don't reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+    This is used only for rules whose statements don't reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
 
-        You must set either this `Action` setting or the rule's `OverrideAction` , but not both:
+    You must set either this `Action` setting or the rule's `OverrideAction` , but not both:
 
-        - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
-        - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
-        """
-        captcha_config: NotRequired[pulumi.Input['WebAclCaptchaConfigArgsDict']]
-        """
-        Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
-        """
-        challenge_config: NotRequired[pulumi.Input['WebAclChallengeConfigArgsDict']]
-        """
-        Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
-        """
-        override_action: NotRequired[pulumi.Input['WebAclOverrideActionArgsDict']]
-        """
-        The override action to apply to the rules in a rule group, instead of the individual rule action settings. This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+    - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
+    - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
+    """
+    captcha_config: NotRequired[pulumi.Input['WebAclCaptchaConfigArgsDict']]
+    """
+    Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
+    """
+    challenge_config: NotRequired[pulumi.Input['WebAclChallengeConfigArgsDict']]
+    """
+    Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
+    """
+    override_action: NotRequired[pulumi.Input['WebAclOverrideActionArgsDict']]
+    """
+    The override action to apply to the rules in a rule group, instead of the individual rule action settings. This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
 
-        Set the override action to none to leave the rule group rule actions in effect. Set it to count to only count matches, regardless of the rule action settings.
+    Set the override action to none to leave the rule group rule actions in effect. Set it to count to only count matches, regardless of the rule action settings.
 
-        You must set either this `OverrideAction` setting or the `Action` setting, but not both:
+    You must set either this `OverrideAction` setting or the `Action` setting, but not both:
 
-        - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
-        - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
-        """
-        rule_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgsDict']]]]
-        """
-        Collection of Rule Labels.
-        """
-elif False:
-    WebAclRuleArgsDict: TypeAlias = Mapping[str, Any]
+    - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
+    - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
+    """
+    rule_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgsDict']]]]
+    """
+    Collection of Rule Labels.
+    """
 
 @pulumi.input_type
 class WebAclRuleArgs:
@@ -12331,29 +11870,26 @@ class WebAclRuleArgs:
         pulumi.set(self, "rule_labels", value)
 
 
-if not MYPY:
-    class WebAclSizeConstraintStatementArgsDict(TypedDict):
-        """
-        Size Constraint statement.
-        """
-        comparison_operator: pulumi.Input['WebAclSizeConstraintStatementComparisonOperator']
-        """
-        The operator to use to compare the request part to the size setting.
-        """
-        field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        size: pulumi.Input[_builtins.float]
-        """
-        The size, in byte, to compare to the request part, after any transformations.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    WebAclSizeConstraintStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclSizeConstraintStatementArgsDict(TypedDict):
+    """
+    Size Constraint statement.
+    """
+    comparison_operator: pulumi.Input['WebAclSizeConstraintStatementComparisonOperator']
+    """
+    The operator to use to compare the request part to the size setting.
+    """
+    field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    size: pulumi.Input[_builtins.float]
+    """
+    The size, in byte, to compare to the request part, after any transformations.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class WebAclSizeConstraintStatementArgs:
@@ -12423,31 +11959,28 @@ class WebAclSizeConstraintStatementArgs:
         pulumi.set(self, "text_transformations", value)
 
 
-if not MYPY:
-    class WebAclSqliMatchStatementArgsDict(TypedDict):
-        """
-        Sqli Match Statement.
-        """
-        field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-        sensitivity_level: NotRequired[pulumi.Input['WebAclSensitivityLevel']]
-        """
-        The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
+class WebAclSqliMatchStatementArgsDict(TypedDict):
+    """
+    Sqli Match Statement.
+    """
+    field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
+    sensitivity_level: NotRequired[pulumi.Input['WebAclSensitivityLevel']]
+    """
+    The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 
-        `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
+    `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
 
-        `LOW` is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives.
+    `LOW` is generally a better choice for resources that already have other protections against SQL injection attacks or that have a low tolerance for false positives.
 
-        Default: `LOW`
-        """
-elif False:
-    WebAclSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `LOW`
+    """
 
 @pulumi.input_type
 class WebAclSqliMatchStatementArgs:
@@ -12515,147 +12048,144 @@ class WebAclSqliMatchStatementArgs:
         pulumi.set(self, "sensitivity_level", value)
 
 
-if not MYPY:
-    class WebAclStatementArgsDict(TypedDict):
-        """
-        First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
-        """
-        and_statement: NotRequired[pulumi.Input['WebAclAndStatementArgsDict']]
-        """
-        A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-        """
-        asn_match_statement: NotRequired[pulumi.Input['WebAclAsnMatchStatementArgsDict']]
-        """
-        A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+class WebAclStatementArgsDict(TypedDict):
+    """
+    First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
+    """
+    and_statement: NotRequired[pulumi.Input['WebAclAndStatementArgsDict']]
+    """
+    A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
+    """
+    asn_match_statement: NotRequired[pulumi.Input['WebAclAsnMatchStatementArgsDict']]
+    """
+    A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
 
-        For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-        """
-        byte_match_statement: NotRequired[pulumi.Input['WebAclByteMatchStatementArgsDict']]
-        """
-        A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
-        """
-        geo_match_statement: NotRequired[pulumi.Input['WebAclGeoMatchStatementArgsDict']]
-        """
-        A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
+    For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+    """
+    byte_match_statement: NotRequired[pulumi.Input['WebAclByteMatchStatementArgsDict']]
+    """
+    A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
+    """
+    geo_match_statement: NotRequired[pulumi.Input['WebAclGeoMatchStatementArgsDict']]
+    """
+    A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
 
-        - To manage requests only by country, you can use this statement by itself and specify the countries that you want to match against in the `CountryCodes` array.
-        - Otherwise, configure your geo match rule with Count action so that it only labels requests. Then, add one or more label match rules to run after the geo match rule and configure them to match against the geographic labels and handle the requests as needed.
+    - To manage requests only by country, you can use this statement by itself and specify the countries that you want to match against in the `CountryCodes` array.
+    - Otherwise, configure your geo match rule with Count action so that it only labels requests. Then, add one or more label match rules to run after the geo match rule and configure them to match against the geographic labels and handle the requests as needed.
 
-        AWS WAF labels requests using the alpha-2 country and region codes from the International Organization for Standardization (ISO) 3166 standard. AWS WAF determines the codes using either the IP address in the web request origin or, if you specify it, the address in the geo match `ForwardedIPConfig` .
+    AWS WAF labels requests using the alpha-2 country and region codes from the International Organization for Standardization (ISO) 3166 standard. AWS WAF determines the codes using either the IP address in the web request origin or, if you specify it, the address in the geo match `ForwardedIPConfig` .
 
-        If you use the web request origin, the label formats are `awswaf:clientip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:clientip:geo:country:<ISO country code>` .
+    If you use the web request origin, the label formats are `awswaf:clientip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:clientip:geo:country:<ISO country code>` .
 
-        If you use a forwarded IP address, the label formats are `awswaf:forwardedip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:forwardedip:geo:country:<ISO country code>` .
+    If you use a forwarded IP address, the label formats are `awswaf:forwardedip:geo:region:<ISO country code>-<ISO region code>` and `awswaf:forwardedip:geo:country:<ISO country code>` .
 
-        For additional details, see [Geographic match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
-        """
-        ip_set_reference_statement: NotRequired[pulumi.Input['WebAclIpSetReferenceStatementArgsDict']]
-        """
-        A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
+    For additional details, see [Geographic match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+    """
+    ip_set_reference_statement: NotRequired[pulumi.Input['WebAclIpSetReferenceStatementArgsDict']]
+    """
+    A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an `IPSet` that specifies the addresses you want to detect, then use the ARN of that set in this statement.
 
-        Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-        """
-        label_match_statement: NotRequired[pulumi.Input['WebAclLabelMatchStatementArgsDict']]
-        """
-        A rule statement to match against labels that have been added to the web request by rules that have already run in the web ACL.
+    Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
+    """
+    label_match_statement: NotRequired[pulumi.Input['WebAclLabelMatchStatementArgsDict']]
+    """
+    A rule statement to match against labels that have been added to the web request by rules that have already run in the web ACL.
 
-        The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
-        """
-        managed_rule_group_statement: NotRequired[pulumi.Input['WebAclManagedRuleGroupStatementArgsDict']]
-        """
-        A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups` .
+    The label match statement provides the label or namespace string to search for. The label string can represent a part or all of the fully qualified label name that had been added to the web request. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. If you do not provide the fully qualified name in your label match string, AWS WAF performs the search for labels that were added in the same context as the label match statement.
+    """
+    managed_rule_group_statement: NotRequired[pulumi.Input['WebAclManagedRuleGroupStatementArgsDict']]
+    """
+    A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups` .
 
-        You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
+    You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 
-        > You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet` , the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet` , or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet` . For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
-        """
-        not_statement: NotRequired[pulumi.Input['WebAclNotStatementArgsDict']]
-        """
-        A logical rule statement used to negate the results of another rule statement. You provide one `Statement` within the `NotStatement` .
-        """
-        or_statement: NotRequired[pulumi.Input['WebAclOrStatementArgsDict']]
-        """
-        A logical rule statement used to combine other rule statements with OR logic. You provide more than one `Statement` within the `OrStatement` .
-        """
-        rate_based_statement: NotRequired[pulumi.Input['WebAclRateBasedStatementArgsDict']]
-        """
-        A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
+    > You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet` , the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet` , or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet` . For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+    """
+    not_statement: NotRequired[pulumi.Input['WebAclNotStatementArgsDict']]
+    """
+    A logical rule statement used to negate the results of another rule statement. You provide one `Statement` within the `NotStatement` .
+    """
+    or_statement: NotRequired[pulumi.Input['WebAclOrStatementArgsDict']]
+    """
+    A logical rule statement used to combine other rule statements with OR logic. You provide more than one `Statement` within the `OrStatement` .
+    """
+    rate_based_statement: NotRequired[pulumi.Input['WebAclRateBasedStatementArgsDict']]
+    """
+    A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
 
-        > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
+    > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
 
-        You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
+    You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
 
-        Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition.
+    Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition.
 
-        For example, assume the rule evaluates web requests with the following IP address and HTTP method values:
+    For example, assume the rule evaluates web requests with the following IP address and HTTP method values:
 
-        - IP address 10.1.1.1, HTTP method POST
-        - IP address 10.1.1.1, HTTP method GET
-        - IP address 127.0.0.0, HTTP method POST
-        - IP address 10.1.1.1, HTTP method GET
+    - IP address 10.1.1.1, HTTP method POST
+    - IP address 10.1.1.1, HTTP method GET
+    - IP address 127.0.0.0, HTTP method POST
+    - IP address 10.1.1.1, HTTP method GET
 
-        The rule would create different aggregation instances according to your aggregation criteria, for example:
+    The rule would create different aggregation instances according to your aggregation criteria, for example:
 
-        - If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and AWS WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following:
+    - If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and AWS WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following:
 
-        - IP address 10.1.1.1: count 3
-        - IP address 127.0.0.0: count 1
-        - If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following:
+    - IP address 10.1.1.1: count 3
+    - IP address 127.0.0.0: count 1
+    - If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following:
 
-        - HTTP method POST: count 2
-        - HTTP method GET: count 2
-        - If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following:
+    - HTTP method POST: count 2
+    - HTTP method GET: count 2
+    - If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following:
 
-        - IP address 10.1.1.1, HTTP method POST: count 1
-        - IP address 10.1.1.1, HTTP method GET: count 2
-        - IP address 127.0.0.0, HTTP method POST: count 1
+    - IP address 10.1.1.1, HTTP method POST: count 1
+    - IP address 10.1.1.1, HTTP method GET: count 2
+    - IP address 127.0.0.0, HTTP method POST: count 1
 
-        For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which AWS WAF counts and rate-limits individually.
+    For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which AWS WAF counts and rate-limits individually.
 
-        You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule.
+    You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule.
 
-        You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
+    You cannot nest a `RateBasedStatement` inside another statement, for example inside a `NotStatement` or `OrStatement` . You can define a `RateBasedStatement` inside a web ACL and inside a rule group.
 
-        For additional information about the options, see [Rate limiting web requests using rate-based rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html) in the *AWS WAF Developer Guide* .
+    For additional information about the options, see [Rate limiting web requests using rate-based rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html) in the *AWS WAF Developer Guide* .
 
-        If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that AWS WAF is currently rate limiting for a rule through the API call `GetRateBasedStatementManagedKeys` . This option is not available for other aggregation configurations.
+    If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that AWS WAF is currently rate limiting for a rule through the API call `GetRateBasedStatementManagedKeys` . This option is not available for other aggregation configurations.
 
-        AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
-        """
-        regex_match_statement: NotRequired[pulumi.Input['WebAclRegexMatchStatementArgsDict']]
-        """
-        A rule statement used to search web request components for a match against a single regular expression.
-        """
-        regex_pattern_set_reference_statement: NotRequired[pulumi.Input['WebAclRegexPatternSetReferenceStatementArgsDict']]
-        """
-        A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
+    AWS WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by AWS WAF . If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by AWS WAF .
+    """
+    regex_match_statement: NotRequired[pulumi.Input['WebAclRegexMatchStatementArgsDict']]
+    """
+    A rule statement used to search web request components for a match against a single regular expression.
+    """
+    regex_pattern_set_reference_statement: NotRequired[pulumi.Input['WebAclRegexPatternSetReferenceStatementArgsDict']]
+    """
+    A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 
-        Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
-        """
-        rule_group_reference_statement: NotRequired[pulumi.Input['WebAclRuleGroupReferenceStatementArgsDict']]
-        """
-        A rule statement used to run the rules that are defined in a `RuleGroup` . To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
+    Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
+    """
+    rule_group_reference_statement: NotRequired[pulumi.Input['WebAclRuleGroupReferenceStatementArgsDict']]
+    """
+    A rule statement used to run the rules that are defined in a `RuleGroup` . To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.
 
-        You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . You cannot use a rule group reference statement inside another rule group. You can only reference a rule group as a top-level statement within a rule that you define in a web ACL.
-        """
-        size_constraint_statement: NotRequired[pulumi.Input['WebAclSizeConstraintStatementArgsDict']]
-        """
-        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
+    You cannot nest a `RuleGroupReferenceStatement` , for example for use inside a `NotStatement` or `OrStatement` . You cannot use a rule group reference statement inside another rule group. You can only reference a rule group as a top-level statement within a rule that you define in a web ACL.
+    """
+    size_constraint_statement: NotRequired[pulumi.Input['WebAclSizeConstraintStatementArgsDict']]
+    """
+    A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes.
 
-        If you configure AWS WAF to inspect the request body, AWS WAF inspects only the number of bytes in the body up to the limit for the web ACL and protected resource type. If you know that the request body for your web requests should never exceed the inspection limit, you can use a size constraint statement to block requests that have a larger request body size. For more information about the inspection limits, see `Body` and `JsonBody` settings for the `FieldToMatch` data type.
+    If you configure AWS WAF to inspect the request body, AWS WAF inspects only the number of bytes in the body up to the limit for the web ACL and protected resource type. If you know that the request body for your web requests should never exceed the inspection limit, you can use a size constraint statement to block requests that have a larger request body size. For more information about the inspection limits, see `Body` and `JsonBody` settings for the `FieldToMatch` data type.
 
-        If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-        """
-        sqli_match_statement: NotRequired[pulumi.Input['WebAclSqliMatchStatementArgsDict']]
-        """
-        A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
-        """
-        xss_match_statement: NotRequired[pulumi.Input['WebAclXssMatchStatementArgsDict']]
-        """
-        A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
-        """
-elif False:
-    WebAclStatementArgsDict: TypeAlias = Mapping[str, Any]
+    If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI `/logo.jpg` is nine characters long.
+    """
+    sqli_match_statement: NotRequired[pulumi.Input['WebAclSqliMatchStatementArgsDict']]
+    """
+    A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it.
+    """
+    xss_match_statement: NotRequired[pulumi.Input['WebAclXssMatchStatementArgsDict']]
+    """
+    A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers.
+    """
 
 @pulumi.input_type
 class WebAclStatementArgs:
@@ -13061,21 +12591,18 @@ class WebAclStatementArgs:
         pulumi.set(self, "xss_match_statement", value)
 
 
-if not MYPY:
-    class WebAclTextTransformationArgsDict(TypedDict):
-        """
-        Text Transformation on the Search String before match.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
-        """
-        type: pulumi.Input['WebAclTextTransformationType']
-        """
-        For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    WebAclTextTransformationArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclTextTransformationArgsDict(TypedDict):
+    """
+    Text Transformation on the Search String before match.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
+    """
+    type: pulumi.Input['WebAclTextTransformationType']
+    """
+    For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class WebAclTextTransformationArgs:
@@ -13115,27 +12642,24 @@ class WebAclTextTransformationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WebAclUriFragmentArgsDict(TypedDict):
-        """
-        The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
-        """
-        fallback_behavior: NotRequired[pulumi.Input['WebAclUriFragmentFallbackBehavior']]
-        """
-        What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
+class WebAclUriFragmentArgsDict(TypedDict):
+    """
+    The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+    """
+    fallback_behavior: NotRequired[pulumi.Input['WebAclUriFragmentFallbackBehavior']]
+    """
+    What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
 
-        - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
-        - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-        - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
 
-        If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
+    If you don't provide this setting, AWS WAF parses and evaluates the content only up to the first parsing failure that it encounters.
 
-        Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
+    Example JSON: `{ "UriFragment": { "FallbackBehavior": "MATCH"} }`
 
-        > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
-        """
-elif False:
-    WebAclUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+    > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
+    """
 
 @pulumi.input_type
 class WebAclUriFragmentArgs:
@@ -13181,32 +12705,29 @@ class WebAclUriFragmentArgs:
         pulumi.set(self, "fallback_behavior", value)
 
 
-if not MYPY:
-    class WebAclVisibilityConfigArgsDict(TypedDict):
-        """
-        Visibility Metric of the WebACL.
-        """
-        cloud_watch_metrics_enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
+class WebAclVisibilityConfigArgsDict(TypedDict):
+    """
+    Visibility Metric of the WebACL.
+    """
+    cloud_watch_metrics_enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
 
-        For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
-        see [The web ACL default action](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html) in the *AWS WAF Developer Guide* .
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
-        """
-        sampled_requests_enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+    For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
+    see [The web ACL default action](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html) in the *AWS WAF Developer Guide* .
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    A name of the Amazon CloudWatch metric dimension. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain whitespace or metric names that are reserved for AWS WAF , for example `All` and `Default_Action` .
+    """
+    sampled_requests_enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 
-        If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
+    If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data.
 
-        > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
-        """
-elif False:
-    WebAclVisibilityConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.
+    """
 
 @pulumi.input_type
 class WebAclVisibilityConfigArgs:
@@ -13275,21 +12796,18 @@ class WebAclVisibilityConfigArgs:
         pulumi.set(self, "sampled_requests_enabled", value)
 
 
-if not MYPY:
-    class WebAclXssMatchStatementArgsDict(TypedDict):
-        """
-        Xss Match Statement.
-        """
-        field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
-        """
-        The part of the web request that you want AWS WAF to inspect.
-        """
-        text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
-        """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
-        """
-elif False:
-    WebAclXssMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+class WebAclXssMatchStatementArgsDict(TypedDict):
+    """
+    Xss Match Statement.
+    """
+    field_to_match: pulumi.Input['WebAclFieldToMatchArgsDict']
+    """
+    The part of the web request that you want AWS WAF to inspect.
+    """
+    text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgsDict']]]
+    """
+    Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+    """
 
 @pulumi.input_type
 class WebAclXssMatchStatementArgs:

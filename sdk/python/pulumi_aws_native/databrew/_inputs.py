@@ -114,23 +114,18 @@ __all__ = [
     'RulesetThresholdArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatasetCsvOptionsArgsDict(TypedDict):
-        """
-        Csv options
-        """
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A single character that specifies the delimiter being used in the CSV file.
-        """
-        header_row: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
-        """
-elif False:
-    DatasetCsvOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetCsvOptionsArgsDict(TypedDict):
+    """
+    Csv options
+    """
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A single character that specifies the delimiter being used in the CSV file.
+    """
+    header_row: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+    """
 
 @pulumi.input_type
 class DatasetCsvOptionsArgs:
@@ -172,26 +167,23 @@ class DatasetCsvOptionsArgs:
         pulumi.set(self, "header_row", value)
 
 
-if not MYPY:
-    class DatasetDataCatalogInputDefinitionArgsDict(TypedDict):
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Catalog id
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Database name
-        """
-        table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Table name
-        """
-        temp_directory: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
-        """
-        An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
-        """
-elif False:
-    DatasetDataCatalogInputDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetDataCatalogInputDefinitionArgsDict(TypedDict):
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Catalog id
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Database name
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Table name
+    """
+    temp_directory: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
+    """
+    An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
+    """
 
 @pulumi.input_type
 class DatasetDataCatalogInputDefinitionArgs:
@@ -264,26 +256,23 @@ class DatasetDataCatalogInputDefinitionArgs:
         pulumi.set(self, "temp_directory", value)
 
 
-if not MYPY:
-    class DatasetDatabaseInputDefinitionArgsDict(TypedDict):
-        glue_connection_name: pulumi.Input[_builtins.str]
-        """
-        Glue connection name
-        """
-        database_table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Database table name
-        """
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
-        """
-        temp_directory: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
-        """
-        An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
-        """
-elif False:
-    DatasetDatabaseInputDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetDatabaseInputDefinitionArgsDict(TypedDict):
+    glue_connection_name: pulumi.Input[_builtins.str]
+    """
+    Glue connection name
+    """
+    database_table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Database table name
+    """
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+    """
+    temp_directory: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
+    """
+    An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
+    """
 
 @pulumi.input_type
 class DatasetDatabaseInputDefinitionArgs:
@@ -355,22 +344,19 @@ class DatasetDatabaseInputDefinitionArgs:
         pulumi.set(self, "temp_directory", value)
 
 
-if not MYPY:
-    class DatasetDatetimeOptionsArgsDict(TypedDict):
-        format: pulumi.Input[_builtins.str]
-        """
-        Date/time format of a date parameter
-        """
-        locale_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Locale code for a date parameter
-        """
-        timezone_offset: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timezone offset
-        """
-elif False:
-    DatasetDatetimeOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetDatetimeOptionsArgsDict(TypedDict):
+    format: pulumi.Input[_builtins.str]
+    """
+    Date/time format of a date parameter
+    """
+    locale_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Locale code for a date parameter
+    """
+    timezone_offset: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timezone offset
+    """
 
 @pulumi.input_type
 class DatasetDatetimeOptionsArgs:
@@ -426,22 +412,19 @@ class DatasetDatetimeOptionsArgs:
         pulumi.set(self, "timezone_offset", value)
 
 
-if not MYPY:
-    class DatasetExcelOptionsArgsDict(TypedDict):
-        header_row: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
-        """
-        sheet_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        One or more sheet numbers in the Excel file that will be included in the dataset.
-        """
-        sheet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more named sheets in the Excel file that will be included in the dataset.
-        """
-elif False:
-    DatasetExcelOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetExcelOptionsArgsDict(TypedDict):
+    header_row: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+    """
+    sheet_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    One or more sheet numbers in the Excel file that will be included in the dataset.
+    """
+    sheet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more named sheets in the Excel file that will be included in the dataset.
+    """
 
 @pulumi.input_type
 class DatasetExcelOptionsArgs:
@@ -498,22 +481,19 @@ class DatasetExcelOptionsArgs:
         pulumi.set(self, "sheet_names", value)
 
 
-if not MYPY:
-    class DatasetFilesLimitArgsDict(TypedDict):
-        max_files: pulumi.Input[_builtins.int]
-        """
-        Maximum number of files
-        """
-        order: NotRequired[pulumi.Input['DatasetFilesLimitOrder']]
-        """
-        Order
-        """
-        ordered_by: NotRequired[pulumi.Input['DatasetFilesLimitOrderedBy']]
-        """
-        Ordered by
-        """
-elif False:
-    DatasetFilesLimitArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetFilesLimitArgsDict(TypedDict):
+    max_files: pulumi.Input[_builtins.int]
+    """
+    Maximum number of files
+    """
+    order: NotRequired[pulumi.Input['DatasetFilesLimitOrder']]
+    """
+    Order
+    """
+    ordered_by: NotRequired[pulumi.Input['DatasetFilesLimitOrderedBy']]
+    """
+    Ordered by
+    """
 
 @pulumi.input_type
 class DatasetFilesLimitArgs:
@@ -569,18 +549,15 @@ class DatasetFilesLimitArgs:
         pulumi.set(self, "ordered_by", value)
 
 
-if not MYPY:
-    class DatasetFilterExpressionArgsDict(TypedDict):
-        expression: pulumi.Input[_builtins.str]
-        """
-        Filtering expression for a parameter
-        """
-        values_map: pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgsDict']]]
-        """
-        The map of substitution variable names to their values used in this filter expression.
-        """
-elif False:
-    DatasetFilterExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetFilterExpressionArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    Filtering expression for a parameter
+    """
+    values_map: pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgsDict']]]
+    """
+    The map of substitution variable names to their values used in this filter expression.
+    """
 
 @pulumi.input_type
 class DatasetFilterExpressionArgs:
@@ -619,21 +596,18 @@ class DatasetFilterExpressionArgs:
         pulumi.set(self, "values_map", value)
 
 
-if not MYPY:
-    class DatasetFilterValueArgsDict(TypedDict):
-        """
-        A key-value pair to associate expression variable names with their values
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value to be associated with the substitution variable.
-        """
-        value_reference: pulumi.Input[_builtins.str]
-        """
-        Variable name
-        """
-elif False:
-    DatasetFilterValueArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetFilterValueArgsDict(TypedDict):
+    """
+    A key-value pair to associate expression variable names with their values
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value to be associated with the substitution variable.
+    """
+    value_reference: pulumi.Input[_builtins.str]
+    """
+    Variable name
+    """
 
 @pulumi.input_type
 class DatasetFilterValueArgs:
@@ -673,25 +647,22 @@ class DatasetFilterValueArgs:
         pulumi.set(self, "value_reference", value)
 
 
-if not MYPY:
-    class DatasetFormatOptionsArgsDict(TypedDict):
-        """
-        Format options for dataset
-        """
-        csv: NotRequired[pulumi.Input['DatasetCsvOptionsArgsDict']]
-        """
-        Options that define how CSV input is to be interpreted by DataBrew.
-        """
-        excel: NotRequired[pulumi.Input['DatasetExcelOptionsArgsDict']]
-        """
-        Options that define how Excel input is to be interpreted by DataBrew.
-        """
-        json: NotRequired[pulumi.Input['DatasetJsonOptionsArgsDict']]
-        """
-        Options that define how JSON input is to be interpreted by DataBrew.
-        """
-elif False:
-    DatasetFormatOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetFormatOptionsArgsDict(TypedDict):
+    """
+    Format options for dataset
+    """
+    csv: NotRequired[pulumi.Input['DatasetCsvOptionsArgsDict']]
+    """
+    Options that define how CSV input is to be interpreted by DataBrew.
+    """
+    excel: NotRequired[pulumi.Input['DatasetExcelOptionsArgsDict']]
+    """
+    Options that define how Excel input is to be interpreted by DataBrew.
+    """
+    json: NotRequired[pulumi.Input['DatasetJsonOptionsArgsDict']]
+    """
+    Options that define how JSON input is to be interpreted by DataBrew.
+    """
 
 @pulumi.input_type
 class DatasetFormatOptionsArgs:
@@ -749,29 +720,26 @@ class DatasetFormatOptionsArgs:
         pulumi.set(self, "json", value)
 
 
-if not MYPY:
-    class DatasetInputArgsDict(TypedDict):
-        """
-        Input
-        """
-        data_catalog_input_definition: NotRequired[pulumi.Input['DatasetDataCatalogInputDefinitionArgsDict']]
-        """
-        The AWS Glue Data Catalog parameters for the data.
-        """
-        database_input_definition: NotRequired[pulumi.Input['DatasetDatabaseInputDefinitionArgsDict']]
-        """
-        Connection information for dataset input files stored in a database.
-        """
-        metadata: NotRequired[pulumi.Input['DatasetMetadataArgsDict']]
-        """
-        Contains additional resource information needed for specific datasets.
-        """
-        s3_input_definition: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
-        """
-        The Amazon S3 location where the data is stored.
-        """
-elif False:
-    DatasetInputArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetInputArgsDict(TypedDict):
+    """
+    Input
+    """
+    data_catalog_input_definition: NotRequired[pulumi.Input['DatasetDataCatalogInputDefinitionArgsDict']]
+    """
+    The AWS Glue Data Catalog parameters for the data.
+    """
+    database_input_definition: NotRequired[pulumi.Input['DatasetDatabaseInputDefinitionArgsDict']]
+    """
+    Connection information for dataset input files stored in a database.
+    """
+    metadata: NotRequired[pulumi.Input['DatasetMetadataArgsDict']]
+    """
+    Contains additional resource information needed for specific datasets.
+    """
+    s3_input_definition: NotRequired[pulumi.Input['DatasetS3LocationArgsDict']]
+    """
+    The Amazon S3 location where the data is stored.
+    """
 
 @pulumi.input_type
 class DatasetInputArgs:
@@ -845,17 +813,14 @@ class DatasetInputArgs:
         pulumi.set(self, "s3_input_definition", value)
 
 
-if not MYPY:
-    class DatasetJsonOptionsArgsDict(TypedDict):
-        """
-        Json options
-        """
-        multi_line: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value that specifies whether JSON input contains embedded new line characters.
-        """
-elif False:
-    DatasetJsonOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetJsonOptionsArgsDict(TypedDict):
+    """
+    Json options
+    """
+    multi_line: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value that specifies whether JSON input contains embedded new line characters.
+    """
 
 @pulumi.input_type
 class DatasetJsonOptionsArgs:
@@ -881,14 +846,11 @@ class DatasetJsonOptionsArgs:
         pulumi.set(self, "multi_line", value)
 
 
-if not MYPY:
-    class DatasetMetadataArgsDict(TypedDict):
-        source_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
-        """
-elif False:
-    DatasetMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetMetadataArgsDict(TypedDict):
+    source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arn of the source of the dataset. For e.g.: AppFlow Flow ARN.
+    """
 
 @pulumi.input_type
 class DatasetMetadataArgs:
@@ -913,30 +875,27 @@ class DatasetMetadataArgs:
         pulumi.set(self, "source_arn", value)
 
 
-if not MYPY:
-    class DatasetParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter that is used in the dataset's Amazon S3 path.
-        """
-        type: pulumi.Input['DatasetParameterType']
-        """
-        Parameter type
-        """
-        create_column: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Add the value of this parameter as a column in a dataset.
-        """
-        datetime_options: NotRequired[pulumi.Input['DatasetDatetimeOptionsArgsDict']]
-        """
-        Additional parameter options such as a format and a timezone. Required for datetime parameters.
-        """
-        filter: NotRequired[pulumi.Input['DatasetFilterExpressionArgsDict']]
-        """
-        The optional filter expression structure to apply additional matching criteria to the parameter.
-        """
-elif False:
-    DatasetParameterArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the parameter that is used in the dataset's Amazon S3 path.
+    """
+    type: pulumi.Input['DatasetParameterType']
+    """
+    Parameter type
+    """
+    create_column: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Add the value of this parameter as a column in a dataset.
+    """
+    datetime_options: NotRequired[pulumi.Input['DatasetDatetimeOptionsArgsDict']]
+    """
+    Additional parameter options such as a format and a timezone. Required for datetime parameters.
+    """
+    filter: NotRequired[pulumi.Input['DatasetFilterExpressionArgsDict']]
+    """
+    The optional filter expression structure to apply additional matching criteria to the parameter.
+    """
 
 @pulumi.input_type
 class DatasetParameterArgs:
@@ -1023,25 +982,22 @@ class DatasetParameterArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class DatasetPathOptionsArgsDict(TypedDict):
-        """
-        Path options for dataset
-        """
-        files_limit: NotRequired[pulumi.Input['DatasetFilesLimitArgsDict']]
-        """
-        If provided, this structure imposes a limit on a number of files that should be selected.
-        """
-        last_modified_date_condition: NotRequired[pulumi.Input['DatasetFilterExpressionArgsDict']]
-        """
-        If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgsDict']]]]
-        """
-        A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
-        """
-elif False:
-    DatasetPathOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetPathOptionsArgsDict(TypedDict):
+    """
+    Path options for dataset
+    """
+    files_limit: NotRequired[pulumi.Input['DatasetFilesLimitArgsDict']]
+    """
+    If provided, this structure imposes a limit on a number of files that should be selected.
+    """
+    last_modified_date_condition: NotRequired[pulumi.Input['DatasetFilterExpressionArgsDict']]
+    """
+    If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgsDict']]]]
+    """
+    A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
+    """
 
 @pulumi.input_type
 class DatasetPathOptionsArgs:
@@ -1099,21 +1055,18 @@ class DatasetPathOptionsArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class DatasetPathParameterArgsDict(TypedDict):
-        """
-        A key-value pair to associate dataset parameter name with its definition.
-        """
-        dataset_parameter: pulumi.Input['DatasetParameterArgsDict']
-        """
-        The path parameter definition.
-        """
-        path_parameter_name: pulumi.Input[_builtins.str]
-        """
-        The name of the path parameter.
-        """
-elif False:
-    DatasetPathParameterArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetPathParameterArgsDict(TypedDict):
+    """
+    A key-value pair to associate dataset parameter name with its definition.
+    """
+    dataset_parameter: pulumi.Input['DatasetParameterArgsDict']
+    """
+    The path parameter definition.
+    """
+    path_parameter_name: pulumi.Input[_builtins.str]
+    """
+    The name of the path parameter.
+    """
 
 @pulumi.input_type
 class DatasetPathParameterArgs:
@@ -1153,25 +1106,22 @@ class DatasetPathParameterArgs:
         pulumi.set(self, "path_parameter_name", value)
 
 
-if not MYPY:
-    class DatasetS3LocationArgsDict(TypedDict):
-        """
-        Input location
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS account ID of the bucket owner.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique name of the object in the bucket.
-        """
-elif False:
-    DatasetS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetS3LocationArgsDict(TypedDict):
+    """
+    Input location
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS account ID of the bucket owner.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique name of the object in the bucket.
+    """
 
 @pulumi.input_type
 class DatasetS3LocationArgs:
@@ -1228,14 +1178,11 @@ class DatasetS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class JobAllowedStatisticsArgsDict(TypedDict):
-        statistics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        One or more column statistics to allow for columns that contain detected entities.
-        """
-elif False:
-    JobAllowedStatisticsArgsDict: TypeAlias = Mapping[str, Any]
+class JobAllowedStatisticsArgsDict(TypedDict):
+    statistics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more column statistics to allow for columns that contain detected entities.
+    """
 
 @pulumi.input_type
 class JobAllowedStatisticsArgs:
@@ -1259,18 +1206,15 @@ class JobAllowedStatisticsArgs:
         pulumi.set(self, "statistics", value)
 
 
-if not MYPY:
-    class JobColumnSelectorArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a column from a dataset.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A regular expression for selecting a column from a dataset.
-        """
-elif False:
-    JobColumnSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class JobColumnSelectorArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a column from a dataset.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A regular expression for selecting a column from a dataset.
+    """
 
 @pulumi.input_type
 class JobColumnSelectorArgs:
@@ -1311,18 +1255,15 @@ class JobColumnSelectorArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class JobColumnStatisticsConfigurationArgsDict(TypedDict):
-        statistics: pulumi.Input['JobStatisticsConfigurationArgsDict']
-        """
-        Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgsDict']]]]
-        """
-        List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
-        """
-elif False:
-    JobColumnStatisticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class JobColumnStatisticsConfigurationArgsDict(TypedDict):
+    statistics: pulumi.Input['JobStatisticsConfigurationArgsDict']
+    """
+    Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgsDict']]]]
+    """
+    List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
+    """
 
 @pulumi.input_type
 class JobColumnStatisticsConfigurationArgs:
@@ -1362,17 +1303,14 @@ class JobColumnStatisticsConfigurationArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class JobCsvOutputOptionsArgsDict(TypedDict):
-        """
-        Output Csv options
-        """
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A single character that specifies the delimiter used to create CSV job output.
-        """
-elif False:
-    JobCsvOutputOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class JobCsvOutputOptionsArgsDict(TypedDict):
+    """
+    Output Csv options
+    """
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A single character that specifies the delimiter used to create CSV job output.
+    """
 
 @pulumi.input_type
 class JobCsvOutputOptionsArgs:
@@ -1398,34 +1336,31 @@ class JobCsvOutputOptionsArgs:
         pulumi.set(self, "delimiter", value)
 
 
-if not MYPY:
-    class JobDataCatalogOutputArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of a database in the Data Catalog.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of a table in the Data Catalog.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the AWS account that holds the Data Catalog that stores the data.
-        """
-        database_options: NotRequired[pulumi.Input['JobDatabaseTableOutputOptionsArgsDict']]
-        """
-        Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
-        """
-        overwrite: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value that, if true, means that any data in the location specified for output is overwritten with new output. Not supported with DatabaseOptions.
-        """
-        s3_options: NotRequired[pulumi.Input['JobS3TableOutputOptionsArgsDict']]
-        """
-        Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
-        """
-elif False:
-    JobDataCatalogOutputArgsDict: TypeAlias = Mapping[str, Any]
+class JobDataCatalogOutputArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of a database in the Data Catalog.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of a table in the Data Catalog.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the AWS account that holds the Data Catalog that stores the data.
+    """
+    database_options: NotRequired[pulumi.Input['JobDatabaseTableOutputOptionsArgsDict']]
+    """
+    Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
+    """
+    overwrite: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value that, if true, means that any data in the location specified for output is overwritten with new output. Not supported with DatabaseOptions.
+    """
+    s3_options: NotRequired[pulumi.Input['JobS3TableOutputOptionsArgsDict']]
+    """
+    Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
+    """
 
 @pulumi.input_type
 class JobDataCatalogOutputArgs:
@@ -1528,22 +1463,19 @@ class JobDataCatalogOutputArgs:
         pulumi.set(self, "s3_options", value)
 
 
-if not MYPY:
-    class JobDatabaseOutputArgsDict(TypedDict):
-        database_options: pulumi.Input['JobDatabaseTableOutputOptionsArgsDict']
-        """
-        Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
-        """
-        glue_connection_name: pulumi.Input[_builtins.str]
-        """
-        Glue connection name
-        """
-        database_output_mode: NotRequired[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]
-        """
-        Database table name
-        """
-elif False:
-    JobDatabaseOutputArgsDict: TypeAlias = Mapping[str, Any]
+class JobDatabaseOutputArgsDict(TypedDict):
+    database_options: pulumi.Input['JobDatabaseTableOutputOptionsArgsDict']
+    """
+    Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
+    """
+    glue_connection_name: pulumi.Input[_builtins.str]
+    """
+    Glue connection name
+    """
+    database_output_mode: NotRequired[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]
+    """
+    Database table name
+    """
 
 @pulumi.input_type
 class JobDatabaseOutputArgs:
@@ -1598,18 +1530,15 @@ class JobDatabaseOutputArgs:
         pulumi.set(self, "database_output_mode", value)
 
 
-if not MYPY:
-    class JobDatabaseTableOutputOptionsArgsDict(TypedDict):
-        table_name: pulumi.Input[_builtins.str]
-        """
-        A prefix for the name of a table DataBrew will create in the database.
-        """
-        temp_directory: NotRequired[pulumi.Input['JobS3LocationArgsDict']]
-        """
-        Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
-        """
-elif False:
-    JobDatabaseTableOutputOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class JobDatabaseTableOutputOptionsArgsDict(TypedDict):
+    table_name: pulumi.Input[_builtins.str]
+    """
+    A prefix for the name of a table DataBrew will create in the database.
+    """
+    temp_directory: NotRequired[pulumi.Input['JobS3LocationArgsDict']]
+    """
+    Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
+    """
 
 @pulumi.input_type
 class JobDatabaseTableOutputOptionsArgs:
@@ -1649,40 +1578,37 @@ class JobDatabaseTableOutputOptionsArgs:
         pulumi.set(self, "temp_directory", value)
 
 
-if not MYPY:
-    class JobEntityDetectorConfigurationArgsDict(TypedDict):
-        entity_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Entity types to detect. Can be any of the following:
+class JobEntityDetectorConfigurationArgsDict(TypedDict):
+    entity_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Entity types to detect. Can be any of the following:
 
-        - USA_SSN
-        - EMAIL
-        - USA_ITIN
-        - USA_PASSPORT_NUMBER
-        - PHONE_NUMBER
-        - USA_DRIVING_LICENSE
-        - BANK_ACCOUNT
-        - CREDIT_CARD
-        - IP_ADDRESS
-        - MAC_ADDRESS
-        - USA_DEA_NUMBER
-        - USA_HCPCS_CODE
-        - USA_NATIONAL_PROVIDER_IDENTIFIER
-        - USA_NATIONAL_DRUG_CODE
-        - USA_HEALTH_INSURANCE_CLAIM_NUMBER
-        - USA_MEDICARE_BENEFICIARY_IDENTIFIER
-        - USA_CPT_CODE
-        - PERSON_NAME
-        - DATE
+    - USA_SSN
+    - EMAIL
+    - USA_ITIN
+    - USA_PASSPORT_NUMBER
+    - PHONE_NUMBER
+    - USA_DRIVING_LICENSE
+    - BANK_ACCOUNT
+    - CREDIT_CARD
+    - IP_ADDRESS
+    - MAC_ADDRESS
+    - USA_DEA_NUMBER
+    - USA_HCPCS_CODE
+    - USA_NATIONAL_PROVIDER_IDENTIFIER
+    - USA_NATIONAL_DRUG_CODE
+    - USA_HEALTH_INSURANCE_CLAIM_NUMBER
+    - USA_MEDICARE_BENEFICIARY_IDENTIFIER
+    - USA_CPT_CODE
+    - PERSON_NAME
+    - DATE
 
-        The Entity type group USA_ALL is also supported, and includes all of the above entity types except PERSON_NAME and DATE.
-        """
-        allowed_statistics: NotRequired[pulumi.Input['JobAllowedStatisticsArgsDict']]
-        """
-        Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
-        """
-elif False:
-    JobEntityDetectorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The Entity type group USA_ALL is also supported, and includes all of the above entity types except PERSON_NAME and DATE.
+    """
+    allowed_statistics: NotRequired[pulumi.Input['JobAllowedStatisticsArgsDict']]
+    """
+    Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
+    """
 
 @pulumi.input_type
 class JobEntityDetectorConfigurationArgs:
@@ -1766,17 +1692,14 @@ class JobEntityDetectorConfigurationArgs:
         pulumi.set(self, "allowed_statistics", value)
 
 
-if not MYPY:
-    class JobOutputFormatOptionsArgsDict(TypedDict):
-        """
-        Format options for job Output
-        """
-        csv: NotRequired[pulumi.Input['JobCsvOutputOptionsArgsDict']]
-        """
-        Represents a set of options that define the structure of comma-separated value (CSV) job output.
-        """
-elif False:
-    JobOutputFormatOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class JobOutputFormatOptionsArgsDict(TypedDict):
+    """
+    Format options for job Output
+    """
+    csv: NotRequired[pulumi.Input['JobCsvOutputOptionsArgsDict']]
+    """
+    Represents a set of options that define the structure of comma-separated value (CSV) job output.
+    """
 
 @pulumi.input_type
 class JobOutputFormatOptionsArgs:
@@ -1802,22 +1725,19 @@ class JobOutputFormatOptionsArgs:
         pulumi.set(self, "csv", value)
 
 
-if not MYPY:
-    class JobOutputLocationArgsDict(TypedDict):
-        """
-        Output location
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique name of the object in the bucket.
-        """
-elif False:
-    JobOutputLocationArgsDict: TypeAlias = Mapping[str, Any]
+class JobOutputLocationArgsDict(TypedDict):
+    """
+    Output location
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique name of the object in the bucket.
+    """
 
 @pulumi.input_type
 class JobOutputLocationArgs:
@@ -1870,38 +1790,35 @@ class JobOutputLocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class JobOutputArgsDict(TypedDict):
-        location: pulumi.Input['JobS3LocationArgsDict']
-        """
-        The location in Amazon S3 where the job writes its output.
-        """
-        compression_format: NotRequired[pulumi.Input['JobOutputCompressionFormat']]
-        """
-        The compression algorithm used to compress the output text of the job.
-        """
-        format: NotRequired[pulumi.Input['JobOutputFormat']]
-        """
-        The data format of the output of the job.
-        """
-        format_options: NotRequired[pulumi.Input['JobOutputFormatOptionsArgsDict']]
-        """
-        Represents options that define how DataBrew formats job output files.
-        """
-        max_output_files: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of files to be generated by the job and written to the output folder.
-        """
-        overwrite: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value that, if true, means that any data in the location specified for output is overwritten with new output.
-        """
-        partition_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The names of one or more partition columns for the output of the job.
-        """
-elif False:
-    JobOutputArgsDict: TypeAlias = Mapping[str, Any]
+class JobOutputArgsDict(TypedDict):
+    location: pulumi.Input['JobS3LocationArgsDict']
+    """
+    The location in Amazon S3 where the job writes its output.
+    """
+    compression_format: NotRequired[pulumi.Input['JobOutputCompressionFormat']]
+    """
+    The compression algorithm used to compress the output text of the job.
+    """
+    format: NotRequired[pulumi.Input['JobOutputFormat']]
+    """
+    The data format of the output of the job.
+    """
+    format_options: NotRequired[pulumi.Input['JobOutputFormatOptionsArgsDict']]
+    """
+    Represents options that define how DataBrew formats job output files.
+    """
+    max_output_files: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of files to be generated by the job and written to the output folder.
+    """
+    overwrite: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value that, if true, means that any data in the location specified for output is overwritten with new output.
+    """
+    partition_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The names of one or more partition columns for the output of the job.
+    """
 
 @pulumi.input_type
 class JobOutputArgs:
@@ -2021,26 +1938,23 @@ class JobOutputArgs:
         pulumi.set(self, "partition_columns", value)
 
 
-if not MYPY:
-    class JobProfileConfigurationArgsDict(TypedDict):
-        column_statistics_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgsDict']]]]
-        """
-        List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
-        """
-        dataset_statistics_configuration: NotRequired[pulumi.Input['JobStatisticsConfigurationArgsDict']]
-        """
-        Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
-        """
-        entity_detector_configuration: NotRequired[pulumi.Input['JobEntityDetectorConfigurationArgsDict']]
-        """
-        Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
-        """
-        profile_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgsDict']]]]
-        """
-        List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
-        """
-elif False:
-    JobProfileConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class JobProfileConfigurationArgsDict(TypedDict):
+    column_statistics_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgsDict']]]]
+    """
+    List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
+    """
+    dataset_statistics_configuration: NotRequired[pulumi.Input['JobStatisticsConfigurationArgsDict']]
+    """
+    Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
+    """
+    entity_detector_configuration: NotRequired[pulumi.Input['JobEntityDetectorConfigurationArgsDict']]
+    """
+    Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
+    """
+    profile_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgsDict']]]]
+    """
+    List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
+    """
 
 @pulumi.input_type
 class JobProfileConfigurationArgs:
@@ -2113,18 +2027,15 @@ class JobProfileConfigurationArgs:
         pulumi.set(self, "profile_columns", value)
 
 
-if not MYPY:
-    class JobRecipeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Recipe name
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Recipe version
-        """
-elif False:
-    JobRecipeArgsDict: TypeAlias = Mapping[str, Any]
+class JobRecipeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Recipe name
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Recipe version
+    """
 
 @pulumi.input_type
 class JobRecipeArgs:
@@ -2164,25 +2075,22 @@ class JobRecipeArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class JobS3LocationArgsDict(TypedDict):
-        """
-        S3 Output location
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS account ID of the bucket owner.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique name of the object in the bucket.
-        """
-elif False:
-    JobS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class JobS3LocationArgsDict(TypedDict):
+    """
+    S3 Output location
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS account ID of the bucket owner.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique name of the object in the bucket.
+    """
 
 @pulumi.input_type
 class JobS3LocationArgs:
@@ -2239,14 +2147,11 @@ class JobS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class JobS3TableOutputOptionsArgsDict(TypedDict):
-        location: pulumi.Input['JobS3LocationArgsDict']
-        """
-        Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
-        """
-elif False:
-    JobS3TableOutputOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class JobS3TableOutputOptionsArgsDict(TypedDict):
+    location: pulumi.Input['JobS3LocationArgsDict']
+    """
+    Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
+    """
 
 @pulumi.input_type
 class JobS3TableOutputOptionsArgs:
@@ -2270,26 +2175,23 @@ class JobS3TableOutputOptionsArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class JobSampleArgsDict(TypedDict):
-        """
-        Job Sample
-        """
-        mode: NotRequired[pulumi.Input['JobSampleMode']]
-        """
-        A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
+class JobSampleArgsDict(TypedDict):
+    """
+    Job Sample
+    """
+    mode: NotRequired[pulumi.Input['JobSampleMode']]
+    """
+    A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
 
-        - FULL_DATASET - The profile job is run on the entire dataset.
-        - CUSTOM_ROWS - The profile job is run on the number of rows specified in the `Size` parameter.
-        """
-        size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The `Size` parameter is only required when the mode is CUSTOM_ROWS. The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
+    - FULL_DATASET - The profile job is run on the entire dataset.
+    - CUSTOM_ROWS - The profile job is run on the number of rows specified in the `Size` parameter.
+    """
+    size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The `Size` parameter is only required when the mode is CUSTOM_ROWS. The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
 
-        Long.MAX_VALUE = 9223372036854775807
-        """
-elif False:
-    JobSampleArgsDict: TypeAlias = Mapping[str, Any]
+    Long.MAX_VALUE = 9223372036854775807
+    """
 
 @pulumi.input_type
 class JobSampleArgs:
@@ -2341,18 +2243,15 @@ class JobSampleArgs:
         pulumi.set(self, "size", value)
 
 
-if not MYPY:
-    class JobStatisticOverrideArgsDict(TypedDict):
-        parameters: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        A map that includes overrides of an evaluation’s parameters.
-        """
-        statistic: pulumi.Input[_builtins.str]
-        """
-        The name of an evaluation
-        """
-elif False:
-    JobStatisticOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class JobStatisticOverrideArgsDict(TypedDict):
+    parameters: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    A map that includes overrides of an evaluation’s parameters.
+    """
+    statistic: pulumi.Input[_builtins.str]
+    """
+    The name of an evaluation
+    """
 
 @pulumi.input_type
 class JobStatisticOverrideArgs:
@@ -2391,18 +2290,15 @@ class JobStatisticOverrideArgs:
         pulumi.set(self, "statistic", value)
 
 
-if not MYPY:
-    class JobStatisticsConfigurationArgsDict(TypedDict):
-        included_statistics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of included evaluations. When the list is undefined, all supported evaluations will be included.
-        """
-        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgsDict']]]]
-        """
-        List of overrides for evaluations.
-        """
-elif False:
-    JobStatisticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class JobStatisticsConfigurationArgsDict(TypedDict):
+    included_statistics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of included evaluations. When the list is undefined, all supported evaluations will be included.
+    """
+    overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgsDict']]]]
+    """
+    List of overrides for evaluations.
+    """
 
 @pulumi.input_type
 class JobStatisticsConfigurationArgs:
@@ -2443,21 +2339,18 @@ class JobStatisticsConfigurationArgs:
         pulumi.set(self, "overrides", value)
 
 
-if not MYPY:
-    class JobValidationConfigurationArgsDict(TypedDict):
-        """
-        Configuration to attach Rulesets to the job
-        """
-        ruleset_arn: pulumi.Input[_builtins.str]
-        """
-        Arn of the Ruleset
-        """
-        validation_mode: NotRequired[pulumi.Input['JobValidationMode']]
-        """
-        Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
-        """
-elif False:
-    JobValidationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class JobValidationConfigurationArgsDict(TypedDict):
+    """
+    Configuration to attach Rulesets to the job
+    """
+    ruleset_arn: pulumi.Input[_builtins.str]
+    """
+    Arn of the Ruleset
+    """
+    validation_mode: NotRequired[pulumi.Input['JobValidationMode']]
+    """
+    Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
+    """
 
 @pulumi.input_type
 class JobValidationConfigurationArgs:
@@ -2498,18 +2391,15 @@ class JobValidationConfigurationArgs:
         pulumi.set(self, "validation_mode", value)
 
 
-if not MYPY:
-    class ProjectSampleArgsDict(TypedDict):
-        type: pulumi.Input['ProjectSampleType']
-        """
-        Sample type
-        """
-        size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Sample size
-        """
-elif False:
-    ProjectSampleArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectSampleArgsDict(TypedDict):
+    type: pulumi.Input['ProjectSampleType']
+    """
+    Sample type
+    """
+    size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Sample size
+    """
 
 @pulumi.input_type
 class ProjectSampleArgs:
@@ -2549,18 +2439,15 @@ class ProjectSampleArgs:
         pulumi.set(self, "size", value)
 
 
-if not MYPY:
-    class RecipeActionArgsDict(TypedDict):
-        operation: pulumi.Input[_builtins.str]
-        """
-        Step action operation
-        """
-        parameters: NotRequired[pulumi.Input[Union['RecipeParametersArgsDict', Mapping[str, pulumi.Input[_builtins.str]]]]]
-        """
-        Contextual parameters for the transformation.
-        """
-elif False:
-    RecipeActionArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeActionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    Step action operation
+    """
+    parameters: NotRequired[pulumi.Input[Union['RecipeParametersArgsDict', Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Contextual parameters for the transformation.
+    """
 
 @pulumi.input_type
 class RecipeActionArgs:
@@ -2600,25 +2487,22 @@ class RecipeActionArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class RecipeConditionExpressionArgsDict(TypedDict):
-        """
-        Condition expressions applied to the step action
-        """
-        condition: pulumi.Input[_builtins.str]
-        """
-        Input condition to be applied to the target column
-        """
-        target_column: pulumi.Input[_builtins.str]
-        """
-        Name of the target column
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of the condition
-        """
-elif False:
-    RecipeConditionExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeConditionExpressionArgsDict(TypedDict):
+    """
+    Condition expressions applied to the step action
+    """
+    condition: pulumi.Input[_builtins.str]
+    """
+    Input condition to be applied to the target column
+    """
+    target_column: pulumi.Input[_builtins.str]
+    """
+    Name of the target column
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of the condition
+    """
 
 @pulumi.input_type
 class RecipeConditionExpressionArgs:
@@ -2674,23 +2558,20 @@ class RecipeConditionExpressionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RecipeDataCatalogInputDefinitionArgsDict(TypedDict):
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Catalog id
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Database name
-        """
-        table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Table name
-        """
-        temp_directory: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
-elif False:
-    RecipeDataCatalogInputDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeDataCatalogInputDefinitionArgsDict(TypedDict):
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Catalog id
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Database name
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Table name
+    """
+    temp_directory: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
 
 @pulumi.input_type
 class RecipeDataCatalogInputDefinitionArgs:
@@ -2759,15 +2640,12 @@ class RecipeDataCatalogInputDefinitionArgs:
         pulumi.set(self, "temp_directory", value)
 
 
-if not MYPY:
-    class RecipeParametersInputPropertiesArgsDict(TypedDict):
-        """
-        Input
-        """
-        data_catalog_input_definition: NotRequired[pulumi.Input['RecipeDataCatalogInputDefinitionArgsDict']]
-        s3_input_definition: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
-elif False:
-    RecipeParametersInputPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeParametersInputPropertiesArgsDict(TypedDict):
+    """
+    Input
+    """
+    data_catalog_input_definition: NotRequired[pulumi.Input['RecipeDataCatalogInputDefinitionArgsDict']]
+    s3_input_definition: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
 
 @pulumi.input_type
 class RecipeParametersInputPropertiesArgs:
@@ -2801,114 +2679,111 @@ class RecipeParametersInputPropertiesArgs:
         pulumi.set(self, "s3_input_definition", value)
 
 
-if not MYPY:
-    class RecipeParametersArgsDict(TypedDict):
-        aggregate_function: NotRequired[pulumi.Input[_builtins.str]]
-        base: NotRequired[pulumi.Input[_builtins.str]]
-        case_statement: NotRequired[pulumi.Input[_builtins.str]]
-        category_map: NotRequired[pulumi.Input[_builtins.str]]
-        chars_to_remove: NotRequired[pulumi.Input[_builtins.str]]
-        collapse_consecutive_whitespace: NotRequired[pulumi.Input[_builtins.str]]
-        column_data_type: NotRequired[pulumi.Input[_builtins.str]]
-        column_range: NotRequired[pulumi.Input[_builtins.str]]
-        count: NotRequired[pulumi.Input[_builtins.str]]
-        custom_characters: NotRequired[pulumi.Input[_builtins.str]]
-        custom_stop_words: NotRequired[pulumi.Input[_builtins.str]]
-        custom_value: NotRequired[pulumi.Input[_builtins.str]]
-        datasets_columns: NotRequired[pulumi.Input[_builtins.str]]
-        date_add_value: NotRequired[pulumi.Input[_builtins.str]]
-        date_time_format: NotRequired[pulumi.Input[_builtins.str]]
-        date_time_parameters: NotRequired[pulumi.Input[_builtins.str]]
-        delete_other_rows: NotRequired[pulumi.Input[_builtins.str]]
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        end_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        end_position: NotRequired[pulumi.Input[_builtins.str]]
-        end_value: NotRequired[pulumi.Input[_builtins.str]]
-        expand_contractions: NotRequired[pulumi.Input[_builtins.str]]
-        exponent: NotRequired[pulumi.Input[_builtins.str]]
-        false_string: NotRequired[pulumi.Input[_builtins.str]]
-        group_by_agg_function_options: NotRequired[pulumi.Input[_builtins.str]]
-        group_by_columns: NotRequired[pulumi.Input[_builtins.str]]
-        hidden_columns: NotRequired[pulumi.Input[_builtins.str]]
-        ignore_case: NotRequired[pulumi.Input[_builtins.str]]
-        include_in_split: NotRequired[pulumi.Input[_builtins.str]]
-        input: NotRequired[pulumi.Input['RecipeParametersInputPropertiesArgsDict']]
-        """
-        Input
-        """
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        is_text: NotRequired[pulumi.Input[_builtins.str]]
-        join_keys: NotRequired[pulumi.Input[_builtins.str]]
-        join_type: NotRequired[pulumi.Input[_builtins.str]]
-        left_columns: NotRequired[pulumi.Input[_builtins.str]]
-        limit: NotRequired[pulumi.Input[_builtins.str]]
-        lower_bound: NotRequired[pulumi.Input[_builtins.str]]
-        map_type: NotRequired[pulumi.Input[_builtins.str]]
-        mode_type: NotRequired[pulumi.Input[_builtins.str]]
-        multi_line: NotRequired[pulumi.Input[_builtins.bool]]
-        num_rows: NotRequired[pulumi.Input[_builtins.str]]
-        num_rows_after: NotRequired[pulumi.Input[_builtins.str]]
-        num_rows_before: NotRequired[pulumi.Input[_builtins.str]]
-        order_by_column: NotRequired[pulumi.Input[_builtins.str]]
-        order_by_columns: NotRequired[pulumi.Input[_builtins.str]]
-        other: NotRequired[pulumi.Input[_builtins.str]]
-        pattern: NotRequired[pulumi.Input[_builtins.str]]
-        pattern_option1: NotRequired[pulumi.Input[_builtins.str]]
-        pattern_option2: NotRequired[pulumi.Input[_builtins.str]]
-        pattern_options: NotRequired[pulumi.Input[_builtins.str]]
-        period: NotRequired[pulumi.Input[_builtins.str]]
-        position: NotRequired[pulumi.Input[_builtins.str]]
-        remove_all_punctuation: NotRequired[pulumi.Input[_builtins.str]]
-        remove_all_quotes: NotRequired[pulumi.Input[_builtins.str]]
-        remove_all_whitespace: NotRequired[pulumi.Input[_builtins.str]]
-        remove_custom_characters: NotRequired[pulumi.Input[_builtins.str]]
-        remove_custom_value: NotRequired[pulumi.Input[_builtins.str]]
-        remove_leading_and_trailing_punctuation: NotRequired[pulumi.Input[_builtins.str]]
-        remove_leading_and_trailing_quotes: NotRequired[pulumi.Input[_builtins.str]]
-        remove_leading_and_trailing_whitespace: NotRequired[pulumi.Input[_builtins.str]]
-        remove_letters: NotRequired[pulumi.Input[_builtins.str]]
-        remove_numbers: NotRequired[pulumi.Input[_builtins.str]]
-        remove_source_column: NotRequired[pulumi.Input[_builtins.str]]
-        remove_special_characters: NotRequired[pulumi.Input[_builtins.str]]
-        right_columns: NotRequired[pulumi.Input[_builtins.str]]
-        sample_size: NotRequired[pulumi.Input[_builtins.str]]
-        sample_type: NotRequired[pulumi.Input[_builtins.str]]
-        second_input: NotRequired[pulumi.Input[_builtins.str]]
-        secondary_inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgsDict']]]]
-        sheet_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        sheet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        source_column: NotRequired[pulumi.Input[_builtins.str]]
-        source_column1: NotRequired[pulumi.Input[_builtins.str]]
-        source_column2: NotRequired[pulumi.Input[_builtins.str]]
-        source_columns: NotRequired[pulumi.Input[_builtins.str]]
-        start_column_index: NotRequired[pulumi.Input[_builtins.str]]
-        start_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        start_position: NotRequired[pulumi.Input[_builtins.str]]
-        start_value: NotRequired[pulumi.Input[_builtins.str]]
-        stemming_mode: NotRequired[pulumi.Input[_builtins.str]]
-        step_count: NotRequired[pulumi.Input[_builtins.str]]
-        step_index: NotRequired[pulumi.Input[_builtins.str]]
-        stop_words_mode: NotRequired[pulumi.Input[_builtins.str]]
-        strategy: NotRequired[pulumi.Input[_builtins.str]]
-        target_column: NotRequired[pulumi.Input[_builtins.str]]
-        target_column_names: NotRequired[pulumi.Input[_builtins.str]]
-        target_date_format: NotRequired[pulumi.Input[_builtins.str]]
-        target_index: NotRequired[pulumi.Input[_builtins.str]]
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        tokenizer_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        true_string: NotRequired[pulumi.Input[_builtins.str]]
-        udf_lang: NotRequired[pulumi.Input[_builtins.str]]
-        units: NotRequired[pulumi.Input[_builtins.str]]
-        unpivot_column: NotRequired[pulumi.Input[_builtins.str]]
-        upper_bound: NotRequired[pulumi.Input[_builtins.str]]
-        use_new_data_frame: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        value1: NotRequired[pulumi.Input[_builtins.str]]
-        value2: NotRequired[pulumi.Input[_builtins.str]]
-        value_column: NotRequired[pulumi.Input[_builtins.str]]
-        view_frame: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RecipeParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeParametersArgsDict(TypedDict):
+    aggregate_function: NotRequired[pulumi.Input[_builtins.str]]
+    base: NotRequired[pulumi.Input[_builtins.str]]
+    case_statement: NotRequired[pulumi.Input[_builtins.str]]
+    category_map: NotRequired[pulumi.Input[_builtins.str]]
+    chars_to_remove: NotRequired[pulumi.Input[_builtins.str]]
+    collapse_consecutive_whitespace: NotRequired[pulumi.Input[_builtins.str]]
+    column_data_type: NotRequired[pulumi.Input[_builtins.str]]
+    column_range: NotRequired[pulumi.Input[_builtins.str]]
+    count: NotRequired[pulumi.Input[_builtins.str]]
+    custom_characters: NotRequired[pulumi.Input[_builtins.str]]
+    custom_stop_words: NotRequired[pulumi.Input[_builtins.str]]
+    custom_value: NotRequired[pulumi.Input[_builtins.str]]
+    datasets_columns: NotRequired[pulumi.Input[_builtins.str]]
+    date_add_value: NotRequired[pulumi.Input[_builtins.str]]
+    date_time_format: NotRequired[pulumi.Input[_builtins.str]]
+    date_time_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    delete_other_rows: NotRequired[pulumi.Input[_builtins.str]]
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    end_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    end_position: NotRequired[pulumi.Input[_builtins.str]]
+    end_value: NotRequired[pulumi.Input[_builtins.str]]
+    expand_contractions: NotRequired[pulumi.Input[_builtins.str]]
+    exponent: NotRequired[pulumi.Input[_builtins.str]]
+    false_string: NotRequired[pulumi.Input[_builtins.str]]
+    group_by_agg_function_options: NotRequired[pulumi.Input[_builtins.str]]
+    group_by_columns: NotRequired[pulumi.Input[_builtins.str]]
+    hidden_columns: NotRequired[pulumi.Input[_builtins.str]]
+    ignore_case: NotRequired[pulumi.Input[_builtins.str]]
+    include_in_split: NotRequired[pulumi.Input[_builtins.str]]
+    input: NotRequired[pulumi.Input['RecipeParametersInputPropertiesArgsDict']]
+    """
+    Input
+    """
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    is_text: NotRequired[pulumi.Input[_builtins.str]]
+    join_keys: NotRequired[pulumi.Input[_builtins.str]]
+    join_type: NotRequired[pulumi.Input[_builtins.str]]
+    left_columns: NotRequired[pulumi.Input[_builtins.str]]
+    limit: NotRequired[pulumi.Input[_builtins.str]]
+    lower_bound: NotRequired[pulumi.Input[_builtins.str]]
+    map_type: NotRequired[pulumi.Input[_builtins.str]]
+    mode_type: NotRequired[pulumi.Input[_builtins.str]]
+    multi_line: NotRequired[pulumi.Input[_builtins.bool]]
+    num_rows: NotRequired[pulumi.Input[_builtins.str]]
+    num_rows_after: NotRequired[pulumi.Input[_builtins.str]]
+    num_rows_before: NotRequired[pulumi.Input[_builtins.str]]
+    order_by_column: NotRequired[pulumi.Input[_builtins.str]]
+    order_by_columns: NotRequired[pulumi.Input[_builtins.str]]
+    other: NotRequired[pulumi.Input[_builtins.str]]
+    pattern: NotRequired[pulumi.Input[_builtins.str]]
+    pattern_option1: NotRequired[pulumi.Input[_builtins.str]]
+    pattern_option2: NotRequired[pulumi.Input[_builtins.str]]
+    pattern_options: NotRequired[pulumi.Input[_builtins.str]]
+    period: NotRequired[pulumi.Input[_builtins.str]]
+    position: NotRequired[pulumi.Input[_builtins.str]]
+    remove_all_punctuation: NotRequired[pulumi.Input[_builtins.str]]
+    remove_all_quotes: NotRequired[pulumi.Input[_builtins.str]]
+    remove_all_whitespace: NotRequired[pulumi.Input[_builtins.str]]
+    remove_custom_characters: NotRequired[pulumi.Input[_builtins.str]]
+    remove_custom_value: NotRequired[pulumi.Input[_builtins.str]]
+    remove_leading_and_trailing_punctuation: NotRequired[pulumi.Input[_builtins.str]]
+    remove_leading_and_trailing_quotes: NotRequired[pulumi.Input[_builtins.str]]
+    remove_leading_and_trailing_whitespace: NotRequired[pulumi.Input[_builtins.str]]
+    remove_letters: NotRequired[pulumi.Input[_builtins.str]]
+    remove_numbers: NotRequired[pulumi.Input[_builtins.str]]
+    remove_source_column: NotRequired[pulumi.Input[_builtins.str]]
+    remove_special_characters: NotRequired[pulumi.Input[_builtins.str]]
+    right_columns: NotRequired[pulumi.Input[_builtins.str]]
+    sample_size: NotRequired[pulumi.Input[_builtins.str]]
+    sample_type: NotRequired[pulumi.Input[_builtins.str]]
+    second_input: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecipeSecondaryInputArgsDict']]]]
+    sheet_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    sheet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_column: NotRequired[pulumi.Input[_builtins.str]]
+    source_column1: NotRequired[pulumi.Input[_builtins.str]]
+    source_column2: NotRequired[pulumi.Input[_builtins.str]]
+    source_columns: NotRequired[pulumi.Input[_builtins.str]]
+    start_column_index: NotRequired[pulumi.Input[_builtins.str]]
+    start_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    start_position: NotRequired[pulumi.Input[_builtins.str]]
+    start_value: NotRequired[pulumi.Input[_builtins.str]]
+    stemming_mode: NotRequired[pulumi.Input[_builtins.str]]
+    step_count: NotRequired[pulumi.Input[_builtins.str]]
+    step_index: NotRequired[pulumi.Input[_builtins.str]]
+    stop_words_mode: NotRequired[pulumi.Input[_builtins.str]]
+    strategy: NotRequired[pulumi.Input[_builtins.str]]
+    target_column: NotRequired[pulumi.Input[_builtins.str]]
+    target_column_names: NotRequired[pulumi.Input[_builtins.str]]
+    target_date_format: NotRequired[pulumi.Input[_builtins.str]]
+    target_index: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    tokenizer_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    true_string: NotRequired[pulumi.Input[_builtins.str]]
+    udf_lang: NotRequired[pulumi.Input[_builtins.str]]
+    units: NotRequired[pulumi.Input[_builtins.str]]
+    unpivot_column: NotRequired[pulumi.Input[_builtins.str]]
+    upper_bound: NotRequired[pulumi.Input[_builtins.str]]
+    use_new_data_frame: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    value1: NotRequired[pulumi.Input[_builtins.str]]
+    value2: NotRequired[pulumi.Input[_builtins.str]]
+    value_column: NotRequired[pulumi.Input[_builtins.str]]
+    view_frame: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RecipeParametersArgs:
@@ -4133,15 +4008,12 @@ class RecipeParametersArgs:
         pulumi.set(self, "view_frame", value)
 
 
-if not MYPY:
-    class RecipeS3LocationArgsDict(TypedDict):
-        """
-        Input location
-        """
-        bucket: pulumi.Input[_builtins.str]
-        key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RecipeS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeS3LocationArgsDict(TypedDict):
+    """
+    Input location
+    """
+    bucket: pulumi.Input[_builtins.str]
+    key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RecipeS3LocationArgs:
@@ -4174,15 +4046,12 @@ class RecipeS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class RecipeSecondaryInputArgsDict(TypedDict):
-        """
-        Secondary input
-        """
-        data_catalog_input_definition: NotRequired[pulumi.Input['RecipeDataCatalogInputDefinitionArgsDict']]
-        s3_input_definition: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
-elif False:
-    RecipeSecondaryInputArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeSecondaryInputArgsDict(TypedDict):
+    """
+    Secondary input
+    """
+    data_catalog_input_definition: NotRequired[pulumi.Input['RecipeDataCatalogInputDefinitionArgsDict']]
+    s3_input_definition: NotRequired[pulumi.Input['RecipeS3LocationArgsDict']]
 
 @pulumi.input_type
 class RecipeSecondaryInputArgs:
@@ -4216,18 +4085,15 @@ class RecipeSecondaryInputArgs:
         pulumi.set(self, "s3_input_definition", value)
 
 
-if not MYPY:
-    class RecipeStepArgsDict(TypedDict):
-        action: pulumi.Input['RecipeActionArgsDict']
-        """
-        The particular action to be performed in the recipe step.
-        """
-        condition_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgsDict']]]]
-        """
-        Condition expressions applied to the step action
-        """
-elif False:
-    RecipeStepArgsDict: TypeAlias = Mapping[str, Any]
+class RecipeStepArgsDict(TypedDict):
+    action: pulumi.Input['RecipeActionArgsDict']
+    """
+    The particular action to be performed in the recipe step.
+    """
+    condition_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgsDict']]]]
+    """
+    Condition expressions applied to the step action
+    """
 
 @pulumi.input_type
 class RecipeStepArgs:
@@ -4267,21 +4133,18 @@ class RecipeStepArgs:
         pulumi.set(self, "condition_expressions", value)
 
 
-if not MYPY:
-    class RulesetColumnSelectorArgsDict(TypedDict):
-        """
-        Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a column from a dataset
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A regular expression for selecting a column from a dataset
-        """
-elif False:
-    RulesetColumnSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class RulesetColumnSelectorArgsDict(TypedDict):
+    """
+    Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a column from a dataset
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A regular expression for selecting a column from a dataset
+    """
 
 @pulumi.input_type
 class RulesetColumnSelectorArgs:
@@ -4323,37 +4186,34 @@ class RulesetColumnSelectorArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class RulesetRuleArgsDict(TypedDict):
-        """
-        Data quality rule for a target resource (dataset)
-        """
-        check_expression: pulumi.Input[_builtins.str]
-        """
-        The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the rule
-        """
-        column_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgsDict']]]]
-        """
-        List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
-        """
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
-        """
-        substitution_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgsDict']]]]
-        """
-        The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
-        """
-        threshold: NotRequired[pulumi.Input['RulesetThresholdArgsDict']]
-        """
-        The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
-        """
-elif False:
-    RulesetRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RulesetRuleArgsDict(TypedDict):
+    """
+    Data quality rule for a target resource (dataset)
+    """
+    check_expression: pulumi.Input[_builtins.str]
+    """
+    The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the rule
+    """
+    column_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgsDict']]]]
+    """
+    List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
+    """
+    substitution_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgsDict']]]]
+    """
+    The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
+    """
+    threshold: NotRequired[pulumi.Input['RulesetThresholdArgsDict']]
+    """
+    The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
+    """
 
 @pulumi.input_type
 class RulesetRuleArgs:
@@ -4457,21 +4317,18 @@ class RulesetRuleArgs:
         pulumi.set(self, "threshold", value)
 
 
-if not MYPY:
-    class RulesetSubstitutionValueArgsDict(TypedDict):
-        """
-        A key-value pair to associate expression's substitution variable names with their values
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value or column name
-        """
-        value_reference: pulumi.Input[_builtins.str]
-        """
-        Variable name
-        """
-elif False:
-    RulesetSubstitutionValueArgsDict: TypeAlias = Mapping[str, Any]
+class RulesetSubstitutionValueArgsDict(TypedDict):
+    """
+    A key-value pair to associate expression's substitution variable names with their values
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value or column name
+    """
+    value_reference: pulumi.Input[_builtins.str]
+    """
+    Variable name
+    """
 
 @pulumi.input_type
 class RulesetSubstitutionValueArgs:
@@ -4511,22 +4368,19 @@ class RulesetSubstitutionValueArgs:
         pulumi.set(self, "value_reference", value)
 
 
-if not MYPY:
-    class RulesetThresholdArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.float]
-        """
-        The value of a threshold.
-        """
-        type: NotRequired[pulumi.Input['RulesetThresholdType']]
-        """
-        The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
-        """
-        unit: NotRequired[pulumi.Input['RulesetThresholdUnit']]
-        """
-        Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
-        """
-elif False:
-    RulesetThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class RulesetThresholdArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.float]
+    """
+    The value of a threshold.
+    """
+    type: NotRequired[pulumi.Input['RulesetThresholdType']]
+    """
+    The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
+    """
+    unit: NotRequired[pulumi.Input['RulesetThresholdUnit']]
+    """
+    Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
+    """
 
 @pulumi.input_type
 class RulesetThresholdArgs:

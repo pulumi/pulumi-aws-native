@@ -270,16 +270,11 @@ __all__ = [
     'RouterOutputResourceStandardRouterOutputConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BridgeEgressGatewayBridgeArgsDict(TypedDict):
-        max_bitrate: pulumi.Input[_builtins.int]
-        """
-        The maximum expected bitrate of the egress bridge.
-        """
-elif False:
-    BridgeEgressGatewayBridgeArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeEgressGatewayBridgeArgsDict(TypedDict):
+    max_bitrate: pulumi.Input[_builtins.int]
+    """
+    The maximum expected bitrate of the egress bridge.
+    """
 
 @pulumi.input_type
 class BridgeEgressGatewayBridgeArgs:
@@ -303,25 +298,22 @@ class BridgeEgressGatewayBridgeArgs:
         pulumi.set(self, "max_bitrate", value)
 
 
-if not MYPY:
-    class BridgeFailoverConfigArgsDict(TypedDict):
-        """
-        The settings for source failover.
-        """
-        failover_mode: pulumi.Input['BridgeFailoverModeEnum']
-        """
-        The type of failover you choose for this flow. FAILOVER allows switching between different streams.
-        """
-        source_priority: NotRequired[pulumi.Input['BridgeSourcePriorityArgsDict']]
-        """
-        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-        """
-        state: NotRequired[pulumi.Input['BridgeFailoverConfigStateEnum']]
-        """
-        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
-        """
-elif False:
-    BridgeFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeFailoverConfigArgsDict(TypedDict):
+    """
+    The settings for source failover.
+    """
+    failover_mode: pulumi.Input['BridgeFailoverModeEnum']
+    """
+    The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+    """
+    source_priority: NotRequired[pulumi.Input['BridgeSourcePriorityArgsDict']]
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    state: NotRequired[pulumi.Input['BridgeFailoverConfigStateEnum']]
+    """
+    The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+    """
 
 @pulumi.input_type
 class BridgeFailoverConfigArgs:
@@ -378,25 +370,22 @@ class BridgeFailoverConfigArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class BridgeFlowSourceArgsDict(TypedDict):
-        """
-        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
-        """
-        flow_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the cloud flow used as a source of this bridge.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the flow source.
-        """
-        flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeVpcInterfaceAttachmentArgsDict']]
-        """
-        The name of the VPC interface attachment to use for this source.
-        """
-elif False:
-    BridgeFlowSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeFlowSourceArgsDict(TypedDict):
+    """
+    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+    """
+    flow_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the cloud flow used as a source of this bridge.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the flow source.
+    """
+    flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeVpcInterfaceAttachmentArgsDict']]
+    """
+    The name of the VPC interface attachment to use for this source.
+    """
 
 @pulumi.input_type
 class BridgeFlowSourceArgs:
@@ -452,18 +441,15 @@ class BridgeFlowSourceArgs:
         pulumi.set(self, "flow_vpc_interface_attachment", value)
 
 
-if not MYPY:
-    class BridgeIngressGatewayBridgeArgsDict(TypedDict):
-        max_bitrate: pulumi.Input[_builtins.int]
-        """
-        The maximum expected bitrate of the ingress bridge.
-        """
-        max_outputs: pulumi.Input[_builtins.int]
-        """
-        The maximum number of outputs on the ingress bridge.
-        """
-elif False:
-    BridgeIngressGatewayBridgeArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeIngressGatewayBridgeArgsDict(TypedDict):
+    max_bitrate: pulumi.Input[_builtins.int]
+    """
+    The maximum expected bitrate of the ingress bridge.
+    """
+    max_outputs: pulumi.Input[_builtins.int]
+    """
+    The maximum number of outputs on the ingress bridge.
+    """
 
 @pulumi.input_type
 class BridgeIngressGatewayBridgeArgs:
@@ -502,17 +488,14 @@ class BridgeIngressGatewayBridgeArgs:
         pulumi.set(self, "max_outputs", value)
 
 
-if not MYPY:
-    class BridgeMulticastSourceSettingsArgsDict(TypedDict):
-        """
-        The settings related to the multicast source.
-        """
-        multicast_source_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address of the source for source-specific multicast (SSM).
-        """
-elif False:
-    BridgeMulticastSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeMulticastSourceSettingsArgsDict(TypedDict):
+    """
+    The settings related to the multicast source.
+    """
+    multicast_source_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address of the source for source-specific multicast (SSM).
+    """
 
 @pulumi.input_type
 class BridgeMulticastSourceSettingsArgs:
@@ -538,37 +521,34 @@ class BridgeMulticastSourceSettingsArgs:
         pulumi.set(self, "multicast_source_ip", value)
 
 
-if not MYPY:
-    class BridgeNetworkOutputArgsDict(TypedDict):
-        """
-        The output of the bridge. A network output is delivered to your premises.
-        """
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        The network output IP Address.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The network output name.
-        """
-        network_name: pulumi.Input[_builtins.str]
-        """
-        The network output's gateway network name.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The network output port.
-        """
-        protocol: pulumi.Input['BridgeProtocolEnum']
-        """
-        The network output protocol.
-        """
-        ttl: pulumi.Input[_builtins.int]
-        """
-        The network output TTL.
-        """
-elif False:
-    BridgeNetworkOutputArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeNetworkOutputArgsDict(TypedDict):
+    """
+    The output of the bridge. A network output is delivered to your premises.
+    """
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    The network output IP Address.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The network output name.
+    """
+    network_name: pulumi.Input[_builtins.str]
+    """
+    The network output's gateway network name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The network output port.
+    """
+    protocol: pulumi.Input['BridgeProtocolEnum']
+    """
+    The network output protocol.
+    """
+    ttl: pulumi.Input[_builtins.int]
+    """
+    The network output TTL.
+    """
 
 @pulumi.input_type
 class BridgeNetworkOutputArgs:
@@ -668,37 +648,34 @@ class BridgeNetworkOutputArgs:
         pulumi.set(self, "ttl", value)
 
 
-if not MYPY:
-    class BridgeNetworkSourceArgsDict(TypedDict):
-        """
-        The source of the bridge. A network source originates at your premises.
-        """
-        multicast_ip: pulumi.Input[_builtins.str]
-        """
-        The network source multicast IP.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the network source.
-        """
-        network_name: pulumi.Input[_builtins.str]
-        """
-        The network source's gateway network name.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The network source port.
-        """
-        protocol: pulumi.Input['BridgeProtocolEnum']
-        """
-        The network source protocol.
-        """
-        multicast_source_settings: NotRequired[pulumi.Input['BridgeMulticastSourceSettingsArgsDict']]
-        """
-        The settings related to the multicast source.
-        """
-elif False:
-    BridgeNetworkSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeNetworkSourceArgsDict(TypedDict):
+    """
+    The source of the bridge. A network source originates at your premises.
+    """
+    multicast_ip: pulumi.Input[_builtins.str]
+    """
+    The network source multicast IP.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the network source.
+    """
+    network_name: pulumi.Input[_builtins.str]
+    """
+    The network source's gateway network name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The network source port.
+    """
+    protocol: pulumi.Input['BridgeProtocolEnum']
+    """
+    The network source protocol.
+    """
+    multicast_source_settings: NotRequired[pulumi.Input['BridgeMulticastSourceSettingsArgsDict']]
+    """
+    The settings related to the multicast source.
+    """
 
 @pulumi.input_type
 class BridgeNetworkSourceArgs:
@@ -799,33 +776,30 @@ class BridgeNetworkSourceArgs:
         pulumi.set(self, "multicast_source_settings", value)
 
 
-if not MYPY:
-    class BridgeOutputResourceBridgeNetworkOutputArgsDict(TypedDict):
-        """
-        The output of the bridge. A network output is delivered to your premises.
-        """
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        The network output IP Address.
-        """
-        network_name: pulumi.Input[_builtins.str]
-        """
-        The network output's gateway network name.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The network output port.
-        """
-        protocol: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol']
-        """
-        The network output protocol.
-        """
-        ttl: pulumi.Input[_builtins.int]
-        """
-        The network output TTL.
-        """
-elif False:
-    BridgeOutputResourceBridgeNetworkOutputArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeOutputResourceBridgeNetworkOutputArgsDict(TypedDict):
+    """
+    The output of the bridge. A network output is delivered to your premises.
+    """
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    The network output IP Address.
+    """
+    network_name: pulumi.Input[_builtins.str]
+    """
+    The network output's gateway network name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The network output port.
+    """
+    protocol: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol']
+    """
+    The network output protocol.
+    """
+    ttl: pulumi.Input[_builtins.int]
+    """
+    The network output TTL.
+    """
 
 @pulumi.input_type
 class BridgeOutputResourceBridgeNetworkOutputArgs:
@@ -910,17 +884,14 @@ class BridgeOutputResourceBridgeNetworkOutputArgs:
         pulumi.set(self, "ttl", value)
 
 
-if not MYPY:
-    class BridgeOutputArgsDict(TypedDict):
-        """
-        The output of the bridge.
-        """
-        network_output: NotRequired[pulumi.Input['BridgeNetworkOutputArgsDict']]
-        """
-        The output of the bridge. A network output is delivered to your premises.
-        """
-elif False:
-    BridgeOutputArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeOutputArgsDict(TypedDict):
+    """
+    The output of the bridge.
+    """
+    network_output: NotRequired[pulumi.Input['BridgeNetworkOutputArgsDict']]
+    """
+    The output of the bridge. A network output is delivered to your premises.
+    """
 
 @pulumi.input_type
 class BridgeOutputArgs:
@@ -946,21 +917,18 @@ class BridgeOutputArgs:
         pulumi.set(self, "network_output", value)
 
 
-if not MYPY:
-    class BridgeSourceBridgeFlowSourceArgsDict(TypedDict):
-        """
-        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
-        """
-        flow_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the cloud flow used as a source of this bridge.
-        """
-        flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgsDict']]
-        """
-        The name of the VPC interface attachment to use for this source.
-        """
-elif False:
-    BridgeSourceBridgeFlowSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeSourceBridgeFlowSourceArgsDict(TypedDict):
+    """
+    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+    """
+    flow_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the cloud flow used as a source of this bridge.
+    """
+    flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgsDict']]
+    """
+    The name of the VPC interface attachment to use for this source.
+    """
 
 @pulumi.input_type
 class BridgeSourceBridgeFlowSourceArgs:
@@ -1001,33 +969,30 @@ class BridgeSourceBridgeFlowSourceArgs:
         pulumi.set(self, "flow_vpc_interface_attachment", value)
 
 
-if not MYPY:
-    class BridgeSourceBridgeNetworkSourceArgsDict(TypedDict):
-        """
-        The source of the bridge. A network source originates at your premises.
-        """
-        multicast_ip: pulumi.Input[_builtins.str]
-        """
-        The network source multicast IP.
-        """
-        network_name: pulumi.Input[_builtins.str]
-        """
-        The network source's gateway network name.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The network source port.
-        """
-        protocol: pulumi.Input['BridgeSourceProtocolEnum']
-        """
-        The network source protocol.
-        """
-        multicast_source_settings: NotRequired[pulumi.Input['BridgeSourceMulticastSourceSettingsArgsDict']]
-        """
-        The settings related to the multicast source.
-        """
-elif False:
-    BridgeSourceBridgeNetworkSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeSourceBridgeNetworkSourceArgsDict(TypedDict):
+    """
+    The source of the bridge. A network source originates at your premises.
+    """
+    multicast_ip: pulumi.Input[_builtins.str]
+    """
+    The network source multicast IP.
+    """
+    network_name: pulumi.Input[_builtins.str]
+    """
+    The network source's gateway network name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The network source port.
+    """
+    protocol: pulumi.Input['BridgeSourceProtocolEnum']
+    """
+    The network source protocol.
+    """
+    multicast_source_settings: NotRequired[pulumi.Input['BridgeSourceMulticastSourceSettingsArgsDict']]
+    """
+    The settings related to the multicast source.
+    """
 
 @pulumi.input_type
 class BridgeSourceBridgeNetworkSourceArgs:
@@ -1113,17 +1078,14 @@ class BridgeSourceBridgeNetworkSourceArgs:
         pulumi.set(self, "multicast_source_settings", value)
 
 
-if not MYPY:
-    class BridgeSourceMulticastSourceSettingsArgsDict(TypedDict):
-        """
-        The settings related to the multicast source.
-        """
-        multicast_source_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address of the source for source-specific multicast (SSM).
-        """
-elif False:
-    BridgeSourceMulticastSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeSourceMulticastSourceSettingsArgsDict(TypedDict):
+    """
+    The settings related to the multicast source.
+    """
+    multicast_source_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address of the source for source-specific multicast (SSM).
+    """
 
 @pulumi.input_type
 class BridgeSourceMulticastSourceSettingsArgs:
@@ -1149,17 +1111,14 @@ class BridgeSourceMulticastSourceSettingsArgs:
         pulumi.set(self, "multicast_source_ip", value)
 
 
-if not MYPY:
-    class BridgeSourcePriorityArgsDict(TypedDict):
-        """
-        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-        """
-        primary_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the source you choose as the primary source for this flow.
-        """
-elif False:
-    BridgeSourcePriorityArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeSourcePriorityArgsDict(TypedDict):
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    primary_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the source you choose as the primary source for this flow.
+    """
 
 @pulumi.input_type
 class BridgeSourcePriorityArgs:
@@ -1185,17 +1144,14 @@ class BridgeSourcePriorityArgs:
         pulumi.set(self, "primary_source", value)
 
 
-if not MYPY:
-    class BridgeSourceVpcInterfaceAttachmentArgsDict(TypedDict):
-        """
-        The settings for attaching a VPC interface to an resource.
-        """
-        vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the VPC interface to use for this resource.
-        """
-elif False:
-    BridgeSourceVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeSourceVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the VPC interface to use for this resource.
+    """
 
 @pulumi.input_type
 class BridgeSourceVpcInterfaceAttachmentArgs:
@@ -1221,21 +1177,18 @@ class BridgeSourceVpcInterfaceAttachmentArgs:
         pulumi.set(self, "vpc_interface_name", value)
 
 
-if not MYPY:
-    class BridgeSourceArgsDict(TypedDict):
-        """
-        The bridge's source.
-        """
-        flow_source: NotRequired[pulumi.Input['BridgeFlowSourceArgsDict']]
-        """
-        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
-        """
-        network_source: NotRequired[pulumi.Input['BridgeNetworkSourceArgsDict']]
-        """
-        The source of the bridge. A network source originates at your premises.
-        """
-elif False:
-    BridgeSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeSourceArgsDict(TypedDict):
+    """
+    The bridge's source.
+    """
+    flow_source: NotRequired[pulumi.Input['BridgeFlowSourceArgsDict']]
+    """
+    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+    """
+    network_source: NotRequired[pulumi.Input['BridgeNetworkSourceArgsDict']]
+    """
+    The source of the bridge. A network source originates at your premises.
+    """
 
 @pulumi.input_type
 class BridgeSourceArgs:
@@ -1277,17 +1230,14 @@ class BridgeSourceArgs:
         pulumi.set(self, "network_source", value)
 
 
-if not MYPY:
-    class BridgeVpcInterfaceAttachmentArgsDict(TypedDict):
-        """
-        The settings for attaching a VPC interface to an resource.
-        """
-        vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the VPC interface to use for this resource.
-        """
-elif False:
-    BridgeVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class BridgeVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the VPC interface to use for this resource.
+    """
 
 @pulumi.input_type
 class BridgeVpcInterfaceAttachmentArgs:
@@ -1313,17 +1263,14 @@ class BridgeVpcInterfaceAttachmentArgs:
         pulumi.set(self, "vpc_interface_name", value)
 
 
-if not MYPY:
-    class FlowAudioMonitoringSettingArgsDict(TypedDict):
-        """
-        Specifies the configuration for audio stream metrics monitoring.
-        """
-        silent_audio: NotRequired[pulumi.Input['FlowSilentAudioArgsDict']]
-        """
-        Detects periods of silence.
-        """
-elif False:
-    FlowAudioMonitoringSettingArgsDict: TypeAlias = Mapping[str, Any]
+class FlowAudioMonitoringSettingArgsDict(TypedDict):
+    """
+    Specifies the configuration for audio stream metrics monitoring.
+    """
+    silent_audio: NotRequired[pulumi.Input['FlowSilentAudioArgsDict']]
+    """
+    Detects periods of silence.
+    """
 
 @pulumi.input_type
 class FlowAudioMonitoringSettingArgs:
@@ -1349,14 +1296,11 @@ class FlowAudioMonitoringSettingArgs:
         pulumi.set(self, "silent_audio", value)
 
 
-if not MYPY:
-    class FlowAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
-        """
-        pass
-elif False:
-    FlowAutomaticEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    pass
 
 @pulumi.input_type
 class FlowAutomaticEncryptionKeyConfigurationArgs:
@@ -1367,21 +1311,18 @@ class FlowAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowBlackFramesArgsDict(TypedDict):
-        """
-        Configures settings for the BlackFrames metric.
-        """
-        state: NotRequired[pulumi.Input['FlowBlackFramesState']]
-        """
-        Indicates whether the BlackFrames metric is enabled or disabled.
-        """
-        threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of consecutive seconds of black frames that triggers an event or alert.
-        """
-elif False:
-    FlowBlackFramesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowBlackFramesArgsDict(TypedDict):
+    """
+    Configures settings for the BlackFrames metric.
+    """
+    state: NotRequired[pulumi.Input['FlowBlackFramesState']]
+    """
+    Indicates whether the BlackFrames metric is enabled or disabled.
+    """
+    threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+    """
 
 @pulumi.input_type
 class FlowBlackFramesArgs:
@@ -1423,49 +1364,46 @@ class FlowBlackFramesArgs:
         pulumi.set(self, "threshold_seconds", value)
 
 
-if not MYPY:
-    class FlowEncryptionArgsDict(TypedDict):
-        """
-        Information about the encryption of the flow.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-        """
-        algorithm: NotRequired[pulumi.Input['FlowEncryptionAlgorithm']]
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-        """
-        device_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        key_type: NotRequired[pulumi.Input['FlowEncryptionKeyType']]
-        """
-        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-elif False:
-    FlowEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowEncryptionArgsDict(TypedDict):
+    """
+    Information about the encryption of the flow.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+    """
+    algorithm: NotRequired[pulumi.Input['FlowEncryptionAlgorithm']]
+    """
+    The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+    """
+    device_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    key_type: NotRequired[pulumi.Input['FlowEncryptionKeyType']]
+    """
+    The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+     The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
 
 @pulumi.input_type
 class FlowEncryptionArgs:
@@ -1618,49 +1556,46 @@ class FlowEncryptionArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class FlowEntitlementEncryptionArgsDict(TypedDict):
-        """
-        Information about the encryption of the flow.
-        """
-        algorithm: pulumi.Input['FlowEntitlementEncryptionAlgorithm']
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-        """
-        constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-        """
-        device_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        key_type: NotRequired[pulumi.Input['FlowEntitlementEncryptionKeyType']]
-        """
-        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-elif False:
-    FlowEntitlementEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowEntitlementEncryptionArgsDict(TypedDict):
+    """
+    Information about the encryption of the flow.
+    """
+    algorithm: pulumi.Input['FlowEntitlementEncryptionAlgorithm']
+    """
+    The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+    """
+    device_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    key_type: NotRequired[pulumi.Input['FlowEntitlementEncryptionKeyType']]
+    """
+    The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+     The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
 
 @pulumi.input_type
 class FlowEntitlementEncryptionArgs:
@@ -1812,17 +1747,14 @@ class FlowEntitlementEncryptionArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class FlowFailoverConfigSourcePriorityPropertiesArgsDict(TypedDict):
-        """
-        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-        """
-        primary_source: pulumi.Input[_builtins.str]
-        """
-        The name of the source you choose as the primary source for this flow.
-        """
-elif False:
-    FlowFailoverConfigSourcePriorityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowFailoverConfigSourcePriorityPropertiesArgsDict(TypedDict):
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    primary_source: pulumi.Input[_builtins.str]
+    """
+    The name of the source you choose as the primary source for this flow.
+    """
 
 @pulumi.input_type
 class FlowFailoverConfigSourcePriorityPropertiesArgs:
@@ -1847,29 +1779,26 @@ class FlowFailoverConfigSourcePriorityPropertiesArgs:
         pulumi.set(self, "primary_source", value)
 
 
-if not MYPY:
-    class FlowFailoverConfigArgsDict(TypedDict):
-        """
-        The settings for source failover
-        """
-        failover_mode: NotRequired[pulumi.Input['FlowFailoverConfigFailoverMode']]
-        """
-        The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
-        """
-        recovery_window: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Search window time to look for dash-7 packets
-        """
-        source_priority: NotRequired[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgsDict']]
-        """
-        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-        """
-        state: NotRequired[pulumi.Input['FlowFailoverConfigState']]
-        """
-        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
-        """
-elif False:
-    FlowFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowFailoverConfigArgsDict(TypedDict):
+    """
+    The settings for source failover
+    """
+    failover_mode: NotRequired[pulumi.Input['FlowFailoverConfigFailoverMode']]
+    """
+    The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+    """
+    recovery_window: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Search window time to look for dash-7 packets
+    """
+    source_priority: NotRequired[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgsDict']]
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    state: NotRequired[pulumi.Input['FlowFailoverConfigState']]
+    """
+    The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+    """
 
 @pulumi.input_type
 class FlowFailoverConfigArgs:
@@ -1943,41 +1872,38 @@ class FlowFailoverConfigArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class FlowFmtpArgsDict(TypedDict):
-        """
-        A set of parameters that define the media stream.
-        """
-        channel_order: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The format of the audio channel.
-        """
-        colorimetry: NotRequired[pulumi.Input['FlowFmtpColorimetry']]
-        """
-        The format used for the representation of color.
-        """
-        exact_framerate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The frame rate for the video stream, in frames/second. For example: 60000/1001.
-        """
-        par: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pixel aspect ratio (PAR) of the video.
-        """
-        range: NotRequired[pulumi.Input['FlowFmtpRange']]
-        """
-        The encoding range of the video.
-        """
-        scan_mode: NotRequired[pulumi.Input['FlowFmtpScanMode']]
-        """
-        The type of compression that was used to smooth the video's appearance.
-        """
-        tcs: NotRequired[pulumi.Input['FlowFmtpTcs']]
-        """
-        The transfer characteristic system (TCS) that is used in the video.
-        """
-elif False:
-    FlowFmtpArgsDict: TypeAlias = Mapping[str, Any]
+class FlowFmtpArgsDict(TypedDict):
+    """
+    A set of parameters that define the media stream.
+    """
+    channel_order: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The format of the audio channel.
+    """
+    colorimetry: NotRequired[pulumi.Input['FlowFmtpColorimetry']]
+    """
+    The format used for the representation of color.
+    """
+    exact_framerate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The frame rate for the video stream, in frames/second. For example: 60000/1001.
+    """
+    par: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pixel aspect ratio (PAR) of the video.
+    """
+    range: NotRequired[pulumi.Input['FlowFmtpRange']]
+    """
+    The encoding range of the video.
+    """
+    scan_mode: NotRequired[pulumi.Input['FlowFmtpScanMode']]
+    """
+    The type of compression that was used to smooth the video's appearance.
+    """
+    tcs: NotRequired[pulumi.Input['FlowFmtpTcs']]
+    """
+    The transfer characteristic system (TCS) that is used in the video.
+    """
 
 @pulumi.input_type
 class FlowFmtpArgs:
@@ -2099,21 +2025,18 @@ class FlowFmtpArgs:
         pulumi.set(self, "tcs", value)
 
 
-if not MYPY:
-    class FlowFrozenFramesArgsDict(TypedDict):
-        """
-        Configures settings for the FrozenFrames metric.
-        """
-        state: NotRequired[pulumi.Input['FlowFrozenFramesState']]
-        """
-        Indicates whether the FrozenFrames metric is enabled or disabled.
-        """
-        threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of consecutive seconds of a static image that triggers an event or alert.
-        """
-elif False:
-    FlowFrozenFramesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowFrozenFramesArgsDict(TypedDict):
+    """
+    Configures settings for the FrozenFrames metric.
+    """
+    state: NotRequired[pulumi.Input['FlowFrozenFramesState']]
+    """
+    Indicates whether the FrozenFrames metric is enabled or disabled.
+    """
+    threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+    """
 
 @pulumi.input_type
 class FlowFrozenFramesArgs:
@@ -2155,21 +2078,18 @@ class FlowFrozenFramesArgs:
         pulumi.set(self, "threshold_seconds", value)
 
 
-if not MYPY:
-    class FlowGatewayBridgeSourceArgsDict(TypedDict):
-        """
-        The source configuration for cloud flows receiving a stream from a bridge.
-        """
-        bridge_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the bridge feeding this flow.
-        """
-        vpc_interface_attachment: NotRequired[pulumi.Input['FlowVpcInterfaceAttachmentArgsDict']]
-        """
-        The name of the VPC interface attachment to use for this bridge source.
-        """
-elif False:
-    FlowGatewayBridgeSourceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowGatewayBridgeSourceArgsDict(TypedDict):
+    """
+    The source configuration for cloud flows receiving a stream from a bridge.
+    """
+    bridge_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the bridge feeding this flow.
+    """
+    vpc_interface_attachment: NotRequired[pulumi.Input['FlowVpcInterfaceAttachmentArgsDict']]
+    """
+    The name of the VPC interface attachment to use for this bridge source.
+    """
 
 @pulumi.input_type
 class FlowGatewayBridgeSourceArgs:
@@ -2210,21 +2130,18 @@ class FlowGatewayBridgeSourceArgs:
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
-if not MYPY:
-    class FlowInputConfigurationArgsDict(TypedDict):
-        """
-        The transport parameters associated with an incoming media stream.
-        """
-        input_port: pulumi.Input[_builtins.int]
-        """
-        The port that the flow listens on for an incoming media stream.
-        """
-        interface: pulumi.Input['FlowInterfaceArgsDict']
-        """
-        The VPC interface where the media stream comes in from.
-        """
-elif False:
-    FlowInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowInputConfigurationArgsDict(TypedDict):
+    """
+    The transport parameters associated with an incoming media stream.
+    """
+    input_port: pulumi.Input[_builtins.int]
+    """
+    The port that the flow listens on for an incoming media stream.
+    """
+    interface: pulumi.Input['FlowInterfaceArgsDict']
+    """
+    The VPC interface where the media stream comes in from.
+    """
 
 @pulumi.input_type
 class FlowInputConfigurationArgs:
@@ -2264,17 +2181,14 @@ class FlowInputConfigurationArgs:
         pulumi.set(self, "interface", value)
 
 
-if not MYPY:
-    class FlowInterfaceArgsDict(TypedDict):
-        """
-        The VPC interface that you want to use for the media stream associated with the output.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the VPC interface that you want to use for the media stream associated with the output.
-        """
-elif False:
-    FlowInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowInterfaceArgsDict(TypedDict):
+    """
+    The VPC interface that you want to use for the media stream associated with the output.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the VPC interface that you want to use for the media stream associated with the output.
+    """
 
 @pulumi.input_type
 class FlowInterfaceArgs:
@@ -2299,21 +2213,18 @@ class FlowInterfaceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class FlowMaintenanceArgsDict(TypedDict):
-        """
-        The maintenance setting of a flow.
-        """
-        maintenance_day: pulumi.Input['FlowMaintenanceMaintenanceDay']
-        """
-        A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
-        """
-        maintenance_start_hour: pulumi.Input[_builtins.str]
-        """
-        UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
-        """
-elif False:
-    FlowMaintenanceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMaintenanceArgsDict(TypedDict):
+    """
+    The maintenance setting of a flow.
+    """
+    maintenance_day: pulumi.Input['FlowMaintenanceMaintenanceDay']
+    """
+    A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+    """
+    maintenance_start_hour: pulumi.Input[_builtins.str]
+    """
+    UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+    """
 
 @pulumi.input_type
 class FlowMaintenanceArgs:
@@ -2353,21 +2264,18 @@ class FlowMaintenanceArgs:
         pulumi.set(self, "maintenance_start_hour", value)
 
 
-if not MYPY:
-    class FlowMediaStreamAttributesArgsDict(TypedDict):
-        """
-        Attributes that are related to the media stream.
-        """
-        fmtp: NotRequired[pulumi.Input['FlowFmtpArgsDict']]
-        """
-        A set of parameters that define the media stream.
-        """
-        lang: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The audio language, in a format that is recognized by the receiver.
-        """
-elif False:
-    FlowMediaStreamAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMediaStreamAttributesArgsDict(TypedDict):
+    """
+    Attributes that are related to the media stream.
+    """
+    fmtp: NotRequired[pulumi.Input['FlowFmtpArgsDict']]
+    """
+    A set of parameters that define the media stream.
+    """
+    lang: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The audio language, in a format that is recognized by the receiver.
+    """
 
 @pulumi.input_type
 class FlowMediaStreamAttributesArgs:
@@ -2409,25 +2317,22 @@ class FlowMediaStreamAttributesArgs:
         pulumi.set(self, "lang", value)
 
 
-if not MYPY:
-    class FlowMediaStreamSourceConfigurationArgsDict(TypedDict):
-        """
-        The media stream that is associated with the source, and the parameters for that association.
-        """
-        encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']
-        """
-        The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
-        """
-        media_stream_name: pulumi.Input[_builtins.str]
-        """
-        A name that helps you distinguish one media stream from another.
-        """
-        input_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgsDict']]]]
-        """
-        The media streams that you want to associate with the source.
-        """
-elif False:
-    FlowMediaStreamSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMediaStreamSourceConfigurationArgsDict(TypedDict):
+    """
+    The media stream that is associated with the source, and the parameters for that association.
+    """
+    encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']
+    """
+    The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+    """
+    media_stream_name: pulumi.Input[_builtins.str]
+    """
+    A name that helps you distinguish one media stream from another.
+    """
+    input_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgsDict']]]]
+    """
+    The media streams that you want to associate with the source.
+    """
 
 @pulumi.input_type
 class FlowMediaStreamSourceConfigurationArgs:
@@ -2483,45 +2388,42 @@ class FlowMediaStreamSourceConfigurationArgs:
         pulumi.set(self, "input_configurations", value)
 
 
-if not MYPY:
-    class FlowMediaStreamArgsDict(TypedDict):
-        """
-        A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
-        """
-        media_stream_id: pulumi.Input[_builtins.int]
-        """
-        A unique identifier for the media stream.
-        """
-        media_stream_name: pulumi.Input[_builtins.str]
-        """
-        A name that helps you distinguish one media stream from another.
-        """
-        media_stream_type: pulumi.Input['FlowMediaStreamMediaStreamType']
-        """
-        The type of media stream.
-        """
-        attributes: NotRequired[pulumi.Input['FlowMediaStreamAttributesArgsDict']]
-        """
-        Attributes that are related to the media stream.
-        """
-        clock_rate: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The sample rate for the stream. This value in measured in kHz.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description that can help you quickly identify what your media stream is used for.
-        """
-        fmt: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
-        """
-        video_format: NotRequired[pulumi.Input['FlowMediaStreamVideoFormat']]
-        """
-        The resolution of the video.
-        """
-elif False:
-    FlowMediaStreamArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMediaStreamArgsDict(TypedDict):
+    """
+    A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+    """
+    media_stream_id: pulumi.Input[_builtins.int]
+    """
+    A unique identifier for the media stream.
+    """
+    media_stream_name: pulumi.Input[_builtins.str]
+    """
+    A name that helps you distinguish one media stream from another.
+    """
+    media_stream_type: pulumi.Input['FlowMediaStreamMediaStreamType']
+    """
+    The type of media stream.
+    """
+    attributes: NotRequired[pulumi.Input['FlowMediaStreamAttributesArgsDict']]
+    """
+    Attributes that are related to the media stream.
+    """
+    clock_rate: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The sample rate for the stream. This value in measured in kHz.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description that can help you quickly identify what your media stream is used for.
+    """
+    fmt: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+    """
+    video_format: NotRequired[pulumi.Input['FlowMediaStreamVideoFormat']]
+    """
+    The resolution of the video.
+    """
 
 @pulumi.input_type
 class FlowMediaStreamArgs:
@@ -2656,25 +2558,22 @@ class FlowMediaStreamArgs:
         pulumi.set(self, "video_format", value)
 
 
-if not MYPY:
-    class FlowNdiConfigArgsDict(TypedDict):
-        """
-        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
-        """
-        machine_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
-        """
-        ndi_discovery_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgsDict']]]]
-        """
-        A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
-        """
-        ndi_state: NotRequired[pulumi.Input['FlowNdiConfigNdiState']]
-        """
-        A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-        """
-elif False:
-    FlowNdiConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNdiConfigArgsDict(TypedDict):
+    """
+    Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+    """
+    machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+    """
+    ndi_discovery_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgsDict']]]]
+    """
+    A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+    """
+    ndi_state: NotRequired[pulumi.Input['FlowNdiConfigNdiState']]
+    """
+    A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+    """
 
 @pulumi.input_type
 class FlowNdiConfigArgs:
@@ -2732,25 +2631,22 @@ class FlowNdiConfigArgs:
         pulumi.set(self, "ndi_state", value)
 
 
-if not MYPY:
-    class FlowNdiDiscoveryServerConfigArgsDict(TypedDict):
-        """
-        Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
-        """
-        discovery_server_address: pulumi.Input[_builtins.str]
-        """
-        The unique network address of the NDI discovery server.
-        """
-        vpc_interface_adapter: pulumi.Input[_builtins.str]
-        """
-        The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
-        """
-        discovery_server_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
-        """
-elif False:
-    FlowNdiDiscoveryServerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNdiDiscoveryServerConfigArgsDict(TypedDict):
+    """
+    Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+    """
+    discovery_server_address: pulumi.Input[_builtins.str]
+    """
+    The unique network address of the NDI discovery server.
+    """
+    vpc_interface_adapter: pulumi.Input[_builtins.str]
+    """
+    The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+    """
+    discovery_server_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+    """
 
 @pulumi.input_type
 class FlowNdiDiscoveryServerConfigArgs:
@@ -2806,14 +2702,11 @@ class FlowNdiDiscoveryServerConfigArgs:
         pulumi.set(self, "discovery_server_port", value)
 
 
-if not MYPY:
-    class FlowOutputAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
-        """
-        pass
-elif False:
-    FlowOutputAutomaticEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    pass
 
 @pulumi.input_type
 class FlowOutputAutomaticEncryptionKeyConfigurationArgs:
@@ -2824,25 +2717,22 @@ class FlowOutputAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowOutputDestinationConfigurationArgsDict(TypedDict):
-        """
-        The definition of a media stream that is associated with the output.
-        """
-        destination_ip: pulumi.Input[_builtins.str]
-        """
-        The IP address where contents of the media stream will be sent.
-        """
-        destination_port: pulumi.Input[_builtins.int]
-        """
-        The port to use when the content of the media stream is distributed to the output.
-        """
-        interface: pulumi.Input['FlowOutputInterfaceArgsDict']
-        """
-        The VPC interface that is used for the media stream associated with the output.
-        """
-elif False:
-    FlowOutputDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputDestinationConfigurationArgsDict(TypedDict):
+    """
+    The definition of a media stream that is associated with the output.
+    """
+    destination_ip: pulumi.Input[_builtins.str]
+    """
+    The IP address where contents of the media stream will be sent.
+    """
+    destination_port: pulumi.Input[_builtins.int]
+    """
+    The port to use when the content of the media stream is distributed to the output.
+    """
+    interface: pulumi.Input['FlowOutputInterfaceArgsDict']
+    """
+    The VPC interface that is used for the media stream associated with the output.
+    """
 
 @pulumi.input_type
 class FlowOutputDestinationConfigurationArgs:
@@ -2897,21 +2787,18 @@ class FlowOutputDestinationConfigurationArgs:
         pulumi.set(self, "interface", value)
 
 
-if not MYPY:
-    class FlowOutputEncodingParametersArgsDict(TypedDict):
-        """
-        A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
-        """
-        compression_factor: pulumi.Input[_builtins.float]
-        """
-        A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
-        """
-        encoder_profile: NotRequired[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]
-        """
-        A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
-        """
-elif False:
-    FlowOutputEncodingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputEncodingParametersArgsDict(TypedDict):
+    """
+    A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+    """
+    compression_factor: pulumi.Input[_builtins.float]
+    """
+    A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+    """
+    encoder_profile: NotRequired[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]
+    """
+    A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+    """
 
 @pulumi.input_type
 class FlowOutputEncodingParametersArgs:
@@ -2952,29 +2839,26 @@ class FlowOutputEncodingParametersArgs:
         pulumi.set(self, "encoder_profile", value)
 
 
-if not MYPY:
-    class FlowOutputEncryptionArgsDict(TypedDict):
-        """
-        Information about the encryption of the flow.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-        """
-        secret_arn: pulumi.Input[_builtins.str]
-        """
-         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        """
-        algorithm: NotRequired[pulumi.Input['FlowOutputEncryptionAlgorithm']]
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        key_type: NotRequired[pulumi.Input['FlowOutputEncryptionKeyType']]
-        """
-        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-        """
-elif False:
-    FlowOutputEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputEncryptionArgsDict(TypedDict):
+    """
+    Information about the encryption of the flow.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+     The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+    """
+    algorithm: NotRequired[pulumi.Input['FlowOutputEncryptionAlgorithm']]
+    """
+    The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+    """
+    key_type: NotRequired[pulumi.Input['FlowOutputEncryptionKeyType']]
+    """
+    The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+    """
 
 @pulumi.input_type
 class FlowOutputEncryptionArgs:
@@ -3046,14 +2930,11 @@ class FlowOutputEncryptionArgs:
         pulumi.set(self, "key_type", value)
 
 
-if not MYPY:
-    class FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        secrets_manager: pulumi.Input['FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    secrets_manager: pulumi.Input['FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs:
@@ -3074,14 +2955,11 @@ class FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs:
         pulumi.set(self, "secrets_manager", value)
 
 
-if not MYPY:
-    class FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        automatic: pulumi.Input['FlowOutputAutomaticEncryptionKeyConfigurationArgsDict']
-elif False:
-    FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    automatic: pulumi.Input['FlowOutputAutomaticEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
@@ -3102,15 +2980,12 @@ class FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-if not MYPY:
-    class FlowOutputFlowTransitEncryptionArgsDict(TypedDict):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        encryption_key_configuration: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-        encryption_key_type: NotRequired[pulumi.Input['FlowOutputFlowTransitEncryptionKeyType']]
-elif False:
-    FlowOutputFlowTransitEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputFlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['FlowOutputFlowTransitEncryptionKeyType']]
 
 @pulumi.input_type
 class FlowOutputFlowTransitEncryptionArgs:
@@ -3143,17 +3018,14 @@ class FlowOutputFlowTransitEncryptionArgs:
         pulumi.set(self, "encryption_key_type", value)
 
 
-if not MYPY:
-    class FlowOutputInterfaceArgsDict(TypedDict):
-        """
-        The VPC interface that you want to use for the media stream associated with the output.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the VPC interface that you want to use for the media stream associated with the output.
-        """
-elif False:
-    FlowOutputInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputInterfaceArgsDict(TypedDict):
+    """
+    The VPC interface that you want to use for the media stream associated with the output.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the VPC interface that you want to use for the media stream associated with the output.
+    """
 
 @pulumi.input_type
 class FlowOutputInterfaceArgs:
@@ -3178,29 +3050,26 @@ class FlowOutputInterfaceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class FlowOutputMediaStreamOutputConfigurationArgsDict(TypedDict):
-        """
-        The media stream that is associated with the output, and the parameters for that association.
-        """
-        encoding_name: pulumi.Input['FlowOutputMediaStreamOutputConfigurationEncodingName']
-        """
-        The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
-        """
-        media_stream_name: pulumi.Input[_builtins.str]
-        """
-        A name that helps you distinguish one media stream from another.
-        """
-        destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgsDict']]]]
-        """
-        The media streams that you want to associate with the output.
-        """
-        encoding_parameters: NotRequired[pulumi.Input['FlowOutputEncodingParametersArgsDict']]
-        """
-        A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
-        """
-elif False:
-    FlowOutputMediaStreamOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputMediaStreamOutputConfigurationArgsDict(TypedDict):
+    """
+    The media stream that is associated with the output, and the parameters for that association.
+    """
+    encoding_name: pulumi.Input['FlowOutputMediaStreamOutputConfigurationEncodingName']
+    """
+    The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+    """
+    media_stream_name: pulumi.Input[_builtins.str]
+    """
+    A name that helps you distinguish one media stream from another.
+    """
+    destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgsDict']]]]
+    """
+    The media streams that you want to associate with the output.
+    """
+    encoding_parameters: NotRequired[pulumi.Input['FlowOutputEncodingParametersArgsDict']]
+    """
+    A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+    """
 
 @pulumi.input_type
 class FlowOutputMediaStreamOutputConfigurationArgs:
@@ -3272,21 +3141,18 @@ class FlowOutputMediaStreamOutputConfigurationArgs:
         pulumi.set(self, "encoding_parameters", value)
 
 
-if not MYPY:
-    class FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
-        """
-        secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
-        """
-elif False:
-    FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
+    """
 
 @pulumi.input_type
 class FlowOutputSecretsManagerEncryptionKeyConfigurationArgs:
@@ -3326,17 +3192,14 @@ class FlowOutputSecretsManagerEncryptionKeyConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class FlowOutputVpcInterfaceAttachmentArgsDict(TypedDict):
-        """
-        The settings for attaching a VPC interface to an output.
-        """
-        vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the VPC interface to use for this output.
-        """
-elif False:
-    FlowOutputVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an output.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the VPC interface to use for this output.
+    """
 
 @pulumi.input_type
 class FlowOutputVpcInterfaceAttachmentArgs:
@@ -3362,21 +3225,18 @@ class FlowOutputVpcInterfaceAttachmentArgs:
         pulumi.set(self, "vpc_interface_name", value)
 
 
-if not MYPY:
-    class FlowSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
-        """
-        secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
-        """
-elif False:
-    FlowSecretsManagerEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
+    """
 
 @pulumi.input_type
 class FlowSecretsManagerEncryptionKeyConfigurationArgs:
@@ -3416,21 +3276,18 @@ class FlowSecretsManagerEncryptionKeyConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class FlowSilentAudioArgsDict(TypedDict):
-        """
-        Configures settings for the SilentAudio metric.
-        """
-        state: NotRequired[pulumi.Input['FlowSilentAudioState']]
-        """
-        Indicates whether the SilentAudio metric is enabled or disabled.
-        """
-        threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of consecutive seconds of silence that triggers an event or alert.
-        """
-elif False:
-    FlowSilentAudioArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSilentAudioArgsDict(TypedDict):
+    """
+    Configures settings for the SilentAudio metric.
+    """
+    state: NotRequired[pulumi.Input['FlowSilentAudioState']]
+    """
+    Indicates whether the SilentAudio metric is enabled or disabled.
+    """
+    threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of consecutive seconds of silence that triggers an event or alert.
+    """
 
 @pulumi.input_type
 class FlowSilentAudioArgs:
@@ -3472,49 +3329,46 @@ class FlowSilentAudioArgs:
         pulumi.set(self, "threshold_seconds", value)
 
 
-if not MYPY:
-    class FlowSourceEncryptionArgsDict(TypedDict):
-        """
-        Information about the encryption of the flow.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-        """
-        algorithm: NotRequired[pulumi.Input['FlowSourceEncryptionAlgorithm']]
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-        """
-        device_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        key_type: NotRequired[pulumi.Input['FlowSourceEncryptionKeyType']]
-        """
-        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-elif False:
-    FlowSourceEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceEncryptionArgsDict(TypedDict):
+    """
+    Information about the encryption of the flow.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+    """
+    algorithm: NotRequired[pulumi.Input['FlowSourceEncryptionAlgorithm']]
+    """
+    The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+    """
+    device_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    key_type: NotRequired[pulumi.Input['FlowSourceEncryptionKeyType']]
+    """
+    The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+     The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
 
 @pulumi.input_type
 class FlowSourceEncryptionArgs:
@@ -3667,21 +3521,18 @@ class FlowSourceEncryptionArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class FlowSourceGatewayBridgeSourceArgsDict(TypedDict):
-        """
-        The source configuration for cloud flows receiving a stream from a bridge.
-        """
-        bridge_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the bridge feeding this flow.
-        """
-        vpc_interface_attachment: NotRequired[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgsDict']]
-        """
-        The name of the VPC interface attachment to use for this bridge source.
-        """
-elif False:
-    FlowSourceGatewayBridgeSourceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceGatewayBridgeSourceArgsDict(TypedDict):
+    """
+    The source configuration for cloud flows receiving a stream from a bridge.
+    """
+    bridge_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the bridge feeding this flow.
+    """
+    vpc_interface_attachment: NotRequired[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgsDict']]
+    """
+    The name of the VPC interface attachment to use for this bridge source.
+    """
 
 @pulumi.input_type
 class FlowSourceGatewayBridgeSourceArgs:
@@ -3722,29 +3573,26 @@ class FlowSourceGatewayBridgeSourceArgs:
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
-if not MYPY:
-    class FlowSourceMonitoringConfigArgsDict(TypedDict):
-        """
-        The settings for source monitoring.
-        """
-        audio_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgsDict']]]]
-        """
-        Contains the settings for audio stream metrics monitoring.
-        """
-        content_quality_analysis_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]
-        """
-        Indicates whether content quality analysis is enabled or disabled.
-        """
-        thumbnail_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]
-        """
-        The state of thumbnail monitoring.
-        """
-        video_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgsDict']]]]
-        """
-        Contains the settings for video stream metrics monitoring.
-        """
-elif False:
-    FlowSourceMonitoringConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceMonitoringConfigArgsDict(TypedDict):
+    """
+    The settings for source monitoring.
+    """
+    audio_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgsDict']]]]
+    """
+    Contains the settings for audio stream metrics monitoring.
+    """
+    content_quality_analysis_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]
+    """
+    Indicates whether content quality analysis is enabled or disabled.
+    """
+    thumbnail_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]
+    """
+    The state of thumbnail monitoring.
+    """
+    video_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgsDict']]]]
+    """
+    Contains the settings for video stream metrics monitoring.
+    """
 
 @pulumi.input_type
 class FlowSourceMonitoringConfigArgs:
@@ -3818,17 +3666,14 @@ class FlowSourceMonitoringConfigArgs:
         pulumi.set(self, "video_monitoring_settings", value)
 
 
-if not MYPY:
-    class FlowSourceVpcInterfaceAttachmentArgsDict(TypedDict):
-        """
-        The settings for attaching a VPC interface to an resource.
-        """
-        vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the VPC interface to use for this resource.
-        """
-elif False:
-    FlowSourceVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the VPC interface to use for this resource.
+    """
 
 @pulumi.input_type
 class FlowSourceVpcInterfaceAttachmentArgs:
@@ -3854,109 +3699,106 @@ class FlowSourceVpcInterfaceAttachmentArgs:
         pulumi.set(self, "vpc_interface_name", value)
 
 
-if not MYPY:
-    class FlowSourceArgsDict(TypedDict):
-        """
-        The settings for the source of the flow.
-        """
-        decryption: NotRequired[pulumi.Input['FlowEncryptionArgsDict']]
-        """
-        The type of decryption that is used on the content ingested from this source.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
-        """
-        entitlement_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
-        """
-        gateway_bridge_source: NotRequired[pulumi.Input['FlowGatewayBridgeSourceArgsDict']]
-        """
-        The source configuration for cloud flows receiving a stream from a bridge.
-        """
-        ingest_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address that the flow will be listening on for incoming content.
-        """
-        ingest_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port that the flow will be listening on for incoming content.
-        """
-        max_bitrate: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
-        """
-        max_latency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
-        """
-        max_sync_buffer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the buffer (in milliseconds) to use to sync incoming source data.
-        """
-        media_stream_source_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgsDict']]]]
-        """
-        The media stream that is associated with the source, and the parameters for that association.
-        """
-        min_latency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum latency in milliseconds.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the source.
-        """
-        protocol: NotRequired[pulumi.Input['FlowSourceProtocol']]
-        """
-        The protocol that is used by the source.
-        """
-        router_integration_state: NotRequired[pulumi.Input['FlowSourceRouterIntegrationState']]
-        """
-        Indicates if router integration is enabled or disabled on the flow source.
-        """
-        router_integration_transit_decryption: NotRequired[pulumi.Input['FlowTransitEncryptionArgsDict']]
-        """
-        The decryption configuration for the flow source when router integration is enabled.
-        """
-        sender_control_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
-        """
-        sender_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
-        """
-        source_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the source.
-        """
-        source_ingest_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The port that the flow will be listening on for incoming content.(ReadOnly)
-        """
-        source_listener_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Source IP or domain name for SRT-caller protocol.
-        """
-        source_listener_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Source port for SRT-caller protocol.
-        """
-        stream_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
-        """
-        vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the VPC Interface this Source is configured with.
-        """
-        whitelist_cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-        """
-elif False:
-    FlowSourceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceArgsDict(TypedDict):
+    """
+    The settings for the source of the flow.
+    """
+    decryption: NotRequired[pulumi.Input['FlowEncryptionArgsDict']]
+    """
+    The type of decryption that is used on the content ingested from this source.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+    """
+    entitlement_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+    """
+    gateway_bridge_source: NotRequired[pulumi.Input['FlowGatewayBridgeSourceArgsDict']]
+    """
+    The source configuration for cloud flows receiving a stream from a bridge.
+    """
+    ingest_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address that the flow will be listening on for incoming content.
+    """
+    ingest_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port that the flow will be listening on for incoming content.
+    """
+    max_bitrate: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+    """
+    max_latency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+    """
+    max_sync_buffer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the buffer (in milliseconds) to use to sync incoming source data.
+    """
+    media_stream_source_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgsDict']]]]
+    """
+    The media stream that is associated with the source, and the parameters for that association.
+    """
+    min_latency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum latency in milliseconds.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the source.
+    """
+    protocol: NotRequired[pulumi.Input['FlowSourceProtocol']]
+    """
+    The protocol that is used by the source.
+    """
+    router_integration_state: NotRequired[pulumi.Input['FlowSourceRouterIntegrationState']]
+    """
+    Indicates if router integration is enabled or disabled on the flow source.
+    """
+    router_integration_transit_decryption: NotRequired[pulumi.Input['FlowTransitEncryptionArgsDict']]
+    """
+    The decryption configuration for the flow source when router integration is enabled.
+    """
+    sender_control_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+    """
+    sender_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+    """
+    source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the source.
+    """
+    source_ingest_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The port that the flow will be listening on for incoming content.(ReadOnly)
+    """
+    source_listener_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Source IP or domain name for SRT-caller protocol.
+    """
+    source_listener_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Source port for SRT-caller protocol.
+    """
+    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the VPC Interface this Source is configured with.
+    """
+    whitelist_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+    """
 
 @pulumi.input_type
 class FlowSourceArgs:
@@ -4350,14 +4192,11 @@ class FlowSourceArgs:
         pulumi.set(self, "whitelist_cidr", value)
 
 
-if not MYPY:
-    class FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        secrets_manager: pulumi.Input['FlowSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    secrets_manager: pulumi.Input['FlowSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowTransitEncryptionKeyConfiguration0PropertiesArgs:
@@ -4378,14 +4217,11 @@ class FlowTransitEncryptionKeyConfiguration0PropertiesArgs:
         pulumi.set(self, "secrets_manager", value)
 
 
-if not MYPY:
-    class FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        automatic: pulumi.Input['FlowAutomaticEncryptionKeyConfigurationArgsDict']
-elif False:
-    FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    automatic: pulumi.Input['FlowAutomaticEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowTransitEncryptionKeyConfiguration1PropertiesArgs:
@@ -4406,15 +4242,12 @@ class FlowTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-if not MYPY:
-    class FlowTransitEncryptionArgsDict(TypedDict):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        encryption_key_configuration: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-        encryption_key_type: NotRequired[pulumi.Input['FlowTransitEncryptionKeyType']]
-elif False:
-    FlowTransitEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['FlowTransitEncryptionKeyType']]
 
 @pulumi.input_type
 class FlowTransitEncryptionArgs:
@@ -4447,21 +4280,18 @@ class FlowTransitEncryptionArgs:
         pulumi.set(self, "encryption_key_type", value)
 
 
-if not MYPY:
-    class FlowVideoMonitoringSettingArgsDict(TypedDict):
-        """
-        Specifies the configuration for video stream metrics monitoring.
-        """
-        black_frames: NotRequired[pulumi.Input['FlowBlackFramesArgsDict']]
-        """
-        Detects video frames that are black.
-        """
-        frozen_frames: NotRequired[pulumi.Input['FlowFrozenFramesArgsDict']]
-        """
-        Detects video frames that have not changed.
-        """
-elif False:
-    FlowVideoMonitoringSettingArgsDict: TypeAlias = Mapping[str, Any]
+class FlowVideoMonitoringSettingArgsDict(TypedDict):
+    """
+    Specifies the configuration for video stream metrics monitoring.
+    """
+    black_frames: NotRequired[pulumi.Input['FlowBlackFramesArgsDict']]
+    """
+    Detects video frames that are black.
+    """
+    frozen_frames: NotRequired[pulumi.Input['FlowFrozenFramesArgsDict']]
+    """
+    Detects video frames that have not changed.
+    """
 
 @pulumi.input_type
 class FlowVideoMonitoringSettingArgs:
@@ -4503,17 +4333,14 @@ class FlowVideoMonitoringSettingArgs:
         pulumi.set(self, "frozen_frames", value)
 
 
-if not MYPY:
-    class FlowVpcInterfaceAttachmentArgsDict(TypedDict):
-        """
-        The settings for attaching a VPC interface to an resource.
-        """
-        vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the VPC interface to use for this resource.
-        """
-elif False:
-    FlowVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlowVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the VPC interface to use for this resource.
+    """
 
 @pulumi.input_type
 class FlowVpcInterfaceAttachmentArgs:
@@ -4539,37 +4366,34 @@ class FlowVpcInterfaceAttachmentArgs:
         pulumi.set(self, "vpc_interface_name", value)
 
 
-if not MYPY:
-    class FlowVpcInterfaceArgsDict(TypedDict):
-        """
-        The details of a VPC interface.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Immutable and has to be a unique against other VpcInterfaces in this Flow.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        Role Arn MediaConnect can assume to create ENIs in customer's account.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Security Group IDs to be used on ENI.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        Subnet must be in the AZ of the Flow
-        """
-        network_interface_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        IDs of the network interfaces created in customer's account by MediaConnect.
-        """
-        network_interface_type: NotRequired[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]
-        """
-        The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
-        """
-elif False:
-    FlowVpcInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowVpcInterfaceArgsDict(TypedDict):
+    """
+    The details of a VPC interface.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Immutable and has to be a unique against other VpcInterfaces in this Flow.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    Role Arn MediaConnect can assume to create ENIs in customer's account.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Security Group IDs to be used on ENI.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    Subnet must be in the AZ of the Flow
+    """
+    network_interface_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    IDs of the network interfaces created in customer's account by MediaConnect.
+    """
+    network_interface_type: NotRequired[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]
+    """
+    The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+    """
 
 @pulumi.input_type
 class FlowVpcInterfaceArgs:
@@ -4671,21 +4495,18 @@ class FlowVpcInterfaceArgs:
         pulumi.set(self, "network_interface_type", value)
 
 
-if not MYPY:
-    class GatewayNetworkArgsDict(TypedDict):
-        """
-        The network settings for a gateway.
-        """
-        cidr_block: pulumi.Input[_builtins.str]
-        """
-        A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
-        """
-elif False:
-    GatewayNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayNetworkArgsDict(TypedDict):
+    """
+    The network settings for a gateway.
+    """
+    cidr_block: pulumi.Input[_builtins.str]
+    """
+    A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+    """
 
 @pulumi.input_type
 class GatewayNetworkArgs:
@@ -4725,14 +4546,11 @@ class GatewayNetworkArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RouterInputAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
-        """
-        pass
-elif False:
-    RouterInputAutomaticEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    pass
 
 @pulumi.input_type
 class RouterInputAutomaticEncryptionKeyConfigurationArgs:
@@ -4743,14 +4561,11 @@ class RouterInputAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class RouterInputConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router input.
-        """
-        standard: pulumi.Input['RouterInputStandardRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    standard: pulumi.Input['RouterInputStandardRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputConfiguration0PropertiesArgs:
@@ -4771,14 +4586,11 @@ class RouterInputConfiguration0PropertiesArgs:
         pulumi.set(self, "standard", value)
 
 
-if not MYPY:
-    class RouterInputConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router input.
-        """
-        failover: pulumi.Input['RouterInputFailoverRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    failover: pulumi.Input['RouterInputFailoverRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputConfiguration1PropertiesArgs:
@@ -4799,14 +4611,11 @@ class RouterInputConfiguration1PropertiesArgs:
         pulumi.set(self, "failover", value)
 
 
-if not MYPY:
-    class RouterInputConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router input.
-        """
-        merge: pulumi.Input['RouterInputMergeRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    merge: pulumi.Input['RouterInputMergeRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputConfiguration2PropertiesArgs:
@@ -4827,14 +4636,11 @@ class RouterInputConfiguration2PropertiesArgs:
         pulumi.set(self, "merge", value)
 
 
-if not MYPY:
-    class RouterInputConfiguration3PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router input.
-        """
-        media_connect_flow: pulumi.Input['RouterInputMediaConnectFlowRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    media_connect_flow: pulumi.Input['RouterInputMediaConnectFlowRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputConfiguration3PropertiesArgs:
@@ -4855,14 +4661,11 @@ class RouterInputConfiguration3PropertiesArgs:
         pulumi.set(self, "media_connect_flow", value)
 
 
-if not MYPY:
-    class RouterInputDefaultMaintenanceConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for default maintenance scheduling.
-        """
-        pass
-elif False:
-    RouterInputDefaultMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputDefaultMaintenanceConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for default maintenance scheduling.
+    """
+    pass
 
 @pulumi.input_type
 class RouterInputDefaultMaintenanceConfigurationArgs:
@@ -4873,26 +4676,23 @@ class RouterInputDefaultMaintenanceConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class RouterInputFailoverRouterInputConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for a failover router input that allows switching between two input sources.
-        """
-        network_interface_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the network interface to use for this failover router input.
-        """
-        protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict']]]]
-        """
-        A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
-        """
-        source_priority_mode: pulumi.Input['RouterInputFailoverInputSourcePriorityMode']
-        primary_source_index: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
-        """
-elif False:
-    RouterInputFailoverRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFailoverRouterInputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for a failover router input that allows switching between two input sources.
+    """
+    network_interface_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the network interface to use for this failover router input.
+    """
+    protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict']]]]
+    """
+    A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
+    """
+    source_priority_mode: pulumi.Input['RouterInputFailoverInputSourcePriorityMode']
+    primary_source_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
+    """
 
 @pulumi.input_type
 class RouterInputFailoverRouterInputConfigurationArgs:
@@ -4959,14 +4759,11 @@ class RouterInputFailoverRouterInputConfigurationArgs:
         pulumi.set(self, "primary_source_index", value)
 
 
-if not MYPY:
-    class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Protocol configuration settings for failover router inputs.
-        """
-        rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs:
@@ -4987,14 +4784,11 @@ class RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs:
         pulumi.set(self, "rtp", value)
 
 
-if not MYPY:
-    class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Protocol configuration settings for failover router inputs.
-        """
-        rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs:
@@ -5015,14 +4809,11 @@ class RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-if not MYPY:
-    class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        Protocol configuration settings for failover router inputs.
-        """
-        srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
@@ -5043,14 +4834,11 @@ class RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_listener", value)
 
 
-if not MYPY:
-    class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
-        """
-        Protocol configuration settings for failover router inputs.
-        """
-        srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
@@ -5071,14 +4859,11 @@ class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
         pulumi.set(self, "srt_caller", value)
 
 
-if not MYPY:
-    class RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        secrets_manager: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    secrets_manager: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs:
@@ -5099,14 +4884,11 @@ class RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs:
         pulumi.set(self, "secrets_manager", value)
 
 
-if not MYPY:
-    class RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        automatic: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    automatic: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
@@ -5127,15 +4909,12 @@ class RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-if not MYPY:
-    class RouterInputFlowTransitEncryptionArgsDict(TypedDict):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        encryption_key_configuration: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-        encryption_key_type: NotRequired[pulumi.Input['RouterInputFlowTransitEncryptionKeyType']]
-elif False:
-    RouterInputFlowTransitEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputFlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['RouterInputFlowTransitEncryptionKeyType']]
 
 @pulumi.input_type
 class RouterInputFlowTransitEncryptionArgs:
@@ -5168,14 +4947,11 @@ class RouterInputFlowTransitEncryptionArgs:
         pulumi.set(self, "encryption_key_type", value)
 
 
-if not MYPY:
-    class RouterInputMaintenanceConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
-        """
-        preferred_day_time: pulumi.Input['RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict']
-elif False:
-    RouterInputMaintenanceConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputMaintenanceConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    preferred_day_time: pulumi.Input['RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputMaintenanceConfiguration0PropertiesArgs:
@@ -5196,14 +4972,11 @@ class RouterInputMaintenanceConfiguration0PropertiesArgs:
         pulumi.set(self, "preferred_day_time", value)
 
 
-if not MYPY:
-    class RouterInputMaintenanceConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
-        """
-        default: pulumi.Input['RouterInputDefaultMaintenanceConfigurationArgsDict']
-elif False:
-    RouterInputMaintenanceConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputMaintenanceConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    default: pulumi.Input['RouterInputDefaultMaintenanceConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputMaintenanceConfiguration1PropertiesArgs:
@@ -5224,22 +4997,19 @@ class RouterInputMaintenanceConfiguration1PropertiesArgs:
         pulumi.set(self, "default", value)
 
 
-if not MYPY:
-    class RouterInputMediaConnectFlowRouterInputConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for connecting a router input to a flow output.
-        """
-        source_transit_decryption: pulumi.Input['RouterInputFlowTransitEncryptionArgsDict']
-        flow_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the flow to connect to.
-        """
-        flow_output_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the flow output to connect to this router input.
-        """
-elif False:
-    RouterInputMediaConnectFlowRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputMediaConnectFlowRouterInputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for connecting a router input to a flow output.
+    """
+    source_transit_decryption: pulumi.Input['RouterInputFlowTransitEncryptionArgsDict']
+    flow_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the flow to connect to.
+    """
+    flow_output_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the flow output to connect to this router input.
+    """
 
 @pulumi.input_type
 class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
@@ -5292,25 +5062,22 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
         pulumi.set(self, "flow_output_arn", value)
 
 
-if not MYPY:
-    class RouterInputMergeRouterInputConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for a merge router input that combines two input sources.
-        """
-        merge_recovery_window_milliseconds: pulumi.Input[_builtins.int]
-        """
-        The time window in milliseconds for merging the two input sources.
-        """
-        network_interface_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the network interface to use for this merge router input.
-        """
-        protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict']]]]
-        """
-        A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
-        """
-elif False:
-    RouterInputMergeRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputMergeRouterInputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for a merge router input that combines two input sources.
+    """
+    merge_recovery_window_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The time window in milliseconds for merging the two input sources.
+    """
+    network_interface_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the network interface to use for this merge router input.
+    """
+    protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict']]]]
+    """
+    A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
+    """
 
 @pulumi.input_type
 class RouterInputMergeRouterInputConfigurationArgs:
@@ -5365,14 +5132,11 @@ class RouterInputMergeRouterInputConfigurationArgs:
         pulumi.set(self, "protocol_configurations", value)
 
 
-if not MYPY:
-    class RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Protocol configuration settings for merge router inputs.
-        """
-        rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for merge router inputs.
+    """
+    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs:
@@ -5393,14 +5157,11 @@ class RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs:
         pulumi.set(self, "rtp", value)
 
 
-if not MYPY:
-    class RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Protocol configuration settings for merge router inputs.
-        """
-        rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Protocol configuration settings for merge router inputs.
+    """
+    rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs:
@@ -5421,18 +5182,15 @@ class RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-if not MYPY:
-    class RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict(TypedDict):
-        """
-        Configuration for preferred day and time maintenance settings.
-        """
-        day: pulumi.Input['RouterInputDay']
-        time: pulumi.Input[_builtins.str]
-        """
-        The preferred time for maintenance operations.
-        """
-elif False:
-    RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputPreferredDayTimeMaintenanceConfigurationArgsDict(TypedDict):
+    """
+    Configuration for preferred day and time maintenance settings.
+    """
+    day: pulumi.Input['RouterInputDay']
+    time: pulumi.Input[_builtins.str]
+    """
+    The preferred time for maintenance operations.
+    """
 
 @pulumi.input_type
 class RouterInputPreferredDayTimeMaintenanceConfigurationArgs:
@@ -5468,14 +5226,11 @@ class RouterInputPreferredDayTimeMaintenanceConfigurationArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class RouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router input.
-        """
-        rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputProtocolConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputProtocolConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    rtp: pulumi.Input['RouterInputRtpRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputProtocolConfiguration0PropertiesArgs:
@@ -5496,14 +5251,11 @@ class RouterInputProtocolConfiguration0PropertiesArgs:
         pulumi.set(self, "rtp", value)
 
 
-if not MYPY:
-    class RouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router input.
-        """
-        rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputProtocolConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputProtocolConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    rist: pulumi.Input['RouterInputRistRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputProtocolConfiguration1PropertiesArgs:
@@ -5524,14 +5276,11 @@ class RouterInputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-if not MYPY:
-    class RouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router input.
-        """
-        srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputProtocolConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    srt_listener: pulumi.Input['RouterInputSrtListenerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputProtocolConfiguration2PropertiesArgs:
@@ -5552,14 +5301,11 @@ class RouterInputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_listener", value)
 
 
-if not MYPY:
-    class RouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router input.
-        """
-        srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
-elif False:
-    RouterInputProtocolConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    srt_caller: pulumi.Input['RouterInputSrtCallerRouterInputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputProtocolConfiguration3PropertiesArgs:
@@ -5580,21 +5326,18 @@ class RouterInputProtocolConfiguration3PropertiesArgs:
         pulumi.set(self, "srt_caller", value)
 
 
-if not MYPY:
-    class RouterInputRistRouterInputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number used for the RIST protocol in the router input configuration.
-        """
-        recovery_latency_milliseconds: pulumi.Input[_builtins.int]
-        """
-        The recovery latency in milliseconds for the RIST protocol in the router input configuration.
-        """
-elif False:
-    RouterInputRistRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputRistRouterInputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number used for the RIST protocol in the router input configuration.
+    """
+    recovery_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The recovery latency in milliseconds for the RIST protocol in the router input configuration.
+    """
 
 @pulumi.input_type
 class RouterInputRistRouterInputConfigurationArgs:
@@ -5634,18 +5377,15 @@ class RouterInputRistRouterInputConfigurationArgs:
         pulumi.set(self, "recovery_latency_milliseconds", value)
 
 
-if not MYPY:
-    class RouterInputRtpRouterInputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number used for the RTP protocol in the router input configuration.
-        """
-        forward_error_correction: NotRequired[pulumi.Input['RouterInputForwardErrorCorrectionState']]
-elif False:
-    RouterInputRtpRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputRtpRouterInputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number used for the RTP protocol in the router input configuration.
+    """
+    forward_error_correction: NotRequired[pulumi.Input['RouterInputForwardErrorCorrectionState']]
 
 @pulumi.input_type
 class RouterInputRtpRouterInputConfigurationArgs:
@@ -5682,21 +5422,18 @@ class RouterInputRtpRouterInputConfigurationArgs:
         pulumi.set(self, "forward_error_correction", value)
 
 
-if not MYPY:
-    class RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
-        """
-        secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the AWS Secrets Manager secret used for transit encryption.
-        """
-elif False:
-    RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret used for transit encryption.
+    """
 
 @pulumi.input_type
 class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
@@ -5736,30 +5473,27 @@ class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class RouterInputSrtCallerRouterInputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
-        """
-        minimum_latency_milliseconds: pulumi.Input[_builtins.int]
-        """
-        The minimum latency in milliseconds for the SRT protocol in caller mode.
-        """
-        source_address: pulumi.Input[_builtins.str]
-        """
-        The source IP address for the SRT protocol in caller mode.
-        """
-        source_port: pulumi.Input[_builtins.int]
-        """
-        The source port number for the SRT protocol in caller mode.
-        """
-        decryption_configuration: NotRequired[pulumi.Input['RouterInputSrtDecryptionConfigurationArgsDict']]
-        stream_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The stream ID for the SRT protocol in caller mode.
-        """
-elif False:
-    RouterInputSrtCallerRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputSrtCallerRouterInputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency in milliseconds for the SRT protocol in caller mode.
+    """
+    source_address: pulumi.Input[_builtins.str]
+    """
+    The source IP address for the SRT protocol in caller mode.
+    """
+    source_port: pulumi.Input[_builtins.int]
+    """
+    The source port number for the SRT protocol in caller mode.
+    """
+    decryption_configuration: NotRequired[pulumi.Input['RouterInputSrtDecryptionConfigurationArgsDict']]
+    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The stream ID for the SRT protocol in caller mode.
+    """
 
 @pulumi.input_type
 class RouterInputSrtCallerRouterInputConfigurationArgs:
@@ -5842,14 +5576,11 @@ class RouterInputSrtCallerRouterInputConfigurationArgs:
         pulumi.set(self, "stream_id", value)
 
 
-if not MYPY:
-    class RouterInputSrtDecryptionConfigurationArgsDict(TypedDict):
-        """
-        Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.
-        """
-        encryption_key: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterInputSrtDecryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputSrtDecryptionConfigurationArgsDict(TypedDict):
+    """
+    Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.
+    """
+    encryption_key: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputSrtDecryptionConfigurationArgs:
@@ -5870,22 +5601,19 @@ class RouterInputSrtDecryptionConfigurationArgs:
         pulumi.set(self, "encryption_key", value)
 
 
-if not MYPY:
-    class RouterInputSrtListenerRouterInputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
-        """
-        minimum_latency_milliseconds: pulumi.Input[_builtins.int]
-        """
-        The minimum latency in milliseconds for the SRT protocol in listener mode.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number for the SRT protocol in listener mode.
-        """
-        decryption_configuration: NotRequired[pulumi.Input['RouterInputSrtDecryptionConfigurationArgsDict']]
-elif False:
-    RouterInputSrtListenerRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputSrtListenerRouterInputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency in milliseconds for the SRT protocol in listener mode.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number for the SRT protocol in listener mode.
+    """
+    decryption_configuration: NotRequired[pulumi.Input['RouterInputSrtDecryptionConfigurationArgsDict']]
 
 @pulumi.input_type
 class RouterInputSrtListenerRouterInputConfigurationArgs:
@@ -5937,19 +5665,16 @@ class RouterInputSrtListenerRouterInputConfigurationArgs:
         pulumi.set(self, "decryption_configuration", value)
 
 
-if not MYPY:
-    class RouterInputStandardRouterInputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
-        """
-        network_interface_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
-        """
-        protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputProtocolConfiguration3PropertiesArgsDict']]
-        protocol: NotRequired[pulumi.Input['RouterInputProtocol']]
-elif False:
-    RouterInputStandardRouterInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputStandardRouterInputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+    """
+    network_interface_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
+    """
+    protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputProtocolConfiguration3PropertiesArgsDict']]
+    protocol: NotRequired[pulumi.Input['RouterInputProtocol']]
 
 @pulumi.input_type
 class RouterInputStandardRouterInputConfigurationArgs:
@@ -5997,14 +5722,11 @@ class RouterInputStandardRouterInputConfigurationArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Defines the configuration settings for transit encryption keys.
-        """
-        secrets_manager: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Defines the configuration settings for transit encryption keys.
+    """
+    secrets_manager: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs:
@@ -6025,14 +5747,11 @@ class RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs:
         pulumi.set(self, "secrets_manager", value)
 
 
-if not MYPY:
-    class RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Defines the configuration settings for transit encryption keys.
-        """
-        automatic: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Defines the configuration settings for transit encryption keys.
+    """
+    automatic: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs:
@@ -6053,15 +5772,12 @@ class RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-if not MYPY:
-    class RouterInputTransitEncryptionArgsDict(TypedDict):
-        """
-        The transit encryption settings for a router input.
-        """
-        encryption_key_configuration: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-        encryption_key_type: NotRequired[pulumi.Input['RouterInputTransitEncryptionKeyType']]
-elif False:
-    RouterInputTransitEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class RouterInputTransitEncryptionArgsDict(TypedDict):
+    """
+    The transit encryption settings for a router input.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['RouterInputTransitEncryptionKeyType']]
 
 @pulumi.input_type
 class RouterInputTransitEncryptionArgs:
@@ -6094,14 +5810,11 @@ class RouterInputTransitEncryptionArgs:
         pulumi.set(self, "encryption_key_type", value)
 
 
-if not MYPY:
-    class RouterNetworkInterfaceConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router network interface.
-        """
-        public: pulumi.Input['RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgsDict']
-elif False:
-    RouterNetworkInterfaceConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterNetworkInterfaceConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router network interface.
+    """
+    public: pulumi.Input['RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterNetworkInterfaceConfiguration0PropertiesArgs:
@@ -6122,14 +5835,11 @@ class RouterNetworkInterfaceConfiguration0PropertiesArgs:
         pulumi.set(self, "public", value)
 
 
-if not MYPY:
-    class RouterNetworkInterfaceConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router network interface.
-        """
-        vpc: pulumi.Input['RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgsDict']
-elif False:
-    RouterNetworkInterfaceConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterNetworkInterfaceConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router network interface.
+    """
+    vpc: pulumi.Input['RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterNetworkInterfaceConfiguration1PropertiesArgs:
@@ -6150,17 +5860,14 @@ class RouterNetworkInterfaceConfiguration1PropertiesArgs:
         pulumi.set(self, "vpc", value)
 
 
-if not MYPY:
-    class RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
-        """
-        allow_rules: pulumi.Input[Sequence[pulumi.Input['RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgsDict']]]
-        """
-        The list of allowed CIDR blocks for the public router network interface.
-        """
-elif False:
-    RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+    """
+    allow_rules: pulumi.Input[Sequence[pulumi.Input['RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgsDict']]]
+    """
+    The list of allowed CIDR blocks for the public router network interface.
+    """
 
 @pulumi.input_type
 class RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgs:
@@ -6185,17 +5892,14 @@ class RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgs:
         pulumi.set(self, "allow_rules", value)
 
 
-if not MYPY:
-    class RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgsDict(TypedDict):
-        """
-        A rule that allows a specific CIDR block to access the public router network interface.
-        """
-        cidr: pulumi.Input[_builtins.str]
-        """
-        The CIDR block that is allowed to access the public router network interface.
-        """
-elif False:
-    RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgsDict(TypedDict):
+    """
+    A rule that allows a specific CIDR block to access the public router network interface.
+    """
+    cidr: pulumi.Input[_builtins.str]
+    """
+    The CIDR block that is allowed to access the public router network interface.
+    """
 
 @pulumi.input_type
 class RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgs:
@@ -6220,21 +5924,18 @@ class RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgs:
         pulumi.set(self, "cidr", value)
 
 
-if not MYPY:
-    class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The IDs of the security groups to associate with the router network interface within the VPC.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet within the VPC to associate the router network interface with.
-        """
-elif False:
-    RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the security groups to associate with the router network interface within the VPC.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet within the VPC to associate the router network interface with.
+    """
 
 @pulumi.input_type
 class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgs:
@@ -6274,14 +5975,11 @@ class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
-        """
-        pass
-elif False:
-    RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    pass
 
 @pulumi.input_type
 class RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs:
@@ -6292,14 +5990,11 @@ class RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class RouterOutputResourceDefaultMaintenanceConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for default maintenance scheduling.
-        """
-        pass
-elif False:
-    RouterOutputResourceDefaultMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceDefaultMaintenanceConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for default maintenance scheduling.
+    """
+    pass
 
 @pulumi.input_type
 class RouterOutputResourceDefaultMaintenanceConfigurationArgs:
@@ -6310,14 +6005,11 @@ class RouterOutputResourceDefaultMaintenanceConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        secrets_manager: pulumi.Input['RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    secrets_manager: pulumi.Input['RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs:
@@ -6338,14 +6030,11 @@ class RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs:
         pulumi.set(self, "secrets_manager", value)
 
 
-if not MYPY:
-    class RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for flow transit encryption keys.
-        """
-        automatic: pulumi.Input['RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    automatic: pulumi.Input['RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
@@ -6366,15 +6055,12 @@ class RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-if not MYPY:
-    class RouterOutputResourceFlowTransitEncryptionArgsDict(TypedDict):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-        encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceFlowTransitEncryptionKeyType']]
-elif False:
-    RouterOutputResourceFlowTransitEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceFlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceFlowTransitEncryptionKeyType']]
 
 @pulumi.input_type
 class RouterOutputResourceFlowTransitEncryptionArgs:
@@ -6407,14 +6093,11 @@ class RouterOutputResourceFlowTransitEncryptionArgs:
         pulumi.set(self, "encryption_key_type", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
-        """
-        preferred_day_time: pulumi.Input['RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict']
-elif False:
-    RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    preferred_day_time: pulumi.Input['RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceMaintenanceConfiguration0PropertiesArgs:
@@ -6435,14 +6118,11 @@ class RouterOutputResourceMaintenanceConfiguration0PropertiesArgs:
         pulumi.set(self, "preferred_day_time", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
-        """
-        default: pulumi.Input['RouterOutputResourceDefaultMaintenanceConfigurationArgsDict']
-elif False:
-    RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    default: pulumi.Input['RouterOutputResourceDefaultMaintenanceConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceMaintenanceConfiguration1PropertiesArgs:
@@ -6463,22 +6143,19 @@ class RouterOutputResourceMaintenanceConfiguration1PropertiesArgs:
         pulumi.set(self, "default", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for connecting a router output to a MediaConnect flow source.
-        """
-        destination_transit_encryption: pulumi.Input['RouterOutputResourceFlowTransitEncryptionArgsDict']
-        flow_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the flow to connect to this router output.
-        """
-        flow_source_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the flow source to connect to this router output.
-        """
-elif False:
-    RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for connecting a router output to a MediaConnect flow source.
+    """
+    destination_transit_encryption: pulumi.Input['RouterOutputResourceFlowTransitEncryptionArgsDict']
+    flow_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the flow to connect to this router output.
+    """
+    flow_source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the flow source to connect to this router output.
+    """
 
 @pulumi.input_type
 class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
@@ -6531,19 +6208,16 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
         pulumi.set(self, "flow_source_arn", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        Configuration settings for connecting a router output to a MediaLive input.
-        """
-        destination_transit_encryption: pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionArgsDict']
-        media_live_input_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the MediaLive input to connect to this router output.
-        """
-        media_live_pipeline_id: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']]
-elif False:
-    RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for connecting a router output to a MediaLive input.
+    """
+    destination_transit_encryption: pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionArgsDict']
+    media_live_input_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the MediaLive input to connect to this router output.
+    """
+    media_live_pipeline_id: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']]
 
 @pulumi.input_type
 class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs:
@@ -6592,14 +6266,11 @@ class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs:
         pulumi.set(self, "media_live_pipeline_id", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for the MediaLive transit encryption key.
-        """
-        secrets_manager: pulumi.Input['RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for the MediaLive transit encryption key.
+    """
+    secrets_manager: pulumi.Input['RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs:
@@ -6620,14 +6291,11 @@ class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesA
         pulumi.set(self, "secrets_manager", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Configuration settings for the MediaLive transit encryption key.
-        """
-        automatic: pulumi.Input['RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for the MediaLive transit encryption key.
+    """
+    automatic: pulumi.Input['RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs:
@@ -6648,15 +6316,12 @@ class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesA
         pulumi.set(self, "automatic", value)
 
 
-if not MYPY:
-    class RouterOutputResourceMediaLiveTransitEncryptionArgsDict(TypedDict):
-        """
-        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
-        """
-        encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-        encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]
-elif False:
-    RouterOutputResourceMediaLiveTransitEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceMediaLiveTransitEncryptionArgsDict(TypedDict):
+    """
+    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]
 
 @pulumi.input_type
 class RouterOutputResourceMediaLiveTransitEncryptionArgs:
@@ -6689,18 +6354,15 @@ class RouterOutputResourceMediaLiveTransitEncryptionArgs:
         pulumi.set(self, "encryption_key_type", value)
 
 
-if not MYPY:
-    class RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict(TypedDict):
-        """
-        Configuration for preferred day and time maintenance settings.
-        """
-        day: pulumi.Input['RouterOutputResourceDay']
-        time: pulumi.Input[_builtins.str]
-        """
-        The preferred time for maintenance operations.
-        """
-elif False:
-    RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict(TypedDict):
+    """
+    Configuration for preferred day and time maintenance settings.
+    """
+    day: pulumi.Input['RouterOutputResourceDay']
+    time: pulumi.Input[_builtins.str]
+    """
+    The preferred time for maintenance operations.
+    """
 
 @pulumi.input_type
 class RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgs:
@@ -6736,21 +6398,18 @@ class RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRistRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
-        """
-        destination_address: pulumi.Input[_builtins.str]
-        """
-        The destination IP address for the RIST protocol in the router output configuration.
-        """
-        destination_port: pulumi.Input[_builtins.int]
-        """
-        The destination port number for the RIST protocol in the router output configuration.
-        """
-elif False:
-    RouterOutputResourceRistRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRistRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+    """
+    destination_address: pulumi.Input[_builtins.str]
+    """
+    The destination IP address for the RIST protocol in the router output configuration.
+    """
+    destination_port: pulumi.Input[_builtins.int]
+    """
+    The destination port number for the RIST protocol in the router output configuration.
+    """
 
 @pulumi.input_type
 class RouterOutputResourceRistRouterOutputConfigurationArgs:
@@ -6790,14 +6449,11 @@ class RouterOutputResourceRistRouterOutputConfigurationArgs:
         pulumi.set(self, "destination_port", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router output.
-        """
-        standard: pulumi.Input['RouterOutputResourceStandardRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router output.
+    """
+    standard: pulumi.Input['RouterOutputResourceStandardRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputConfiguration0PropertiesArgs:
@@ -6818,14 +6474,11 @@ class RouterOutputResourceRouterOutputConfiguration0PropertiesArgs:
         pulumi.set(self, "standard", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router output.
-        """
-        media_connect_flow: pulumi.Input['RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router output.
+    """
+    media_connect_flow: pulumi.Input['RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputConfiguration1PropertiesArgs:
@@ -6846,14 +6499,11 @@ class RouterOutputResourceRouterOutputConfiguration1PropertiesArgs:
         pulumi.set(self, "media_connect_flow", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        The configuration settings for a router output.
-        """
-        media_live_input: pulumi.Input['RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router output.
+    """
+    media_live_input: pulumi.Input['RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputConfiguration2PropertiesArgs:
@@ -6874,14 +6524,11 @@ class RouterOutputResourceRouterOutputConfiguration2PropertiesArgs:
         pulumi.set(self, "media_live_input", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router output.
-        """
-        rtp: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    rtp: pulumi.Input['RouterOutputResourceRtpRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs:
@@ -6902,14 +6549,11 @@ class RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs:
         pulumi.set(self, "rtp", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router output.
-        """
-        rist: pulumi.Input['RouterOutputResourceRistRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    rist: pulumi.Input['RouterOutputResourceRistRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs:
@@ -6930,14 +6574,11 @@ class RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs:
         pulumi.set(self, "rist", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router output.
-        """
-        srt_listener: pulumi.Input['RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    srt_listener: pulumi.Input['RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs:
@@ -6958,14 +6599,11 @@ class RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs:
         pulumi.set(self, "srt_listener", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict(TypedDict):
-        """
-        The protocol configuration settings for a router output.
-        """
-        srt_caller: pulumi.Input['RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict']
-elif False:
-    RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    srt_caller: pulumi.Input['RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs:
@@ -6986,22 +6624,19 @@ class RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs:
         pulumi.set(self, "srt_caller", value)
 
 
-if not MYPY:
-    class RouterOutputResourceRtpRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
-        """
-        destination_address: pulumi.Input[_builtins.str]
-        """
-        The destination IP address for the RTP protocol in the router output configuration.
-        """
-        destination_port: pulumi.Input[_builtins.int]
-        """
-        The destination port number for the RTP protocol in the router output configuration.
-        """
-        forward_error_correction: NotRequired[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']]
-elif False:
-    RouterOutputResourceRtpRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceRtpRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+    """
+    destination_address: pulumi.Input[_builtins.str]
+    """
+    The destination IP address for the RTP protocol in the router output configuration.
+    """
+    destination_port: pulumi.Input[_builtins.int]
+    """
+    The destination port number for the RTP protocol in the router output configuration.
+    """
+    forward_error_correction: NotRequired[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']]
 
 @pulumi.input_type
 class RouterOutputResourceRtpRouterOutputConfigurationArgs:
@@ -7053,21 +6688,18 @@ class RouterOutputResourceRtpRouterOutputConfigurationArgs:
         pulumi.set(self, "forward_error_correction", value)
 
 
-if not MYPY:
-    class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
-        """
-        secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the AWS Secrets Manager secret used for transit encryption.
-        """
-elif False:
-    RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret used for transit encryption.
+    """
 
 @pulumi.input_type
 class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
@@ -7107,30 +6739,27 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
-        """
-        destination_address: pulumi.Input[_builtins.str]
-        """
-        The destination IP address for the SRT protocol in caller mode.
-        """
-        destination_port: pulumi.Input[_builtins.int]
-        """
-        The destination port number for the SRT protocol in caller mode.
-        """
-        minimum_latency_milliseconds: pulumi.Input[_builtins.int]
-        """
-        The minimum latency in milliseconds for the SRT protocol in caller mode.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]
-        stream_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The stream ID for the SRT protocol in caller mode.
-        """
-elif False:
-    RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+    """
+    destination_address: pulumi.Input[_builtins.str]
+    """
+    The destination IP address for the SRT protocol in caller mode.
+    """
+    destination_port: pulumi.Input[_builtins.int]
+    """
+    The destination port number for the SRT protocol in caller mode.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency in milliseconds for the SRT protocol in caller mode.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]
+    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The stream ID for the SRT protocol in caller mode.
+    """
 
 @pulumi.input_type
 class RouterOutputResourceSrtCallerRouterOutputConfigurationArgs:
@@ -7213,14 +6842,11 @@ class RouterOutputResourceSrtCallerRouterOutputConfigurationArgs:
         pulumi.set(self, "stream_id", value)
 
 
-if not MYPY:
-    class RouterOutputResourceSrtEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.
-        """
-        encryption_key: pulumi.Input['RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict']
-elif False:
-    RouterOutputResourceSrtEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceSrtEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.
+    """
+    encryption_key: pulumi.Input['RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict']
 
 @pulumi.input_type
 class RouterOutputResourceSrtEncryptionConfigurationArgs:
@@ -7241,22 +6867,19 @@ class RouterOutputResourceSrtEncryptionConfigurationArgs:
         pulumi.set(self, "encryption_key", value)
 
 
-if not MYPY:
-    class RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
-        """
-        minimum_latency_milliseconds: pulumi.Input[_builtins.int]
-        """
-        The minimum latency in milliseconds for the SRT protocol in listener mode.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number for the SRT protocol in listener mode.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]
-elif False:
-    RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+    """
+    minimum_latency_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The minimum latency in milliseconds for the SRT protocol in listener mode.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number for the SRT protocol in listener mode.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]
 
 @pulumi.input_type
 class RouterOutputResourceSrtListenerRouterOutputConfigurationArgs:
@@ -7308,19 +6931,16 @@ class RouterOutputResourceSrtListenerRouterOutputConfigurationArgs:
         pulumi.set(self, "encryption_configuration", value)
 
 
-if not MYPY:
-    class RouterOutputResourceStandardRouterOutputConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
-        """
-        network_interface_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
-        """
-        protocol_configuration: pulumi.Input[Union['RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict']]
-        protocol: NotRequired[pulumi.Input['RouterOutputResourceRouterOutputProtocol']]
-elif False:
-    RouterOutputResourceStandardRouterOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RouterOutputResourceStandardRouterOutputConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+    """
+    network_interface_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
+    """
+    protocol_configuration: pulumi.Input[Union['RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict']]
+    protocol: NotRequired[pulumi.Input['RouterOutputResourceRouterOutputProtocol']]
 
 @pulumi.input_type
 class RouterOutputResourceStandardRouterOutputConfigurationArgs:

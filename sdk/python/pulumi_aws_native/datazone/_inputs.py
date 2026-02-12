@@ -238,24 +238,19 @@ __all__ = [
     'SubscriptionTargetFormArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectionAmazonQPropertiesInputArgsDict(TypedDict):
-        """
-        Amazon Q properties of the connection.
-        """
-        auth_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authentication mode of the connection's AmazonQ properties
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon Q is enabled for the connection
-        """
-        profile_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionAmazonQPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAmazonQPropertiesInputArgsDict(TypedDict):
+    """
+    Amazon Q properties of the connection.
+    """
+    auth_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authentication mode of the connection's AmazonQ properties
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon Q is enabled for the connection
+    """
+    profile_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionAmazonQPropertiesInputArgs:
@@ -309,14 +304,11 @@ class ConnectionAmazonQPropertiesInputArgs:
         pulumi.set(self, "profile_arn", value)
 
 
-if not MYPY:
-    class ConnectionAthenaPropertiesInputArgsDict(TypedDict):
-        """
-        Athena Properties Input
-        """
-        workgroup_name: pulumi.Input[_builtins.str]
-elif False:
-    ConnectionAthenaPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAthenaPropertiesInputArgsDict(TypedDict):
+    """
+    Athena Properties Input
+    """
+    workgroup_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectionAthenaPropertiesInputArgs:
@@ -337,19 +329,16 @@ class ConnectionAthenaPropertiesInputArgs:
         pulumi.set(self, "workgroup_name", value)
 
 
-if not MYPY:
-    class ConnectionAuthenticationConfigurationInputArgsDict(TypedDict):
-        """
-        Authentication Configuration Input
-        """
-        authentication_type: NotRequired[pulumi.Input['ConnectionAuthenticationType']]
-        basic_authentication_credentials: NotRequired[pulumi.Input['ConnectionBasicAuthenticationCredentialsArgsDict']]
-        custom_authentication_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        o_auth2_properties: NotRequired[pulumi.Input['ConnectionOAuth2PropertiesArgsDict']]
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionAuthenticationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAuthenticationConfigurationInputArgsDict(TypedDict):
+    """
+    Authentication Configuration Input
+    """
+    authentication_type: NotRequired[pulumi.Input['ConnectionAuthenticationType']]
+    basic_authentication_credentials: NotRequired[pulumi.Input['ConnectionBasicAuthenticationCredentialsArgsDict']]
+    custom_authentication_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    o_auth2_properties: NotRequired[pulumi.Input['ConnectionOAuth2PropertiesArgsDict']]
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionAuthenticationConfigurationInputArgs:
@@ -431,15 +420,12 @@ class ConnectionAuthenticationConfigurationInputArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class ConnectionAuthorizationCodePropertiesArgsDict(TypedDict):
-        """
-        Authorization Code Properties
-        """
-        authorization_code: NotRequired[pulumi.Input[_builtins.str]]
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionAuthorizationCodePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAuthorizationCodePropertiesArgsDict(TypedDict):
+    """
+    Authorization Code Properties
+    """
+    authorization_code: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionAuthorizationCodePropertiesArgs:
@@ -473,29 +459,26 @@ class ConnectionAuthorizationCodePropertiesArgs:
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectionAwsLocationArgsDict(TypedDict):
-        """
-        AWS Location of project
-        """
-        access_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The access role of a connection.
-        """
-        aws_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account ID of a connection.
-        """
-        aws_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Region of a connection.
-        """
-        iam_connection_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM connection ID of a connection.
-        """
-elif False:
-    ConnectionAwsLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionAwsLocationArgsDict(TypedDict):
+    """
+    AWS Location of project
+    """
+    access_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The access role of a connection.
+    """
+    aws_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account ID of a connection.
+    """
+    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Region of a connection.
+    """
+    iam_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM connection ID of a connection.
+    """
 
 @pulumi.input_type
 class ConnectionAwsLocationArgs:
@@ -569,15 +552,12 @@ class ConnectionAwsLocationArgs:
         pulumi.set(self, "iam_connection_id", value)
 
 
-if not MYPY:
-    class ConnectionBasicAuthenticationCredentialsArgsDict(TypedDict):
-        """
-        Basic Authentication Credentials
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        user_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionBasicAuthenticationCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionBasicAuthenticationCredentialsArgsDict(TypedDict):
+    """
+    Basic Authentication Credentials
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    user_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionBasicAuthenticationCredentialsArgs:
@@ -611,25 +591,22 @@ class ConnectionBasicAuthenticationCredentialsArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class ConnectionGlueConnectionInputArgsDict(TypedDict):
-        """
-        Glue Connection Input
-        """
-        athena_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        authentication_configuration: NotRequired[pulumi.Input['ConnectionAuthenticationConfigurationInputArgsDict']]
-        connection_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        connection_type: NotRequired[pulumi.Input[_builtins.str]]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        match_criteria: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        physical_connection_requirements: NotRequired[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgsDict']]
-        python_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        spark_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        validate_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        validate_for_compute_environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ConnectionGlueConnectionInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionGlueConnectionInputArgsDict(TypedDict):
+    """
+    Glue Connection Input
+    """
+    athena_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    authentication_configuration: NotRequired[pulumi.Input['ConnectionAuthenticationConfigurationInputArgsDict']]
+    connection_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    connection_type: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    match_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    physical_connection_requirements: NotRequired[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgsDict']]
+    python_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    spark_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    validate_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    validate_for_compute_environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConnectionGlueConnectionInputArgs:
@@ -783,17 +760,14 @@ class ConnectionGlueConnectionInputArgs:
         pulumi.set(self, "validate_for_compute_environments", value)
 
 
-if not MYPY:
-    class ConnectionGlueOAuth2CredentialsArgsDict(TypedDict):
-        """
-        Glue OAuth2 Credentials
-        """
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        jwt_token: NotRequired[pulumi.Input[_builtins.str]]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-        user_managed_client_application_client_secret: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionGlueOAuth2CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionGlueOAuth2CredentialsArgsDict(TypedDict):
+    """
+    Glue OAuth2 Credentials
+    """
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    jwt_token: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    user_managed_client_application_client_secret: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionGlueOAuth2CredentialsArgs:
@@ -851,14 +825,11 @@ class ConnectionGlueOAuth2CredentialsArgs:
         pulumi.set(self, "user_managed_client_application_client_secret", value)
 
 
-if not MYPY:
-    class ConnectionGluePropertiesInputArgsDict(TypedDict):
-        """
-        Glue Properties Input
-        """
-        glue_connection_input: NotRequired[pulumi.Input['ConnectionGlueConnectionInputArgsDict']]
-elif False:
-    ConnectionGluePropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionGluePropertiesInputArgsDict(TypedDict):
+    """
+    Glue Properties Input
+    """
+    glue_connection_input: NotRequired[pulumi.Input['ConnectionGlueConnectionInputArgsDict']]
 
 @pulumi.input_type
 class ConnectionGluePropertiesInputArgs:
@@ -880,14 +851,11 @@ class ConnectionGluePropertiesInputArgs:
         pulumi.set(self, "glue_connection_input", value)
 
 
-if not MYPY:
-    class ConnectionHyperPodPropertiesInputArgsDict(TypedDict):
-        """
-        HyperPod Properties Input
-        """
-        cluster_name: pulumi.Input[_builtins.str]
-elif False:
-    ConnectionHyperPodPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionHyperPodPropertiesInputArgsDict(TypedDict):
+    """
+    HyperPod Properties Input
+    """
+    cluster_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectionHyperPodPropertiesInputArgs:
@@ -908,14 +876,11 @@ class ConnectionHyperPodPropertiesInputArgs:
         pulumi.set(self, "cluster_name", value)
 
 
-if not MYPY:
-    class ConnectionIamPropertiesInputArgsDict(TypedDict):
-        """
-        IAM Properties Input
-        """
-        glue_lineage_sync_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ConnectionIamPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionIamPropertiesInputArgsDict(TypedDict):
+    """
+    IAM Properties Input
+    """
+    glue_lineage_sync_enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ConnectionIamPropertiesInputArgs:
@@ -937,14 +902,11 @@ class ConnectionIamPropertiesInputArgs:
         pulumi.set(self, "glue_lineage_sync_enabled", value)
 
 
-if not MYPY:
-    class ConnectionLineageSyncScheduleArgsDict(TypedDict):
-        """
-        Lineage Sync Schedule
-        """
-        schedule: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionLineageSyncScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionLineageSyncScheduleArgsDict(TypedDict):
+    """
+    Lineage Sync Schedule
+    """
+    schedule: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionLineageSyncScheduleArgs:
@@ -966,17 +928,14 @@ class ConnectionLineageSyncScheduleArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class ConnectionMlflowPropertiesInputArgsDict(TypedDict):
-        """
-        MLflow Properties Input
-        """
-        tracking_server_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the MLflow tracking server
-        """
-elif False:
-    ConnectionMlflowPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionMlflowPropertiesInputArgsDict(TypedDict):
+    """
+    MLflow Properties Input
+    """
+    tracking_server_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the MLflow tracking server
+    """
 
 @pulumi.input_type
 class ConnectionMlflowPropertiesInputArgs:
@@ -1002,15 +961,12 @@ class ConnectionMlflowPropertiesInputArgs:
         pulumi.set(self, "tracking_server_arn", value)
 
 
-if not MYPY:
-    class ConnectionOAuth2ClientApplicationArgsDict(TypedDict):
-        """
-        OAuth2 Client Application
-        """
-        aws_managed_client_application_reference: NotRequired[pulumi.Input[_builtins.str]]
-        user_managed_client_application_client_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionOAuth2ClientApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionOAuth2ClientApplicationArgsDict(TypedDict):
+    """
+    OAuth2 Client Application
+    """
+    aws_managed_client_application_reference: NotRequired[pulumi.Input[_builtins.str]]
+    user_managed_client_application_client_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionOAuth2ClientApplicationArgs:
@@ -1044,19 +1000,16 @@ class ConnectionOAuth2ClientApplicationArgs:
         pulumi.set(self, "user_managed_client_application_client_id", value)
 
 
-if not MYPY:
-    class ConnectionOAuth2PropertiesArgsDict(TypedDict):
-        """
-        OAuth2 Properties
-        """
-        authorization_code_properties: NotRequired[pulumi.Input['ConnectionAuthorizationCodePropertiesArgsDict']]
-        o_auth2_client_application: NotRequired[pulumi.Input['ConnectionOAuth2ClientApplicationArgsDict']]
-        o_auth2_credentials: NotRequired[pulumi.Input['ConnectionGlueOAuth2CredentialsArgsDict']]
-        o_auth2_grant_type: NotRequired[pulumi.Input['ConnectionOAuth2GrantType']]
-        token_url: NotRequired[pulumi.Input[_builtins.str]]
-        token_url_parameters_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    ConnectionOAuth2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionOAuth2PropertiesArgsDict(TypedDict):
+    """
+    OAuth2 Properties
+    """
+    authorization_code_properties: NotRequired[pulumi.Input['ConnectionAuthorizationCodePropertiesArgsDict']]
+    o_auth2_client_application: NotRequired[pulumi.Input['ConnectionOAuth2ClientApplicationArgsDict']]
+    o_auth2_credentials: NotRequired[pulumi.Input['ConnectionGlueOAuth2CredentialsArgsDict']]
+    o_auth2_grant_type: NotRequired[pulumi.Input['ConnectionOAuth2GrantType']]
+    token_url: NotRequired[pulumi.Input[_builtins.str]]
+    token_url_parameters_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConnectionOAuth2PropertiesArgs:
@@ -1138,17 +1091,14 @@ class ConnectionOAuth2PropertiesArgs:
         pulumi.set(self, "token_url_parameters_map", value)
 
 
-if not MYPY:
-    class ConnectionPhysicalConnectionRequirementsArgsDict(TypedDict):
-        """
-        Physical Connection Requirements
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        security_group_id_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        subnet_id_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ConnectionPhysicalConnectionRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPhysicalConnectionRequirementsArgsDict(TypedDict):
+    """
+    Physical Connection Requirements
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    security_group_id_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConnectionPhysicalConnectionRequirementsArgs:
@@ -1206,11 +1156,8 @@ class ConnectionPhysicalConnectionRequirementsArgs:
         pulumi.set(self, "subnet_id_list", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput0PropertiesArgsDict(TypedDict):
-        athena_properties: pulumi.Input['ConnectionAthenaPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput0PropertiesArgsDict(TypedDict):
+    athena_properties: pulumi.Input['ConnectionAthenaPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput0PropertiesArgs:
@@ -1228,11 +1175,8 @@ class ConnectionPropertiesInput0PropertiesArgs:
         pulumi.set(self, "athena_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput1PropertiesArgsDict(TypedDict):
-        glue_properties: pulumi.Input['ConnectionGluePropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput1PropertiesArgsDict(TypedDict):
+    glue_properties: pulumi.Input['ConnectionGluePropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput1PropertiesArgs:
@@ -1250,11 +1194,8 @@ class ConnectionPropertiesInput1PropertiesArgs:
         pulumi.set(self, "glue_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput2PropertiesArgsDict(TypedDict):
-        hyper_pod_properties: pulumi.Input['ConnectionHyperPodPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput2PropertiesArgsDict(TypedDict):
+    hyper_pod_properties: pulumi.Input['ConnectionHyperPodPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput2PropertiesArgs:
@@ -1272,11 +1213,8 @@ class ConnectionPropertiesInput2PropertiesArgs:
         pulumi.set(self, "hyper_pod_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput3PropertiesArgsDict(TypedDict):
-        iam_properties: pulumi.Input['ConnectionIamPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput3PropertiesArgsDict(TypedDict):
+    iam_properties: pulumi.Input['ConnectionIamPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput3PropertiesArgs:
@@ -1294,11 +1232,8 @@ class ConnectionPropertiesInput3PropertiesArgs:
         pulumi.set(self, "iam_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput4PropertiesArgsDict(TypedDict):
-        redshift_properties: pulumi.Input['ConnectionRedshiftPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput4PropertiesArgsDict(TypedDict):
+    redshift_properties: pulumi.Input['ConnectionRedshiftPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput4PropertiesArgs:
@@ -1316,11 +1251,8 @@ class ConnectionPropertiesInput4PropertiesArgs:
         pulumi.set(self, "redshift_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput5PropertiesArgsDict(TypedDict):
-        spark_emr_properties: pulumi.Input['ConnectionSparkEmrPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput5PropertiesArgsDict(TypedDict):
+    spark_emr_properties: pulumi.Input['ConnectionSparkEmrPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput5PropertiesArgs:
@@ -1338,11 +1270,8 @@ class ConnectionPropertiesInput5PropertiesArgs:
         pulumi.set(self, "spark_emr_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput6PropertiesArgsDict(TypedDict):
-        amazon_q_properties: pulumi.Input['ConnectionAmazonQPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput6PropertiesArgsDict(TypedDict):
+    amazon_q_properties: pulumi.Input['ConnectionAmazonQPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput6PropertiesArgs:
@@ -1360,11 +1289,8 @@ class ConnectionPropertiesInput6PropertiesArgs:
         pulumi.set(self, "amazon_q_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput7PropertiesArgsDict(TypedDict):
-        spark_glue_properties: pulumi.Input['ConnectionSparkGluePropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput7PropertiesArgsDict(TypedDict):
+    spark_glue_properties: pulumi.Input['ConnectionSparkGluePropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput7PropertiesArgs:
@@ -1382,11 +1308,8 @@ class ConnectionPropertiesInput7PropertiesArgs:
         pulumi.set(self, "spark_glue_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput8PropertiesArgsDict(TypedDict):
-        s3_properties: pulumi.Input['ConnectionS3PropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput8PropertiesArgsDict(TypedDict):
+    s3_properties: pulumi.Input['ConnectionS3PropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput8PropertiesArgs:
@@ -1404,11 +1327,8 @@ class ConnectionPropertiesInput8PropertiesArgs:
         pulumi.set(self, "s3_properties", value)
 
 
-if not MYPY:
-    class ConnectionPropertiesInput9PropertiesArgsDict(TypedDict):
-        mlflow_properties: pulumi.Input['ConnectionMlflowPropertiesInputArgsDict']
-elif False:
-    ConnectionPropertiesInput9PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionPropertiesInput9PropertiesArgsDict(TypedDict):
+    mlflow_properties: pulumi.Input['ConnectionMlflowPropertiesInputArgsDict']
 
 @pulumi.input_type
 class ConnectionPropertiesInput9PropertiesArgs:
@@ -1426,11 +1346,8 @@ class ConnectionPropertiesInput9PropertiesArgs:
         pulumi.set(self, "mlflow_properties", value)
 
 
-if not MYPY:
-    class ConnectionRedshiftCredentials0PropertiesArgsDict(TypedDict):
-        secret_arn: pulumi.Input[_builtins.str]
-elif False:
-    ConnectionRedshiftCredentials0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRedshiftCredentials0PropertiesArgsDict(TypedDict):
+    secret_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectionRedshiftCredentials0PropertiesArgs:
@@ -1448,11 +1365,8 @@ class ConnectionRedshiftCredentials0PropertiesArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class ConnectionRedshiftCredentials1PropertiesArgsDict(TypedDict):
-        username_password: pulumi.Input['ConnectionUsernamePasswordArgsDict']
-elif False:
-    ConnectionRedshiftCredentials1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRedshiftCredentials1PropertiesArgsDict(TypedDict):
+    username_password: pulumi.Input['ConnectionUsernamePasswordArgsDict']
 
 @pulumi.input_type
 class ConnectionRedshiftCredentials1PropertiesArgs:
@@ -1470,15 +1384,12 @@ class ConnectionRedshiftCredentials1PropertiesArgs:
         pulumi.set(self, "username_password", value)
 
 
-if not MYPY:
-    class ConnectionRedshiftLineageSyncConfigurationInputArgsDict(TypedDict):
-        """
-        Redshift Lineage Sync Configuration Input
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        schedule: NotRequired[pulumi.Input['ConnectionLineageSyncScheduleArgsDict']]
-elif False:
-    ConnectionRedshiftLineageSyncConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRedshiftLineageSyncConfigurationInputArgsDict(TypedDict):
+    """
+    Redshift Lineage Sync Configuration Input
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    schedule: NotRequired[pulumi.Input['ConnectionLineageSyncScheduleArgsDict']]
 
 @pulumi.input_type
 class ConnectionRedshiftLineageSyncConfigurationInputArgs:
@@ -1512,19 +1423,16 @@ class ConnectionRedshiftLineageSyncConfigurationInputArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class ConnectionRedshiftPropertiesInputArgsDict(TypedDict):
-        """
-        Redshift Properties Input
-        """
-        credentials: NotRequired[pulumi.Input[Union['ConnectionRedshiftCredentials0PropertiesArgsDict', 'ConnectionRedshiftCredentials1PropertiesArgsDict']]]
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        lineage_sync: NotRequired[pulumi.Input['ConnectionRedshiftLineageSyncConfigurationInputArgsDict']]
-        port: NotRequired[pulumi.Input[_builtins.float]]
-        storage: NotRequired[pulumi.Input[Union['ConnectionRedshiftStorageProperties0PropertiesArgsDict', 'ConnectionRedshiftStorageProperties1PropertiesArgsDict']]]
-elif False:
-    ConnectionRedshiftPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRedshiftPropertiesInputArgsDict(TypedDict):
+    """
+    Redshift Properties Input
+    """
+    credentials: NotRequired[pulumi.Input[Union['ConnectionRedshiftCredentials0PropertiesArgsDict', 'ConnectionRedshiftCredentials1PropertiesArgsDict']]]
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    lineage_sync: NotRequired[pulumi.Input['ConnectionRedshiftLineageSyncConfigurationInputArgsDict']]
+    port: NotRequired[pulumi.Input[_builtins.float]]
+    storage: NotRequired[pulumi.Input[Union['ConnectionRedshiftStorageProperties0PropertiesArgsDict', 'ConnectionRedshiftStorageProperties1PropertiesArgsDict']]]
 
 @pulumi.input_type
 class ConnectionRedshiftPropertiesInputArgs:
@@ -1606,11 +1514,8 @@ class ConnectionRedshiftPropertiesInputArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class ConnectionRedshiftStorageProperties0PropertiesArgsDict(TypedDict):
-        cluster_name: pulumi.Input[_builtins.str]
-elif False:
-    ConnectionRedshiftStorageProperties0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRedshiftStorageProperties0PropertiesArgsDict(TypedDict):
+    cluster_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectionRedshiftStorageProperties0PropertiesArgs:
@@ -1628,11 +1533,8 @@ class ConnectionRedshiftStorageProperties0PropertiesArgs:
         pulumi.set(self, "cluster_name", value)
 
 
-if not MYPY:
-    class ConnectionRedshiftStorageProperties1PropertiesArgsDict(TypedDict):
-        workgroup_name: pulumi.Input[_builtins.str]
-elif False:
-    ConnectionRedshiftStorageProperties1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRedshiftStorageProperties1PropertiesArgsDict(TypedDict):
+    workgroup_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectionRedshiftStorageProperties1PropertiesArgs:
@@ -1650,21 +1552,18 @@ class ConnectionRedshiftStorageProperties1PropertiesArgs:
         pulumi.set(self, "workgroup_name", value)
 
 
-if not MYPY:
-    class ConnectionS3PropertiesInputArgsDict(TypedDict):
-        """
-        S3 Properties Input
-        """
-        s3_uri: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
-        """
-        s3_access_grant_location_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
-        """
-elif False:
-    ConnectionS3PropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionS3PropertiesInputArgsDict(TypedDict):
+    """
+    S3 Properties Input
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+    """
+    s3_access_grant_location_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+    """
 
 @pulumi.input_type
 class ConnectionS3PropertiesInputArgs:
@@ -1705,21 +1604,18 @@ class ConnectionS3PropertiesInputArgs:
         pulumi.set(self, "s3_access_grant_location_id", value)
 
 
-if not MYPY:
-    class ConnectionSparkEmrPropertiesInputArgsDict(TypedDict):
-        """
-        Spark EMR Properties Input.
-        """
-        compute_arn: NotRequired[pulumi.Input[_builtins.str]]
-        instance_profile_arn: NotRequired[pulumi.Input[_builtins.str]]
-        java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-        log_uri: NotRequired[pulumi.Input[_builtins.str]]
-        managed_endpoint_arn: NotRequired[pulumi.Input[_builtins.str]]
-        python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-        runtime_role: NotRequired[pulumi.Input[_builtins.str]]
-        trusted_certificates_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionSparkEmrPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionSparkEmrPropertiesInputArgsDict(TypedDict):
+    """
+    Spark EMR Properties Input.
+    """
+    compute_arn: NotRequired[pulumi.Input[_builtins.str]]
+    instance_profile_arn: NotRequired[pulumi.Input[_builtins.str]]
+    java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
+    log_uri: NotRequired[pulumi.Input[_builtins.str]]
+    managed_endpoint_arn: NotRequired[pulumi.Input[_builtins.str]]
+    python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
+    runtime_role: NotRequired[pulumi.Input[_builtins.str]]
+    trusted_certificates_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionSparkEmrPropertiesInputArgs:
@@ -1825,14 +1721,11 @@ class ConnectionSparkEmrPropertiesInputArgs:
         pulumi.set(self, "trusted_certificates_s3_uri", value)
 
 
-if not MYPY:
-    class ConnectionSparkGlueArgsArgsDict(TypedDict):
-        """
-        Spark Glue Args.
-        """
-        connection: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionSparkGlueArgsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionSparkGlueArgsArgsDict(TypedDict):
+    """
+    Spark Glue Args.
+    """
+    connection: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionSparkGlueArgsArgs:
@@ -1854,21 +1747,18 @@ class ConnectionSparkGlueArgsArgs:
         pulumi.set(self, "connection", value)
 
 
-if not MYPY:
-    class ConnectionSparkGluePropertiesInputArgsDict(TypedDict):
-        """
-        Spark Glue Properties Input.
-        """
-        additional_args: NotRequired[pulumi.Input['ConnectionSparkGlueArgsArgsDict']]
-        glue_connection_name: NotRequired[pulumi.Input[_builtins.str]]
-        glue_version: NotRequired[pulumi.Input[_builtins.str]]
-        idle_timeout: NotRequired[pulumi.Input[_builtins.float]]
-        java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-        number_of_workers: NotRequired[pulumi.Input[_builtins.float]]
-        python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
-        worker_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectionSparkGluePropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionSparkGluePropertiesInputArgsDict(TypedDict):
+    """
+    Spark Glue Properties Input.
+    """
+    additional_args: NotRequired[pulumi.Input['ConnectionSparkGlueArgsArgsDict']]
+    glue_connection_name: NotRequired[pulumi.Input[_builtins.str]]
+    glue_version: NotRequired[pulumi.Input[_builtins.str]]
+    idle_timeout: NotRequired[pulumi.Input[_builtins.float]]
+    java_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
+    number_of_workers: NotRequired[pulumi.Input[_builtins.float]]
+    python_virtual_env: NotRequired[pulumi.Input[_builtins.str]]
+    worker_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectionSparkGluePropertiesInputArgs:
@@ -1974,15 +1864,12 @@ class ConnectionSparkGluePropertiesInputArgs:
         pulumi.set(self, "worker_type", value)
 
 
-if not MYPY:
-    class ConnectionUsernamePasswordArgsDict(TypedDict):
-        """
-        The username and password to be used for authentication.
-        """
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectionUsernamePasswordArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionUsernamePasswordArgsDict(TypedDict):
+    """
+    The username and password to be used for authentication.
+    """
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectionUsernamePasswordArgs:
@@ -2014,14 +1901,11 @@ class ConnectionUsernamePasswordArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class DataSourceConfigurationInput0PropertiesArgsDict(TypedDict):
-        """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
-        """
-        glue_run_configuration: NotRequired[pulumi.Input['DataSourceGlueRunConfigurationInputArgsDict']]
-elif False:
-    DataSourceConfigurationInput0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceConfigurationInput0PropertiesArgsDict(TypedDict):
+    """
+    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+    """
+    glue_run_configuration: NotRequired[pulumi.Input['DataSourceGlueRunConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class DataSourceConfigurationInput0PropertiesArgs:
@@ -2043,14 +1927,11 @@ class DataSourceConfigurationInput0PropertiesArgs:
         pulumi.set(self, "glue_run_configuration", value)
 
 
-if not MYPY:
-    class DataSourceConfigurationInput1PropertiesArgsDict(TypedDict):
-        """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
-        """
-        redshift_run_configuration: NotRequired[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgsDict']]
-elif False:
-    DataSourceConfigurationInput1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceConfigurationInput1PropertiesArgsDict(TypedDict):
+    """
+    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+    """
+    redshift_run_configuration: NotRequired[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class DataSourceConfigurationInput1PropertiesArgs:
@@ -2072,14 +1953,11 @@ class DataSourceConfigurationInput1PropertiesArgs:
         pulumi.set(self, "redshift_run_configuration", value)
 
 
-if not MYPY:
-    class DataSourceConfigurationInput2PropertiesArgsDict(TypedDict):
-        """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
-        """
-        sage_maker_run_configuration: NotRequired[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgsDict']]
-elif False:
-    DataSourceConfigurationInput2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceConfigurationInput2PropertiesArgsDict(TypedDict):
+    """
+    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+    """
+    sage_maker_run_configuration: NotRequired[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class DataSourceConfigurationInput2PropertiesArgs:
@@ -2101,15 +1979,12 @@ class DataSourceConfigurationInput2PropertiesArgs:
         pulumi.set(self, "sage_maker_run_configuration", value)
 
 
-if not MYPY:
-    class DataSourceFilterExpressionArgsDict(TypedDict):
-        """
-        The search filter expression.
-        """
-        expression: pulumi.Input[_builtins.str]
-        type: pulumi.Input['DataSourceFilterExpressionType']
-elif False:
-    DataSourceFilterExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceFilterExpressionArgsDict(TypedDict):
+    """
+    The search filter expression.
+    """
+    expression: pulumi.Input[_builtins.str]
+    type: pulumi.Input['DataSourceFilterExpressionType']
 
 @pulumi.input_type
 class DataSourceFilterExpressionArgs:
@@ -2141,29 +2016,26 @@ class DataSourceFilterExpressionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DataSourceFormInputArgsDict(TypedDict):
-        """
-        The details of a metadata form.
-        """
-        form_name: pulumi.Input[_builtins.str]
-        """
-        The name of the metadata form.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The content of the metadata form.
-        """
-        type_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the metadata form type.
-        """
-        type_revision: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The revision of the metadata form type.
-        """
-elif False:
-    DataSourceFormInputArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceFormInputArgsDict(TypedDict):
+    """
+    The details of a metadata form.
+    """
+    form_name: pulumi.Input[_builtins.str]
+    """
+    The name of the metadata form.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The content of the metadata form.
+    """
+    type_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the metadata form type.
+    """
+    type_revision: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The revision of the metadata form type.
+    """
 
 @pulumi.input_type
 class DataSourceFormInputArgs:
@@ -2236,26 +2108,23 @@ class DataSourceFormInputArgs:
         pulumi.set(self, "type_revision", value)
 
 
-if not MYPY:
-    class DataSourceGlueRunConfigurationInputArgsDict(TypedDict):
-        relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
-        """
-        The relational filter configurations included in the configuration details of the AWS Glue data source.
-        """
-        auto_import_data_quality_result: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to automatically import data quality metrics as part of the data source run.
-        """
-        catalog_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The catalog name in the AWS Glue run configuration.
-        """
-        data_access_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data access role included in the configuration details of the AWS Glue data source.
-        """
-elif False:
-    DataSourceGlueRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceGlueRunConfigurationInputArgsDict(TypedDict):
+    relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
+    """
+    The relational filter configurations included in the configuration details of the AWS Glue data source.
+    """
+    auto_import_data_quality_result: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to automatically import data quality metrics as part of the data source run.
+    """
+    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The catalog name in the AWS Glue run configuration.
+    """
+    data_access_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data access role included in the configuration details of the AWS Glue data source.
+    """
 
 @pulumi.input_type
 class DataSourceGlueRunConfigurationInputArgs:
@@ -2327,17 +2196,14 @@ class DataSourceGlueRunConfigurationInputArgs:
         pulumi.set(self, "data_access_role", value)
 
 
-if not MYPY:
-    class DataSourceRecommendationConfigurationArgsDict(TypedDict):
-        """
-        The recommendation to be updated as part of the UpdateDataSource action.
-        """
-        enable_business_name_generation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
-        """
-elif False:
-    DataSourceRecommendationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRecommendationConfigurationArgsDict(TypedDict):
+    """
+    The recommendation to be updated as part of the UpdateDataSource action.
+    """
+    enable_business_name_generation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
+    """
 
 @pulumi.input_type
 class DataSourceRecommendationConfigurationArgs:
@@ -2363,17 +2229,14 @@ class DataSourceRecommendationConfigurationArgs:
         pulumi.set(self, "enable_business_name_generation", value)
 
 
-if not MYPY:
-    class DataSourceRedshiftClusterStorageArgsDict(TypedDict):
-        """
-        The name of an Amazon Redshift cluster.
-        """
-        cluster_name: pulumi.Input[_builtins.str]
-        """
-        The name of an Amazon Redshift cluster.
-        """
-elif False:
-    DataSourceRedshiftClusterStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRedshiftClusterStorageArgsDict(TypedDict):
+    """
+    The name of an Amazon Redshift cluster.
+    """
+    cluster_name: pulumi.Input[_builtins.str]
+    """
+    The name of an Amazon Redshift cluster.
+    """
 
 @pulumi.input_type
 class DataSourceRedshiftClusterStorageArgs:
@@ -2398,17 +2261,14 @@ class DataSourceRedshiftClusterStorageArgs:
         pulumi.set(self, "cluster_name", value)
 
 
-if not MYPY:
-    class DataSourceRedshiftCredentialConfigurationArgsDict(TypedDict):
-        """
-        The ARN of a secret manager for an Amazon Redshift cluster.
-        """
-        secret_manager_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of a secret manager for an Amazon Redshift cluster.
-        """
-elif False:
-    DataSourceRedshiftCredentialConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRedshiftCredentialConfigurationArgsDict(TypedDict):
+    """
+    The ARN of a secret manager for an Amazon Redshift cluster.
+    """
+    secret_manager_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of a secret manager for an Amazon Redshift cluster.
+    """
 
 @pulumi.input_type
 class DataSourceRedshiftCredentialConfigurationArgs:
@@ -2433,26 +2293,23 @@ class DataSourceRedshiftCredentialConfigurationArgs:
         pulumi.set(self, "secret_manager_arn", value)
 
 
-if not MYPY:
-    class DataSourceRedshiftRunConfigurationInputArgsDict(TypedDict):
-        """
-        The configuration details of the Amazon Redshift data source.
-        """
-        relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
-        data_access_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data access role included in the configuration details of the Amazon Redshift data source.
-        """
-        redshift_credential_configuration: NotRequired[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgsDict']]
-        """
-        The details of the credentials required to access an Amazon Redshift cluster.
-        """
-        redshift_storage: NotRequired[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgsDict', 'DataSourceRedshiftStorage1PropertiesArgsDict']]]
-        """
-        The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
-        """
-elif False:
-    DataSourceRedshiftRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRedshiftRunConfigurationInputArgsDict(TypedDict):
+    """
+    The configuration details of the Amazon Redshift data source.
+    """
+    relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
+    data_access_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data access role included in the configuration details of the Amazon Redshift data source.
+    """
+    redshift_credential_configuration: NotRequired[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgsDict']]
+    """
+    The details of the credentials required to access an Amazon Redshift cluster.
+    """
+    redshift_storage: NotRequired[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgsDict', 'DataSourceRedshiftStorage1PropertiesArgsDict']]]
+    """
+    The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+    """
 
 @pulumi.input_type
 class DataSourceRedshiftRunConfigurationInputArgs:
@@ -2521,17 +2378,14 @@ class DataSourceRedshiftRunConfigurationInputArgs:
         pulumi.set(self, "redshift_storage", value)
 
 
-if not MYPY:
-    class DataSourceRedshiftServerlessStorageArgsDict(TypedDict):
-        """
-        The details of the Amazon Redshift Serverless workgroup storage.
-        """
-        workgroup_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon Redshift Serverless workgroup.
-        """
-elif False:
-    DataSourceRedshiftServerlessStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRedshiftServerlessStorageArgsDict(TypedDict):
+    """
+    The details of the Amazon Redshift Serverless workgroup storage.
+    """
+    workgroup_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon Redshift Serverless workgroup.
+    """
 
 @pulumi.input_type
 class DataSourceRedshiftServerlessStorageArgs:
@@ -2556,14 +2410,11 @@ class DataSourceRedshiftServerlessStorageArgs:
         pulumi.set(self, "workgroup_name", value)
 
 
-if not MYPY:
-    class DataSourceRedshiftStorage0PropertiesArgsDict(TypedDict):
-        """
-        The details of the Amazon Redshift cluster source.
-        """
-        redshift_cluster_source: pulumi.Input['DataSourceRedshiftClusterStorageArgsDict']
-elif False:
-    DataSourceRedshiftStorage0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRedshiftStorage0PropertiesArgsDict(TypedDict):
+    """
+    The details of the Amazon Redshift cluster source.
+    """
+    redshift_cluster_source: pulumi.Input['DataSourceRedshiftClusterStorageArgsDict']
 
 @pulumi.input_type
 class DataSourceRedshiftStorage0PropertiesArgs:
@@ -2584,14 +2435,11 @@ class DataSourceRedshiftStorage0PropertiesArgs:
         pulumi.set(self, "redshift_cluster_source", value)
 
 
-if not MYPY:
-    class DataSourceRedshiftStorage1PropertiesArgsDict(TypedDict):
-        """
-        The details of the Amazon Redshift Serverless workgroup source.
-        """
-        redshift_serverless_source: pulumi.Input['DataSourceRedshiftServerlessStorageArgsDict']
-elif False:
-    DataSourceRedshiftStorage1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRedshiftStorage1PropertiesArgsDict(TypedDict):
+    """
+    The details of the Amazon Redshift Serverless workgroup source.
+    """
+    redshift_serverless_source: pulumi.Input['DataSourceRedshiftServerlessStorageArgsDict']
 
 @pulumi.input_type
 class DataSourceRedshiftStorage1PropertiesArgs:
@@ -2612,25 +2460,22 @@ class DataSourceRedshiftStorage1PropertiesArgs:
         pulumi.set(self, "redshift_serverless_source", value)
 
 
-if not MYPY:
-    class DataSourceRelationalFilterConfigurationArgsDict(TypedDict):
-        """
-        The relational filter configuration for the data source.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The database name specified in the relational filter configuration for the data source.
-        """
-        filter_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgsDict']]]]
-        """
-        The filter expressions specified in the relational filter configuration for the data source.
-        """
-        schema_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The schema name specified in the relational filter configuration for the data source.
-        """
-elif False:
-    DataSourceRelationalFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRelationalFilterConfigurationArgsDict(TypedDict):
+    """
+    The relational filter configuration for the data source.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The database name specified in the relational filter configuration for the data source.
+    """
+    filter_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgsDict']]]]
+    """
+    The filter expressions specified in the relational filter configuration for the data source.
+    """
+    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The schema name specified in the relational filter configuration for the data source.
+    """
 
 @pulumi.input_type
 class DataSourceRelationalFilterConfigurationArgs:
@@ -2687,17 +2532,14 @@ class DataSourceRelationalFilterConfigurationArgs:
         pulumi.set(self, "schema_name", value)
 
 
-if not MYPY:
-    class DataSourceSageMakerRunConfigurationInputArgsDict(TypedDict):
-        """
-        The configuration details of the Amazon SageMaker data source.
-        """
-        tracking_assets: pulumi.Input[Mapping[str, Any]]
-        """
-        The tracking assets of the Amazon SageMaker run.
-        """
-elif False:
-    DataSourceSageMakerRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSageMakerRunConfigurationInputArgsDict(TypedDict):
+    """
+    The configuration details of the Amazon SageMaker data source.
+    """
+    tracking_assets: pulumi.Input[Mapping[str, Any]]
+    """
+    The tracking assets of the Amazon SageMaker run.
+    """
 
 @pulumi.input_type
 class DataSourceSageMakerRunConfigurationInputArgs:
@@ -2722,21 +2564,18 @@ class DataSourceSageMakerRunConfigurationInputArgs:
         pulumi.set(self, "tracking_assets", value)
 
 
-if not MYPY:
-    class DataSourceScheduleConfigurationArgsDict(TypedDict):
-        """
-        The schedule of the data source runs.
-        """
-        schedule: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The schedule of the data source runs.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timezone of the data source run.
-        """
-elif False:
-    DataSourceScheduleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceScheduleConfigurationArgsDict(TypedDict):
+    """
+    The schedule of the data source runs.
+    """
+    schedule: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The schedule of the data source runs.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timezone of the data source run.
+    """
 
 @pulumi.input_type
 class DataSourceScheduleConfigurationArgs:
@@ -2778,25 +2617,22 @@ class DataSourceScheduleConfigurationArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class DomainSingleSignOnArgsDict(TypedDict):
-        """
-        The single-sign on configuration of the Amazon DataZone domain.
-        """
-        idc_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IDC instance.
-        """
-        type: NotRequired[pulumi.Input['DomainAuthType']]
-        """
-        The type of single sign-on in Amazon DataZone.
-        """
-        user_assignment: NotRequired[pulumi.Input['DomainUserAssignment']]
-        """
-        The single sign-on user assignment in Amazon DataZone.
-        """
-elif False:
-    DomainSingleSignOnArgsDict: TypeAlias = Mapping[str, Any]
+class DomainSingleSignOnArgsDict(TypedDict):
+    """
+    The single-sign on configuration of the Amazon DataZone domain.
+    """
+    idc_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IDC instance.
+    """
+    type: NotRequired[pulumi.Input['DomainAuthType']]
+    """
+    The type of single sign-on in Amazon DataZone.
+    """
+    user_assignment: NotRequired[pulumi.Input['DomainUserAssignment']]
+    """
+    The single sign-on user assignment in Amazon DataZone.
+    """
 
 @pulumi.input_type
 class DomainSingleSignOnArgs:
@@ -2854,17 +2690,14 @@ class DomainSingleSignOnArgs:
         pulumi.set(self, "user_assignment", value)
 
 
-if not MYPY:
-    class EnvironmentActionsAwsConsoleLinkParametersArgsDict(TypedDict):
-        """
-        The parameters of the console link specified as part of the environment action
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the console link specified as part of the environment action.
-        """
-elif False:
-    EnvironmentActionsAwsConsoleLinkParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentActionsAwsConsoleLinkParametersArgsDict(TypedDict):
+    """
+    The parameters of the console link specified as part of the environment action
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the console link specified as part of the environment action.
+    """
 
 @pulumi.input_type
 class EnvironmentActionsAwsConsoleLinkParametersArgs:
@@ -2890,12 +2723,9 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict(TypedDict):
-        location_registration_exclude_s3_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        location_registration_role: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict(TypedDict):
+    location_registration_exclude_s3_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    location_registration_role: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs:
@@ -2926,11 +2756,8 @@ class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs:
         pulumi.set(self, "location_registration_role", value)
 
 
-if not MYPY:
-    class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict(TypedDict):
-        lake_formation_configuration: pulumi.Input['EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict']
-elif False:
-    EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict(TypedDict):
+    lake_formation_configuration: pulumi.Input['EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict']
 
 @pulumi.input_type
 class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs:
@@ -2948,18 +2775,15 @@ class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs:
         pulumi.set(self, "lake_formation_configuration", value)
 
 
-if not MYPY:
-    class EnvironmentBlueprintConfigurationRegionalParameterArgsDict(TypedDict):
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A string to string map containing parameters for the region.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region specified in the environment parameter.
-        """
-elif False:
-    EnvironmentBlueprintConfigurationRegionalParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentBlueprintConfigurationRegionalParameterArgsDict(TypedDict):
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A string to string map containing parameters for the region.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The region specified in the environment parameter.
+    """
 
 @pulumi.input_type
 class EnvironmentBlueprintConfigurationRegionalParameterArgs:
@@ -3000,21 +2824,18 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class EnvironmentParameterArgsDict(TypedDict):
-        """
-        The parameter details of an environment.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an environment parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of an environment parameter.
-        """
-elif False:
-    EnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentParameterArgsDict(TypedDict):
+    """
+    The parameter details of an environment.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an environment parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of an environment parameter.
+    """
 
 @pulumi.input_type
 class EnvironmentParameterArgs:
@@ -3056,21 +2877,18 @@ class EnvironmentParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnvironmentProfileEnvironmentParameterArgsDict(TypedDict):
-        """
-        The parameter details of an environment profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an environment profile parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of an environment profile parameter.
-        """
-elif False:
-    EnvironmentProfileEnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentProfileEnvironmentParameterArgsDict(TypedDict):
+    """
+    The parameter details of an environment profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an environment profile parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of an environment profile parameter.
+    """
 
 @pulumi.input_type
 class EnvironmentProfileEnvironmentParameterArgs:
@@ -3112,14 +2930,11 @@ class EnvironmentProfileEnvironmentParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FormTypeModelArgsDict(TypedDict):
-        """
-        Indicates the smithy model of the API.
-        """
-        smithy: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FormTypeModelArgsDict: TypeAlias = Mapping[str, Any]
+class FormTypeModelArgsDict(TypedDict):
+    """
+    Indicates the smithy model of the API.
+    """
+    smithy: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FormTypeModelArgs:
@@ -3141,14 +2956,11 @@ class FormTypeModelArgs:
         pulumi.set(self, "smithy", value)
 
 
-if not MYPY:
-    class OwnerPropertiesArgsDict(TypedDict):
-        """
-        The properties of a domain unit's owner.
-        """
-        pass
-elif False:
-    OwnerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OwnerPropertiesArgsDict(TypedDict):
+    """
+    The properties of a domain unit's owner.
+    """
+    pass
 
 @pulumi.input_type
 class OwnerPropertiesArgs:
@@ -3159,11 +2971,8 @@ class OwnerPropertiesArgs:
         pass
 
 
-if not MYPY:
-    class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs:
@@ -3182,11 +2991,8 @@ class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantAllDomainUnitsGrantFilterArgsDict(TypedDict):
-        pass
-elif False:
-    PolicyGrantAllDomainUnitsGrantFilterArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantAllDomainUnitsGrantFilterArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class PolicyGrantAllDomainUnitsGrantFilterArgs:
@@ -3194,11 +3000,8 @@ class PolicyGrantAllDomainUnitsGrantFilterArgs:
         pass
 
 
-if not MYPY:
-    class PolicyGrantAllUsersGrantFilterArgsDict(TypedDict):
-        pass
-elif False:
-    PolicyGrantAllUsersGrantFilterArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantAllUsersGrantFilterArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class PolicyGrantAllUsersGrantFilterArgs:
@@ -3206,11 +3009,8 @@ class PolicyGrantAllUsersGrantFilterArgs:
         pass
 
 
-if not MYPY:
-    class PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantCreateAssetTypePolicyGrantDetailArgs:
@@ -3229,11 +3029,8 @@ class PolicyGrantCreateAssetTypePolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantCreateDomainUnitPolicyGrantDetailArgs:
@@ -3252,11 +3049,8 @@ class PolicyGrantCreateDomainUnitPolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict(TypedDict):
-        domain_unit_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict(TypedDict):
+    domain_unit_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs:
@@ -3275,11 +3069,8 @@ class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs:
         pulumi.set(self, "domain_unit_id", value)
 
 
-if not MYPY:
-    class PolicyGrantCreateFormTypePolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantCreateFormTypePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateFormTypePolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantCreateFormTypePolicyGrantDetailArgs:
@@ -3298,11 +3089,8 @@ class PolicyGrantCreateFormTypePolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantCreateGlossaryPolicyGrantDetailArgs:
@@ -3321,12 +3109,9 @@ class PolicyGrantCreateGlossaryPolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-        project_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
+    project_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs:
@@ -3357,11 +3142,8 @@ class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs:
         pulumi.set(self, "project_profiles", value)
 
 
-if not MYPY:
-    class PolicyGrantCreateProjectPolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantCreateProjectPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantCreateProjectPolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantCreateProjectPolicyGrantDetailArgs:
@@ -3380,11 +3162,8 @@ class PolicyGrantCreateProjectPolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail0PropertiesArgsDict(TypedDict):
-        create_domain_unit: pulumi.Input['PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail0PropertiesArgsDict(TypedDict):
+    create_domain_unit: pulumi.Input['PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail0PropertiesArgs:
@@ -3402,11 +3181,8 @@ class PolicyGrantDetail0PropertiesArgs:
         pulumi.set(self, "create_domain_unit", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail10PropertiesArgsDict(TypedDict):
-        create_environment: pulumi.Input['PolicyGrantUnitArgsDict']
-elif False:
-    PolicyGrantDetail10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail10PropertiesArgsDict(TypedDict):
+    create_environment: pulumi.Input['PolicyGrantUnitArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail10PropertiesArgs:
@@ -3424,11 +3200,8 @@ class PolicyGrantDetail10PropertiesArgs:
         pulumi.set(self, "create_environment", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail11PropertiesArgsDict(TypedDict):
-        create_environment_from_blueprint: pulumi.Input['PolicyGrantUnitArgsDict']
-elif False:
-    PolicyGrantDetail11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail11PropertiesArgsDict(TypedDict):
+    create_environment_from_blueprint: pulumi.Input['PolicyGrantUnitArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail11PropertiesArgs:
@@ -3446,11 +3219,8 @@ class PolicyGrantDetail11PropertiesArgs:
         pulumi.set(self, "create_environment_from_blueprint", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail12PropertiesArgsDict(TypedDict):
-        create_project_from_project_profile: pulumi.Input['PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail12PropertiesArgsDict(TypedDict):
+    create_project_from_project_profile: pulumi.Input['PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail12PropertiesArgs:
@@ -3468,11 +3238,8 @@ class PolicyGrantDetail12PropertiesArgs:
         pulumi.set(self, "create_project_from_project_profile", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail1PropertiesArgsDict(TypedDict):
-        override_domain_unit_owners: pulumi.Input['PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail1PropertiesArgsDict(TypedDict):
+    override_domain_unit_owners: pulumi.Input['PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail1PropertiesArgs:
@@ -3490,11 +3257,8 @@ class PolicyGrantDetail1PropertiesArgs:
         pulumi.set(self, "override_domain_unit_owners", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail2PropertiesArgsDict(TypedDict):
-        add_to_project_member_pool: pulumi.Input['PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail2PropertiesArgsDict(TypedDict):
+    add_to_project_member_pool: pulumi.Input['PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail2PropertiesArgs:
@@ -3512,11 +3276,8 @@ class PolicyGrantDetail2PropertiesArgs:
         pulumi.set(self, "add_to_project_member_pool", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail3PropertiesArgsDict(TypedDict):
-        override_project_owners: pulumi.Input['PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail3PropertiesArgsDict(TypedDict):
+    override_project_owners: pulumi.Input['PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail3PropertiesArgs:
@@ -3534,11 +3295,8 @@ class PolicyGrantDetail3PropertiesArgs:
         pulumi.set(self, "override_project_owners", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail4PropertiesArgsDict(TypedDict):
-        create_glossary: pulumi.Input['PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail4PropertiesArgsDict(TypedDict):
+    create_glossary: pulumi.Input['PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail4PropertiesArgs:
@@ -3556,11 +3314,8 @@ class PolicyGrantDetail4PropertiesArgs:
         pulumi.set(self, "create_glossary", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail5PropertiesArgsDict(TypedDict):
-        create_form_type: pulumi.Input['PolicyGrantCreateFormTypePolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail5PropertiesArgsDict(TypedDict):
+    create_form_type: pulumi.Input['PolicyGrantCreateFormTypePolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail5PropertiesArgs:
@@ -3578,11 +3333,8 @@ class PolicyGrantDetail5PropertiesArgs:
         pulumi.set(self, "create_form_type", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail6PropertiesArgsDict(TypedDict):
-        create_asset_type: pulumi.Input['PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail6PropertiesArgsDict(TypedDict):
+    create_asset_type: pulumi.Input['PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail6PropertiesArgs:
@@ -3600,11 +3352,8 @@ class PolicyGrantDetail6PropertiesArgs:
         pulumi.set(self, "create_asset_type", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail7PropertiesArgsDict(TypedDict):
-        create_project: pulumi.Input['PolicyGrantCreateProjectPolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail7PropertiesArgsDict(TypedDict):
+    create_project: pulumi.Input['PolicyGrantCreateProjectPolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail7PropertiesArgs:
@@ -3622,11 +3371,8 @@ class PolicyGrantDetail7PropertiesArgs:
         pulumi.set(self, "create_project", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail8PropertiesArgsDict(TypedDict):
-        create_environment_profile: pulumi.Input['PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict']
-elif False:
-    PolicyGrantDetail8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail8PropertiesArgsDict(TypedDict):
+    create_environment_profile: pulumi.Input['PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail8PropertiesArgs:
@@ -3644,11 +3390,8 @@ class PolicyGrantDetail8PropertiesArgs:
         pulumi.set(self, "create_environment_profile", value)
 
 
-if not MYPY:
-    class PolicyGrantDetail9PropertiesArgsDict(TypedDict):
-        delegate_create_environment_profile: pulumi.Input['PolicyGrantUnitArgsDict']
-elif False:
-    PolicyGrantDetail9PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDetail9PropertiesArgsDict(TypedDict):
+    delegate_create_environment_profile: pulumi.Input['PolicyGrantUnitArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDetail9PropertiesArgs:
@@ -3666,12 +3409,9 @@ class PolicyGrantDetail9PropertiesArgs:
         pulumi.set(self, "delegate_create_environment_profile", value)
 
 
-if not MYPY:
-    class PolicyGrantDomainUnitFilterForProjectArgsDict(TypedDict):
-        domain_unit: pulumi.Input[_builtins.str]
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantDomainUnitFilterForProjectArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDomainUnitFilterForProjectArgsDict(TypedDict):
+    domain_unit: pulumi.Input[_builtins.str]
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantDomainUnitFilterForProjectArgs:
@@ -3701,11 +3441,8 @@ class PolicyGrantDomainUnitFilterForProjectArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantDomainUnitGrantFilterPropertiesArgsDict(TypedDict):
-        all_domain_units_grant_filter: pulumi.Input['PolicyGrantAllDomainUnitsGrantFilterArgsDict']
-elif False:
-    PolicyGrantDomainUnitGrantFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDomainUnitGrantFilterPropertiesArgsDict(TypedDict):
+    all_domain_units_grant_filter: pulumi.Input['PolicyGrantAllDomainUnitsGrantFilterArgsDict']
 
 @pulumi.input_type
 class PolicyGrantDomainUnitGrantFilterPropertiesArgs:
@@ -3723,13 +3460,10 @@ class PolicyGrantDomainUnitGrantFilterPropertiesArgs:
         pulumi.set(self, "all_domain_units_grant_filter", value)
 
 
-if not MYPY:
-    class PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict(TypedDict):
-        domain_unit_designation: NotRequired[pulumi.Input['PolicyGrantDomainUnitDesignation']]
-        domain_unit_grant_filter: NotRequired[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgsDict']]
-        domain_unit_identifier: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict(TypedDict):
+    domain_unit_designation: NotRequired[pulumi.Input['PolicyGrantDomainUnitDesignation']]
+    domain_unit_grant_filter: NotRequired[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgsDict']]
+    domain_unit_identifier: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PolicyGrantDomainUnitPolicyGrantPrincipalArgs:
@@ -3772,11 +3506,8 @@ class PolicyGrantDomainUnitPolicyGrantPrincipalArgs:
         pulumi.set(self, "domain_unit_identifier", value)
 
 
-if not MYPY:
-    class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict(TypedDict):
-        group_identifier: pulumi.Input[_builtins.str]
-elif False:
-    PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict(TypedDict):
+    group_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs:
@@ -3794,11 +3525,8 @@ class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs:
         pulumi.set(self, "group_identifier", value)
 
 
-if not MYPY:
-    class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs:
@@ -3817,11 +3545,8 @@ class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict(TypedDict):
-        include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs:
@@ -3840,11 +3565,8 @@ class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs:
         pulumi.set(self, "include_child_domain_units", value)
 
 
-if not MYPY:
-    class PolicyGrantPrincipal0PropertiesArgsDict(TypedDict):
-        user: pulumi.Input[Union['PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict', 'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict']]
-elif False:
-    PolicyGrantPrincipal0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantPrincipal0PropertiesArgsDict(TypedDict):
+    user: pulumi.Input[Union['PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict', 'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict']]
 
 @pulumi.input_type
 class PolicyGrantPrincipal0PropertiesArgs:
@@ -3862,11 +3584,8 @@ class PolicyGrantPrincipal0PropertiesArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class PolicyGrantPrincipal1PropertiesArgsDict(TypedDict):
-        group: pulumi.Input['PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict']
-elif False:
-    PolicyGrantPrincipal1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantPrincipal1PropertiesArgsDict(TypedDict):
+    group: pulumi.Input['PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict']
 
 @pulumi.input_type
 class PolicyGrantPrincipal1PropertiesArgs:
@@ -3884,11 +3603,8 @@ class PolicyGrantPrincipal1PropertiesArgs:
         pulumi.set(self, "group", value)
 
 
-if not MYPY:
-    class PolicyGrantPrincipal2PropertiesArgsDict(TypedDict):
-        project: pulumi.Input['PolicyGrantProjectPolicyGrantPrincipalArgsDict']
-elif False:
-    PolicyGrantPrincipal2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantPrincipal2PropertiesArgsDict(TypedDict):
+    project: pulumi.Input['PolicyGrantProjectPolicyGrantPrincipalArgsDict']
 
 @pulumi.input_type
 class PolicyGrantPrincipal2PropertiesArgs:
@@ -3906,11 +3622,8 @@ class PolicyGrantPrincipal2PropertiesArgs:
         pulumi.set(self, "project", value)
 
 
-if not MYPY:
-    class PolicyGrantPrincipal3PropertiesArgsDict(TypedDict):
-        domain_unit: pulumi.Input['PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict']
-elif False:
-    PolicyGrantPrincipal3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantPrincipal3PropertiesArgsDict(TypedDict):
+    domain_unit: pulumi.Input['PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict']
 
 @pulumi.input_type
 class PolicyGrantPrincipal3PropertiesArgs:
@@ -3928,11 +3641,8 @@ class PolicyGrantPrincipal3PropertiesArgs:
         pulumi.set(self, "domain_unit", value)
 
 
-if not MYPY:
-    class PolicyGrantProjectGrantFilterPropertiesArgsDict(TypedDict):
-        domain_unit_filter: pulumi.Input['PolicyGrantDomainUnitFilterForProjectArgsDict']
-elif False:
-    PolicyGrantProjectGrantFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantProjectGrantFilterPropertiesArgsDict(TypedDict):
+    domain_unit_filter: pulumi.Input['PolicyGrantDomainUnitFilterForProjectArgsDict']
 
 @pulumi.input_type
 class PolicyGrantProjectGrantFilterPropertiesArgs:
@@ -3950,13 +3660,10 @@ class PolicyGrantProjectGrantFilterPropertiesArgs:
         pulumi.set(self, "domain_unit_filter", value)
 
 
-if not MYPY:
-    class PolicyGrantProjectPolicyGrantPrincipalArgsDict(TypedDict):
-        project_designation: NotRequired[pulumi.Input['PolicyGrantProjectDesignation']]
-        project_grant_filter: NotRequired[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgsDict']]
-        project_identifier: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PolicyGrantProjectPolicyGrantPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantProjectPolicyGrantPrincipalArgsDict(TypedDict):
+    project_designation: NotRequired[pulumi.Input['PolicyGrantProjectDesignation']]
+    project_grant_filter: NotRequired[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgsDict']]
+    project_identifier: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PolicyGrantProjectPolicyGrantPrincipalArgs:
@@ -3999,11 +3706,8 @@ class PolicyGrantProjectPolicyGrantPrincipalArgs:
         pulumi.set(self, "project_identifier", value)
 
 
-if not MYPY:
-    class PolicyGrantUnitArgsDict(TypedDict):
-        pass
-elif False:
-    PolicyGrantUnitArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantUnitArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class PolicyGrantUnitArgs:
@@ -4011,11 +3715,8 @@ class PolicyGrantUnitArgs:
         pass
 
 
-if not MYPY:
-    class PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict(TypedDict):
-        user_identifier: pulumi.Input[_builtins.str]
-elif False:
-    PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict(TypedDict):
+    user_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs:
@@ -4033,11 +3734,8 @@ class PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs:
         pulumi.set(self, "user_identifier", value)
 
 
-if not MYPY:
-    class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict(TypedDict):
-        all_users_grant_filter: pulumi.Input['PolicyGrantAllUsersGrantFilterArgsDict']
-elif False:
-    PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict(TypedDict):
+    all_users_grant_filter: pulumi.Input['PolicyGrantAllUsersGrantFilterArgsDict']
 
 @pulumi.input_type
 class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs:
@@ -4055,22 +3753,19 @@ class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs:
         pulumi.set(self, "all_users_grant_filter", value)
 
 
-if not MYPY:
-    class ProjectEnvironmentConfigurationUserParameterArgsDict(TypedDict):
-        environment_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The environment configuration name.
-        """
-        environment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the environment.
-        """
-        environment_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgsDict']]]]
-        """
-        The environment parameters.
-        """
-elif False:
-    ProjectEnvironmentConfigurationUserParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectEnvironmentConfigurationUserParameterArgsDict(TypedDict):
+    environment_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The environment configuration name.
+    """
+    environment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the environment.
+    """
+    environment_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgsDict']]]]
+    """
+    The environment parameters.
+    """
 
 @pulumi.input_type
 class ProjectEnvironmentConfigurationUserParameterArgs:
@@ -4127,18 +3822,15 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
         pulumi.set(self, "environment_parameters", value)
 
 
-if not MYPY:
-    class ProjectEnvironmentParameterArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an environment profile parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of an environment profile parameter.
-        """
-elif False:
-    ProjectEnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectEnvironmentParameterArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an environment profile parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of an environment profile parameter.
+    """
 
 @pulumi.input_type
 class ProjectEnvironmentParameterArgs:
@@ -4179,11 +3871,8 @@ class ProjectEnvironmentParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ProjectMembershipMember0PropertiesArgsDict(TypedDict):
-        user_identifier: pulumi.Input[_builtins.str]
-elif False:
-    ProjectMembershipMember0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectMembershipMember0PropertiesArgsDict(TypedDict):
+    user_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ProjectMembershipMember0PropertiesArgs:
@@ -4201,11 +3890,8 @@ class ProjectMembershipMember0PropertiesArgs:
         pulumi.set(self, "user_identifier", value)
 
 
-if not MYPY:
-    class ProjectMembershipMember1PropertiesArgsDict(TypedDict):
-        group_identifier: pulumi.Input[_builtins.str]
-elif False:
-    ProjectMembershipMember1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectMembershipMember1PropertiesArgsDict(TypedDict):
+    group_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ProjectMembershipMember1PropertiesArgs:
@@ -4223,14 +3909,11 @@ class ProjectMembershipMember1PropertiesArgs:
         pulumi.set(self, "group_identifier", value)
 
 
-if not MYPY:
-    class ProjectProfileAwsAccountArgsDict(TypedDict):
-        aws_account_id: pulumi.Input[_builtins.str]
-        """
-        The account ID of a project.
-        """
-elif False:
-    ProjectProfileAwsAccountArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectProfileAwsAccountArgsDict(TypedDict):
+    aws_account_id: pulumi.Input[_builtins.str]
+    """
+    The account ID of a project.
+    """
 
 @pulumi.input_type
 class ProjectProfileAwsAccountArgs:
@@ -4254,22 +3937,19 @@ class ProjectProfileAwsAccountArgs:
         pulumi.set(self, "aws_account_id", value)
 
 
-if not MYPY:
-    class ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict(TypedDict):
-        parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
-        """
-        The parameter overrides.
-        """
-        resolved_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
-        """
-        The resolved environment configuration parameters.
-        """
-        ssm_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ssm path environment configuration parameters.
-        """
-elif False:
-    ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict(TypedDict):
+    parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+    """
+    The parameter overrides.
+    """
+    resolved_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+    """
+    The resolved environment configuration parameters.
+    """
+    ssm_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ssm path environment configuration parameters.
+    """
 
 @pulumi.input_type
 class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
@@ -4326,22 +4006,19 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
         pulumi.set(self, "ssm_path", value)
 
 
-if not MYPY:
-    class ProjectProfileEnvironmentConfigurationParameterArgsDict(TypedDict):
-        is_editable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the environment parameter is editable.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the environment configuration parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the environment configuration parameter.
-        """
-elif False:
-    ProjectProfileEnvironmentConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectProfileEnvironmentConfigurationParameterArgsDict(TypedDict):
+    is_editable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the environment parameter is editable.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the environment configuration parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the environment configuration parameter.
+    """
 
 @pulumi.input_type
 class ProjectProfileEnvironmentConfigurationParameterArgs:
@@ -4398,43 +4075,40 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ProjectProfileEnvironmentConfigurationArgsDict(TypedDict):
-        aws_region: pulumi.Input['ProjectProfileRegionArgsDict']
-        """
-        The AWS Region of the environment.
-        """
-        environment_blueprint_id: pulumi.Input[_builtins.str]
-        """
-        The environment blueprint ID.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The environment name.
-        """
-        aws_account: NotRequired[pulumi.Input['ProjectProfileAwsAccountArgsDict']]
-        """
-        The AWS account of the environment.
-        """
-        configuration_parameters: NotRequired[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict']]
-        """
-        The configuration parameters of the environment.
-        """
-        deployment_mode: NotRequired[pulumi.Input['ProjectProfileDeploymentMode']]
-        """
-        The deployment mode of the environment.
-        """
-        deployment_order: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The deployment order of the environment.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The environment description.
-        """
-        environment_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ProjectProfileEnvironmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectProfileEnvironmentConfigurationArgsDict(TypedDict):
+    aws_region: pulumi.Input['ProjectProfileRegionArgsDict']
+    """
+    The AWS Region of the environment.
+    """
+    environment_blueprint_id: pulumi.Input[_builtins.str]
+    """
+    The environment blueprint ID.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The environment name.
+    """
+    aws_account: NotRequired[pulumi.Input['ProjectProfileAwsAccountArgsDict']]
+    """
+    The AWS account of the environment.
+    """
+    configuration_parameters: NotRequired[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict']]
+    """
+    The configuration parameters of the environment.
+    """
+    deployment_mode: NotRequired[pulumi.Input['ProjectProfileDeploymentMode']]
+    """
+    The deployment mode of the environment.
+    """
+    deployment_order: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The deployment order of the environment.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The environment description.
+    """
+    environment_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ProjectProfileEnvironmentConfigurationArgs:
@@ -4580,14 +4254,11 @@ class ProjectProfileEnvironmentConfigurationArgs:
         pulumi.set(self, "environment_configuration_id", value)
 
 
-if not MYPY:
-    class ProjectProfileRegionArgsDict(TypedDict):
-        region_name: pulumi.Input[_builtins.str]
-        """
-        The AWS Region name.
-        """
-elif False:
-    ProjectProfileRegionArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectProfileRegionArgsDict(TypedDict):
+    region_name: pulumi.Input[_builtins.str]
+    """
+    The AWS Region name.
+    """
 
 @pulumi.input_type
 class ProjectProfileRegionArgs:
@@ -4611,21 +4282,18 @@ class ProjectProfileRegionArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class SubscriptionTargetFormArgsDict(TypedDict):
-        """
-        The details of the subscription target configuration.
-        """
-        content: pulumi.Input[_builtins.str]
-        """
-        The content of the subscription target configuration.
-        """
-        form_name: pulumi.Input[_builtins.str]
-        """
-        The form name included in the subscription target configuration.
-        """
-elif False:
-    SubscriptionTargetFormArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionTargetFormArgsDict(TypedDict):
+    """
+    The details of the subscription target configuration.
+    """
+    content: pulumi.Input[_builtins.str]
+    """
+    The content of the subscription target configuration.
+    """
+    form_name: pulumi.Input[_builtins.str]
+    """
+    The form name included in the subscription target configuration.
+    """
 
 @pulumi.input_type
 class SubscriptionTargetFormArgs:

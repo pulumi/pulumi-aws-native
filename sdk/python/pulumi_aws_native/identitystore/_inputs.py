@@ -19,19 +19,14 @@ __all__ = [
     'GroupMembershipMemberIdArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupMembershipMemberIdArgsDict(TypedDict):
-        """
-        An object containing the identifier of a group member.
-        """
-        user_id: pulumi.Input[_builtins.str]
-        """
-        The identifier for a user in the identity store.
-        """
-elif False:
-    GroupMembershipMemberIdArgsDict: TypeAlias = Mapping[str, Any]
+class GroupMembershipMemberIdArgsDict(TypedDict):
+    """
+    An object containing the identifier of a group member.
+    """
+    user_id: pulumi.Input[_builtins.str]
+    """
+    The identifier for a user in the identity store.
+    """
 
 @pulumi.input_type
 class GroupMembershipMemberIdArgs:

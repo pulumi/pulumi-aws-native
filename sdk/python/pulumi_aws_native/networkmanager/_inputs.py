@@ -61,19 +61,14 @@ __all__ = [
     'VpcAttachmentVpcOptionsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectAttachmentOptionsArgsDict(TypedDict):
-        """
-        Connect attachment options for protocol
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tunnel protocol for connect attachment
-        """
-elif False:
-    ConnectAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectAttachmentOptionsArgsDict(TypedDict):
+    """
+    Connect attachment options for protocol
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tunnel protocol for connect attachment
+    """
 
 @pulumi.input_type
 class ConnectAttachmentOptionsArgs:
@@ -99,25 +94,22 @@ class ConnectAttachmentOptionsArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class ConnectAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one network function group to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function group to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the network function group.
-        """
-elif False:
-    ConnectAttachmentProposedNetworkFunctionGroupChangeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function group to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the network function group.
+    """
 
 @pulumi.input_type
 class ConnectAttachmentProposedNetworkFunctionGroupChangeArgs:
@@ -175,25 +167,22 @@ class ConnectAttachmentProposedNetworkFunctionGroupChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class ConnectAttachmentProposedSegmentChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one segment to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        segment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the segment to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgsDict']]]]
-        """
-        The list of key-value tags that changed for the segment.
-        """
-elif False:
-    ConnectAttachmentProposedSegmentChangeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectAttachmentProposedSegmentChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one segment to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    segment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the segment to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgsDict']]]]
+    """
+    The list of key-value tags that changed for the segment.
+    """
 
 @pulumi.input_type
 class ConnectAttachmentProposedSegmentChangeArgs:
@@ -251,21 +240,18 @@ class ConnectAttachmentProposedSegmentChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class ConnectAttachmentTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    ConnectAttachmentTagArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectAttachmentTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class ConnectAttachmentTagArgs:
@@ -305,17 +291,14 @@ class ConnectAttachmentTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConnectPeerBgpOptionsArgsDict(TypedDict):
-        """
-        Bgp options
-        """
-        peer_asn: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The Peer ASN of the BGP.
-        """
-elif False:
-    ConnectPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectPeerBgpOptionsArgsDict(TypedDict):
+    """
+    Bgp options
+    """
+    peer_asn: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The Peer ASN of the BGP.
+    """
 
 @pulumi.input_type
 class ConnectPeerBgpOptionsArgs:
@@ -341,21 +324,18 @@ class ConnectPeerBgpOptionsArgs:
         pulumi.set(self, "peer_asn", value)
 
 
-if not MYPY:
-    class DeviceAwsLocationArgsDict(TypedDict):
-        """
-        The Amazon Web Services location of the device, if applicable.
-        """
-        subnet_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the subnet that the device is located in.
-        """
-        zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-        """
-elif False:
-    DeviceAwsLocationArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceAwsLocationArgsDict(TypedDict):
+    """
+    The Amazon Web Services location of the device, if applicable.
+    """
+    subnet_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the subnet that the device is located in.
+    """
+    zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+    """
 
 @pulumi.input_type
 class DeviceAwsLocationArgs:
@@ -397,25 +377,22 @@ class DeviceAwsLocationArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class DeviceLocationArgsDict(TypedDict):
-        """
-        The site location.
-        """
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The physical address.
-        """
-        latitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The latitude.
-        """
-        longitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The longitude.
-        """
-elif False:
-    DeviceLocationArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceLocationArgsDict(TypedDict):
+    """
+    The site location.
+    """
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The physical address.
+    """
+    latitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The latitude.
+    """
+    longitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The longitude.
+    """
 
 @pulumi.input_type
 class DeviceLocationArgs:
@@ -473,25 +450,22 @@ class DeviceLocationArgs:
         pulumi.set(self, "longitude", value)
 
 
-if not MYPY:
-    class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one network function group to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function group to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the network function group.
-        """
-elif False:
-    DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgsDict: TypeAlias = Mapping[str, Any]
+class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function group to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the network function group.
+    """
 
 @pulumi.input_type
 class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs:
@@ -549,25 +523,22 @@ class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DirectConnectGatewayAttachmentProposedSegmentChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one segment to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        segment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the segment to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the segment.
-        """
-elif False:
-    DirectConnectGatewayAttachmentProposedSegmentChangeArgsDict: TypeAlias = Mapping[str, Any]
+class DirectConnectGatewayAttachmentProposedSegmentChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one segment to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    segment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the segment to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the segment.
+    """
 
 @pulumi.input_type
 class DirectConnectGatewayAttachmentProposedSegmentChangeArgs:
@@ -625,21 +596,18 @@ class DirectConnectGatewayAttachmentProposedSegmentChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DirectConnectGatewayAttachmentTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    DirectConnectGatewayAttachmentTagArgsDict: TypeAlias = Mapping[str, Any]
+class DirectConnectGatewayAttachmentTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class DirectConnectGatewayAttachmentTagArgs:
@@ -679,21 +647,18 @@ class DirectConnectGatewayAttachmentTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LinkBandwidthArgsDict(TypedDict):
-        """
-        The bandwidth for the link.
-        """
-        download_speed: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Download speed in Mbps.
-        """
-        upload_speed: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Upload speed in Mbps.
-        """
-elif False:
-    LinkBandwidthArgsDict: TypeAlias = Mapping[str, Any]
+class LinkBandwidthArgsDict(TypedDict):
+    """
+    The bandwidth for the link.
+    """
+    download_speed: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Download speed in Mbps.
+    """
+    upload_speed: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Upload speed in Mbps.
+    """
 
 @pulumi.input_type
 class LinkBandwidthArgs:
@@ -735,25 +700,22 @@ class LinkBandwidthArgs:
         pulumi.set(self, "upload_speed", value)
 
 
-if not MYPY:
-    class SiteLocationArgsDict(TypedDict):
-        """
-        The location of the site
-        """
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The physical address.
-        """
-        latitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The latitude.
-        """
-        longitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The longitude.
-        """
-elif False:
-    SiteLocationArgsDict: TypeAlias = Mapping[str, Any]
+class SiteLocationArgsDict(TypedDict):
+    """
+    The location of the site
+    """
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The physical address.
+    """
+    latitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The latitude.
+    """
+    longitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The longitude.
+    """
 
 @pulumi.input_type
 class SiteLocationArgs:
@@ -811,25 +773,22 @@ class SiteLocationArgs:
         pulumi.set(self, "longitude", value)
 
 
-if not MYPY:
-    class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one network function group to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function group to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the network function group.
-        """
-elif False:
-    SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgsDict: TypeAlias = Mapping[str, Any]
+class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function group to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the network function group.
+    """
 
 @pulumi.input_type
 class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs:
@@ -887,25 +846,22 @@ class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class SiteToSiteVpnAttachmentProposedSegmentChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one segment to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        segment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the segment to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the segment.
-        """
-elif False:
-    SiteToSiteVpnAttachmentProposedSegmentChangeArgsDict: TypeAlias = Mapping[str, Any]
+class SiteToSiteVpnAttachmentProposedSegmentChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one segment to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    segment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the segment to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the segment.
+    """
 
 @pulumi.input_type
 class SiteToSiteVpnAttachmentProposedSegmentChangeArgs:
@@ -963,21 +919,18 @@ class SiteToSiteVpnAttachmentProposedSegmentChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class SiteToSiteVpnAttachmentTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    SiteToSiteVpnAttachmentTagArgsDict: TypeAlias = Mapping[str, Any]
+class SiteToSiteVpnAttachmentTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class SiteToSiteVpnAttachmentTagArgs:
@@ -1017,25 +970,22 @@ class SiteToSiteVpnAttachmentTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one network function group to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function group to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the network function group.
-        """
-elif False:
-    TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function group to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the network function group.
+    """
 
 @pulumi.input_type
 class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs:
@@ -1093,25 +1043,22 @@ class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one segment to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        segment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the segment to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the segment.
-        """
-elif False:
-    TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one segment to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    segment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the segment to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the segment.
+    """
 
 @pulumi.input_type
 class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs:
@@ -1169,21 +1116,18 @@ class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class TransitGatewayRouteTableAttachmentTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    TransitGatewayRouteTableAttachmentTagArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayRouteTableAttachmentTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class TransitGatewayRouteTableAttachmentTagArgs:
@@ -1223,25 +1167,22 @@ class TransitGatewayRouteTableAttachmentTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpcAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one network function group to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the network function group to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the network function group.
-        """
-elif False:
-    VpcAttachmentProposedNetworkFunctionGroupChangeArgsDict: TypeAlias = Mapping[str, Any]
+class VpcAttachmentProposedNetworkFunctionGroupChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    network_function_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the network function group to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the network function group.
+    """
 
 @pulumi.input_type
 class VpcAttachmentProposedNetworkFunctionGroupChangeArgs:
@@ -1299,25 +1240,22 @@ class VpcAttachmentProposedNetworkFunctionGroupChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class VpcAttachmentProposedSegmentChangeArgsDict(TypedDict):
-        """
-        The attachment to move from one segment to another.
-        """
-        attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule number in the policy document that applies to this change.
-        """
-        segment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the segment to change.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgsDict']]]]
-        """
-        The key-value tags that changed for the segment.
-        """
-elif False:
-    VpcAttachmentProposedSegmentChangeArgsDict: TypeAlias = Mapping[str, Any]
+class VpcAttachmentProposedSegmentChangeArgsDict(TypedDict):
+    """
+    The attachment to move from one segment to another.
+    """
+    attachment_policy_rule_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule number in the policy document that applies to this change.
+    """
+    segment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the segment to change.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgsDict']]]]
+    """
+    The key-value tags that changed for the segment.
+    """
 
 @pulumi.input_type
 class VpcAttachmentProposedSegmentChangeArgs:
@@ -1375,21 +1313,18 @@ class VpcAttachmentProposedSegmentChangeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class VpcAttachmentTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    VpcAttachmentTagArgsDict: TypeAlias = Mapping[str, Any]
+class VpcAttachmentTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class VpcAttachmentTagArgs:
@@ -1429,29 +1364,26 @@ class VpcAttachmentTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpcAttachmentVpcOptionsArgsDict(TypedDict):
-        """
-        Vpc options of the attachment.
-        """
-        appliance_mode_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
-        """
-        dns_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
-        """
-        ipv6_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
-        """
-        security_group_referencing_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
-        """
-elif False:
-    VpcAttachmentVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VpcAttachmentVpcOptionsArgsDict(TypedDict):
+    """
+    Vpc options of the attachment.
+    """
+    appliance_mode_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+    """
+    dns_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+    """
+    ipv6_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+    """
+    security_group_referencing_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+    """
 
 @pulumi.input_type
 class VpcAttachmentVpcOptionsArgs:

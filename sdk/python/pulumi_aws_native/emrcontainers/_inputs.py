@@ -68,14 +68,9 @@ __all__ = [
     'VirtualClusterEksInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EndpointCloudWatchMonitoringConfigurationArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EndpointCloudWatchMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointCloudWatchMonitoringConfigurationArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EndpointCloudWatchMonitoringConfigurationArgs:
@@ -105,12 +100,9 @@ class EndpointCloudWatchMonitoringConfigurationArgs:
         pulumi.set(self, "log_stream_name_prefix", value)
 
 
-if not MYPY:
-    class EndpointConfigurationOverridesArgsDict(TypedDict):
-        application_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]
-        monitoring_configuration: NotRequired[pulumi.Input['EndpointMonitoringConfigurationArgsDict']]
-elif False:
-    EndpointConfigurationOverridesArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointConfigurationOverridesArgsDict(TypedDict):
+    application_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]
+    monitoring_configuration: NotRequired[pulumi.Input['EndpointMonitoringConfigurationArgsDict']]
 
 @pulumi.input_type
 class EndpointConfigurationOverridesArgs:
@@ -141,12 +133,9 @@ class EndpointConfigurationOverridesArgs:
         pulumi.set(self, "monitoring_configuration", value)
 
 
-if not MYPY:
-    class EndpointContainerLogRotationConfigurationArgsDict(TypedDict):
-        max_files_to_keep: pulumi.Input[_builtins.int]
-        rotation_size: pulumi.Input[_builtins.str]
-elif False:
-    EndpointContainerLogRotationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointContainerLogRotationConfigurationArgsDict(TypedDict):
+    max_files_to_keep: pulumi.Input[_builtins.int]
+    rotation_size: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class EndpointContainerLogRotationConfigurationArgs:
@@ -175,13 +164,10 @@ class EndpointContainerLogRotationConfigurationArgs:
         pulumi.set(self, "rotation_size", value)
 
 
-if not MYPY:
-    class EndpointEmreksConfigurationArgsDict(TypedDict):
-        classification: pulumi.Input[_builtins.str]
-        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    EndpointEmreksConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointEmreksConfigurationArgsDict(TypedDict):
+    classification: pulumi.Input[_builtins.str]
+    configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class EndpointEmreksConfigurationArgs:
@@ -223,14 +209,11 @@ class EndpointEmreksConfigurationArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class EndpointMonitoringConfigurationArgsDict(TypedDict):
-        cloud_watch_monitoring_configuration: NotRequired[pulumi.Input['EndpointCloudWatchMonitoringConfigurationArgsDict']]
-        container_log_rotation_configuration: NotRequired[pulumi.Input['EndpointContainerLogRotationConfigurationArgsDict']]
-        persistent_app_ui: NotRequired[pulumi.Input['EndpointMonitoringConfigurationPersistentAppUi']]
-        s3_monitoring_configuration: NotRequired[pulumi.Input['EndpointS3MonitoringConfigurationArgsDict']]
-elif False:
-    EndpointMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointMonitoringConfigurationArgsDict(TypedDict):
+    cloud_watch_monitoring_configuration: NotRequired[pulumi.Input['EndpointCloudWatchMonitoringConfigurationArgsDict']]
+    container_log_rotation_configuration: NotRequired[pulumi.Input['EndpointContainerLogRotationConfigurationArgsDict']]
+    persistent_app_ui: NotRequired[pulumi.Input['EndpointMonitoringConfigurationPersistentAppUi']]
+    s3_monitoring_configuration: NotRequired[pulumi.Input['EndpointS3MonitoringConfigurationArgsDict']]
 
 @pulumi.input_type
 class EndpointMonitoringConfigurationArgs:
@@ -285,11 +268,8 @@ class EndpointMonitoringConfigurationArgs:
         pulumi.set(self, "s3_monitoring_configuration", value)
 
 
-if not MYPY:
-    class EndpointS3MonitoringConfigurationArgsDict(TypedDict):
-        log_uri: pulumi.Input[_builtins.str]
-elif False:
-    EndpointS3MonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointS3MonitoringConfigurationArgsDict(TypedDict):
+    log_uri: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class EndpointS3MonitoringConfigurationArgs:
@@ -307,15 +287,12 @@ class EndpointS3MonitoringConfigurationArgs:
         pulumi.set(self, "log_uri", value)
 
 
-if not MYPY:
-    class SecurityConfigurationAtRestEncryptionConfigurationArgsDict(TypedDict):
-        """
-        At-rest encryption configuration.
-        """
-        local_disk_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict']]
-        s3_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationArgsDict']]
-elif False:
-    SecurityConfigurationAtRestEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationAtRestEncryptionConfigurationArgsDict(TypedDict):
+    """
+    At-rest encryption configuration.
+    """
+    local_disk_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict']]
+    s3_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationAtRestEncryptionConfigurationArgs:
@@ -349,15 +326,12 @@ class SecurityConfigurationAtRestEncryptionConfigurationArgs:
         pulumi.set(self, "s3_encryption_configuration", value)
 
 
-if not MYPY:
-    class SecurityConfigurationAuthenticationConfigurationArgsDict(TypedDict):
-        """
-        Authentication configuration for the security configuration.
-        """
-        iam_configuration: NotRequired[pulumi.Input['SecurityConfigurationIamConfigurationArgsDict']]
-        identity_center_configuration: NotRequired[pulumi.Input['SecurityConfigurationIdentityCenterConfigurationArgsDict']]
-elif False:
-    SecurityConfigurationAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationAuthenticationConfigurationArgsDict(TypedDict):
+    """
+    Authentication configuration for the security configuration.
+    """
+    iam_configuration: NotRequired[pulumi.Input['SecurityConfigurationIamConfigurationArgsDict']]
+    identity_center_configuration: NotRequired[pulumi.Input['SecurityConfigurationIdentityCenterConfigurationArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationAuthenticationConfigurationArgs:
@@ -391,14 +365,11 @@ class SecurityConfigurationAuthenticationConfigurationArgs:
         pulumi.set(self, "identity_center_configuration", value)
 
 
-if not MYPY:
-    class SecurityConfigurationAuthorizationConfigurationArgsDict(TypedDict):
-        """
-        Authorization configuration for the security configuration.
-        """
-        lake_formation_configuration: NotRequired[pulumi.Input['SecurityConfigurationLakeFormationConfigurationArgsDict']]
-elif False:
-    SecurityConfigurationAuthorizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationAuthorizationConfigurationArgsDict(TypedDict):
+    """
+    Authorization configuration for the security configuration.
+    """
+    lake_formation_configuration: NotRequired[pulumi.Input['SecurityConfigurationLakeFormationConfigurationArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationAuthorizationConfigurationArgs:
@@ -420,14 +391,11 @@ class SecurityConfigurationAuthorizationConfigurationArgs:
         pulumi.set(self, "lake_formation_configuration", value)
 
 
-if not MYPY:
-    class SecurityConfigurationContainerInfoArgsDict(TypedDict):
-        """
-        Container information.
-        """
-        eks_info: NotRequired[pulumi.Input['SecurityConfigurationEksInfoArgsDict']]
-elif False:
-    SecurityConfigurationContainerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationContainerInfoArgsDict(TypedDict):
+    """
+    Container information.
+    """
+    eks_info: NotRequired[pulumi.Input['SecurityConfigurationEksInfoArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationContainerInfoArgs:
@@ -449,22 +417,19 @@ class SecurityConfigurationContainerInfoArgs:
         pulumi.set(self, "eks_info", value)
 
 
-if not MYPY:
-    class SecurityConfigurationContainerProviderArgsDict(TypedDict):
-        """
-        Container provider information.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The container provider ID.
-        """
-        type: pulumi.Input['SecurityConfigurationContainerProviderType']
-        """
-        The container provider type.
-        """
-        info: NotRequired[pulumi.Input['SecurityConfigurationContainerInfoArgsDict']]
-elif False:
-    SecurityConfigurationContainerProviderArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationContainerProviderArgsDict(TypedDict):
+    """
+    Container provider information.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The container provider ID.
+    """
+    type: pulumi.Input['SecurityConfigurationContainerProviderType']
+    """
+    The container provider type.
+    """
+    info: NotRequired[pulumi.Input['SecurityConfigurationContainerInfoArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationContainerProviderArgs:
@@ -516,16 +481,13 @@ class SecurityConfigurationContainerProviderArgs:
         pulumi.set(self, "info", value)
 
 
-if not MYPY:
-    class SecurityConfigurationDataArgsDict(TypedDict):
-        """
-        Security configuration data containing encryption and authorization settings.
-        """
-        authentication_configuration: NotRequired[pulumi.Input['SecurityConfigurationAuthenticationConfigurationArgsDict']]
-        authorization_configuration: NotRequired[pulumi.Input['SecurityConfigurationAuthorizationConfigurationArgsDict']]
-        encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgsDict']]
-elif False:
-    SecurityConfigurationDataArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationDataArgsDict(TypedDict):
+    """
+    Security configuration data containing encryption and authorization settings.
+    """
+    authentication_configuration: NotRequired[pulumi.Input['SecurityConfigurationAuthenticationConfigurationArgsDict']]
+    authorization_configuration: NotRequired[pulumi.Input['SecurityConfigurationAuthorizationConfigurationArgsDict']]
+    encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationDataArgs:
@@ -571,17 +533,14 @@ class SecurityConfigurationDataArgs:
         pulumi.set(self, "encryption_configuration", value)
 
 
-if not MYPY:
-    class SecurityConfigurationEksInfoArgsDict(TypedDict):
-        """
-        EKS information.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The EKS namespace.
-        """
-elif False:
-    SecurityConfigurationEksInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationEksInfoArgsDict(TypedDict):
+    """
+    EKS information.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EKS namespace.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationEksInfoArgs:
@@ -607,15 +566,12 @@ class SecurityConfigurationEksInfoArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class SecurityConfigurationEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Encryption configuration for the security configuration.
-        """
-        at_rest_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationAtRestEncryptionConfigurationArgsDict']]
-        in_transit_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationInTransitEncryptionConfigurationArgsDict']]
-elif False:
-    SecurityConfigurationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Encryption configuration for the security configuration.
+    """
+    at_rest_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationAtRestEncryptionConfigurationArgsDict']]
+    in_transit_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationInTransitEncryptionConfigurationArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationEncryptionConfigurationArgs:
@@ -649,17 +605,14 @@ class SecurityConfigurationEncryptionConfigurationArgs:
         pulumi.set(self, "in_transit_encryption_configuration", value)
 
 
-if not MYPY:
-    class SecurityConfigurationIamConfigurationArgsDict(TypedDict):
-        """
-        IAM configuration.
-        """
-        system_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The system role ARN.
-        """
-elif False:
-    SecurityConfigurationIamConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationIamConfigurationArgsDict(TypedDict):
+    """
+    IAM configuration.
+    """
+    system_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The system role ARN.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationIamConfigurationArgs:
@@ -685,25 +638,22 @@ class SecurityConfigurationIamConfigurationArgs:
         pulumi.set(self, "system_role", value)
 
 
-if not MYPY:
-    class SecurityConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
-        """
-        Identity Center configuration.
-        """
-        enable_identity_center: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable Identity Center integration.
-        """
-        identity_center_application_assignment_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Identity Center application assignment is required.
-        """
-        identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Identity Center instance.
-        """
-elif False:
-    SecurityConfigurationIdentityCenterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
+    """
+    Identity Center configuration.
+    """
+    enable_identity_center: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable Identity Center integration.
+    """
+    identity_center_application_assignment_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Identity Center application assignment is required.
+    """
+    identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Identity Center instance.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationIdentityCenterConfigurationArgs:
@@ -761,14 +711,11 @@ class SecurityConfigurationIdentityCenterConfigurationArgs:
         pulumi.set(self, "identity_center_instance_arn", value)
 
 
-if not MYPY:
-    class SecurityConfigurationInTransitEncryptionConfigurationArgsDict(TypedDict):
-        """
-        In-transit encryption configuration.
-        """
-        tls_certificate_configuration: NotRequired[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationArgsDict']]
-elif False:
-    SecurityConfigurationInTransitEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationInTransitEncryptionConfigurationArgsDict(TypedDict):
+    """
+    In-transit encryption configuration.
+    """
+    tls_certificate_configuration: NotRequired[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationInTransitEncryptionConfigurationArgs:
@@ -790,26 +737,23 @@ class SecurityConfigurationInTransitEncryptionConfigurationArgs:
         pulumi.set(self, "tls_certificate_configuration", value)
 
 
-if not MYPY:
-    class SecurityConfigurationLakeFormationConfigurationArgsDict(TypedDict):
-        """
-        Lake Formation configuration.
-        """
-        authorized_session_tag_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The session tag to authorize Lake Formation access.
-        """
-        query_access_control_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether query access control is enabled.
-        """
-        query_engine_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the query engine role.
-        """
-        secure_namespace_info: NotRequired[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgsDict']]
-elif False:
-    SecurityConfigurationLakeFormationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationLakeFormationConfigurationArgsDict(TypedDict):
+    """
+    Lake Formation configuration.
+    """
+    authorized_session_tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The session tag to authorize Lake Formation access.
+    """
+    query_access_control_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether query access control is enabled.
+    """
+    query_engine_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the query engine role.
+    """
+    secure_namespace_info: NotRequired[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgsDict']]
 
 @pulumi.input_type
 class SecurityConfigurationLakeFormationConfigurationArgs:
@@ -879,21 +823,18 @@ class SecurityConfigurationLakeFormationConfigurationArgs:
         pulumi.set(self, "secure_namespace_info", value)
 
 
-if not MYPY:
-    class SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Local disk encryption configuration.
-        """
-        aws_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS KMS key ID.
-        """
-        encryption_key_provider_type: NotRequired[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]
-        """
-        The encryption key provider type.
-        """
-elif False:
-    SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Local disk encryption configuration.
+    """
+    aws_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS KMS key ID.
+    """
+    encryption_key_provider_type: NotRequired[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]
+    """
+    The encryption key provider type.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationLocalDiskEncryptionConfigurationArgs:
@@ -935,21 +876,18 @@ class SecurityConfigurationLocalDiskEncryptionConfigurationArgs:
         pulumi.set(self, "encryption_key_provider_type", value)
 
 
-if not MYPY:
-    class SecurityConfigurationS3EncryptionConfigurationArgsDict(TypedDict):
-        """
-        S3 encryption configuration.
-        """
-        encryption_option: NotRequired[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]
-        """
-        The S3 encryption option.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The KMS key ID for encryption.
-        """
-elif False:
-    SecurityConfigurationS3EncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationS3EncryptionConfigurationArgsDict(TypedDict):
+    """
+    S3 encryption configuration.
+    """
+    encryption_option: NotRequired[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]
+    """
+    The S3 encryption option.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The KMS key ID for encryption.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationS3EncryptionConfigurationArgs:
@@ -991,21 +929,18 @@ class SecurityConfigurationS3EncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class SecurityConfigurationSecureNamespaceInfoArgsDict(TypedDict):
-        """
-        Secure namespace information for Lake Formation.
-        """
-        cluster_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the cluster.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace.
-        """
-elif False:
-    SecurityConfigurationSecureNamespaceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationSecureNamespaceInfoArgsDict(TypedDict):
+    """
+    Secure namespace information for Lake Formation.
+    """
+    cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the cluster.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationSecureNamespaceInfoArgs:
@@ -1047,25 +982,22 @@ class SecurityConfigurationSecureNamespaceInfoArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class SecurityConfigurationTlsCertificateConfigurationArgsDict(TypedDict):
-        """
-        TLS certificate configuration for in-transit encryption.
-        """
-        certificate_provider_type: NotRequired[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]
-        """
-        The certificate provider type.
-        """
-        private_key_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the secret containing the private key.
-        """
-        public_key_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the secret containing the public key.
-        """
-elif False:
-    SecurityConfigurationTlsCertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigurationTlsCertificateConfigurationArgsDict(TypedDict):
+    """
+    TLS certificate configuration for in-transit encryption.
+    """
+    certificate_provider_type: NotRequired[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]
+    """
+    The certificate provider type.
+    """
+    private_key_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the secret containing the private key.
+    """
+    public_key_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the secret containing the public key.
+    """
 
 @pulumi.input_type
 class SecurityConfigurationTlsCertificateConfigurationArgs:
@@ -1123,14 +1055,11 @@ class SecurityConfigurationTlsCertificateConfigurationArgs:
         pulumi.set(self, "public_key_secret_arn", value)
 
 
-if not MYPY:
-    class VirtualClusterContainerInfoArgsDict(TypedDict):
-        eks_info: pulumi.Input['VirtualClusterEksInfoArgsDict']
-        """
-        The information about the Amazon EKS cluster.
-        """
-elif False:
-    VirtualClusterContainerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualClusterContainerInfoArgsDict(TypedDict):
+    eks_info: pulumi.Input['VirtualClusterEksInfoArgsDict']
+    """
+    The information about the Amazon EKS cluster.
+    """
 
 @pulumi.input_type
 class VirtualClusterContainerInfoArgs:
@@ -1154,22 +1083,19 @@ class VirtualClusterContainerInfoArgs:
         pulumi.set(self, "eks_info", value)
 
 
-if not MYPY:
-    class VirtualClusterContainerProviderArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the container cluster
-        """
-        info: pulumi.Input['VirtualClusterContainerInfoArgsDict']
-        """
-        The information about the container cluster.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the container provider
-        """
-elif False:
-    VirtualClusterContainerProviderArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualClusterContainerProviderArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the container cluster
+    """
+    info: pulumi.Input['VirtualClusterContainerInfoArgsDict']
+    """
+    The information about the container cluster.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the container provider
+    """
 
 @pulumi.input_type
 class VirtualClusterContainerProviderArgs:
@@ -1223,20 +1149,17 @@ class VirtualClusterContainerProviderArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class VirtualClusterEksInfoArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        The namespaces of the EKS cluster.
+class VirtualClusterEksInfoArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The namespaces of the EKS cluster.
 
-        *Minimum* : 1
+    *Minimum* : 1
 
-        *Maximum* : 63
+    *Maximum* : 63
 
-        *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
-        """
-elif False:
-    VirtualClusterEksInfoArgsDict: TypeAlias = Mapping[str, Any]
+    *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+    """
 
 @pulumi.input_type
 class VirtualClusterEksInfoArgs:

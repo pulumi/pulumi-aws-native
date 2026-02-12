@@ -42,42 +42,37 @@ __all__ = [
     'EventTypeTagArgsDict',
 ]
 
-MYPY = False
+class DetectorEntityTypeArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The entity type ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the entity type was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-if not MYPY:
-    class DetectorEntityTypeArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The entity type ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the entity type was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
-
-        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the entity type was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The entity type name.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
-        """
-        Tags associated with this entity type.
-        """
-elif False:
-    DetectorEntityTypeArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the entity type was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The entity type name.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    """
+    Tags associated with this entity type.
+    """
 
 @pulumi.input_type
 class DetectorEntityTypeArgs:
@@ -202,52 +197,49 @@ class DetectorEntityTypeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DetectorEventTypeArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the event type.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the event type.
-        """
-        entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgsDict']]]]
-        """
-        The event type entity types.
-        """
-        event_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgsDict']]]]
-        """
-        The event type event variables.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+class DetectorEventTypeArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the event type.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the event type.
+    """
+    entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgsDict']]]]
+    """
+    The event type entity types.
+    """
+    event_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgsDict']]]]
+    """
+    The event type event variables.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgsDict']]]]
-        """
-        The event type labels.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name for the event type
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
-        """
-        Tags associated with this event type.
-        """
-elif False:
-    DetectorEventTypeArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgsDict']]]]
+    """
+    The event type labels.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name for the event type
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    """
+    Tags associated with this event type.
+    """
 
 @pulumi.input_type
 class DetectorEventTypeArgs:
@@ -420,62 +412,59 @@ class DetectorEventTypeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DetectorEventVariableArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The event variable ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event variable was created.
-        """
-        data_source: NotRequired[pulumi.Input['DetectorEventVariableDataSource']]
-        """
-        The data source of the event variable.
+class DetectorEventVariableArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The event variable ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event variable was created.
+    """
+    data_source: NotRequired[pulumi.Input['DetectorEventVariableDataSource']]
+    """
+    The data source of the event variable.
 
-        Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+    Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 
-        When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-        """
-        data_type: NotRequired[pulumi.Input['DetectorEventVariableDataType']]
-        """
-        The data type of the event variable.
+    When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+    """
+    data_type: NotRequired[pulumi.Input['DetectorEventVariableDataType']]
+    """
+    The data type of the event variable.
 
-        Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+    Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value of the event variable. This is required if you are providing the details of your variables instead of the ARN.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event variable was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the event variable.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
-        """
-        Tags associated with this event variable.
-        """
-        variable_type: NotRequired[pulumi.Input['DetectorEventVariableVariableType']]
-        """
-        The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
-        """
-elif False:
-    DetectorEventVariableArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event variable was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the event variable.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    """
+    Tags associated with this event variable.
+    """
+    variable_type: NotRequired[pulumi.Input['DetectorEventVariableVariableType']]
+    """
+    The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+    """
 
 @pulumi.input_type
 class DetectorEventVariableArgs:
@@ -676,40 +665,37 @@ class DetectorEventVariableArgs:
         pulumi.set(self, "variable_type", value)
 
 
-if not MYPY:
-    class DetectorLabelArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the label was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+class DetectorLabelArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the label was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the label was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label name.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
-        """
-        Tags associated with this label.
-        """
-elif False:
-    DetectorLabelArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the label was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label name.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    """
+    Tags associated with this label.
+    """
 
 @pulumi.input_type
 class DetectorLabelArgs:
@@ -834,17 +820,14 @@ class DetectorLabelArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DetectorModelArgsDict(TypedDict):
-        """
-        A model to associate with a detector.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the model.
-        """
-elif False:
-    DetectorModelArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorModelArgsDict(TypedDict):
+    """
+    A model to associate with a detector.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the model.
+    """
 
 @pulumi.input_type
 class DetectorModelArgs:
@@ -870,40 +853,37 @@ class DetectorModelArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class DetectorOutcomeArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The outcome ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the outcome was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+class DetectorOutcomeArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The outcome ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the outcome was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the outcome was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The outcome name.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
-        """
-        Tags associated with this outcome.
-        """
-elif False:
-    DetectorOutcomeArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the outcome was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The outcome name.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    """
+    Tags associated with this outcome.
+    """
 
 @pulumi.input_type
 class DetectorOutcomeArgs:
@@ -1028,56 +1008,53 @@ class DetectorOutcomeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DetectorRuleArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        detector_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The detector for which the rule is associated.
-        """
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
-        """
-        language: NotRequired[pulumi.Input['DetectorRuleLanguage']]
-        """
-        The rule language.
+class DetectorRuleArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    detector_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The detector for which the rule is associated.
+    """
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
+    """
+    language: NotRequired[pulumi.Input['DetectorRuleLanguage']]
+    """
+    The rule language.
 
-        Valid Value: DETECTORPL
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was last updated.
-        """
-        outcomes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgsDict']]]]
-        """
-        The rule outcome.
-        """
-        rule_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule ID.
-        """
-        rule_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule version.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
-        """
-        Tags associated with this event type.
-        """
-elif False:
-    DetectorRuleArgsDict: TypeAlias = Mapping[str, Any]
+    Valid Value: DETECTORPL
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was last updated.
+    """
+    outcomes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgsDict']]]]
+    """
+    The rule outcome.
+    """
+    rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule ID.
+    """
+    rule_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule version.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgsDict']]]]
+    """
+    Tags associated with this event type.
+    """
 
 @pulumi.input_type
 class DetectorRuleArgs:
@@ -1266,18 +1243,15 @@ class DetectorRuleArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DetectorTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        A tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A value assigned to a tag key.
-        """
-elif False:
-    DetectorTagArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    A tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A value assigned to a tag key.
+    """
 
 @pulumi.input_type
 class DetectorTagArgs:
@@ -1316,42 +1290,39 @@ class DetectorTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventTypeEntityTypeArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The entity type ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+class EventTypeEntityTypeArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The entity type ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The entity type name.
+    For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The entity type name.
 
-        `^[0-9a-z_-]+$`
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
-        """
-        Tags associated with this event type.
-        """
-elif False:
-    EventTypeEntityTypeArgsDict: TypeAlias = Mapping[str, Any]
+    `^[0-9a-z_-]+$`
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
+    """
+    Tags associated with this event type.
+    """
 
 @pulumi.input_type
 class EventTypeEntityTypeArgs:
@@ -1480,60 +1451,57 @@ class EventTypeEntityTypeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class EventTypeEventVariableArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The event variable ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was created.
-        """
-        data_source: NotRequired[pulumi.Input['EventTypeEventVariableDataSource']]
-        """
-        The source of the event variable.
+class EventTypeEventVariableArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The event variable ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was created.
+    """
+    data_source: NotRequired[pulumi.Input['EventTypeEventVariableDataSource']]
+    """
+    The source of the event variable.
 
-        Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+    Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 
-        When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-        """
-        data_type: NotRequired[pulumi.Input['EventTypeEventVariableDataType']]
-        """
-        The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value of the event variable
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+    When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+    """
+    data_type: NotRequired[pulumi.Input['EventTypeEventVariableDataType']]
+    """
+    The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value of the event variable
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the event variable.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
-        """
-        Tags associated with this event type.
-        """
-        variable_type: NotRequired[pulumi.Input['EventTypeEventVariableVariableType']]
-        """
-        The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
-        """
-elif False:
-    EventTypeEventVariableArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the event variable.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
+    """
+    Tags associated with this event type.
+    """
+    variable_type: NotRequired[pulumi.Input['EventTypeEventVariableVariableType']]
+    """
+    The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
+    """
 
 @pulumi.input_type
 class EventTypeEventVariableArgs:
@@ -1730,40 +1698,37 @@ class EventTypeEventVariableArgs:
         pulumi.set(self, "variable_type", value)
 
 
-if not MYPY:
-    class EventTypeLabelArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label ARN.
-        """
-        created_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        inline: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+class EventTypeLabelArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label ARN.
+    """
+    created_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    inline: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 
-        For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
-        """
-        last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the event type was last updated.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label name.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
-        """
-        Tags associated with this event type.
-        """
-elif False:
-    EventTypeLabelArgsDict: TypeAlias = Mapping[str, Any]
+    For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
+    """
+    last_updated_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the event type was last updated.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label name.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgsDict']]]]
+    """
+    Tags associated with this event type.
+    """
 
 @pulumi.input_type
 class EventTypeLabelArgs:
@@ -1888,18 +1853,15 @@ class EventTypeLabelArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class EventTypeTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        A tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A value assigned to a tag key.
-        """
-elif False:
-    EventTypeTagArgsDict: TypeAlias = Mapping[str, Any]
+class EventTypeTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    A tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A value assigned to a tag key.
+    """
 
 @pulumi.input_type
 class EventTypeTagArgs:

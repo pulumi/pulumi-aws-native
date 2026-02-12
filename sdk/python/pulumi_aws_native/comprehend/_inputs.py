@@ -42,32 +42,27 @@ __all__ = [
     'FlywheelVpcConfigArgsDict',
 ]
 
-MYPY = False
+class DocumentClassifierAugmentedManifestsListItemArgsDict(TypedDict):
+    attribute_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
 
-if not MYPY:
-    class DocumentClassifierAugmentedManifestsListItemArgsDict(TypedDict):
-        attribute_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
+    If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
 
-        If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
+    If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 location of the augmented manifest file.
+    """
+    split: NotRequired[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']]
+    """
+    The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
 
-        If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
-        """
-        s3_uri: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 location of the augmented manifest file.
-        """
-        split: NotRequired[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']]
-        """
-        The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
+    TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
 
-        TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
-
-        TEST - all of the documents in the manifest will be used for testing.
-        """
-elif False:
-    DocumentClassifierAugmentedManifestsListItemArgsDict: TypeAlias = Mapping[str, Any]
+    TEST - all of the documents in the manifest will be used for testing.
+    """
 
 @pulumi.input_type
 class DocumentClassifierAugmentedManifestsListItemArgs:
@@ -138,31 +133,28 @@ class DocumentClassifierAugmentedManifestsListItemArgs:
         pulumi.set(self, "split", value)
 
 
-if not MYPY:
-    class DocumentClassifierDocumentReaderConfigArgsDict(TypedDict):
-        document_read_action: pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadAction']
-        """
-        This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
+class DocumentClassifierDocumentReaderConfigArgsDict(TypedDict):
+    document_read_action: pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadAction']
+    """
+    This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
 
-        - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
-        - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
-        """
-        document_read_mode: NotRequired[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']]
-        """
-        Determines the text extraction actions for PDF files. Enter one of the following values:
+    - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
+    - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
+    """
+    document_read_mode: NotRequired[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']]
+    """
+    Determines the text extraction actions for PDF files. Enter one of the following values:
 
-        - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
-        - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
-        """
-        feature_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]
-        """
-        Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
+    - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
+    - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
+    """
+    feature_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]]
+    """
+    Specifies the type of Amazon Textract features to apply. If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
 
-        - `TABLES` - Returns additional information about any tables that are detected in the input document.
-        - `FORMS` - Returns additional information about any forms that are detected in the input document.
-        """
-elif False:
-    DocumentClassifierDocumentReaderConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `TABLES` - Returns additional information about any tables that are detected in the input document.
+    - `FORMS` - Returns additional information about any forms that are detected in the input document.
+    """
 
 @pulumi.input_type
 class DocumentClassifierDocumentReaderConfigArgs:
@@ -236,18 +228,15 @@ class DocumentClassifierDocumentReaderConfigArgs:
         pulumi.set(self, "feature_types", value)
 
 
-if not MYPY:
-    class DocumentClassifierDocumentsArgsDict(TypedDict):
-        s3_uri: pulumi.Input[_builtins.str]
-        """
-        The S3 URI location of the training documents specified in the S3Uri CSV file.
-        """
-        test_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
-        """
-elif False:
-    DocumentClassifierDocumentsArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentClassifierDocumentsArgsDict(TypedDict):
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    The S3 URI location of the training documents specified in the S3Uri CSV file.
+    """
+    test_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
+    """
 
 @pulumi.input_type
 class DocumentClassifierDocumentsArgs:
@@ -287,52 +276,49 @@ class DocumentClassifierDocumentsArgs:
         pulumi.set(self, "test_s3_uri", value)
 
 
-if not MYPY:
-    class DocumentClassifierInputDataConfigArgsDict(TypedDict):
-        augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgsDict']]]]
-        """
-        A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+class DocumentClassifierInputDataConfigArgsDict(TypedDict):
+    augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierAugmentedManifestsListItemArgsDict']]]]
+    """
+    A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 
-        This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
-        """
-        data_format: NotRequired[pulumi.Input['DocumentClassifierInputDataConfigDataFormat']]
-        """
-        The format of your training data:
+    This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
+    """
+    data_format: NotRequired[pulumi.Input['DocumentClassifierInputDataConfigDataFormat']]
+    """
+    The format of your training data:
 
-        - `COMPREHEND_CSV` : A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the `S3Uri` parameter in your request.
-        - `AUGMENTED_MANIFEST` : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels.
+    - `COMPREHEND_CSV` : A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the `S3Uri` parameter in your request.
+    - `AUGMENTED_MANIFEST` : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels.
 
-        If you use this value, you must provide the `AugmentedManifests` parameter in your request.
+    If you use this value, you must provide the `AugmentedManifests` parameter in your request.
 
-        If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
-        """
-        document_reader_config: NotRequired[pulumi.Input['DocumentClassifierDocumentReaderConfigArgsDict']]
-        document_type: NotRequired[pulumi.Input['DocumentClassifierInputDataConfigDocumentType']]
-        """
-        The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
-        """
-        documents: NotRequired[pulumi.Input['DocumentClassifierDocumentsArgsDict']]
-        """
-        The S3 location of the training documents. This parameter is required in a request to create a native document model.
-        """
-        label_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
-        """
-        s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
+    If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
+    """
+    document_reader_config: NotRequired[pulumi.Input['DocumentClassifierDocumentReaderConfigArgsDict']]
+    document_type: NotRequired[pulumi.Input['DocumentClassifierInputDataConfigDocumentType']]
+    """
+    The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
+    """
+    documents: NotRequired[pulumi.Input['DocumentClassifierDocumentsArgsDict']]
+    """
+    The S3 location of the training documents. This parameter is required in a request to create a native document model.
+    """
+    label_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
+    """
+    s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
 
-        For example, if you use the URI `S3://bucketName/prefix` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
+    For example, if you use the URI `S3://bucketName/prefix` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
 
-        This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
-        """
-        test_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
-        """
-elif False:
-    DocumentClassifierInputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+    This parameter is required if you set `DataFormat` to `COMPREHEND_CSV` .
+    """
+    test_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This specifies the Amazon S3 location that contains the test annotations for the document classifier. The URI must be in the same AWS Region as the API endpoint that you are calling.
+    """
 
 @pulumi.input_type
 class DocumentClassifierInputDataConfigArgs:
@@ -491,25 +477,22 @@ class DocumentClassifierInputDataConfigArgs:
         pulumi.set(self, "test_s3_uri", value)
 
 
-if not MYPY:
-    class DocumentClassifierOutputDataConfigArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+class DocumentClassifierOutputDataConfigArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
 
-        - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
-        - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
-        - KMS Key Alias: `"alias/ExampleAlias"`
-        - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
-        """
-        s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
+    - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+    - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+    - KMS Key Alias: `"alias/ExampleAlias"`
+    - ARN of a KMS Key Alias: `"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"`
+    """
+    s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When you use the `OutputDataConfig` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
 
-        When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The `S3Uri` field contains the location of the output file, called `output.tar.gz` . It is a compressed archive that contains the confusion matrix.
-        """
-elif False:
-    DocumentClassifierOutputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+    When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The `S3Uri` field contains the location of the output file, called `output.tar.gz` . It is a compressed archive that contains the confusion matrix.
+    """
 
 @pulumi.input_type
 class DocumentClassifierOutputDataConfigArgs:
@@ -564,18 +547,15 @@ class DocumentClassifierOutputDataConfigArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class DocumentClassifierVpcConfigArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
-        """
-elif False:
-    DocumentClassifierVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentClassifierVpcConfigArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
+    """
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+    """
 
 @pulumi.input_type
 class DocumentClassifierVpcConfigArgs:
@@ -614,29 +594,26 @@ class DocumentClassifierVpcConfigArgs:
         pulumi.set(self, "subnets", value)
 
 
-if not MYPY:
-    class FlywheelDataSecurityConfigArgsDict(TypedDict):
-        data_lake_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
-        """
-        model_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+class FlywheelDataSecurityConfigArgsDict(TypedDict):
+    data_lake_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
+    """
+    model_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
-        - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
-        - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
-        """
-        vpc_config: NotRequired[pulumi.Input['FlywheelVpcConfigArgsDict']]
-        """
-        Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
-        """
-elif False:
-    FlywheelDataSecurityConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+    - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+    """
+    volume_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
+    """
+    vpc_config: NotRequired[pulumi.Input['FlywheelVpcConfigArgsDict']]
+    """
+    Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+    """
 
 @pulumi.input_type
 class FlywheelDataSecurityConfigArgs:
@@ -715,18 +692,15 @@ class FlywheelDataSecurityConfigArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class FlywheelDocumentClassificationConfigArgsDict(TypedDict):
-        mode: pulumi.Input['FlywheelDocumentClassificationConfigMode']
-        """
-        Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more labels to associate with the custom classifier.
-        """
-elif False:
-    FlywheelDocumentClassificationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlywheelDocumentClassificationConfigArgsDict(TypedDict):
+    mode: pulumi.Input['FlywheelDocumentClassificationConfigMode']
+    """
+    Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more labels to associate with the custom classifier.
+    """
 
 @pulumi.input_type
 class FlywheelDocumentClassificationConfigArgs:
@@ -766,14 +740,11 @@ class FlywheelDocumentClassificationConfigArgs:
         pulumi.set(self, "labels", value)
 
 
-if not MYPY:
-    class FlywheelEntityRecognitionConfigArgsDict(TypedDict):
-        entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgsDict']]]]
-        """
-        Up to 25 entity types that the model is trained to recognize.
-        """
-elif False:
-    FlywheelEntityRecognitionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlywheelEntityRecognitionConfigArgsDict(TypedDict):
+    entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgsDict']]]]
+    """
+    Up to 25 entity types that the model is trained to recognize.
+    """
 
 @pulumi.input_type
 class FlywheelEntityRecognitionConfigArgs:
@@ -798,16 +769,13 @@ class FlywheelEntityRecognitionConfigArgs:
         pulumi.set(self, "entity_types", value)
 
 
-if not MYPY:
-    class FlywheelEntityTypesListItemArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+class FlywheelEntityTypesListItemArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 
-        Entity types must not contain the following invalid characters: \\n (line break), \\\\n (escaped line break, \\r (carriage return), \\\\r (escaped carriage return), \\t (tab), \\\\t (escaped tab), and , (comma).
-        """
-elif False:
-    FlywheelEntityTypesListItemArgsDict: TypeAlias = Mapping[str, Any]
+    Entity types must not contain the following invalid characters: \\n (line break), \\\\n (escaped line break, \\r (carriage return), \\\\r (escaped carriage return), \\t (tab), \\\\t (escaped tab), and , (comma).
+    """
 
 @pulumi.input_type
 class FlywheelEntityTypesListItemArgs:
@@ -835,22 +803,19 @@ class FlywheelEntityTypesListItemArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FlywheelTaskConfigArgsDict(TypedDict):
-        language_code: pulumi.Input['FlywheelTaskConfigLanguageCode']
-        """
-        Language code for the language that the model supports.
-        """
-        document_classification_config: NotRequired[pulumi.Input['FlywheelDocumentClassificationConfigArgsDict']]
-        """
-        Configuration required for a document classification model.
-        """
-        entity_recognition_config: NotRequired[pulumi.Input['FlywheelEntityRecognitionConfigArgsDict']]
-        """
-        Configuration required for an entity recognition model.
-        """
-elif False:
-    FlywheelTaskConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlywheelTaskConfigArgsDict(TypedDict):
+    language_code: pulumi.Input['FlywheelTaskConfigLanguageCode']
+    """
+    Language code for the language that the model supports.
+    """
+    document_classification_config: NotRequired[pulumi.Input['FlywheelDocumentClassificationConfigArgsDict']]
+    """
+    Configuration required for a document classification model.
+    """
+    entity_recognition_config: NotRequired[pulumi.Input['FlywheelEntityRecognitionConfigArgsDict']]
+    """
+    Configuration required for an entity recognition model.
+    """
 
 @pulumi.input_type
 class FlywheelTaskConfigArgs:
@@ -906,18 +871,15 @@ class FlywheelTaskConfigArgs:
         pulumi.set(self, "entity_recognition_config", value)
 
 
-if not MYPY:
-    class FlywheelVpcConfigArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
-        """
-elif False:
-    FlywheelVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlywheelVpcConfigArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea". For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) .
+    """
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+    """
 
 @pulumi.input_type
 class FlywheelVpcConfigArgs:

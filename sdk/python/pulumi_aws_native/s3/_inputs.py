@@ -216,20 +216,15 @@ __all__ = [
     'StorageLensTableDestinationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessGrantGranteeArgsDict(TypedDict):
-        grantee_identifier: pulumi.Input[_builtins.str]
-        """
-        The unique identifier of the Grantee
-        """
-        grantee_type: pulumi.Input['AccessGrantGranteeGranteeType']
-        """
-        Configures the transfer acceleration state for an Amazon S3 bucket.
-        """
-elif False:
-    AccessGrantGranteeArgsDict: TypeAlias = Mapping[str, Any]
+class AccessGrantGranteeArgsDict(TypedDict):
+    grantee_identifier: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the Grantee
+    """
+    grantee_type: pulumi.Input['AccessGrantGranteeGranteeType']
+    """
+    Configures the transfer acceleration state for an Amazon S3 bucket.
+    """
 
 @pulumi.input_type
 class AccessGrantGranteeArgs:
@@ -268,14 +263,11 @@ class AccessGrantGranteeArgs:
         pulumi.set(self, "grantee_type", value)
 
 
-if not MYPY:
-    class AccessGrantsLocationConfigurationArgsDict(TypedDict):
-        s3_sub_prefix: pulumi.Input[_builtins.str]
-        """
-        The S3 sub prefix of a registered location in your S3 Access Grants instance
-        """
-elif False:
-    AccessGrantsLocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessGrantsLocationConfigurationArgsDict(TypedDict):
+    s3_sub_prefix: pulumi.Input[_builtins.str]
+    """
+    The S3 sub prefix of a registered location in your S3 Access Grants instance
+    """
 
 @pulumi.input_type
 class AccessGrantsLocationConfigurationArgs:
@@ -299,31 +291,28 @@ class AccessGrantsLocationConfigurationArgs:
         pulumi.set(self, "s3_sub_prefix", value)
 
 
-if not MYPY:
-    class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
-        block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
-        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
-        """
-        block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
-        """
-        ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-        """
-        restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-        """
-elif False:
-    AccessPointPublicAccessBlockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
+    block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+    - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+     - PUT Object calls fail if the request includes a public ACL.
+    . - PUT Bucket calls fail if the request includes a public ACL.
+    Enabling this setting doesn't affect existing policies or ACLs.
+    """
+    block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+    """
+    ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+    """
+    restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+    Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+    """
 
 @pulumi.input_type
 class AccessPointPublicAccessBlockConfigurationArgs:
@@ -406,17 +395,14 @@ class AccessPointPublicAccessBlockConfigurationArgs:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
-if not MYPY:
-    class AccessPointVpcConfigurationArgsDict(TypedDict):
-        """
-        The Virtual Private Cloud (VPC) configuration for a bucket access point.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If this field is specified, this access point will only allow connections from the specified VPC ID.
-        """
-elif False:
-    AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointVpcConfigurationArgsDict(TypedDict):
+    """
+    The Virtual Private Cloud (VPC) configuration for a bucket access point.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If this field is specified, this access point will only allow connections from the specified VPC ID.
+    """
 
 @pulumi.input_type
 class AccessPointVpcConfigurationArgs:
@@ -442,17 +428,14 @@ class AccessPointVpcConfigurationArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class BucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
-        """
-        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
-        """
-        days_after_initiation: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
-        """
-elif False:
-    BucketAbortIncompleteMultipartUploadArgsDict: TypeAlias = Mapping[str, Any]
+class BucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
+    """
+    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
+    """
+    days_after_initiation: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
+    """
 
 @pulumi.input_type
 class BucketAbortIncompleteMultipartUploadArgs:
@@ -477,17 +460,14 @@ class BucketAbortIncompleteMultipartUploadArgs:
         pulumi.set(self, "days_after_initiation", value)
 
 
-if not MYPY:
-    class BucketAccelerateConfigurationArgsDict(TypedDict):
-        """
-        Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
-        """
-        acceleration_status: pulumi.Input['BucketAccelerateConfigurationAccelerationStatus']
-        """
-        Specifies the transfer acceleration status of the bucket.
-        """
-elif False:
-    BucketAccelerateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketAccelerateConfigurationArgsDict(TypedDict):
+    """
+    Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+    """
+    acceleration_status: pulumi.Input['BucketAccelerateConfigurationAccelerationStatus']
+    """
+    Specifies the transfer acceleration status of the bucket.
+    """
 
 @pulumi.input_type
 class BucketAccelerateConfigurationArgs:
@@ -512,17 +492,14 @@ class BucketAccelerateConfigurationArgs:
         pulumi.set(self, "acceleration_status", value)
 
 
-if not MYPY:
-    class BucketAccessControlTranslationArgsDict(TypedDict):
-        """
-        Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
-        """
-        owner: pulumi.Input[_builtins.str]
-        """
-        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference*.
-        """
-elif False:
-    BucketAccessControlTranslationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketAccessControlTranslationArgsDict(TypedDict):
+    """
+    Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+    """
+    owner: pulumi.Input[_builtins.str]
+    """
+    Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference*.
+    """
 
 @pulumi.input_type
 class BucketAccessControlTranslationArgs:
@@ -547,30 +524,27 @@ class BucketAccessControlTranslationArgs:
         pulumi.set(self, "owner", value)
 
 
-if not MYPY:
-    class BucketAnalyticsConfigurationArgsDict(TypedDict):
-        """
-        Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID that identifies the analytics configuration.
-        """
-        storage_class_analysis: pulumi.Input['BucketStorageClassAnalysisArgsDict']
-        """
-        Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix that an object must have to be included in the analytics results.
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
-        """
-        The tags to use when evaluating an analytics filter.
-         The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
-        """
-elif False:
-    BucketAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketAnalyticsConfigurationArgsDict(TypedDict):
+    """
+    Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID that identifies the analytics configuration.
+    """
+    storage_class_analysis: pulumi.Input['BucketStorageClassAnalysisArgsDict']
+    """
+    Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix that an object must have to be included in the analytics results.
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
+    """
+    The tags to use when evaluating an analytics filter.
+     The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
+    """
 
 @pulumi.input_type
 class BucketAnalyticsConfigurationArgs:
@@ -644,24 +618,21 @@ class BucketAnalyticsConfigurationArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class BucketBlockedEncryptionTypesArgsDict(TypedDict):
-        """
-        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
-         This data type is used with the following actions:
-          +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) 
-          +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html) 
-          +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html) 
-          
-          + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
-        """
-        encryption_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]
-        """
-        The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
-          Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
-        """
-elif False:
-    BucketBlockedEncryptionTypesArgsDict: TypeAlias = Mapping[str, Any]
+class BucketBlockedEncryptionTypesArgsDict(TypedDict):
+    """
+    A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+     This data type is used with the following actions:
+      +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) 
+      +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html) 
+      +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html) 
+      
+      + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
+    """
+    encryption_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]
+    """
+    The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+      Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
+    """
 
 @pulumi.input_type
 class BucketBlockedEncryptionTypesArgs:
@@ -695,17 +666,14 @@ class BucketBlockedEncryptionTypesArgs:
         pulumi.set(self, "encryption_type", value)
 
 
-if not MYPY:
-    class BucketCorsConfigurationArgsDict(TypedDict):
-        """
-        Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
-        """
-        cors_rules: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgsDict']]]
-        """
-        A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
-        """
-elif False:
-    BucketCorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketCorsConfigurationArgsDict(TypedDict):
+    """
+    Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+    """
+    cors_rules: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgsDict']]]
+    """
+    A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    """
 
 @pulumi.input_type
 class BucketCorsConfigurationArgs:
@@ -730,38 +698,35 @@ class BucketCorsConfigurationArgs:
         pulumi.set(self, "cors_rules", value)
 
 
-if not MYPY:
-    class BucketCorsRuleArgsDict(TypedDict):
-        """
-        Specifies a cross-origin access rule for an Amazon S3 bucket.
-        """
-        allowed_methods: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleAllowedMethodsItem']]]
-        """
-        An HTTP method that you allow the origin to run.
-         *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
-        """
-        allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        One or more origins you want customers to be able to access the bucket from.
-        """
-        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
-        """
-        exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for this rule. The value must be no more than 255 characters.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds that your browser is to cache the preflight response for the specified resource.
-        """
-elif False:
-    BucketCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketCorsRuleArgsDict(TypedDict):
+    """
+    Specifies a cross-origin access rule for an Amazon S3 bucket.
+    """
+    allowed_methods: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleAllowedMethodsItem']]]
+    """
+    An HTTP method that you allow the origin to run.
+     *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+    """
+    allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more origins you want customers to be able to access the bucket from.
+    """
+    allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
+    """
+    exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for this rule. The value must be no more than 255 characters.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds that your browser is to cache the preflight response for the specified resource.
+    """
 
 @pulumi.input_type
 class BucketCorsRuleArgs:
@@ -867,21 +832,18 @@ class BucketCorsRuleArgs:
         pulumi.set(self, "max_age", value)
 
 
-if not MYPY:
-    class BucketDataExportArgsDict(TypedDict):
-        """
-        Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
-        """
-        destination: pulumi.Input['BucketDestinationArgsDict']
-        """
-        The place to store the data for an analysis.
-        """
-        output_schema_version: pulumi.Input[_builtins.str]
-        """
-        The version of the output schema to use when exporting data. Must be ``V_1``.
-        """
-elif False:
-    BucketDataExportArgsDict: TypeAlias = Mapping[str, Any]
+class BucketDataExportArgsDict(TypedDict):
+    """
+    Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+    """
+    destination: pulumi.Input['BucketDestinationArgsDict']
+    """
+    The place to store the data for an analysis.
+    """
+    output_schema_version: pulumi.Input[_builtins.str]
+    """
+    The version of the output schema to use when exporting data. Must be ``V_1``.
+    """
 
 @pulumi.input_type
 class BucketDataExportArgs:
@@ -921,27 +883,24 @@ class BucketDataExportArgs:
         pulumi.set(self, "output_schema_version", value)
 
 
-if not MYPY:
-    class BucketDefaultRetentionArgsDict(TypedDict):
-        """
-        The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
-           +  The ``DefaultRetention`` settings require both a mode and a period.
-          +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
-        """
-        days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-        """
-        mode: NotRequired[pulumi.Input['BucketDefaultRetentionMode']]
-        """
-        The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-        """
-        years: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-        """
-elif False:
-    BucketDefaultRetentionArgsDict: TypeAlias = Mapping[str, Any]
+class BucketDefaultRetentionArgsDict(TypedDict):
+    """
+    The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+       +  The ``DefaultRetention`` settings require both a mode and a period.
+      +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+    """
+    days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+    """
+    mode: NotRequired[pulumi.Input['BucketDefaultRetentionMode']]
+    """
+    The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+    """
+    years: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+    """
 
 @pulumi.input_type
 class BucketDefaultRetentionArgs:
@@ -1001,19 +960,16 @@ class BucketDefaultRetentionArgs:
         pulumi.set(self, "years", value)
 
 
-if not MYPY:
-    class BucketDeleteMarkerReplicationArgsDict(TypedDict):
-        """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
-         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
-          If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
-        """
-        status: NotRequired[pulumi.Input['BucketDeleteMarkerReplicationStatus']]
-        """
-        Indicates whether to replicate delete markers.
-        """
-elif False:
-    BucketDeleteMarkerReplicationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketDeleteMarkerReplicationArgsDict(TypedDict):
+    """
+    Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+     For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+      If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+    """
+    status: NotRequired[pulumi.Input['BucketDeleteMarkerReplicationStatus']]
+    """
+    Indicates whether to replicate delete markers.
+    """
 
 @pulumi.input_type
 class BucketDeleteMarkerReplicationArgs:
@@ -1041,31 +997,28 @@ class BucketDeleteMarkerReplicationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class BucketDestinationArgsDict(TypedDict):
-        """
-        Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
-        """
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the bucket to which data is exported.
-        """
-        format: pulumi.Input['BucketDestinationFormat']
-        """
-        Specifies the file format used when exporting data to Amazon S3.
-         *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
-        """
-        bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
-           Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix to use when exporting data. The prefix is prepended to all results.
-        """
-elif False:
-    BucketDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketDestinationArgsDict(TypedDict):
+    """
+    Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the bucket to which data is exported.
+    """
+    format: pulumi.Input['BucketDestinationFormat']
+    """
+    Specifies the file format used when exporting data to Amazon S3.
+     *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+    """
+    bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+       Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix to use when exporting data. The prefix is prepended to all results.
+    """
 
 @pulumi.input_type
 class BucketDestinationArgs:
@@ -1141,18 +1094,15 @@ class BucketDestinationArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class BucketEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
-          If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
-        """
-        replica_kms_key_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
-        """
-elif False:
-    BucketEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+      If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
+    """
+    replica_kms_key_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
+    """
 
 @pulumi.input_type
 class BucketEncryptionConfigurationArgs:
@@ -1178,17 +1128,14 @@ class BucketEncryptionConfigurationArgs:
         pulumi.set(self, "replica_kms_key_id", value)
 
 
-if not MYPY:
-    class BucketEncryptionArgsDict(TypedDict):
-        """
-        Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
-        """
-        server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionRuleArgsDict']]]
-        """
-        Specifies the default server-side-encryption configuration.
-        """
-elif False:
-    BucketEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class BucketEncryptionArgsDict(TypedDict):
+    """
+    Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
+    """
+    server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionRuleArgsDict']]]
+    """
+    Specifies the default server-side-encryption configuration.
+    """
 
 @pulumi.input_type
 class BucketEncryptionArgs:
@@ -1213,18 +1160,15 @@ class BucketEncryptionArgs:
         pulumi.set(self, "server_side_encryption_configuration", value)
 
 
-if not MYPY:
-    class BucketEventBridgeConfigurationArgsDict(TypedDict):
-        """
-        Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*.
-         Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
-        """
-        event_bridge_enabled: pulumi.Input[_builtins.bool]
-        """
-        Enables delivery of events to Amazon EventBridge.
-        """
-elif False:
-    BucketEventBridgeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketEventBridgeConfigurationArgsDict(TypedDict):
+    """
+    Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*.
+     Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
+    """
+    event_bridge_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables delivery of events to Amazon EventBridge.
+    """
 
 @pulumi.input_type
 class BucketEventBridgeConfigurationArgs:
@@ -1250,21 +1194,18 @@ class BucketEventBridgeConfigurationArgs:
         pulumi.set(self, "event_bridge_enabled", value)
 
 
-if not MYPY:
-    class BucketFilterRuleArgsDict(TypedDict):
-        """
-        Specifies the Amazon S3 object key name to filter on. An object key name is the name assigned to an object in your Amazon S3 bucket. You specify whether to filter on the suffix or prefix of the object key name. A prefix is a specific string of characters at the beginning of an object key name, which you can use to organize objects. For example, you can start the key names of related objects with a prefix, such as ``2023-`` or ``engineering/``. Then, you can use ``FilterRule`` to find objects in a bucket with key names that have the same prefix. A suffix is similar to a prefix, but it is at the end of the object key name instead of at the beginning.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value that the filter searches for in object key names.
-        """
-elif False:
-    BucketFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketFilterRuleArgsDict(TypedDict):
+    """
+    Specifies the Amazon S3 object key name to filter on. An object key name is the name assigned to an object in your Amazon S3 bucket. You specify whether to filter on the suffix or prefix of the object key name. A prefix is a specific string of characters at the beginning of an object key name, which you can use to organize objects. For example, you can start the key names of related objects with a prefix, such as ``2023-`` or ``engineering/``. Then, you can use ``FilterRule`` to find objects in a bucket with key names that have the same prefix. A suffix is similar to a prefix, but it is at the end of the object key name instead of at the beginning.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value that the filter searches for in object key names.
+    """
 
 @pulumi.input_type
 class BucketFilterRuleArgs:
@@ -1304,35 +1245,32 @@ class BucketFilterRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BucketIntelligentTieringConfigurationArgsDict(TypedDict):
-        """
-        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
-         For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID used to identify the S3 Intelligent-Tiering configuration.
-        """
-        status: pulumi.Input['BucketIntelligentTieringConfigurationStatus']
-        """
-        Specifies the status of the configuration.
-        """
-        tierings: pulumi.Input[Sequence[pulumi.Input['BucketTieringArgsDict']]]
-        """
-        Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ``ARCHIVE_ACCESS`` and ``DEEP_ARCHIVE_ACCESS``.
-          You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An object key name prefix that identifies the subset of objects to which the rule applies.
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
-        """
-        A container for a key-value pair.
-        """
-elif False:
-    BucketIntelligentTieringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketIntelligentTieringConfigurationArgsDict(TypedDict):
+    """
+    Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+     For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID used to identify the S3 Intelligent-Tiering configuration.
+    """
+    status: pulumi.Input['BucketIntelligentTieringConfigurationStatus']
+    """
+    Specifies the status of the configuration.
+    """
+    tierings: pulumi.Input[Sequence[pulumi.Input['BucketTieringArgsDict']]]
+    """
+    Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ``ARCHIVE_ACCESS`` and ``DEEP_ARCHIVE_ACCESS``.
+      You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An object key name prefix that identifies the subset of objects to which the rule applies.
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
+    """
+    A container for a key-value pair.
+    """
 
 @pulumi.input_type
 class BucketIntelligentTieringConfigurationArgs:
@@ -1422,41 +1360,38 @@ class BucketIntelligentTieringConfigurationArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class BucketInventoryConfigurationArgsDict(TypedDict):
-        """
-        Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
-        """
-        destination: pulumi.Input['BucketDestinationArgsDict']
-        """
-        Contains information about where to publish the inventory results.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID used to identify the inventory configuration.
-        """
-        included_object_versions: pulumi.Input['BucketInventoryConfigurationIncludedObjectVersions']
-        """
-        Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
-        """
-        schedule_frequency: pulumi.Input['BucketInventoryConfigurationScheduleFrequency']
-        """
-        Specifies the schedule for generating inventory results.
-        """
-        optional_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationOptionalFieldsItem']]]]
-        """
-        Contains the optional fields that are included in the inventory results.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the inventory filter prefix.
-        """
-elif False:
-    BucketInventoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketInventoryConfigurationArgsDict(TypedDict):
+    """
+    Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+    """
+    destination: pulumi.Input['BucketDestinationArgsDict']
+    """
+    Contains information about where to publish the inventory results.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID used to identify the inventory configuration.
+    """
+    included_object_versions: pulumi.Input['BucketInventoryConfigurationIncludedObjectVersions']
+    """
+    Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
+    """
+    schedule_frequency: pulumi.Input['BucketInventoryConfigurationScheduleFrequency']
+    """
+    Specifies the schedule for generating inventory results.
+    """
+    optional_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationOptionalFieldsItem']]]]
+    """
+    Contains the optional fields that are included in the inventory results.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the inventory filter prefix.
+    """
 
 @pulumi.input_type
 class BucketInventoryConfigurationArgs:
@@ -1573,29 +1508,26 @@ class BucketInventoryConfigurationArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class BucketInventoryTableConfigurationArgsDict(TypedDict):
-        """
-        The inventory table configuration for an S3 Metadata configuration.
-        """
-        configuration_state: pulumi.Input['BucketInventoryTableConfigurationConfigurationState']
-        """
-        The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
-        """
-        The encryption configuration for the inventory table.
-        """
-        table_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for the inventory table.
-        """
-        table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the inventory table.
-        """
-elif False:
-    BucketInventoryTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketInventoryTableConfigurationArgsDict(TypedDict):
+    """
+    The inventory table configuration for an S3 Metadata configuration.
+    """
+    configuration_state: pulumi.Input['BucketInventoryTableConfigurationConfigurationState']
+    """
+    The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
+    """
+    The encryption configuration for the inventory table.
+    """
+    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for the inventory table.
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the inventory table.
+    """
 
 @pulumi.input_type
 class BucketInventoryTableConfigurationArgs:
@@ -1668,29 +1600,26 @@ class BucketInventoryTableConfigurationArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class BucketJournalTableConfigurationArgsDict(TypedDict):
-        """
-        The journal table configuration for an S3 Metadata configuration.
-        """
-        record_expiration: pulumi.Input['BucketRecordExpirationArgsDict']
-        """
-        The journal table record expiration settings for the journal table.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
-        """
-        The encryption configuration for the journal table.
-        """
-        table_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for the journal table.
-        """
-        table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the journal table.
-        """
-elif False:
-    BucketJournalTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketJournalTableConfigurationArgsDict(TypedDict):
+    """
+    The journal table configuration for an S3 Metadata configuration.
+    """
+    record_expiration: pulumi.Input['BucketRecordExpirationArgsDict']
+    """
+    The journal table record expiration settings for the journal table.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
+    """
+    The encryption configuration for the journal table.
+    """
+    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for the journal table.
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the journal table.
+    """
 
 @pulumi.input_type
 class BucketJournalTableConfigurationArgs:
@@ -1763,25 +1692,22 @@ class BucketJournalTableConfigurationArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class BucketLambdaConfigurationArgsDict(TypedDict):
-        """
-        Describes the LAMlong functions to invoke and the events for which to invoke them.
-        """
-        event: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
-        """
-        function: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
-        """
-        filter: NotRequired[pulumi.Input['BucketNotificationFilterArgsDict']]
-        """
-        The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket.
-        """
-elif False:
-    BucketLambdaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLambdaConfigurationArgsDict(TypedDict):
+    """
+    Describes the LAMlong functions to invoke and the events for which to invoke them.
+    """
+    event: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+    """
+    function: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
+    """
+    filter: NotRequired[pulumi.Input['BucketNotificationFilterArgsDict']]
+    """
+    The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket.
+    """
 
 @pulumi.input_type
 class BucketLambdaConfigurationArgs:
@@ -1837,26 +1763,23 @@ class BucketLambdaConfigurationArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class BucketLifecycleConfigurationArgsDict(TypedDict):
-        """
-        Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgsDict']]]
-        """
-        A lifecycle rule for individual objects in an Amazon S3 bucket.
-        """
-        transition_default_minimum_object_size: NotRequired[pulumi.Input['BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize']]
-        """
-        Indicates which default minimum object size behavior is applied to the lifecycle configuration.
-          This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-           +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-          +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
-          
-         To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
-        """
-elif False:
-    BucketLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLifecycleConfigurationArgsDict(TypedDict):
+    """
+    Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgsDict']]]
+    """
+    A lifecycle rule for individual objects in an Amazon S3 bucket.
+    """
+    transition_default_minimum_object_size: NotRequired[pulumi.Input['BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize']]
+    """
+    Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+      This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+       +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+      +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
+      
+     To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+    """
 
 @pulumi.input_type
 class BucketLifecycleConfigurationArgs:
@@ -1907,26 +1830,23 @@ class BucketLifecycleConfigurationArgs:
         pulumi.set(self, "transition_default_minimum_object_size", value)
 
 
-if not MYPY:
-    class BucketLoggingConfigurationArgsDict(TypedDict):
-        """
-        Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For examples and more information, see [PUT Bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html) in the *Amazon S3 API Reference*.
-          To successfully complete the ``AWS::S3::Bucket LoggingConfiguration`` request, you must have ``s3:PutObject`` and ``s3:PutObjectAcl`` in your IAM permissions.
-        """
-        destination_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the bucket where Amazon S3 should store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the ``LoggingConfiguration`` property is defined.
-        """
-        log_file_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
-        """
-        target_object_key_format: NotRequired[pulumi.Input['BucketTargetObjectKeyFormatArgsDict']]
-        """
-        Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
-        """
-elif False:
-    BucketLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLoggingConfigurationArgsDict(TypedDict):
+    """
+    Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For examples and more information, see [PUT Bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html) in the *Amazon S3 API Reference*.
+      To successfully complete the ``AWS::S3::Bucket LoggingConfiguration`` request, you must have ``s3:PutObject`` and ``s3:PutObjectAcl`` in your IAM permissions.
+    """
+    destination_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the bucket where Amazon S3 should store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the ``LoggingConfiguration`` property is defined.
+    """
+    log_file_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
+    """
+    target_object_key_format: NotRequired[pulumi.Input['BucketTargetObjectKeyFormatArgsDict']]
+    """
+    Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
+    """
 
 @pulumi.input_type
 class BucketLoggingConfigurationArgs:
@@ -1985,25 +1905,22 @@ class BucketLoggingConfigurationArgs:
         pulumi.set(self, "target_object_key_format", value)
 
 
-if not MYPY:
-    class BucketMetadataConfigurationArgsDict(TypedDict):
-        """
-        Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
-        """
-        journal_table_configuration: pulumi.Input['BucketJournalTableConfigurationArgsDict']
-        """
-        The journal table configuration for a metadata configuration.
-        """
-        destination: NotRequired[pulumi.Input['BucketMetadataDestinationArgsDict']]
-        """
-        The destination information for the S3 Metadata configuration.
-        """
-        inventory_table_configuration: NotRequired[pulumi.Input['BucketInventoryTableConfigurationArgsDict']]
-        """
-        The inventory table configuration for a metadata configuration.
-        """
-elif False:
-    BucketMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketMetadataConfigurationArgsDict(TypedDict):
+    """
+    Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+    """
+    journal_table_configuration: pulumi.Input['BucketJournalTableConfigurationArgsDict']
+    """
+    The journal table configuration for a metadata configuration.
+    """
+    destination: NotRequired[pulumi.Input['BucketMetadataDestinationArgsDict']]
+    """
+    The destination information for the S3 Metadata configuration.
+    """
+    inventory_table_configuration: NotRequired[pulumi.Input['BucketInventoryTableConfigurationArgsDict']]
+    """
+    The inventory table configuration for a metadata configuration.
+    """
 
 @pulumi.input_type
 class BucketMetadataConfigurationArgs:
@@ -2060,25 +1977,22 @@ class BucketMetadataConfigurationArgs:
         pulumi.set(self, "inventory_table_configuration", value)
 
 
-if not MYPY:
-    class BucketMetadataDestinationArgsDict(TypedDict):
-        """
-        The destination information for the S3 Metadata configuration.
-        """
-        table_bucket_type: pulumi.Input['BucketMetadataDestinationTableBucketType']
-        """
-        The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
-        """
-        table_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
-        """
-        table_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace in the table bucket where the metadata tables for a metadata configuration are stored.
-        """
-elif False:
-    BucketMetadataDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketMetadataDestinationArgsDict(TypedDict):
+    """
+    The destination information for the S3 Metadata configuration.
+    """
+    table_bucket_type: pulumi.Input['BucketMetadataDestinationTableBucketType']
+    """
+    The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
+    """
+    table_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
+    """
+    table_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace in the table bucket where the metadata tables for a metadata configuration are stored.
+    """
 
 @pulumi.input_type
 class BucketMetadataDestinationArgs:
@@ -2135,19 +2049,16 @@ class BucketMetadataDestinationArgs:
         pulumi.set(self, "table_namespace", value)
 
 
-if not MYPY:
-    class BucketMetadataTableConfigurationArgsDict(TypedDict):
-        """
-        We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
-         If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
-          Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
-        """
-        s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgsDict']
-        """
-        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
-        """
-elif False:
-    BucketMetadataTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketMetadataTableConfigurationArgsDict(TypedDict):
+    """
+    We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
+     If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
+      Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+    """
+    s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgsDict']
+    """
+    The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+    """
 
 @pulumi.input_type
 class BucketMetadataTableConfigurationArgs:
@@ -2174,21 +2085,18 @@ class BucketMetadataTableConfigurationArgs:
         pulumi.set(self, "s3_tables_destination", value)
 
 
-if not MYPY:
-    class BucketMetadataTableEncryptionConfigurationArgsDict(TypedDict):
-        """
-        The encryption settings for an S3 Metadata journal table or inventory table configuration.
-        """
-        sse_algorithm: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']
-        """
-        The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.
-        """
-elif False:
-    BucketMetadataTableEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketMetadataTableEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption settings for an S3 Metadata journal table or inventory table configuration.
+    """
+    sse_algorithm: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']
+    """
+    The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.
+    """
 
 @pulumi.input_type
 class BucketMetadataTableEncryptionConfigurationArgs:
@@ -2229,29 +2137,26 @@ class BucketMetadataTableEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class BucketMetricsConfigurationArgsDict(TypedDict):
-        """
-        Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples). For more information, see [PUT Bucket metrics](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) in the *Amazon S3 API Reference*.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
-        """
-        access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix that an object must have to be included in the metrics results.
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
-        """
-        Specifies a list of tag filters to use as a metrics configuration filter. The metrics configuration includes only objects that meet the filter's criteria.
-        """
-elif False:
-    BucketMetricsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketMetricsConfigurationArgsDict(TypedDict):
+    """
+    Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples). For more information, see [PUT Bucket metrics](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) in the *Amazon S3 API Reference*.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
+    """
+    access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix that an object must have to be included in the metrics results.
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
+    """
+    Specifies a list of tag filters to use as a metrics configuration filter. The metrics configuration includes only objects that meet the filter's criteria.
+    """
 
 @pulumi.input_type
 class BucketMetricsConfigurationArgs:
@@ -2324,21 +2229,18 @@ class BucketMetricsConfigurationArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class BucketMetricsArgsDict(TypedDict):
-        """
-        A container specifying replication metrics-related settings enabling replication metrics and events.
-        """
-        status: pulumi.Input['BucketMetricsStatus']
-        """
-        Specifies whether the replication metrics are enabled.
-        """
-        event_threshold: NotRequired[pulumi.Input['BucketReplicationTimeValueArgsDict']]
-        """
-        A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
-        """
-elif False:
-    BucketMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class BucketMetricsArgsDict(TypedDict):
+    """
+    A container specifying replication metrics-related settings enabling replication metrics and events.
+    """
+    status: pulumi.Input['BucketMetricsStatus']
+    """
+    Specifies whether the replication metrics are enabled.
+    """
+    event_threshold: NotRequired[pulumi.Input['BucketReplicationTimeValueArgsDict']]
+    """
+    A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
+    """
 
 @pulumi.input_type
 class BucketMetricsArgs:
@@ -2379,21 +2281,18 @@ class BucketMetricsArgs:
         pulumi.set(self, "event_threshold", value)
 
 
-if not MYPY:
-    class BucketNoncurrentVersionExpirationArgsDict(TypedDict):
-        """
-        Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime. For more information about setting a lifecycle rule configuration, see [AWS::S3::Bucket Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html).
-        """
-        noncurrent_days: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of days an object is noncurrent before S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
-        """
-        newer_noncurrent_versions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
-        """
-elif False:
-    BucketNoncurrentVersionExpirationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketNoncurrentVersionExpirationArgsDict(TypedDict):
+    """
+    Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime. For more information about setting a lifecycle rule configuration, see [AWS::S3::Bucket Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html).
+    """
+    noncurrent_days: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of days an object is noncurrent before S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
+    """
+    newer_noncurrent_versions: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
+    """
 
 @pulumi.input_type
 class BucketNoncurrentVersionExpirationArgs:
@@ -2434,25 +2333,22 @@ class BucketNoncurrentVersionExpirationArgs:
         pulumi.set(self, "newer_noncurrent_versions", value)
 
 
-if not MYPY:
-    class BucketNoncurrentVersionTransitionArgsDict(TypedDict):
-        """
-        Container for the transition rule that describes when noncurrent objects transition to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class at a specific period in the object's lifetime. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
-        """
-        storage_class: pulumi.Input['BucketNoncurrentVersionTransitionStorageClass']
-        """
-        The class of storage used to store the object.
-        """
-        transition_in_days: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
-        """
-        newer_noncurrent_versions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
-        """
-elif False:
-    BucketNoncurrentVersionTransitionArgsDict: TypeAlias = Mapping[str, Any]
+class BucketNoncurrentVersionTransitionArgsDict(TypedDict):
+    """
+    Container for the transition rule that describes when noncurrent objects transition to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class at a specific period in the object's lifetime. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
+    """
+    storage_class: pulumi.Input['BucketNoncurrentVersionTransitionStorageClass']
+    """
+    The class of storage used to store the object.
+    """
+    transition_in_days: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
+    """
+    newer_noncurrent_versions: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
+    """
 
 @pulumi.input_type
 class BucketNoncurrentVersionTransitionArgs:
@@ -2508,33 +2404,30 @@ class BucketNoncurrentVersionTransitionArgs:
         pulumi.set(self, "newer_noncurrent_versions", value)
 
 
-if not MYPY:
-    class BucketNotificationConfigurationArgsDict(TypedDict):
-        """
-        Describes the notification configuration for an Amazon S3 bucket.
-          If you create the target resource and related permissions in the same template, you might have a circular dependency.
-         For example, you might use the ``AWS::Lambda::Permission`` resource to grant the bucket permission to invoke an AWS Lambda function. However, AWS CloudFormation can't create the bucket until the bucket has permission to invoke the function (AWS CloudFormation checks whether the bucket can invoke the function). If you're using Refs to pass the bucket name, this leads to a circular dependency.
-         To avoid this dependency, you can create all resources without specifying the notification configuration. Then, update the stack with a notification configuration.
-         For more information on permissions, see [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html) and [Granting Permissions to Publish Event Notification Messages to a Destination](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#grant-destinations-permissions-to-s3).
-        """
-        event_bridge_configuration: NotRequired[pulumi.Input['BucketEventBridgeConfigurationArgsDict']]
-        """
-        Enables delivery of events to Amazon EventBridge.
-        """
-        lambda_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLambdaConfigurationArgsDict']]]]
-        """
-        Describes the LAMlong functions to invoke and the events for which to invoke them.
-        """
-        queue_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketQueueConfigurationArgsDict']]]]
-        """
-        The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
-        """
-        topic_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTopicConfigurationArgsDict']]]]
-        """
-        The topic to which notifications are sent and the events for which notifications are generated.
-        """
-elif False:
-    BucketNotificationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketNotificationConfigurationArgsDict(TypedDict):
+    """
+    Describes the notification configuration for an Amazon S3 bucket.
+      If you create the target resource and related permissions in the same template, you might have a circular dependency.
+     For example, you might use the ``AWS::Lambda::Permission`` resource to grant the bucket permission to invoke an AWS Lambda function. However, AWS CloudFormation can't create the bucket until the bucket has permission to invoke the function (AWS CloudFormation checks whether the bucket can invoke the function). If you're using Refs to pass the bucket name, this leads to a circular dependency.
+     To avoid this dependency, you can create all resources without specifying the notification configuration. Then, update the stack with a notification configuration.
+     For more information on permissions, see [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html) and [Granting Permissions to Publish Event Notification Messages to a Destination](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#grant-destinations-permissions-to-s3).
+    """
+    event_bridge_configuration: NotRequired[pulumi.Input['BucketEventBridgeConfigurationArgsDict']]
+    """
+    Enables delivery of events to Amazon EventBridge.
+    """
+    lambda_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLambdaConfigurationArgsDict']]]]
+    """
+    Describes the LAMlong functions to invoke and the events for which to invoke them.
+    """
+    queue_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketQueueConfigurationArgsDict']]]]
+    """
+    The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+    """
+    topic_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTopicConfigurationArgsDict']]]]
+    """
+    The topic to which notifications are sent and the events for which notifications are generated.
+    """
 
 @pulumi.input_type
 class BucketNotificationConfigurationArgs:
@@ -2612,17 +2505,14 @@ class BucketNotificationConfigurationArgs:
         pulumi.set(self, "topic_configurations", value)
 
 
-if not MYPY:
-    class BucketNotificationFilterArgsDict(TypedDict):
-        """
-        Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
-        """
-        s3_key: pulumi.Input['BucketS3KeyFilterArgsDict']
-        """
-        A container for object key name prefix and suffix filtering rules.
-        """
-elif False:
-    BucketNotificationFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BucketNotificationFilterArgsDict(TypedDict):
+    """
+    Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+    """
+    s3_key: pulumi.Input['BucketS3KeyFilterArgsDict']
+    """
+    A container for object key name prefix and suffix filtering rules.
+    """
 
 @pulumi.input_type
 class BucketNotificationFilterArgs:
@@ -2647,21 +2537,18 @@ class BucketNotificationFilterArgs:
         pulumi.set(self, "s3_key", value)
 
 
-if not MYPY:
-    class BucketObjectLockConfigurationArgsDict(TypedDict):
-        """
-        Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
-        """
-        object_lock_enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
-        """
-        rule: NotRequired[pulumi.Input['BucketObjectLockRuleArgsDict']]
-        """
-        Specifies the Object Lock rule for the specified object. Enable this rule when you apply ``ObjectLockConfiguration`` to a bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
-        """
-elif False:
-    BucketObjectLockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketObjectLockConfigurationArgsDict(TypedDict):
+    """
+    Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+    """
+    object_lock_enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+    """
+    rule: NotRequired[pulumi.Input['BucketObjectLockRuleArgsDict']]
+    """
+    Specifies the Object Lock rule for the specified object. Enable this rule when you apply ``ObjectLockConfiguration`` to a bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+    """
 
 @pulumi.input_type
 class BucketObjectLockConfigurationArgs:
@@ -2703,17 +2590,14 @@ class BucketObjectLockConfigurationArgs:
         pulumi.set(self, "rule", value)
 
 
-if not MYPY:
-    class BucketObjectLockRuleArgsDict(TypedDict):
-        """
-        Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket.
-        """
-        default_retention: NotRequired[pulumi.Input['BucketDefaultRetentionArgsDict']]
-        """
-        The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
-        """
-elif False:
-    BucketObjectLockRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketObjectLockRuleArgsDict(TypedDict):
+    """
+    Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket.
+    """
+    default_retention: NotRequired[pulumi.Input['BucketDefaultRetentionArgsDict']]
+    """
+    The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+    """
 
 @pulumi.input_type
 class BucketObjectLockRuleArgs:
@@ -2739,18 +2623,15 @@ class BucketObjectLockRuleArgs:
         pulumi.set(self, "default_retention", value)
 
 
-if not MYPY:
-    class BucketOwnershipControlsRuleArgsDict(TypedDict):
-        """
-        Specifies an Object Ownership rule.
-         S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
-        """
-        object_ownership: NotRequired[pulumi.Input['BucketOwnershipControlsRuleObjectOwnership']]
-        """
-        Specifies an object ownership rule.
-        """
-elif False:
-    BucketOwnershipControlsRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketOwnershipControlsRuleArgsDict(TypedDict):
+    """
+    Specifies an Object Ownership rule.
+     S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+    """
+    object_ownership: NotRequired[pulumi.Input['BucketOwnershipControlsRuleObjectOwnership']]
+    """
+    Specifies an object ownership rule.
+    """
 
 @pulumi.input_type
 class BucketOwnershipControlsRuleArgs:
@@ -2777,18 +2658,15 @@ class BucketOwnershipControlsRuleArgs:
         pulumi.set(self, "object_ownership", value)
 
 
-if not MYPY:
-    class BucketOwnershipControlsArgsDict(TypedDict):
-        """
-        Specifies the container element for Object Ownership rules.
-         S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['BucketOwnershipControlsRuleArgsDict']]]
-        """
-        Specifies the container element for Object Ownership rules.
-        """
-elif False:
-    BucketOwnershipControlsArgsDict: TypeAlias = Mapping[str, Any]
+class BucketOwnershipControlsArgsDict(TypedDict):
+    """
+    Specifies the container element for Object Ownership rules.
+     S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['BucketOwnershipControlsRuleArgsDict']]]
+    """
+    Specifies the container element for Object Ownership rules.
+    """
 
 @pulumi.input_type
 class BucketOwnershipControlsArgs:
@@ -2814,37 +2692,34 @@ class BucketOwnershipControlsArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class BucketPublicAccessBlockConfigurationArgsDict(TypedDict):
-        """
-        The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
-        """
-        block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
-          +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
-          +  PUT Object calls fail if the request includes a public ACL.
-          +  PUT Bucket calls fail if the request includes a public ACL.
-          
-         Enabling this setting doesn't affect existing policies or ACLs.
-        """
-        block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
-         Enabling this setting doesn't affect existing bucket policies.
-        """
-        ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
-         Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-        """
-        restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to ``TRUE`` restricts access to this bucket to only AWS-service principals and authorized users within this account if the bucket has a public policy.
-         Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-        """
-elif False:
-    BucketPublicAccessBlockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketPublicAccessBlockConfigurationArgsDict(TypedDict):
+    """
+    The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+    """
+    block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
+      +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
+      +  PUT Object calls fail if the request includes a public ACL.
+      +  PUT Bucket calls fail if the request includes a public ACL.
+      
+     Enabling this setting doesn't affect existing policies or ACLs.
+    """
+    block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+     Enabling this setting doesn't affect existing bucket policies.
+    """
+    ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+     Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+    """
+    restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to ``TRUE`` restricts access to this bucket to only AWS-service principals and authorized users within this account if the bucket has a public policy.
+     Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+    """
 
 @pulumi.input_type
 class BucketPublicAccessBlockConfigurationArgs:
@@ -2934,25 +2809,22 @@ class BucketPublicAccessBlockConfigurationArgs:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
-if not MYPY:
-    class BucketQueueConfigurationArgsDict(TypedDict):
-        """
-        Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
-        """
-        event: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
-        """
-        queue: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
-        """
-        filter: NotRequired[pulumi.Input['BucketNotificationFilterArgsDict']]
-        """
-        The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
-        """
-elif False:
-    BucketQueueConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketQueueConfigurationArgsDict(TypedDict):
+    """
+    Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
+    """
+    event: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+    """
+    queue: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
+    """
+    filter: NotRequired[pulumi.Input['BucketNotificationFilterArgsDict']]
+    """
+    The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+    """
 
 @pulumi.input_type
 class BucketQueueConfigurationArgs:
@@ -3008,21 +2880,18 @@ class BucketQueueConfigurationArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class BucketRecordExpirationArgsDict(TypedDict):
-        """
-        The journal table record expiration settings for a journal table in an S3 Metadata configuration.
-        """
-        expiration: pulumi.Input['BucketRecordExpirationExpiration']
-        """
-        Specifies whether journal table record expiration is enabled or disabled.
-        """
-        days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from ``7`` to ``2147483647``. For example, to retain your journal table records for one year, set this value to ``365``.
-        """
-elif False:
-    BucketRecordExpirationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRecordExpirationArgsDict(TypedDict):
+    """
+    The journal table record expiration settings for a journal table in an S3 Metadata configuration.
+    """
+    expiration: pulumi.Input['BucketRecordExpirationExpiration']
+    """
+    Specifies whether journal table record expiration is enabled or disabled.
+    """
+    days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from ``7`` to ``2147483647``. For example, to retain your journal table records for one year, set this value to ``365``.
+    """
 
 @pulumi.input_type
 class BucketRecordExpirationArgs:
@@ -3063,21 +2932,18 @@ class BucketRecordExpirationArgs:
         pulumi.set(self, "days", value)
 
 
-if not MYPY:
-    class BucketRedirectAllRequestsToArgsDict(TypedDict):
-        """
-        Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
-        """
-        host_name: pulumi.Input[_builtins.str]
-        """
-        Name of the host where requests are redirected.
-        """
-        protocol: NotRequired[pulumi.Input['BucketRedirectAllRequestsToProtocol']]
-        """
-        Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
-        """
-elif False:
-    BucketRedirectAllRequestsToArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRedirectAllRequestsToArgsDict(TypedDict):
+    """
+    Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+    """
+    host_name: pulumi.Input[_builtins.str]
+    """
+    Name of the host where requests are redirected.
+    """
+    protocol: NotRequired[pulumi.Input['BucketRedirectAllRequestsToProtocol']]
+    """
+    Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+    """
 
 @pulumi.input_type
 class BucketRedirectAllRequestsToArgs:
@@ -3118,35 +2984,32 @@ class BucketRedirectAllRequestsToArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class BucketRedirectRuleArgsDict(TypedDict):
-        """
-        Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The host name to use in the redirect request.
-        """
-        http_redirect_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTP redirect code to use on the response. Not required if one of the siblings is present.
-        """
-        protocol: NotRequired[pulumi.Input['BucketRedirectRuleProtocol']]
-        """
-        Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
-        """
-        replace_key_prefix_with: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/``, you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
-          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        """
-        replace_key_with: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The specific object key to use in the redirect request. For example, redirect request to ``error.html``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
-          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        """
-elif False:
-    BucketRedirectRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRedirectRuleArgsDict(TypedDict):
+    """
+    Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The host name to use in the redirect request.
+    """
+    http_redirect_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+    """
+    protocol: NotRequired[pulumi.Input['BucketRedirectRuleProtocol']]
+    """
+    Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+    """
+    replace_key_prefix_with: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/``, you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+      Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+    """
+    replace_key_with: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The specific object key to use in the redirect request. For example, redirect request to ``error.html``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+      Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+    """
 
 @pulumi.input_type
 class BucketRedirectRuleArgs:
@@ -3240,18 +3103,15 @@ class BucketRedirectRuleArgs:
         pulumi.set(self, "replace_key_with", value)
 
 
-if not MYPY:
-    class BucketReplicaModificationsArgsDict(TypedDict):
-        """
-        A filter that you can specify for selection for modifications on replicas.
-        """
-        status: pulumi.Input['BucketReplicaModificationsStatus']
-        """
-        Specifies whether Amazon S3 replicates modifications on replicas.
-         *Allowed values*: ``Enabled`` | ``Disabled``
-        """
-elif False:
-    BucketReplicaModificationsArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicaModificationsArgsDict(TypedDict):
+    """
+    A filter that you can specify for selection for modifications on replicas.
+    """
+    status: pulumi.Input['BucketReplicaModificationsStatus']
+    """
+    Specifies whether Amazon S3 replicates modifications on replicas.
+     *Allowed values*: ``Enabled`` | ``Disabled``
+    """
 
 @pulumi.input_type
 class BucketReplicaModificationsArgs:
@@ -3278,21 +3138,18 @@ class BucketReplicaModificationsArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class BucketReplicationConfigurationArgsDict(TypedDict):
-        """
-        A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
-        """
-        role: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationRuleArgsDict']]]
-        """
-        A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
-        """
-elif False:
-    BucketReplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationConfigurationArgsDict(TypedDict):
+    """
+    A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
+    """
+    role: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationRuleArgsDict']]]
+    """
+    A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
+    """
 
 @pulumi.input_type
 class BucketReplicationConfigurationArgs:
@@ -3332,44 +3189,41 @@ class BucketReplicationConfigurationArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class BucketReplicationDestinationArgsDict(TypedDict):
-        """
-        A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
-        """
-        access_control_translation: NotRequired[pulumi.Input['BucketAccessControlTranslationArgsDict']]
-        """
-        Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
-        """
-        account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*.
-         If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['BucketEncryptionConfigurationArgsDict']]
-        """
-        Specifies encryption-related information.
-        """
-        metrics: NotRequired[pulumi.Input['BucketMetricsArgsDict']]
-        """
-        A container specifying replication metrics-related settings enabling replication metrics and events.
-        """
-        replication_time: NotRequired[pulumi.Input['BucketReplicationTimeArgsDict']]
-        """
-        A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
-        """
-        storage_class: NotRequired[pulumi.Input['BucketReplicationDestinationStorageClass']]
-        """
-        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
-         For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
-         ``FSX_OPENZFS`` is not an accepted value when replicating objects.
-        """
-elif False:
-    BucketReplicationDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationDestinationArgsDict(TypedDict):
+    """
+    A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+    """
+    access_control_translation: NotRequired[pulumi.Input['BucketAccessControlTranslationArgsDict']]
+    """
+    Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+    """
+    account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*.
+     If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['BucketEncryptionConfigurationArgsDict']]
+    """
+    Specifies encryption-related information.
+    """
+    metrics: NotRequired[pulumi.Input['BucketMetricsArgsDict']]
+    """
+    A container specifying replication metrics-related settings enabling replication metrics and events.
+    """
+    replication_time: NotRequired[pulumi.Input['BucketReplicationTimeArgsDict']]
+    """
+    A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+    """
+    storage_class: NotRequired[pulumi.Input['BucketReplicationDestinationStorageClass']]
+    """
+    The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+     For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
+     ``FSX_OPENZFS`` is not an accepted value when replicating objects.
+    """
 
 @pulumi.input_type
 class BucketReplicationDestinationArgs:
@@ -3496,24 +3350,21 @@ class BucketReplicationDestinationArgs:
         pulumi.set(self, "storage_class", value)
 
 
-if not MYPY:
-    class BucketReplicationRuleAndOperatorArgsDict(TypedDict):
-        """
-        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
-         For example:
-          +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
-          +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An object key name prefix that identifies the subset of objects to which the rule applies.
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
-        """
-        An array of tags containing key and value pairs.
-        """
-elif False:
-    BucketReplicationRuleAndOperatorArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationRuleAndOperatorArgsDict(TypedDict):
+    """
+    A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+     For example:
+      +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+      +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An object key name prefix that identifies the subset of objects to which the rule applies.
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
+    """
+    An array of tags containing key and value pairs.
+    """
 
 @pulumi.input_type
 class BucketReplicationRuleAndOperatorArgs:
@@ -3558,29 +3409,26 @@ class BucketReplicationRuleAndOperatorArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class BucketReplicationRuleFilterArgsDict(TypedDict):
-        """
-        A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
-        """
-        and_: NotRequired[pulumi.Input['BucketReplicationRuleAndOperatorArgsDict']]
-        """
-        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
-          +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
-          +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An object key name prefix that identifies the subset of objects to which the rule applies.
-          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        """
-        tag_filter: NotRequired[pulumi.Input['BucketTagFilterArgsDict']]
-        """
-        A container for specifying a tag key and value. 
-         The rule applies only to objects that have the tag in their tag set.
-        """
-elif False:
-    BucketReplicationRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationRuleFilterArgsDict(TypedDict):
+    """
+    A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
+    """
+    and_: NotRequired[pulumi.Input['BucketReplicationRuleAndOperatorArgsDict']]
+    """
+    A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+      +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
+      +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An object key name prefix that identifies the subset of objects to which the rule applies.
+      Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+    """
+    tag_filter: NotRequired[pulumi.Input['BucketTagFilterArgsDict']]
+    """
+    A container for specifying a tag key and value. 
+     The rule applies only to objects that have the tag in their tag set.
+    """
 
 @pulumi.input_type
 class BucketReplicationRuleFilterArgs:
@@ -3646,50 +3494,47 @@ class BucketReplicationRuleFilterArgs:
         pulumi.set(self, "tag_filter", value)
 
 
-if not MYPY:
-    class BucketReplicationRuleArgsDict(TypedDict):
-        """
-        Specifies which Amazon S3 objects to replicate and where to store the replicas.
-        """
-        destination: pulumi.Input['BucketReplicationDestinationArgsDict']
-        """
-        A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
-        """
-        status: pulumi.Input['BucketReplicationRuleStatus']
-        """
-        Specifies whether the rule is enabled.
-        """
-        delete_marker_replication: NotRequired[pulumi.Input['BucketDeleteMarkerReplicationArgsDict']]
-        """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
-         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
-          If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
-        """
-        filter: NotRequired[pulumi.Input['BucketReplicationRuleFilterArgsDict']]
-        """
-        A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
-          V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
-          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
-         For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
-        """
-        source_selection_criteria: NotRequired[pulumi.Input['BucketSourceSelectionCriteriaArgsDict']]
-        """
-        A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
-        """
-elif False:
-    BucketReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationRuleArgsDict(TypedDict):
+    """
+    Specifies which Amazon S3 objects to replicate and where to store the replicas.
+    """
+    destination: pulumi.Input['BucketReplicationDestinationArgsDict']
+    """
+    A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+    """
+    status: pulumi.Input['BucketReplicationRuleStatus']
+    """
+    Specifies whether the rule is enabled.
+    """
+    delete_marker_replication: NotRequired[pulumi.Input['BucketDeleteMarkerReplicationArgsDict']]
+    """
+    Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+     For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+      If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+    """
+    filter: NotRequired[pulumi.Input['BucketReplicationRuleFilterArgsDict']]
+    """
+    A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
+      V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+      Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
+     For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
+    """
+    source_selection_criteria: NotRequired[pulumi.Input['BucketSourceSelectionCriteriaArgsDict']]
+    """
+    A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+    """
 
 @pulumi.input_type
 class BucketReplicationRuleArgs:
@@ -3835,18 +3680,15 @@ class BucketReplicationRuleArgs:
         pulumi.set(self, "source_selection_criteria", value)
 
 
-if not MYPY:
-    class BucketReplicationTimeValueArgsDict(TypedDict):
-        """
-        A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
-        """
-        minutes: pulumi.Input[_builtins.int]
-        """
-        Contains an integer specifying time in minutes. 
-          Valid value: 15
-        """
-elif False:
-    BucketReplicationTimeValueArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationTimeValueArgsDict(TypedDict):
+    """
+    A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
+    """
+    minutes: pulumi.Input[_builtins.int]
+    """
+    Contains an integer specifying time in minutes. 
+      Valid value: 15
+    """
 
 @pulumi.input_type
 class BucketReplicationTimeValueArgs:
@@ -3873,21 +3715,18 @@ class BucketReplicationTimeValueArgs:
         pulumi.set(self, "minutes", value)
 
 
-if not MYPY:
-    class BucketReplicationTimeArgsDict(TypedDict):
-        """
-        A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
-        """
-        status: pulumi.Input['BucketReplicationTimeStatus']
-        """
-        Specifies whether the replication time is enabled.
-        """
-        time: pulumi.Input['BucketReplicationTimeValueArgsDict']
-        """
-        A container specifying the time by which replication should be complete for all objects and operations on objects.
-        """
-elif False:
-    BucketReplicationTimeArgsDict: TypeAlias = Mapping[str, Any]
+class BucketReplicationTimeArgsDict(TypedDict):
+    """
+    A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+    """
+    status: pulumi.Input['BucketReplicationTimeStatus']
+    """
+    Specifies whether the replication time is enabled.
+    """
+    time: pulumi.Input['BucketReplicationTimeValueArgsDict']
+    """
+    A container specifying the time by which replication should be complete for all objects and operations on objects.
+    """
 
 @pulumi.input_type
 class BucketReplicationTimeArgs:
@@ -3927,23 +3766,20 @@ class BucketReplicationTimeArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class BucketRoutingRuleConditionArgsDict(TypedDict):
-        """
-        A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
-        """
-        http_error_code_returned_equals: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied.
-         Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
-        """
-        key_prefix_equals: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``docs/``, which identifies all objects in the docs/ folder.
-         Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
-        """
-elif False:
-    BucketRoutingRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRoutingRuleConditionArgsDict(TypedDict):
+    """
+    A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+    """
+    http_error_code_returned_equals: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied.
+     Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+    """
+    key_prefix_equals: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``docs/``, which identifies all objects in the docs/ folder.
+     Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+    """
 
 @pulumi.input_type
 class BucketRoutingRuleConditionArgs:
@@ -3989,21 +3825,18 @@ class BucketRoutingRuleConditionArgs:
         pulumi.set(self, "key_prefix_equals", value)
 
 
-if not MYPY:
-    class BucketRoutingRuleArgsDict(TypedDict):
-        """
-        Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see [Configuring advanced conditional redirects](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects) in the *Amazon S3 User Guide*.
-        """
-        redirect_rule: pulumi.Input['BucketRedirectRuleArgsDict']
-        """
-        Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
-        """
-        routing_rule_condition: NotRequired[pulumi.Input['BucketRoutingRuleConditionArgsDict']]
-        """
-        A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
-        """
-elif False:
-    BucketRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRoutingRuleArgsDict(TypedDict):
+    """
+    Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see [Configuring advanced conditional redirects](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects) in the *Amazon S3 User Guide*.
+    """
+    redirect_rule: pulumi.Input['BucketRedirectRuleArgsDict']
+    """
+    Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+    """
+    routing_rule_condition: NotRequired[pulumi.Input['BucketRoutingRuleConditionArgsDict']]
+    """
+    A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+    """
 
 @pulumi.input_type
 class BucketRoutingRuleArgs:
@@ -4044,79 +3877,76 @@ class BucketRoutingRuleArgs:
         pulumi.set(self, "routing_rule_condition", value)
 
 
-if not MYPY:
-    class BucketRuleArgsDict(TypedDict):
-        """
-        Specifies lifecycle rules for an Amazon S3 bucket. For more information, see [Put Bucket Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlifecycle.html) in the *Amazon S3 API Reference*.
-         You must specify at least one of the following properties: ``AbortIncompleteMultipartUpload``, ``ExpirationDate``, ``ExpirationInDays``, ``NoncurrentVersionExpirationInDays``, ``NoncurrentVersionTransition``, ``NoncurrentVersionTransitions``, ``Transition``, or ``Transitions``.
-        """
-        status: pulumi.Input['BucketRuleStatus']
-        """
-        If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
-        """
-        abort_incomplete_multipart_upload: NotRequired[pulumi.Input['BucketAbortIncompleteMultipartUploadArgsDict']]
-        """
-        Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket.
-        """
-        expiration_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier. The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
-        """
-        expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
-        """
-        expired_object_delete_marker: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Amazon S3 will remove a delete marker without any noncurrent versions. If set to true, the delete marker will be removed if there are no noncurrent versions. This cannot be specified with ``ExpirationInDays``, ``ExpirationDate``, or ``TagFilters``.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the rule. The value can't be longer than 255 characters.
-        """
-        noncurrent_version_expiration: NotRequired[pulumi.Input['BucketNoncurrentVersionExpirationArgsDict']]
-        """
-        Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime.
-        """
-        noncurrent_version_expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        (Deprecated.) For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
-        """
-        noncurrent_version_transition: NotRequired[pulumi.Input['BucketNoncurrentVersionTransitionArgsDict']]
-        """
-        (Deprecated.) For buckets with versioning enabled (or suspended), specifies when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
-        """
-        noncurrent_version_transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketNoncurrentVersionTransitionArgsDict']]]]
-        """
-        For buckets with versioning enabled (or suspended), one or more transition rules that specify when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransition`` property.
-        """
-        object_size_greater_than: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
-        """
-        object_size_less_than: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object key prefix that identifies one or more objects to which this rule applies.
-          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
-        """
-        Tags to use to identify a subset of objects to which the lifecycle rule applies.
-        """
-        transition: NotRequired[pulumi.Input['BucketTransitionArgsDict']]
-        """
-        (Deprecated.) Specifies when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transitions`` property.
-        """
-        transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTransitionArgsDict']]]]
-        """
-        One or more transition rules that specify when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transition`` property.
-        """
-elif False:
-    BucketRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRuleArgsDict(TypedDict):
+    """
+    Specifies lifecycle rules for an Amazon S3 bucket. For more information, see [Put Bucket Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlifecycle.html) in the *Amazon S3 API Reference*.
+     You must specify at least one of the following properties: ``AbortIncompleteMultipartUpload``, ``ExpirationDate``, ``ExpirationInDays``, ``NoncurrentVersionExpirationInDays``, ``NoncurrentVersionTransition``, ``NoncurrentVersionTransitions``, ``Transition``, or ``Transitions``.
+    """
+    status: pulumi.Input['BucketRuleStatus']
+    """
+    If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
+    """
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input['BucketAbortIncompleteMultipartUploadArgsDict']]
+    """
+    Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket.
+    """
+    expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier. The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+    """
+    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+    """
+    expired_object_delete_marker: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Amazon S3 will remove a delete marker without any noncurrent versions. If set to true, the delete marker will be removed if there are no noncurrent versions. This cannot be specified with ``ExpirationInDays``, ``ExpirationDate``, or ``TagFilters``.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the rule. The value can't be longer than 255 characters.
+    """
+    noncurrent_version_expiration: NotRequired[pulumi.Input['BucketNoncurrentVersionExpirationArgsDict']]
+    """
+    Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime.
+    """
+    noncurrent_version_expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    (Deprecated.) For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
+    """
+    noncurrent_version_transition: NotRequired[pulumi.Input['BucketNoncurrentVersionTransitionArgsDict']]
+    """
+    (Deprecated.) For buckets with versioning enabled (or suspended), specifies when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
+    """
+    noncurrent_version_transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketNoncurrentVersionTransitionArgsDict']]]]
+    """
+    For buckets with versioning enabled (or suspended), one or more transition rules that specify when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransition`` property.
+    """
+    object_size_greater_than: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+    """
+    object_size_less_than: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object key prefix that identifies one or more objects to which this rule applies.
+      Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgsDict']]]]
+    """
+    Tags to use to identify a subset of objects to which the lifecycle rule applies.
+    """
+    transition: NotRequired[pulumi.Input['BucketTransitionArgsDict']]
+    """
+    (Deprecated.) Specifies when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transitions`` property.
+    """
+    transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketTransitionArgsDict']]]]
+    """
+    One or more transition rules that specify when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transition`` property.
+    """
 
 @pulumi.input_type
 class BucketRuleArgs:
@@ -4384,18 +4214,15 @@ class BucketRuleArgs:
         pulumi.set(self, "transitions", value)
 
 
-if not MYPY:
-    class BucketS3KeyFilterArgsDict(TypedDict):
-        """
-        A container for object key name prefix and suffix filtering rules. For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
-          The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['BucketFilterRuleArgsDict']]]
-        """
-        A list of containers for the key-value pair that defines the criteria for the filter rule.
-        """
-elif False:
-    BucketS3KeyFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BucketS3KeyFilterArgsDict(TypedDict):
+    """
+    A container for object key name prefix and suffix filtering rules. For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+      The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['BucketFilterRuleArgsDict']]]
+    """
+    A list of containers for the key-value pair that defines the criteria for the filter rule.
+    """
 
 @pulumi.input_type
 class BucketS3KeyFilterArgs:
@@ -4421,29 +4248,26 @@ class BucketS3KeyFilterArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class BucketS3TablesDestinationArgsDict(TypedDict):
-        """
-        The destination information for a V1 S3 Metadata configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
-        """
-        table_bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
-        """
-        table_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
-        """
-        table_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.
-        """
-elif False:
-    BucketS3TablesDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketS3TablesDestinationArgsDict(TypedDict):
+    """
+    The destination information for a V1 S3 Metadata configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+    """
+    table_bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+    """
+    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+    """
+    table_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.
+    """
 
 @pulumi.input_type
 class BucketS3TablesDestinationArgs:
@@ -4515,38 +4339,35 @@ class BucketS3TablesDestinationArgs:
         pulumi.set(self, "table_namespace", value)
 
 
-if not MYPY:
-    class BucketServerSideEncryptionByDefaultArgsDict(TypedDict):
-        """
-        Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
-           +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-          +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
-          +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
-        """
-        sse_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm']
-        """
-        Server-side encryption algorithm to use for the default encryption.
-          For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
-        """
-        kms_master_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
-           +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
-          +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
-          
-          You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
-          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
-          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
-          +  Key Alias: ``alias/alias-name``
-          
-         If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
-          +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
-          
-           Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
-        """
-elif False:
-    BucketServerSideEncryptionByDefaultArgsDict: TypeAlias = Mapping[str, Any]
+class BucketServerSideEncryptionByDefaultArgsDict(TypedDict):
+    """
+    Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
+       +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
+      +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+      +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
+    """
+    sse_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm']
+    """
+    Server-side encryption algorithm to use for the default encryption.
+      For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
+    """
+    kms_master_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
+       +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+      +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
+      
+      You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
+      +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+      +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
+      +  Key Alias: ``alias/alias-name``
+      
+     If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
+       +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+      +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+      
+       Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
+    """
 
 @pulumi.input_type
 class BucketServerSideEncryptionByDefaultArgs:
@@ -4618,29 +4439,26 @@ class BucketServerSideEncryptionByDefaultArgs:
         pulumi.set(self, "kms_master_key_id", value)
 
 
-if not MYPY:
-    class BucketServerSideEncryptionRuleArgsDict(TypedDict):
-        """
-        Specifies the default server-side encryption configuration.
-           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
-          +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
-        """
-        blocked_encryption_types: NotRequired[pulumi.Input['BucketBlockedEncryptionTypesArgsDict']]
-        """
-        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
-          Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
-        """
-        bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
-         For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
-        """
-        server_side_encryption_by_default: NotRequired[pulumi.Input['BucketServerSideEncryptionByDefaultArgsDict']]
-        """
-        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-        """
-elif False:
-    BucketServerSideEncryptionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketServerSideEncryptionRuleArgsDict(TypedDict):
+    """
+    Specifies the default server-side encryption configuration.
+       +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
+      +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+    """
+    blocked_encryption_types: NotRequired[pulumi.Input['BucketBlockedEncryptionTypesArgsDict']]
+    """
+    A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+      Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
+    """
+    bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+     For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
+    """
+    server_side_encryption_by_default: NotRequired[pulumi.Input['BucketServerSideEncryptionByDefaultArgsDict']]
+    """
+    Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+    """
 
 @pulumi.input_type
 class BucketServerSideEncryptionRuleArgs:
@@ -4704,21 +4522,18 @@ class BucketServerSideEncryptionRuleArgs:
         pulumi.set(self, "server_side_encryption_by_default", value)
 
 
-if not MYPY:
-    class BucketSourceSelectionCriteriaArgsDict(TypedDict):
-        """
-        A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
-        """
-        replica_modifications: NotRequired[pulumi.Input['BucketReplicaModificationsArgsDict']]
-        """
-        A filter that you can specify for selection for modifications on replicas.
-        """
-        sse_kms_encrypted_objects: NotRequired[pulumi.Input['BucketSseKmsEncryptedObjectsArgsDict']]
-        """
-        A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
-        """
-elif False:
-    BucketSourceSelectionCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class BucketSourceSelectionCriteriaArgsDict(TypedDict):
+    """
+    A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+    """
+    replica_modifications: NotRequired[pulumi.Input['BucketReplicaModificationsArgsDict']]
+    """
+    A filter that you can specify for selection for modifications on replicas.
+    """
+    sse_kms_encrypted_objects: NotRequired[pulumi.Input['BucketSseKmsEncryptedObjectsArgsDict']]
+    """
+    A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
+    """
 
 @pulumi.input_type
 class BucketSourceSelectionCriteriaArgs:
@@ -4760,17 +4575,14 @@ class BucketSourceSelectionCriteriaArgs:
         pulumi.set(self, "sse_kms_encrypted_objects", value)
 
 
-if not MYPY:
-    class BucketSseKmsEncryptedObjectsArgsDict(TypedDict):
-        """
-        A container for filter information for the selection of S3 objects encrypted with AWS KMS.
-        """
-        status: pulumi.Input['BucketSseKmsEncryptedObjectsStatus']
-        """
-        Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
-        """
-elif False:
-    BucketSseKmsEncryptedObjectsArgsDict: TypeAlias = Mapping[str, Any]
+class BucketSseKmsEncryptedObjectsArgsDict(TypedDict):
+    """
+    A container for filter information for the selection of S3 objects encrypted with AWS KMS.
+    """
+    status: pulumi.Input['BucketSseKmsEncryptedObjectsStatus']
+    """
+    Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+    """
 
 @pulumi.input_type
 class BucketSseKmsEncryptedObjectsArgs:
@@ -4795,17 +4607,14 @@ class BucketSseKmsEncryptedObjectsArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class BucketStorageClassAnalysisArgsDict(TypedDict):
-        """
-        Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
-        """
-        data_export: NotRequired[pulumi.Input['BucketDataExportArgsDict']]
-        """
-        Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
-        """
-elif False:
-    BucketStorageClassAnalysisArgsDict: TypeAlias = Mapping[str, Any]
+class BucketStorageClassAnalysisArgsDict(TypedDict):
+    """
+    Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
+    """
+    data_export: NotRequired[pulumi.Input['BucketDataExportArgsDict']]
+    """
+    Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+    """
 
 @pulumi.input_type
 class BucketStorageClassAnalysisArgs:
@@ -4831,21 +4640,18 @@ class BucketStorageClassAnalysisArgs:
         pulumi.set(self, "data_export", value)
 
 
-if not MYPY:
-    class BucketTagFilterArgsDict(TypedDict):
-        """
-        Specifies tags to use to identify a subset of objects for an Amazon S3 bucket. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    BucketTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BucketTagFilterArgsDict(TypedDict):
+    """
+    Specifies tags to use to identify a subset of objects for an Amazon S3 bucket. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class BucketTagFilterArgs:
@@ -4885,14 +4691,11 @@ class BucketTagFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BucketTargetObjectKeyFormatArgsDict(TypedDict):
-        """
-        Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
-        """
-        pass
-elif False:
-    BucketTargetObjectKeyFormatArgsDict: TypeAlias = Mapping[str, Any]
+class BucketTargetObjectKeyFormatArgsDict(TypedDict):
+    """
+    Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+    """
+    pass
 
 @pulumi.input_type
 class BucketTargetObjectKeyFormatArgs:
@@ -4903,21 +4706,18 @@ class BucketTargetObjectKeyFormatArgs:
         pass
 
 
-if not MYPY:
-    class BucketTieringArgsDict(TypedDict):
-        """
-        The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
-        """
-        access_tier: pulumi.Input['BucketTieringAccessTier']
-        """
-        S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
-        """
-        days: pulumi.Input[_builtins.int]
-        """
-        The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
-        """
-elif False:
-    BucketTieringArgsDict: TypeAlias = Mapping[str, Any]
+class BucketTieringArgsDict(TypedDict):
+    """
+    The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
+    """
+    access_tier: pulumi.Input['BucketTieringAccessTier']
+    """
+    S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
+    """
+    days: pulumi.Input[_builtins.int]
+    """
+    The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
+    """
 
 @pulumi.input_type
 class BucketTieringArgs:
@@ -4957,25 +4757,22 @@ class BucketTieringArgs:
         pulumi.set(self, "days", value)
 
 
-if not MYPY:
-    class BucketTopicConfigurationArgsDict(TypedDict):
-        """
-        A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
-        """
-        event: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
-        """
-        filter: NotRequired[pulumi.Input['BucketNotificationFilterArgsDict']]
-        """
-        The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket.
-        """
-elif False:
-    BucketTopicConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketTopicConfigurationArgsDict(TypedDict):
+    """
+    A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
+    """
+    event: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
+    """
+    filter: NotRequired[pulumi.Input['BucketNotificationFilterArgsDict']]
+    """
+    The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket.
+    """
 
 @pulumi.input_type
 class BucketTopicConfigurationArgs:
@@ -5031,25 +4828,22 @@ class BucketTopicConfigurationArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class BucketTransitionArgsDict(TypedDict):
-        """
-        Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
-        """
-        storage_class: pulumi.Input['BucketTransitionStorageClass']
-        """
-        The storage class to which you want the object to transition.
-        """
-        transition_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
-        """
-        transition_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
-        """
-elif False:
-    BucketTransitionArgsDict: TypeAlias = Mapping[str, Any]
+class BucketTransitionArgsDict(TypedDict):
+    """
+    Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
+    """
+    storage_class: pulumi.Input['BucketTransitionStorageClass']
+    """
+    The storage class to which you want the object to transition.
+    """
+    transition_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+    """
+    transition_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+    """
 
 @pulumi.input_type
 class BucketTransitionArgs:
@@ -5106,21 +4900,18 @@ class BucketTransitionArgs:
         pulumi.set(self, "transition_in_days", value)
 
 
-if not MYPY:
-    class BucketVersioningConfigurationArgsDict(TypedDict):
-        """
-        Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
-         Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
-          +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
-          +  *Suspending versioning* - Takes effect immediately with no propagation delay.
-          +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
-        """
-        status: pulumi.Input['BucketVersioningConfigurationStatus']
-        """
-        The versioning state of the bucket.
-        """
-elif False:
-    BucketVersioningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketVersioningConfigurationArgsDict(TypedDict):
+    """
+    Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
+     Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+      +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+      +  *Suspending versioning* - Takes effect immediately with no propagation delay.
+      +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
+    """
+    status: pulumi.Input['BucketVersioningConfigurationStatus']
+    """
+    The versioning state of the bucket.
+    """
 
 @pulumi.input_type
 class BucketVersioningConfigurationArgs:
@@ -5149,30 +4940,27 @@ class BucketVersioningConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class BucketWebsiteConfigurationArgsDict(TypedDict):
-        """
-        Specifies website configuration parameters for an Amazon S3 bucket.
-        """
-        error_document: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the error document for the website.
-        """
-        index_document: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the index document for the website.
-        """
-        redirect_all_requests_to: NotRequired[pulumi.Input['BucketRedirectAllRequestsToArgsDict']]
-        """
-        The redirect behavior for every request to this bucket's website endpoint.
-          If you specify this property, you can't specify any other property.
-        """
-        routing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketRoutingRuleArgsDict']]]]
-        """
-        Rules that define when a redirect is applied and the redirect behavior.
-        """
-elif False:
-    BucketWebsiteConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketWebsiteConfigurationArgsDict(TypedDict):
+    """
+    Specifies website configuration parameters for an Amazon S3 bucket.
+    """
+    error_document: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the error document for the website.
+    """
+    index_document: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the index document for the website.
+    """
+    redirect_all_requests_to: NotRequired[pulumi.Input['BucketRedirectAllRequestsToArgsDict']]
+    """
+    The redirect behavior for every request to this bucket's website endpoint.
+      If you specify this property, you can't specify any other property.
+    """
+    routing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketRoutingRuleArgsDict']]]]
+    """
+    Rules that define when a redirect is applied and the redirect behavior.
+    """
 
 @pulumi.input_type
 class BucketWebsiteConfigurationArgs:
@@ -5248,31 +5036,28 @@ class BucketWebsiteConfigurationArgs:
         pulumi.set(self, "routing_rules", value)
 
 
-if not MYPY:
-    class MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
-        block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
-        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
-        """
-        block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
-        """
-        ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-        """
-        restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-        """
-elif False:
-    MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
+    block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+    - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+     - PUT Object calls fail if the request includes a public ACL.
+    . - PUT Bucket calls fail if the request includes a public ACL.
+    Enabling this setting doesn't affect existing policies or ACLs.
+    """
+    block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+    """
+    ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+    """
+    restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+    Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+    """
 
 @pulumi.input_type
 class MultiRegionAccessPointPublicAccessBlockConfigurationArgs:
@@ -5355,18 +5140,15 @@ class MultiRegionAccessPointPublicAccessBlockConfigurationArgs:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
-if not MYPY:
-    class MultiRegionAccessPointRegionArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the associated bucket for the Region.
-        """
-        bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
-        """
-elif False:
-    MultiRegionAccessPointRegionArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionAccessPointRegionArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the associated bucket for the Region.
+    """
+    bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+    """
 
 @pulumi.input_type
 class MultiRegionAccessPointRegionArgs:
@@ -5406,41 +5188,38 @@ class MultiRegionAccessPointRegionArgs:
         pulumi.set(self, "bucket_account_id", value)
 
 
-if not MYPY:
-    class StorageLensAccountLevelArgsDict(TypedDict):
-        """
-        Account-level metrics configurations.
-        """
-        bucket_level: pulumi.Input['StorageLensBucketLevelArgsDict']
-        """
-        This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
-        """
-        activity_metrics: NotRequired[pulumi.Input['StorageLensActivityMetricsArgsDict']]
-        """
-        This property contains the details of account-level activity metrics for S3 Storage Lens.
-        """
-        advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgsDict']]
-        """
-        This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
-        """
-        advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgsDict']]
-        """
-        This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
-        """
-        advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
-        """
-        This property contains the account-level details for S3 Storage Lens advanced performance metrics.
-        """
-        detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
-        """
-        This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
-        """
-        storage_lens_group_level: NotRequired[pulumi.Input['StorageLensGroupLevelArgsDict']]
-        """
-        This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
-        """
-elif False:
-    StorageLensAccountLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensAccountLevelArgsDict(TypedDict):
+    """
+    Account-level metrics configurations.
+    """
+    bucket_level: pulumi.Input['StorageLensBucketLevelArgsDict']
+    """
+    This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
+    """
+    activity_metrics: NotRequired[pulumi.Input['StorageLensActivityMetricsArgsDict']]
+    """
+    This property contains the details of account-level activity metrics for S3 Storage Lens.
+    """
+    advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgsDict']]
+    """
+    This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
+    """
+    advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgsDict']]
+    """
+    This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+    """
+    advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
+    """
+    This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+    """
+    detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
+    """
+    This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
+    """
+    storage_lens_group_level: NotRequired[pulumi.Input['StorageLensGroupLevelArgsDict']]
+    """
+    This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+    """
 
 @pulumi.input_type
 class StorageLensAccountLevelArgs:
@@ -5561,17 +5340,14 @@ class StorageLensAccountLevelArgs:
         pulumi.set(self, "storage_lens_group_level", value)
 
 
-if not MYPY:
-    class StorageLensActivityMetricsArgsDict(TypedDict):
-        """
-        Enables activity metrics.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether activity metrics are enabled or disabled.
-        """
-elif False:
-    StorageLensActivityMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensActivityMetricsArgsDict(TypedDict):
+    """
+    Enables activity metrics.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether activity metrics are enabled or disabled.
+    """
 
 @pulumi.input_type
 class StorageLensActivityMetricsArgs:
@@ -5597,17 +5373,14 @@ class StorageLensActivityMetricsArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class StorageLensAdvancedCostOptimizationMetricsArgsDict(TypedDict):
-        """
-        Enables advanced cost optimization metrics.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether advanced cost optimization metrics are enabled or disabled.
-        """
-elif False:
-    StorageLensAdvancedCostOptimizationMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensAdvancedCostOptimizationMetricsArgsDict(TypedDict):
+    """
+    Enables advanced cost optimization metrics.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether advanced cost optimization metrics are enabled or disabled.
+    """
 
 @pulumi.input_type
 class StorageLensAdvancedCostOptimizationMetricsArgs:
@@ -5633,17 +5406,14 @@ class StorageLensAdvancedCostOptimizationMetricsArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class StorageLensAdvancedDataProtectionMetricsArgsDict(TypedDict):
-        """
-        Enables advanced data protection metrics.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether advanced data protection metrics are enabled or disabled.
-        """
-elif False:
-    StorageLensAdvancedDataProtectionMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensAdvancedDataProtectionMetricsArgsDict(TypedDict):
+    """
+    Enables advanced data protection metrics.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether advanced data protection metrics are enabled or disabled.
+    """
 
 @pulumi.input_type
 class StorageLensAdvancedDataProtectionMetricsArgs:
@@ -5669,17 +5439,14 @@ class StorageLensAdvancedDataProtectionMetricsArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class StorageLensAdvancedPerformanceMetricsArgsDict(TypedDict):
-        """
-        Advanced Performance Metrics.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the Advanced Performance Metrics is enabled or disabled.
-        """
-elif False:
-    StorageLensAdvancedPerformanceMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensAdvancedPerformanceMetricsArgsDict(TypedDict):
+    """
+    Advanced Performance Metrics.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the Advanced Performance Metrics is enabled or disabled.
+    """
 
 @pulumi.input_type
 class StorageLensAdvancedPerformanceMetricsArgs:
@@ -5705,17 +5472,14 @@ class StorageLensAdvancedPerformanceMetricsArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class StorageLensAwsOrgArgsDict(TypedDict):
-        """
-        The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        This resource contains the ARN of the AWS Organization.
-        """
-elif False:
-    StorageLensAwsOrgArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensAwsOrgArgsDict(TypedDict):
+    """
+    The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    This resource contains the ARN of the AWS Organization.
+    """
 
 @pulumi.input_type
 class StorageLensAwsOrgArgs:
@@ -5740,37 +5504,34 @@ class StorageLensAwsOrgArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StorageLensBucketLevelArgsDict(TypedDict):
-        """
-        Bucket-level metrics configurations.
-        """
-        activity_metrics: NotRequired[pulumi.Input['StorageLensActivityMetricsArgsDict']]
-        """
-        A property for bucket-level activity metrics for S3 Storage Lens.
-        """
-        advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgsDict']]
-        """
-        A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
-        """
-        advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgsDict']]
-        """
-        A property for bucket-level advanced data protection metrics for S3 Storage Lens.
-        """
-        advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
-        """
-        A property for bucket-level advanced performance metrics for S3 Storage Lens.
-        """
-        detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
-        """
-        A property for bucket-level detailed status code metrics for S3 Storage Lens.
-        """
-        prefix_level: NotRequired[pulumi.Input['StorageLensPrefixLevelArgsDict']]
-        """
-        A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
-        """
-elif False:
-    StorageLensBucketLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensBucketLevelArgsDict(TypedDict):
+    """
+    Bucket-level metrics configurations.
+    """
+    activity_metrics: NotRequired[pulumi.Input['StorageLensActivityMetricsArgsDict']]
+    """
+    A property for bucket-level activity metrics for S3 Storage Lens.
+    """
+    advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgsDict']]
+    """
+    A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+    """
+    advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgsDict']]
+    """
+    A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+    """
+    advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
+    """
+    A property for bucket-level advanced performance metrics for S3 Storage Lens.
+    """
+    detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
+    """
+    A property for bucket-level detailed status code metrics for S3 Storage Lens.
+    """
+    prefix_level: NotRequired[pulumi.Input['StorageLensPrefixLevelArgsDict']]
+    """
+    A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
+    """
 
 @pulumi.input_type
 class StorageLensBucketLevelArgs:
@@ -5876,21 +5637,18 @@ class StorageLensBucketLevelArgs:
         pulumi.set(self, "prefix_level", value)
 
 
-if not MYPY:
-    class StorageLensBucketsAndRegionsArgsDict(TypedDict):
-        """
-        S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
-        """
-        buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains the details of the Regions for the S3 Storage Lens configuration.
-        """
-elif False:
-    StorageLensBucketsAndRegionsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensBucketsAndRegionsArgsDict(TypedDict):
+    """
+    S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
+    """
+    buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains the details of the Regions for the S3 Storage Lens configuration.
+    """
 
 @pulumi.input_type
 class StorageLensBucketsAndRegionsArgs:
@@ -5932,17 +5690,14 @@ class StorageLensBucketsAndRegionsArgs:
         pulumi.set(self, "regions", value)
 
 
-if not MYPY:
-    class StorageLensCloudWatchMetricsArgsDict(TypedDict):
-        """
-        CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether CloudWatch metrics are enabled or disabled.
-        """
-elif False:
-    StorageLensCloudWatchMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensCloudWatchMetricsArgsDict(TypedDict):
+    """
+    CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether CloudWatch metrics are enabled or disabled.
+    """
 
 @pulumi.input_type
 class StorageLensCloudWatchMetricsArgs:
@@ -5967,53 +5722,50 @@ class StorageLensCloudWatchMetricsArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationArgsDict(TypedDict):
-        """
-        Specifies the details of Amazon S3 Storage Lens configuration.
-        """
-        account_level: pulumi.Input['StorageLensAccountLevelArgsDict']
-        """
-        This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        This property contains the details of the ID of the S3 Storage Lens configuration.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-        """
-        aws_org: NotRequired[pulumi.Input['StorageLensAwsOrgArgsDict']]
-        """
-        This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
-        """
-        data_export: NotRequired[pulumi.Input['StorageLensDataExportArgsDict']]
-        """
-        This property contains the details of this S3 Storage Lens configuration's metrics export.
-        """
-        exclude: NotRequired[pulumi.Input['StorageLensBucketsAndRegionsArgsDict']]
-        """
-        This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
-        """
-        expanded_prefixes_data_export: NotRequired[pulumi.Input['StorageLensExpandedPrefixesDataExportArgsDict']]
-        """
-        This property configures your S3 Storage Lens expanded prefixes metrics report.
-        """
-        include: NotRequired[pulumi.Input['StorageLensBucketsAndRegionsArgsDict']]
-        """
-        This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
-        """
-        prefix_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The delimiter to divide S3 key into hierarchy of prefixes.
-        """
-        storage_lens_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN for the Amazon S3 Storage Lens configuration.
-        """
-elif False:
-    StorageLensConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationArgsDict(TypedDict):
+    """
+    Specifies the details of Amazon S3 Storage Lens configuration.
+    """
+    account_level: pulumi.Input['StorageLensAccountLevelArgsDict']
+    """
+    This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    This property contains the details of the ID of the S3 Storage Lens configuration.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+    """
+    aws_org: NotRequired[pulumi.Input['StorageLensAwsOrgArgsDict']]
+    """
+    This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
+    """
+    data_export: NotRequired[pulumi.Input['StorageLensDataExportArgsDict']]
+    """
+    This property contains the details of this S3 Storage Lens configuration's metrics export.
+    """
+    exclude: NotRequired[pulumi.Input['StorageLensBucketsAndRegionsArgsDict']]
+    """
+    This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+    """
+    expanded_prefixes_data_export: NotRequired[pulumi.Input['StorageLensExpandedPrefixesDataExportArgsDict']]
+    """
+    This property configures your S3 Storage Lens expanded prefixes metrics report.
+    """
+    include: NotRequired[pulumi.Input['StorageLensBucketsAndRegionsArgsDict']]
+    """
+    This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
+    """
+    prefix_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The delimiter to divide S3 key into hierarchy of prefixes.
+    """
+    storage_lens_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN for the Amazon S3 Storage Lens configuration.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationArgs:
@@ -6180,25 +5932,22 @@ class StorageLensConfigurationArgs:
         pulumi.set(self, "storage_lens_arn", value)
 
 
-if not MYPY:
-    class StorageLensDataExportArgsDict(TypedDict):
-        """
-        Specifies how Amazon S3 Storage Lens metrics should be exported.
-        """
-        cloud_watch_metrics: NotRequired[pulumi.Input['StorageLensCloudWatchMetricsArgsDict']]
-        """
-        This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
-        """
-        s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
-        """
-        This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-        """
-        storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
-        """
-        This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
-        """
-elif False:
-    StorageLensDataExportArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensDataExportArgsDict(TypedDict):
+    """
+    Specifies how Amazon S3 Storage Lens metrics should be exported.
+    """
+    cloud_watch_metrics: NotRequired[pulumi.Input['StorageLensCloudWatchMetricsArgsDict']]
+    """
+    This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
+    """
+    s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
+    """
+    This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
+    """
+    storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
+    """
+    This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+    """
 
 @pulumi.input_type
 class StorageLensDataExportArgs:
@@ -6256,17 +6005,14 @@ class StorageLensDataExportArgs:
         pulumi.set(self, "storage_lens_table_destination", value)
 
 
-if not MYPY:
-    class StorageLensDetailedStatusCodesMetricsArgsDict(TypedDict):
-        """
-        Enables detailed status codes metrics.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether detailed status codes metrics are enabled or disabled.
-        """
-elif False:
-    StorageLensDetailedStatusCodesMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensDetailedStatusCodesMetricsArgsDict(TypedDict):
+    """
+    Enables detailed status codes metrics.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether detailed status codes metrics are enabled or disabled.
+    """
 
 @pulumi.input_type
 class StorageLensDetailedStatusCodesMetricsArgs:
@@ -6292,14 +6038,11 @@ class StorageLensDetailedStatusCodesMetricsArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class StorageLensEncryptionArgsDict(TypedDict):
-        """
-        Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
-        """
-        pass
-elif False:
-    StorageLensEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensEncryptionArgsDict(TypedDict):
+    """
+    Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
+    """
+    pass
 
 @pulumi.input_type
 class StorageLensEncryptionArgs:
@@ -6310,21 +6053,18 @@ class StorageLensEncryptionArgs:
         pass
 
 
-if not MYPY:
-    class StorageLensExpandedPrefixesDataExportArgsDict(TypedDict):
-        """
-        Expanded Prefixes Data Export.
-        """
-        s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
-        """
-        This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
-        """
-        storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
-        """
-        This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
-        """
-elif False:
-    StorageLensExpandedPrefixesDataExportArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensExpandedPrefixesDataExportArgsDict(TypedDict):
+    """
+    Expanded Prefixes Data Export.
+    """
+    s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
+    """
+    This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+    """
+    storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
+    """
+    This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+    """
 
 @pulumi.input_type
 class StorageLensExpandedPrefixesDataExportArgs:
@@ -6366,33 +6106,30 @@ class StorageLensExpandedPrefixesDataExportArgs:
         pulumi.set(self, "storage_lens_table_destination", value)
 
 
-if not MYPY:
-    class StorageLensGroupAndArgsDict(TypedDict):
-        """
-        The Storage Lens group will include objects that match all of the specified filter values.
-        """
-        match_any_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-        """
-        match_any_suffix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-        """
-        match_any_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgsDict']]]]
-        """
-        This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-        """
-        match_object_age: NotRequired[pulumi.Input['StorageLensGroupMatchObjectAgeArgsDict']]
-        """
-        This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
-        """
-        match_object_size: NotRequired[pulumi.Input['StorageLensGroupMatchObjectSizeArgsDict']]
-        """
-        This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
-        """
-elif False:
-    StorageLensGroupAndArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupAndArgsDict(TypedDict):
+    """
+    The Storage Lens group will include objects that match all of the specified filter values.
+    """
+    match_any_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+    """
+    match_any_suffix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+    """
+    match_any_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgsDict']]]]
+    """
+    This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+    """
+    match_object_age: NotRequired[pulumi.Input['StorageLensGroupMatchObjectAgeArgsDict']]
+    """
+    This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
+    """
+    match_object_size: NotRequired[pulumi.Input['StorageLensGroupMatchObjectSizeArgsDict']]
+    """
+    This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+    """
 
 @pulumi.input_type
 class StorageLensGroupAndArgs:
@@ -6482,41 +6219,38 @@ class StorageLensGroupAndArgs:
         pulumi.set(self, "match_object_size", value)
 
 
-if not MYPY:
-    class StorageLensGroupFilterArgsDict(TypedDict):
-        """
-        Sets the Storage Lens Group filter.
-        """
-        and_: NotRequired[pulumi.Input['StorageLensGroupAndArgsDict']]
-        """
-        This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
-        """
-        match_any_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-        """
-        match_any_suffix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-        """
-        match_any_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgsDict']]]]
-        """
-        This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-        """
-        match_object_age: NotRequired[pulumi.Input['StorageLensGroupMatchObjectAgeArgsDict']]
-        """
-        This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
-        """
-        match_object_size: NotRequired[pulumi.Input['StorageLensGroupMatchObjectSizeArgsDict']]
-        """
-        This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
-        """
-        or_: NotRequired[pulumi.Input['StorageLensGroupOrArgsDict']]
-        """
-        This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
-        """
-elif False:
-    StorageLensGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupFilterArgsDict(TypedDict):
+    """
+    Sets the Storage Lens Group filter.
+    """
+    and_: NotRequired[pulumi.Input['StorageLensGroupAndArgsDict']]
+    """
+    This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+    """
+    match_any_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+    """
+    match_any_suffix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+    """
+    match_any_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgsDict']]]]
+    """
+    This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+    """
+    match_object_age: NotRequired[pulumi.Input['StorageLensGroupMatchObjectAgeArgsDict']]
+    """
+    This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+    """
+    match_object_size: NotRequired[pulumi.Input['StorageLensGroupMatchObjectSizeArgsDict']]
+    """
+    This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+    """
+    or_: NotRequired[pulumi.Input['StorageLensGroupOrArgsDict']]
+    """
+    This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+    """
 
 @pulumi.input_type
 class StorageLensGroupFilterArgs:
@@ -6638,17 +6372,14 @@ class StorageLensGroupFilterArgs:
         pulumi.set(self, "or_", value)
 
 
-if not MYPY:
-    class StorageLensGroupLevelArgsDict(TypedDict):
-        """
-        Specifies the details of Amazon S3 Storage Lens Group configuration.
-        """
-        storage_lens_group_selection_criteria: NotRequired[pulumi.Input['StorageLensGroupSelectionCriteriaArgsDict']]
-        """
-        This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
-        """
-elif False:
-    StorageLensGroupLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupLevelArgsDict(TypedDict):
+    """
+    Specifies the details of Amazon S3 Storage Lens Group configuration.
+    """
+    storage_lens_group_selection_criteria: NotRequired[pulumi.Input['StorageLensGroupSelectionCriteriaArgsDict']]
+    """
+    This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+    """
 
 @pulumi.input_type
 class StorageLensGroupLevelArgs:
@@ -6674,21 +6405,18 @@ class StorageLensGroupLevelArgs:
         pulumi.set(self, "storage_lens_group_selection_criteria", value)
 
 
-if not MYPY:
-    class StorageLensGroupMatchObjectAgeArgsDict(TypedDict):
-        """
-        Filter to match all of the specified values for the minimum and maximum object age.
-        """
-        days_greater_than: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum object age to which the rule applies.
-        """
-        days_less_than: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum object age to which the rule applies.
-        """
-elif False:
-    StorageLensGroupMatchObjectAgeArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupMatchObjectAgeArgsDict(TypedDict):
+    """
+    Filter to match all of the specified values for the minimum and maximum object age.
+    """
+    days_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum object age to which the rule applies.
+    """
+    days_less_than: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum object age to which the rule applies.
+    """
 
 @pulumi.input_type
 class StorageLensGroupMatchObjectAgeArgs:
@@ -6730,21 +6458,18 @@ class StorageLensGroupMatchObjectAgeArgs:
         pulumi.set(self, "days_less_than", value)
 
 
-if not MYPY:
-    class StorageLensGroupMatchObjectSizeArgsDict(TypedDict):
-        """
-        Filter to match all of the specified values for the minimum and maximum object size.
-        """
-        bytes_greater_than: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum object size to which the rule applies.
-        """
-        bytes_less_than: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum object size to which the rule applies.
-        """
-elif False:
-    StorageLensGroupMatchObjectSizeArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupMatchObjectSizeArgsDict(TypedDict):
+    """
+    Filter to match all of the specified values for the minimum and maximum object size.
+    """
+    bytes_greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum object size to which the rule applies.
+    """
+    bytes_less_than: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum object size to which the rule applies.
+    """
 
 @pulumi.input_type
 class StorageLensGroupMatchObjectSizeArgs:
@@ -6786,33 +6511,30 @@ class StorageLensGroupMatchObjectSizeArgs:
         pulumi.set(self, "bytes_less_than", value)
 
 
-if not MYPY:
-    class StorageLensGroupOrArgsDict(TypedDict):
-        """
-        The Storage Lens group will include objects that match any of the specified filter values.
-        """
-        match_any_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
-        """
-        match_any_suffix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property contains the list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
-        """
-        match_any_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgsDict']]]]
-        """
-        This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-        """
-        match_object_age: NotRequired[pulumi.Input['StorageLensGroupMatchObjectAgeArgsDict']]
-        """
-        This property filters objects that match the specified object age range.
-        """
-        match_object_size: NotRequired[pulumi.Input['StorageLensGroupMatchObjectSizeArgsDict']]
-        """
-        This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
-        """
-elif False:
-    StorageLensGroupOrArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupOrArgsDict(TypedDict):
+    """
+    The Storage Lens group will include objects that match any of the specified filter values.
+    """
+    match_any_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+    """
+    match_any_suffix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property contains the list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+    """
+    match_any_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgsDict']]]]
+    """
+    This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+    """
+    match_object_age: NotRequired[pulumi.Input['StorageLensGroupMatchObjectAgeArgsDict']]
+    """
+    This property filters objects that match the specified object age range.
+    """
+    match_object_size: NotRequired[pulumi.Input['StorageLensGroupMatchObjectSizeArgsDict']]
+    """
+    This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
+    """
 
 @pulumi.input_type
 class StorageLensGroupOrArgs:
@@ -6902,21 +6624,18 @@ class StorageLensGroupOrArgs:
         pulumi.set(self, "match_object_size", value)
 
 
-if not MYPY:
-    class StorageLensGroupSelectionCriteriaArgsDict(TypedDict):
-        """
-        Selection criteria for Storage Lens Group level metrics
-        """
-        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property indicates which Storage Lens group ARNs to exclude from the Storage Lens group aggregation.
-        """
-        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        This property indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
-        """
-elif False:
-    StorageLensGroupSelectionCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupSelectionCriteriaArgsDict(TypedDict):
+    """
+    Selection criteria for Storage Lens Group level metrics
+    """
+    exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property indicates which Storage Lens group ARNs to exclude from the Storage Lens group aggregation.
+    """
+    include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    This property indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
+    """
 
 @pulumi.input_type
 class StorageLensGroupSelectionCriteriaArgs:
@@ -6958,12 +6677,9 @@ class StorageLensGroupSelectionCriteriaArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class StorageLensGroupTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    StorageLensGroupTagArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensGroupTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class StorageLensGroupTagArgs:
@@ -6992,18 +6708,15 @@ class StorageLensGroupTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class StorageLensPrefixLevelStorageMetricsArgsDict(TypedDict):
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether prefix-level storage metrics are enabled or disabled.
-        """
-        selection_criteria: NotRequired[pulumi.Input['StorageLensSelectionCriteriaArgsDict']]
-        """
-        This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
-        """
-elif False:
-    StorageLensPrefixLevelStorageMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensPrefixLevelStorageMetricsArgsDict(TypedDict):
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether prefix-level storage metrics are enabled or disabled.
+    """
+    selection_criteria: NotRequired[pulumi.Input['StorageLensSelectionCriteriaArgsDict']]
+    """
+    This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensPrefixLevelStorageMetricsArgs:
@@ -7044,17 +6757,14 @@ class StorageLensPrefixLevelStorageMetricsArgs:
         pulumi.set(self, "selection_criteria", value)
 
 
-if not MYPY:
-    class StorageLensPrefixLevelArgsDict(TypedDict):
-        """
-        Prefix-level metrics configurations.
-        """
-        storage_metrics: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgsDict']
-        """
-        A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
-        """
-elif False:
-    StorageLensPrefixLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensPrefixLevelArgsDict(TypedDict):
+    """
+    Prefix-level metrics configurations.
+    """
+    storage_metrics: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgsDict']
+    """
+    A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
+    """
 
 @pulumi.input_type
 class StorageLensPrefixLevelArgs:
@@ -7079,37 +6789,34 @@ class StorageLensPrefixLevelArgs:
         pulumi.set(self, "storage_metrics", value)
 
 
-if not MYPY:
-    class StorageLensS3BucketDestinationArgsDict(TypedDict):
-        """
-        S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
-        """
-        account_id: pulumi.Input[_builtins.str]
-        """
-        The AWS account ID that owns the destination S3 bucket.
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
-        """
-        format: pulumi.Input['StorageLensS3BucketDestinationFormat']
-        """
-        Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
-        """
-        output_schema_version: pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion']
-        """
-        The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
-        """
-        encryption: NotRequired[pulumi.Input['StorageLensEncryptionArgsDict']]
-        """
-        This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix to use for Amazon S3 Storage Lens export.
-        """
-elif False:
-    StorageLensS3BucketDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensS3BucketDestinationArgsDict(TypedDict):
+    """
+    S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The AWS account ID that owns the destination S3 bucket.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
+    """
+    format: pulumi.Input['StorageLensS3BucketDestinationFormat']
+    """
+    Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
+    """
+    output_schema_version: pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion']
+    """
+    The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
+    """
+    encryption: NotRequired[pulumi.Input['StorageLensEncryptionArgsDict']]
+    """
+    This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix to use for Amazon S3 Storage Lens export.
+    """
 
 @pulumi.input_type
 class StorageLensS3BucketDestinationArgs:
@@ -7211,25 +6918,22 @@ class StorageLensS3BucketDestinationArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class StorageLensSelectionCriteriaArgsDict(TypedDict):
-        """
-        Selection criteria for prefix-level metrics.
-        """
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Delimiter to divide S3 key into hierarchy of prefixes.
-        """
-        max_depth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
-        """
-        min_storage_bytes_percentage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum storage bytes threshold for the prefixes to be included in the analysis.
-        """
-elif False:
-    StorageLensSelectionCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensSelectionCriteriaArgsDict(TypedDict):
+    """
+    Selection criteria for prefix-level metrics.
+    """
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Delimiter to divide S3 key into hierarchy of prefixes.
+    """
+    max_depth: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
+    """
+    min_storage_bytes_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum storage bytes threshold for the prefixes to be included in the analysis.
+    """
 
 @pulumi.input_type
 class StorageLensSelectionCriteriaArgs:
@@ -7287,21 +6991,18 @@ class StorageLensSelectionCriteriaArgs:
         pulumi.set(self, "min_storage_bytes_percentage", value)
 
 
-if not MYPY:
-    class StorageLensTableDestinationArgsDict(TypedDict):
-        """
-        S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether the export to S3 Tables is enabled or disabled.
-        """
-        encryption: NotRequired[pulumi.Input['StorageLensEncryptionArgsDict']]
-        """
-        This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
-        """
-elif False:
-    StorageLensTableDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensTableDestinationArgsDict(TypedDict):
+    """
+    S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether the export to S3 Tables is enabled or disabled.
+    """
+    encryption: NotRequired[pulumi.Input['StorageLensEncryptionArgsDict']]
+    """
+    This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
+    """
 
 @pulumi.input_type
 class StorageLensTableDestinationArgs:

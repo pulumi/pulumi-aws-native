@@ -30,32 +30,27 @@ __all__ = [
     'FleetVpcConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FleetComputeConfigurationArgsDict(TypedDict):
-        disk: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of disk space of the instance type included in your fleet.
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The EC2 instance type to be launched in your fleet.
-        """
-        machine_type: NotRequired[pulumi.Input['FleetComputeConfigurationmachineType']]
-        """
-        The machine type of the instance type included in your fleet.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of memory of the instance type included in your fleet.
-        """
-        v_cpu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of vCPUs of the instance type included in your fleet.
-        """
-elif False:
-    FleetComputeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetComputeConfigurationArgsDict(TypedDict):
+    disk: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of disk space of the instance type included in your fleet.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EC2 instance type to be launched in your fleet.
+    """
+    machine_type: NotRequired[pulumi.Input['FleetComputeConfigurationmachineType']]
+    """
+    The machine type of the instance type included in your fleet.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of memory of the instance type included in your fleet.
+    """
+    v_cpu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of vCPUs of the instance type included in your fleet.
+    """
 
 @pulumi.input_type
 class FleetComputeConfigurationArgs:
@@ -144,18 +139,15 @@ class FleetComputeConfigurationArgs:
         pulumi.set(self, "v_cpu", value)
 
 
-if not MYPY:
-    class FleetProxyConfigurationArgsDict(TypedDict):
-        default_behavior: NotRequired[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]
-        """
-        The default behavior of outgoing traffic.
-        """
-        ordered_proxy_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgsDict']]]]
-        """
-        An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
-        """
-elif False:
-    FleetProxyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetProxyConfigurationArgsDict(TypedDict):
+    default_behavior: NotRequired[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]
+    """
+    The default behavior of outgoing traffic.
+    """
+    ordered_proxy_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgsDict']]]]
+    """
+    An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
+    """
 
 @pulumi.input_type
 class FleetProxyConfigurationArgs:
@@ -196,22 +188,19 @@ class FleetProxyConfigurationArgs:
         pulumi.set(self, "ordered_proxy_rules", value)
 
 
-if not MYPY:
-    class FleetProxyRuleArgsDict(TypedDict):
-        effect: NotRequired[pulumi.Input['FleetProxyRuleEffect']]
-        """
-        The behavior of the proxy rule.
-        """
-        entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination of the proxy rule.
-        """
-        type: NotRequired[pulumi.Input['FleetProxyRuleType']]
-        """
-        The type of proxy rule.
-        """
-elif False:
-    FleetProxyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FleetProxyRuleArgsDict(TypedDict):
+    effect: NotRequired[pulumi.Input['FleetProxyRuleEffect']]
+    """
+    The behavior of the proxy rule.
+    """
+    entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination of the proxy rule.
+    """
+    type: NotRequired[pulumi.Input['FleetProxyRuleType']]
+    """
+    The type of proxy rule.
+    """
 
 @pulumi.input_type
 class FleetProxyRuleArgs:
@@ -268,22 +257,19 @@ class FleetProxyRuleArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FleetScalingConfigurationInputArgsDict(TypedDict):
-        max_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of instances in the ﬂeet when auto-scaling.
-        """
-        scaling_type: NotRequired[pulumi.Input['FleetScalingConfigurationInputScalingType']]
-        """
-        The scaling type for a compute fleet.
-        """
-        target_tracking_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgsDict']]]]
-        """
-        A list of `TargetTrackingScalingConfiguration` objects.
-        """
-elif False:
-    FleetScalingConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class FleetScalingConfigurationInputArgsDict(TypedDict):
+    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of instances in the ﬂeet when auto-scaling.
+    """
+    scaling_type: NotRequired[pulumi.Input['FleetScalingConfigurationInputScalingType']]
+    """
+    The scaling type for a compute fleet.
+    """
+    target_tracking_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgsDict']]]]
+    """
+    A list of `TargetTrackingScalingConfiguration` objects.
+    """
 
 @pulumi.input_type
 class FleetScalingConfigurationInputArgs:
@@ -340,18 +326,15 @@ class FleetScalingConfigurationInputArgs:
         pulumi.set(self, "target_tracking_scaling_configs", value)
 
 
-if not MYPY:
-    class FleetTargetTrackingScalingConfigurationArgsDict(TypedDict):
-        metric_type: NotRequired[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]
-        """
-        The metric type to determine auto-scaling.
-        """
-        target_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of `metricType` when to start scaling.
-        """
-elif False:
-    FleetTargetTrackingScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetTargetTrackingScalingConfigurationArgsDict(TypedDict):
+    metric_type: NotRequired[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]
+    """
+    The metric type to determine auto-scaling.
+    """
+    target_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of `metricType` when to start scaling.
+    """
 
 @pulumi.input_type
 class FleetTargetTrackingScalingConfigurationArgs:
@@ -392,22 +375,19 @@ class FleetTargetTrackingScalingConfigurationArgs:
         pulumi.set(self, "target_value", value)
 
 
-if not MYPY:
-    class FleetVpcConfigArgsDict(TypedDict):
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of one or more security groups IDs in your Amazon VPC.
-        """
-        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of one or more subnet IDs in your Amazon VPC.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Amazon VPC.
-        """
-elif False:
-    FleetVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FleetVpcConfigArgsDict(TypedDict):
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of one or more security groups IDs in your Amazon VPC.
+    """
+    subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of one or more subnet IDs in your Amazon VPC.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Amazon VPC.
+    """
 
 @pulumi.input_type
 class FleetVpcConfigArgs:

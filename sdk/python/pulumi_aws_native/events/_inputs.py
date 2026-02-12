@@ -102,20 +102,15 @@ __all__ = [
     'RuleTargetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectionApiKeyAuthParametersArgsDict(TypedDict):
-        api_key_name: pulumi.Input[_builtins.str]
-        """
-        The name of the API key to use for authorization.
-        """
-        api_key_value: pulumi.Input[_builtins.str]
-        """
-        The value for the API key to use for authorization.
-        """
-elif False:
-    ConnectionApiKeyAuthParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionApiKeyAuthParametersArgsDict(TypedDict):
+    api_key_name: pulumi.Input[_builtins.str]
+    """
+    The name of the API key to use for authorization.
+    """
+    api_key_value: pulumi.Input[_builtins.str]
+    """
+    The value for the API key to use for authorization.
+    """
 
 @pulumi.input_type
 class ConnectionApiKeyAuthParametersArgs:
@@ -154,32 +149,29 @@ class ConnectionApiKeyAuthParametersArgs:
         pulumi.set(self, "api_key_value", value)
 
 
-if not MYPY:
-    class ConnectionAuthParametersArgsDict(TypedDict):
-        api_key_auth_parameters: NotRequired[pulumi.Input['ConnectionApiKeyAuthParametersArgsDict']]
-        """
-        The API Key parameters to use for authorization.
-        """
-        basic_auth_parameters: NotRequired[pulumi.Input['ConnectionBasicAuthParametersArgsDict']]
-        """
-        The authorization parameters for Basic authorization.
-        """
-        connectivity_parameters: NotRequired[pulumi.Input['ConnectionConnectivityParametersArgsDict']]
-        """
-        For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+class ConnectionAuthParametersArgsDict(TypedDict):
+    api_key_auth_parameters: NotRequired[pulumi.Input['ConnectionApiKeyAuthParametersArgsDict']]
+    """
+    The API Key parameters to use for authorization.
+    """
+    basic_auth_parameters: NotRequired[pulumi.Input['ConnectionBasicAuthParametersArgsDict']]
+    """
+    The authorization parameters for Basic authorization.
+    """
+    connectivity_parameters: NotRequired[pulumi.Input['ConnectionConnectivityParametersArgsDict']]
+    """
+    For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
 
-        For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
-        """
-        invocation_http_parameters: NotRequired[pulumi.Input['ConnectionHttpParametersArgsDict']]
-        """
-        Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
-        """
-        o_auth_parameters: NotRequired[pulumi.Input['ConnectionOAuthParametersArgsDict']]
-        """
-        The OAuth parameters to use for authorization.
-        """
-elif False:
-    ConnectionAuthParametersArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
+    """
+    invocation_http_parameters: NotRequired[pulumi.Input['ConnectionHttpParametersArgsDict']]
+    """
+    Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
+    """
+    o_auth_parameters: NotRequired[pulumi.Input['ConnectionOAuthParametersArgsDict']]
+    """
+    The OAuth parameters to use for authorization.
+    """
 
 @pulumi.input_type
 class ConnectionAuthParametersArgs:
@@ -272,18 +264,15 @@ class ConnectionAuthParametersArgs:
         pulumi.set(self, "o_auth_parameters", value)
 
 
-if not MYPY:
-    class ConnectionBasicAuthParametersArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        The password associated with the user name to use for Basic authorization.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The user name to use for Basic authorization.
-        """
-elif False:
-    ConnectionBasicAuthParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionBasicAuthParametersArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    The password associated with the user name to use for Basic authorization.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The user name to use for Basic authorization.
+    """
 
 @pulumi.input_type
 class ConnectionBasicAuthParametersArgs:
@@ -322,18 +311,15 @@ class ConnectionBasicAuthParametersArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectionClientParametersArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID to use for OAuth authorization.
-        """
-        client_secret: pulumi.Input[_builtins.str]
-        """
-        The client secret assciated with the client ID to use for OAuth authorization.
-        """
-elif False:
-    ConnectionClientParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionClientParametersArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID to use for OAuth authorization.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The client secret assciated with the client ID to use for OAuth authorization.
+    """
 
 @pulumi.input_type
 class ConnectionClientParametersArgs:
@@ -372,14 +358,11 @@ class ConnectionClientParametersArgs:
         pulumi.set(self, "client_secret", value)
 
 
-if not MYPY:
-    class ConnectionConnectivityParametersArgsDict(TypedDict):
-        resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
-        """
-        The parameters for EventBridge to use when invoking the resource endpoint.
-        """
-elif False:
-    ConnectionConnectivityParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionConnectivityParametersArgsDict(TypedDict):
+    resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
+    """
+    The parameters for EventBridge to use when invoking the resource endpoint.
+    """
 
 @pulumi.input_type
 class ConnectionConnectivityParametersArgs:
@@ -403,22 +386,19 @@ class ConnectionConnectivityParametersArgs:
         pulumi.set(self, "resource_parameters", value)
 
 
-if not MYPY:
-    class ConnectionHttpParametersArgsDict(TypedDict):
-        body_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgsDict']]]]
-        """
-        Any additional body string parameters for the connection.
-        """
-        header_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgsDict']]]]
-        """
-        Any additional header parameters for the connection.
-        """
-        query_string_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgsDict']]]]
-        """
-        Any additional query string parameters for the connection.
-        """
-elif False:
-    ConnectionHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionHttpParametersArgsDict(TypedDict):
+    body_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgsDict']]]]
+    """
+    Any additional body string parameters for the connection.
+    """
+    header_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgsDict']]]]
+    """
+    Any additional header parameters for the connection.
+    """
+    query_string_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgsDict']]]]
+    """
+    Any additional query string parameters for the connection.
+    """
 
 @pulumi.input_type
 class ConnectionHttpParametersArgs:
@@ -475,26 +455,23 @@ class ConnectionHttpParametersArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
-if not MYPY:
-    class ConnectionOAuthParametersArgsDict(TypedDict):
-        authorization_endpoint: pulumi.Input[_builtins.str]
-        """
-        The URL to the authorization endpoint when OAuth is specified as the authorization type.
-        """
-        client_parameters: pulumi.Input['ConnectionClientParametersArgsDict']
-        """
-        The client parameters for OAuth authorization.
-        """
-        http_method: pulumi.Input['ConnectionOAuthParametersHttpMethod']
-        """
-        The method to use for the authorization request.
-        """
-        o_auth_http_parameters: NotRequired[pulumi.Input['ConnectionHttpParametersArgsDict']]
-        """
-        Details about the additional parameters to use for the connection.
-        """
-elif False:
-    ConnectionOAuthParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionOAuthParametersArgsDict(TypedDict):
+    authorization_endpoint: pulumi.Input[_builtins.str]
+    """
+    The URL to the authorization endpoint when OAuth is specified as the authorization type.
+    """
+    client_parameters: pulumi.Input['ConnectionClientParametersArgsDict']
+    """
+    The client parameters for OAuth authorization.
+    """
+    http_method: pulumi.Input['ConnectionOAuthParametersHttpMethod']
+    """
+    The method to use for the authorization request.
+    """
+    o_auth_http_parameters: NotRequired[pulumi.Input['ConnectionHttpParametersArgsDict']]
+    """
+    Details about the additional parameters to use for the connection.
+    """
 
 @pulumi.input_type
 class ConnectionOAuthParametersArgs:
@@ -564,22 +541,19 @@ class ConnectionOAuthParametersArgs:
         pulumi.set(self, "o_auth_http_parameters", value)
 
 
-if not MYPY:
-    class ConnectionParameterArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key for a query string parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value associated with the key for the query string parameter.
-        """
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the value is secret.
-        """
-elif False:
-    ConnectionParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionParameterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key for a query string parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value associated with the key for the query string parameter.
+    """
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the value is secret.
+    """
 
 @pulumi.input_type
 class ConnectionParameterArgs:
@@ -634,20 +608,17 @@ class ConnectionParameterArgs:
         pulumi.set(self, "is_value_secret", value)
 
 
-if not MYPY:
-    class ConnectionResourceParametersArgsDict(TypedDict):
-        resource_configuration_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
-        """
-        resource_association_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+class ConnectionResourceParametersArgsDict(TypedDict):
+    resource_configuration_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+    """
+    resource_association_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
 
-        > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
-        """
-elif False:
-    ConnectionResourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+    > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+    """
 
 @pulumi.input_type
 class ConnectionResourceParametersArgs:
@@ -691,17 +662,14 @@ class ConnectionResourceParametersArgs:
         pulumi.set(self, "resource_association_arn", value)
 
 
-if not MYPY:
-    class DeadLetterConfigPropertiesArgsDict(TypedDict):
-        """
-        Dead Letter Queue for the event bus.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
-elif False:
-    DeadLetterConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeadLetterConfigPropertiesArgsDict(TypedDict):
+    """
+    Dead Letter Queue for the event bus.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the SQS queue specified as the target for the dead-letter queue.
+    """
 
 @pulumi.input_type
 class DeadLetterConfigPropertiesArgs:
@@ -727,11 +695,8 @@ class DeadLetterConfigPropertiesArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class EndpointEventBusArgsDict(TypedDict):
-        event_bus_arn: pulumi.Input[_builtins.str]
-elif False:
-    EndpointEventBusArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointEventBusArgsDict(TypedDict):
+    event_bus_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class EndpointEventBusArgs:
@@ -749,18 +714,15 @@ class EndpointEventBusArgs:
         pulumi.set(self, "event_bus_arn", value)
 
 
-if not MYPY:
-    class EndpointFailoverConfigArgsDict(TypedDict):
-        primary: pulumi.Input['EndpointPrimaryArgsDict']
-        """
-        The main Region of the endpoint.
-        """
-        secondary: pulumi.Input['EndpointSecondaryArgsDict']
-        """
-        The Region that events are routed to when failover is triggered or event replication is enabled.
-        """
-elif False:
-    EndpointFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointFailoverConfigArgsDict(TypedDict):
+    primary: pulumi.Input['EndpointPrimaryArgsDict']
+    """
+    The main Region of the endpoint.
+    """
+    secondary: pulumi.Input['EndpointSecondaryArgsDict']
+    """
+    The Region that events are routed to when failover is triggered or event replication is enabled.
+    """
 
 @pulumi.input_type
 class EndpointFailoverConfigArgs:
@@ -799,14 +761,11 @@ class EndpointFailoverConfigArgs:
         pulumi.set(self, "secondary", value)
 
 
-if not MYPY:
-    class EndpointPrimaryArgsDict(TypedDict):
-        health_check: pulumi.Input[_builtins.str]
-        """
-        The ARN of the health check used by the endpoint to determine whether failover is triggered.
-        """
-elif False:
-    EndpointPrimaryArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointPrimaryArgsDict(TypedDict):
+    health_check: pulumi.Input[_builtins.str]
+    """
+    The ARN of the health check used by the endpoint to determine whether failover is triggered.
+    """
 
 @pulumi.input_type
 class EndpointPrimaryArgs:
@@ -830,14 +789,11 @@ class EndpointPrimaryArgs:
         pulumi.set(self, "health_check", value)
 
 
-if not MYPY:
-    class EndpointReplicationConfigArgsDict(TypedDict):
-        state: pulumi.Input['EndpointReplicationState']
-        """
-        The state of event replication.
-        """
-elif False:
-    EndpointReplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointReplicationConfigArgsDict(TypedDict):
+    state: pulumi.Input['EndpointReplicationState']
+    """
+    The state of event replication.
+    """
 
 @pulumi.input_type
 class EndpointReplicationConfigArgs:
@@ -861,14 +817,11 @@ class EndpointReplicationConfigArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class EndpointRoutingConfigArgsDict(TypedDict):
-        failover_config: pulumi.Input['EndpointFailoverConfigArgsDict']
-        """
-        The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.
-        """
-elif False:
-    EndpointRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointRoutingConfigArgsDict(TypedDict):
+    failover_config: pulumi.Input['EndpointFailoverConfigArgsDict']
+    """
+    The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.
+    """
 
 @pulumi.input_type
 class EndpointRoutingConfigArgs:
@@ -892,14 +845,11 @@ class EndpointRoutingConfigArgs:
         pulumi.set(self, "failover_config", value)
 
 
-if not MYPY:
-    class EndpointSecondaryArgsDict(TypedDict):
-        route: pulumi.Input[_builtins.str]
-        """
-        Defines the secondary Region.
-        """
-elif False:
-    EndpointSecondaryArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointSecondaryArgsDict(TypedDict):
+    route: pulumi.Input[_builtins.str]
+    """
+    Defines the secondary Region.
+    """
 
 @pulumi.input_type
 class EndpointSecondaryArgs:
@@ -923,25 +873,22 @@ class EndpointSecondaryArgs:
         pulumi.set(self, "route", value)
 
 
-if not MYPY:
-    class EventBusPolicyConditionArgsDict(TypedDict):
-        """
-        This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value for the key. Currently, this must be the ID of the organization.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of condition. Currently the only supported value is StringEquals.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
-        """
-elif False:
-    EventBusPolicyConditionArgsDict: TypeAlias = Mapping[str, Any]
+class EventBusPolicyConditionArgsDict(TypedDict):
+    """
+    This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value for the key. Currently, this must be the ID of the organization.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of condition. Currently the only supported value is StringEquals.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+    """
 
 @pulumi.input_type
 class EventBusPolicyConditionArgs:
@@ -999,17 +946,14 @@ class EventBusPolicyConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InvocationConnectivityParametersPropertiesArgsDict(TypedDict):
-        """
-        The private resource the HTTP request will be sent to.
-        """
-        resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
-        """
-        The parameters for EventBridge to use when invoking the resource endpoint.
-        """
-elif False:
-    InvocationConnectivityParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InvocationConnectivityParametersPropertiesArgsDict(TypedDict):
+    """
+    The private resource the HTTP request will be sent to.
+    """
+    resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
+    """
+    The parameters for EventBridge to use when invoking the resource endpoint.
+    """
 
 @pulumi.input_type
 class InvocationConnectivityParametersPropertiesArgs:
@@ -1034,21 +978,18 @@ class InvocationConnectivityParametersPropertiesArgs:
         pulumi.set(self, "resource_parameters", value)
 
 
-if not MYPY:
-    class LogConfigPropertiesArgsDict(TypedDict):
-        """
-        The logging configuration settings for vended logs.
-        """
-        include_detail: NotRequired[pulumi.Input['EventBusLogConfigPropertiesIncludeDetail']]
-        """
-        Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
-        """
-        level: NotRequired[pulumi.Input['EventBusLogConfigPropertiesLevel']]
-        """
-        Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
-        """
-elif False:
-    LogConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LogConfigPropertiesArgsDict(TypedDict):
+    """
+    The logging configuration settings for vended logs.
+    """
+    include_detail: NotRequired[pulumi.Input['EventBusLogConfigPropertiesIncludeDetail']]
+    """
+    Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+    """
+    level: NotRequired[pulumi.Input['EventBusLogConfigPropertiesLevel']]
+    """
+    Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+    """
 
 @pulumi.input_type
 class LogConfigPropertiesArgs:
@@ -1090,16 +1031,13 @@ class LogConfigPropertiesArgs:
         pulumi.set(self, "level", value)
 
 
-if not MYPY:
-    class RuleAppSyncParametersArgsDict(TypedDict):
-        graph_ql_operation: pulumi.Input[_builtins.str]
-        """
-        The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.
+class RuleAppSyncParametersArgsDict(TypedDict):
+    graph_ql_operation: pulumi.Input[_builtins.str]
+    """
+    The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.
 
-        For more information, see [Operations](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations) in the *AWS AppSync User Guide* .
-        """
-elif False:
-    RuleAppSyncParametersArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see [Operations](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations) in the *AWS AppSync User Guide* .
+    """
 
 @pulumi.input_type
 class RuleAppSyncParametersArgs:
@@ -1127,22 +1065,19 @@ class RuleAppSyncParametersArgs:
         pulumi.set(self, "graph_ql_operation", value)
 
 
-if not MYPY:
-    class RuleAwsVpcConfigurationArgsDict(TypedDict):
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-        """
-        assign_public_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-        """
-elif False:
-    RuleAwsVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuleAwsVpcConfigurationArgsDict(TypedDict):
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+    """
+    assign_public_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+    """
 
 @pulumi.input_type
 class RuleAwsVpcConfigurationArgs:
@@ -1198,14 +1133,11 @@ class RuleAwsVpcConfigurationArgs:
         pulumi.set(self, "security_groups", value)
 
 
-if not MYPY:
-    class RuleBatchArrayPropertiesArgsDict(TypedDict):
-        size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-        """
-elif False:
-    RuleBatchArrayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RuleBatchArrayPropertiesArgsDict(TypedDict):
+    size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+    """
 
 @pulumi.input_type
 class RuleBatchArrayPropertiesArgs:
@@ -1230,26 +1162,23 @@ class RuleBatchArrayPropertiesArgs:
         pulumi.set(self, "size", value)
 
 
-if not MYPY:
-    class RuleBatchParametersArgsDict(TypedDict):
-        job_definition: pulumi.Input[_builtins.str]
-        """
-        The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-        """
-        job_name: pulumi.Input[_builtins.str]
-        """
-        The name to use for this execution of the job, if the target is an AWS Batch job.
-        """
-        array_properties: NotRequired[pulumi.Input['RuleBatchArrayPropertiesArgsDict']]
-        """
-        The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
-        """
-        retry_strategy: NotRequired[pulumi.Input['RuleBatchRetryStrategyArgsDict']]
-        """
-        The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
-        """
-elif False:
-    RuleBatchParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleBatchParametersArgsDict(TypedDict):
+    job_definition: pulumi.Input[_builtins.str]
+    """
+    The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+    """
+    job_name: pulumi.Input[_builtins.str]
+    """
+    The name to use for this execution of the job, if the target is an AWS Batch job.
+    """
+    array_properties: NotRequired[pulumi.Input['RuleBatchArrayPropertiesArgsDict']]
+    """
+    The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+    """
+    retry_strategy: NotRequired[pulumi.Input['RuleBatchRetryStrategyArgsDict']]
+    """
+    The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+    """
 
 @pulumi.input_type
 class RuleBatchParametersArgs:
@@ -1320,14 +1249,11 @@ class RuleBatchParametersArgs:
         pulumi.set(self, "retry_strategy", value)
 
 
-if not MYPY:
-    class RuleBatchRetryStrategyArgsDict(TypedDict):
-        attempts: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of times to attempt to retry, if the job fails. Valid values are 1–10.
-        """
-elif False:
-    RuleBatchRetryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class RuleBatchRetryStrategyArgsDict(TypedDict):
+    attempts: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of times to attempt to retry, if the job fails. Valid values are 1–10.
+    """
 
 @pulumi.input_type
 class RuleBatchRetryStrategyArgs:
@@ -1352,22 +1278,19 @@ class RuleBatchRetryStrategyArgs:
         pulumi.set(self, "attempts", value)
 
 
-if not MYPY:
-    class RuleCapacityProviderStrategyItemArgsDict(TypedDict):
-        capacity_provider: pulumi.Input[_builtins.str]
-        """
-        The short name of the capacity provider.
-        """
-        base: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
-        """
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-        """
-elif False:
-    RuleCapacityProviderStrategyItemArgsDict: TypeAlias = Mapping[str, Any]
+class RuleCapacityProviderStrategyItemArgsDict(TypedDict):
+    capacity_provider: pulumi.Input[_builtins.str]
+    """
+    The short name of the capacity provider.
+    """
+    base: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+    """
+    weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+    """
 
 @pulumi.input_type
 class RuleCapacityProviderStrategyItemArgs:
@@ -1423,14 +1346,11 @@ class RuleCapacityProviderStrategyItemArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class RuleDeadLetterConfigArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
-elif False:
-    RuleDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class RuleDeadLetterConfigArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the SQS queue specified as the target for the dead-letter queue.
+    """
 
 @pulumi.input_type
 class RuleDeadLetterConfigArgs:
@@ -1455,72 +1375,69 @@ class RuleDeadLetterConfigArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class RuleEcsParametersArgsDict(TypedDict):
-        task_definition_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the task definition to use if the event target is an Amazon ECS task.
-        """
-        capacity_provider_strategy: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleCapacityProviderStrategyItemArgsDict']]]]
-        """
-        The capacity provider strategy to use for the task.
+class RuleEcsParametersArgsDict(TypedDict):
+    task_definition_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the task definition to use if the event target is an Amazon ECS task.
+    """
+    capacity_provider_strategy: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleCapacityProviderStrategyItemArgsDict']]]]
+    """
+    The capacity provider strategy to use for the task.
 
-        If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
-        """
-        enable_ecs_managed_tags: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
-        """
-        enable_execute_command: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-        """
-        group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies an ECS task group for the task. The maximum length is 255 characters.
-        """
-        launch_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
-        """
-        network_configuration: NotRequired[pulumi.Input['RuleNetworkConfigurationArgsDict']]
-        """
-        Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+    If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
+    """
+    enable_ecs_managed_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
+    """
+    enable_execute_command: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+    """
+    group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies an ECS task group for the task. The maximum length is 255 characters.
+    """
+    launch_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
+    """
+    network_configuration: NotRequired[pulumi.Input['RuleNetworkConfigurationArgsDict']]
+    """
+    Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
 
-        If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
-        """
-        placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulePlacementConstraintArgsDict']]]]
-        """
-        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
-        """
-        placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulePlacementStrategyArgsDict']]]]
-        """
-        The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-        """
-        platform_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
+    If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
+    """
+    placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulePlacementConstraintArgsDict']]]]
+    """
+    An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
+    """
+    placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulePlacementStrategyArgsDict']]]]
+    """
+    The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+    """
+    platform_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
 
-        This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-        """
-        propagate_tags: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
-        """
-        reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference ID to use for the task.
-        """
-        tag_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleTagArgsDict']]]]
-        """
-        The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
-        """
-        task_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of tasks to create based on `TaskDefinition` . The default is 1.
-        """
-elif False:
-    RuleEcsParametersArgsDict: TypeAlias = Mapping[str, Any]
+    This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+    """
+    propagate_tags: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
+    """
+    reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference ID to use for the task.
+    """
+    tag_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleTagArgsDict']]]]
+    """
+    The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
+    """
+    task_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of tasks to create based on `TaskDefinition` . The default is 1.
+    """
 
 @pulumi.input_type
 class RuleEcsParametersArgs:
@@ -1764,22 +1681,19 @@ class RuleEcsParametersArgs:
         pulumi.set(self, "task_count", value)
 
 
-if not MYPY:
-    class RuleHttpParametersArgsDict(TypedDict):
-        header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The headers that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
-        """
-        path_parameter_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards ("*").
-        """
-        query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The query string keys/values that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
-        """
-elif False:
-    RuleHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleHttpParametersArgsDict(TypedDict):
+    header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The headers that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+    """
+    path_parameter_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards ("*").
+    """
+    query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The query string keys/values that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+    """
 
 @pulumi.input_type
 class RuleHttpParametersArgs:
@@ -1836,62 +1750,59 @@ class RuleHttpParametersArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
-if not MYPY:
-    class RuleInputTransformerArgsDict(TypedDict):
-        input_template: pulumi.Input[_builtins.str]
-        """
-        Input template where you specify placeholders that will be filled with the values of the keys from `InputPathsMap` to customize the data sent to the target. Enclose each `InputPathsMaps` value in brackets: < *value* >
+class RuleInputTransformerArgsDict(TypedDict):
+    input_template: pulumi.Input[_builtins.str]
+    """
+    Input template where you specify placeholders that will be filled with the values of the keys from `InputPathsMap` to customize the data sent to the target. Enclose each `InputPathsMaps` value in brackets: < *value* >
 
-        If `InputTemplate` is a JSON object (surrounded by curly braces), the following restrictions apply:
+    If `InputTemplate` is a JSON object (surrounded by curly braces), the following restrictions apply:
 
-        - The placeholder cannot be used as an object key.
+    - The placeholder cannot be used as an object key.
 
-        The following example shows the syntax for using `InputPathsMap` and `InputTemplate` .
+    The following example shows the syntax for using `InputPathsMap` and `InputTemplate` .
 
-        `"InputTransformer":`
+    `"InputTransformer":`
 
-        `{`
+    `{`
 
-        `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+    `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
 
-        `"InputTemplate": "<instance> is in state <status>"`
+    `"InputTemplate": "<instance> is in state <status>"`
 
-        `}`
+    `}`
 
-        To have the `InputTemplate` include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:
+    To have the `InputTemplate` include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:
 
-        `"InputTransformer":`
+    `"InputTransformer":`
 
-        `{`
+    `{`
 
-        `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+    `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
 
-        `"InputTemplate": "<instance> is in state \\"<status>\\""`
+    `"InputTemplate": "<instance> is in state \\"<status>\\""`
 
-        `}`
+    `}`
 
-        The `InputTemplate` can also be valid JSON with varibles in quotes or out, as in the following example:
+    The `InputTemplate` can also be valid JSON with varibles in quotes or out, as in the following example:
 
-        `"InputTransformer":`
+    `"InputTransformer":`
 
-        `{`
+    `{`
 
-        `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+    `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
 
-        `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \\"<status>\\""}'`
+    `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \\"<status>\\""}'`
 
-        `}`
-        """
-        input_paths_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Map of JSON paths to be extracted from the event. You can then insert these in the template in `InputTemplate` to produce the output you want to be sent to the target.
+    `}`
+    """
+    input_paths_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of JSON paths to be extracted from the event. You can then insert these in the template in `InputTemplate` to produce the output you want to be sent to the target.
 
-        `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
+    `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
 
-        The keys cannot start with " AWS ."
-        """
-elif False:
-    RuleInputTransformerArgsDict: TypeAlias = Mapping[str, Any]
+    The keys cannot start with " AWS ."
+    """
 
 @pulumi.input_type
 class RuleInputTransformerArgs:
@@ -2019,14 +1930,11 @@ class RuleInputTransformerArgs:
         pulumi.set(self, "input_paths_map", value)
 
 
-if not MYPY:
-    class RuleKinesisParametersArgsDict(TypedDict):
-        partition_key_path: pulumi.Input[_builtins.str]
-        """
-        The JSON path to be extracted from the event and used as the partition key. For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
-        """
-elif False:
-    RuleKinesisParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleKinesisParametersArgsDict(TypedDict):
+    partition_key_path: pulumi.Input[_builtins.str]
+    """
+    The JSON path to be extracted from the event and used as the partition key. For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
+    """
 
 @pulumi.input_type
 class RuleKinesisParametersArgs:
@@ -2050,14 +1958,11 @@ class RuleKinesisParametersArgs:
         pulumi.set(self, "partition_key_path", value)
 
 
-if not MYPY:
-    class RuleNetworkConfigurationArgsDict(TypedDict):
-        aws_vpc_configuration: NotRequired[pulumi.Input['RuleAwsVpcConfigurationArgsDict']]
-        """
-        Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
-        """
-elif False:
-    RuleNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuleNetworkConfigurationArgsDict(TypedDict):
+    aws_vpc_configuration: NotRequired[pulumi.Input['RuleAwsVpcConfigurationArgsDict']]
+    """
+    Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+    """
 
 @pulumi.input_type
 class RuleNetworkConfigurationArgs:
@@ -2082,18 +1987,15 @@ class RuleNetworkConfigurationArgs:
         pulumi.set(self, "aws_vpc_configuration", value)
 
 
-if not MYPY:
-    class RulePlacementConstraintArgsDict(TypedDict):
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
-        """
-elif False:
-    RulePlacementConstraintArgsDict: TypeAlias = Mapping[str, Any]
+class RulePlacementConstraintArgsDict(TypedDict):
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
+    """
 
 @pulumi.input_type
 class RulePlacementConstraintArgs:
@@ -2134,18 +2036,15 @@ class RulePlacementConstraintArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RulePlacementStrategyArgsDict(TypedDict):
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
-        """
-elif False:
-    RulePlacementStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class RulePlacementStrategyArgsDict(TypedDict):
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
+    """
 
 @pulumi.input_type
 class RulePlacementStrategyArgs:
@@ -2186,38 +2085,35 @@ class RulePlacementStrategyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RuleRedshiftDataParametersArgsDict(TypedDict):
-        database: pulumi.Input[_builtins.str]
-        """
-        The name of the database. Required when authenticating using temporary credentials.
-        """
-        db_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The database user name. Required when authenticating using temporary credentials.
-        """
-        secret_manager_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
-        """
-        sql: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SQL statement text to run.
-        """
-        sqls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.
-        """
-        statement_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
-        with_event: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        """
-elif False:
-    RuleRedshiftDataParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleRedshiftDataParametersArgsDict(TypedDict):
+    database: pulumi.Input[_builtins.str]
+    """
+    The name of the database. Required when authenticating using temporary credentials.
+    """
+    db_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The database user name. Required when authenticating using temporary credentials.
+    """
+    secret_manager_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
+    """
+    sql: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SQL statement text to run.
+    """
+    sqls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.
+    """
+    statement_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+    """
+    with_event: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to send an event back to EventBridge after the SQL statement runs.
+    """
 
 @pulumi.input_type
 class RuleRedshiftDataParametersArgs:
@@ -2337,18 +2233,15 @@ class RuleRedshiftDataParametersArgs:
         pulumi.set(self, "with_event", value)
 
 
-if not MYPY:
-    class RuleRetryPolicyArgsDict(TypedDict):
-        maximum_event_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of time, in seconds, to continue to make retry attempts.
-        """
-        maximum_retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
-        """
-elif False:
-    RuleRetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RuleRetryPolicyArgsDict(TypedDict):
+    maximum_event_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of time, in seconds, to continue to make retry attempts.
+    """
+    maximum_retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
+    """
 
 @pulumi.input_type
 class RuleRetryPolicyArgs:
@@ -2389,14 +2282,11 @@ class RuleRetryPolicyArgs:
         pulumi.set(self, "maximum_retry_attempts", value)
 
 
-if not MYPY:
-    class RuleRunCommandParametersArgsDict(TypedDict):
-        run_command_targets: pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgsDict']]]
-        """
-        Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
-        """
-elif False:
-    RuleRunCommandParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleRunCommandParametersArgsDict(TypedDict):
+    run_command_targets: pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgsDict']]]
+    """
+    Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+    """
 
 @pulumi.input_type
 class RuleRunCommandParametersArgs:
@@ -2420,18 +2310,15 @@ class RuleRunCommandParametersArgs:
         pulumi.set(self, "run_command_targets", value)
 
 
-if not MYPY:
-    class RuleRunCommandTargetArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Can be either `tag:` *tag-key* or `InstanceIds` .
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        If `Key` is `tag:` *tag-key* , `Values` is a list of tag values. If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
-        """
-elif False:
-    RuleRunCommandTargetArgsDict: TypeAlias = Mapping[str, Any]
+class RuleRunCommandTargetArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Can be either `tag:` *tag-key* or `InstanceIds` .
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    If `Key` is `tag:` *tag-key* , `Values` is a list of tag values. If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
+    """
 
 @pulumi.input_type
 class RuleRunCommandTargetArgs:
@@ -2470,14 +2357,11 @@ class RuleRunCommandTargetArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class RuleSageMakerPipelineParametersArgsDict(TypedDict):
-        pipeline_parameter_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgsDict']]]]
-        """
-        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-        """
-elif False:
-    RuleSageMakerPipelineParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSageMakerPipelineParametersArgsDict(TypedDict):
+    pipeline_parameter_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgsDict']]]]
+    """
+    List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
+    """
 
 @pulumi.input_type
 class RuleSageMakerPipelineParametersArgs:
@@ -2502,18 +2386,15 @@ class RuleSageMakerPipelineParametersArgs:
         pulumi.set(self, "pipeline_parameter_list", value)
 
 
-if not MYPY:
-    class RuleSageMakerPipelineParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
-elif False:
-    RuleSageMakerPipelineParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSageMakerPipelineParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
+    """
 
 @pulumi.input_type
 class RuleSageMakerPipelineParameterArgs:
@@ -2552,14 +2433,11 @@ class RuleSageMakerPipelineParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RuleSqsParametersArgsDict(TypedDict):
-        message_group_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the message group to use as the target.
-        """
-elif False:
-    RuleSqsParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSqsParametersArgsDict(TypedDict):
+    message_group_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the message group to use as the target.
+    """
 
 @pulumi.input_type
 class RuleSqsParametersArgs:
@@ -2583,18 +2461,15 @@ class RuleSqsParametersArgs:
         pulumi.set(self, "message_group_id", value)
 
 
-if not MYPY:
-    class RuleTagArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the specified tag key.
-        """
-elif False:
-    RuleTagArgsDict: TypeAlias = Mapping[str, Any]
+class RuleTagArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for the specified tag key.
+    """
 
 @pulumi.input_type
 class RuleTagArgs:
@@ -2635,86 +2510,83 @@ class RuleTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RuleTargetArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the target.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
-        """
-        app_sync_parameters: NotRequired[pulumi.Input['RuleAppSyncParametersArgsDict']]
-        """
-        Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
-        """
-        batch_parameters: NotRequired[pulumi.Input['RuleBatchParametersArgsDict']]
-        """
-        If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
-        """
-        dead_letter_config: NotRequired[pulumi.Input['RuleDeadLetterConfigArgsDict']]
-        """
-        The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
-        """
-        ecs_parameters: NotRequired[pulumi.Input['RuleEcsParametersArgsDict']]
-        """
-        Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
-        """
-        http_parameters: NotRequired[pulumi.Input['RuleHttpParametersArgsDict']]
-        """
-        Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+class RuleTargetArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the target.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
+    """
+    app_sync_parameters: NotRequired[pulumi.Input['RuleAppSyncParametersArgsDict']]
+    """
+    Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
+    """
+    batch_parameters: NotRequired[pulumi.Input['RuleBatchParametersArgsDict']]
+    """
+    If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
+    """
+    dead_letter_config: NotRequired[pulumi.Input['RuleDeadLetterConfigArgsDict']]
+    """
+    The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
+    """
+    ecs_parameters: NotRequired[pulumi.Input['RuleEcsParametersArgsDict']]
+    """
+    Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
+    """
+    http_parameters: NotRequired[pulumi.Input['RuleHttpParametersArgsDict']]
+    """
+    Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
 
-        If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
-        """
-        input: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
-        """
-        input_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
-        """
-        input_transformer: NotRequired[pulumi.Input['RuleInputTransformerArgsDict']]
-        """
-        Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
-        """
-        kinesis_parameters: NotRequired[pulumi.Input['RuleKinesisParametersArgsDict']]
-        """
-        The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
-        """
-        redshift_data_parameters: NotRequired[pulumi.Input['RuleRedshiftDataParametersArgsDict']]
-        """
-        Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+    If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
+    """
+    input: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+    """
+    input_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+    """
+    input_transformer: NotRequired[pulumi.Input['RuleInputTransformerArgsDict']]
+    """
+    Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
+    """
+    kinesis_parameters: NotRequired[pulumi.Input['RuleKinesisParametersArgsDict']]
+    """
+    The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+    """
+    redshift_data_parameters: NotRequired[pulumi.Input['RuleRedshiftDataParametersArgsDict']]
+    """
+    Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
 
-        If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
-        """
-        retry_policy: NotRequired[pulumi.Input['RuleRetryPolicyArgsDict']]
-        """
-        The retry policy configuration to use for the dead-letter queue.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
-        """
-        run_command_parameters: NotRequired[pulumi.Input['RuleRunCommandParametersArgsDict']]
-        """
-        Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
-        """
-        sage_maker_pipeline_parameters: NotRequired[pulumi.Input['RuleSageMakerPipelineParametersArgsDict']]
-        """
-        Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
+    If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+    """
+    retry_policy: NotRequired[pulumi.Input['RuleRetryPolicyArgsDict']]
+    """
+    The retry policy configuration to use for the dead-letter queue.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+    """
+    run_command_parameters: NotRequired[pulumi.Input['RuleRunCommandParametersArgsDict']]
+    """
+    Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+    """
+    sage_maker_pipeline_parameters: NotRequired[pulumi.Input['RuleSageMakerPipelineParametersArgsDict']]
+    """
+    Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
 
-        If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
-        """
-        sqs_parameters: NotRequired[pulumi.Input['RuleSqsParametersArgsDict']]
-        """
-        Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
+    If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+    """
+    sqs_parameters: NotRequired[pulumi.Input['RuleSqsParametersArgsDict']]
+    """
+    Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
 
-        If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
-        """
-elif False:
-    RuleTargetArgsDict: TypeAlias = Mapping[str, Any]
+    If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
+    """
 
 @pulumi.input_type
 class RuleTargetArgs:

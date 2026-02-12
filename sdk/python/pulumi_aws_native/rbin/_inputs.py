@@ -24,23 +24,18 @@ __all__ = [
     'RuleUnlockDelayArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RuleResourceTagArgsDict(TypedDict):
-        """
-        The resource tag of the rule.
-        """
-        resource_tag_key: pulumi.Input[_builtins.str]
-        """
-        The tag key of the resource.
-        """
-        resource_tag_value: pulumi.Input[_builtins.str]
-        """
-        The tag value of the resource
-        """
-elif False:
-    RuleResourceTagArgsDict: TypeAlias = Mapping[str, Any]
+class RuleResourceTagArgsDict(TypedDict):
+    """
+    The resource tag of the rule.
+    """
+    resource_tag_key: pulumi.Input[_builtins.str]
+    """
+    The tag key of the resource.
+    """
+    resource_tag_value: pulumi.Input[_builtins.str]
+    """
+    The tag value of the resource
+    """
 
 @pulumi.input_type
 class RuleResourceTagArgs:
@@ -80,21 +75,18 @@ class RuleResourceTagArgs:
         pulumi.set(self, "resource_tag_value", value)
 
 
-if not MYPY:
-    class RuleRetentionPeriodArgsDict(TypedDict):
-        """
-        The retention period of the rule.
-        """
-        retention_period_unit: pulumi.Input['RuleRetentionPeriodRetentionPeriodUnit']
-        """
-        The retention period unit of the rule
-        """
-        retention_period_value: pulumi.Input[_builtins.int]
-        """
-        The retention period value of the rule.
-        """
-elif False:
-    RuleRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class RuleRetentionPeriodArgsDict(TypedDict):
+    """
+    The retention period of the rule.
+    """
+    retention_period_unit: pulumi.Input['RuleRetentionPeriodRetentionPeriodUnit']
+    """
+    The retention period unit of the rule
+    """
+    retention_period_value: pulumi.Input[_builtins.int]
+    """
+    The retention period value of the rule.
+    """
 
 @pulumi.input_type
 class RuleRetentionPeriodArgs:
@@ -134,18 +126,15 @@ class RuleRetentionPeriodArgs:
         pulumi.set(self, "retention_period_value", value)
 
 
-if not MYPY:
-    class RuleUnlockDelayArgsDict(TypedDict):
-        unlock_delay_unit: NotRequired[pulumi.Input['RuleUnlockDelayUnlockDelayUnit']]
-        """
-        The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-        """
-        unlock_delay_value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The unlock delay period, measured in the unit specified for UnlockDelayUnit.
-        """
-elif False:
-    RuleUnlockDelayArgsDict: TypeAlias = Mapping[str, Any]
+class RuleUnlockDelayArgsDict(TypedDict):
+    unlock_delay_unit: NotRequired[pulumi.Input['RuleUnlockDelayUnlockDelayUnit']]
+    """
+    The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+    """
+    unlock_delay_value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+    """
 
 @pulumi.input_type
 class RuleUnlockDelayArgs:

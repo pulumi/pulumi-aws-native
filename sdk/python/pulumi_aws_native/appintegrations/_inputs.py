@@ -34,13 +34,8 @@ __all__ = [
     'EventIntegrationEventFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationConfigArgsDict(TypedDict):
-        contact_handling: NotRequired[pulumi.Input['ApplicationContactHandlingArgsDict']]
-elif False:
-    ApplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationConfigArgsDict(TypedDict):
+    contact_handling: NotRequired[pulumi.Input['ApplicationContactHandlingArgsDict']]
 
 @pulumi.input_type
 class ApplicationConfigArgs:
@@ -59,11 +54,8 @@ class ApplicationConfigArgs:
         pulumi.set(self, "contact_handling", value)
 
 
-if not MYPY:
-    class ApplicationContactHandlingArgsDict(TypedDict):
-        scope: pulumi.Input['ApplicationContactHandlingScope']
-elif False:
-    ApplicationContactHandlingArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationContactHandlingArgsDict(TypedDict):
+    scope: pulumi.Input['ApplicationContactHandlingScope']
 
 @pulumi.input_type
 class ApplicationContactHandlingArgs:
@@ -81,18 +73,15 @@ class ApplicationContactHandlingArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class ApplicationExternalUrlConfigArgsDict(TypedDict):
-        access_url: pulumi.Input[_builtins.str]
-        """
-        The URL to access the application.
-        """
-        approved_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Additional URLs to allow list if different than the access URL.
-        """
-elif False:
-    ApplicationExternalUrlConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationExternalUrlConfigArgsDict(TypedDict):
+    access_url: pulumi.Input[_builtins.str]
+    """
+    The URL to access the application.
+    """
+    approved_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Additional URLs to allow list if different than the access URL.
+    """
 
 @pulumi.input_type
 class ApplicationExternalUrlConfigArgs:
@@ -132,12 +121,9 @@ class ApplicationExternalUrlConfigArgs:
         pulumi.set(self, "approved_origins", value)
 
 
-if not MYPY:
-    class ApplicationIframeConfigArgsDict(TypedDict):
-        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        sandbox: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ApplicationIframeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationIframeConfigArgsDict(TypedDict):
+    allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    sandbox: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ApplicationIframeConfigArgs:
@@ -168,17 +154,14 @@ class ApplicationIframeConfigArgs:
         pulumi.set(self, "sandbox", value)
 
 
-if not MYPY:
-    class ApplicationSourceConfigPropertiesArgsDict(TypedDict):
-        """
-        Application source config
-        """
-        external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgsDict']
-        """
-        The external URL source for the application.
-        """
-elif False:
-    ApplicationSourceConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSourceConfigPropertiesArgsDict(TypedDict):
+    """
+    Application source config
+    """
+    external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgsDict']
+    """
+    The external URL source for the application.
+    """
 
 @pulumi.input_type
 class ApplicationSourceConfigPropertiesArgs:
@@ -203,21 +186,18 @@ class ApplicationSourceConfigPropertiesArgs:
         pulumi.set(self, "external_url_config", value)
 
 
-if not MYPY:
-    class DataIntegrationFileConfigurationArgsDict(TypedDict):
-        """
-        The configuration for what files should be pulled from the source.
-        """
-        folders: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Identifiers for the source folders to pull all files from recursively.
-        """
-        filters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        Restrictions for what files should be pulled from the source.
-        """
-elif False:
-    DataIntegrationFileConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataIntegrationFileConfigurationArgsDict(TypedDict):
+    """
+    The configuration for what files should be pulled from the source.
+    """
+    folders: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Identifiers for the source folders to pull all files from recursively.
+    """
+    filters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    Restrictions for what files should be pulled from the source.
+    """
 
 @pulumi.input_type
 class DataIntegrationFileConfigurationArgs:
@@ -258,22 +238,19 @@ class DataIntegrationFileConfigurationArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class DataIntegrationScheduleConfigArgsDict(TypedDict):
-        schedule_expression: pulumi.Input[_builtins.str]
-        """
-        How often the data should be pulled from data source.
-        """
-        first_execution_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
-        """
-        object: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the object to pull from the data source.
-        """
-elif False:
-    DataIntegrationScheduleConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataIntegrationScheduleConfigArgsDict(TypedDict):
+    schedule_expression: pulumi.Input[_builtins.str]
+    """
+    How often the data should be pulled from data source.
+    """
+    first_execution_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
+    """
+    object: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the object to pull from the data source.
+    """
 
 @pulumi.input_type
 class DataIntegrationScheduleConfigArgs:
@@ -329,14 +306,11 @@ class DataIntegrationScheduleConfigArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class EventIntegrationEventFilterArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        The source of the events.
-        """
-elif False:
-    EventIntegrationEventFilterArgsDict: TypeAlias = Mapping[str, Any]
+class EventIntegrationEventFilterArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    The source of the events.
+    """
 
 @pulumi.input_type
 class EventIntegrationEventFilterArgs:

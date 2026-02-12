@@ -40,20 +40,15 @@ __all__ = [
     'TwoWayPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationSetCloudWatchLogsDestinationArgsDict(TypedDict):
-        iam_role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS Identity and Access Management role that is able to write event data to an Amazon CloudWatch destination.
-        """
-        log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon CloudWatch log group that you want to record events in.
-        """
-elif False:
-    ConfigurationSetCloudWatchLogsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationSetCloudWatchLogsDestinationArgsDict(TypedDict):
+    iam_role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an AWS Identity and Access Management role that is able to write event data to an Amazon CloudWatch destination.
+    """
+    log_group_arn: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon CloudWatch log group that you want to record events in.
+    """
 
 @pulumi.input_type
 class ConfigurationSetCloudWatchLogsDestinationArgs:
@@ -92,37 +87,34 @@ class ConfigurationSetCloudWatchLogsDestinationArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class ConfigurationSetEventDestinationArgsDict(TypedDict):
-        """
-        An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        When set to true events will be logged. By default this is set to true
-        """
-        event_destination_name: pulumi.Input[_builtins.str]
-        """
-        The name that identifies the event destination.
-        """
-        matching_event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array of event types that determine which events to log. If 'ALL' is used, then AWS End User Messaging SMS and Voice logs every event type.
-        """
-        cloud_watch_logs_destination: NotRequired[pulumi.Input['ConfigurationSetCloudWatchLogsDestinationArgsDict']]
-        """
-        An object that contains IamRoleArn and LogGroupArn associated with an Amazon CloudWatch event destination.
-        """
-        kinesis_firehose_destination: NotRequired[pulumi.Input['ConfigurationSetKinesisFirehoseDestinationArgsDict']]
-        """
-        An object that contains IamRoleArn and DeliveryStreamArn associated with an Amazon Kinesis Firehose event destination.
-        """
-        sns_destination: NotRequired[pulumi.Input['ConfigurationSetSnsDestinationArgsDict']]
-        """
-        An object that contains SNS TopicArn event destination.
-        """
-elif False:
-    ConfigurationSetEventDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationSetEventDestinationArgsDict(TypedDict):
+    """
+    An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    When set to true events will be logged. By default this is set to true
+    """
+    event_destination_name: pulumi.Input[_builtins.str]
+    """
+    The name that identifies the event destination.
+    """
+    matching_event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array of event types that determine which events to log. If 'ALL' is used, then AWS End User Messaging SMS and Voice logs every event type.
+    """
+    cloud_watch_logs_destination: NotRequired[pulumi.Input['ConfigurationSetCloudWatchLogsDestinationArgsDict']]
+    """
+    An object that contains IamRoleArn and LogGroupArn associated with an Amazon CloudWatch event destination.
+    """
+    kinesis_firehose_destination: NotRequired[pulumi.Input['ConfigurationSetKinesisFirehoseDestinationArgsDict']]
+    """
+    An object that contains IamRoleArn and DeliveryStreamArn associated with an Amazon Kinesis Firehose event destination.
+    """
+    sns_destination: NotRequired[pulumi.Input['ConfigurationSetSnsDestinationArgsDict']]
+    """
+    An object that contains SNS TopicArn event destination.
+    """
 
 @pulumi.input_type
 class ConfigurationSetEventDestinationArgs:
@@ -225,18 +217,15 @@ class ConfigurationSetEventDestinationArgs:
         pulumi.set(self, "sns_destination", value)
 
 
-if not MYPY:
-    class ConfigurationSetKinesisFirehoseDestinationArgsDict(TypedDict):
-        delivery_stream_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the delivery stream.
-        """
-        iam_role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS Identity and Access Management role that is able to write event data to an Amazon CloudWatch destination.
-        """
-elif False:
-    ConfigurationSetKinesisFirehoseDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationSetKinesisFirehoseDestinationArgsDict(TypedDict):
+    delivery_stream_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the delivery stream.
+    """
+    iam_role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an AWS Identity and Access Management role that is able to write event data to an Amazon CloudWatch destination.
+    """
 
 @pulumi.input_type
 class ConfigurationSetKinesisFirehoseDestinationArgs:
@@ -275,14 +264,11 @@ class ConfigurationSetKinesisFirehoseDestinationArgs:
         pulumi.set(self, "iam_role_arn", value)
 
 
-if not MYPY:
-    class ConfigurationSetSnsDestinationArgsDict(TypedDict):
-        topic_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.
-        """
-elif False:
-    ConfigurationSetSnsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationSetSnsDestinationArgsDict(TypedDict):
+    topic_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.
+    """
 
 @pulumi.input_type
 class ConfigurationSetSnsDestinationArgs:
@@ -306,21 +292,18 @@ class ConfigurationSetSnsDestinationArgs:
         pulumi.set(self, "topic_arn", value)
 
 
-if not MYPY:
-    class MandatoryKeywordsPropertiesArgsDict(TypedDict):
-        """
-        A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
-        """
-        help: pulumi.Input['PoolMandatoryKeywordArgsDict']
-        """
-        Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
-        """
-        stop: pulumi.Input['PoolMandatoryKeywordArgsDict']
-        """
-        Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
-        """
-elif False:
-    MandatoryKeywordsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MandatoryKeywordsPropertiesArgsDict(TypedDict):
+    """
+    A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
+    """
+    help: pulumi.Input['PoolMandatoryKeywordArgsDict']
+    """
+    Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
+    """
+    stop: pulumi.Input['PoolMandatoryKeywordArgsDict']
+    """
+    Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
+    """
 
 @pulumi.input_type
 class MandatoryKeywordsPropertiesArgs:
@@ -360,25 +343,22 @@ class MandatoryKeywordsPropertiesArgs:
         pulumi.set(self, "stop", value)
 
 
-if not MYPY:
-    class PhoneNumberOptionalKeywordArgsDict(TypedDict):
-        """
-        A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
-        """
-        action: pulumi.Input['PhoneNumberOptionalKeywordAction']
-        """
-        The action to perform when the keyword is used.
-        """
-        keyword: pulumi.Input[_builtins.str]
-        """
-        The new keyword to add.
-        """
-        message: pulumi.Input[_builtins.str]
-        """
-        The message associated with the keyword.
-        """
-elif False:
-    PhoneNumberOptionalKeywordArgsDict: TypeAlias = Mapping[str, Any]
+class PhoneNumberOptionalKeywordArgsDict(TypedDict):
+    """
+    A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
+    """
+    action: pulumi.Input['PhoneNumberOptionalKeywordAction']
+    """
+    The action to perform when the keyword is used.
+    """
+    keyword: pulumi.Input[_builtins.str]
+    """
+    The new keyword to add.
+    """
+    message: pulumi.Input[_builtins.str]
+    """
+    The message associated with the keyword.
+    """
 
 @pulumi.input_type
 class PhoneNumberOptionalKeywordArgs:
@@ -433,17 +413,14 @@ class PhoneNumberOptionalKeywordArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class PoolMandatoryKeywordArgsDict(TypedDict):
-        """
-        A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
-        """
-        message: pulumi.Input[_builtins.str]
-        """
-        The message associated with the keyword.
-        """
-elif False:
-    PoolMandatoryKeywordArgsDict: TypeAlias = Mapping[str, Any]
+class PoolMandatoryKeywordArgsDict(TypedDict):
+    """
+    A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
+    """
+    message: pulumi.Input[_builtins.str]
+    """
+    The message associated with the keyword.
+    """
 
 @pulumi.input_type
 class PoolMandatoryKeywordArgs:
@@ -468,25 +445,22 @@ class PoolMandatoryKeywordArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class PoolOptionalKeywordArgsDict(TypedDict):
-        """
-        A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
-        """
-        action: pulumi.Input['PoolOptionalKeywordAction']
-        """
-        The action to perform when the keyword is used.
-        """
-        keyword: pulumi.Input[_builtins.str]
-        """
-        The new keyword to add.
-        """
-        message: pulumi.Input[_builtins.str]
-        """
-        The message associated with the keyword.
-        """
-elif False:
-    PoolOptionalKeywordArgsDict: TypeAlias = Mapping[str, Any]
+class PoolOptionalKeywordArgsDict(TypedDict):
+    """
+    A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
+    """
+    action: pulumi.Input['PoolOptionalKeywordAction']
+    """
+    The action to perform when the keyword is used.
+    """
+    keyword: pulumi.Input[_builtins.str]
+    """
+    The new keyword to add.
+    """
+    message: pulumi.Input[_builtins.str]
+    """
+    The message associated with the keyword.
+    """
 
 @pulumi.input_type
 class PoolOptionalKeywordArgs:
@@ -541,22 +515,19 @@ class PoolOptionalKeywordArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class ProtectConfigurationCountryRuleSetArgsDict(TypedDict):
-        mms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
-        """
-        The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
-        """
-        sms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
-        """
-        The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
-        """
-        voice: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
-        """
-        The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
-        """
-elif False:
-    ProtectConfigurationCountryRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+class ProtectConfigurationCountryRuleSetArgsDict(TypedDict):
+    mms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
+    """
+    The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+    """
+    sms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
+    """
+    The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+    """
+    voice: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProtectConfigurationCountryRuleArgsDict']]]]
+    """
+    The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
+    """
 
 @pulumi.input_type
 class ProtectConfigurationCountryRuleSetArgs:
@@ -613,18 +584,15 @@ class ProtectConfigurationCountryRuleSetArgs:
         pulumi.set(self, "voice", value)
 
 
-if not MYPY:
-    class ProtectConfigurationCountryRuleArgsDict(TypedDict):
-        country_code: pulumi.Input[_builtins.str]
-        """
-        The two-letter ISO country code
-        """
-        protect_status: pulumi.Input['ProtectConfigurationCountryRuleProtectStatus']
-        """
-        The types of protection that can be used.
-        """
-elif False:
-    ProtectConfigurationCountryRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ProtectConfigurationCountryRuleArgsDict(TypedDict):
+    country_code: pulumi.Input[_builtins.str]
+    """
+    The two-letter ISO country code
+    """
+    protect_status: pulumi.Input['ProtectConfigurationCountryRuleProtectStatus']
+    """
+    The types of protection that can be used.
+    """
 
 @pulumi.input_type
 class ProtectConfigurationCountryRuleArgs:
@@ -663,25 +631,22 @@ class ProtectConfigurationCountryRuleArgs:
         pulumi.set(self, "protect_status", value)
 
 
-if not MYPY:
-    class TwoWayPropertiesArgsDict(TypedDict):
-        """
-        When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        By default this is set to false. When set to true you can receive incoming text messages from your end recipients.
-        """
-        channel_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the two way channel.
-        """
-        channel_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.
-        """
-elif False:
-    TwoWayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TwoWayPropertiesArgsDict(TypedDict):
+    """
+    When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    By default this is set to false. When set to true you can receive incoming text messages from your end recipients.
+    """
+    channel_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the two way channel.
+    """
+    channel_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.
+    """
 
 @pulumi.input_type
 class TwoWayPropertiesArgs:

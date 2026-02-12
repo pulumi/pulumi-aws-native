@@ -114,29 +114,24 @@ __all__ = [
     'StandardsControlArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AutomationRuleDateFilterArgsDict(TypedDict):
-        """
-        A date filter for querying findings.
-        """
-        date_range: NotRequired[pulumi.Input['AutomationRuleDateRangeArgsDict']]
-        """
-        A date range for the date filter.
-        """
-        end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A timestamp that provides the end date for the date filter.
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-        """
-        start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A timestamp that provides the start date for the date filter.
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-        """
-elif False:
-    AutomationRuleDateFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleDateFilterArgsDict(TypedDict):
+    """
+    A date filter for querying findings.
+    """
+    date_range: NotRequired[pulumi.Input['AutomationRuleDateRangeArgsDict']]
+    """
+    A date range for the date filter.
+    """
+    end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A timestamp that provides the end date for the date filter.
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+    """
+    start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A timestamp that provides the start date for the date filter.
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+    """
 
 @pulumi.input_type
 class AutomationRuleDateFilterArgs:
@@ -198,21 +193,18 @@ class AutomationRuleDateFilterArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class AutomationRuleDateRangeArgsDict(TypedDict):
-        """
-        A date range for the date filter.
-        """
-        unit: pulumi.Input['AutomationRuleDateRangeUnit']
-        """
-        A date range unit for the date filter.
-        """
-        value: pulumi.Input[_builtins.float]
-        """
-        A date range value for the date filter.
-        """
-elif False:
-    AutomationRuleDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleDateRangeArgsDict(TypedDict):
+    """
+    A date range for the date filter.
+    """
+    unit: pulumi.Input['AutomationRuleDateRangeUnit']
+    """
+    A date range unit for the date filter.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    A date range value for the date filter.
+    """
 
 @pulumi.input_type
 class AutomationRuleDateRangeArgs:
@@ -252,38 +244,35 @@ class AutomationRuleDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleMapFilterArgsDict(TypedDict):
-        """
-        A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
-        """
-        comparison: pulumi.Input['AutomationRuleMapFilterComparison']
-        """
-        The condition to apply to the key value when filtering Security Hub findings with a map filter.
-         To search for values that have the filter value, use one of the following comparison operators:
-          +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
-          +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
-          
-         ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
-         To search for values that don't have the filter value, use one of the following comparison operators:
-          +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
-          +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
-          
-         ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
-         ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
-         ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
-        """
-elif False:
-    AutomationRuleMapFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleMapFilterArgsDict(TypedDict):
+    """
+    A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+    """
+    comparison: pulumi.Input['AutomationRuleMapFilterComparison']
+    """
+    The condition to apply to the key value when filtering Security Hub findings with a map filter.
+     To search for values that have the filter value, use one of the following comparison operators:
+      +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+      +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
+      
+     ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+     To search for values that don't have the filter value, use one of the following comparison operators:
+      +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+      +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
+      
+     ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+     ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+     You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
+     ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
+    """
 
 @pulumi.input_type
 class AutomationRuleMapFilterArgs:
@@ -364,21 +353,18 @@ class AutomationRuleMapFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleNoteUpdateArgsDict(TypedDict):
-        """
-        The updated note.
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        The updated note text.
-        """
-        updated_by: pulumi.Input[_builtins.str]
-        """
-        The principal that updated the note.
-        """
-elif False:
-    AutomationRuleNoteUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleNoteUpdateArgsDict(TypedDict):
+    """
+    The updated note.
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    The updated note text.
+    """
+    updated_by: pulumi.Input[_builtins.str]
+    """
+    The principal that updated the note.
+    """
 
 @pulumi.input_type
 class AutomationRuleNoteUpdateArgs:
@@ -418,25 +404,22 @@ class AutomationRuleNoteUpdateArgs:
         pulumi.set(self, "updated_by", value)
 
 
-if not MYPY:
-    class AutomationRuleNumberFilterArgsDict(TypedDict):
-        """
-        A number filter for querying findings.
-        """
-        eq: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The equal-to condition to be applied to a single field when querying for findings.
-        """
-        gte: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The greater-than-equal condition to be applied to a single field when querying for findings.
-        """
-        lte: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The less-than-equal condition to be applied to a single field when querying for findings.
-        """
-elif False:
-    AutomationRuleNumberFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleNumberFilterArgsDict(TypedDict):
+    """
+    A number filter for querying findings.
+    """
+    eq: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The equal-to condition to be applied to a single field when querying for findings.
+    """
+    gte: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The greater-than-equal condition to be applied to a single field when querying for findings.
+    """
+    lte: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The less-than-equal condition to be applied to a single field when querying for findings.
+    """
 
 @pulumi.input_type
 class AutomationRuleNumberFilterArgs:
@@ -494,22 +477,19 @@ class AutomationRuleNumberFilterArgs:
         pulumi.set(self, "lte", value)
 
 
-if not MYPY:
-    class AutomationRuleRelatedFindingArgsDict(TypedDict):
-        """
-        Provides details about a list of findings that the current finding relates to.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The product-generated identifier for a related finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        product_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the product that generated a related finding.
-        """
-elif False:
-    AutomationRuleRelatedFindingArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleRelatedFindingArgsDict(TypedDict):
+    """
+    Provides details about a list of findings that the current finding relates to.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The product-generated identifier for a related finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    product_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the product that generated a related finding.
+    """
 
 @pulumi.input_type
 class AutomationRuleRelatedFindingArgs:
@@ -551,36 +531,33 @@ class AutomationRuleRelatedFindingArgs:
         pulumi.set(self, "product_arn", value)
 
 
-if not MYPY:
-    class AutomationRuleSeverityUpdateArgsDict(TypedDict):
-        """
-        Updates to the severity information for a finding.
-        """
-        label: NotRequired[pulumi.Input['AutomationRuleSeverityUpdateLabel']]
-        """
-        The severity value of the finding. The allowed values are the following.
-          +  ``INFORMATIONAL`` - No issue was found.
-          +  ``LOW`` - The issue does not require action on its own.
-          +  ``MEDIUM`` - The issue must be addressed but not urgently.
-          +  ``HIGH`` - The issue must be addressed as a priority.
-          +  ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
-        """
-        normalized: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-         If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
-          +  0 - ``INFORMATIONAL``
-          +  1–39 - ``LOW``
-          +  40–69 - ``MEDIUM``
-          +  70–89 - ``HIGH``
-          +  90–100 - ``CRITICAL``
-        """
-        product: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The native severity as defined by the AWS service or integrated partner product that generated the finding.
-        """
-elif False:
-    AutomationRuleSeverityUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleSeverityUpdateArgsDict(TypedDict):
+    """
+    Updates to the severity information for a finding.
+    """
+    label: NotRequired[pulumi.Input['AutomationRuleSeverityUpdateLabel']]
+    """
+    The severity value of the finding. The allowed values are the following.
+      +  ``INFORMATIONAL`` - No issue was found.
+      +  ``LOW`` - The issue does not require action on its own.
+      +  ``MEDIUM`` - The issue must be addressed but not urgently.
+      +  ``HIGH`` - The issue must be addressed as a priority.
+      +  ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
+    """
+    normalized: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+     If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
+      +  0 - ``INFORMATIONAL``
+      +  1–39 - ``LOW``
+      +  40–69 - ``MEDIUM``
+      +  70–89 - ``HIGH``
+      +  90–100 - ``CRITICAL``
+    """
+    product: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The native severity as defined by the AWS service or integrated partner product that generated the finding.
+    """
 
 @pulumi.input_type
 class AutomationRuleSeverityUpdateArgs:
@@ -660,42 +637,39 @@ class AutomationRuleSeverityUpdateArgs:
         pulumi.set(self, "product", value)
 
 
-if not MYPY:
-    class AutomationRuleStringFilterArgsDict(TypedDict):
-        """
-        A string filter for filtering ASHlong findings.
-        """
-        comparison: pulumi.Input['AutomationRuleStringFilterComparison']
-        """
-        The condition to apply to a string value when filtering Security Hub findings.
-         To search for values that have the filter value, use one of the following comparison operators:
-          +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
-          +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
-          +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
-          
-         ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
-         To search for values that don’t have the filter value, use one of the following comparison operators:
-          +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
-          +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
-          +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
-          
-         ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
-         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
-         You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-         For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
-          +   ``ResourceType PREFIX AwsIam`` 
-          +   ``ResourceType PREFIX AwsEc2`` 
-          +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
-          +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
-          
-         ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourceStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
-        """
-elif False:
-    AutomationRuleStringFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleStringFilterArgsDict(TypedDict):
+    """
+    A string filter for filtering ASHlong findings.
+    """
+    comparison: pulumi.Input['AutomationRuleStringFilterComparison']
+    """
+    The condition to apply to a string value when filtering Security Hub findings.
+     To search for values that have the filter value, use one of the following comparison operators:
+      +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+      +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+      +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
+      
+     ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+     To search for values that don’t have the filter value, use one of the following comparison operators:
+      +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+      +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+      +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
+      
+     ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+     You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
+     You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+     For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+      +   ``ResourceType PREFIX AwsIam`` 
+      +   ``ResourceType PREFIX AwsEc2`` 
+      +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
+      +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
+      
+     ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourceStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+    """
 
 @pulumi.input_type
 class AutomationRuleStringFilterArgs:
@@ -777,25 +751,22 @@ class AutomationRuleStringFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleV2AutomationRulesActionV2ArgsDict(TypedDict):
-        """
-        Allows you to configure automated responses
-        """
-        type: pulumi.Input['AutomationRuleV2AutomationRulesActionV2Type']
-        """
-        The category of action to be executed by the automation rule
-        """
-        external_integration_configuration: NotRequired[pulumi.Input['AutomationRuleV2ExternalIntegrationConfigurationArgsDict']]
-        """
-        The settings for integrating automation rule actions with external systems or service.
-        """
-        finding_fields_update: NotRequired[pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2ArgsDict']]
-        """
-        Specifies that the automation rule action is an update to a finding field.
-        """
-elif False:
-    AutomationRuleV2AutomationRulesActionV2ArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2AutomationRulesActionV2ArgsDict(TypedDict):
+    """
+    Allows you to configure automated responses
+    """
+    type: pulumi.Input['AutomationRuleV2AutomationRulesActionV2Type']
+    """
+    The category of action to be executed by the automation rule
+    """
+    external_integration_configuration: NotRequired[pulumi.Input['AutomationRuleV2ExternalIntegrationConfigurationArgsDict']]
+    """
+    The settings for integrating automation rule actions with external systems or service.
+    """
+    finding_fields_update: NotRequired[pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2ArgsDict']]
+    """
+    Specifies that the automation rule action is an update to a finding field.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2AutomationRulesActionV2Args:
@@ -852,25 +823,22 @@ class AutomationRuleV2AutomationRulesActionV2Args:
         pulumi.set(self, "finding_fields_update", value)
 
 
-if not MYPY:
-    class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2ArgsDict(TypedDict):
-        """
-        The changes to be applied to fields in a security finding when an automation rule is triggered
-        """
-        comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Notes or contextual information for findings that are modified by the automation rule
-        """
-        severity_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The severity level to be assigned to findings that match the automation rule criteria
-        """
-        status_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The status to be applied to findings that match automation rule criteria
-        """
-elif False:
-    AutomationRuleV2AutomationRulesFindingFieldsUpdateV2ArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2ArgsDict(TypedDict):
+    """
+    The changes to be applied to fields in a security finding when an automation rule is triggered
+    """
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Notes or contextual information for findings that are modified by the automation rule
+    """
+    severity_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The severity level to be assigned to findings that match the automation rule criteria
+    """
+    status_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The status to be applied to findings that match automation rule criteria
+    """
 
 @pulumi.input_type
 class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args:
@@ -928,17 +896,14 @@ class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args:
         pulumi.set(self, "status_id", value)
 
 
-if not MYPY:
-    class AutomationRuleV2BooleanFilterArgsDict(TypedDict):
-        """
-        Boolean filter for querying findings
-        """
-        value: pulumi.Input[_builtins.bool]
-        """
-        The value of the boolean
-        """
-elif False:
-    AutomationRuleV2BooleanFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2BooleanFilterArgsDict(TypedDict):
+    """
+    Boolean filter for querying findings
+    """
+    value: pulumi.Input[_builtins.bool]
+    """
+    The value of the boolean
+    """
 
 @pulumi.input_type
 class AutomationRuleV2BooleanFilterArgs:
@@ -963,37 +928,34 @@ class AutomationRuleV2BooleanFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleV2CompositeFilterArgsDict(TypedDict):
-        """
-        Enables the creation of filtering criteria for security findings
-        """
-        boolean_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfBooleanFilterArgsDict']]]]
-        """
-        Enables filtering based on boolean field values
-        """
-        date_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfDateFilterArgsDict']]]]
-        """
-        Enables filtering based on date and timestamp fields
-        """
-        map_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfMapFilterArgsDict']]]]
-        """
-        Enables filtering based on map field value
-        """
-        number_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfNumberFilterArgsDict']]]]
-        """
-        Enables filtering based on numerical field values
-        """
-        operator: NotRequired[pulumi.Input['AutomationRuleV2AllowedOperators']]
-        """
-        The logical operator used to combine multiple filter conditions.
-        """
-        string_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfStringFilterArgsDict']]]]
-        """
-        Enables filtering based on string field values
-        """
-elif False:
-    AutomationRuleV2CompositeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2CompositeFilterArgsDict(TypedDict):
+    """
+    Enables the creation of filtering criteria for security findings
+    """
+    boolean_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfBooleanFilterArgsDict']]]]
+    """
+    Enables filtering based on boolean field values
+    """
+    date_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfDateFilterArgsDict']]]]
+    """
+    Enables filtering based on date and timestamp fields
+    """
+    map_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfMapFilterArgsDict']]]]
+    """
+    Enables filtering based on map field value
+    """
+    number_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfNumberFilterArgsDict']]]]
+    """
+    Enables filtering based on numerical field values
+    """
+    operator: NotRequired[pulumi.Input['AutomationRuleV2AllowedOperators']]
+    """
+    The logical operator used to combine multiple filter conditions.
+    """
+    string_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfStringFilterArgsDict']]]]
+    """
+    Enables filtering based on string field values
+    """
 
 @pulumi.input_type
 class AutomationRuleV2CompositeFilterArgs:
@@ -1099,17 +1061,14 @@ class AutomationRuleV2CompositeFilterArgs:
         pulumi.set(self, "string_filters", value)
 
 
-if not MYPY:
-    class AutomationRuleV2CriteriaArgsDict(TypedDict):
-        """
-        Defines the parameters and conditions used to evaluate and filter security findings
-        """
-        ocsf_finding_criteria: NotRequired[pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgsDict']]
-        """
-        The filtering conditions that align with OCSF standards.
-        """
-elif False:
-    AutomationRuleV2CriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2CriteriaArgsDict(TypedDict):
+    """
+    Defines the parameters and conditions used to evaluate and filter security findings
+    """
+    ocsf_finding_criteria: NotRequired[pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgsDict']]
+    """
+    The filtering conditions that align with OCSF standards.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2CriteriaArgs:
@@ -1135,29 +1094,26 @@ class AutomationRuleV2CriteriaArgs:
         pulumi.set(self, "ocsf_finding_criteria", value)
 
 
-if not MYPY:
-    class AutomationRuleV2DateFilterArgsDict(TypedDict):
-        """
-        A date filter for querying findings
-        """
-        date_range: NotRequired[pulumi.Input['AutomationRuleV2DateRangeArgsDict']]
-        """
-        A date range for the date filter.
-        """
-        end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A timestamp that provides the end date for the date filter.
+class AutomationRuleV2DateFilterArgsDict(TypedDict):
+    """
+    A date filter for querying findings
+    """
+    date_range: NotRequired[pulumi.Input['AutomationRuleV2DateRangeArgsDict']]
+    """
+    A date range for the date filter.
+    """
+    end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
-        """
-        start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A timestamp that provides the start date for the date filter.
+    For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+    """
+    start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
-        """
-elif False:
-    AutomationRuleV2DateFilterArgsDict: TypeAlias = Mapping[str, Any]
+    For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+    """
 
 @pulumi.input_type
 class AutomationRuleV2DateFilterArgs:
@@ -1223,21 +1179,18 @@ class AutomationRuleV2DateFilterArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class AutomationRuleV2DateRangeArgsDict(TypedDict):
-        """
-        A date range for the date filter
-        """
-        unit: pulumi.Input['AutomationRuleV2DateRangeUnit']
-        """
-        A date range unit for the date filter
-        """
-        value: pulumi.Input[_builtins.float]
-        """
-        A date range value for the date filter
-        """
-elif False:
-    AutomationRuleV2DateRangeArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2DateRangeArgsDict(TypedDict):
+    """
+    A date range for the date filter
+    """
+    unit: pulumi.Input['AutomationRuleV2DateRangeUnit']
+    """
+    A date range unit for the date filter
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    A date range value for the date filter
+    """
 
 @pulumi.input_type
 class AutomationRuleV2DateRangeArgs:
@@ -1277,17 +1230,14 @@ class AutomationRuleV2DateRangeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleV2ExternalIntegrationConfigurationArgsDict(TypedDict):
-        """
-        The settings for integrating automation rule actions with external systems or service
-        """
-        connector_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the connector that establishes the integration
-        """
-elif False:
-    AutomationRuleV2ExternalIntegrationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2ExternalIntegrationConfigurationArgsDict(TypedDict):
+    """
+    The settings for integrating automation rule actions with external systems or service
+    """
+    connector_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the connector that establishes the integration
+    """
 
 @pulumi.input_type
 class AutomationRuleV2ExternalIntegrationConfigurationArgs:
@@ -1313,25 +1263,22 @@ class AutomationRuleV2ExternalIntegrationConfigurationArgs:
         pulumi.set(self, "connector_arn", value)
 
 
-if not MYPY:
-    class AutomationRuleV2MapFilterArgsDict(TypedDict):
-        """
-        A map filter for filtering findings
-        """
-        comparison: pulumi.Input['AutomationRuleV2MapFilterComparison']
-        """
-        The condition to apply to the key value when filtering findings with a map filter
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the map filter
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the key in the map filter
-        """
-elif False:
-    AutomationRuleV2MapFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2MapFilterArgsDict(TypedDict):
+    """
+    A map filter for filtering findings
+    """
+    comparison: pulumi.Input['AutomationRuleV2MapFilterComparison']
+    """
+    The condition to apply to the key value when filtering findings with a map filter
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the map filter
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the key in the map filter
+    """
 
 @pulumi.input_type
 class AutomationRuleV2MapFilterArgs:
@@ -1386,25 +1333,22 @@ class AutomationRuleV2MapFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleV2NumberFilterArgsDict(TypedDict):
-        """
-        A number filter for querying findings
-        """
-        eq: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The equal-to condition to be applied to a single field when querying for findings
-        """
-        gte: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The greater-than-equal condition to be applied to a single field when querying for findings
-        """
-        lte: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The less-than-equal condition to be applied to a single field when querying for findings
-        """
-elif False:
-    AutomationRuleV2NumberFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2NumberFilterArgsDict(TypedDict):
+    """
+    A number filter for querying findings
+    """
+    eq: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The equal-to condition to be applied to a single field when querying for findings
+    """
+    gte: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The greater-than-equal condition to be applied to a single field when querying for findings
+    """
+    lte: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The less-than-equal condition to be applied to a single field when querying for findings
+    """
 
 @pulumi.input_type
 class AutomationRuleV2NumberFilterArgs:
@@ -1462,21 +1406,18 @@ class AutomationRuleV2NumberFilterArgs:
         pulumi.set(self, "lte", value)
 
 
-if not MYPY:
-    class AutomationRuleV2OcsfBooleanFilterArgsDict(TypedDict):
-        """
-        Enables filtering of security findings based on boolean field values in OCSF
-        """
-        field_name: pulumi.Input['AutomationRuleV2OcsfBooleanFilterFieldName']
-        """
-        The name of the field
-        """
-        filter: pulumi.Input['AutomationRuleV2BooleanFilterArgsDict']
-        """
-        Enables filtering of security findings based on boolean field values in OCSF.
-        """
-elif False:
-    AutomationRuleV2OcsfBooleanFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2OcsfBooleanFilterArgsDict(TypedDict):
+    """
+    Enables filtering of security findings based on boolean field values in OCSF
+    """
+    field_name: pulumi.Input['AutomationRuleV2OcsfBooleanFilterFieldName']
+    """
+    The name of the field
+    """
+    filter: pulumi.Input['AutomationRuleV2BooleanFilterArgsDict']
+    """
+    Enables filtering of security findings based on boolean field values in OCSF.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2OcsfBooleanFilterArgs:
@@ -1516,21 +1457,18 @@ class AutomationRuleV2OcsfBooleanFilterArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class AutomationRuleV2OcsfDateFilterArgsDict(TypedDict):
-        """
-        Enables filtering of security findings based on date and timestamp fields in OCSF
-        """
-        field_name: pulumi.Input['AutomationRuleV2OcsfDateFilterFieldName']
-        """
-        The name of the field
-        """
-        filter: pulumi.Input['AutomationRuleV2DateFilterArgsDict']
-        """
-        Enables filtering of security findings based on date and timestamp fields in OCSF.
-        """
-elif False:
-    AutomationRuleV2OcsfDateFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2OcsfDateFilterArgsDict(TypedDict):
+    """
+    Enables filtering of security findings based on date and timestamp fields in OCSF
+    """
+    field_name: pulumi.Input['AutomationRuleV2OcsfDateFilterFieldName']
+    """
+    The name of the field
+    """
+    filter: pulumi.Input['AutomationRuleV2DateFilterArgsDict']
+    """
+    Enables filtering of security findings based on date and timestamp fields in OCSF.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2OcsfDateFilterArgs:
@@ -1570,21 +1508,18 @@ class AutomationRuleV2OcsfDateFilterArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class AutomationRuleV2OcsfFindingFiltersArgsDict(TypedDict):
-        """
-        The filtering conditions that align with OCSF standards
-        """
-        composite_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2CompositeFilterArgsDict']]]]
-        """
-        Enables the creation of complex filtering conditions by combining filter
-        """
-        composite_operator: NotRequired[pulumi.Input['AutomationRuleV2AllowedOperators']]
-        """
-        The logical operators used to combine the filtering on multiple `CompositeFilters` .
-        """
-elif False:
-    AutomationRuleV2OcsfFindingFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2OcsfFindingFiltersArgsDict(TypedDict):
+    """
+    The filtering conditions that align with OCSF standards
+    """
+    composite_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2CompositeFilterArgsDict']]]]
+    """
+    Enables the creation of complex filtering conditions by combining filter
+    """
+    composite_operator: NotRequired[pulumi.Input['AutomationRuleV2AllowedOperators']]
+    """
+    The logical operators used to combine the filtering on multiple `CompositeFilters` .
+    """
 
 @pulumi.input_type
 class AutomationRuleV2OcsfFindingFiltersArgs:
@@ -1626,21 +1561,18 @@ class AutomationRuleV2OcsfFindingFiltersArgs:
         pulumi.set(self, "composite_operator", value)
 
 
-if not MYPY:
-    class AutomationRuleV2OcsfMapFilterArgsDict(TypedDict):
-        """
-        Enables filtering of security findings based on map field values in OCSF
-        """
-        field_name: pulumi.Input['AutomationRuleV2OcsfMapFilterFieldName']
-        """
-        The name of the field
-        """
-        filter: pulumi.Input['AutomationRuleV2MapFilterArgsDict']
-        """
-        Enables filtering of security findings based on map field values in OCSF.
-        """
-elif False:
-    AutomationRuleV2OcsfMapFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2OcsfMapFilterArgsDict(TypedDict):
+    """
+    Enables filtering of security findings based on map field values in OCSF
+    """
+    field_name: pulumi.Input['AutomationRuleV2OcsfMapFilterFieldName']
+    """
+    The name of the field
+    """
+    filter: pulumi.Input['AutomationRuleV2MapFilterArgsDict']
+    """
+    Enables filtering of security findings based on map field values in OCSF.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2OcsfMapFilterArgs:
@@ -1680,21 +1612,18 @@ class AutomationRuleV2OcsfMapFilterArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class AutomationRuleV2OcsfNumberFilterArgsDict(TypedDict):
-        """
-        Enables filtering of security findings based on numerical field values in OCSF
-        """
-        field_name: pulumi.Input['AutomationRuleV2OcsfNumberFilterFieldName']
-        """
-        The name of the field
-        """
-        filter: pulumi.Input['AutomationRuleV2NumberFilterArgsDict']
-        """
-        Enables filtering of security findings based on numerical field values in OCSF.
-        """
-elif False:
-    AutomationRuleV2OcsfNumberFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2OcsfNumberFilterArgsDict(TypedDict):
+    """
+    Enables filtering of security findings based on numerical field values in OCSF
+    """
+    field_name: pulumi.Input['AutomationRuleV2OcsfNumberFilterFieldName']
+    """
+    The name of the field
+    """
+    filter: pulumi.Input['AutomationRuleV2NumberFilterArgsDict']
+    """
+    Enables filtering of security findings based on numerical field values in OCSF.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2OcsfNumberFilterArgs:
@@ -1734,21 +1663,18 @@ class AutomationRuleV2OcsfNumberFilterArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class AutomationRuleV2OcsfStringFilterArgsDict(TypedDict):
-        """
-        Enables filtering of security findings based on string field values in OCSF
-        """
-        field_name: pulumi.Input['AutomationRuleV2OcsfStringField']
-        """
-        The name of the field.
-        """
-        filter: pulumi.Input['AutomationRuleV2StringFilterArgsDict']
-        """
-        Enables filtering of security findings based on string field values in OCSF.
-        """
-elif False:
-    AutomationRuleV2OcsfStringFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2OcsfStringFilterArgsDict(TypedDict):
+    """
+    Enables filtering of security findings based on string field values in OCSF
+    """
+    field_name: pulumi.Input['AutomationRuleV2OcsfStringField']
+    """
+    The name of the field.
+    """
+    filter: pulumi.Input['AutomationRuleV2StringFilterArgsDict']
+    """
+    Enables filtering of security findings based on string field values in OCSF.
+    """
 
 @pulumi.input_type
 class AutomationRuleV2OcsfStringFilterArgs:
@@ -1788,21 +1714,18 @@ class AutomationRuleV2OcsfStringFilterArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class AutomationRuleV2StringFilterArgsDict(TypedDict):
-        """
-        A string filter for filtering findings
-        """
-        comparison: pulumi.Input['AutomationRuleV2StringFilterComparison']
-        """
-        The condition to apply to a string value when filtering findings
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The string filter value
-        """
-elif False:
-    AutomationRuleV2StringFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleV2StringFilterArgsDict(TypedDict):
+    """
+    A string filter for filtering findings
+    """
+    comparison: pulumi.Input['AutomationRuleV2StringFilterComparison']
+    """
+    The condition to apply to a string value when filtering findings
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The string filter value
+    """
 
 @pulumi.input_type
 class AutomationRuleV2StringFilterArgs:
@@ -1842,26 +1765,23 @@ class AutomationRuleV2StringFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AutomationRuleWorkflowUpdateArgsDict(TypedDict):
-        """
-        Used to update information about the investigation into the finding.
-        """
-        status: pulumi.Input['AutomationRuleWorkflowUpdateStatus']
-        """
-        The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
-         The allowed values are the following.
-          +  ``NEW`` - The initial state of a finding, before it is reviewed.
-         Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
-          +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
-          +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
-          
-          +  ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-          +  ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-          +  ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
-        """
-elif False:
-    AutomationRuleWorkflowUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleWorkflowUpdateArgsDict(TypedDict):
+    """
+    Used to update information about the investigation into the finding.
+    """
+    status: pulumi.Input['AutomationRuleWorkflowUpdateStatus']
+    """
+    The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+     The allowed values are the following.
+      +  ``NEW`` - The initial state of a finding, before it is reviewed.
+     Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+      +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+      +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
+      
+      +  ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+      +  ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+      +  ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
+    """
 
 @pulumi.input_type
 class AutomationRuleWorkflowUpdateArgs:
@@ -1904,21 +1824,18 @@ class AutomationRuleWorkflowUpdateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AutomationRulesActionArgsDict(TypedDict):
-        """
-        One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
-        """
-        finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgsDict']
-        """
-        Specifies that the automation rule action is an update to a finding field.
-        """
-        type: pulumi.Input['AutomationRulesActionType']
-        """
-        Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
-        """
-elif False:
-    AutomationRulesActionArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRulesActionArgsDict(TypedDict):
+    """
+    One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
+    """
+    finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgsDict']
+    """
+    Specifies that the automation rule action is an update to a finding field.
+    """
+    type: pulumi.Input['AutomationRulesActionType']
+    """
+    Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+    """
 
 @pulumi.input_type
 class AutomationRulesActionArgs:
@@ -1958,49 +1875,46 @@ class AutomationRulesActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AutomationRulesFindingFieldsUpdateArgsDict(TypedDict):
-        """
-        Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
-        """
-        confidence: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule action updates the ``Confidence`` field of a finding.
-        """
-        criticality: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rule action updates the ``Criticality`` field of a finding.
-        """
-        note: NotRequired[pulumi.Input['AutomationRuleNoteUpdateArgsDict']]
-        """
-        The rule action will update the ``Note`` field of a finding.
-        """
-        related_findings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgsDict']]]]
-        """
-        The rule action will update the ``RelatedFindings`` field of a finding.
-        """
-        severity: NotRequired[pulumi.Input['AutomationRuleSeverityUpdateArgsDict']]
-        """
-        The rule action will update the ``Severity`` field of a finding.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The rule action updates the ``Types`` field of a finding.
-        """
-        user_defined_fields: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The rule action updates the ``UserDefinedFields`` field of a finding.
-        """
-        verification_state: NotRequired[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']]
-        """
-        The rule action updates the ``VerificationState`` field of a finding.
-        """
-        workflow: NotRequired[pulumi.Input['AutomationRuleWorkflowUpdateArgsDict']]
-        """
-        The rule action will update the ``Workflow`` field of a finding.
-        """
-elif False:
-    AutomationRulesFindingFieldsUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRulesFindingFieldsUpdateArgsDict(TypedDict):
+    """
+    Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+    """
+    confidence: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule action updates the ``Confidence`` field of a finding.
+    """
+    criticality: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rule action updates the ``Criticality`` field of a finding.
+    """
+    note: NotRequired[pulumi.Input['AutomationRuleNoteUpdateArgsDict']]
+    """
+    The rule action will update the ``Note`` field of a finding.
+    """
+    related_findings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgsDict']]]]
+    """
+    The rule action will update the ``RelatedFindings`` field of a finding.
+    """
+    severity: NotRequired[pulumi.Input['AutomationRuleSeverityUpdateArgsDict']]
+    """
+    The rule action will update the ``Severity`` field of a finding.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The rule action updates the ``Types`` field of a finding.
+    """
+    user_defined_fields: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The rule action updates the ``UserDefinedFields`` field of a finding.
+    """
+    verification_state: NotRequired[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']]
+    """
+    The rule action updates the ``VerificationState`` field of a finding.
+    """
+    workflow: NotRequired[pulumi.Input['AutomationRuleWorkflowUpdateArgsDict']]
+    """
+    The rule action will update the ``Workflow`` field of a finding.
+    """
 
 @pulumi.input_type
 class AutomationRulesFindingFieldsUpdateArgs:
@@ -2154,193 +2068,190 @@ class AutomationRulesFindingFieldsUpdateArgs:
         pulumi.set(self, "workflow", value)
 
 
-if not MYPY:
-    class AutomationRulesFindingFiltersArgsDict(TypedDict):
-        """
-        The criteria that determine which findings a rule applies to.
-        """
-        aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The AWS-account ID in which a finding was generated.
-          Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        """
-        company_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        compliance_associated_standards_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        compliance_security_control_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The security control ID for which a finding was generated. Security control IDs are the same across standards.
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        compliance_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The result of a security check. This field is only used for findings generated from controls. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        confidence: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgsDict']]]]
-        """
-        The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        created_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
-        """
-        A timestamp that indicates when this finding record was created. 
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        criticality: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgsDict']]]]
-        """
-        The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        description: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        A finding's description. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
-        """
-        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        generator_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The identifier for the solution-specific component that generated a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        """
-        id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The product-specific identifier for a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
-        """
-        A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding. 
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        note_text: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The text of a user-defined note that's added to a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        note_updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
-        """
-        The timestamp of when the note was updated.
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        note_updated_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The principal that created a note. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        product_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        record_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        Provides the current state of a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        related_findings_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The product-generated identifier for a related finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        related_findings_product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The ARN for the product that generated a related finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        resource_details_other: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgsDict']]]]
-        """
-        Custom fields and values about the resource that a finding pertains to. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
-          Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        """
-        resource_partition: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        resource_region: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The AWS-Region where the resource that a finding pertains to is located. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgsDict']]]]
-        """
-        A list of AWS tags associated with a resource at the time the finding was processed. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        A finding's title. 
-          Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        """
-        severity_label: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        The severity value of the finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        source_url: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        Provides a URL that links to a page about the current finding in the finding product. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        title: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        A finding's title. 
-          Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        """
-        type: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
-        """
-        A timestamp that indicates when the finding record was most recently updated. 
-         For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        user_defined_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgsDict']]]]
-        """
-        A list of user-defined name and value string pairs added to a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        verification_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        Provides the veracity of a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-        workflow_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
-        """
-        Provides information about the status of the investigation into a finding. 
-          Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        """
-elif False:
-    AutomationRulesFindingFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRulesFindingFiltersArgsDict(TypedDict):
+    """
+    The criteria that determine which findings a rule applies to.
+    """
+    aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The AWS-account ID in which a finding was generated.
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+    """
+    company_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    compliance_associated_standards_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    compliance_security_control_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The security control ID for which a finding was generated. Security control IDs are the same across standards.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    compliance_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The result of a security check. This field is only used for findings generated from controls. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    confidence: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgsDict']]]]
+    """
+    The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    created_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
+    """
+    A timestamp that indicates when this finding record was created. 
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    criticality: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgsDict']]]]
+    """
+    The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    description: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    A finding's description. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
+    """
+    A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    generator_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The identifier for the solution-specific component that generated a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+    """
+    id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The product-specific identifier for a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
+    """
+    A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding. 
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    note_text: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The text of a user-defined note that's added to a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    note_updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
+    """
+    The timestamp of when the note was updated.
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    note_updated_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The principal that created a note. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    product_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    record_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    Provides the current state of a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    related_findings_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The product-generated identifier for a related finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    related_findings_product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The ARN for the product that generated a related finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    resource_details_other: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgsDict']]]]
+    """
+    Custom fields and values about the resource that a finding pertains to. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+    """
+    resource_partition: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    resource_region: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The AWS-Region where the resource that a finding pertains to is located. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgsDict']]]]
+    """
+    A list of AWS tags associated with a resource at the time the finding was processed. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    A finding's title. 
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+    """
+    severity_label: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    The severity value of the finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    source_url: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    Provides a URL that links to a page about the current finding in the finding product. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    title: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    A finding's title. 
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+    """
+    type: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgsDict']]]]
+    """
+    A timestamp that indicates when the finding record was most recently updated. 
+     For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    user_defined_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgsDict']]]]
+    """
+    A list of user-defined name and value string pairs added to a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    verification_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    Provides the veracity of a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
+    workflow_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
+    """
+    Provides information about the status of the investigation into a finding. 
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+    """
 
 @pulumi.input_type
 class AutomationRulesFindingFiltersArgs:
@@ -2990,18 +2901,15 @@ class AutomationRulesFindingFiltersArgs:
         pulumi.set(self, "workflow_status", value)
 
 
-if not MYPY:
-    class ConfigurationPolicyParameterConfigurationArgsDict(TypedDict):
-        """
-        An object that provides the current value of a security control parameter and identifies whether it has been customized.
-        """
-        value_type: pulumi.Input['ConfigurationPolicyParameterConfigurationValueType']
-        """
-        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
-        """
-        value: NotRequired[pulumi.Input['ConfigurationPolicyParameterValueArgsDict']]
-elif False:
-    ConfigurationPolicyParameterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationPolicyParameterConfigurationArgsDict(TypedDict):
+    """
+    An object that provides the current value of a security control parameter and identifies whether it has been customized.
+    """
+    value_type: pulumi.Input['ConfigurationPolicyParameterConfigurationValueType']
+    """
+    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+    """
+    value: NotRequired[pulumi.Input['ConfigurationPolicyParameterValueArgsDict']]
 
 @pulumi.input_type
 class ConfigurationPolicyParameterConfigurationArgs:
@@ -3038,45 +2946,42 @@ class ConfigurationPolicyParameterConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConfigurationPolicyParameterValueArgsDict(TypedDict):
-        """
-        An object that includes the data type of a security control parameter and its current value.
-        """
-        boolean: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A control parameter that is a boolean.
-        """
-        double: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A control parameter that is a double.
-        """
-        enum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A control parameter that is an enum.
-        """
-        enum_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A control parameter that is a list of enums.
-        """
-        integer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A control parameter that is an integer.
-        """
-        integer_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        A control parameter that is a list of integers.
-        """
-        string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A control parameter that is a string.
-        """
-        string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A control parameter that is a list of strings.
-        """
-elif False:
-    ConfigurationPolicyParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationPolicyParameterValueArgsDict(TypedDict):
+    """
+    An object that includes the data type of a security control parameter and its current value.
+    """
+    boolean: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A control parameter that is a boolean.
+    """
+    double: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A control parameter that is a double.
+    """
+    enum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A control parameter that is an enum.
+    """
+    enum_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A control parameter that is a list of enums.
+    """
+    integer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A control parameter that is an integer.
+    """
+    integer_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    A control parameter that is a list of integers.
+    """
+    string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A control parameter that is a string.
+    """
+    string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A control parameter that is a list of strings.
+    """
 
 @pulumi.input_type
 class ConfigurationPolicyParameterValueArgs:
@@ -3214,17 +3119,14 @@ class ConfigurationPolicyParameterValueArgs:
         pulumi.set(self, "string_list", value)
 
 
-if not MYPY:
-    class ConfigurationPolicyPolicyArgsDict(TypedDict):
-        """
-        An object that defines how Security Hub is configured.
-        """
-        security_hub: NotRequired[pulumi.Input['ConfigurationPolicySecurityHubPolicyArgsDict']]
-        """
-        The AWS service that the configuration policy applies to.
-        """
-elif False:
-    ConfigurationPolicyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationPolicyPolicyArgsDict(TypedDict):
+    """
+    An object that defines how Security Hub is configured.
+    """
+    security_hub: NotRequired[pulumi.Input['ConfigurationPolicySecurityHubPolicyArgsDict']]
+    """
+    The AWS service that the configuration policy applies to.
+    """
 
 @pulumi.input_type
 class ConfigurationPolicyPolicyArgs:
@@ -3250,21 +3152,18 @@ class ConfigurationPolicyPolicyArgs:
         pulumi.set(self, "security_hub", value)
 
 
-if not MYPY:
-    class ConfigurationPolicySecurityControlCustomParameterArgsDict(TypedDict):
-        """
-        An object of security control and control parameter value that are included in a configuration policy.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ConfigurationPolicyParameterConfigurationArgsDict']]]]
-        """
-        An object that specifies parameter values for a control in a configuration policy.
-        """
-        security_control_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the security control.
-        """
-elif False:
-    ConfigurationPolicySecurityControlCustomParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationPolicySecurityControlCustomParameterArgsDict(TypedDict):
+    """
+    An object of security control and control parameter value that are included in a configuration policy.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ConfigurationPolicyParameterConfigurationArgsDict']]]]
+    """
+    An object that specifies parameter values for a control in a configuration policy.
+    """
+    security_control_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the security control.
+    """
 
 @pulumi.input_type
 class ConfigurationPolicySecurityControlCustomParameterArgs:
@@ -3306,25 +3205,22 @@ class ConfigurationPolicySecurityControlCustomParameterArgs:
         pulumi.set(self, "security_control_id", value)
 
 
-if not MYPY:
-    class ConfigurationPolicySecurityControlsConfigurationArgsDict(TypedDict):
-        """
-        An object that defines which security controls are enabled in an AWS Security Hub configuration policy.
-        """
-        disabled_security_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of security controls that are disabled in the configuration policy
-        """
-        enabled_security_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of security controls that are enabled in the configuration policy.
-        """
-        security_control_custom_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicySecurityControlCustomParameterArgsDict']]]]
-        """
-        A list of security controls and control parameter values that are included in a configuration policy.
-        """
-elif False:
-    ConfigurationPolicySecurityControlsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationPolicySecurityControlsConfigurationArgsDict(TypedDict):
+    """
+    An object that defines which security controls are enabled in an AWS Security Hub configuration policy.
+    """
+    disabled_security_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of security controls that are disabled in the configuration policy
+    """
+    enabled_security_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of security controls that are enabled in the configuration policy.
+    """
+    security_control_custom_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicySecurityControlCustomParameterArgsDict']]]]
+    """
+    A list of security controls and control parameter values that are included in a configuration policy.
+    """
 
 @pulumi.input_type
 class ConfigurationPolicySecurityControlsConfigurationArgs:
@@ -3382,27 +3278,24 @@ class ConfigurationPolicySecurityControlsConfigurationArgs:
         pulumi.set(self, "security_control_custom_parameters", value)
 
 
-if not MYPY:
-    class ConfigurationPolicySecurityHubPolicyArgsDict(TypedDict):
-        """
-        An object that defines how AWS Security Hub is configured.
-        """
-        enabled_standard_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list that defines which security standards are enabled in the configuration policy.
-        """
-        security_controls_configuration: NotRequired[pulumi.Input['ConfigurationPolicySecurityControlsConfigurationArgsDict']]
-        """
-        An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
+class ConfigurationPolicySecurityHubPolicyArgsDict(TypedDict):
+    """
+    An object that defines how AWS Security Hub is configured.
+    """
+    enabled_standard_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list that defines which security standards are enabled in the configuration policy.
+    """
+    security_controls_configuration: NotRequired[pulumi.Input['ConfigurationPolicySecurityControlsConfigurationArgsDict']]
+    """
+    An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
 
-        This property is required only if `ServiceEnabled` is set to true in your configuration policy.
-        """
-        service_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Security Hub is enabled in the policy.
-        """
-elif False:
-    ConfigurationPolicySecurityHubPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    This property is required only if `ServiceEnabled` is set to true in your configuration policy.
+    """
+    service_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Security Hub is enabled in the policy.
+    """
 
 @pulumi.input_type
 class ConfigurationPolicySecurityHubPolicyArgs:
@@ -3464,14 +3357,11 @@ class ConfigurationPolicySecurityHubPolicyArgs:
         pulumi.set(self, "service_enabled", value)
 
 
-if not MYPY:
-    class ConnectorV2ProviderArgsDict(TypedDict):
-        """
-        The third-party provider configuration for the connector
-        """
-        pass
-elif False:
-    ConnectorV2ProviderArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorV2ProviderArgsDict(TypedDict):
+    """
+    The third-party provider configuration for the connector
+    """
+    pass
 
 @pulumi.input_type
 class ConnectorV2ProviderArgs:
@@ -3482,429 +3372,426 @@ class ConnectorV2ProviderArgs:
         pass
 
 
-if not MYPY:
-    class InsightAwsSecurityFindingFiltersArgsDict(TypedDict):
-        """
-        A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
-        """
-        aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The AWS account ID in which a finding is generated.
-        """
-        aws_account_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the AWS account in which a finding is generated.
-        """
-        company_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the findings provider (company) that owns the solution (product) that generates findings.
-        """
-        compliance_associated_standards_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The unique identifier of a standard in which a control is enabled.
-        """
-        compliance_security_control_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The unique identifier of a control across standards.
-        """
-        compliance_security_control_parameters_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of a security control parameter.
-        """
-        compliance_security_control_parameters_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The current value of a security control parameter.
-        """
-        compliance_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
-        """
-        confidence: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        A finding's confidence.
-        """
-        created_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
-        """
-        criticality: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The level of importance assigned to the resources associated with the finding.
-        """
-        description: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        A finding's description.
-        """
-        finding_provider_fields_confidence: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The finding provider value for the finding confidence.
-        """
-        finding_provider_fields_criticality: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The finding provider value for the level of importance assigned to the resources associated with the findings.
-        """
-        finding_provider_fields_related_findings_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The finding identifier of a related finding that is identified by the finding provider.
-        """
-        finding_provider_fields_related_findings_product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The ARN of the solution that generated a related finding that is identified by the finding provider.
-        """
-        finding_provider_fields_severity_label: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The finding provider value for the severity label.
-        """
-        finding_provider_fields_severity_original: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The finding provider's original value for the severity.
-        """
-        finding_provider_fields_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        One or more finding types that the finding provider assigned to the finding.
-        """
-        first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
-        """
-        generator_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
-        """
-        id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The security findings provider-specific identifier for a finding.
-        """
-        keyword: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightKeywordFilterArgsDict']]]]
-        """
-        A keyword for a finding.
-        """
-        last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
-        """
-        malware_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the malware that was observed.
-        """
-        malware_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The filesystem path of the malware that was observed.
-        """
-        malware_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The state of the malware that was observed.
-        """
-        malware_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The type of the malware that was observed.
-        """
-        network_destination_domain: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The destination domain of network-related information about a finding.
-        """
-        network_destination_ip_v4: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
-        """
-        The destination IPv4 address of network-related information about a finding.
-        """
-        network_destination_ip_v6: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
-        """
-        The destination IPv6 address of network-related information about a finding.
-        """
-        network_destination_port: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The destination port of network-related information about a finding.
-        """
-        network_direction: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        Indicates the direction of network traffic associated with a finding.
-        """
-        network_protocol: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The protocol of network-related information about a finding.
-        """
-        network_source_domain: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The source domain of network-related information about a finding.
-        """
-        network_source_ip_v4: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
-        """
-        The source IPv4 address of network-related information about a finding.
-        """
-        network_source_ip_v6: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
-        """
-        The source IPv6 address of network-related information about a finding.
-        """
-        network_source_mac: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The source media access control (MAC) address of network-related information about a finding.
-        """
-        network_source_port: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The source port of network-related information about a finding.
-        """
-        note_text: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The text of a note.
-        """
-        note_updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        The timestamp of when the note was updated.
-        """
-        note_updated_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The principal that created a note.
-        """
-        process_launched_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        A timestamp that identifies when the process was launched.
-        """
-        process_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the process.
-        """
-        process_parent_pid: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The parent process ID.
-        """
-        process_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The path to the process executable.
-        """
-        process_pid: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The process ID.
-        """
-        process_terminated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        A timestamp that identifies when the process was terminated.
-        """
-        product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
-        """
-        product_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
-        """
-        A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
-        """
-        product_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the solution (product) that generates findings.
-        """
-        recommendation_text: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The recommendation of what to do about the issue described in a finding.
-        """
-        record_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The updated record state for the finding.
-        """
-        region: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The Region from which the finding was generated.
-        """
-        related_findings_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The solution-generated identifier for a related finding.
-        """
-        related_findings_product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The ARN of the solution that generated a related finding.
-        """
-        resource_application_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The ARN of the application that is related to a finding.
-        """
-        resource_application_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the application that is related to a finding.
-        """
-        resource_aws_ec2_instance_iam_instance_profile_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The IAM profile ARN of the instance.
-        """
-        resource_aws_ec2_instance_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The Amazon Machine Image (AMI) ID of the instance.
-        """
-        resource_aws_ec2_instance_ip_v4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
-        """
-        The IPv4 addresses associated with the instance.
-        """
-        resource_aws_ec2_instance_ip_v6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
-        """
-        The IPv6 addresses associated with the instance.
-        """
-        resource_aws_ec2_instance_key_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The key name associated with the instance.
-        """
-        resource_aws_ec2_instance_launched_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        The date and time the instance was launched.
-        """
-        resource_aws_ec2_instance_subnet_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The identifier of the subnet that the instance was launched in.
-        """
-        resource_aws_ec2_instance_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The instance type of the instance.
-        """
-        resource_aws_ec2_instance_vpc_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The identifier of the VPC that the instance was launched in.
-        """
-        resource_aws_iam_access_key_created_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        The creation date/time of the IAM access key related to a finding.
-        """
-        resource_aws_iam_access_key_principal_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the principal that is associated with an IAM access key.
-        """
-        resource_aws_iam_access_key_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The status of the IAM access key related to a finding.
-        """
-        resource_aws_iam_access_key_user_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The user associated with the IAM access key related to a finding.
-        """
-        resource_aws_iam_user_user_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of an IAM user.
-        """
-        resource_aws_s3_bucket_owner_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The canonical user ID of the owner of the S3 bucket.
-        """
-        resource_aws_s3_bucket_owner_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The display name of the owner of the S3 bucket.
-        """
-        resource_container_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The identifier of the image related to a finding.
-        """
-        resource_container_image_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the image related to a finding.
-        """
-        resource_container_launched_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        A timestamp that identifies when the container was started.
-        """
-        resource_container_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The name of the container related to a finding.
-        """
-        resource_details_other: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
-        """
-        The details of a resource that doesn't have a specific subfield for the resource type defined.
-        """
-        resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The canonical identifier for the given resource type.
-        """
-        resource_partition: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The canonical AWS partition name that the Region is assigned to.
-        """
-        resource_region: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The canonical AWS external Region name where this resource is located.
-        """
-        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
-        """
-        A list of AWS tags associated with a resource at the time the finding was processed.
-        """
-        resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        Specifies the type of the resource that details are provided for.
-        """
-        sample: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightBooleanFilterArgsDict']]]]
-        """
-        Indicates whether or not sample findings are included in the filter results.
-        """
-        severity_label: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The label of a finding's severity.
-        """
-        severity_normalized: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The normalized severity of a finding.
-        """
-        severity_product: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
-        """
-        The native severity as defined by the security findings provider's solution that generated the finding.
-        """
-        source_url: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        A URL that links to a page about the current finding in the security findings provider's solution.
-        """
-        threat_intel_indicator_category: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The category of a threat intelligence indicator.
-        """
-        threat_intel_indicator_last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        A timestamp that identifies the last observation of a threat intelligence indicator.
-        """
-        threat_intel_indicator_source: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The source of the threat intelligence.
-        """
-        threat_intel_indicator_source_url: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The URL for more details from the source of the threat intelligence.
-        """
-        threat_intel_indicator_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The type of a threat intelligence indicator.
-        """
-        threat_intel_indicator_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The value of a threat intelligence indicator.
-        """
-        title: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        A finding's title.
-        """
-        type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        A finding type in the format of namespace/category/classifier that classifies a finding.
-        """
-        updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
-        """
-        An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
-        """
-        user_defined_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
-        """
-        A list of name/value string pairs associated with the finding.
-        """
-        verification_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The veracity of a finding.
-        """
-        vulnerabilities_exploit_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        Indicates whether a software vulnerability in your environment has a known exploit.
-        """
-        vulnerabilities_fix_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
-        """
-        workflow_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The workflow state of a finding.
-        """
-        workflow_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
-        """
-        The status of the investigation into a finding.
-        """
-elif False:
-    InsightAwsSecurityFindingFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class InsightAwsSecurityFindingFiltersArgsDict(TypedDict):
+    """
+    A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+    """
+    aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The AWS account ID in which a finding is generated.
+    """
+    aws_account_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the AWS account in which a finding is generated.
+    """
+    company_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the findings provider (company) that owns the solution (product) that generates findings.
+    """
+    compliance_associated_standards_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The unique identifier of a standard in which a control is enabled.
+    """
+    compliance_security_control_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The unique identifier of a control across standards.
+    """
+    compliance_security_control_parameters_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of a security control parameter.
+    """
+    compliance_security_control_parameters_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The current value of a security control parameter.
+    """
+    compliance_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
+    """
+    confidence: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    A finding's confidence.
+    """
+    created_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
+    """
+    criticality: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The level of importance assigned to the resources associated with the finding.
+    """
+    description: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    A finding's description.
+    """
+    finding_provider_fields_confidence: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The finding provider value for the finding confidence.
+    """
+    finding_provider_fields_criticality: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The finding provider value for the level of importance assigned to the resources associated with the findings.
+    """
+    finding_provider_fields_related_findings_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The finding identifier of a related finding that is identified by the finding provider.
+    """
+    finding_provider_fields_related_findings_product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The ARN of the solution that generated a related finding that is identified by the finding provider.
+    """
+    finding_provider_fields_severity_label: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The finding provider value for the severity label.
+    """
+    finding_provider_fields_severity_original: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The finding provider's original value for the severity.
+    """
+    finding_provider_fields_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    One or more finding types that the finding provider assigned to the finding.
+    """
+    first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+    """
+    generator_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
+    """
+    id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The security findings provider-specific identifier for a finding.
+    """
+    keyword: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightKeywordFilterArgsDict']]]]
+    """
+    A keyword for a finding.
+    """
+    last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
+    """
+    malware_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the malware that was observed.
+    """
+    malware_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The filesystem path of the malware that was observed.
+    """
+    malware_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The state of the malware that was observed.
+    """
+    malware_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The type of the malware that was observed.
+    """
+    network_destination_domain: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The destination domain of network-related information about a finding.
+    """
+    network_destination_ip_v4: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
+    """
+    The destination IPv4 address of network-related information about a finding.
+    """
+    network_destination_ip_v6: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
+    """
+    The destination IPv6 address of network-related information about a finding.
+    """
+    network_destination_port: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The destination port of network-related information about a finding.
+    """
+    network_direction: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    Indicates the direction of network traffic associated with a finding.
+    """
+    network_protocol: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The protocol of network-related information about a finding.
+    """
+    network_source_domain: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The source domain of network-related information about a finding.
+    """
+    network_source_ip_v4: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
+    """
+    The source IPv4 address of network-related information about a finding.
+    """
+    network_source_ip_v6: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
+    """
+    The source IPv6 address of network-related information about a finding.
+    """
+    network_source_mac: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The source media access control (MAC) address of network-related information about a finding.
+    """
+    network_source_port: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The source port of network-related information about a finding.
+    """
+    note_text: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The text of a note.
+    """
+    note_updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    The timestamp of when the note was updated.
+    """
+    note_updated_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The principal that created a note.
+    """
+    process_launched_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    A timestamp that identifies when the process was launched.
+    """
+    process_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the process.
+    """
+    process_parent_pid: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The parent process ID.
+    """
+    process_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The path to the process executable.
+    """
+    process_pid: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The process ID.
+    """
+    process_terminated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    A timestamp that identifies when the process was terminated.
+    """
+    product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+    """
+    product_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
+    """
+    A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
+    """
+    product_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the solution (product) that generates findings.
+    """
+    recommendation_text: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The recommendation of what to do about the issue described in a finding.
+    """
+    record_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The updated record state for the finding.
+    """
+    region: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The Region from which the finding was generated.
+    """
+    related_findings_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The solution-generated identifier for a related finding.
+    """
+    related_findings_product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The ARN of the solution that generated a related finding.
+    """
+    resource_application_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The ARN of the application that is related to a finding.
+    """
+    resource_application_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the application that is related to a finding.
+    """
+    resource_aws_ec2_instance_iam_instance_profile_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The IAM profile ARN of the instance.
+    """
+    resource_aws_ec2_instance_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The Amazon Machine Image (AMI) ID of the instance.
+    """
+    resource_aws_ec2_instance_ip_v4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
+    """
+    The IPv4 addresses associated with the instance.
+    """
+    resource_aws_ec2_instance_ip_v6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightIpFilterArgsDict']]]]
+    """
+    The IPv6 addresses associated with the instance.
+    """
+    resource_aws_ec2_instance_key_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The key name associated with the instance.
+    """
+    resource_aws_ec2_instance_launched_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    The date and time the instance was launched.
+    """
+    resource_aws_ec2_instance_subnet_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The identifier of the subnet that the instance was launched in.
+    """
+    resource_aws_ec2_instance_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The instance type of the instance.
+    """
+    resource_aws_ec2_instance_vpc_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The identifier of the VPC that the instance was launched in.
+    """
+    resource_aws_iam_access_key_created_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    The creation date/time of the IAM access key related to a finding.
+    """
+    resource_aws_iam_access_key_principal_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the principal that is associated with an IAM access key.
+    """
+    resource_aws_iam_access_key_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The status of the IAM access key related to a finding.
+    """
+    resource_aws_iam_access_key_user_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The user associated with the IAM access key related to a finding.
+    """
+    resource_aws_iam_user_user_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of an IAM user.
+    """
+    resource_aws_s3_bucket_owner_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The canonical user ID of the owner of the S3 bucket.
+    """
+    resource_aws_s3_bucket_owner_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The display name of the owner of the S3 bucket.
+    """
+    resource_container_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The identifier of the image related to a finding.
+    """
+    resource_container_image_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the image related to a finding.
+    """
+    resource_container_launched_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    A timestamp that identifies when the container was started.
+    """
+    resource_container_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The name of the container related to a finding.
+    """
+    resource_details_other: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
+    """
+    The details of a resource that doesn't have a specific subfield for the resource type defined.
+    """
+    resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The canonical identifier for the given resource type.
+    """
+    resource_partition: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The canonical AWS partition name that the Region is assigned to.
+    """
+    resource_region: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The canonical AWS external Region name where this resource is located.
+    """
+    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
+    """
+    A list of AWS tags associated with a resource at the time the finding was processed.
+    """
+    resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    Specifies the type of the resource that details are provided for.
+    """
+    sample: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightBooleanFilterArgsDict']]]]
+    """
+    Indicates whether or not sample findings are included in the filter results.
+    """
+    severity_label: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The label of a finding's severity.
+    """
+    severity_normalized: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The normalized severity of a finding.
+    """
+    severity_product: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightNumberFilterArgsDict']]]]
+    """
+    The native severity as defined by the security findings provider's solution that generated the finding.
+    """
+    source_url: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    A URL that links to a page about the current finding in the security findings provider's solution.
+    """
+    threat_intel_indicator_category: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The category of a threat intelligence indicator.
+    """
+    threat_intel_indicator_last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    A timestamp that identifies the last observation of a threat intelligence indicator.
+    """
+    threat_intel_indicator_source: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The source of the threat intelligence.
+    """
+    threat_intel_indicator_source_url: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The URL for more details from the source of the threat intelligence.
+    """
+    threat_intel_indicator_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The type of a threat intelligence indicator.
+    """
+    threat_intel_indicator_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The value of a threat intelligence indicator.
+    """
+    title: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    A finding's title.
+    """
+    type: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    A finding type in the format of namespace/category/classifier that classifies a finding.
+    """
+    updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightDateFilterArgsDict']]]]
+    """
+    An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
+    """
+    user_defined_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightMapFilterArgsDict']]]]
+    """
+    A list of name/value string pairs associated with the finding.
+    """
+    verification_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The veracity of a finding.
+    """
+    vulnerabilities_exploit_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    Indicates whether a software vulnerability in your environment has a known exploit.
+    """
+    vulnerabilities_fix_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
+    """
+    workflow_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The workflow state of a finding.
+    """
+    workflow_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgsDict']]]]
+    """
+    The status of the investigation into a finding.
+    """
 
 @pulumi.input_type
 class InsightAwsSecurityFindingFiltersArgs:
@@ -5578,17 +5465,14 @@ class InsightAwsSecurityFindingFiltersArgs:
         pulumi.set(self, "workflow_status", value)
 
 
-if not MYPY:
-    class InsightBooleanFilterArgsDict(TypedDict):
-        """
-        Boolean filter for querying findings.
-        """
-        value: pulumi.Input[_builtins.bool]
-        """
-        The value of the boolean.
-        """
-elif False:
-    InsightBooleanFilterArgsDict: TypeAlias = Mapping[str, Any]
+class InsightBooleanFilterArgsDict(TypedDict):
+    """
+    Boolean filter for querying findings.
+    """
+    value: pulumi.Input[_builtins.bool]
+    """
+    The value of the boolean.
+    """
 
 @pulumi.input_type
 class InsightBooleanFilterArgs:
@@ -5613,29 +5497,26 @@ class InsightBooleanFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InsightDateFilterArgsDict(TypedDict):
-        """
-        A date filter for querying findings.
-        """
-        date_range: NotRequired[pulumi.Input['InsightDateRangeArgsDict']]
-        """
-        A date range for the date filter.
-        """
-        end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A timestamp that provides the end date for the date filter.
+class InsightDateFilterArgsDict(TypedDict):
+    """
+    A date filter for querying findings.
+    """
+    date_range: NotRequired[pulumi.Input['InsightDateRangeArgsDict']]
+    """
+    A date range for the date filter.
+    """
+    end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
-        """
-        start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A timestamp that provides the start date for the date filter.
+    For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+    """
+    start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
-        """
-elif False:
-    InsightDateFilterArgsDict: TypeAlias = Mapping[str, Any]
+    For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+    """
 
 @pulumi.input_type
 class InsightDateFilterArgs:
@@ -5701,21 +5582,18 @@ class InsightDateFilterArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class InsightDateRangeArgsDict(TypedDict):
-        """
-        A date range for the date filter.
-        """
-        unit: pulumi.Input['InsightDateRangeUnit']
-        """
-        A date range unit for the date filter.
-        """
-        value: pulumi.Input[_builtins.float]
-        """
-        A date range value for the date filter.
-        """
-elif False:
-    InsightDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+class InsightDateRangeArgsDict(TypedDict):
+    """
+    A date range for the date filter.
+    """
+    unit: pulumi.Input['InsightDateRangeUnit']
+    """
+    A date range unit for the date filter.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    A date range value for the date filter.
+    """
 
 @pulumi.input_type
 class InsightDateRangeArgs:
@@ -5755,17 +5633,14 @@ class InsightDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InsightIpFilterArgsDict(TypedDict):
-        """
-        The IP filter for querying findings.
-        """
-        cidr: pulumi.Input[_builtins.str]
-        """
-        A finding's CIDR value.
-        """
-elif False:
-    InsightIpFilterArgsDict: TypeAlias = Mapping[str, Any]
+class InsightIpFilterArgsDict(TypedDict):
+    """
+    The IP filter for querying findings.
+    """
+    cidr: pulumi.Input[_builtins.str]
+    """
+    A finding's CIDR value.
+    """
 
 @pulumi.input_type
 class InsightIpFilterArgs:
@@ -5790,17 +5665,14 @@ class InsightIpFilterArgs:
         pulumi.set(self, "cidr", value)
 
 
-if not MYPY:
-    class InsightKeywordFilterArgsDict(TypedDict):
-        """
-        A keyword filter for querying findings.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A value for the keyword.
-        """
-elif False:
-    InsightKeywordFilterArgsDict: TypeAlias = Mapping[str, Any]
+class InsightKeywordFilterArgsDict(TypedDict):
+    """
+    A keyword filter for querying findings.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A value for the keyword.
+    """
 
 @pulumi.input_type
 class InsightKeywordFilterArgs:
@@ -5825,25 +5697,22 @@ class InsightKeywordFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InsightMapFilterArgsDict(TypedDict):
-        """
-        A map filter for filtering AWS Security Hub findings.
-        """
-        comparison: pulumi.Input['InsightMapFilterComparison']
-        """
-        The condition to apply to the key value when filtering Security Hub findings with a map filter.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
-        """
-elif False:
-    InsightMapFilterArgsDict: TypeAlias = Mapping[str, Any]
+class InsightMapFilterArgsDict(TypedDict):
+    """
+    A map filter for filtering AWS Security Hub findings.
+    """
+    comparison: pulumi.Input['InsightMapFilterComparison']
+    """
+    The condition to apply to the key value when filtering Security Hub findings with a map filter.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+    """
 
 @pulumi.input_type
 class InsightMapFilterArgs:
@@ -5898,25 +5767,22 @@ class InsightMapFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InsightNumberFilterArgsDict(TypedDict):
-        """
-        A number filter for querying findings.
-        """
-        eq: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The equal-to condition to be applied to a single field when querying for findings.
-        """
-        gte: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The greater-than-equal condition to be applied to a single field when querying for findings.
-        """
-        lte: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The less-than-equal condition to be applied to a single field when querying for findings.
-        """
-elif False:
-    InsightNumberFilterArgsDict: TypeAlias = Mapping[str, Any]
+class InsightNumberFilterArgsDict(TypedDict):
+    """
+    A number filter for querying findings.
+    """
+    eq: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The equal-to condition to be applied to a single field when querying for findings.
+    """
+    gte: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The greater-than-equal condition to be applied to a single field when querying for findings.
+    """
+    lte: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The less-than-equal condition to be applied to a single field when querying for findings.
+    """
 
 @pulumi.input_type
 class InsightNumberFilterArgs:
@@ -5974,50 +5840,47 @@ class InsightNumberFilterArgs:
         pulumi.set(self, "lte", value)
 
 
-if not MYPY:
-    class InsightStringFilterArgsDict(TypedDict):
-        """
-        A string filter for filtering AWS Security Hub findings.
-        """
-        comparison: pulumi.Input['InsightStringFilterComparison']
-        """
-        The condition to apply to a string value when filtering Security Hub CSPM findings.
+class InsightStringFilterArgsDict(TypedDict):
+    """
+    A string filter for filtering AWS Security Hub findings.
+    """
+    comparison: pulumi.Input['InsightStringFilterComparison']
+    """
+    The condition to apply to a string value when filtering Security Hub CSPM findings.
 
-        To search for values that have the filter value, use one of the following comparison operators:
+    To search for values that have the filter value, use one of the following comparison operators:
 
-        - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
-        - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
-        - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
+    - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
+    - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
+    - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
 
-        `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
+    `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
 
-        To search for values that don’t have the filter value, use one of the following comparison operators:
+    To search for values that don’t have the filter value, use one of the following comparison operators:
 
-        - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
-        - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
-        - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
+    - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
+    - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
+    - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
 
-        `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
+    `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
 
-        You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
+    You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 
-        You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+    You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 
-        For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+    For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 
-        - `ResourceType PREFIX AwsIam`
-        - `ResourceType PREFIX AwsEc2`
-        - `ResourceType NOT_EQUALS AwsIamPolicy`
-        - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
+    - `ResourceType PREFIX AwsIam`
+    - `ResourceType PREFIX AwsEc2`
+    - `ResourceType NOT_EQUALS AwsIamPolicy`
+    - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
-        """
-elif False:
-    InsightStringFilterArgsDict: TypeAlias = Mapping[str, Any]
+    `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
+    """
 
 @pulumi.input_type
 class InsightStringFilterArgs:
@@ -6115,22 +5978,19 @@ class InsightStringFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SecurityControlParameterConfigurationArgsDict(TypedDict):
-        value_type: pulumi.Input['SecurityControlParameterConfigurationValueType']
-        """
-        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
+class SecurityControlParameterConfigurationArgsDict(TypedDict):
+    value_type: pulumi.Input['SecurityControlParameterConfigurationValueType']
+    """
+    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 
-        When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
+    When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 
-        When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
-        """
-        value: NotRequired[pulumi.Input['SecurityControlParameterValueArgsDict']]
-        """
-        The current value of a control parameter.
-        """
-elif False:
-    SecurityControlParameterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
+    """
+    value: NotRequired[pulumi.Input['SecurityControlParameterValueArgsDict']]
+    """
+    The current value of a control parameter.
+    """
 
 @pulumi.input_type
 class SecurityControlParameterConfigurationArgs:
@@ -6178,42 +6038,39 @@ class SecurityControlParameterConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SecurityControlParameterValueArgsDict(TypedDict):
-        boolean: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A control parameter that is a boolean.
-        """
-        double: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A control parameter that is a double.
-        """
-        enum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A control parameter that is a enum.
-        """
-        enum_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A control parameter that is a list of enums.
-        """
-        integer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A control parameter that is a integer.
-        """
-        integer_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        A control parameter that is a list of integers.
-        """
-        string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A control parameter that is a string.
-        """
-        string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A control parameter that is a list of strings.
-        """
-elif False:
-    SecurityControlParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityControlParameterValueArgsDict(TypedDict):
+    boolean: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A control parameter that is a boolean.
+    """
+    double: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A control parameter that is a double.
+    """
+    enum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A control parameter that is a enum.
+    """
+    enum_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A control parameter that is a list of enums.
+    """
+    integer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A control parameter that is a integer.
+    """
+    integer_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    A control parameter that is a list of integers.
+    """
+    string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A control parameter that is a string.
+    """
+    string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A control parameter that is a list of strings.
+    """
 
 @pulumi.input_type
 class SecurityControlParameterValueArgs:
@@ -6350,21 +6207,18 @@ class SecurityControlParameterValueArgs:
         pulumi.set(self, "string_list", value)
 
 
-if not MYPY:
-    class StandardsControlArgsDict(TypedDict):
-        """
-        Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
-        """
-        standards_control_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the control.
-        """
-        reason: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
-        """
-elif False:
-    StandardsControlArgsDict: TypeAlias = Mapping[str, Any]
+class StandardsControlArgsDict(TypedDict):
+    """
+    Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
+    """
+    standards_control_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the control.
+    """
+    reason: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
+    """
 
 @pulumi.input_type
 class StandardsControlArgs:

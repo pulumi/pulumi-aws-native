@@ -25,20 +25,15 @@ __all__ = [
     'SamplingRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupInsightsConfigurationArgsDict(TypedDict):
-        insights_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set the InsightsEnabled value to true to enable insights or false to disable insights.
-        """
-        notifications_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
-        """
-elif False:
-    GroupInsightsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GroupInsightsConfigurationArgsDict(TypedDict):
+    insights_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set the InsightsEnabled value to true to enable insights or false to disable insights.
+    """
+    notifications_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+    """
 
 @pulumi.input_type
 class GroupInsightsConfigurationArgs:
@@ -79,19 +74,16 @@ class GroupInsightsConfigurationArgs:
         pulumi.set(self, "notifications_enabled", value)
 
 
-if not MYPY:
-    class SamplingRuleRecordArgsDict(TypedDict):
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When the rule was created, in Unix time seconds.
-        """
-        modified_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When the rule was modified, in Unix time seconds.
-        """
-        sampling_rule: NotRequired[pulumi.Input['SamplingRuleArgsDict']]
-elif False:
-    SamplingRuleRecordArgsDict: TypeAlias = Mapping[str, Any]
+class SamplingRuleRecordArgsDict(TypedDict):
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When the rule was created, in Unix time seconds.
+    """
+    modified_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When the rule was modified, in Unix time seconds.
+    """
+    sampling_rule: NotRequired[pulumi.Input['SamplingRuleArgsDict']]
 
 @pulumi.input_type
 class SamplingRuleRecordArgs:
@@ -144,52 +136,49 @@ class SamplingRuleRecordArgs:
         pulumi.set(self, "sampling_rule", value)
 
 
-if not MYPY:
-    class SamplingRuleUpdateArgsDict(TypedDict):
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Matches attributes derived from the request.
-        """
-        fixed_rate: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The percentage of matching requests to instrument, after the reservoir is exhausted.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Matches the hostname from a request URL.
-        """
-        http_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Matches the HTTP method from a request URL.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority of the sampling rule.
-        """
-        reservoir_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        """
-        resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Matches the ARN of the AWS resource on which the service runs.
-        """
-        rule_arn: NotRequired[pulumi.Input[_builtins.str]]
-        rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Matches the name that the service uses to identify itself in segments.
-        """
-        service_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Matches the origin that the service uses to identify its type in segments.
-        """
-        url_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Matches the path from a request URL.
-        """
-elif False:
-    SamplingRuleUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class SamplingRuleUpdateArgsDict(TypedDict):
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Matches attributes derived from the request.
+    """
+    fixed_rate: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The percentage of matching requests to instrument, after the reservoir is exhausted.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Matches the hostname from a request URL.
+    """
+    http_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Matches the HTTP method from a request URL.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority of the sampling rule.
+    """
+    reservoir_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+    """
+    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Matches the ARN of the AWS resource on which the service runs.
+    """
+    rule_arn: NotRequired[pulumi.Input[_builtins.str]]
+    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Matches the name that the service uses to identify itself in segments.
+    """
+    service_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Matches the origin that the service uses to identify its type in segments.
+    """
+    url_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Matches the path from a request URL.
+    """
 
 @pulumi.input_type
 class SamplingRuleUpdateArgs:
@@ -382,64 +371,61 @@ class SamplingRuleUpdateArgs:
         pulumi.set(self, "url_path", value)
 
 
-if not MYPY:
-    class SamplingRuleArgsDict(TypedDict):
-        fixed_rate: pulumi.Input[_builtins.float]
-        """
-        The percentage of matching requests to instrument, after the reservoir is exhausted.
-        """
-        host: pulumi.Input[_builtins.str]
-        """
-        Matches the hostname from a request URL.
-        """
-        http_method: pulumi.Input[_builtins.str]
-        """
-        Matches the HTTP method from a request URL.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority of the sampling rule.
-        """
-        reservoir_size: pulumi.Input[_builtins.int]
-        """
-        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-        """
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        Matches the ARN of the AWS resource on which the service runs.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        Matches the name that the service uses to identify itself in segments.
-        """
-        service_type: pulumi.Input[_builtins.str]
-        """
-        Matches the origin that the service uses to identify its type in segments.
-        """
-        url_path: pulumi.Input[_builtins.str]
-        """
-        Matches the path from a request URL.
-        """
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Matches attributes derived from the request.
-        """
-        rule_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+class SamplingRuleArgsDict(TypedDict):
+    fixed_rate: pulumi.Input[_builtins.float]
+    """
+    The percentage of matching requests to instrument, after the reservoir is exhausted.
+    """
+    host: pulumi.Input[_builtins.str]
+    """
+    Matches the hostname from a request URL.
+    """
+    http_method: pulumi.Input[_builtins.str]
+    """
+    Matches the HTTP method from a request URL.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority of the sampling rule.
+    """
+    reservoir_size: pulumi.Input[_builtins.int]
+    """
+    A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    Matches the ARN of the AWS resource on which the service runs.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    Matches the name that the service uses to identify itself in segments.
+    """
+    service_type: pulumi.Input[_builtins.str]
+    """
+    Matches the origin that the service uses to identify its type in segments.
+    """
+    url_path: pulumi.Input[_builtins.str]
+    """
+    Matches the path from a request URL.
+    """
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Matches attributes derived from the request.
+    """
+    rule_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 
-        > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
-        """
-        rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the sampling rule. Specify a rule by either name or ARN, but not both.
-        """
-        version: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The version of the sampling rule format (1)
-        """
-elif False:
-    SamplingRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+    """
+    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+    """
+    version: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The version of the sampling rule format (1)
+    """
 
 @pulumi.input_type
 class SamplingRuleArgs:

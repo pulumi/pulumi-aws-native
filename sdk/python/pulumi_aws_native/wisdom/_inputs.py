@@ -194,13 +194,8 @@ __all__ = [
     'QuickResponseGroupingConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AiAgentAiAgentConfiguration0PropertiesArgsDict(TypedDict):
-        manual_search_ai_agent_configuration: pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration0PropertiesArgsDict(TypedDict):
+    manual_search_ai_agent_configuration: pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration0PropertiesArgs:
@@ -218,11 +213,8 @@ class AiAgentAiAgentConfiguration0PropertiesArgs:
         pulumi.set(self, "manual_search_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration1PropertiesArgsDict(TypedDict):
-        answer_recommendation_ai_agent_configuration: pulumi.Input['AiAgentAnswerRecommendationAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration1PropertiesArgsDict(TypedDict):
+    answer_recommendation_ai_agent_configuration: pulumi.Input['AiAgentAnswerRecommendationAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration1PropertiesArgs:
@@ -240,11 +232,8 @@ class AiAgentAiAgentConfiguration1PropertiesArgs:
         pulumi.set(self, "answer_recommendation_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration2PropertiesArgsDict(TypedDict):
-        self_service_ai_agent_configuration: pulumi.Input['AiAgentSelfServiceAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration2PropertiesArgsDict(TypedDict):
+    self_service_ai_agent_configuration: pulumi.Input['AiAgentSelfServiceAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration2PropertiesArgs:
@@ -262,11 +251,8 @@ class AiAgentAiAgentConfiguration2PropertiesArgs:
         pulumi.set(self, "self_service_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration3PropertiesArgsDict(TypedDict):
-        email_response_ai_agent_configuration: pulumi.Input['AiAgentEmailResponseAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration3PropertiesArgsDict(TypedDict):
+    email_response_ai_agent_configuration: pulumi.Input['AiAgentEmailResponseAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration3PropertiesArgs:
@@ -284,11 +270,8 @@ class AiAgentAiAgentConfiguration3PropertiesArgs:
         pulumi.set(self, "email_response_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration4PropertiesArgsDict(TypedDict):
-        email_overview_ai_agent_configuration: pulumi.Input['AiAgentEmailOverviewAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration4PropertiesArgsDict(TypedDict):
+    email_overview_ai_agent_configuration: pulumi.Input['AiAgentEmailOverviewAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration4PropertiesArgs:
@@ -306,11 +289,8 @@ class AiAgentAiAgentConfiguration4PropertiesArgs:
         pulumi.set(self, "email_overview_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration5PropertiesArgsDict(TypedDict):
-        email_generative_answer_ai_agent_configuration: pulumi.Input['AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration5PropertiesArgsDict(TypedDict):
+    email_generative_answer_ai_agent_configuration: pulumi.Input['AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration5PropertiesArgs:
@@ -328,11 +308,8 @@ class AiAgentAiAgentConfiguration5PropertiesArgs:
         pulumi.set(self, "email_generative_answer_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration6PropertiesArgsDict(TypedDict):
-        orchestration_ai_agent_configuration: pulumi.Input['AiAgentOrchestrationAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration6PropertiesArgsDict(TypedDict):
+    orchestration_ai_agent_configuration: pulumi.Input['AiAgentOrchestrationAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration6PropertiesArgs:
@@ -350,11 +327,8 @@ class AiAgentAiAgentConfiguration6PropertiesArgs:
         pulumi.set(self, "orchestration_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration7PropertiesArgsDict(TypedDict):
-        note_taking_ai_agent_configuration: pulumi.Input['AiAgentNoteTakingAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration7PropertiesArgsDict(TypedDict):
+    note_taking_ai_agent_configuration: pulumi.Input['AiAgentNoteTakingAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration7PropertiesArgs:
@@ -372,11 +346,8 @@ class AiAgentAiAgentConfiguration7PropertiesArgs:
         pulumi.set(self, "note_taking_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAiAgentConfiguration8PropertiesArgsDict(TypedDict):
-        case_summarization_ai_agent_configuration: pulumi.Input['AiAgentCaseSummarizationAiAgentConfigurationArgsDict']
-elif False:
-    AiAgentAiAgentConfiguration8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAiAgentConfiguration8PropertiesArgsDict(TypedDict):
+    case_summarization_ai_agent_configuration: pulumi.Input['AiAgentCaseSummarizationAiAgentConfigurationArgsDict']
 
 @pulumi.input_type
 class AiAgentAiAgentConfiguration8PropertiesArgs:
@@ -394,11 +365,8 @@ class AiAgentAiAgentConfiguration8PropertiesArgs:
         pulumi.set(self, "case_summarization_ai_agent_configuration", value)
 
 
-if not MYPY:
-    class AiAgentAnnotationArgsDict(TypedDict):
-        pass
-elif False:
-    AiAgentAnnotationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAnnotationArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class AiAgentAnnotationArgs:
@@ -406,16 +374,13 @@ class AiAgentAnnotationArgs:
         pass
 
 
-if not MYPY:
-    class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
-        answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-        answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-        intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-        query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentAnswerRecommendationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
+    answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+    answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+    intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
+    query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
@@ -494,11 +459,8 @@ class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
         pulumi.set(self, "query_reformulation_ai_prompt_id", value)
 
 
-if not MYPY:
-    class AiAgentAssociationConfigurationDataPropertiesArgsDict(TypedDict):
-        knowledge_base_association_configuration_data: pulumi.Input['AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict']
-elif False:
-    AiAgentAssociationConfigurationDataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAssociationConfigurationDataPropertiesArgsDict(TypedDict):
+    knowledge_base_association_configuration_data: pulumi.Input['AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict']
 
 @pulumi.input_type
 class AiAgentAssociationConfigurationDataPropertiesArgs:
@@ -516,13 +478,10 @@ class AiAgentAssociationConfigurationDataPropertiesArgs:
         pulumi.set(self, "knowledge_base_association_configuration_data", value)
 
 
-if not MYPY:
-    class AiAgentAssociationConfigurationArgsDict(TypedDict):
-        association_configuration_data: NotRequired[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgsDict']]
-        association_id: NotRequired[pulumi.Input[_builtins.str]]
-        association_type: NotRequired[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]
-elif False:
-    AiAgentAssociationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentAssociationConfigurationArgsDict(TypedDict):
+    association_configuration_data: NotRequired[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgsDict']]
+    association_id: NotRequired[pulumi.Input[_builtins.str]]
+    association_type: NotRequired[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]
 
 @pulumi.input_type
 class AiAgentAssociationConfigurationArgs:
@@ -565,13 +524,10 @@ class AiAgentAssociationConfigurationArgs:
         pulumi.set(self, "association_type", value)
 
 
-if not MYPY:
-    class AiAgentCaseSummarizationAiAgentConfigurationArgsDict(TypedDict):
-        case_summarization_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-        case_summarization_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentCaseSummarizationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentCaseSummarizationAiAgentConfigurationArgsDict(TypedDict):
+    case_summarization_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+    case_summarization_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentCaseSummarizationAiAgentConfigurationArgs:
@@ -614,14 +570,11 @@ class AiAgentCaseSummarizationAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
-if not MYPY:
-    class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict(TypedDict):
-        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-        email_generative_answer_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict(TypedDict):
+    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+    email_generative_answer_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs:
@@ -676,12 +629,9 @@ class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
-if not MYPY:
-    class AiAgentEmailOverviewAiAgentConfigurationArgsDict(TypedDict):
-        email_overview_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentEmailOverviewAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentEmailOverviewAiAgentConfigurationArgsDict(TypedDict):
+    email_overview_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentEmailOverviewAiAgentConfigurationArgs:
@@ -712,14 +662,11 @@ class AiAgentEmailOverviewAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
-if not MYPY:
-    class AiAgentEmailResponseAiAgentConfigurationArgsDict(TypedDict):
-        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-        email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        email_response_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentEmailResponseAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentEmailResponseAiAgentConfigurationArgsDict(TypedDict):
+    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+    email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    email_response_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentEmailResponseAiAgentConfigurationArgs:
@@ -774,13 +721,10 @@ class AiAgentEmailResponseAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
-if not MYPY:
-    class AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict(TypedDict):
-        content_tag_filter: NotRequired[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgsDict', 'AiAgentTagFilter1PropertiesArgsDict', 'AiAgentTagFilter2PropertiesArgsDict']]]
-        max_results: NotRequired[pulumi.Input[_builtins.float]]
-        override_knowledge_base_search_type: NotRequired[pulumi.Input['AiAgentKnowledgeBaseSearchType']]
-elif False:
-    AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict(TypedDict):
+    content_tag_filter: NotRequired[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgsDict', 'AiAgentTagFilter1PropertiesArgsDict', 'AiAgentTagFilter2PropertiesArgsDict']]]
+    max_results: NotRequired[pulumi.Input[_builtins.float]]
+    override_knowledge_base_search_type: NotRequired[pulumi.Input['AiAgentKnowledgeBaseSearchType']]
 
 @pulumi.input_type
 class AiAgentKnowledgeBaseAssociationConfigurationDataArgs:
@@ -823,14 +767,11 @@ class AiAgentKnowledgeBaseAssociationConfigurationDataArgs:
         pulumi.set(self, "override_knowledge_base_search_type", value)
 
 
-if not MYPY:
-    class AiAgentManualSearchAiAgentConfigurationArgsDict(TypedDict):
-        answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-        answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentManualSearchAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentManualSearchAiAgentConfigurationArgsDict(TypedDict):
+    answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+    answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentManualSearchAiAgentConfigurationArgs:
@@ -885,13 +826,10 @@ class AiAgentManualSearchAiAgentConfigurationArgs:
         pulumi.set(self, "locale", value)
 
 
-if not MYPY:
-    class AiAgentNoteTakingAiAgentConfigurationArgsDict(TypedDict):
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-        note_taking_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-        note_taking_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentNoteTakingAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentNoteTakingAiAgentConfigurationArgsDict(TypedDict):
+    locale: NotRequired[pulumi.Input[_builtins.str]]
+    note_taking_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+    note_taking_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentNoteTakingAiAgentConfigurationArgs:
@@ -934,11 +872,8 @@ class AiAgentNoteTakingAiAgentConfigurationArgs:
         pulumi.set(self, "note_taking_ai_prompt_id", value)
 
 
-if not MYPY:
-    class AiAgentOrCondition0PropertiesArgsDict(TypedDict):
-        and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
-elif False:
-    AiAgentOrCondition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentOrCondition0PropertiesArgsDict(TypedDict):
+    and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
 
 @pulumi.input_type
 class AiAgentOrCondition0PropertiesArgs:
@@ -956,11 +891,8 @@ class AiAgentOrCondition0PropertiesArgs:
         pulumi.set(self, "and_conditions", value)
 
 
-if not MYPY:
-    class AiAgentOrCondition1PropertiesArgsDict(TypedDict):
-        tag_condition: pulumi.Input['AiAgentTagConditionArgsDict']
-elif False:
-    AiAgentOrCondition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentOrCondition1PropertiesArgsDict(TypedDict):
+    tag_condition: pulumi.Input['AiAgentTagConditionArgsDict']
 
 @pulumi.input_type
 class AiAgentOrCondition1PropertiesArgs:
@@ -978,15 +910,12 @@ class AiAgentOrCondition1PropertiesArgs:
         pulumi.set(self, "tag_condition", value)
 
 
-if not MYPY:
-    class AiAgentOrchestrationAiAgentConfigurationArgsDict(TypedDict):
-        orchestration_ai_prompt_id: pulumi.Input[_builtins.str]
-        connect_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-        orchestration_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-        tool_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgsDict']]]]
-elif False:
-    AiAgentOrchestrationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentOrchestrationAiAgentConfigurationArgsDict(TypedDict):
+    orchestration_ai_prompt_id: pulumi.Input[_builtins.str]
+    connect_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
+    orchestration_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+    tool_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolConfigurationArgsDict']]]]
 
 @pulumi.input_type
 class AiAgentOrchestrationAiAgentConfigurationArgs:
@@ -1052,14 +981,11 @@ class AiAgentOrchestrationAiAgentConfigurationArgs:
         pulumi.set(self, "tool_configurations", value)
 
 
-if not MYPY:
-    class AiAgentSelfServiceAiAgentConfigurationArgsDict(TypedDict):
-        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
-        self_service_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
-        self_service_answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-        self_service_pre_processing_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentSelfServiceAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentSelfServiceAiAgentConfigurationArgsDict(TypedDict):
+    association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+    self_service_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
+    self_service_answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+    self_service_pre_processing_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentSelfServiceAiAgentConfigurationArgs:
@@ -1114,12 +1040,9 @@ class AiAgentSelfServiceAiAgentConfigurationArgs:
         pulumi.set(self, "self_service_pre_processing_ai_prompt_id", value)
 
 
-if not MYPY:
-    class AiAgentTagConditionArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentTagConditionArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentTagConditionArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentTagConditionArgs:
@@ -1149,11 +1072,8 @@ class AiAgentTagConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AiAgentTagFilter0PropertiesArgsDict(TypedDict):
-        tag_condition: pulumi.Input['AiAgentTagConditionArgsDict']
-elif False:
-    AiAgentTagFilter0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentTagFilter0PropertiesArgsDict(TypedDict):
+    tag_condition: pulumi.Input['AiAgentTagConditionArgsDict']
 
 @pulumi.input_type
 class AiAgentTagFilter0PropertiesArgs:
@@ -1171,11 +1091,8 @@ class AiAgentTagFilter0PropertiesArgs:
         pulumi.set(self, "tag_condition", value)
 
 
-if not MYPY:
-    class AiAgentTagFilter1PropertiesArgsDict(TypedDict):
-        and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
-elif False:
-    AiAgentTagFilter1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentTagFilter1PropertiesArgsDict(TypedDict):
+    and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
 
 @pulumi.input_type
 class AiAgentTagFilter1PropertiesArgs:
@@ -1193,11 +1110,8 @@ class AiAgentTagFilter1PropertiesArgs:
         pulumi.set(self, "and_conditions", value)
 
 
-if not MYPY:
-    class AiAgentTagFilter2PropertiesArgsDict(TypedDict):
-        or_conditions: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgsDict', 'AiAgentOrCondition1PropertiesArgsDict']]]]
-elif False:
-    AiAgentTagFilter2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentTagFilter2PropertiesArgsDict(TypedDict):
+    or_conditions: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgsDict', 'AiAgentOrCondition1PropertiesArgsDict']]]]
 
 @pulumi.input_type
 class AiAgentTagFilter2PropertiesArgs:
@@ -1215,22 +1129,19 @@ class AiAgentTagFilter2PropertiesArgs:
         pulumi.set(self, "or_conditions", value)
 
 
-if not MYPY:
-    class AiAgentToolConfigurationArgsDict(TypedDict):
-        tool_name: pulumi.Input[_builtins.str]
-        tool_type: pulumi.Input['AiAgentToolType']
-        annotations: NotRequired[pulumi.Input['AiAgentAnnotationArgsDict']]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        input_schema: NotRequired[Any]
-        instruction: NotRequired[pulumi.Input['AiAgentToolInstructionArgsDict']]
-        output_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgsDict']]]]
-        output_schema: NotRequired[Any]
-        override_input_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgsDict']]]]
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        tool_id: NotRequired[pulumi.Input[_builtins.str]]
-        user_interaction_configuration: NotRequired[pulumi.Input['AiAgentUserInteractionConfigurationArgsDict']]
-elif False:
-    AiAgentToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolConfigurationArgsDict(TypedDict):
+    tool_name: pulumi.Input[_builtins.str]
+    tool_type: pulumi.Input['AiAgentToolType']
+    annotations: NotRequired[pulumi.Input['AiAgentAnnotationArgsDict']]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    input_schema: NotRequired[Any]
+    instruction: NotRequired[pulumi.Input['AiAgentToolInstructionArgsDict']]
+    output_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOutputFilterArgsDict']]]]
+    output_schema: NotRequired[Any]
+    override_input_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentToolOverrideInputValueArgsDict']]]]
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    tool_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_interaction_configuration: NotRequired[pulumi.Input['AiAgentUserInteractionConfigurationArgsDict']]
 
 @pulumi.input_type
 class AiAgentToolConfigurationArgs:
@@ -1379,12 +1290,9 @@ class AiAgentToolConfigurationArgs:
         pulumi.set(self, "user_interaction_configuration", value)
 
 
-if not MYPY:
-    class AiAgentToolInstructionArgsDict(TypedDict):
-        examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        instruction: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentToolInstructionArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolInstructionArgsDict(TypedDict):
+    examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    instruction: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentToolInstructionArgs:
@@ -1415,12 +1323,9 @@ class AiAgentToolInstructionArgs:
         pulumi.set(self, "instruction", value)
 
 
-if not MYPY:
-    class AiAgentToolOutputConfigurationArgsDict(TypedDict):
-        output_variable_name_override: NotRequired[pulumi.Input[_builtins.str]]
-        session_data_namespace: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AiAgentToolOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolOutputConfigurationArgsDict(TypedDict):
+    output_variable_name_override: NotRequired[pulumi.Input[_builtins.str]]
+    session_data_namespace: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AiAgentToolOutputConfigurationArgs:
@@ -1451,12 +1356,9 @@ class AiAgentToolOutputConfigurationArgs:
         pulumi.set(self, "session_data_namespace", value)
 
 
-if not MYPY:
-    class AiAgentToolOutputFilterArgsDict(TypedDict):
-        json_path: pulumi.Input[_builtins.str]
-        output_configuration: NotRequired[pulumi.Input['AiAgentToolOutputConfigurationArgsDict']]
-elif False:
-    AiAgentToolOutputFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolOutputFilterArgsDict(TypedDict):
+    json_path: pulumi.Input[_builtins.str]
+    output_configuration: NotRequired[pulumi.Input['AiAgentToolOutputConfigurationArgsDict']]
 
 @pulumi.input_type
 class AiAgentToolOutputFilterArgs:
@@ -1486,12 +1388,9 @@ class AiAgentToolOutputFilterArgs:
         pulumi.set(self, "output_configuration", value)
 
 
-if not MYPY:
-    class AiAgentToolOverrideConstantInputValueArgsDict(TypedDict):
-        type: pulumi.Input['AiAgentToolOverrideInputValueType']
-        value: pulumi.Input[_builtins.str]
-elif False:
-    AiAgentToolOverrideConstantInputValueArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolOverrideConstantInputValueArgsDict(TypedDict):
+    type: pulumi.Input['AiAgentToolOverrideInputValueType']
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class AiAgentToolOverrideConstantInputValueArgs:
@@ -1520,11 +1419,8 @@ class AiAgentToolOverrideConstantInputValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict(TypedDict):
-        constant: pulumi.Input['AiAgentToolOverrideConstantInputValueArgsDict']
-elif False:
-    AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict(TypedDict):
+    constant: pulumi.Input['AiAgentToolOverrideConstantInputValueArgsDict']
 
 @pulumi.input_type
 class AiAgentToolOverrideInputValueConfigurationPropertiesArgs:
@@ -1542,12 +1438,9 @@ class AiAgentToolOverrideInputValueConfigurationPropertiesArgs:
         pulumi.set(self, "constant", value)
 
 
-if not MYPY:
-    class AiAgentToolOverrideInputValueArgsDict(TypedDict):
-        json_path: pulumi.Input[_builtins.str]
-        value: pulumi.Input['AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict']
-elif False:
-    AiAgentToolOverrideInputValueArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentToolOverrideInputValueArgsDict(TypedDict):
+    json_path: pulumi.Input[_builtins.str]
+    value: pulumi.Input['AiAgentToolOverrideInputValueConfigurationPropertiesArgsDict']
 
 @pulumi.input_type
 class AiAgentToolOverrideInputValueArgs:
@@ -1576,11 +1469,8 @@ class AiAgentToolOverrideInputValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AiAgentUserInteractionConfigurationArgsDict(TypedDict):
-        is_user_confirmation_required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AiAgentUserInteractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiAgentUserInteractionConfigurationArgsDict(TypedDict):
+    is_user_confirmation_required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AiAgentUserInteractionConfigurationArgs:
@@ -1599,17 +1489,14 @@ class AiAgentUserInteractionConfigurationArgs:
         pulumi.set(self, "is_user_confirmation_required", value)
 
 
-if not MYPY:
-    class AiGuardrailAiGuardrailContentPolicyConfigArgsDict(TypedDict):
-        """
-        Content policy config for a guardrail.
-        """
-        filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgsDict']]]
-        """
-        List of content filter configs in content policy.
-        """
-elif False:
-    AiGuardrailAiGuardrailContentPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailAiGuardrailContentPolicyConfigArgsDict(TypedDict):
+    """
+    Content policy config for a guardrail.
+    """
+    filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgsDict']]]
+    """
+    List of content filter configs in content policy.
+    """
 
 @pulumi.input_type
 class AiGuardrailAiGuardrailContentPolicyConfigArgs:
@@ -1634,17 +1521,14 @@ class AiGuardrailAiGuardrailContentPolicyConfigArgs:
         pulumi.set(self, "filters_config", value)
 
 
-if not MYPY:
-    class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
-        """
-        Contextual grounding policy config for a guardrail.
-        """
-        filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict']]]
-        """
-        List of contextual grounding filter configs.
-        """
-elif False:
-    AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
+    """
+    Contextual grounding policy config for a guardrail.
+    """
+    filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict']]]
+    """
+    List of contextual grounding filter configs.
+    """
 
 @pulumi.input_type
 class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs:
@@ -1669,21 +1553,18 @@ class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs:
         pulumi.set(self, "filters_config", value)
 
 
-if not MYPY:
-    class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
-        """
-        Sensitive information policy config for a guardrail.
-        """
-        pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgsDict']]]]
-        """
-        List of entities.
-        """
-        regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgsDict']]]]
-        """
-        List of regex.
-        """
-elif False:
-    AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
+    """
+    Sensitive information policy config for a guardrail.
+    """
+    pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgsDict']]]]
+    """
+    List of entities.
+    """
+    regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgsDict']]]]
+    """
+    List of regex.
+    """
 
 @pulumi.input_type
 class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs:
@@ -1725,17 +1606,14 @@ class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs:
         pulumi.set(self, "regexes_config", value)
 
 
-if not MYPY:
-    class AiGuardrailAiGuardrailTopicPolicyConfigArgsDict(TypedDict):
-        """
-        Topic policy config for a guardrail.
-        """
-        topics_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgsDict']]]
-        """
-        List of topic configs in topic policy.
-        """
-elif False:
-    AiGuardrailAiGuardrailTopicPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailAiGuardrailTopicPolicyConfigArgsDict(TypedDict):
+    """
+    Topic policy config for a guardrail.
+    """
+    topics_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgsDict']]]
+    """
+    List of topic configs in topic policy.
+    """
 
 @pulumi.input_type
 class AiGuardrailAiGuardrailTopicPolicyConfigArgs:
@@ -1760,21 +1638,18 @@ class AiGuardrailAiGuardrailTopicPolicyConfigArgs:
         pulumi.set(self, "topics_config", value)
 
 
-if not MYPY:
-    class AiGuardrailAiGuardrailWordPolicyConfigArgsDict(TypedDict):
-        """
-        Word policy config for a guardrail.
-        """
-        managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgsDict']]]]
-        """
-        A config for the list of managed words.
-        """
-        words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgsDict']]]]
-        """
-        List of custom word configs.
-        """
-elif False:
-    AiGuardrailAiGuardrailWordPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailAiGuardrailWordPolicyConfigArgsDict(TypedDict):
+    """
+    Word policy config for a guardrail.
+    """
+    managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgsDict']]]]
+    """
+    A config for the list of managed words.
+    """
+    words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgsDict']]]]
+    """
+    List of custom word configs.
+    """
 
 @pulumi.input_type
 class AiGuardrailAiGuardrailWordPolicyConfigArgs:
@@ -1816,25 +1691,22 @@ class AiGuardrailAiGuardrailWordPolicyConfigArgs:
         pulumi.set(self, "words_config", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailContentFilterConfigArgsDict(TypedDict):
-        """
-        Content filter config in content policy.
-        """
-        input_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
-        """
-        The strength of the input for the guardrail content filter.
-        """
-        output_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
-        """
-        The output strength of the guardrail content filter.
-        """
-        type: pulumi.Input['AiGuardrailGuardrailContentFilterType']
-        """
-        The type of the guardrail content filter.
-        """
-elif False:
-    AiGuardrailGuardrailContentFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailGuardrailContentFilterConfigArgsDict(TypedDict):
+    """
+    Content filter config in content policy.
+    """
+    input_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
+    """
+    The strength of the input for the guardrail content filter.
+    """
+    output_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
+    """
+    The output strength of the guardrail content filter.
+    """
+    type: pulumi.Input['AiGuardrailGuardrailContentFilterType']
+    """
+    The type of the guardrail content filter.
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailContentFilterConfigArgs:
@@ -1889,21 +1761,18 @@ class AiGuardrailGuardrailContentFilterConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
-        """
-        A config for grounding filter.
-        """
-        threshold: pulumi.Input[_builtins.float]
-        """
-        The threshold for this filter.
-        """
-        type: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']
-        """
-        The type of this filter.
-        """
-elif False:
-    AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
+    """
+    A config for grounding filter.
+    """
+    threshold: pulumi.Input[_builtins.float]
+    """
+    The threshold for this filter.
+    """
+    type: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']
+    """
+    The type of this filter.
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailContextualGroundingFilterConfigArgs:
@@ -1943,17 +1812,14 @@ class AiGuardrailGuardrailContextualGroundingFilterConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailManagedWordsConfigArgsDict(TypedDict):
-        """
-        A managed words config.
-        """
-        type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']
-        """
-        The type of guardrail managed words.
-        """
-elif False:
-    AiGuardrailGuardrailManagedWordsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailGuardrailManagedWordsConfigArgsDict(TypedDict):
+    """
+    A managed words config.
+    """
+    type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']
+    """
+    The type of guardrail managed words.
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailManagedWordsConfigArgs:
@@ -1978,138 +1844,135 @@ class AiGuardrailGuardrailManagedWordsConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailPiiEntityConfigArgsDict(TypedDict):
-        """
-        Pii entity configuration.
-        """
-        action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
-        """
-        The action of guardrail PII entity configuration.
-        """
-        type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']
-        """
-        Configure AI Guardrail type when the PII entity is detected.
+class AiGuardrailGuardrailPiiEntityConfigArgsDict(TypedDict):
+    """
+    Pii entity configuration.
+    """
+    action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
+    """
+    The action of guardrail PII entity configuration.
+    """
+    type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']
+    """
+    Configure AI Guardrail type when the PII entity is detected.
 
-        The following PIIs are used to block or mask sensitive information:
+    The following PIIs are used to block or mask sensitive information:
 
-        - *General*
+    - *General*
 
-        - *ADDRESS*
+    - *ADDRESS*
 
-        A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
-        - *AGE*
+    A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
+    - *AGE*
 
-        An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
-        - *NAME*
+    An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+    - *NAME*
 
-        An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of organizations or addresses. For example, AI Guardrail recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
-        - *EMAIL*
+    An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of organizations or addresses. For example, AI Guardrail recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
+    - *EMAIL*
 
-        An email address, such as *marymajor@email.com* .
-        - *PHONE*
+    An email address, such as *marymajor@email.com* .
+    - *PHONE*
 
-        A phone number. This entity type also includes fax and pager numbers.
-        - *USERNAME*
+    A phone number. This entity type also includes fax and pager numbers.
+    - *USERNAME*
 
-        A user name that identifies an account, such as a login name, screen name, nick name, or handle.
-        - *PASSWORD*
+    A user name that identifies an account, such as a login name, screen name, nick name, or handle.
+    - *PASSWORD*
 
-        An alphanumeric string that is used as a password, such as "* *very20special#pass** ".
-        - *DRIVER_ID*
+    An alphanumeric string that is used as a password, such as "* *very20special#pass** ".
+    - *DRIVER_ID*
 
-        The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters.
-        - *LICENSE_PLATE*
+    The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters.
+    - *LICENSE_PLATE*
 
-        A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
-        - *VEHICLE_IDENTIFICATION_NUMBER*
+    A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
+    - *VEHICLE_IDENTIFICATION_NUMBER*
 
-        A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
-        - *Finance*
+    A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
+    - *Finance*
 
-        - *CREDIT_DEBIT_CARD_CVV*
+    - *CREDIT_DEBIT_CARD_CVV*
 
-        A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
-        - *CREDIT_DEBIT_CARD_EXPIRY*
+    A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
+    - *CREDIT_DEBIT_CARD_EXPIRY*
 
-        The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as *month/year* or *MM/YY* . AI Guardrail recognizes expiration dates such as *01/21* , *01/2021* , and *Jan 2021* .
-        - *CREDIT_DEBIT_CARD_NUMBER*
+    The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as *month/year* or *MM/YY* . AI Guardrail recognizes expiration dates such as *01/21* , *01/2021* , and *Jan 2021* .
+    - *CREDIT_DEBIT_CARD_NUMBER*
 
-        The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
-        - *PIN*
+    The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
+    - *PIN*
 
-        A four-digit personal identification number (PIN) with which you can access your bank account.
-        - *INTERNATIONAL_BANK_ACCOUNT_NUMBER*
+    A four-digit personal identification number (PIN) with which you can access your bank account.
+    - *INTERNATIONAL_BANK_ACCOUNT_NUMBER*
 
-        An International Bank Account Number has specific formats in each country. For more information, see [www.iban.com/structure](https://docs.aws.amazon.com/https://www.iban.com/structure) .
-        - *SWIFT_CODE*
+    An International Bank Account Number has specific formats in each country. For more information, see [www.iban.com/structure](https://docs.aws.amazon.com/https://www.iban.com/structure) .
+    - *SWIFT_CODE*
 
-        A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.
+    A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.
 
-        SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
-        - *IT*
+    SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
+    - *IT*
 
-        - *IP_ADDRESS*
+    - *IP_ADDRESS*
 
-        An IPv4 address, such as *198.51.100.0* .
-        - *MAC_ADDRESS*
+    An IPv4 address, such as *198.51.100.0* .
+    - *MAC_ADDRESS*
 
-        A *media access control* (MAC) address is a unique identifier assigned to a network interface controller (NIC).
-        - *URL*
+    A *media access control* (MAC) address is a unique identifier assigned to a network interface controller (NIC).
+    - *URL*
 
-        A web address, such as *www.example.com* .
-        - *AWS_ACCESS_KEY*
+    A web address, such as *www.example.com* .
+    - *AWS_ACCESS_KEY*
 
-        A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
-        - *AWS_SECRET_KEY*
+    A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+    - *AWS_SECRET_KEY*
 
-        A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
-        - *USA specific*
+    A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+    - *USA specific*
 
-        - *US_BANK_ACCOUNT_NUMBER*
+    - *US_BANK_ACCOUNT_NUMBER*
 
-        A US bank account number, which is typically 10 to 12 digits long.
-        - *US_BANK_ROUTING_NUMBER*
+    A US bank account number, which is typically 10 to 12 digits long.
+    - *US_BANK_ROUTING_NUMBER*
 
-        A US bank account routing number. These are typically nine digits long,
-        - *US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER*
+    A US bank account routing number. These are typically nine digits long,
+    - *US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER*
 
-        A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits.
-        - *US_PASSPORT_NUMBER*
+    A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits.
+    - *US_PASSPORT_NUMBER*
 
-        A US passport number. Passport numbers range from six to nine alphanumeric characters.
-        - *US_SOCIAL_SECURITY_NUMBER*
+    A US passport number. Passport numbers range from six to nine alphanumeric characters.
+    - *US_SOCIAL_SECURITY_NUMBER*
 
-        A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
-        - *Canada specific*
+    A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
+    - *Canada specific*
 
-        - *CA_HEALTH_NUMBER*
+    - *CA_HEALTH_NUMBER*
 
-        A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
-        - *CA_SOCIAL_INSURANCE_NUMBER*
+    A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
+    - *CA_SOCIAL_INSURANCE_NUMBER*
 
-        A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.
+    A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.
 
-        The SIN is formatted as three groups of three digits, such as *123-456-789* . A SIN can be validated through a simple check-digit process called the [Luhn algorithm](https://docs.aws.amazon.com/https://www.wikipedia.org/wiki/Luhn_algorithm) .
-        - *UK Specific*
+    The SIN is formatted as three groups of three digits, such as *123-456-789* . A SIN can be validated through a simple check-digit process called the [Luhn algorithm](https://docs.aws.amazon.com/https://www.wikipedia.org/wiki/Luhn_algorithm) .
+    - *UK Specific*
 
-        - *UK_NATIONAL_HEALTH_SERVICE_NUMBER*
+    - *UK_NATIONAL_HEALTH_SERVICE_NUMBER*
 
-        A UK National Health Service Number is a 10-17 digit number, such as *485 555 3456* . The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
-        - *UK_NATIONAL_INSURANCE_NUMBER*
+    A UK National Health Service Number is a 10-17 digit number, such as *485 555 3456* . The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
+    - *UK_NATIONAL_INSURANCE_NUMBER*
 
-        A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.
+    A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.
 
-        The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.
-        - *UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER*
+    The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.
+    - *UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER*
 
-        A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
-        - *Custom*
+    A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
+    - *Custom*
 
-        - *Regex filter* - You can use a regular expressions to define patterns for an AI Guardrail to recognize and act upon such as serial number, booking ID etc..
-        """
-elif False:
-    AiGuardrailGuardrailPiiEntityConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - *Regex filter* - You can use a regular expressions to define patterns for an AI Guardrail to recognize and act upon such as serial number, booking ID etc..
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailPiiEntityConfigArgs:
@@ -2383,29 +2246,26 @@ class AiGuardrailGuardrailPiiEntityConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailRegexConfigArgsDict(TypedDict):
-        """
-        A regex configuration.
-        """
-        action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
-        """
-        The action of the guardrail regex configuration.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The regex name.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The regex pattern.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regex description.
-        """
-elif False:
-    AiGuardrailGuardrailRegexConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailGuardrailRegexConfigArgsDict(TypedDict):
+    """
+    A regex configuration.
+    """
+    action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
+    """
+    The action of the guardrail regex configuration.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The regex name.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The regex pattern.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regex description.
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailRegexConfigArgs:
@@ -2476,29 +2336,26 @@ class AiGuardrailGuardrailRegexConfigArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailTopicConfigArgsDict(TypedDict):
-        """
-        Topic config in topic policy.
-        """
-        definition: pulumi.Input[_builtins.str]
-        """
-        Definition of topic in topic policy
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of topic in topic policy
-        """
-        type: pulumi.Input['AiGuardrailGuardrailTopicType']
-        """
-        Type of topic in a policy.
-        """
-        examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of text examples
-        """
-elif False:
-    AiGuardrailGuardrailTopicConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailGuardrailTopicConfigArgsDict(TypedDict):
+    """
+    Topic config in topic policy.
+    """
+    definition: pulumi.Input[_builtins.str]
+    """
+    Definition of topic in topic policy
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of topic in topic policy
+    """
+    type: pulumi.Input['AiGuardrailGuardrailTopicType']
+    """
+    Type of topic in a policy.
+    """
+    examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of text examples
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailTopicConfigArgs:
@@ -2569,17 +2426,14 @@ class AiGuardrailGuardrailTopicConfigArgs:
         pulumi.set(self, "examples", value)
 
 
-if not MYPY:
-    class AiGuardrailGuardrailWordConfigArgsDict(TypedDict):
-        """
-        A custom word config.
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        The custom word text.
-        """
-elif False:
-    AiGuardrailGuardrailWordConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AiGuardrailGuardrailWordConfigArgsDict(TypedDict):
+    """
+    A custom word config.
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    The custom word text.
+    """
 
 @pulumi.input_type
 class AiGuardrailGuardrailWordConfigArgs:
@@ -2604,11 +2458,8 @@ class AiGuardrailGuardrailWordConfigArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class AiPromptAiPromptTemplateConfigurationArgsDict(TypedDict):
-        pass
-elif False:
-    AiPromptAiPromptTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AiPromptAiPromptTemplateConfigurationArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class AiPromptAiPromptTemplateConfigurationArgs:
@@ -2616,11 +2467,8 @@ class AiPromptAiPromptTemplateConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class AssistantAssociationAssociationData0PropertiesArgsDict(TypedDict):
-        knowledge_base_id: pulumi.Input[_builtins.str]
-elif False:
-    AssistantAssociationAssociationData0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AssistantAssociationAssociationData0PropertiesArgsDict(TypedDict):
+    knowledge_base_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class AssistantAssociationAssociationData0PropertiesArgs:
@@ -2638,11 +2486,8 @@ class AssistantAssociationAssociationData0PropertiesArgs:
         pulumi.set(self, "knowledge_base_id", value)
 
 
-if not MYPY:
-    class AssistantAssociationAssociationData1PropertiesArgsDict(TypedDict):
-        external_bedrock_knowledge_base_config: pulumi.Input['AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict']
-elif False:
-    AssistantAssociationAssociationData1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AssistantAssociationAssociationData1PropertiesArgsDict(TypedDict):
+    external_bedrock_knowledge_base_config: pulumi.Input['AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict']
 
 @pulumi.input_type
 class AssistantAssociationAssociationData1PropertiesArgs:
@@ -2660,12 +2505,9 @@ class AssistantAssociationAssociationData1PropertiesArgs:
         pulumi.set(self, "external_bedrock_knowledge_base_config", value)
 
 
-if not MYPY:
-    class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict(TypedDict):
-        access_role_arn: pulumi.Input[_builtins.str]
-        bedrock_knowledge_base_arn: pulumi.Input[_builtins.str]
-elif False:
-    AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict(TypedDict):
+    access_role_arn: pulumi.Input[_builtins.str]
+    bedrock_knowledge_base_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs:
@@ -2694,14 +2536,11 @@ class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs:
         pulumi.set(self, "bedrock_knowledge_base_arn", value)
 
 
-if not MYPY:
-    class AssistantServerSideEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-        """
-elif False:
-    AssistantServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AssistantServerSideEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+    """
 
 @pulumi.input_type
 class AssistantServerSideEncryptionConfigurationArgs:
@@ -2726,12 +2565,9 @@ class AssistantServerSideEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class KnowledgeBaseAppIntegrationsConfigurationArgsDict(TypedDict):
-        app_integration_arn: pulumi.Input[_builtins.str]
-        object_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    KnowledgeBaseAppIntegrationsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseAppIntegrationsConfigurationArgsDict(TypedDict):
+    app_integration_arn: pulumi.Input[_builtins.str]
+    object_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class KnowledgeBaseAppIntegrationsConfigurationArgs:
@@ -2761,14 +2597,11 @@ class KnowledgeBaseAppIntegrationsConfigurationArgs:
         pulumi.set(self, "object_fields", value)
 
 
-if not MYPY:
-    class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict(TypedDict):
-        """
-        The parsing prompt of the Bedrock foundation model configuration.
-        """
-        parsing_prompt_text: pulumi.Input[_builtins.str]
-elif False:
-    KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict(TypedDict):
+    """
+    The parsing prompt of the Bedrock foundation model configuration.
+    """
+    parsing_prompt_text: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs:
@@ -2789,18 +2622,15 @@ class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArg
         pulumi.set(self, "parsing_prompt_text", value)
 
 
-if not MYPY:
-    class KnowledgeBaseBedrockFoundationModelConfigurationArgsDict(TypedDict):
-        model_arn: pulumi.Input[_builtins.str]
-        """
-        The model ARN of the Bedrock foundation model.
-        """
-        parsing_prompt: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict']]
-        """
-        The parsing prompt of the Bedrock foundation model configuration.
-        """
-elif False:
-    KnowledgeBaseBedrockFoundationModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseBedrockFoundationModelConfigurationArgsDict(TypedDict):
+    model_arn: pulumi.Input[_builtins.str]
+    """
+    The model ARN of the Bedrock foundation model.
+    """
+    parsing_prompt: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict']]
+    """
+    The parsing prompt of the Bedrock foundation model configuration.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
@@ -2840,18 +2670,15 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
         pulumi.set(self, "parsing_prompt", value)
 
 
-if not MYPY:
-    class KnowledgeBaseFixedSizeChunkingConfigurationArgsDict(TypedDict):
-        max_tokens: pulumi.Input[_builtins.float]
-        """
-        The maximum number of tokens to include in a chunk.
-        """
-        overlap_percentage: pulumi.Input[_builtins.float]
-        """
-        The percentage of overlap between adjacent chunks of a data source.
-        """
-elif False:
-    KnowledgeBaseFixedSizeChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseFixedSizeChunkingConfigurationArgsDict(TypedDict):
+    max_tokens: pulumi.Input[_builtins.float]
+    """
+    The maximum number of tokens to include in a chunk.
+    """
+    overlap_percentage: pulumi.Input[_builtins.float]
+    """
+    The percentage of overlap between adjacent chunks of a data source.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseFixedSizeChunkingConfigurationArgs:
@@ -2890,18 +2717,15 @@ class KnowledgeBaseFixedSizeChunkingConfigurationArgs:
         pulumi.set(self, "overlap_percentage", value)
 
 
-if not MYPY:
-    class KnowledgeBaseHierarchicalChunkingConfigurationArgsDict(TypedDict):
-        level_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseHierarchicalChunkingLevelConfigurationArgsDict']]]
-        """
-        Token settings for each layer.
-        """
-        overlap_tokens: pulumi.Input[_builtins.float]
-        """
-        The number of tokens to repeat across chunks in the same layer.
-        """
-elif False:
-    KnowledgeBaseHierarchicalChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseHierarchicalChunkingConfigurationArgsDict(TypedDict):
+    level_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseHierarchicalChunkingLevelConfigurationArgsDict']]]
+    """
+    Token settings for each layer.
+    """
+    overlap_tokens: pulumi.Input[_builtins.float]
+    """
+    The number of tokens to repeat across chunks in the same layer.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseHierarchicalChunkingConfigurationArgs:
@@ -2940,14 +2764,11 @@ class KnowledgeBaseHierarchicalChunkingConfigurationArgs:
         pulumi.set(self, "overlap_tokens", value)
 
 
-if not MYPY:
-    class KnowledgeBaseHierarchicalChunkingLevelConfigurationArgsDict(TypedDict):
-        max_tokens: pulumi.Input[_builtins.float]
-        """
-        The maximum number of tokens that a chunk can contain in this layer.
-        """
-elif False:
-    KnowledgeBaseHierarchicalChunkingLevelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseHierarchicalChunkingLevelConfigurationArgsDict(TypedDict):
+    max_tokens: pulumi.Input[_builtins.float]
+    """
+    The maximum number of tokens that a chunk can contain in this layer.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs:
@@ -2971,11 +2792,8 @@ class KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs:
         pulumi.set(self, "max_tokens", value)
 
 
-if not MYPY:
-    class KnowledgeBaseManagedSourceConfigurationPropertiesArgsDict(TypedDict):
-        web_crawler_configuration: pulumi.Input['KnowledgeBaseWebCrawlerConfigurationArgsDict']
-elif False:
-    KnowledgeBaseManagedSourceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseManagedSourceConfigurationPropertiesArgsDict(TypedDict):
+    web_crawler_configuration: pulumi.Input['KnowledgeBaseWebCrawlerConfigurationArgsDict']
 
 @pulumi.input_type
 class KnowledgeBaseManagedSourceConfigurationPropertiesArgs:
@@ -2993,20 +2811,17 @@ class KnowledgeBaseManagedSourceConfigurationPropertiesArgs:
         pulumi.set(self, "web_crawler_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRenderingConfigurationArgsDict(TypedDict):
-        template_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+class KnowledgeBaseRenderingConfigurationArgsDict(TypedDict):
+    template_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
 
-        - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
-        - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
-        - Zendesk: `id` , `title` , `updated_at` , or `draft`
+    - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+    - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+    - Zendesk: `id` , `title` , `updated_at` , or `draft`
 
-        The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
-        """
-elif False:
-    KnowledgeBaseRenderingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRenderingConfigurationArgs:
@@ -3043,11 +2858,8 @@ class KnowledgeBaseRenderingConfigurationArgs:
         pulumi.set(self, "template_uri", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSeedUrlArgsDict(TypedDict):
-        url: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    KnowledgeBaseSeedUrlArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSeedUrlArgsDict(TypedDict):
+    url: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class KnowledgeBaseSeedUrlArgs:
@@ -3066,22 +2878,19 @@ class KnowledgeBaseSeedUrlArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSemanticChunkingConfigurationArgsDict(TypedDict):
-        breakpoint_percentile_threshold: pulumi.Input[_builtins.float]
-        """
-        The dissimilarity threshold for splitting chunks.
-        """
-        buffer_size: pulumi.Input[_builtins.float]
-        """
-        The buffer size.
-        """
-        max_tokens: pulumi.Input[_builtins.float]
-        """
-        The maximum number of tokens that a chunk can contain.
-        """
-elif False:
-    KnowledgeBaseSemanticChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSemanticChunkingConfigurationArgsDict(TypedDict):
+    breakpoint_percentile_threshold: pulumi.Input[_builtins.float]
+    """
+    The dissimilarity threshold for splitting chunks.
+    """
+    buffer_size: pulumi.Input[_builtins.float]
+    """
+    The buffer size.
+    """
+    max_tokens: pulumi.Input[_builtins.float]
+    """
+    The maximum number of tokens that a chunk can contain.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseSemanticChunkingConfigurationArgs:
@@ -3135,18 +2944,15 @@ class KnowledgeBaseSemanticChunkingConfigurationArgs:
         pulumi.set(self, "max_tokens", value)
 
 
-if not MYPY:
-    class KnowledgeBaseServerSideEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer managed key used for encryption.
+class KnowledgeBaseServerSideEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer managed key used for encryption.
 
-        This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+    This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
 
-        For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
-        """
-elif False:
-    KnowledgeBaseServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
+    """
 
 @pulumi.input_type
 class KnowledgeBaseServerSideEncryptionConfigurationArgs:
@@ -3179,11 +2985,8 @@ class KnowledgeBaseServerSideEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSourceConfiguration0PropertiesArgsDict(TypedDict):
-        app_integrations: pulumi.Input['KnowledgeBaseAppIntegrationsConfigurationArgsDict']
-elif False:
-    KnowledgeBaseSourceConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSourceConfiguration0PropertiesArgsDict(TypedDict):
+    app_integrations: pulumi.Input['KnowledgeBaseAppIntegrationsConfigurationArgsDict']
 
 @pulumi.input_type
 class KnowledgeBaseSourceConfiguration0PropertiesArgs:
@@ -3201,11 +3004,8 @@ class KnowledgeBaseSourceConfiguration0PropertiesArgs:
         pulumi.set(self, "app_integrations", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSourceConfiguration1PropertiesArgsDict(TypedDict):
-        managed_source_configuration: pulumi.Input['KnowledgeBaseManagedSourceConfigurationPropertiesArgsDict']
-elif False:
-    KnowledgeBaseSourceConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSourceConfiguration1PropertiesArgsDict(TypedDict):
+    managed_source_configuration: pulumi.Input['KnowledgeBaseManagedSourceConfigurationPropertiesArgsDict']
 
 @pulumi.input_type
 class KnowledgeBaseSourceConfiguration1PropertiesArgs:
@@ -3223,17 +3023,14 @@ class KnowledgeBaseSourceConfiguration1PropertiesArgs:
         pulumi.set(self, "managed_source_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-        """
-        chunking_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy']
-        fixed_size_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseFixedSizeChunkingConfigurationArgsDict']]
-        hierarchical_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseHierarchicalChunkingConfigurationArgsDict']]
-        semantic_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseSemanticChunkingConfigurationArgsDict']]
-elif False:
-    KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    """
+    chunking_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy']
+    fixed_size_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseFixedSizeChunkingConfigurationArgsDict']]
+    hierarchical_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseHierarchicalChunkingConfigurationArgsDict']]
+    semantic_chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseSemanticChunkingConfigurationArgsDict']]
 
 @pulumi.input_type
 class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs:
@@ -3290,15 +3087,12 @@ class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesAr
         pulumi.set(self, "semantic_chunking_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgsDict(TypedDict):
-        """
-        A custom parser for data source documents.
-        """
-        parsing_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy']
-        bedrock_foundation_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationArgsDict']]
-elif False:
-    KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgsDict(TypedDict):
+    """
+    A custom parser for data source documents.
+    """
+    parsing_strategy: pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy']
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationArgsDict']]
 
 @pulumi.input_type
 class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs:
@@ -3331,18 +3125,15 @@ class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArg
         pulumi.set(self, "bedrock_foundation_model_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseVectorIngestionConfigurationArgsDict(TypedDict):
-        chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgsDict']]
-        """
-        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-        """
-        parsing_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgsDict']]
-        """
-        A custom parser for data source documents.
-        """
-elif False:
-    KnowledgeBaseVectorIngestionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseVectorIngestionConfigurationArgsDict(TypedDict):
+    chunking_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgsDict']]
+    """
+    Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    """
+    parsing_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgsDict']]
+    """
+    A custom parser for data source documents.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseVectorIngestionConfigurationArgs:
@@ -3383,11 +3174,8 @@ class KnowledgeBaseVectorIngestionConfigurationArgs:
         pulumi.set(self, "parsing_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict(TypedDict):
-        rate_limit: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict(TypedDict):
+    rate_limit: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs:
@@ -3406,11 +3194,8 @@ class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs:
         pulumi.set(self, "rate_limit", value)
 
 
-if not MYPY:
-    class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict(TypedDict):
-        seed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgsDict']]]]
-elif False:
-    KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict(TypedDict):
+    seed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSeedUrlArgsDict']]]]
 
 @pulumi.input_type
 class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs:
@@ -3429,15 +3214,12 @@ class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs:
         pulumi.set(self, "seed_urls", value)
 
 
-if not MYPY:
-    class KnowledgeBaseWebCrawlerConfigurationArgsDict(TypedDict):
-        url_configuration: pulumi.Input['KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict']
-        crawler_limits: NotRequired[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict']]
-        exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        scope: NotRequired[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationScope']]
-elif False:
-    KnowledgeBaseWebCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseWebCrawlerConfigurationArgsDict(TypedDict):
+    url_configuration: pulumi.Input['KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgsDict']
+    crawler_limits: NotRequired[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgsDict']]
+    exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scope: NotRequired[pulumi.Input['KnowledgeBaseWebCrawlerConfigurationScope']]
 
 @pulumi.input_type
 class KnowledgeBaseWebCrawlerConfigurationArgs:
@@ -3503,21 +3285,18 @@ class KnowledgeBaseWebCrawlerConfigurationArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class MessageTemplateAgentAttributesArgsDict(TypedDict):
-        """
-        The agent attributes that are used with the message template.
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The agent’s first name as entered in their Amazon Connect user account.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The agent’s last name as entered in their Amazon Connect user account.
-        """
-elif False:
-    MessageTemplateAgentAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateAgentAttributesArgsDict(TypedDict):
+    """
+    The agent attributes that are used with the message template.
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The agent’s first name as entered in their Amazon Connect user account.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The agent’s last name as entered in their Amazon Connect user account.
+    """
 
 @pulumi.input_type
 class MessageTemplateAgentAttributesArgs:
@@ -3559,22 +3338,19 @@ class MessageTemplateAgentAttributesArgs:
         pulumi.set(self, "last_name", value)
 
 
-if not MYPY:
-    class MessageTemplateAttachmentArgsDict(TypedDict):
-        attachment_name: pulumi.Input[_builtins.str]
-        """
-        The name of the attachment file being uploaded. The name should include the file extension.
-        """
-        s3_presigned_url: pulumi.Input[_builtins.str]
-        """
-        The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
-        """
-        attachment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the attachment file.
-        """
-elif False:
-    MessageTemplateAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateAttachmentArgsDict(TypedDict):
+    attachment_name: pulumi.Input[_builtins.str]
+    """
+    The name of the attachment file being uploaded. The name should include the file extension.
+    """
+    s3_presigned_url: pulumi.Input[_builtins.str]
+    """
+    The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+    """
+    attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the attachment file.
+    """
 
 @pulumi.input_type
 class MessageTemplateAttachmentArgs:
@@ -3629,29 +3405,26 @@ class MessageTemplateAttachmentArgs:
         pulumi.set(self, "attachment_id", value)
 
 
-if not MYPY:
-    class MessageTemplateAttributesArgsDict(TypedDict):
-        """
-        An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
-        """
-        agent_attributes: NotRequired[pulumi.Input['MessageTemplateAgentAttributesArgsDict']]
-        """
-        The agent attributes that are used with the message template.
-        """
-        custom_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The custom attributes that are used with the message template.
-        """
-        customer_profile_attributes: NotRequired[pulumi.Input['MessageTemplateCustomerProfileAttributesArgsDict']]
-        """
-        The customer profile attributes that are used with the message template.
-        """
-        system_attributes: NotRequired[pulumi.Input['MessageTemplateSystemAttributesArgsDict']]
-        """
-        The system attributes that are used with the message template.
-        """
-elif False:
-    MessageTemplateAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateAttributesArgsDict(TypedDict):
+    """
+    An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+    """
+    agent_attributes: NotRequired[pulumi.Input['MessageTemplateAgentAttributesArgsDict']]
+    """
+    The agent attributes that are used with the message template.
+    """
+    custom_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The custom attributes that are used with the message template.
+    """
+    customer_profile_attributes: NotRequired[pulumi.Input['MessageTemplateCustomerProfileAttributesArgsDict']]
+    """
+    The customer profile attributes that are used with the message template.
+    """
+    system_attributes: NotRequired[pulumi.Input['MessageTemplateSystemAttributesArgsDict']]
+    """
+    The system attributes that are used with the message template.
+    """
 
 @pulumi.input_type
 class MessageTemplateAttributesArgs:
@@ -3725,17 +3498,14 @@ class MessageTemplateAttributesArgs:
         pulumi.set(self, "system_attributes", value)
 
 
-if not MYPY:
-    class MessageTemplateBodyContentProviderArgsDict(TypedDict):
-        """
-        The container of message template body.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The content of the message template.
-        """
-elif False:
-    MessageTemplateBodyContentProviderArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateBodyContentProviderArgsDict(TypedDict):
+    """
+    The container of message template body.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The content of the message template.
+    """
 
 @pulumi.input_type
 class MessageTemplateBodyContentProviderArgs:
@@ -3761,21 +3531,18 @@ class MessageTemplateBodyContentProviderArgs:
         pulumi.set(self, "content", value)
 
 
-if not MYPY:
-    class MessageTemplateContentArgsDict(TypedDict):
-        """
-        The content of the message template.
-        """
-        email_message_template_content: NotRequired[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgsDict']]
-        """
-        The content of the message template that applies to the email channel subtype.
-        """
-        sms_message_template_content: NotRequired[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgsDict']]
-        """
-        The content of message template that applies to SMS channel subtype.
-        """
-elif False:
-    MessageTemplateContentArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateContentArgsDict(TypedDict):
+    """
+    The content of the message template.
+    """
+    email_message_template_content: NotRequired[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgsDict']]
+    """
+    The content of the message template that applies to the email channel subtype.
+    """
+    sms_message_template_content: NotRequired[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgsDict']]
+    """
+    The content of message template that applies to SMS channel subtype.
+    """
 
 @pulumi.input_type
 class MessageTemplateContentArgs:
@@ -3817,245 +3584,242 @@ class MessageTemplateContentArgs:
         pulumi.set(self, "sms_message_template_content", value)
 
 
-if not MYPY:
-    class MessageTemplateCustomerProfileAttributesArgsDict(TypedDict):
-        """
-        The customer profile attributes that are used with the message template.
-        """
-        account_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique account number that you have given to the customer.
-        """
-        additional_information: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Any additional information relevant to the customer's profile.
-        """
-        address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer address.
-        """
-        address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer address.
-        """
-        address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer address.
-        """
-        address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer address.
-        """
-        billing_address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer’s billing address.
-        """
-        billing_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer’s billing address.
-        """
-        billing_address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer’s billing address.
-        """
-        billing_address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer’s billing address.
-        """
-        billing_city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of a customer’s billing address.
-        """
-        billing_country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country of a customer’s billing address.
-        """
-        billing_county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county of a customer’s billing address.
-        """
-        billing_postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer’s billing address.
-        """
-        billing_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province of a customer’s billing address.
-        """
-        billing_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state of a customer’s billing address.
-        """
-        birth_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's birth date.
-        """
-        business_email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's business email address.
-        """
-        business_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the customer's business.
-        """
-        business_phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's business phone number.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city in which a customer lives.
-        """
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country in which a customer lives.
-        """
-        county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county in which a customer lives.
-        """
-        custom: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The custom attributes in customer profile attributes.
-        """
-        email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's email address, which has not been specified as a personal or business address.
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's first name.
-        """
-        gender: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's gender.
-        """
-        home_phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's home phone number.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's last name.
-        """
-        mailing_address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer’s mailing address.
-        """
-        mailing_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer’s mailing address.
-        """
-        mailing_address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer’s mailing address.
-        """
-        mailing_address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer’s mailing address.
-        """
-        mailing_city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of a customer’s mailing address.
-        """
-        mailing_country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country of a customer’s mailing address.
-        """
-        mailing_county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county of a customer’s mailing address.
-        """
-        mailing_postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer’s mailing address
-        """
-        mailing_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province of a customer’s mailing address.
-        """
-        mailing_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state of a customer’s mailing address.
-        """
-        middle_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's middle name.
-        """
-        mobile_phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's mobile phone number.
-        """
-        party_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's party type.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's phone number, which has not been specified as a mobile, home, or business number.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer address.
-        """
-        profile_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of a customer profile.
-        """
-        profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of a customer profile.
-        """
-        province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province in which a customer lives.
-        """
-        shipping_address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer’s shipping address.
-        """
-        shipping_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer’s shipping address.
-        """
-        shipping_address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer’s shipping address.
-        """
-        shipping_address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer’s shipping address
-        """
-        shipping_city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of a customer’s shipping address.
-        """
-        shipping_country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country of a customer’s shipping address.
-        """
-        shipping_county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county of a customer’s shipping address.
-        """
-        shipping_postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer’s shipping address.
-        """
-        shipping_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province of a customer’s shipping address.
-        """
-        shipping_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state of a customer’s shipping address.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state in which a customer lives.
-        """
-elif False:
-    MessageTemplateCustomerProfileAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateCustomerProfileAttributesArgsDict(TypedDict):
+    """
+    The customer profile attributes that are used with the message template.
+    """
+    account_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique account number that you have given to the customer.
+    """
+    additional_information: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Any additional information relevant to the customer's profile.
+    """
+    address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first line of a customer address.
+    """
+    address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of a customer address.
+    """
+    address3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The third line of a customer address.
+    """
+    address4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fourth line of a customer address.
+    """
+    billing_address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first line of a customer’s billing address.
+    """
+    billing_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of a customer’s billing address.
+    """
+    billing_address3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The third line of a customer’s billing address.
+    """
+    billing_address4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fourth line of a customer’s billing address.
+    """
+    billing_city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of a customer’s billing address.
+    """
+    billing_country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country of a customer’s billing address.
+    """
+    billing_county: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The county of a customer’s billing address.
+    """
+    billing_postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code of a customer’s billing address.
+    """
+    billing_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The province of a customer’s billing address.
+    """
+    billing_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state of a customer’s billing address.
+    """
+    birth_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's birth date.
+    """
+    business_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's business email address.
+    """
+    business_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the customer's business.
+    """
+    business_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's business phone number.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city in which a customer lives.
+    """
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country in which a customer lives.
+    """
+    county: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The county in which a customer lives.
+    """
+    custom: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The custom attributes in customer profile attributes.
+    """
+    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's email address, which has not been specified as a personal or business address.
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's first name.
+    """
+    gender: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's gender.
+    """
+    home_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's home phone number.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's last name.
+    """
+    mailing_address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first line of a customer’s mailing address.
+    """
+    mailing_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of a customer’s mailing address.
+    """
+    mailing_address3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The third line of a customer’s mailing address.
+    """
+    mailing_address4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fourth line of a customer’s mailing address.
+    """
+    mailing_city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of a customer’s mailing address.
+    """
+    mailing_country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country of a customer’s mailing address.
+    """
+    mailing_county: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The county of a customer’s mailing address.
+    """
+    mailing_postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code of a customer’s mailing address
+    """
+    mailing_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The province of a customer’s mailing address.
+    """
+    mailing_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state of a customer’s mailing address.
+    """
+    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's middle name.
+    """
+    mobile_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's mobile phone number.
+    """
+    party_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's party type.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's phone number, which has not been specified as a mobile, home, or business number.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code of a customer address.
+    """
+    profile_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of a customer profile.
+    """
+    profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of a customer profile.
+    """
+    province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The province in which a customer lives.
+    """
+    shipping_address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first line of a customer’s shipping address.
+    """
+    shipping_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of a customer’s shipping address.
+    """
+    shipping_address3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The third line of a customer’s shipping address.
+    """
+    shipping_address4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fourth line of a customer’s shipping address
+    """
+    shipping_city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of a customer’s shipping address.
+    """
+    shipping_country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country of a customer’s shipping address.
+    """
+    shipping_county: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The county of a customer’s shipping address.
+    """
+    shipping_postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code of a customer’s shipping address.
+    """
+    shipping_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The province of a customer’s shipping address.
+    """
+    shipping_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state of a customer’s shipping address.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state in which a customer lives.
+    """
 
 @pulumi.input_type
 class MessageTemplateCustomerProfileAttributesArgs:
@@ -4993,21 +4757,18 @@ class MessageTemplateCustomerProfileAttributesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class MessageTemplateEmailMessageTemplateContentBodyArgsDict(TypedDict):
-        """
-        The body to use in email messages.
-        """
-        html: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
-        """
-        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-        """
-        plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
-        """
-        The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-        """
-elif False:
-    MessageTemplateEmailMessageTemplateContentBodyArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateEmailMessageTemplateContentBodyArgsDict(TypedDict):
+    """
+    The body to use in email messages.
+    """
+    html: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+    """
+    The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+    """
+    plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+    """
+    The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+    """
 
 @pulumi.input_type
 class MessageTemplateEmailMessageTemplateContentBodyArgs:
@@ -5049,25 +4810,22 @@ class MessageTemplateEmailMessageTemplateContentBodyArgs:
         pulumi.set(self, "plain_text", value)
 
 
-if not MYPY:
-    class MessageTemplateEmailMessageTemplateContentArgsDict(TypedDict):
-        """
-        The content of message template that applies to email channel subtype.
-        """
-        body: pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgsDict']
-        """
-        The body to use in email messages.
-        """
-        headers: pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgsDict']]]
-        """
-        The email headers to include in email messages.
-        """
-        subject: pulumi.Input[_builtins.str]
-        """
-        The subject line, or title, to use in email messages.
-        """
-elif False:
-    MessageTemplateEmailMessageTemplateContentArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateEmailMessageTemplateContentArgsDict(TypedDict):
+    """
+    The content of message template that applies to email channel subtype.
+    """
+    body: pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgsDict']
+    """
+    The body to use in email messages.
+    """
+    headers: pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgsDict']]]
+    """
+    The email headers to include in email messages.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The subject line, or title, to use in email messages.
+    """
 
 @pulumi.input_type
 class MessageTemplateEmailMessageTemplateContentArgs:
@@ -5122,21 +4880,18 @@ class MessageTemplateEmailMessageTemplateContentArgs:
         pulumi.set(self, "subject", value)
 
 
-if not MYPY:
-    class MessageTemplateEmailMessageTemplateHeaderArgsDict(TypedDict):
-        """
-        The email header to include in email messages.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the email header.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the email header.
-        """
-elif False:
-    MessageTemplateEmailMessageTemplateHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateEmailMessageTemplateHeaderArgsDict(TypedDict):
+    """
+    The email header to include in email messages.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the email header.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the email header.
+    """
 
 @pulumi.input_type
 class MessageTemplateEmailMessageTemplateHeaderArgs:
@@ -5178,21 +4933,18 @@ class MessageTemplateEmailMessageTemplateHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class MessageTemplateGroupingConfigurationArgsDict(TypedDict):
-        """
-        The configuration information of the user groups that the message template is accessible to.
-        """
-        criteria: pulumi.Input[_builtins.str]
-        """
-        The criteria used for grouping Amazon Q in Connect users.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of values that define different groups of Amazon Q in Connect users.
-        """
-elif False:
-    MessageTemplateGroupingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateGroupingConfigurationArgsDict(TypedDict):
+    """
+    The configuration information of the user groups that the message template is accessible to.
+    """
+    criteria: pulumi.Input[_builtins.str]
+    """
+    The criteria used for grouping Amazon Q in Connect users.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of values that define different groups of Amazon Q in Connect users.
+    """
 
 @pulumi.input_type
 class MessageTemplateGroupingConfigurationArgs:
@@ -5232,17 +4984,14 @@ class MessageTemplateGroupingConfigurationArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class MessageTemplateSmsMessageTemplateContentBodyArgsDict(TypedDict):
-        """
-        The body to use in SMS messages.
-        """
-        plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
-        """
-        The message body to use in SMS messages.
-        """
-elif False:
-    MessageTemplateSmsMessageTemplateContentBodyArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateSmsMessageTemplateContentBodyArgsDict(TypedDict):
+    """
+    The body to use in SMS messages.
+    """
+    plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+    """
+    The message body to use in SMS messages.
+    """
 
 @pulumi.input_type
 class MessageTemplateSmsMessageTemplateContentBodyArgs:
@@ -5268,17 +5017,14 @@ class MessageTemplateSmsMessageTemplateContentBodyArgs:
         pulumi.set(self, "plain_text", value)
 
 
-if not MYPY:
-    class MessageTemplateSmsMessageTemplateContentArgsDict(TypedDict):
-        """
-        The content of message template that applies to SMS channel subtype.
-        """
-        body: pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgsDict']
-        """
-        The body to use in SMS messages.
-        """
-elif False:
-    MessageTemplateSmsMessageTemplateContentArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateSmsMessageTemplateContentArgsDict(TypedDict):
+    """
+    The content of message template that applies to SMS channel subtype.
+    """
+    body: pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgsDict']
+    """
+    The body to use in SMS messages.
+    """
 
 @pulumi.input_type
 class MessageTemplateSmsMessageTemplateContentArgs:
@@ -5303,25 +5049,22 @@ class MessageTemplateSmsMessageTemplateContentArgs:
         pulumi.set(self, "body", value)
 
 
-if not MYPY:
-    class MessageTemplateSystemAttributesArgsDict(TypedDict):
-        """
-        The system attributes that are used with the message template.
-        """
-        customer_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
-        """
-        The CustomerEndpoint attribute.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the task.
-        """
-        system_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
-        """
-        The SystemEndpoint attribute.
-        """
-elif False:
-    MessageTemplateSystemAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateSystemAttributesArgsDict(TypedDict):
+    """
+    The system attributes that are used with the message template.
+    """
+    customer_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
+    """
+    The CustomerEndpoint attribute.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the task.
+    """
+    system_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
+    """
+    The SystemEndpoint attribute.
+    """
 
 @pulumi.input_type
 class MessageTemplateSystemAttributesArgs:
@@ -5379,17 +5122,14 @@ class MessageTemplateSystemAttributesArgs:
         pulumi.set(self, "system_endpoint", value)
 
 
-if not MYPY:
-    class MessageTemplateSystemEndpointAttributesArgsDict(TypedDict):
-        """
-        The system endpoint attributes that are used with the message template.
-        """
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
-        """
-elif False:
-    MessageTemplateSystemEndpointAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class MessageTemplateSystemEndpointAttributesArgsDict(TypedDict):
+    """
+    The system endpoint attributes that are used with the message template.
+    """
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+    """
 
 @pulumi.input_type
 class MessageTemplateSystemEndpointAttributesArgs:
@@ -5415,17 +5155,14 @@ class MessageTemplateSystemEndpointAttributesArgs:
         pulumi.set(self, "address", value)
 
 
-if not MYPY:
-    class QuickResponseContentProviderArgsDict(TypedDict):
-        """
-        The container of quick response content.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The content of the quick response.
-        """
-elif False:
-    QuickResponseContentProviderArgsDict: TypeAlias = Mapping[str, Any]
+class QuickResponseContentProviderArgsDict(TypedDict):
+    """
+    The container of quick response content.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The content of the quick response.
+    """
 
 @pulumi.input_type
 class QuickResponseContentProviderArgs:
@@ -5451,21 +5188,18 @@ class QuickResponseContentProviderArgs:
         pulumi.set(self, "content", value)
 
 
-if not MYPY:
-    class QuickResponseGroupingConfigurationArgsDict(TypedDict):
-        """
-        The configuration information of the user groups that the quick response is accessible to.
-        """
-        criteria: pulumi.Input[_builtins.str]
-        """
-        The criteria used for grouping Amazon Q in Connect users.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of values that define different groups of Amazon Q in Connect users.
-        """
-elif False:
-    QuickResponseGroupingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class QuickResponseGroupingConfigurationArgsDict(TypedDict):
+    """
+    The configuration information of the user groups that the quick response is accessible to.
+    """
+    criteria: pulumi.Input[_builtins.str]
+    """
+    The criteria used for grouping Amazon Q in Connect users.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of values that define different groups of Amazon Q in Connect users.
+    """
 
 @pulumi.input_type
 class QuickResponseGroupingConfigurationArgs:

@@ -21,20 +21,15 @@ __all__ = [
     'ResourceGroupTagArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssessmentTemplateTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        A tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A value assigned to a tag key.
-        """
-elif False:
-    AssessmentTemplateTagArgsDict: TypeAlias = Mapping[str, Any]
+class AssessmentTemplateTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    A tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A value assigned to a tag key.
+    """
 
 @pulumi.input_type
 class AssessmentTemplateTagArgs:
@@ -73,18 +68,15 @@ class AssessmentTemplateTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ResourceGroupTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        A tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A value assigned to a tag key.
-        """
-elif False:
-    ResourceGroupTagArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    A tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A value assigned to a tag key.
+    """
 
 @pulumi.input_type
 class ResourceGroupTagArgs:

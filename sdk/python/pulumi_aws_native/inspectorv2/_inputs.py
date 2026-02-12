@@ -64,14 +64,9 @@ __all__ = [
     'FilterStringFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CisScanConfigurationCisTargetsArgsDict(TypedDict):
-        account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        target_resource_tags: pulumi.Input[Mapping[str, Any]]
-elif False:
-    CisScanConfigurationCisTargetsArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationCisTargetsArgsDict(TypedDict):
+    account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    target_resource_tags: pulumi.Input[Mapping[str, Any]]
 
 @pulumi.input_type
 class CisScanConfigurationCisTargetsArgs:
@@ -100,11 +95,8 @@ class CisScanConfigurationCisTargetsArgs:
         pulumi.set(self, "target_resource_tags", value)
 
 
-if not MYPY:
-    class CisScanConfigurationDailyScheduleArgsDict(TypedDict):
-        start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
-elif False:
-    CisScanConfigurationDailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationDailyScheduleArgsDict(TypedDict):
+    start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
 
 @pulumi.input_type
 class CisScanConfigurationDailyScheduleArgs:
@@ -122,12 +114,9 @@ class CisScanConfigurationDailyScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class CisScanConfigurationMonthlyScheduleArgsDict(TypedDict):
-        day: pulumi.Input['CisScanConfigurationDay']
-        start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
-elif False:
-    CisScanConfigurationMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationMonthlyScheduleArgsDict(TypedDict):
+    day: pulumi.Input['CisScanConfigurationDay']
+    start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
 
 @pulumi.input_type
 class CisScanConfigurationMonthlyScheduleArgs:
@@ -156,11 +145,8 @@ class CisScanConfigurationMonthlyScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class CisScanConfigurationOneTimeScheduleArgsDict(TypedDict):
-        pass
-elif False:
-    CisScanConfigurationOneTimeScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationOneTimeScheduleArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class CisScanConfigurationOneTimeScheduleArgs:
@@ -168,17 +154,14 @@ class CisScanConfigurationOneTimeScheduleArgs:
         pass
 
 
-if not MYPY:
-    class CisScanConfigurationScheduleArgsDict(TypedDict):
-        """
-        Choose a Schedule cadence
-        """
-        daily: NotRequired[pulumi.Input['CisScanConfigurationDailyScheduleArgsDict']]
-        monthly: NotRequired[pulumi.Input['CisScanConfigurationMonthlyScheduleArgsDict']]
-        one_time: NotRequired[pulumi.Input['CisScanConfigurationOneTimeScheduleArgsDict']]
-        weekly: NotRequired[pulumi.Input['CisScanConfigurationWeeklyScheduleArgsDict']]
-elif False:
-    CisScanConfigurationScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationScheduleArgsDict(TypedDict):
+    """
+    Choose a Schedule cadence
+    """
+    daily: NotRequired[pulumi.Input['CisScanConfigurationDailyScheduleArgsDict']]
+    monthly: NotRequired[pulumi.Input['CisScanConfigurationMonthlyScheduleArgsDict']]
+    one_time: NotRequired[pulumi.Input['CisScanConfigurationOneTimeScheduleArgsDict']]
+    weekly: NotRequired[pulumi.Input['CisScanConfigurationWeeklyScheduleArgsDict']]
 
 @pulumi.input_type
 class CisScanConfigurationScheduleArgs:
@@ -236,12 +219,9 @@ class CisScanConfigurationScheduleArgs:
         pulumi.set(self, "weekly", value)
 
 
-if not MYPY:
-    class CisScanConfigurationTimeArgsDict(TypedDict):
-        time_of_day: pulumi.Input[_builtins.str]
-        time_zone: pulumi.Input[_builtins.str]
-elif False:
-    CisScanConfigurationTimeArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationTimeArgsDict(TypedDict):
+    time_of_day: pulumi.Input[_builtins.str]
+    time_zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class CisScanConfigurationTimeArgs:
@@ -270,12 +250,9 @@ class CisScanConfigurationTimeArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class CisScanConfigurationWeeklyScheduleArgsDict(TypedDict):
-        days: pulumi.Input[Sequence[pulumi.Input['CisScanConfigurationDay']]]
-        start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
-elif False:
-    CisScanConfigurationWeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CisScanConfigurationWeeklyScheduleArgsDict(TypedDict):
+    days: pulumi.Input[Sequence[pulumi.Input['CisScanConfigurationDay']]]
+    start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
 
 @pulumi.input_type
 class CisScanConfigurationWeeklyScheduleArgs:
@@ -304,14 +281,11 @@ class CisScanConfigurationWeeklyScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class CodeSecurityIntegrationCreateDetailsArgsDict(TypedDict):
-        gitlab_self_managed: pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict']
-        """
-        Details specific to creating an integration with a self-managed GitLab instance.
-        """
-elif False:
-    CodeSecurityIntegrationCreateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityIntegrationCreateDetailsArgsDict(TypedDict):
+    gitlab_self_managed: pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict']
+    """
+    Details specific to creating an integration with a self-managed GitLab instance.
+    """
 
 @pulumi.input_type
 class CodeSecurityIntegrationCreateDetailsArgs:
@@ -335,18 +309,15 @@ class CodeSecurityIntegrationCreateDetailsArgs:
         pulumi.set(self, "gitlab_self_managed", value)
 
 
-if not MYPY:
-    class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict(TypedDict):
-        access_token: pulumi.Input[_builtins.str]
-        """
-        The personal access token used to authenticate with the self-managed GitLab instance.
-        """
-        instance_url: pulumi.Input[_builtins.str]
-        """
-        The URL of the self-managed GitLab instance.
-        """
-elif False:
-    CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict(TypedDict):
+    access_token: pulumi.Input[_builtins.str]
+    """
+    The personal access token used to authenticate with the self-managed GitLab instance.
+    """
+    instance_url: pulumi.Input[_builtins.str]
+    """
+    The URL of the self-managed GitLab instance.
+    """
 
 @pulumi.input_type
 class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs:
@@ -385,18 +356,15 @@ class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs:
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class CodeSecurityIntegrationUpdateDetailsArgsDict(TypedDict):
-        github: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict']]
-        """
-        Details specific to updating an integration with GitHub.
-        """
-        gitlab_self_managed: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict']]
-        """
-        Details specific to updating an integration with a self-managed GitLab instance.
-        """
-elif False:
-    CodeSecurityIntegrationUpdateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityIntegrationUpdateDetailsArgsDict(TypedDict):
+    github: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict']]
+    """
+    Details specific to updating an integration with GitHub.
+    """
+    gitlab_self_managed: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict']]
+    """
+    Details specific to updating an integration with a self-managed GitLab instance.
+    """
 
 @pulumi.input_type
 class CodeSecurityIntegrationUpdateDetailsArgs:
@@ -437,18 +405,15 @@ class CodeSecurityIntegrationUpdateDetailsArgs:
         pulumi.set(self, "gitlab_self_managed", value)
 
 
-if not MYPY:
-    class CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict(TypedDict):
-        code: pulumi.Input[_builtins.str]
-        """
-        The authorization code received from GitHub to update the integration.
-        """
-        installation_id: pulumi.Input[_builtins.str]
-        """
-        The installation ID of the GitHub App associated with the integration.
-        """
-elif False:
-    CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict(TypedDict):
+    code: pulumi.Input[_builtins.str]
+    """
+    The authorization code received from GitHub to update the integration.
+    """
+    installation_id: pulumi.Input[_builtins.str]
+    """
+    The installation ID of the GitHub App associated with the integration.
+    """
 
 @pulumi.input_type
 class CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs:
@@ -487,14 +452,11 @@ class CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs:
         pulumi.set(self, "installation_id", value)
 
 
-if not MYPY:
-    class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict(TypedDict):
-        auth_code: pulumi.Input[_builtins.str]
-        """
-        The authorization code received from the self-managed GitLab instance to update the integration.
-        """
-elif False:
-    CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict(TypedDict):
+    auth_code: pulumi.Input[_builtins.str]
+    """
+    The authorization code received from the self-managed GitLab instance to update the integration.
+    """
 
 @pulumi.input_type
 class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs:
@@ -518,14 +480,11 @@ class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs:
         pulumi.set(self, "auth_code", value)
 
 
-if not MYPY:
-    class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict(TypedDict):
-        supported_events: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]]
-        """
-        The repository events that trigger continuous integration scans, such as pull requests or commits.
-        """
-elif False:
-    CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict(TypedDict):
+    supported_events: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]]
+    """
+    The repository events that trigger continuous integration scans, such as pull requests or commits.
+    """
 
 @pulumi.input_type
 class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs:
@@ -549,20 +508,17 @@ class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs:
         pulumi.set(self, "supported_events", value)
 
 
-if not MYPY:
-    class CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict(TypedDict):
-        frequency: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]
-        """
-        The frequency at which periodic scans are performed (such as weekly or monthly).
+class CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict(TypedDict):
+    frequency: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]
+    """
+    The frequency at which periodic scans are performed (such as weekly or monthly).
 
-        If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
-        """
-        frequency_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The schedule expression for periodic scans, in cron format.
-        """
-elif False:
-    CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+    """
+    frequency_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The schedule expression for periodic scans, in cron format.
+    """
 
 @pulumi.input_type
 class CodeSecurityScanConfigurationPeriodicScanConfigurationArgs:
@@ -607,14 +563,11 @@ class CodeSecurityScanConfigurationPeriodicScanConfigurationArgs:
         pulumi.set(self, "frequency_expression", value)
 
 
-if not MYPY:
-    class CodeSecurityScanConfigurationScopeSettingsArgsDict(TypedDict):
-        project_selection_scope: NotRequired[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]
-        """
-        The scope of projects to be selected for scanning within the integrated repositories.
-        """
-elif False:
-    CodeSecurityScanConfigurationScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityScanConfigurationScopeSettingsArgsDict(TypedDict):
+    project_selection_scope: NotRequired[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]
+    """
+    The scope of projects to be selected for scanning within the integrated repositories.
+    """
 
 @pulumi.input_type
 class CodeSecurityScanConfigurationScopeSettingsArgs:
@@ -639,22 +592,19 @@ class CodeSecurityScanConfigurationScopeSettingsArgs:
         pulumi.set(self, "project_selection_scope", value)
 
 
-if not MYPY:
-    class CodeSecurityScanConfigurationArgsDict(TypedDict):
-        rule_set_categories: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]]
-        """
-        The categories of security rules to be applied during the scan.
-        """
-        continuous_integration_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict']]
-        """
-        Configuration settings for continuous integration scans that run automatically when code changes are made.
-        """
-        periodic_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict']]
-        """
-        Configuration settings for periodic scans that run on a scheduled basis.
-        """
-elif False:
-    CodeSecurityScanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSecurityScanConfigurationArgsDict(TypedDict):
+    rule_set_categories: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]]
+    """
+    The categories of security rules to be applied during the scan.
+    """
+    continuous_integration_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict']]
+    """
+    Configuration settings for continuous integration scans that run automatically when code changes are made.
+    """
+    periodic_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict']]
+    """
+    Configuration settings for periodic scans that run on a scheduled basis.
+    """
 
 @pulumi.input_type
 class CodeSecurityScanConfigurationArgs:
@@ -710,145 +660,142 @@ class CodeSecurityScanConfigurationArgs:
         pulumi.set(self, "periodic_scan_configuration", value)
 
 
-if not MYPY:
-    class FilterCriteriaArgsDict(TypedDict):
-        aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the AWS account IDs used to filter findings.
-        """
-        code_vulnerability_detector_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        code_vulnerability_detector_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        code_vulnerability_file_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        component_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the component IDs used to filter findings.
-        """
-        component_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the component types used to filter findings.
-        """
-        ec2_instance_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon EC2 instance image IDs used to filter findings.
-        """
-        ec2_instance_subnet_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon EC2 instance subnet IDs used to filter findings.
-        """
-        ec2_instance_vpc_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon EC2 instance VPC IDs used to filter findings.
-        """
-        ecr_image_architecture: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon ECR image architecture types used to filter findings.
-        """
-        ecr_image_hash: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon ECR image hashes used to filter findings.
-        """
-        ecr_image_pushed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the Amazon ECR image push date and time used to filter findings.
-        """
-        ecr_image_registry: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the Amazon ECR registry used to filter findings.
-        """
-        ecr_image_repository_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the name of the Amazon ECR repository used to filter findings.
-        """
-        ecr_image_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        The tags attached to the Amazon ECR container image.
-        """
-        epss_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
-        exploit_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        finding_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding ARNs used to filter findings.
-        """
-        finding_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding status types used to filter findings.
-        """
-        finding_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding types used to filter findings.
-        """
-        first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the date and time a finding was first seen used to filter findings.
-        """
-        fix_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        inspector_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
-        """
-        The Amazon Inspector score to filter on.
-        """
-        lambda_function_execution_role_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        lambda_function_last_modified_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        lambda_function_layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        lambda_function_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        lambda_function_runtime: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the date and time a finding was last seen used to filter findings.
-        """
-        network_protocol: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on network protocol used to filter findings.
-        """
-        port_range: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgsDict']]]]
-        """
-        Details on the port ranges used to filter findings.
-        """
-        related_vulnerabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the related vulnerabilities used to filter findings.
-        """
-        resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the resource IDs used to filter findings.
-        """
-        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgsDict']]]]
-        """
-        Details on the resource tags used to filter findings.
-        """
-        resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the resource types used to filter findings.
-        """
-        severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the severity used to filter findings.
-        """
-        title: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding title used to filter findings.
-        """
-        updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the date and time a finding was last updated at used to filter findings.
-        """
-        vendor_severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the vendor severity used to filter findings.
-        """
-        vulnerability_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the vulnerability ID used to filter findings.
-        """
-        vulnerability_source: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the vulnerability score to filter findings by.
-        """
-        vulnerable_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgsDict']]]]
-        """
-        Details on the vulnerable packages used to filter findings.
-        """
-elif False:
-    FilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class FilterCriteriaArgsDict(TypedDict):
+    aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the AWS account IDs used to filter findings.
+    """
+    code_vulnerability_detector_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    code_vulnerability_detector_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    code_vulnerability_file_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    component_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the component IDs used to filter findings.
+    """
+    component_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the component types used to filter findings.
+    """
+    ec2_instance_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the Amazon EC2 instance image IDs used to filter findings.
+    """
+    ec2_instance_subnet_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the Amazon EC2 instance subnet IDs used to filter findings.
+    """
+    ec2_instance_vpc_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the Amazon EC2 instance VPC IDs used to filter findings.
+    """
+    ecr_image_architecture: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the Amazon ECR image architecture types used to filter findings.
+    """
+    ecr_image_hash: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details of the Amazon ECR image hashes used to filter findings.
+    """
+    ecr_image_pushed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    """
+    Details on the Amazon ECR image push date and time used to filter findings.
+    """
+    ecr_image_registry: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the Amazon ECR registry used to filter findings.
+    """
+    ecr_image_repository_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the name of the Amazon ECR repository used to filter findings.
+    """
+    ecr_image_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    The tags attached to the Amazon ECR container image.
+    """
+    epss_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
+    exploit_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    finding_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the finding ARNs used to filter findings.
+    """
+    finding_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the finding status types used to filter findings.
+    """
+    finding_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the finding types used to filter findings.
+    """
+    first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    """
+    Details on the date and time a finding was first seen used to filter findings.
+    """
+    fix_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    inspector_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
+    """
+    The Amazon Inspector score to filter on.
+    """
+    lambda_function_execution_role_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    lambda_function_last_modified_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    lambda_function_layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    lambda_function_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    lambda_function_runtime: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    """
+    Details on the date and time a finding was last seen used to filter findings.
+    """
+    network_protocol: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on network protocol used to filter findings.
+    """
+    port_range: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgsDict']]]]
+    """
+    Details on the port ranges used to filter findings.
+    """
+    related_vulnerabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the related vulnerabilities used to filter findings.
+    """
+    resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the resource IDs used to filter findings.
+    """
+    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgsDict']]]]
+    """
+    Details on the resource tags used to filter findings.
+    """
+    resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the resource types used to filter findings.
+    """
+    severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the severity used to filter findings.
+    """
+    title: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the finding title used to filter findings.
+    """
+    updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+    """
+    Details on the date and time a finding was last updated at used to filter findings.
+    """
+    vendor_severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the vendor severity used to filter findings.
+    """
+    vulnerability_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the vulnerability ID used to filter findings.
+    """
+    vulnerability_source: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+    """
+    Details on the vulnerability score to filter findings by.
+    """
+    vulnerable_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgsDict']]]]
+    """
+    Details on the vulnerable packages used to filter findings.
+    """
 
 @pulumi.input_type
 class FilterCriteriaArgs:
@@ -1485,12 +1432,9 @@ class FilterCriteriaArgs:
         pulumi.set(self, "vulnerable_packages", value)
 
 
-if not MYPY:
-    class FilterDateFilterArgsDict(TypedDict):
-        end_inclusive: NotRequired[pulumi.Input[_builtins.int]]
-        start_inclusive: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FilterDateFilterArgsDict: TypeAlias = Mapping[str, Any]
+class FilterDateFilterArgsDict(TypedDict):
+    end_inclusive: NotRequired[pulumi.Input[_builtins.int]]
+    start_inclusive: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FilterDateFilterArgs:
@@ -1521,13 +1465,10 @@ class FilterDateFilterArgs:
         pulumi.set(self, "start_inclusive", value)
 
 
-if not MYPY:
-    class FilterMapFilterArgsDict(TypedDict):
-        comparison: pulumi.Input['FilterMapComparison']
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FilterMapFilterArgsDict: TypeAlias = Mapping[str, Any]
+class FilterMapFilterArgsDict(TypedDict):
+    comparison: pulumi.Input['FilterMapComparison']
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FilterMapFilterArgs:
@@ -1569,12 +1510,9 @@ class FilterMapFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FilterNumberFilterArgsDict(TypedDict):
-        lower_inclusive: NotRequired[pulumi.Input[_builtins.float]]
-        upper_inclusive: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    FilterNumberFilterArgsDict: TypeAlias = Mapping[str, Any]
+class FilterNumberFilterArgsDict(TypedDict):
+    lower_inclusive: NotRequired[pulumi.Input[_builtins.float]]
+    upper_inclusive: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class FilterNumberFilterArgs:
@@ -1605,18 +1543,15 @@ class FilterNumberFilterArgs:
         pulumi.set(self, "upper_inclusive", value)
 
 
-if not MYPY:
-    class FilterPackageFilterArgsDict(TypedDict):
-        architecture: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        epoch: NotRequired[pulumi.Input['FilterNumberFilterArgsDict']]
-        file_path: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        name: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        release: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        source_lambda_layer_arn: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        source_layer_hash: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        version: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-elif False:
-    FilterPackageFilterArgsDict: TypeAlias = Mapping[str, Any]
+class FilterPackageFilterArgsDict(TypedDict):
+    architecture: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    epoch: NotRequired[pulumi.Input['FilterNumberFilterArgsDict']]
+    file_path: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    name: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    release: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    source_lambda_layer_arn: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    source_layer_hash: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+    version: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
 
 @pulumi.input_type
 class FilterPackageFilterArgs:
@@ -1719,12 +1654,9 @@ class FilterPackageFilterArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class FilterPortRangeFilterArgsDict(TypedDict):
-        begin_inclusive: NotRequired[pulumi.Input[_builtins.int]]
-        end_inclusive: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FilterPortRangeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class FilterPortRangeFilterArgsDict(TypedDict):
+    begin_inclusive: NotRequired[pulumi.Input[_builtins.int]]
+    end_inclusive: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FilterPortRangeFilterArgs:
@@ -1755,12 +1687,9 @@ class FilterPortRangeFilterArgs:
         pulumi.set(self, "end_inclusive", value)
 
 
-if not MYPY:
-    class FilterStringFilterArgsDict(TypedDict):
-        comparison: pulumi.Input['FilterStringComparison']
-        value: pulumi.Input[_builtins.str]
-elif False:
-    FilterStringFilterArgsDict: TypeAlias = Mapping[str, Any]
+class FilterStringFilterArgsDict(TypedDict):
+    comparison: pulumi.Input['FilterStringComparison']
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FilterStringFilterArgs:

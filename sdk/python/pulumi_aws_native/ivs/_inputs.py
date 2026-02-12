@@ -42,24 +42,19 @@ __all__ = [
     'VideoPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ChannelMultitrackInputConfigurationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
-        """
-        maximum_resolution: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]
-        """
-        Maximum resolution for multitrack input. Required if enabled is true.
-        """
-        policy: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]
-        """
-        Indicates whether multitrack input is allowed or required. Required if enabled is true.
-        """
-elif False:
-    ChannelMultitrackInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelMultitrackInputConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether multitrack input is enabled. Can be set to true only if channel type is STANDARD. Setting enabled to true with any other channel type will cause an exception. If true, then policy, maximumResolution, and containerFormat are required, and containerFormat must be set to FRAGMENTED_MP4. Default: false.
+    """
+    maximum_resolution: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationMaximumResolution']]
+    """
+    Maximum resolution for multitrack input. Required if enabled is true.
+    """
+    policy: NotRequired[pulumi.Input['ChannelMultitrackInputConfigurationPolicy']]
+    """
+    Indicates whether multitrack input is allowed or required. Required if enabled is true.
+    """
 
 @pulumi.input_type
 class ChannelMultitrackInputConfigurationArgs:
@@ -116,17 +111,14 @@ class ChannelMultitrackInputConfigurationArgs:
         pulumi.set(self, "policy", value)
 
 
-if not MYPY:
-    class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
-        """
-        Recording Destination Configuration.
-        """
-        s3: NotRequired[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgsDict']]
-        """
-        An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
-        """
-elif False:
-    RecordingConfigurationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
+    """
+    Recording Destination Configuration.
+    """
+    s3: NotRequired[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgsDict']]
+    """
+    An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
+    """
 
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationArgs:
@@ -152,21 +144,18 @@ class RecordingConfigurationDestinationConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class RecordingConfigurationRenditionConfigurationArgsDict(TypedDict):
-        """
-        Rendition Configuration describes which renditions should be recorded for a stream.
-        """
-        rendition_selection: NotRequired[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']]
-        """
-        Resolution Selection indicates which set of renditions are recorded for a stream.
-        """
-        renditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]
-        """
-        Renditions indicates which renditions are recorded for a stream.
-        """
-elif False:
-    RecordingConfigurationRenditionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RecordingConfigurationRenditionConfigurationArgsDict(TypedDict):
+    """
+    Rendition Configuration describes which renditions should be recorded for a stream.
+    """
+    rendition_selection: NotRequired[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']]
+    """
+    Resolution Selection indicates which set of renditions are recorded for a stream.
+    """
+    renditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]
+    """
+    Renditions indicates which renditions are recorded for a stream.
+    """
 
 @pulumi.input_type
 class RecordingConfigurationRenditionConfigurationArgs:
@@ -208,17 +197,14 @@ class RecordingConfigurationRenditionConfigurationArgs:
         pulumi.set(self, "renditions", value)
 
 
-if not MYPY:
-    class RecordingConfigurationS3DestinationConfigurationArgsDict(TypedDict):
-        """
-        Recording S3 Destination Configuration.
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Location (S3 bucket name) where recorded videos will be stored.
-        """
-elif False:
-    RecordingConfigurationS3DestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RecordingConfigurationS3DestinationConfigurationArgsDict(TypedDict):
+    """
+    Recording S3 Destination Configuration.
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Location (S3 bucket name) where recorded videos will be stored.
+    """
 
 @pulumi.input_type
 class RecordingConfigurationS3DestinationConfigurationArgs:
@@ -243,29 +229,26 @@ class RecordingConfigurationS3DestinationConfigurationArgs:
         pulumi.set(self, "bucket_name", value)
 
 
-if not MYPY:
-    class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
-        """
-        Recording Thumbnail Configuration.
-        """
-        recording_mode: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']]
-        """
-        Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
-        """
-        resolution: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']]
-        """
-        Resolution indicates the desired resolution of recorded thumbnails.
-        """
-        storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]
-        """
-        Storage indicates the format in which thumbnails are recorded.
-        """
-        target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
-        """
-elif False:
-    RecordingConfigurationThumbnailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
+    """
+    Recording Thumbnail Configuration.
+    """
+    recording_mode: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']]
+    """
+    Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
+    """
+    resolution: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']]
+    """
+    Resolution indicates the desired resolution of recorded thumbnails.
+    """
+    storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]
+    """
+    Storage indicates the format in which thumbnails are recorded.
+    """
+    target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
+    """
 
 @pulumi.input_type
 class RecordingConfigurationThumbnailConfigurationArgs:
@@ -339,33 +322,30 @@ class RecordingConfigurationThumbnailConfigurationArgs:
         pulumi.set(self, "target_interval_seconds", value)
 
 
-if not MYPY:
-    class StageAutoParticipantRecordingConfigurationArgsDict(TypedDict):
-        """
-        Configuration object for individual participant recording, to attach to the new stage.
-        """
-        storage_configuration_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the StorageConfiguration resource to use for individual participant recording.
-        """
-        hls_configuration: NotRequired[pulumi.Input['StageHlsConfigurationArgsDict']]
-        """
-        HLS configuration object for individual participant recording.
-        """
-        media_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]
-        """
-        Types of media to be recorded. Default: AUDIO_VIDEO.
-        """
-        recording_reconnect_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
-        """
-        thumbnail_configuration: NotRequired[pulumi.Input['StageThumbnailConfigurationArgsDict']]
-        """
-        A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-        """
-elif False:
-    StageAutoParticipantRecordingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StageAutoParticipantRecordingConfigurationArgsDict(TypedDict):
+    """
+    Configuration object for individual participant recording, to attach to the new stage.
+    """
+    storage_configuration_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the StorageConfiguration resource to use for individual participant recording.
+    """
+    hls_configuration: NotRequired[pulumi.Input['StageHlsConfigurationArgsDict']]
+    """
+    HLS configuration object for individual participant recording.
+    """
+    media_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]
+    """
+    Types of media to be recorded. Default: AUDIO_VIDEO.
+    """
+    recording_reconnect_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
+    """
+    thumbnail_configuration: NotRequired[pulumi.Input['StageThumbnailConfigurationArgsDict']]
+    """
+    A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+    """
 
 @pulumi.input_type
 class StageAutoParticipantRecordingConfigurationArgs:
@@ -454,17 +434,14 @@ class StageAutoParticipantRecordingConfigurationArgs:
         pulumi.set(self, "thumbnail_configuration", value)
 
 
-if not MYPY:
-    class StageHlsConfigurationArgsDict(TypedDict):
-        """
-        HLS configuration object for individual participant recording.
-        """
-        participant_recording_hls_configuration: NotRequired[pulumi.Input['StageParticipantRecordingHlsConfigurationArgsDict']]
-        """
-        Object specifying a configuration of participant HLS recordings for individual participant recording.
-        """
-elif False:
-    StageHlsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StageHlsConfigurationArgsDict(TypedDict):
+    """
+    HLS configuration object for individual participant recording.
+    """
+    participant_recording_hls_configuration: NotRequired[pulumi.Input['StageParticipantRecordingHlsConfigurationArgsDict']]
+    """
+    Object specifying a configuration of participant HLS recordings for individual participant recording.
+    """
 
 @pulumi.input_type
 class StageHlsConfigurationArgs:
@@ -490,17 +467,14 @@ class StageHlsConfigurationArgs:
         pulumi.set(self, "participant_recording_hls_configuration", value)
 
 
-if not MYPY:
-    class StageParticipantRecordingHlsConfigurationArgsDict(TypedDict):
-        """
-        An object representing a configuration of participant HLS recordings for individual participant recording.
-        """
-        target_segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
-        """
-elif False:
-    StageParticipantRecordingHlsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StageParticipantRecordingHlsConfigurationArgsDict(TypedDict):
+    """
+    An object representing a configuration of participant HLS recordings for individual participant recording.
+    """
+    target_segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
+    """
 
 @pulumi.input_type
 class StageParticipantRecordingHlsConfigurationArgs:
@@ -526,25 +500,22 @@ class StageParticipantRecordingHlsConfigurationArgs:
         pulumi.set(self, "target_segment_duration_seconds", value)
 
 
-if not MYPY:
-    class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict(TypedDict):
-        """
-        An object representing a configuration of thumbnails for recorded video from an individual participant.
-        """
-        recording_mode: NotRequired[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]
-        """
-        Thumbnail recording mode. Default: DISABLED.
-        """
-        storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]
-        """
-        Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
-        """
-        target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
-        """
-elif False:
-    StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict(TypedDict):
+    """
+    An object representing a configuration of thumbnails for recorded video from an individual participant.
+    """
+    recording_mode: NotRequired[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']]
+    """
+    Thumbnail recording mode. Default: DISABLED.
+    """
+    storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]]]
+    """
+    Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+    """
+    target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
+    """
 
 @pulumi.input_type
 class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs:
@@ -602,17 +573,14 @@ class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs
         pulumi.set(self, "target_interval_seconds", value)
 
 
-if not MYPY:
-    class StageThumbnailConfigurationArgsDict(TypedDict):
-        """
-        A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-        """
-        participant_thumbnail_configuration: NotRequired[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict']]
-        """
-        An object representing a configuration of thumbnails for recorded video from an individual participant.
-        """
-elif False:
-    StageThumbnailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StageThumbnailConfigurationArgsDict(TypedDict):
+    """
+    A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+    """
+    participant_thumbnail_configuration: NotRequired[pulumi.Input['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgsDict']]
+    """
+    An object representing a configuration of thumbnails for recorded video from an individual participant.
+    """
 
 @pulumi.input_type
 class StageThumbnailConfigurationArgs:
@@ -638,17 +606,14 @@ class StageThumbnailConfigurationArgs:
         pulumi.set(self, "participant_thumbnail_configuration", value)
 
 
-if not MYPY:
-    class StorageConfigurationS3StorageConfigurationArgsDict(TypedDict):
-        """
-        A complex type that describes an S3 location where recorded videos will be stored.
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
-        """
-elif False:
-    StorageConfigurationS3StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageConfigurationS3StorageConfigurationArgsDict(TypedDict):
+    """
+    A complex type that describes an S3 location where recorded videos will be stored.
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+    """
 
 @pulumi.input_type
 class StorageConfigurationS3StorageConfigurationArgs:
@@ -673,29 +638,26 @@ class StorageConfigurationS3StorageConfigurationArgs:
         pulumi.set(self, "bucket_name", value)
 
 
-if not MYPY:
-    class VideoPropertiesArgsDict(TypedDict):
-        """
-        Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
-        """
-        bitrate: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Bitrate for generated output, in bps. Default: 2500000.
-        """
-        framerate: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Video frame rate, in fps. Default: 30.
-        """
-        height: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
-        """
-        width: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
-        """
-elif False:
-    VideoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VideoPropertiesArgsDict(TypedDict):
+    """
+    Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+    """
+    bitrate: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Bitrate for generated output, in bps. Default: 2500000.
+    """
+    framerate: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Video frame rate, in fps. Default: 30.
+    """
+    height: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+    """
+    width: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+    """
 
 @pulumi.input_type
 class VideoPropertiesArgs:

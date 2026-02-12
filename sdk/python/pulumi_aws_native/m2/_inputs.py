@@ -26,13 +26,8 @@ __all__ = [
     'EnvironmentStorageConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationDefinition0PropertiesArgsDict(TypedDict):
-        s3_location: pulumi.Input[_builtins.str]
-elif False:
-    ApplicationDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationDefinition0PropertiesArgsDict(TypedDict):
+    s3_location: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ApplicationDefinition0PropertiesArgs:
@@ -50,11 +45,8 @@ class ApplicationDefinition0PropertiesArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class ApplicationDefinition1PropertiesArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-elif False:
-    ApplicationDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationDefinition1PropertiesArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ApplicationDefinition1PropertiesArgs:
@@ -72,17 +64,14 @@ class ApplicationDefinition1PropertiesArgs:
         pulumi.set(self, "content", value)
 
 
-if not MYPY:
-    class EnvironmentHighAvailabilityConfigArgsDict(TypedDict):
-        """
-        Defines the details of a high availability configuration.
-        """
-        desired_capacity: pulumi.Input[_builtins.int]
-        """
-        The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
-        """
-elif False:
-    EnvironmentHighAvailabilityConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentHighAvailabilityConfigArgsDict(TypedDict):
+    """
+    Defines the details of a high availability configuration.
+    """
+    desired_capacity: pulumi.Input[_builtins.int]
+    """
+    The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
+    """
 
 @pulumi.input_type
 class EnvironmentHighAvailabilityConfigArgs:
@@ -107,14 +96,11 @@ class EnvironmentHighAvailabilityConfigArgs:
         pulumi.set(self, "desired_capacity", value)
 
 
-if not MYPY:
-    class EnvironmentStorageConfigurationArgsDict(TypedDict):
-        """
-        Defines the storage configuration for an environment.
-        """
-        pass
-elif False:
-    EnvironmentStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentStorageConfigurationArgsDict(TypedDict):
+    """
+    Defines the storage configuration for an environment.
+    """
+    pass
 
 @pulumi.input_type
 class EnvironmentStorageConfigurationArgs:

@@ -62,16 +62,11 @@ __all__ = [
     'TemplateRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CaseRuleBooleanCondition0PropertiesArgsDict(TypedDict):
-        """
-        A boolean condition for a rule.
-        """
-        equal_to: pulumi.Input['CaseRuleBooleanOperandsArgsDict']
-elif False:
-    CaseRuleBooleanCondition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleBooleanCondition0PropertiesArgsDict(TypedDict):
+    """
+    A boolean condition for a rule.
+    """
+    equal_to: pulumi.Input['CaseRuleBooleanOperandsArgsDict']
 
 @pulumi.input_type
 class CaseRuleBooleanCondition0PropertiesArgs:
@@ -92,14 +87,11 @@ class CaseRuleBooleanCondition0PropertiesArgs:
         pulumi.set(self, "equal_to", value)
 
 
-if not MYPY:
-    class CaseRuleBooleanCondition1PropertiesArgsDict(TypedDict):
-        """
-        A boolean condition for a rule.
-        """
-        not_equal_to: pulumi.Input['CaseRuleBooleanOperandsArgsDict']
-elif False:
-    CaseRuleBooleanCondition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleBooleanCondition1PropertiesArgsDict(TypedDict):
+    """
+    A boolean condition for a rule.
+    """
+    not_equal_to: pulumi.Input['CaseRuleBooleanOperandsArgsDict']
 
 @pulumi.input_type
 class CaseRuleBooleanCondition1PropertiesArgs:
@@ -120,19 +112,16 @@ class CaseRuleBooleanCondition1PropertiesArgs:
         pulumi.set(self, "not_equal_to", value)
 
 
-if not MYPY:
-    class CaseRuleBooleanOperandsArgsDict(TypedDict):
-        """
-        Boolean operands for a condition.
-        """
-        operand_one: pulumi.Input['CaseRuleOperandOnePropertiesArgsDict']
-        operand_two: pulumi.Input[Union['CaseRuleOperandTwo0PropertiesArgsDict', 'CaseRuleOperandTwo1PropertiesArgsDict', 'CaseRuleOperandTwo2PropertiesArgsDict', 'CaseRuleOperandTwo3PropertiesArgsDict']]
-        result: pulumi.Input[_builtins.bool]
-        """
-        The value of the outer rule if the condition evaluates to true.
-        """
-elif False:
-    CaseRuleBooleanOperandsArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleBooleanOperandsArgsDict(TypedDict):
+    """
+    Boolean operands for a condition.
+    """
+    operand_one: pulumi.Input['CaseRuleOperandOnePropertiesArgsDict']
+    operand_two: pulumi.Input[Union['CaseRuleOperandTwo0PropertiesArgsDict', 'CaseRuleOperandTwo1PropertiesArgsDict', 'CaseRuleOperandTwo2PropertiesArgsDict', 'CaseRuleOperandTwo3PropertiesArgsDict']]
+    result: pulumi.Input[_builtins.bool]
+    """
+    The value of the outer rule if the condition evaluates to true.
+    """
 
 @pulumi.input_type
 class CaseRuleBooleanOperandsArgs:
@@ -179,14 +168,11 @@ class CaseRuleBooleanOperandsArgs:
         pulumi.set(self, "result", value)
 
 
-if not MYPY:
-    class CaseRuleDetails0PropertiesArgsDict(TypedDict):
-        """
-        Defines the rule behavior and conditions. Specifies the rule type and the conditions under which it applies. In the Amazon Connect admin website, this corresponds to case field conditions.
-        """
-        required: pulumi.Input['CaseRuleRequiredCaseRuleArgsDict']
-elif False:
-    CaseRuleDetails0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleDetails0PropertiesArgsDict(TypedDict):
+    """
+    Defines the rule behavior and conditions. Specifies the rule type and the conditions under which it applies. In the Amazon Connect admin website, this corresponds to case field conditions.
+    """
+    required: pulumi.Input['CaseRuleRequiredCaseRuleArgsDict']
 
 @pulumi.input_type
 class CaseRuleDetails0PropertiesArgs:
@@ -207,14 +193,11 @@ class CaseRuleDetails0PropertiesArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class CaseRuleDetails1PropertiesArgsDict(TypedDict):
-        """
-        Defines the rule behavior and conditions. Specifies the rule type and the conditions under which it applies. In the Amazon Connect admin website, this corresponds to case field conditions.
-        """
-        hidden: pulumi.Input['CaseRuleHiddenCaseRuleArgsDict']
-elif False:
-    CaseRuleDetails1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleDetails1PropertiesArgsDict(TypedDict):
+    """
+    Defines the rule behavior and conditions. Specifies the rule type and the conditions under which it applies. In the Amazon Connect admin website, this corresponds to case field conditions.
+    """
+    hidden: pulumi.Input['CaseRuleHiddenCaseRuleArgsDict']
 
 @pulumi.input_type
 class CaseRuleDetails1PropertiesArgs:
@@ -235,14 +218,11 @@ class CaseRuleDetails1PropertiesArgs:
         pulumi.set(self, "hidden", value)
 
 
-if not MYPY:
-    class CaseRuleEmptyOperandValueArgsDict(TypedDict):
-        """
-        An empty operand value.
-        """
-        pass
-elif False:
-    CaseRuleEmptyOperandValueArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleEmptyOperandValueArgsDict(TypedDict):
+    """
+    An empty operand value.
+    """
+    pass
 
 @pulumi.input_type
 class CaseRuleEmptyOperandValueArgs:
@@ -253,21 +233,18 @@ class CaseRuleEmptyOperandValueArgs:
         pass
 
 
-if not MYPY:
-    class CaseRuleHiddenCaseRuleArgsDict(TypedDict):
-        """
-        Hidden rule type, used to indicate whether a field is hidden
-        """
-        conditions: pulumi.Input[Sequence[pulumi.Input[Union['CaseRuleBooleanCondition0PropertiesArgsDict', 'CaseRuleBooleanCondition1PropertiesArgsDict']]]]
-        """
-        List of conditions for the hidden rule; the first condition to evaluate to true dictates the value of the rule
-        """
-        default_value: pulumi.Input[_builtins.bool]
-        """
-        The value of the rule (i.e. whether the field is hidden) should none of the conditions evaluate to true
-        """
-elif False:
-    CaseRuleHiddenCaseRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleHiddenCaseRuleArgsDict(TypedDict):
+    """
+    Hidden rule type, used to indicate whether a field is hidden
+    """
+    conditions: pulumi.Input[Sequence[pulumi.Input[Union['CaseRuleBooleanCondition0PropertiesArgsDict', 'CaseRuleBooleanCondition1PropertiesArgsDict']]]]
+    """
+    List of conditions for the hidden rule; the first condition to evaluate to true dictates the value of the rule
+    """
+    default_value: pulumi.Input[_builtins.bool]
+    """
+    The value of the rule (i.e. whether the field is hidden) should none of the conditions evaluate to true
+    """
 
 @pulumi.input_type
 class CaseRuleHiddenCaseRuleArgs:
@@ -307,17 +284,14 @@ class CaseRuleHiddenCaseRuleArgs:
         pulumi.set(self, "default_value", value)
 
 
-if not MYPY:
-    class CaseRuleOperandOnePropertiesArgsDict(TypedDict):
-        """
-        The left hand operand in the condition.
-        """
-        field_id: pulumi.Input[_builtins.str]
-        """
-        The field ID this operand should take the value of.
-        """
-elif False:
-    CaseRuleOperandOnePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleOperandOnePropertiesArgsDict(TypedDict):
+    """
+    The left hand operand in the condition.
+    """
+    field_id: pulumi.Input[_builtins.str]
+    """
+    The field ID this operand should take the value of.
+    """
 
 @pulumi.input_type
 class CaseRuleOperandOnePropertiesArgs:
@@ -342,17 +316,14 @@ class CaseRuleOperandOnePropertiesArgs:
         pulumi.set(self, "field_id", value)
 
 
-if not MYPY:
-    class CaseRuleOperandTwo0PropertiesArgsDict(TypedDict):
-        """
-        The right hand operand in the condition.
-        """
-        string_value: pulumi.Input[_builtins.str]
-        """
-        A string value to compare against the field value in the condition evaluation.
-        """
-elif False:
-    CaseRuleOperandTwo0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleOperandTwo0PropertiesArgsDict(TypedDict):
+    """
+    The right hand operand in the condition.
+    """
+    string_value: pulumi.Input[_builtins.str]
+    """
+    A string value to compare against the field value in the condition evaluation.
+    """
 
 @pulumi.input_type
 class CaseRuleOperandTwo0PropertiesArgs:
@@ -377,17 +348,14 @@ class CaseRuleOperandTwo0PropertiesArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class CaseRuleOperandTwo1PropertiesArgsDict(TypedDict):
-        """
-        The right hand operand in the condition.
-        """
-        boolean_value: pulumi.Input[_builtins.bool]
-        """
-        A boolean value to compare against the field value in the condition evaluation.
-        """
-elif False:
-    CaseRuleOperandTwo1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleOperandTwo1PropertiesArgsDict(TypedDict):
+    """
+    The right hand operand in the condition.
+    """
+    boolean_value: pulumi.Input[_builtins.bool]
+    """
+    A boolean value to compare against the field value in the condition evaluation.
+    """
 
 @pulumi.input_type
 class CaseRuleOperandTwo1PropertiesArgs:
@@ -412,17 +380,14 @@ class CaseRuleOperandTwo1PropertiesArgs:
         pulumi.set(self, "boolean_value", value)
 
 
-if not MYPY:
-    class CaseRuleOperandTwo2PropertiesArgsDict(TypedDict):
-        """
-        The right hand operand in the condition.
-        """
-        double_value: pulumi.Input[_builtins.float]
-        """
-        A numeric value to compare against the field value in the condition evaluation.
-        """
-elif False:
-    CaseRuleOperandTwo2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleOperandTwo2PropertiesArgsDict(TypedDict):
+    """
+    The right hand operand in the condition.
+    """
+    double_value: pulumi.Input[_builtins.float]
+    """
+    A numeric value to compare against the field value in the condition evaluation.
+    """
 
 @pulumi.input_type
 class CaseRuleOperandTwo2PropertiesArgs:
@@ -447,14 +412,11 @@ class CaseRuleOperandTwo2PropertiesArgs:
         pulumi.set(self, "double_value", value)
 
 
-if not MYPY:
-    class CaseRuleOperandTwo3PropertiesArgsDict(TypedDict):
-        """
-        The right hand operand in the condition.
-        """
-        empty_value: pulumi.Input['CaseRuleEmptyOperandValueArgsDict']
-elif False:
-    CaseRuleOperandTwo3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleOperandTwo3PropertiesArgsDict(TypedDict):
+    """
+    The right hand operand in the condition.
+    """
+    empty_value: pulumi.Input['CaseRuleEmptyOperandValueArgsDict']
 
 @pulumi.input_type
 class CaseRuleOperandTwo3PropertiesArgs:
@@ -475,21 +437,18 @@ class CaseRuleOperandTwo3PropertiesArgs:
         pulumi.set(self, "empty_value", value)
 
 
-if not MYPY:
-    class CaseRuleRequiredCaseRuleArgsDict(TypedDict):
-        """
-        A required rule type, used to indicate whether a field is required.
-        """
-        conditions: pulumi.Input[Sequence[pulumi.Input[Union['CaseRuleBooleanCondition0PropertiesArgsDict', 'CaseRuleBooleanCondition1PropertiesArgsDict']]]]
-        """
-        An ordered list of boolean conditions that determine when the field should be required. Conditions are evaluated in order, and the first condition that evaluates to true determines whether the field is required, overriding the default value.
-        """
-        default_value: pulumi.Input[_builtins.bool]
-        """
-        The default required state for the field when none of the specified conditions are met. If true, the field is required by default; if false, the field is optional by default.
-        """
-elif False:
-    CaseRuleRequiredCaseRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CaseRuleRequiredCaseRuleArgsDict(TypedDict):
+    """
+    A required rule type, used to indicate whether a field is required.
+    """
+    conditions: pulumi.Input[Sequence[pulumi.Input[Union['CaseRuleBooleanCondition0PropertiesArgsDict', 'CaseRuleBooleanCondition1PropertiesArgsDict']]]]
+    """
+    An ordered list of boolean conditions that determine when the field should be required. Conditions are evaluated in order, and the first condition that evaluates to true determines whether the field is required, overriding the default value.
+    """
+    default_value: pulumi.Input[_builtins.bool]
+    """
+    The default required state for the field when none of the specified conditions are met. If true, the field is required by default; if false, the field is optional by default.
+    """
 
 @pulumi.input_type
 class CaseRuleRequiredCaseRuleArgs:
@@ -529,15 +488,12 @@ class CaseRuleRequiredCaseRuleArgs:
         pulumi.set(self, "default_value", value)
 
 
-if not MYPY:
-    class LayoutBasicLayoutArgsDict(TypedDict):
-        """
-        Defines the field layout for the agent's case interface. Configures which fields appear in the top panel (immediately visible) and More Info tab (expandable section) of the case view, allowing customization of the agent experience.
-        """
-        more_info: NotRequired[pulumi.Input['LayoutSectionsArgsDict']]
-        top_panel: NotRequired[pulumi.Input['LayoutSectionsArgsDict']]
-elif False:
-    LayoutBasicLayoutArgsDict: TypeAlias = Mapping[str, Any]
+class LayoutBasicLayoutArgsDict(TypedDict):
+    """
+    Defines the field layout for the agent's case interface. Configures which fields appear in the top panel (immediately visible) and More Info tab (expandable section) of the case view, allowing customization of the agent experience.
+    """
+    more_info: NotRequired[pulumi.Input['LayoutSectionsArgsDict']]
+    top_panel: NotRequired[pulumi.Input['LayoutSectionsArgsDict']]
 
 @pulumi.input_type
 class LayoutBasicLayoutArgs:
@@ -571,14 +527,11 @@ class LayoutBasicLayoutArgs:
         pulumi.set(self, "top_panel", value)
 
 
-if not MYPY:
-    class LayoutContentPropertiesArgsDict(TypedDict):
-        """
-        Defines the layout structure and field organization for the case interface. Specifies which fields appear in the top panel and More Info tab, and their display order.
-        """
-        basic: pulumi.Input['LayoutBasicLayoutArgsDict']
-elif False:
-    LayoutContentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LayoutContentPropertiesArgsDict(TypedDict):
+    """
+    Defines the layout structure and field organization for the case interface. Specifies which fields appear in the top panel and More Info tab, and their display order.
+    """
+    basic: pulumi.Input['LayoutBasicLayoutArgsDict']
 
 @pulumi.input_type
 class LayoutContentPropertiesArgs:
@@ -599,21 +552,18 @@ class LayoutContentPropertiesArgs:
         pulumi.set(self, "basic", value)
 
 
-if not MYPY:
-    class LayoutFieldGroupArgsDict(TypedDict):
-        """
-        Consists of a group of fields and associated properties.
-        """
-        fields: pulumi.Input[Sequence[pulumi.Input['LayoutFieldItemArgsDict']]]
-        """
-        An ordered list of fields to display in this group. The order determines the sequence in which fields appear in the agent interface. Each field is referenced by its unique field ID.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A descriptive name for the field group. Helps organize related fields together in the layout interface.
-        """
-elif False:
-    LayoutFieldGroupArgsDict: TypeAlias = Mapping[str, Any]
+class LayoutFieldGroupArgsDict(TypedDict):
+    """
+    Consists of a group of fields and associated properties.
+    """
+    fields: pulumi.Input[Sequence[pulumi.Input['LayoutFieldItemArgsDict']]]
+    """
+    An ordered list of fields to display in this group. The order determines the sequence in which fields appear in the agent interface. Each field is referenced by its unique field ID.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A descriptive name for the field group. Helps organize related fields together in the layout interface.
+    """
 
 @pulumi.input_type
 class LayoutFieldGroupArgs:
@@ -654,17 +604,14 @@ class LayoutFieldGroupArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LayoutFieldItemArgsDict(TypedDict):
-        """
-        Field specific properties.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier of a field.
-        """
-elif False:
-    LayoutFieldItemArgsDict: TypeAlias = Mapping[str, Any]
+class LayoutFieldItemArgsDict(TypedDict):
+    """
+    Field specific properties.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of a field.
+    """
 
 @pulumi.input_type
 class LayoutFieldItemArgs:
@@ -689,14 +636,11 @@ class LayoutFieldItemArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class LayoutSectionPropertiesArgsDict(TypedDict):
-        """
-        A section can be a grouped list of fields.
-        """
-        field_group: pulumi.Input['LayoutFieldGroupArgsDict']
-elif False:
-    LayoutSectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LayoutSectionPropertiesArgsDict(TypedDict):
+    """
+    A section can be a grouped list of fields.
+    """
+    field_group: pulumi.Input['LayoutFieldGroupArgsDict']
 
 @pulumi.input_type
 class LayoutSectionPropertiesArgs:
@@ -717,17 +661,14 @@ class LayoutSectionPropertiesArgs:
         pulumi.set(self, "field_group", value)
 
 
-if not MYPY:
-    class LayoutSectionsArgsDict(TypedDict):
-        """
-        Sections within a panel or tab of the page layout.
-        """
-        sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['LayoutSectionPropertiesArgsDict']]]]
-        """
-        Defines the sections within a panel or tab. Contains field groups that organize related fields together.
-        """
-elif False:
-    LayoutSectionsArgsDict: TypeAlias = Mapping[str, Any]
+class LayoutSectionsArgsDict(TypedDict):
+    """
+    Sections within a panel or tab of the page layout.
+    """
+    sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['LayoutSectionPropertiesArgsDict']]]]
+    """
+    Defines the sections within a panel or tab. Contains field groups that organize related fields together.
+    """
 
 @pulumi.input_type
 class LayoutSectionsArgs:
@@ -753,17 +694,14 @@ class LayoutSectionsArgs:
         pulumi.set(self, "sections", value)
 
 
-if not MYPY:
-    class TemplateLayoutConfigurationArgsDict(TypedDict):
-        """
-        Specifies the default layout to use when displaying cases created from this template. The layout determines which fields are visible and their arrangement in the agent interface.
-        """
-        default_layout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of a layout.
-        """
-elif False:
-    TemplateLayoutConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateLayoutConfigurationArgsDict(TypedDict):
+    """
+    Specifies the default layout to use when displaying cases created from this template. The layout determines which fields are visible and their arrangement in the agent interface.
+    """
+    default_layout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of a layout.
+    """
 
 @pulumi.input_type
 class TemplateLayoutConfigurationArgs:
@@ -789,17 +727,14 @@ class TemplateLayoutConfigurationArgs:
         pulumi.set(self, "default_layout", value)
 
 
-if not MYPY:
-    class TemplateRequiredFieldArgsDict(TypedDict):
-        """
-        Wrapper object containing a field identifier
-        """
-        field_id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier of a field.
-        """
-elif False:
-    TemplateRequiredFieldArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateRequiredFieldArgsDict(TypedDict):
+    """
+    Wrapper object containing a field identifier
+    """
+    field_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of a field.
+    """
 
 @pulumi.input_type
 class TemplateRequiredFieldArgs:
@@ -824,21 +759,18 @@ class TemplateRequiredFieldArgs:
         pulumi.set(self, "field_id", value)
 
 
-if not MYPY:
-    class TemplateRuleArgsDict(TypedDict):
-        """
-        Links a case rule to a specific field within this template. When specified, the rule's conditions will be evaluated for the associated field, controlling behavior like required status, visibility, or available options.
-        """
-        case_rule_id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier of a case rule.
-        """
-        field_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the field that this rule applies to.
-        """
-elif False:
-    TemplateRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateRuleArgsDict(TypedDict):
+    """
+    Links a case rule to a specific field within this template. When specified, the rule's conditions will be evaluated for the associated field, controlling behavior like required status, visibility, or available options.
+    """
+    case_rule_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of a case rule.
+    """
+    field_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the field that this rule applies to.
+    """
 
 @pulumi.input_type
 class TemplateRuleArgs:

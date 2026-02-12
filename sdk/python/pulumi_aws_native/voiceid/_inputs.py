@@ -19,16 +19,11 @@ __all__ = [
     'DomainServerSideEncryptionConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DomainServerSideEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_id: pulumi.Input[_builtins.str]
-        """
-        The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
-        """
-elif False:
-    DomainServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainServerSideEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
+    """
 
 @pulumi.input_type
 class DomainServerSideEncryptionConfigurationArgs:

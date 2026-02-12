@@ -48,23 +48,18 @@ __all__ = [
     'SigningConfigurationRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RegistryScanningConfigurationRepositoryFilterArgsDict(TypedDict):
-        """
-        The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
-        """
-        filter: pulumi.Input[_builtins.str]
-        """
-        The filter to use when scanning.
-        """
-        filter_type: pulumi.Input['RegistryScanningConfigurationFilterType']
-        """
-        The type associated with the filter.
-        """
-elif False:
-    RegistryScanningConfigurationRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
+class RegistryScanningConfigurationRepositoryFilterArgsDict(TypedDict):
+    """
+    The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
+    """
+    filter: pulumi.Input[_builtins.str]
+    """
+    The filter to use when scanning.
+    """
+    filter_type: pulumi.Input['RegistryScanningConfigurationFilterType']
+    """
+    The type associated with the filter.
+    """
 
 @pulumi.input_type
 class RegistryScanningConfigurationRepositoryFilterArgs:
@@ -104,21 +99,18 @@ class RegistryScanningConfigurationRepositoryFilterArgs:
         pulumi.set(self, "filter_type", value)
 
 
-if not MYPY:
-    class RegistryScanningConfigurationScanningRuleArgsDict(TypedDict):
-        """
-        The scanning rules associated with the registry.
-        """
-        repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgsDict']]]
-        """
-        The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
-        """
-        scan_frequency: pulumi.Input['RegistryScanningConfigurationScanFrequency']
-        """
-        The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
-        """
-elif False:
-    RegistryScanningConfigurationScanningRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RegistryScanningConfigurationScanningRuleArgsDict(TypedDict):
+    """
+    The scanning rules associated with the registry.
+    """
+    repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgsDict']]]
+    """
+    The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
+    """
+    scan_frequency: pulumi.Input['RegistryScanningConfigurationScanFrequency']
+    """
+    The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
+    """
 
 @pulumi.input_type
 class RegistryScanningConfigurationScanningRuleArgs:
@@ -158,21 +150,18 @@ class RegistryScanningConfigurationScanningRuleArgs:
         pulumi.set(self, "scan_frequency", value)
 
 
-if not MYPY:
-    class ReplicationConfigurationReplicationDestinationArgsDict(TypedDict):
-        """
-        An array of objects representing the destination for a replication rule.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        The Region to replicate to.
-        """
-        registry_id: pulumi.Input[_builtins.str]
-        """
-        The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
-        """
-elif False:
-    ReplicationConfigurationReplicationDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationConfigurationReplicationDestinationArgsDict(TypedDict):
+    """
+    An array of objects representing the destination for a replication rule.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The Region to replicate to.
+    """
+    registry_id: pulumi.Input[_builtins.str]
+    """
+    The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
+    """
 
 @pulumi.input_type
 class ReplicationConfigurationReplicationDestinationArgs:
@@ -212,21 +201,18 @@ class ReplicationConfigurationReplicationDestinationArgs:
         pulumi.set(self, "registry_id", value)
 
 
-if not MYPY:
-    class ReplicationConfigurationReplicationRuleArgsDict(TypedDict):
-        """
-        An array of objects representing the replication destinations and repository filters for a replication configuration.
-        """
-        destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgsDict']]]
-        """
-        An array of objects representing the destination for a replication rule.
-        """
-        repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgsDict']]]]
-        """
-        An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
-        """
-elif False:
-    ReplicationConfigurationReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationConfigurationReplicationRuleArgsDict(TypedDict):
+    """
+    An array of objects representing the replication destinations and repository filters for a replication configuration.
+    """
+    destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgsDict']]]
+    """
+    An array of objects representing the destination for a replication rule.
+    """
+    repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgsDict']]]]
+    """
+    An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
+    """
 
 @pulumi.input_type
 class ReplicationConfigurationReplicationRuleArgs:
@@ -267,21 +253,18 @@ class ReplicationConfigurationReplicationRuleArgs:
         pulumi.set(self, "repository_filters", value)
 
 
-if not MYPY:
-    class ReplicationConfigurationRepositoryFilterArgsDict(TypedDict):
-        """
-        The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
-        """
-        filter: pulumi.Input[_builtins.str]
-        """
-        The repository filter details. When the ``PREFIX_MATCH`` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
-        """
-        filter_type: pulumi.Input['ReplicationConfigurationFilterType']
-        """
-        The repository filter type. The only supported value is ``PREFIX_MATCH``, which is a repository name prefix specified with the ``filter`` parameter.
-        """
-elif False:
-    ReplicationConfigurationRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationConfigurationRepositoryFilterArgsDict(TypedDict):
+    """
+    The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
+    """
+    filter: pulumi.Input[_builtins.str]
+    """
+    The repository filter details. When the ``PREFIX_MATCH`` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+    """
+    filter_type: pulumi.Input['ReplicationConfigurationFilterType']
+    """
+    The repository filter type. The only supported value is ``PREFIX_MATCH``, which is a repository name prefix specified with the ``filter`` parameter.
+    """
 
 @pulumi.input_type
 class ReplicationConfigurationRepositoryFilterArgs:
@@ -321,17 +304,14 @@ class ReplicationConfigurationRepositoryFilterArgs:
         pulumi.set(self, "filter_type", value)
 
 
-if not MYPY:
-    class ReplicationConfigurationArgsDict(TypedDict):
-        """
-        The replication configuration for a registry.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgsDict']]]
-        """
-        An array of objects representing the replication destinations and repository filters for a replication configuration.
-        """
-elif False:
-    ReplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationConfigurationArgsDict(TypedDict):
+    """
+    The replication configuration for a registry.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgsDict']]]
+    """
+    An array of objects representing the replication destinations and repository filters for a replication configuration.
+    """
 
 @pulumi.input_type
 class ReplicationConfigurationArgs:
@@ -356,27 +336,24 @@ class ReplicationConfigurationArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
-        """
-        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-         By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
-         For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
-        """
-        encryption_type: pulumi.Input['RepositoryCreationTemplateEncryptionType']
-        """
-        The encryption type to use.
-         If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
-         If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
-         If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
-         For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
-        """
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
-        """
-elif False:
-    RepositoryCreationTemplateEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
+     For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+    """
+    encryption_type: pulumi.Input['RepositoryCreationTemplateEncryptionType']
+    """
+    The encryption type to use.
+     If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
+     If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
+     If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
+     For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+    """
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
+    """
 
 @pulumi.input_type
 class RepositoryCreationTemplateEncryptionConfigurationArgs:
@@ -427,15 +404,12 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict(TypedDict):
-        """
-        A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
-        """
-        image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType']
-        image_tag_mutability_exclusion_filter_value: pulumi.Input[_builtins.str]
-elif False:
-    RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict(TypedDict):
+    """
+    A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
+    """
+    image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType']
+    image_tag_mutability_exclusion_filter_value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
@@ -467,21 +441,18 @@ class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
         pulumi.set(self, "image_tag_mutability_exclusion_filter_value", value)
 
 
-if not MYPY:
-    class RepositoryCreationTemplateTagArgsDict(TypedDict):
-        """
-        The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A ``value`` acts as a descriptor within a tag category (key).
-        """
-elif False:
-    RepositoryCreationTemplateTagArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCreationTemplateTagArgsDict(TypedDict):
+    """
+    The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A ``value`` acts as a descriptor within a tag category (key).
+    """
 
 @pulumi.input_type
 class RepositoryCreationTemplateTagArgs:
@@ -521,31 +492,28 @@ class RepositoryCreationTemplateTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RepositoryEncryptionConfigurationArgsDict(TypedDict):
-        """
-        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-         By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
-         For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
-        """
-        encryption_type: pulumi.Input['RepositoryEncryptionType']
-        """
-        The encryption type to use.
+class RepositoryEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
+     For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+    """
+    encryption_type: pulumi.Input['RepositoryEncryptionType']
+    """
+    The encryption type to use.
 
-        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
+    If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 
-        If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
+    If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 
-        If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
+    If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 
-        For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
-        """
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
-        """
-elif False:
-    RepositoryEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
+    """
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
+    """
 
 @pulumi.input_type
 class RepositoryEncryptionConfigurationArgs:
@@ -604,17 +572,14 @@ class RepositoryEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class RepositoryImageScanningConfigurationArgsDict(TypedDict):
-        """
-        The image scanning configuration for a repository.
-        """
-        scan_on_push: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
-        """
-elif False:
-    RepositoryImageScanningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryImageScanningConfigurationArgsDict(TypedDict):
+    """
+    The image scanning configuration for a repository.
+    """
+    scan_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
+    """
 
 @pulumi.input_type
 class RepositoryImageScanningConfigurationArgs:
@@ -640,15 +605,12 @@ class RepositoryImageScanningConfigurationArgs:
         pulumi.set(self, "scan_on_push", value)
 
 
-if not MYPY:
-    class RepositoryImageTagMutabilityExclusionFilterArgsDict(TypedDict):
-        """
-        A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
-        """
-        image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryImageTagMutabilityExclusionFilterType']
-        image_tag_mutability_exclusion_filter_value: pulumi.Input[_builtins.str]
-elif False:
-    RepositoryImageTagMutabilityExclusionFilterArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryImageTagMutabilityExclusionFilterArgsDict(TypedDict):
+    """
+    A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
+    """
+    image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryImageTagMutabilityExclusionFilterType']
+    image_tag_mutability_exclusion_filter_value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class RepositoryImageTagMutabilityExclusionFilterArgs:
@@ -680,22 +642,19 @@ class RepositoryImageTagMutabilityExclusionFilterArgs:
         pulumi.set(self, "image_tag_mutability_exclusion_filter_value", value)
 
 
-if not MYPY:
-    class RepositoryLifecyclePolicyArgsDict(TypedDict):
-        """
-        The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
-        """
-        lifecycle_policy_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JSON repository policy text to apply to the repository.
-        """
-        registry_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS account ID associated with the registry that contains the repository. If you do
-         not specify a registry, the default registry is assumed.
-        """
-elif False:
-    RepositoryLifecyclePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryLifecyclePolicyArgsDict(TypedDict):
+    """
+    The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
+    """
+    lifecycle_policy_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JSON repository policy text to apply to the repository.
+    """
+    registry_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS account ID associated with the registry that contains the repository. If you do
+     not specify a registry, the default registry is assumed.
+    """
 
 @pulumi.input_type
 class RepositoryLifecyclePolicyArgs:
@@ -739,27 +698,24 @@ class RepositoryLifecyclePolicyArgs:
         pulumi.set(self, "registry_id", value)
 
 
-if not MYPY:
-    class SigningConfigurationRepositoryFilterArgsDict(TypedDict):
-        """
-        An array of objects representing the details of a repository filter.
-        """
-        filter: pulumi.Input[_builtins.str]
-        """
-        The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+class SigningConfigurationRepositoryFilterArgsDict(TypedDict):
+    """
+    An array of objects representing the details of a repository filter.
+    """
+    filter: pulumi.Input[_builtins.str]
+    """
+    The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
 
-        Examples:
+    Examples:
 
-        - `myapp/*` - Matches all repositories starting with `myapp/`
-        - `*/production` - Matches all repositories ending with `/production`
-        - `*prod*` - Matches all repositories containing `prod`
-        """
-        filter_type: pulumi.Input['SigningConfigurationFilterType']
-        """
-        The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
-        """
-elif False:
-    SigningConfigurationRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
+    - `myapp/*` - Matches all repositories starting with `myapp/`
+    - `*/production` - Matches all repositories ending with `/production`
+    - `*prod*` - Matches all repositories containing `prod`
+    """
+    filter_type: pulumi.Input['SigningConfigurationFilterType']
+    """
+    The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+    """
 
 @pulumi.input_type
 class SigningConfigurationRepositoryFilterArgs:
@@ -811,18 +767,15 @@ class SigningConfigurationRepositoryFilterArgs:
         pulumi.set(self, "filter_type", value)
 
 
-if not MYPY:
-    class SigningConfigurationRuleArgsDict(TypedDict):
-        signing_profile_arn: pulumi.Input[_builtins.str]
-        """
-        AWS Signer signing profile ARN to use for matched repositories.
-        """
-        repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgsDict']]]]
-        """
-        Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
-        """
-elif False:
-    SigningConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class SigningConfigurationRuleArgsDict(TypedDict):
+    signing_profile_arn: pulumi.Input[_builtins.str]
+    """
+    AWS Signer signing profile ARN to use for matched repositories.
+    """
+    repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgsDict']]]]
+    """
+    Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+    """
 
 @pulumi.input_type
 class SigningConfigurationRuleArgs:

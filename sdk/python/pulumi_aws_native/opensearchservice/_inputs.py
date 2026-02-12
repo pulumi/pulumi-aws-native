@@ -78,23 +78,18 @@ __all__ = [
     'IamIdentityCenterOptionsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationAppConfigArgsDict(TypedDict):
-        """
-        A key-value pair of AppConfig
-        """
-        key: pulumi.Input['ApplicationAppConfigType']
-        """
-        The configuration key
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The configuration value.
-        """
-elif False:
-    ApplicationAppConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAppConfigArgsDict(TypedDict):
+    """
+    A key-value pair of AppConfig
+    """
+    key: pulumi.Input['ApplicationAppConfigType']
+    """
+    The configuration key
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The configuration value.
+    """
 
 @pulumi.input_type
 class ApplicationAppConfigArgs:
@@ -134,21 +129,18 @@ class ApplicationAppConfigArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ApplicationDataSourceArgsDict(TypedDict):
-        """
-        Datasource arn and description
-        """
-        data_source_arn: Any
-        """
-        The ARN of the data source.
-        """
-        data_source_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the data source.
-        """
-elif False:
-    ApplicationDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationDataSourceArgsDict(TypedDict):
+    """
+    Datasource arn and description
+    """
+    data_source_arn: Any
+    """
+    The ARN of the data source.
+    """
+    data_source_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the data source.
+    """
 
 @pulumi.input_type
 class ApplicationDataSourceArgs:
@@ -189,42 +181,39 @@ class ApplicationDataSourceArgs:
         pulumi.set(self, "data_source_description", value)
 
 
-if not MYPY:
-    class DomainAdvancedSecurityOptionsInputArgsDict(TypedDict):
-        anonymous_auth_disable_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
-        """
-        anonymous_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-        """
-        iam_federation_options: NotRequired[pulumi.Input['DomainIamFederationOptionsArgsDict']]
-        """
-        Input configuration for IAM identity federation within advanced security options.
-        """
-        internal_user_database_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True to enable the internal user database.
-        """
-        jwt_options: NotRequired[pulumi.Input['DomainJwtOptionsArgsDict']]
-        """
-        Container for information about the JWT configuration of the Amazon OpenSearch Service.
-        """
-        master_user_options: NotRequired[pulumi.Input['DomainMasterUserOptionsArgsDict']]
-        """
-        Specifies information about the master user.
-        """
-        saml_options: NotRequired[pulumi.Input['DomainSamlOptionsArgsDict']]
-        """
-        Container for information about the SAML configuration for OpenSearch Dashboards.
-        """
-elif False:
-    DomainAdvancedSecurityOptionsInputArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAdvancedSecurityOptionsInputArgsDict(TypedDict):
+    anonymous_auth_disable_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+    """
+    anonymous_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+    """
+    iam_federation_options: NotRequired[pulumi.Input['DomainIamFederationOptionsArgsDict']]
+    """
+    Input configuration for IAM identity federation within advanced security options.
+    """
+    internal_user_database_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True to enable the internal user database.
+    """
+    jwt_options: NotRequired[pulumi.Input['DomainJwtOptionsArgsDict']]
+    """
+    Container for information about the JWT configuration of the Amazon OpenSearch Service.
+    """
+    master_user_options: NotRequired[pulumi.Input['DomainMasterUserOptionsArgsDict']]
+    """
+    Specifies information about the master user.
+    """
+    saml_options: NotRequired[pulumi.Input['DomainSamlOptionsArgsDict']]
+    """
+    Container for information about the SAML configuration for OpenSearch Dashboards.
+    """
 
 @pulumi.input_type
 class DomainAdvancedSecurityOptionsInputArgs:
@@ -361,12 +350,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
         pulumi.set(self, "saml_options", value)
 
 
-if not MYPY:
-    class DomainAimlOptionsArgsDict(TypedDict):
-        s3_vectors_engine: NotRequired[pulumi.Input['DomainS3VectorsEngineArgsDict']]
-        serverless_vector_acceleration: NotRequired[pulumi.Input['DomainServerlessVectorAccelerationArgsDict']]
-elif False:
-    DomainAimlOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAimlOptionsArgsDict(TypedDict):
+    s3_vectors_engine: NotRequired[pulumi.Input['DomainS3VectorsEngineArgsDict']]
+    serverless_vector_acceleration: NotRequired[pulumi.Input['DomainServerlessVectorAccelerationArgsDict']]
 
 @pulumi.input_type
 class DomainAimlOptionsArgs:
@@ -397,62 +383,59 @@ class DomainAimlOptionsArgs:
         pulumi.set(self, "serverless_vector_acceleration", value)
 
 
-if not MYPY:
-    class DomainClusterConfigArgsDict(TypedDict):
-        cold_storage_options: NotRequired[pulumi.Input['DomainColdStorageOptionsArgsDict']]
-        """
-        Container for cold storage configuration options.
-        """
-        dedicated_master_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
-        """
-        dedicated_master_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
-        """
-        dedicated_master_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-        """
-        instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of data nodes (instances) to use in the OpenSearch Service domain.
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-        """
-        multi_az_with_standby_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
-        """
-        node_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainNodeOptionArgsDict']]]]
-        """
-        List of node options for the domain.
-        """
-        warm_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of warm nodes in the cluster.
-        """
-        warm_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
-        """
-        warm_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type for the cluster's warm nodes.
-        """
-        zone_awareness_config: NotRequired[pulumi.Input['DomainZoneAwarenessConfigArgsDict']]
-        """
-        Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
-        """
-        zone_awareness_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
-        """
-elif False:
-    DomainClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainClusterConfigArgsDict(TypedDict):
+    cold_storage_options: NotRequired[pulumi.Input['DomainColdStorageOptionsArgsDict']]
+    """
+    Container for cold storage configuration options.
+    """
+    dedicated_master_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
+    """
+    dedicated_master_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
+    """
+    dedicated_master_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+    """
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of data nodes (instances) to use in the OpenSearch Service domain.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+    """
+    multi_az_with_standby_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
+    """
+    node_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainNodeOptionArgsDict']]]]
+    """
+    List of node options for the domain.
+    """
+    warm_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of warm nodes in the cluster.
+    """
+    warm_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
+    """
+    warm_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type for the cluster's warm nodes.
+    """
+    zone_awareness_config: NotRequired[pulumi.Input['DomainZoneAwarenessConfigArgsDict']]
+    """
+    Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
+    """
+    zone_awareness_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
+    """
 
 @pulumi.input_type
 class DomainClusterConfigArgs:
@@ -669,32 +652,29 @@ class DomainClusterConfigArgs:
         pulumi.set(self, "zone_awareness_enabled", value)
 
 
-if not MYPY:
-    class DomainCognitoOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
-        """
-        identity_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+class DomainCognitoOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+    """
+    identity_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
 
-        Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+    Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
 
-        Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-        """
-        user_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+    Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+    """
+    user_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
 
-        Required if you enabled Cognito Authentication for OpenSearch Dashboards.
-        """
-elif False:
-    DomainCognitoOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+    """
 
 @pulumi.input_type
 class DomainCognitoOptionsArgs:
@@ -779,14 +759,11 @@ class DomainCognitoOptionsArgs:
         pulumi.set(self, "user_pool_id", value)
 
 
-if not MYPY:
-    class DomainColdStorageOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
-        """
-elif False:
-    DomainColdStorageOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainColdStorageOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
+    """
 
 @pulumi.input_type
 class DomainColdStorageOptionsArgs:
@@ -811,30 +788,27 @@ class DomainColdStorageOptionsArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DomainEbsOptionsArgsDict(TypedDict):
-        ebs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
-        """
-        throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-        """
-        volume_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
-        """
-elif False:
-    DomainEbsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainEbsOptionsArgsDict(TypedDict):
+    ebs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
+    """
+    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+    """
+    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
+    """
 
 @pulumi.input_type
 class DomainEbsOptionsArgs:
@@ -923,24 +897,21 @@ class DomainEbsOptionsArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class DomainEncryptionAtRestOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+class DomainEncryptionAtRestOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 
-        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+    If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
 
-        You can also use `keyAlias` as a value.
+    You can also use `keyAlias` as a value.
 
-        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
-        """
-elif False:
-    DomainEncryptionAtRestOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+    """
 
 @pulumi.input_type
 class DomainEncryptionAtRestOptionsArgs:
@@ -993,34 +964,31 @@ class DomainEncryptionAtRestOptionsArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class DomainEndpointOptionsArgsDict(TypedDict):
-        custom_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
-        """
-        custom_endpoint_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
-        """
-        custom_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
-        """
-        enforce_https: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
-        """
-        tls_security_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
+class DomainEndpointOptionsArgsDict(TypedDict):
+    custom_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
+    """
+    custom_endpoint_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+    """
+    custom_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
+    """
+    enforce_https: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+    """
+    tls_security_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
 
-        - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
-        - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
-        - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
-        """
-elif False:
-    DomainEndpointOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+    - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+    - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
+    """
 
 @pulumi.input_type
 class DomainEndpointOptionsArgs:
@@ -1117,13 +1085,10 @@ class DomainEndpointOptionsArgs:
         pulumi.set(self, "tls_security_policy", value)
 
 
-if not MYPY:
-    class DomainIamFederationOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        roles_key: NotRequired[pulumi.Input[_builtins.str]]
-        subject_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DomainIamFederationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainIamFederationOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    roles_key: NotRequired[pulumi.Input[_builtins.str]]
+    subject_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DomainIamFederationOptionsArgs:
@@ -1166,37 +1131,34 @@ class DomainIamFederationOptionsArgs:
         pulumi.set(self, "subject_key", value)
 
 
-if not MYPY:
-    class DomainIdentityCenterOptionsArgsDict(TypedDict):
-        """
-        Options for configuring Identity Center
-        """
-        enabled_api_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Identity Center is enabled.
-        """
-        identity_center_application_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Identity Center application.
-        """
-        identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Identity Center instance.
-        """
-        identity_store_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IdentityStoreId for Identity Center options.
-        """
-        roles_key: NotRequired[pulumi.Input['DomainRolesKeyIdcType']]
-        """
-        The roles key for Identity Center options.
-        """
-        subject_key: NotRequired[pulumi.Input['DomainSubjectKeyIdcType']]
-        """
-        The subject key for Identity Center options.
-        """
-elif False:
-    DomainIdentityCenterOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainIdentityCenterOptionsArgsDict(TypedDict):
+    """
+    Options for configuring Identity Center
+    """
+    enabled_api_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Identity Center is enabled.
+    """
+    identity_center_application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Identity Center application.
+    """
+    identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Identity Center instance.
+    """
+    identity_store_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IdentityStoreId for Identity Center options.
+    """
+    roles_key: NotRequired[pulumi.Input['DomainRolesKeyIdcType']]
+    """
+    The roles key for Identity Center options.
+    """
+    subject_key: NotRequired[pulumi.Input['DomainSubjectKeyIdcType']]
+    """
+    The subject key for Identity Center options.
+    """
 
 @pulumi.input_type
 class DomainIdentityCenterOptionsArgs:
@@ -1302,18 +1264,15 @@ class DomainIdentityCenterOptionsArgs:
         pulumi.set(self, "subject_key", value)
 
 
-if not MYPY:
-    class DomainIdpArgsDict(TypedDict):
-        entity_id: pulumi.Input[_builtins.str]
-        """
-        The unique entity ID of the application in the SAML identity provider.
-        """
-        metadata_content: pulumi.Input[_builtins.str]
-        """
-        The metadata of the SAML application, in XML format.
-        """
-elif False:
-    DomainIdpArgsDict: TypeAlias = Mapping[str, Any]
+class DomainIdpArgsDict(TypedDict):
+    entity_id: pulumi.Input[_builtins.str]
+    """
+    The unique entity ID of the application in the SAML identity provider.
+    """
+    metadata_content: pulumi.Input[_builtins.str]
+    """
+    The metadata of the SAML application, in XML format.
+    """
 
 @pulumi.input_type
 class DomainIdpArgs:
@@ -1352,14 +1311,11 @@ class DomainIdpArgs:
         pulumi.set(self, "metadata_content", value)
 
 
-if not MYPY:
-    class DomainJwtOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        public_key: NotRequired[pulumi.Input[_builtins.str]]
-        roles_key: NotRequired[pulumi.Input[_builtins.str]]
-        subject_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DomainJwtOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainJwtOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    public_key: NotRequired[pulumi.Input[_builtins.str]]
+    roles_key: NotRequired[pulumi.Input[_builtins.str]]
+    subject_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DomainJwtOptionsArgs:
@@ -1414,12 +1370,9 @@ class DomainJwtOptionsArgs:
         pulumi.set(self, "subject_key", value)
 
 
-if not MYPY:
-    class DomainLogPublishingOptionArgsDict(TypedDict):
-        cloud_watch_logs_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    DomainLogPublishingOptionArgsDict: TypeAlias = Mapping[str, Any]
+class DomainLogPublishingOptionArgsDict(TypedDict):
+    cloud_watch_logs_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class DomainLogPublishingOptionArgs:
@@ -1450,26 +1403,23 @@ class DomainLogPublishingOptionArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DomainMasterUserOptionsArgsDict(TypedDict):
-        master_user_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
-        """
-        master_user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+class DomainMasterUserOptionsArgsDict(TypedDict):
+    master_user_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+    """
+    master_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 
-        If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
-        """
-        master_user_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+    If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+    """
+    master_user_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 
-        If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
-        """
-elif False:
-    DomainMasterUserOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+    """
 
 @pulumi.input_type
 class DomainMasterUserOptionsArgs:
@@ -1534,22 +1484,19 @@ class DomainMasterUserOptionsArgs:
         pulumi.set(self, "master_user_password", value)
 
 
-if not MYPY:
-    class DomainNodeConfigArgsDict(TypedDict):
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of nodes of a specific type within the cluster.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value indicating whether a specific node type is active or inactive.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type of a particular node within the cluster.
-        """
-elif False:
-    DomainNodeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNodeConfigArgsDict(TypedDict):
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of nodes of a specific type within the cluster.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value indicating whether a specific node type is active or inactive.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type of a particular node within the cluster.
+    """
 
 @pulumi.input_type
 class DomainNodeConfigArgs:
@@ -1606,18 +1553,15 @@ class DomainNodeConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DomainNodeOptionArgsDict(TypedDict):
-        node_config: NotRequired[pulumi.Input['DomainNodeConfigArgsDict']]
-        """
-        Configuration options for defining the setup of any node type.
-        """
-        node_type: NotRequired[pulumi.Input['DomainNodeOptionNodeType']]
-        """
-        Defines the type of node, such as coordinating nodes.
-        """
-elif False:
-    DomainNodeOptionArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNodeOptionArgsDict(TypedDict):
+    node_config: NotRequired[pulumi.Input['DomainNodeConfigArgsDict']]
+    """
+    Configuration options for defining the setup of any node type.
+    """
+    node_type: NotRequired[pulumi.Input['DomainNodeOptionNodeType']]
+    """
+    Defines the type of node, such as coordinating nodes.
+    """
 
 @pulumi.input_type
 class DomainNodeOptionArgs:
@@ -1658,14 +1602,11 @@ class DomainNodeOptionArgs:
         pulumi.set(self, "node_type", value)
 
 
-if not MYPY:
-    class DomainNodeToNodeEncryptionOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
-        """
-elif False:
-    DomainNodeToNodeEncryptionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNodeToNodeEncryptionOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+    """
 
 @pulumi.input_type
 class DomainNodeToNodeEncryptionOptionsArgs:
@@ -1690,18 +1631,15 @@ class DomainNodeToNodeEncryptionOptionsArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DomainOffPeakWindowOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether off-peak window settings are enabled for the domain.
-        """
-        off_peak_window: NotRequired[pulumi.Input['DomainOffPeakWindowArgsDict']]
-        """
-        Off-peak window settings for the domain.
-        """
-elif False:
-    DomainOffPeakWindowOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainOffPeakWindowOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether off-peak window settings are enabled for the domain.
+    """
+    off_peak_window: NotRequired[pulumi.Input['DomainOffPeakWindowArgsDict']]
+    """
+    Off-peak window settings for the domain.
+    """
 
 @pulumi.input_type
 class DomainOffPeakWindowOptionsArgs:
@@ -1742,14 +1680,11 @@ class DomainOffPeakWindowOptionsArgs:
         pulumi.set(self, "off_peak_window", value)
 
 
-if not MYPY:
-    class DomainOffPeakWindowArgsDict(TypedDict):
-        window_start_time: NotRequired[pulumi.Input['DomainWindowStartTimeArgsDict']]
-        """
-        The desired start time for an off-peak maintenance window.
-        """
-elif False:
-    DomainOffPeakWindowArgsDict: TypeAlias = Mapping[str, Any]
+class DomainOffPeakWindowArgsDict(TypedDict):
+    window_start_time: NotRequired[pulumi.Input['DomainWindowStartTimeArgsDict']]
+    """
+    The desired start time for an off-peak maintenance window.
+    """
 
 @pulumi.input_type
 class DomainOffPeakWindowArgs:
@@ -1774,14 +1709,11 @@ class DomainOffPeakWindowArgs:
         pulumi.set(self, "window_start_time", value)
 
 
-if not MYPY:
-    class DomainS3VectorsEngineArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to enable S3 vectors engine.
-        """
-elif False:
-    DomainS3VectorsEngineArgsDict: TypeAlias = Mapping[str, Any]
+class DomainS3VectorsEngineArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable S3 vectors engine.
+    """
 
 @pulumi.input_type
 class DomainS3VectorsEngineArgs:
@@ -1805,38 +1737,35 @@ class DomainS3VectorsEngineArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DomainSamlOptionsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True to enable SAML authentication for a domain.
-        """
-        idp: NotRequired[pulumi.Input['DomainIdpArgsDict']]
-        """
-        The SAML Identity Provider's information.
-        """
-        master_backend_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The backend role that the SAML master user is mapped to.
-        """
-        master_user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SAML master user name, which is stored in the domain's internal user database.
-        """
-        roles_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Element of the SAML assertion to use for backend roles. Default is `roles` .
-        """
-        session_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
-        """
-        subject_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Element of the SAML assertion to use for the user name. Default is `NameID` .
-        """
-elif False:
-    DomainSamlOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainSamlOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True to enable SAML authentication for a domain.
+    """
+    idp: NotRequired[pulumi.Input['DomainIdpArgsDict']]
+    """
+    The SAML Identity Provider's information.
+    """
+    master_backend_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The backend role that the SAML master user is mapped to.
+    """
+    master_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SAML master user name, which is stored in the domain's internal user database.
+    """
+    roles_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Element of the SAML assertion to use for backend roles. Default is `roles` .
+    """
+    session_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
+    """
+    subject_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Element of the SAML assertion to use for the user name. Default is `NameID` .
+    """
 
 @pulumi.input_type
 class DomainSamlOptionsArgs:
@@ -1957,14 +1886,11 @@ class DomainSamlOptionsArgs:
         pulumi.set(self, "subject_key", value)
 
 
-if not MYPY:
-    class DomainServerlessVectorAccelerationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable serverless vector acceleration.
-        """
-elif False:
-    DomainServerlessVectorAccelerationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainServerlessVectorAccelerationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable serverless vector acceleration.
+    """
 
 @pulumi.input_type
 class DomainServerlessVectorAccelerationArgs:
@@ -1989,14 +1915,11 @@ class DomainServerlessVectorAccelerationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DomainSnapshotOptionsArgsDict(TypedDict):
-        automated_snapshot_start_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
-        """
-elif False:
-    DomainSnapshotOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainSnapshotOptionsArgsDict(TypedDict):
+    automated_snapshot_start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
+    """
 
 @pulumi.input_type
 class DomainSnapshotOptionsArgs:
@@ -2021,14 +1944,11 @@ class DomainSnapshotOptionsArgs:
         pulumi.set(self, "automated_snapshot_start_hour", value)
 
 
-if not MYPY:
-    class DomainSoftwareUpdateOptionsArgsDict(TypedDict):
-        auto_software_update_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether automatic service software updates are enabled for the domain.
-        """
-elif False:
-    DomainSoftwareUpdateOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainSoftwareUpdateOptionsArgsDict(TypedDict):
+    auto_software_update_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether automatic service software updates are enabled for the domain.
+    """
 
 @pulumi.input_type
 class DomainSoftwareUpdateOptionsArgs:
@@ -2053,20 +1973,17 @@ class DomainSoftwareUpdateOptionsArgs:
         pulumi.set(self, "auto_software_update_enabled", value)
 
 
-if not MYPY:
-    class DomainVpcOptionsArgsDict(TypedDict):
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+class DomainVpcOptionsArgsDict(TypedDict):
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
 
-        If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
-        """
-elif False:
-    DomainVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
+    """
 
 @pulumi.input_type
 class DomainVpcOptionsArgs:
@@ -2111,18 +2028,15 @@ class DomainVpcOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class DomainWindowStartTimeArgsDict(TypedDict):
-        hours: pulumi.Input[_builtins.int]
-        """
-        The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
-        """
-        minutes: pulumi.Input[_builtins.int]
-        """
-        The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
-        """
-elif False:
-    DomainWindowStartTimeArgsDict: TypeAlias = Mapping[str, Any]
+class DomainWindowStartTimeArgsDict(TypedDict):
+    hours: pulumi.Input[_builtins.int]
+    """
+    The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+    """
+    minutes: pulumi.Input[_builtins.int]
+    """
+    The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
+    """
 
 @pulumi.input_type
 class DomainWindowStartTimeArgs:
@@ -2161,16 +2075,13 @@ class DomainWindowStartTimeArgs:
         pulumi.set(self, "minutes", value)
 
 
-if not MYPY:
-    class DomainZoneAwarenessConfigArgsDict(TypedDict):
-        availability_zone_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+class DomainZoneAwarenessConfigArgsDict(TypedDict):
+    availability_zone_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 
-        Valid values are `2` and `3` . Default is 2.
-        """
-elif False:
-    DomainZoneAwarenessConfigArgsDict: TypeAlias = Mapping[str, Any]
+    Valid values are `2` and `3` . Default is 2.
+    """
 
 @pulumi.input_type
 class DomainZoneAwarenessConfigArgs:
@@ -2199,25 +2110,22 @@ class DomainZoneAwarenessConfigArgs:
         pulumi.set(self, "availability_zone_count", value)
 
 
-if not MYPY:
-    class IamIdentityCenterOptionsPropertiesArgsDict(TypedDict):
-        """
-        Options for configuring IAM Identity Center
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether IAM Identity Center is enabled.
-        """
-        iam_identity_center_instance_arn: NotRequired[Any]
-        """
-        The ARN of the IAM Identity Center instance.
-        """
-        iam_role_for_identity_center_application_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role for Identity Center application.
-        """
-elif False:
-    IamIdentityCenterOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IamIdentityCenterOptionsPropertiesArgsDict(TypedDict):
+    """
+    Options for configuring IAM Identity Center
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether IAM Identity Center is enabled.
+    """
+    iam_identity_center_instance_arn: NotRequired[Any]
+    """
+    The ARN of the IAM Identity Center instance.
+    """
+    iam_role_for_identity_center_application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM role for Identity Center application.
+    """
 
 @pulumi.input_type
 class IamIdentityCenterOptionsPropertiesArgs:

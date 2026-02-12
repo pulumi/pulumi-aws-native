@@ -36,33 +36,28 @@ __all__ = [
     'DirectoryBucketServerSideEncryptionRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
-        block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
-        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
-        """
-        block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
-        """
-        ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-        """
-        restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
-        """
-elif False:
-    AccessPointPublicAccessBlockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
+    block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+    - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+     - PUT Object calls fail if the request includes a public ACL.
+    . - PUT Bucket calls fail if the request includes a public ACL.
+    Enabling this setting doesn't affect existing policies or ACLs.
+    """
+    block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+    """
+    ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+    """
+    restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+    Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+    """
 
 @pulumi.input_type
 class AccessPointPublicAccessBlockConfigurationArgs:
@@ -145,18 +140,15 @@ class AccessPointPublicAccessBlockConfigurationArgs:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
-if not MYPY:
-    class AccessPointScopeArgsDict(TypedDict):
-        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]
-        """
-        You can include one or more API operations as permissions
-        """
-        prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
-        """
-elif False:
-    AccessPointScopeArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointScopeArgsDict(TypedDict):
+    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]
+    """
+    You can include one or more API operations as permissions
+    """
+    prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+    """
 
 @pulumi.input_type
 class AccessPointScopeArgs:
@@ -197,17 +189,14 @@ class AccessPointScopeArgs:
         pulumi.set(self, "prefixes", value)
 
 
-if not MYPY:
-    class AccessPointVpcConfigurationArgsDict(TypedDict):
-        """
-        The Virtual Private Cloud (VPC) configuration for a bucket access point.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If this field is specified, this access point will only allow connections from the specified VPC ID.
-        """
-elif False:
-    AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointVpcConfigurationArgsDict(TypedDict):
+    """
+    The Virtual Private Cloud (VPC) configuration for a bucket access point.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If this field is specified, this access point will only allow connections from the specified VPC ID.
+    """
 
 @pulumi.input_type
 class AccessPointVpcConfigurationArgs:
@@ -233,17 +222,14 @@ class AccessPointVpcConfigurationArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class DirectoryBucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
-        """
-        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
-        """
-        days_after_initiation: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
-elif False:
-    DirectoryBucketAbortIncompleteMultipartUploadArgsDict: TypeAlias = Mapping[str, Any]
+class DirectoryBucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
+    """
+    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+    """
+    days_after_initiation: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+    """
 
 @pulumi.input_type
 class DirectoryBucketAbortIncompleteMultipartUploadArgs:
@@ -268,17 +254,14 @@ class DirectoryBucketAbortIncompleteMultipartUploadArgs:
         pulumi.set(self, "days_after_initiation", value)
 
 
-if not MYPY:
-    class DirectoryBucketBucketEncryptionArgsDict(TypedDict):
-        """
-        Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
-        """
-        server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgsDict']]]
-        """
-        Specifies the default server-side-encryption configuration.
-        """
-elif False:
-    DirectoryBucketBucketEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class DirectoryBucketBucketEncryptionArgsDict(TypedDict):
+    """
+    Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
+    """
+    server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgsDict']]]
+    """
+    Specifies the default server-side-encryption configuration.
+    """
 
 @pulumi.input_type
 class DirectoryBucketBucketEncryptionArgs:
@@ -303,14 +286,11 @@ class DirectoryBucketBucketEncryptionArgs:
         pulumi.set(self, "server_side_encryption_configuration", value)
 
 
-if not MYPY:
-    class DirectoryBucketLifecycleConfigurationArgsDict(TypedDict):
-        rules: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgsDict']]]
-        """
-        A lifecycle rule for individual objects in an Amazon S3 Express bucket.
-        """
-elif False:
-    DirectoryBucketLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DirectoryBucketLifecycleConfigurationArgsDict(TypedDict):
+    rules: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgsDict']]]
+    """
+    A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+    """
 
 @pulumi.input_type
 class DirectoryBucketLifecycleConfigurationArgs:
@@ -334,43 +314,40 @@ class DirectoryBucketLifecycleConfigurationArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class DirectoryBucketRuleArgsDict(TypedDict):
-        """
-        You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
-        """
-        status: pulumi.Input['DirectoryBucketRuleStatus']
-        """
-        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
-        """
-        abort_incomplete_multipart_upload: NotRequired[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]
-        """
-        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
-        """
-        expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the rule. The value can't be longer than 255 characters.
-        """
-        object_size_greater_than: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
-        """
-        object_size_less_than: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object key prefix that identifies one or more objects to which this rule applies.
+class DirectoryBucketRuleArgsDict(TypedDict):
+    """
+    You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+    """
+    status: pulumi.Input['DirectoryBucketRuleStatus']
+    """
+    If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+    """
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]
+    """
+    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+    """
+    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the rule. The value can't be longer than 255 characters.
+    """
+    object_size_greater_than: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+    """
+    object_size_less_than: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object key prefix that identifies one or more objects to which this rule applies.
 
-        > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
-        """
-elif False:
-    DirectoryBucketRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+    """
 
 @pulumi.input_type
 class DirectoryBucketRuleArgs:
@@ -495,23 +472,20 @@ class DirectoryBucketRuleArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class DirectoryBucketServerSideEncryptionByDefaultArgsDict(TypedDict):
-        """
-        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-        """
-        sse_algorithm: pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm']
-        """
-        Server-side encryption algorithm to use for the default encryption.
+class DirectoryBucketServerSideEncryptionByDefaultArgsDict(TypedDict):
+    """
+    Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+    """
+    sse_algorithm: pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm']
+    """
+    Server-side encryption algorithm to use for the default encryption.
 
-        > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
-        """
-        kms_master_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. This parameter is allowed only if SSEAlgorithm is set to aws:kms. You can specify this parameter with the key ID or the Amazon Resource Name (ARN) of the KMS key
-        """
-elif False:
-    DirectoryBucketServerSideEncryptionByDefaultArgsDict: TypeAlias = Mapping[str, Any]
+    > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
+    """
+    kms_master_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. This parameter is allowed only if SSEAlgorithm is set to aws:kms. You can specify this parameter with the key ID or the Amazon Resource Name (ARN) of the KMS key
+    """
 
 @pulumi.input_type
 class DirectoryBucketServerSideEncryptionByDefaultArgs:
@@ -556,21 +530,18 @@ class DirectoryBucketServerSideEncryptionByDefaultArgs:
         pulumi.set(self, "kms_master_key_id", value)
 
 
-if not MYPY:
-    class DirectoryBucketServerSideEncryptionRuleArgsDict(TypedDict):
-        """
-        Specifies the default server-side encryption configuration.
-        """
-        bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Amazon S3 Express One Zone uses an S3 Bucket Key with SSE-KMS and S3 Bucket Key cannot be disabled. It's only allowed to set the BucketKeyEnabled element to true.
-        """
-        server_side_encryption_by_default: NotRequired[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgsDict']]
-        """
-        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-        """
-elif False:
-    DirectoryBucketServerSideEncryptionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DirectoryBucketServerSideEncryptionRuleArgsDict(TypedDict):
+    """
+    Specifies the default server-side encryption configuration.
+    """
+    bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Amazon S3 Express One Zone uses an S3 Bucket Key with SSE-KMS and S3 Bucket Key cannot be disabled. It's only allowed to set the BucketKeyEnabled element to true.
+    """
+    server_side_encryption_by_default: NotRequired[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgsDict']]
+    """
+    Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+    """
 
 @pulumi.input_type
 class DirectoryBucketServerSideEncryptionRuleArgs:

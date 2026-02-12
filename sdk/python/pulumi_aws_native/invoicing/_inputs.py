@@ -19,16 +19,11 @@ __all__ = [
     'InvoiceUnitRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class InvoiceUnitRuleArgsDict(TypedDict):
-        linked_accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
-        """
-elif False:
-    InvoiceUnitRuleArgsDict: TypeAlias = Mapping[str, Any]
+class InvoiceUnitRuleArgsDict(TypedDict):
+    linked_accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+    """
 
 @pulumi.input_type
 class InvoiceUnitRuleArgs:

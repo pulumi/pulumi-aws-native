@@ -100,24 +100,19 @@ __all__ = [
     'TelemetryRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        The primary destination region to which telemetry data should be centralized.
-        """
-        account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination account (within the organization) to which the telemetry data should be centralized.
-        """
-        destination_logs_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict']]
-        """
-        Log specific configuration for centralization destination log groups.
-        """
-elif False:
-    OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    The primary destination region to which telemetry data should be centralized.
+    """
+    account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination account (within the organization) to which the telemetry data should be centralized.
+    """
+    destination_logs_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict']]
+    """
+    Log specific configuration for centralization destination log groups.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleCentralizationRuleDestinationArgs:
@@ -173,22 +168,19 @@ class OrganizationCentralizationRuleCentralizationRuleDestinationArgs:
         pulumi.set(self, "destination_logs_configuration", value)
 
 
-if not MYPY:
-    class OrganizationCentralizationRuleCentralizationRuleSourceArgsDict(TypedDict):
-        regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of source regions from which telemetry data should be centralized.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
-        """
-        source_logs_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgsDict']]
-        """
-        Log specific configuration for centralization source log groups.
-        """
-elif False:
-    OrganizationCentralizationRuleCentralizationRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleCentralizationRuleSourceArgsDict(TypedDict):
+    regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of source regions from which telemetry data should be centralized.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+    """
+    source_logs_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgsDict']]
+    """
+    Log specific configuration for centralization source log groups.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleCentralizationRuleSourceArgs:
@@ -244,18 +236,15 @@ class OrganizationCentralizationRuleCentralizationRuleSourceArgs:
         pulumi.set(self, "source_logs_configuration", value)
 
 
-if not MYPY:
-    class OrganizationCentralizationRuleCentralizationRuleArgsDict(TypedDict):
-        destination: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict']
-        """
-        Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
-        """
-        source: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleSourceArgsDict']
-        """
-        Configuration determining the source of the telemetry data to be centralized.
-        """
-elif False:
-    OrganizationCentralizationRuleCentralizationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleCentralizationRuleArgsDict(TypedDict):
+    destination: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict']
+    """
+    Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
+    """
+    source: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleSourceArgsDict']
+    """
+    Configuration determining the source of the telemetry data to be centralized.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleCentralizationRuleArgs:
@@ -294,18 +283,15 @@ class OrganizationCentralizationRuleCentralizationRuleArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict(TypedDict):
-        backup_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgsDict']]
-        """
-        Configuration defining the backup region and an optional KMS key for the backup destination.
-        """
-        logs_encryption_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict']]
-        """
-        The encryption configuration for centralization destination log groups.
-        """
-elif False:
-    OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict(TypedDict):
+    backup_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgsDict']]
+    """
+    Configuration defining the backup region and an optional KMS key for the backup destination.
+    """
+    logs_encryption_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict']]
+    """
+    The encryption configuration for centralization destination log groups.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
@@ -346,18 +332,15 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
         pulumi.set(self, "logs_encryption_configuration", value)
 
 
-if not MYPY:
-    class OrganizationCentralizationRuleLogsBackupConfigurationArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        Logs specific backup destination region within the primary destination account to which log data should be centralized.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
-        """
-elif False:
-    OrganizationCentralizationRuleLogsBackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleLogsBackupConfigurationArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    Logs specific backup destination region within the primary destination account to which log data should be centralized.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleLogsBackupConfigurationArgs:
@@ -397,22 +380,19 @@ class OrganizationCentralizationRuleLogsBackupConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict(TypedDict):
-        encryption_strategy: pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy']
-        """
-        Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
-        """
-        encryption_conflict_resolution_strategy: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']]
-        """
-        Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
-        """
-elif False:
-    OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict(TypedDict):
+    encryption_strategy: pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy']
+    """
+    Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+    """
+    encryption_conflict_resolution_strategy: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']]
+    """
+    Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
@@ -468,18 +448,15 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class OrganizationCentralizationRuleSourceLogsConfigurationArgsDict(TypedDict):
-        encrypted_log_group_strategy: pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy']
-        """
-        A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
-        """
-        log_group_selection_criteria: pulumi.Input[_builtins.str]
-        """
-        The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
-        """
-elif False:
-    OrganizationCentralizationRuleSourceLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationCentralizationRuleSourceLogsConfigurationArgsDict(TypedDict):
+    encrypted_log_group_strategy: pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy']
+    """
+    A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+    """
+    log_group_selection_criteria: pulumi.Input[_builtins.str]
+    """
+    The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+    """
 
 @pulumi.input_type
 class OrganizationCentralizationRuleSourceLogsConfigurationArgs:
@@ -518,14 +495,11 @@ class OrganizationCentralizationRuleSourceLogsConfigurationArgs:
         pulumi.set(self, "log_group_selection_criteria", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleActionConditionArgsDict(TypedDict):
-        """
-        The condition of the action desired in the filter.
-        """
-        action: NotRequired[pulumi.Input['OrganizationTelemetryRuleAction']]
-elif False:
-    OrganizationTelemetryRuleActionConditionArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleActionConditionArgsDict(TypedDict):
+    """
+    The condition of the action desired in the filter.
+    """
+    action: NotRequired[pulumi.Input['OrganizationTelemetryRuleAction']]
 
 @pulumi.input_type
 class OrganizationTelemetryRuleActionConditionArgs:
@@ -547,21 +521,18 @@ class OrganizationTelemetryRuleActionConditionArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleAdvancedEventSelectorArgsDict(TypedDict):
-        """
-        An advanced event selector that includes optional name and field selectors
-        """
-        field_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict']]]
-        """
-        Contains all selector statements in an advanced event selector.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional descriptive name for the advanced event selector
-        """
-elif False:
-    OrganizationTelemetryRuleAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleAdvancedEventSelectorArgsDict(TypedDict):
+    """
+    An advanced event selector that includes optional name and field selectors
+    """
+    field_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict']]]
+    """
+    Contains all selector statements in an advanced event selector.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional descriptive name for the advanced event selector
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleAdvancedEventSelectorArgs:
@@ -602,41 +573,38 @@ class OrganizationTelemetryRuleAdvancedEventSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict(TypedDict):
-        """
-        A single selector statement in an advanced event selector.
-        """
-        ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
-        """
-        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that includes events that match the exact value of the event record field specified as the value of Field.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A field in a CloudTrail event record on which to filter events to be logged
-        """
-        not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
-        """
-        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
-        """
-        not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
-        """
-        starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
-        """
-elif False:
-    OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict(TypedDict):
+    """
+    A single selector statement in an advanced event selector.
+    """
+    ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+    """
+    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that includes events that match the exact value of the event record field specified as the value of Field.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A field in a CloudTrail event record on which to filter events to be logged
+    """
+    not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+    """
+    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+    """
+    not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+    """
+    starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleAdvancedFieldSelectorArgs:
@@ -758,17 +726,14 @@ class OrganizationTelemetryRuleAdvancedFieldSelectorArgs:
         pulumi.set(self, "starts_with", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleCloudtrailParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for Cloudtrail
-        """
-        advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgsDict']]]
-        """
-        Create fine-grained selectors for AWS CloudTrail management and data.
-        """
-elif False:
-    OrganizationTelemetryRuleCloudtrailParametersArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleCloudtrailParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for Cloudtrail
+    """
+    advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgsDict']]]
+    """
+    Create fine-grained selectors for AWS CloudTrail management and data.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleCloudtrailParametersArgs:
@@ -793,15 +758,12 @@ class OrganizationTelemetryRuleCloudtrailParametersArgs:
         pulumi.set(self, "advanced_event_selectors", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleConditionArgsDict(TypedDict):
-        """
-        A condition for a filter.
-        """
-        action_condition: NotRequired[pulumi.Input['OrganizationTelemetryRuleActionConditionArgsDict']]
-        label_name_condition: NotRequired[pulumi.Input['OrganizationTelemetryRuleLabelNameConditionArgsDict']]
-elif False:
-    OrganizationTelemetryRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleConditionArgsDict(TypedDict):
+    """
+    A condition for a filter.
+    """
+    action_condition: NotRequired[pulumi.Input['OrganizationTelemetryRuleActionConditionArgsDict']]
+    label_name_condition: NotRequired[pulumi.Input['OrganizationTelemetryRuleLabelNameConditionArgsDict']]
 
 @pulumi.input_type
 class OrganizationTelemetryRuleConditionArgs:
@@ -835,21 +797,18 @@ class OrganizationTelemetryRuleConditionArgs:
         pulumi.set(self, "label_name_condition", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for ELB/NLB Load Balancer Logs
-        """
-        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A delimiter to delineate log fields
-        """
-        output_format: NotRequired[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]
-        """
-        The format for ELB access log entries (plain text or JSON format).
-        """
-elif False:
-    OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for ELB/NLB Load Balancer Logs
+    """
+    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A delimiter to delineate log fields
+    """
+    output_format: NotRequired[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]
+    """
+    The format for ELB access log entries (plain text or JSON format).
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs:
@@ -891,26 +850,23 @@ class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs:
         pulumi.set(self, "output_format", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleFieldToMatchArgsDict(TypedDict):
-        """
-        The field that we want to match this rule to.
-        """
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The method with which to match this rule.
-        """
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The query string to find the resource to match this field to.
-        """
-        single_header: NotRequired[pulumi.Input['OrganizationTelemetryRuleSingleHeaderArgsDict']]
-        uri_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is the URI path to match this rule to.
-        """
-elif False:
-    OrganizationTelemetryRuleFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleFieldToMatchArgsDict(TypedDict):
+    """
+    The field that we want to match this rule to.
+    """
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The method with which to match this rule.
+    """
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The query string to find the resource to match this field to.
+    """
+    single_header: NotRequired[pulumi.Input['OrganizationTelemetryRuleSingleHeaderArgsDict']]
+    uri_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is the URI path to match this rule to.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleFieldToMatchArgs:
@@ -980,16 +936,13 @@ class OrganizationTelemetryRuleFieldToMatchArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleFilterArgsDict(TypedDict):
-        """
-        A filter to be applied
-        """
-        behavior: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleConditionArgsDict']]]]
-        requirement: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterRequirement']]
-elif False:
-    OrganizationTelemetryRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleFilterArgsDict(TypedDict):
+    """
+    A filter to be applied
+    """
+    behavior: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleConditionArgsDict']]]]
+    requirement: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterRequirement']]
 
 @pulumi.input_type
 class OrganizationTelemetryRuleFilterArgs:
@@ -1035,17 +988,14 @@ class OrganizationTelemetryRuleFilterArgs:
         pulumi.set(self, "requirement", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleLabelNameConditionArgsDict(TypedDict):
-        """
-        The label name of the condition.
-        """
-        label_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label name of the condition.
-        """
-elif False:
-    OrganizationTelemetryRuleLabelNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleLabelNameConditionArgsDict(TypedDict):
+    """
+    The label name of the condition.
+    """
+    label_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label name of the condition.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleLabelNameConditionArgs:
@@ -1071,21 +1021,18 @@ class OrganizationTelemetryRuleLabelNameConditionArgs:
         pulumi.set(self, "label_name", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleLoggingFilterArgsDict(TypedDict):
-        """
-        Default handling for logs that don't match any of the specified filtering conditions.
-        """
-        default_behavior: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]
-        """
-        The default action (KEEP or DROP) for log records that don't match any filter conditions.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgsDict']]]]
-        """
-        A list of filter conditions that determine log record handling behavior.
-        """
-elif False:
-    OrganizationTelemetryRuleLoggingFilterArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleLoggingFilterArgsDict(TypedDict):
+    """
+    Default handling for logs that don't match any of the specified filtering conditions.
+    """
+    default_behavior: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]
+    """
+    The default action (KEEP or DROP) for log records that don't match any filter conditions.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgsDict']]]]
+    """
+    A list of filter conditions that determine log record handling behavior.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleLoggingFilterArgs:
@@ -1127,17 +1074,14 @@ class OrganizationTelemetryRuleLoggingFilterArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleSingleHeaderArgsDict(TypedDict):
-        """
-        Header for the field to match.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the header
-        """
-elif False:
-    OrganizationTelemetryRuleSingleHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleSingleHeaderArgsDict(TypedDict):
+    """
+    Header for the field to match.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the header
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleSingleHeaderArgs:
@@ -1162,41 +1106,38 @@ class OrganizationTelemetryRuleSingleHeaderArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
-        """
-        The destination configuration for telemetry data
-        """
-        cloudtrail_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgsDict']]
-        """
-        Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
-        """
-        destination_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
-        """
-        destination_type: NotRequired[pulumi.Input['OrganizationTelemetryRuleDestinationType']]
-        """
-        The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
-        """
-        elb_load_balancer_logging_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict']]
-        """
-        Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
-        """
-        retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days to retain the telemetry data in the destination.
-        """
-        vpc_flow_log_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleVpcFlowLogParametersArgsDict']]
-        """
-        Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
-        """
-        waf_logging_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgsDict']]
-        """
-        Configuration parameters specific to WAF logging when WAF is the resource type.
-        """
-elif False:
-    OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
+    """
+    The destination configuration for telemetry data
+    """
+    cloudtrail_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgsDict']]
+    """
+    Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+    """
+    destination_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+    """
+    destination_type: NotRequired[pulumi.Input['OrganizationTelemetryRuleDestinationType']]
+    """
+    The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+    """
+    elb_load_balancer_logging_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict']]
+    """
+    Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+    """
+    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days to retain the telemetry data in the destination.
+    """
+    vpc_flow_log_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleVpcFlowLogParametersArgsDict']]
+    """
+    Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+    """
+    waf_logging_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgsDict']]
+    """
+    Configuration parameters specific to WAF logging when WAF is the resource type.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
@@ -1318,37 +1259,34 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
         pulumi.set(self, "waf_logging_parameters", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleTelemetryRuleArgsDict(TypedDict):
-        """
-        The telemetry rule
-        """
-        resource_type: pulumi.Input['OrganizationTelemetryRuleResourceType']
-        """
-        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
-        """
-        telemetry_type: pulumi.Input['OrganizationTelemetryRuleTelemetryType']
-        """
-        The type of telemetry to collect (Logs, Metrics, or Traces).
-        """
-        destination_configuration: NotRequired[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict']]
-        """
-        Configuration specifying where and how the telemetry data should be delivered.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The organizational scope to which the rule applies, specified using accounts or organizational units.
-        """
-        selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Criteria for selecting which resources the rule applies to, such as resource tags.
-        """
-        telemetry_source_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]]
-        """
-        The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
-        """
-elif False:
-    OrganizationTelemetryRuleTelemetryRuleArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleTelemetryRuleArgsDict(TypedDict):
+    """
+    The telemetry rule
+    """
+    resource_type: pulumi.Input['OrganizationTelemetryRuleResourceType']
+    """
+    The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
+    """
+    telemetry_type: pulumi.Input['OrganizationTelemetryRuleTelemetryType']
+    """
+    The type of telemetry to collect (Logs, Metrics, or Traces).
+    """
+    destination_configuration: NotRequired[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict']]
+    """
+    Configuration specifying where and how the telemetry data should be delivered.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The organizational scope to which the rule applies, specified using accounts or organizational units.
+    """
+    selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Criteria for selecting which resources the rule applies to, such as resource tags.
+    """
+    telemetry_source_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]]
+    """
+    The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleTelemetryRuleArgs:
@@ -1452,25 +1390,22 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
         pulumi.set(self, "telemetry_source_types", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleVpcFlowLogParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for VPC Flow logs
-        """
-        log_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
-        """
-        max_aggregation_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
-        """
-        traffic_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of traffic captured for the flow log. Default is ALL
-        """
-elif False:
-    OrganizationTelemetryRuleVpcFlowLogParametersArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleVpcFlowLogParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for VPC Flow logs
+    """
+    log_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
+    """
+    max_aggregation_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
+    """
+    traffic_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of traffic captured for the flow log. Default is ALL
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleVpcFlowLogParametersArgs:
@@ -1528,25 +1463,22 @@ class OrganizationTelemetryRuleVpcFlowLogParametersArgs:
         pulumi.set(self, "traffic_type", value)
 
 
-if not MYPY:
-    class OrganizationTelemetryRuleWafLoggingParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for WAF v2 Web ACL
-        """
-        log_type: NotRequired[pulumi.Input['OrganizationTelemetryRuleWafLogType']]
-        """
-        The type of WAF logs to collect (currently supports WAF_LOGS).
-        """
-        logging_filter: NotRequired[pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgsDict']]
-        """
-        A filter configuration that determines which WAF log records to include or exclude.
-        """
-        redacted_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgsDict']]]]
-        """
-        Fields not to be included in the logs.
-        """
-elif False:
-    OrganizationTelemetryRuleWafLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationTelemetryRuleWafLoggingParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for WAF v2 Web ACL
+    """
+    log_type: NotRequired[pulumi.Input['OrganizationTelemetryRuleWafLogType']]
+    """
+    The type of WAF logs to collect (currently supports WAF_LOGS).
+    """
+    logging_filter: NotRequired[pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgsDict']]
+    """
+    A filter configuration that determines which WAF log records to include or exclude.
+    """
+    redacted_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgsDict']]]]
+    """
+    Fields not to be included in the logs.
+    """
 
 @pulumi.input_type
 class OrganizationTelemetryRuleWafLoggingParametersArgs:
@@ -1604,21 +1536,18 @@ class OrganizationTelemetryRuleWafLoggingParametersArgs:
         pulumi.set(self, "redacted_fields", value)
 
 
-if not MYPY:
-    class S3TableIntegrationEncryptionConfigArgsDict(TypedDict):
-        """
-        Encryption configuration for the S3 Table Integration
-        """
-        sse_algorithm: pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm']
-        """
-        The server-side encryption algorithm used to encrypt the S3 Table(s) data
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key used to encrypt the S3 Table Integration
-        """
-elif False:
-    S3TableIntegrationEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class S3TableIntegrationEncryptionConfigArgsDict(TypedDict):
+    """
+    Encryption configuration for the S3 Table Integration
+    """
+    sse_algorithm: pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm']
+    """
+    The server-side encryption algorithm used to encrypt the S3 Table(s) data
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMS key used to encrypt the S3 Table Integration
+    """
 
 @pulumi.input_type
 class S3TableIntegrationEncryptionConfigArgs:
@@ -1659,25 +1588,22 @@ class S3TableIntegrationEncryptionConfigArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class S3TableIntegrationLogSourceArgsDict(TypedDict):
-        """
-        CloudWatch Logs data source to associate with the S3 Table Integration
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the CloudWatch Logs data source
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the CloudWatch Logs data source
-        """
-        identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the CloudWatch Logs data source association
-        """
-elif False:
-    S3TableIntegrationLogSourceArgsDict: TypeAlias = Mapping[str, Any]
+class S3TableIntegrationLogSourceArgsDict(TypedDict):
+    """
+    CloudWatch Logs data source to associate with the S3 Table Integration
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch Logs data source
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the CloudWatch Logs data source
+    """
+    identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the CloudWatch Logs data source association
+    """
 
 @pulumi.input_type
 class S3TableIntegrationLogSourceArgs:
@@ -1733,14 +1659,11 @@ class S3TableIntegrationLogSourceArgs:
         pulumi.set(self, "identifier", value)
 
 
-if not MYPY:
-    class TelemetryPipelinesTelemetryPipelineConfigurationArgsDict(TypedDict):
-        body: pulumi.Input[_builtins.str]
-        """
-        The pipeline configuration body that defines the data processing rules and transformations.
-        """
-elif False:
-    TelemetryPipelinesTelemetryPipelineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryPipelinesTelemetryPipelineConfigurationArgsDict(TypedDict):
+    body: pulumi.Input[_builtins.str]
+    """
+    The pipeline configuration body that defines the data processing rules and transformations.
+    """
 
 @pulumi.input_type
 class TelemetryPipelinesTelemetryPipelineConfigurationArgs:
@@ -1764,14 +1687,11 @@ class TelemetryPipelinesTelemetryPipelineConfigurationArgs:
         pulumi.set(self, "body", value)
 
 
-if not MYPY:
-    class TelemetryRuleActionConditionArgsDict(TypedDict):
-        """
-        The condition of the action desired in the filter.
-        """
-        action: NotRequired[pulumi.Input['TelemetryRuleAction']]
-elif False:
-    TelemetryRuleActionConditionArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleActionConditionArgsDict(TypedDict):
+    """
+    The condition of the action desired in the filter.
+    """
+    action: NotRequired[pulumi.Input['TelemetryRuleAction']]
 
 @pulumi.input_type
 class TelemetryRuleActionConditionArgs:
@@ -1793,21 +1713,18 @@ class TelemetryRuleActionConditionArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class TelemetryRuleAdvancedEventSelectorArgsDict(TypedDict):
-        """
-        An advanced event selector that includes optional name and field selectors
-        """
-        field_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgsDict']]]
-        """
-        Contains all selector statements in an advanced event selector.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional descriptive name for the advanced event selector
-        """
-elif False:
-    TelemetryRuleAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleAdvancedEventSelectorArgsDict(TypedDict):
+    """
+    An advanced event selector that includes optional name and field selectors
+    """
+    field_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgsDict']]]
+    """
+    Contains all selector statements in an advanced event selector.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional descriptive name for the advanced event selector
+    """
 
 @pulumi.input_type
 class TelemetryRuleAdvancedEventSelectorArgs:
@@ -1848,41 +1765,38 @@ class TelemetryRuleAdvancedEventSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class TelemetryRuleAdvancedFieldSelectorArgsDict(TypedDict):
-        """
-        A single selector statement in an advanced event selector.
-        """
-        ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
-        """
-        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that includes events that match the exact value of the event record field specified as the value of Field.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A field in a CloudTrail event record on which to filter events to be logged
-        """
-        not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
-        """
-        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
-        """
-        not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
-        """
-        starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
-        """
-elif False:
-    TelemetryRuleAdvancedFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleAdvancedFieldSelectorArgsDict(TypedDict):
+    """
+    A single selector statement in an advanced event selector.
+    """
+    ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+    """
+    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that includes events that match the exact value of the event record field specified as the value of Field.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A field in a CloudTrail event record on which to filter events to be logged
+    """
+    not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+    """
+    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+    """
+    not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+    """
+    starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+    """
 
 @pulumi.input_type
 class TelemetryRuleAdvancedFieldSelectorArgs:
@@ -2004,17 +1918,14 @@ class TelemetryRuleAdvancedFieldSelectorArgs:
         pulumi.set(self, "starts_with", value)
 
 
-if not MYPY:
-    class TelemetryRuleCloudtrailParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for Cloudtrail
-        """
-        advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgsDict']]]
-        """
-        Create fine-grained selectors for AWS CloudTrail management and data.
-        """
-elif False:
-    TelemetryRuleCloudtrailParametersArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleCloudtrailParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for Cloudtrail
+    """
+    advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgsDict']]]
+    """
+    Create fine-grained selectors for AWS CloudTrail management and data.
+    """
 
 @pulumi.input_type
 class TelemetryRuleCloudtrailParametersArgs:
@@ -2039,15 +1950,12 @@ class TelemetryRuleCloudtrailParametersArgs:
         pulumi.set(self, "advanced_event_selectors", value)
 
 
-if not MYPY:
-    class TelemetryRuleConditionArgsDict(TypedDict):
-        """
-        A condition for a filter.
-        """
-        action_condition: NotRequired[pulumi.Input['TelemetryRuleActionConditionArgsDict']]
-        label_name_condition: NotRequired[pulumi.Input['TelemetryRuleLabelNameConditionArgsDict']]
-elif False:
-    TelemetryRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleConditionArgsDict(TypedDict):
+    """
+    A condition for a filter.
+    """
+    action_condition: NotRequired[pulumi.Input['TelemetryRuleActionConditionArgsDict']]
+    label_name_condition: NotRequired[pulumi.Input['TelemetryRuleLabelNameConditionArgsDict']]
 
 @pulumi.input_type
 class TelemetryRuleConditionArgs:
@@ -2081,21 +1989,18 @@ class TelemetryRuleConditionArgs:
         pulumi.set(self, "label_name_condition", value)
 
 
-if not MYPY:
-    class TelemetryRuleElbLoadBalancerLoggingParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for ELB/NLB Load Balancer Logs
-        """
-        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A delimiter to delineate log fields
-        """
-        output_format: NotRequired[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]
-        """
-        The format for ELB access log entries (plain text or JSON format).
-        """
-elif False:
-    TelemetryRuleElbLoadBalancerLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleElbLoadBalancerLoggingParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for ELB/NLB Load Balancer Logs
+    """
+    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A delimiter to delineate log fields
+    """
+    output_format: NotRequired[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]
+    """
+    The format for ELB access log entries (plain text or JSON format).
+    """
 
 @pulumi.input_type
 class TelemetryRuleElbLoadBalancerLoggingParametersArgs:
@@ -2137,26 +2042,23 @@ class TelemetryRuleElbLoadBalancerLoggingParametersArgs:
         pulumi.set(self, "output_format", value)
 
 
-if not MYPY:
-    class TelemetryRuleFieldToMatchArgsDict(TypedDict):
-        """
-        The field that we want to match this rule to.
-        """
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The method with which to match this rule.
-        """
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The query string to find the resource to match this field to.
-        """
-        single_header: NotRequired[pulumi.Input['TelemetryRuleSingleHeaderArgsDict']]
-        uri_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is the URI path to match this rule to.
-        """
-elif False:
-    TelemetryRuleFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleFieldToMatchArgsDict(TypedDict):
+    """
+    The field that we want to match this rule to.
+    """
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The method with which to match this rule.
+    """
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The query string to find the resource to match this field to.
+    """
+    single_header: NotRequired[pulumi.Input['TelemetryRuleSingleHeaderArgsDict']]
+    uri_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is the URI path to match this rule to.
+    """
 
 @pulumi.input_type
 class TelemetryRuleFieldToMatchArgs:
@@ -2226,16 +2128,13 @@ class TelemetryRuleFieldToMatchArgs:
         pulumi.set(self, "uri_path", value)
 
 
-if not MYPY:
-    class TelemetryRuleFilterArgsDict(TypedDict):
-        """
-        A filter to be applied
-        """
-        behavior: NotRequired[pulumi.Input['TelemetryRuleFilterBehavior']]
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleConditionArgsDict']]]]
-        requirement: NotRequired[pulumi.Input['TelemetryRuleFilterRequirement']]
-elif False:
-    TelemetryRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleFilterArgsDict(TypedDict):
+    """
+    A filter to be applied
+    """
+    behavior: NotRequired[pulumi.Input['TelemetryRuleFilterBehavior']]
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleConditionArgsDict']]]]
+    requirement: NotRequired[pulumi.Input['TelemetryRuleFilterRequirement']]
 
 @pulumi.input_type
 class TelemetryRuleFilterArgs:
@@ -2281,17 +2180,14 @@ class TelemetryRuleFilterArgs:
         pulumi.set(self, "requirement", value)
 
 
-if not MYPY:
-    class TelemetryRuleLabelNameConditionArgsDict(TypedDict):
-        """
-        The label name of the condition.
-        """
-        label_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label name of the condition.
-        """
-elif False:
-    TelemetryRuleLabelNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleLabelNameConditionArgsDict(TypedDict):
+    """
+    The label name of the condition.
+    """
+    label_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label name of the condition.
+    """
 
 @pulumi.input_type
 class TelemetryRuleLabelNameConditionArgs:
@@ -2317,21 +2213,18 @@ class TelemetryRuleLabelNameConditionArgs:
         pulumi.set(self, "label_name", value)
 
 
-if not MYPY:
-    class TelemetryRuleLoggingFilterArgsDict(TypedDict):
-        """
-        Default handling for logs that don't match any of the specified filtering conditions.
-        """
-        default_behavior: NotRequired[pulumi.Input['TelemetryRuleFilterBehavior']]
-        """
-        The default action (KEEP or DROP) for log records that don't match any filter conditions.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgsDict']]]]
-        """
-        A list of filter conditions that determine log record handling behavior.
-        """
-elif False:
-    TelemetryRuleLoggingFilterArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleLoggingFilterArgsDict(TypedDict):
+    """
+    Default handling for logs that don't match any of the specified filtering conditions.
+    """
+    default_behavior: NotRequired[pulumi.Input['TelemetryRuleFilterBehavior']]
+    """
+    The default action (KEEP or DROP) for log records that don't match any filter conditions.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgsDict']]]]
+    """
+    A list of filter conditions that determine log record handling behavior.
+    """
 
 @pulumi.input_type
 class TelemetryRuleLoggingFilterArgs:
@@ -2373,17 +2266,14 @@ class TelemetryRuleLoggingFilterArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class TelemetryRuleSingleHeaderArgsDict(TypedDict):
-        """
-        Header for the field to match.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the header
-        """
-elif False:
-    TelemetryRuleSingleHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleSingleHeaderArgsDict(TypedDict):
+    """
+    Header for the field to match.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the header
+    """
 
 @pulumi.input_type
 class TelemetryRuleSingleHeaderArgs:
@@ -2408,17 +2298,14 @@ class TelemetryRuleSingleHeaderArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict(TypedDict):
-        """
-        Parameters for BedrockAgentCore log delivery
-        """
-        log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]]
-        """
-        Types of logs to deliver for BedrockAgentCore resources
-        """
-elif False:
-    TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict(TypedDict):
+    """
+    Parameters for BedrockAgentCore log delivery
+    """
+    log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]]
+    """
+    Types of logs to deliver for BedrockAgentCore resources
+    """
 
 @pulumi.input_type
 class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs:
@@ -2444,45 +2331,42 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
         pulumi.set(self, "log_types", value)
 
 
-if not MYPY:
-    class TelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
-        """
-        The destination configuration for telemetry data
-        """
-        cloudtrail_parameters: NotRequired[pulumi.Input['TelemetryRuleCloudtrailParametersArgsDict']]
-        """
-        Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
-        """
-        destination_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
-        """
-        destination_type: NotRequired[pulumi.Input['TelemetryRuleDestinationType']]
-        """
-        The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
-        """
-        elb_load_balancer_logging_parameters: NotRequired[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersArgsDict']]
-        """
-        Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
-        """
-        log_delivery_parameters: NotRequired[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict']]
-        """
-        Parameters for BedrockAgentCore log delivery
-        """
-        retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days to retain the telemetry data in the destination.
-        """
-        vpc_flow_log_parameters: NotRequired[pulumi.Input['TelemetryRuleVpcFlowLogParametersArgsDict']]
-        """
-        Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
-        """
-        waf_logging_parameters: NotRequired[pulumi.Input['TelemetryRuleWafLoggingParametersArgsDict']]
-        """
-        Configuration parameters specific to WAF logging when WAF is the resource type.
-        """
-elif False:
-    TelemetryRuleTelemetryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
+    """
+    The destination configuration for telemetry data
+    """
+    cloudtrail_parameters: NotRequired[pulumi.Input['TelemetryRuleCloudtrailParametersArgsDict']]
+    """
+    Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+    """
+    destination_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+    """
+    destination_type: NotRequired[pulumi.Input['TelemetryRuleDestinationType']]
+    """
+    The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+    """
+    elb_load_balancer_logging_parameters: NotRequired[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersArgsDict']]
+    """
+    Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+    """
+    log_delivery_parameters: NotRequired[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict']]
+    """
+    Parameters for BedrockAgentCore log delivery
+    """
+    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days to retain the telemetry data in the destination.
+    """
+    vpc_flow_log_parameters: NotRequired[pulumi.Input['TelemetryRuleVpcFlowLogParametersArgsDict']]
+    """
+    Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+    """
+    waf_logging_parameters: NotRequired[pulumi.Input['TelemetryRuleWafLoggingParametersArgsDict']]
+    """
+    Configuration parameters specific to WAF logging when WAF is the resource type.
+    """
 
 @pulumi.input_type
 class TelemetryRuleTelemetryDestinationConfigurationArgs:
@@ -2620,25 +2504,22 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
         pulumi.set(self, "waf_logging_parameters", value)
 
 
-if not MYPY:
-    class TelemetryRuleVpcFlowLogParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for VPC Flow logs
-        """
-        log_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
-        """
-        max_aggregation_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
-        """
-        traffic_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of traffic captured for the flow log. Default is ALL
-        """
-elif False:
-    TelemetryRuleVpcFlowLogParametersArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleVpcFlowLogParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for VPC Flow logs
+    """
+    log_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
+    """
+    max_aggregation_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
+    """
+    traffic_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of traffic captured for the flow log. Default is ALL
+    """
 
 @pulumi.input_type
 class TelemetryRuleVpcFlowLogParametersArgs:
@@ -2696,25 +2577,22 @@ class TelemetryRuleVpcFlowLogParametersArgs:
         pulumi.set(self, "traffic_type", value)
 
 
-if not MYPY:
-    class TelemetryRuleWafLoggingParametersArgsDict(TypedDict):
-        """
-        Telemetry parameters for WAF v2 Web ACL
-        """
-        log_type: NotRequired[pulumi.Input['TelemetryRuleWafLogType']]
-        """
-        The type of WAF logs to collect (currently supports WAF_LOGS).
-        """
-        logging_filter: NotRequired[pulumi.Input['TelemetryRuleLoggingFilterArgsDict']]
-        """
-        A filter configuration that determines which WAF log records to include or exclude.
-        """
-        redacted_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgsDict']]]]
-        """
-        Fields not to be included in the logs.
-        """
-elif False:
-    TelemetryRuleWafLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleWafLoggingParametersArgsDict(TypedDict):
+    """
+    Telemetry parameters for WAF v2 Web ACL
+    """
+    log_type: NotRequired[pulumi.Input['TelemetryRuleWafLogType']]
+    """
+    The type of WAF logs to collect (currently supports WAF_LOGS).
+    """
+    logging_filter: NotRequired[pulumi.Input['TelemetryRuleLoggingFilterArgsDict']]
+    """
+    A filter configuration that determines which WAF log records to include or exclude.
+    """
+    redacted_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgsDict']]]]
+    """
+    Fields not to be included in the logs.
+    """
 
 @pulumi.input_type
 class TelemetryRuleWafLoggingParametersArgs:
@@ -2772,33 +2650,30 @@ class TelemetryRuleWafLoggingParametersArgs:
         pulumi.set(self, "redacted_fields", value)
 
 
-if not MYPY:
-    class TelemetryRuleArgsDict(TypedDict):
-        """
-        The telemetry rule
-        """
-        resource_type: pulumi.Input['TelemetryRuleResourceType']
-        """
-        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
-        """
-        telemetry_type: pulumi.Input['TelemetryRuleTelemetryType']
-        """
-        The type of telemetry to collect (Logs, Metrics, or Traces).
-        """
-        destination_configuration: NotRequired[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgsDict']]
-        """
-        Configuration specifying where and how the telemetry data should be delivered.
-        """
-        selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Criteria for selecting which resources the rule applies to, such as resource tags.
-        """
-        telemetry_source_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]]
-        """
-        The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
-        """
-elif False:
-    TelemetryRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TelemetryRuleArgsDict(TypedDict):
+    """
+    The telemetry rule
+    """
+    resource_type: pulumi.Input['TelemetryRuleResourceType']
+    """
+    The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
+    """
+    telemetry_type: pulumi.Input['TelemetryRuleTelemetryType']
+    """
+    The type of telemetry to collect (Logs, Metrics, or Traces).
+    """
+    destination_configuration: NotRequired[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgsDict']]
+    """
+    Configuration specifying where and how the telemetry data should be delivered.
+    """
+    selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Criteria for selecting which resources the rule applies to, such as resource tags.
+    """
+    telemetry_source_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]]
+    """
+    The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+    """
 
 @pulumi.input_type
 class TelemetryRuleArgs:

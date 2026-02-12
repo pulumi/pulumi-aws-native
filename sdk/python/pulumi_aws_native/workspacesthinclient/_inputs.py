@@ -22,40 +22,35 @@ __all__ = [
     'EnvironmentTagArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EnvironmentMaintenanceWindowArgsDict(TypedDict):
-        type: pulumi.Input['EnvironmentMaintenanceWindowType']
-        """
-        The type of maintenance window.
-        """
-        apply_time_of: NotRequired[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']]
-        """
-        The desired time zone maintenance window.
-        """
-        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]
-        """
-        The date of maintenance window.
-        """
-        end_time_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The hour end time of maintenance window.
-        """
-        end_time_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minute end time of maintenance window.
-        """
-        start_time_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The hour start time of maintenance window.
-        """
-        start_time_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minute start time of maintenance window.
-        """
-elif False:
-    EnvironmentMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentMaintenanceWindowArgsDict(TypedDict):
+    type: pulumi.Input['EnvironmentMaintenanceWindowType']
+    """
+    The type of maintenance window.
+    """
+    apply_time_of: NotRequired[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']]
+    """
+    The desired time zone maintenance window.
+    """
+    days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]
+    """
+    The date of maintenance window.
+    """
+    end_time_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The hour end time of maintenance window.
+    """
+    end_time_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minute end time of maintenance window.
+    """
+    start_time_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The hour start time of maintenance window.
+    """
+    start_time_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minute start time of maintenance window.
+    """
 
 @pulumi.input_type
 class EnvironmentMaintenanceWindowArgs:
@@ -175,21 +170,18 @@ class EnvironmentMaintenanceWindowArgs:
         pulumi.set(self, "start_time_minute", value)
 
 
-if not MYPY:
-    class EnvironmentTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    EnvironmentTagArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class EnvironmentTagArgs:

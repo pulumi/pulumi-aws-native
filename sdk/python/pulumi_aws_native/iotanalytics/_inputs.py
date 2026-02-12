@@ -122,24 +122,19 @@ __all__ = [
     'PipelineSelectAttributesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ChannelCustomerManagedS3ArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket in which channel data is stored.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
-        """
-elif False:
-    ChannelCustomerManagedS3ArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelCustomerManagedS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket in which channel data is stored.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
+    """
 
 @pulumi.input_type
 class ChannelCustomerManagedS3Args:
@@ -194,18 +189,15 @@ class ChannelCustomerManagedS3Args:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class ChannelRetentionPeriodArgsDict(TypedDict):
-        number_of_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days that message data is kept. The `unlimited` parameter must be false.
-        """
-        unlimited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, message data is kept indefinitely.
-        """
-elif False:
-    ChannelRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelRetentionPeriodArgsDict(TypedDict):
+    number_of_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days that message data is kept. The `unlimited` parameter must be false.
+    """
+    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, message data is kept indefinitely.
+    """
 
 @pulumi.input_type
 class ChannelRetentionPeriodArgs:
@@ -246,11 +238,8 @@ class ChannelRetentionPeriodArgs:
         pulumi.set(self, "unlimited", value)
 
 
-if not MYPY:
-    class ChannelServiceManagedS3ArgsDict(TypedDict):
-        pass
-elif False:
-    ChannelServiceManagedS3ArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelServiceManagedS3ArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ChannelServiceManagedS3Args:
@@ -258,18 +247,15 @@ class ChannelServiceManagedS3Args:
         pass
 
 
-if not MYPY:
-    class ChannelStorageArgsDict(TypedDict):
-        customer_managed_s3: NotRequired[pulumi.Input['ChannelCustomerManagedS3ArgsDict']]
-        """
-        Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
-        """
-        service_managed_s3: NotRequired[pulumi.Input['ChannelServiceManagedS3ArgsDict']]
-        """
-        Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
-        """
-elif False:
-    ChannelStorageArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelStorageArgsDict(TypedDict):
+    customer_managed_s3: NotRequired[pulumi.Input['ChannelCustomerManagedS3ArgsDict']]
+    """
+    Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
+    """
+    service_managed_s3: NotRequired[pulumi.Input['ChannelServiceManagedS3ArgsDict']]
+    """
+    Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
+    """
 
 @pulumi.input_type
 class ChannelStorageArgs:
@@ -310,22 +296,19 @@ class ChannelStorageArgs:
         pulumi.set(self, "service_managed_s3", value)
 
 
-if not MYPY:
-    class DatasetActionArgsDict(TypedDict):
-        action_name: pulumi.Input[_builtins.str]
-        """
-        The name of the data set action by which data set contents are automatically created.
-        """
-        container_action: NotRequired[pulumi.Input['DatasetContainerActionArgsDict']]
-        """
-        Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
-        """
-        query_action: NotRequired[pulumi.Input['DatasetQueryActionArgsDict']]
-        """
-        An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
-        """
-elif False:
-    DatasetActionArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetActionArgsDict(TypedDict):
+    action_name: pulumi.Input[_builtins.str]
+    """
+    The name of the data set action by which data set contents are automatically created.
+    """
+    container_action: NotRequired[pulumi.Input['DatasetContainerActionArgsDict']]
+    """
+    Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
+    """
+    query_action: NotRequired[pulumi.Input['DatasetQueryActionArgsDict']]
+    """
+    An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+    """
 
 @pulumi.input_type
 class DatasetActionArgs:
@@ -381,26 +364,23 @@ class DatasetActionArgs:
         pulumi.set(self, "query_action", value)
 
 
-if not MYPY:
-    class DatasetContainerActionArgsDict(TypedDict):
-        execution_role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
-        """
-        image: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
-        """
-        resource_configuration: pulumi.Input['DatasetResourceConfigurationArgsDict']
-        """
-        Configuration of the resource which executes the "containerAction".
-        """
-        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgsDict']]]]
-        """
-        The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
-        """
-elif False:
-    DatasetContainerActionArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetContainerActionArgsDict(TypedDict):
+    execution_role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+    """
+    image: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
+    """
+    resource_configuration: pulumi.Input['DatasetResourceConfigurationArgsDict']
+    """
+    Configuration of the resource which executes the "containerAction".
+    """
+    variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgsDict']]]]
+    """
+    The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+    """
 
 @pulumi.input_type
 class DatasetContainerActionArgs:
@@ -470,18 +450,15 @@ class DatasetContainerActionArgs:
         pulumi.set(self, "variables", value)
 
 
-if not MYPY:
-    class DatasetContentDeliveryRuleDestinationArgsDict(TypedDict):
-        iot_events_destination_configuration: NotRequired[pulumi.Input['DatasetIotEventsDestinationConfigurationArgsDict']]
-        """
-        Configuration information for delivery of dataset contents to AWS IoT Events .
-        """
-        s3_destination_configuration: NotRequired[pulumi.Input['DatasetS3DestinationConfigurationArgsDict']]
-        """
-        Configuration information for delivery of dataset contents to Amazon S3.
-        """
-elif False:
-    DatasetContentDeliveryRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetContentDeliveryRuleDestinationArgsDict(TypedDict):
+    iot_events_destination_configuration: NotRequired[pulumi.Input['DatasetIotEventsDestinationConfigurationArgsDict']]
+    """
+    Configuration information for delivery of dataset contents to AWS IoT Events .
+    """
+    s3_destination_configuration: NotRequired[pulumi.Input['DatasetS3DestinationConfigurationArgsDict']]
+    """
+    Configuration information for delivery of dataset contents to Amazon S3.
+    """
 
 @pulumi.input_type
 class DatasetContentDeliveryRuleDestinationArgs:
@@ -522,18 +499,15 @@ class DatasetContentDeliveryRuleDestinationArgs:
         pulumi.set(self, "s3_destination_configuration", value)
 
 
-if not MYPY:
-    class DatasetContentDeliveryRuleArgsDict(TypedDict):
-        destination: pulumi.Input['DatasetContentDeliveryRuleDestinationArgsDict']
-        """
-        The destination to which dataset contents are delivered.
-        """
-        entry_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the dataset content delivery rules entry.
-        """
-elif False:
-    DatasetContentDeliveryRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetContentDeliveryRuleArgsDict(TypedDict):
+    destination: pulumi.Input['DatasetContentDeliveryRuleDestinationArgsDict']
+    """
+    The destination to which dataset contents are delivered.
+    """
+    entry_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the dataset content delivery rules entry.
+    """
 
 @pulumi.input_type
 class DatasetContentDeliveryRuleArgs:
@@ -573,14 +547,11 @@ class DatasetContentDeliveryRuleArgs:
         pulumi.set(self, "entry_name", value)
 
 
-if not MYPY:
-    class DatasetContentVersionValueArgsDict(TypedDict):
-        dataset_name: pulumi.Input[_builtins.str]
-        """
-        The name of the dataset whose latest contents are used as input to the notebook or application.
-        """
-elif False:
-    DatasetContentVersionValueArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetContentVersionValueArgsDict(TypedDict):
+    dataset_name: pulumi.Input[_builtins.str]
+    """
+    The name of the dataset whose latest contents are used as input to the notebook or application.
+    """
 
 @pulumi.input_type
 class DatasetContentVersionValueArgs:
@@ -604,16 +575,13 @@ class DatasetContentVersionValueArgs:
         pulumi.set(self, "dataset_name", value)
 
 
-if not MYPY:
-    class DatasetDeltaTimeSessionWindowConfigurationArgsDict(TypedDict):
-        timeout_in_minutes: pulumi.Input[_builtins.int]
-        """
-        A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
+class DatasetDeltaTimeSessionWindowConfigurationArgsDict(TypedDict):
+    timeout_in_minutes: pulumi.Input[_builtins.int]
+    """
+    A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
 
-        For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
-        """
-elif False:
-    DatasetDeltaTimeSessionWindowConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
+    """
 
 @pulumi.input_type
 class DatasetDeltaTimeSessionWindowConfigurationArgs:
@@ -641,18 +609,15 @@ class DatasetDeltaTimeSessionWindowConfigurationArgs:
         pulumi.set(self, "timeout_in_minutes", value)
 
 
-if not MYPY:
-    class DatasetDeltaTimeArgsDict(TypedDict):
-        offset_seconds: pulumi.Input[_builtins.int]
-        """
-        The number of seconds of estimated in-flight lag time of message data. When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
-        """
-        time_expression: pulumi.Input[_builtins.str]
-        """
-        An expression by which the time of the message data might be determined. This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
-        """
-elif False:
-    DatasetDeltaTimeArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetDeltaTimeArgsDict(TypedDict):
+    offset_seconds: pulumi.Input[_builtins.int]
+    """
+    The number of seconds of estimated in-flight lag time of message data. When you create dataset contents using message data from a specified timeframe, some message data might still be in flight when processing begins, and so do not arrive in time to be processed. Use this field to make allowances for the in flight time of your message data, so that data not processed from a previous timeframe is included with the next timeframe. Otherwise, missed message data would be excluded from processing during the next timeframe too, because its timestamp places it within the previous timeframe.
+    """
+    time_expression: pulumi.Input[_builtins.str]
+    """
+    An expression by which the time of the message data might be determined. This can be the name of a timestamp field or a SQL expression that is used to derive the time the message data was generated.
+    """
 
 @pulumi.input_type
 class DatasetDeltaTimeArgs:
@@ -691,14 +656,11 @@ class DatasetDeltaTimeArgs:
         pulumi.set(self, "time_expression", value)
 
 
-if not MYPY:
-    class DatasetFilterArgsDict(TypedDict):
-        delta_time: NotRequired[pulumi.Input['DatasetDeltaTimeArgsDict']]
-        """
-        Used to limit data to that which has arrived since the last execution of the action.
-        """
-elif False:
-    DatasetFilterArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetFilterArgsDict(TypedDict):
+    delta_time: NotRequired[pulumi.Input['DatasetDeltaTimeArgsDict']]
+    """
+    Used to limit data to that which has arrived since the last execution of the action.
+    """
 
 @pulumi.input_type
 class DatasetFilterArgs:
@@ -723,18 +685,15 @@ class DatasetFilterArgs:
         pulumi.set(self, "delta_time", value)
 
 
-if not MYPY:
-    class DatasetGlueConfigurationArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
-        """
-elif False:
-    DatasetGlueConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetGlueConfigurationArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+    """
 
 @pulumi.input_type
 class DatasetGlueConfigurationArgs:
@@ -773,18 +732,15 @@ class DatasetGlueConfigurationArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class DatasetIotEventsDestinationConfigurationArgsDict(TypedDict):
-        input_name: pulumi.Input[_builtins.str]
-        """
-        The name of the AWS IoT Events input to which dataset contents are delivered.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
-        """
-elif False:
-    DatasetIotEventsDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetIotEventsDestinationConfigurationArgsDict(TypedDict):
+    input_name: pulumi.Input[_builtins.str]
+    """
+    The name of the AWS IoT Events input to which dataset contents are delivered.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
+    """
 
 @pulumi.input_type
 class DatasetIotEventsDestinationConfigurationArgs:
@@ -823,14 +779,11 @@ class DatasetIotEventsDestinationConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class DatasetLateDataRuleConfigurationArgsDict(TypedDict):
-        delta_time_session_window_configuration: NotRequired[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgsDict']]
-        """
-        The information needed to configure a delta time session window.
-        """
-elif False:
-    DatasetLateDataRuleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetLateDataRuleConfigurationArgsDict(TypedDict):
+    delta_time_session_window_configuration: NotRequired[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgsDict']]
+    """
+    The information needed to configure a delta time session window.
+    """
 
 @pulumi.input_type
 class DatasetLateDataRuleConfigurationArgs:
@@ -855,18 +808,15 @@ class DatasetLateDataRuleConfigurationArgs:
         pulumi.set(self, "delta_time_session_window_configuration", value)
 
 
-if not MYPY:
-    class DatasetLateDataRuleArgsDict(TypedDict):
-        rule_configuration: pulumi.Input['DatasetLateDataRuleConfigurationArgsDict']
-        """
-        The information needed to configure the late data rule.
-        """
-        rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the late data rule.
-        """
-elif False:
-    DatasetLateDataRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetLateDataRuleArgsDict(TypedDict):
+    rule_configuration: pulumi.Input['DatasetLateDataRuleConfigurationArgsDict']
+    """
+    The information needed to configure the late data rule.
+    """
+    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the late data rule.
+    """
 
 @pulumi.input_type
 class DatasetLateDataRuleArgs:
@@ -906,14 +856,11 @@ class DatasetLateDataRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class DatasetOutputFileUriValueArgsDict(TypedDict):
-        file_name: pulumi.Input[_builtins.str]
-        """
-        The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
-        """
-elif False:
-    DatasetOutputFileUriValueArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetOutputFileUriValueArgsDict(TypedDict):
+    file_name: pulumi.Input[_builtins.str]
+    """
+    The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
+    """
 
 @pulumi.input_type
 class DatasetOutputFileUriValueArgs:
@@ -937,18 +884,15 @@ class DatasetOutputFileUriValueArgs:
         pulumi.set(self, "file_name", value)
 
 
-if not MYPY:
-    class DatasetQueryActionArgsDict(TypedDict):
-        sql_query: pulumi.Input[_builtins.str]
-        """
-        An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgsDict']]]]
-        """
-        Pre-filters applied to message data.
-        """
-elif False:
-    DatasetQueryActionArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetQueryActionArgsDict(TypedDict):
+    sql_query: pulumi.Input[_builtins.str]
+    """
+    An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgsDict']]]]
+    """
+    Pre-filters applied to message data.
+    """
 
 @pulumi.input_type
 class DatasetQueryActionArgs:
@@ -988,18 +932,15 @@ class DatasetQueryActionArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class DatasetResourceConfigurationArgsDict(TypedDict):
-        compute_type: pulumi.Input['DatasetResourceConfigurationComputeType']
-        """
-        The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
-        """
-        volume_size_in_gb: pulumi.Input[_builtins.int]
-        """
-        The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
-        """
-elif False:
-    DatasetResourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetResourceConfigurationArgsDict(TypedDict):
+    compute_type: pulumi.Input['DatasetResourceConfigurationComputeType']
+    """
+    The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
+    """
+    volume_size_in_gb: pulumi.Input[_builtins.int]
+    """
+    The size, in GB, of the persistent storage available to the resource instance used to execute the `containerAction` (min: 1, max: 50).
+    """
 
 @pulumi.input_type
 class DatasetResourceConfigurationArgs:
@@ -1038,18 +979,15 @@ class DatasetResourceConfigurationArgs:
         pulumi.set(self, "volume_size_in_gb", value)
 
 
-if not MYPY:
-    class DatasetRetentionPeriodArgsDict(TypedDict):
-        number_of_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days that message data is kept. The `unlimited` parameter must be false.
-        """
-        unlimited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, message data is kept indefinitely.
-        """
-elif False:
-    DatasetRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetRetentionPeriodArgsDict(TypedDict):
+    number_of_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days that message data is kept. The `unlimited` parameter must be false.
+    """
+    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, message data is kept indefinitely.
+    """
 
 @pulumi.input_type
 class DatasetRetentionPeriodArgs:
@@ -1090,36 +1028,33 @@ class DatasetRetentionPeriodArgs:
         pulumi.set(self, "unlimited", value)
 
 
-if not MYPY:
-    class DatasetS3DestinationConfigurationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket to which dataset contents are delivered.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
+class DatasetS3DestinationConfigurationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket to which dataset contents are delivered.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
 
-        You can create a unique key with the following options:
+    You can create a unique key with the following options:
 
-        - Use `!{iotanalytics:scheduleTime}` to insert the time of a scheduled SQL query run.
-        - Use `!{iotanalytics:versionId}` to insert a unique hash that identifies a dataset content.
-        - Use `!{iotanalytics:creationTime}` to insert the creation time of a dataset content.
+    - Use `!{iotanalytics:scheduleTime}` to insert the time of a scheduled SQL query run.
+    - Use `!{iotanalytics:versionId}` to insert a unique hash that identifies a dataset content.
+    - Use `!{iotanalytics:creationTime}` to insert the creation time of a dataset content.
 
-        The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
+    The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
 
-        > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
-        """
-        glue_configuration: NotRequired[pulumi.Input['DatasetGlueConfigurationArgsDict']]
-        """
-        Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
-        """
-elif False:
-    DatasetS3DestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
+    """
+    glue_configuration: NotRequired[pulumi.Input['DatasetGlueConfigurationArgsDict']]
+    """
+    Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
+    """
 
 @pulumi.input_type
 class DatasetS3DestinationConfigurationArgs:
@@ -1209,14 +1144,11 @@ class DatasetS3DestinationConfigurationArgs:
         pulumi.set(self, "glue_configuration", value)
 
 
-if not MYPY:
-    class DatasetScheduleArgsDict(TypedDict):
-        schedule_expression: pulumi.Input[_builtins.str]
-        """
-        The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
-        """
-elif False:
-    DatasetScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetScheduleArgsDict(TypedDict):
+    schedule_expression: pulumi.Input[_builtins.str]
+    """
+    The expression that defines when to trigger an update. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) in the Amazon CloudWatch documentation.
+    """
 
 @pulumi.input_type
 class DatasetScheduleArgs:
@@ -1240,14 +1172,11 @@ class DatasetScheduleArgs:
         pulumi.set(self, "schedule_expression", value)
 
 
-if not MYPY:
-    class DatasetTriggeringDatasetArgsDict(TypedDict):
-        dataset_name: pulumi.Input[_builtins.str]
-        """
-        The name of the data set whose content generation triggers the new data set content generation.
-        """
-elif False:
-    DatasetTriggeringDatasetArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetTriggeringDatasetArgsDict(TypedDict):
+    dataset_name: pulumi.Input[_builtins.str]
+    """
+    The name of the data set whose content generation triggers the new data set content generation.
+    """
 
 @pulumi.input_type
 class DatasetTriggeringDatasetArgs:
@@ -1271,18 +1200,15 @@ class DatasetTriggeringDatasetArgs:
         pulumi.set(self, "dataset_name", value)
 
 
-if not MYPY:
-    class DatasetTriggerArgsDict(TypedDict):
-        schedule: NotRequired[pulumi.Input['DatasetScheduleArgsDict']]
-        """
-        The "Schedule" when the trigger is initiated.
-        """
-        triggering_dataset: NotRequired[pulumi.Input['DatasetTriggeringDatasetArgsDict']]
-        """
-        Information about the data set whose content generation triggers the new data set content generation.
-        """
-elif False:
-    DatasetTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetTriggerArgsDict(TypedDict):
+    schedule: NotRequired[pulumi.Input['DatasetScheduleArgsDict']]
+    """
+    The "Schedule" when the trigger is initiated.
+    """
+    triggering_dataset: NotRequired[pulumi.Input['DatasetTriggeringDatasetArgsDict']]
+    """
+    Information about the data set whose content generation triggers the new data set content generation.
+    """
 
 @pulumi.input_type
 class DatasetTriggerArgs:
@@ -1323,30 +1249,27 @@ class DatasetTriggerArgs:
         pulumi.set(self, "triggering_dataset", value)
 
 
-if not MYPY:
-    class DatasetVariableArgsDict(TypedDict):
-        variable_name: pulumi.Input[_builtins.str]
-        """
-        The name of the variable.
-        """
-        dataset_content_version_value: NotRequired[pulumi.Input['DatasetContentVersionValueArgsDict']]
-        """
-        The value of the variable as a structure that specifies a dataset content version.
-        """
-        double_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of the variable as a double (numeric).
-        """
-        output_file_uri_value: NotRequired[pulumi.Input['DatasetOutputFileUriValueArgsDict']]
-        """
-        The value of the variable as a structure that specifies an output file URI.
-        """
-        string_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the variable as a string.
-        """
-elif False:
-    DatasetVariableArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetVariableArgsDict(TypedDict):
+    variable_name: pulumi.Input[_builtins.str]
+    """
+    The name of the variable.
+    """
+    dataset_content_version_value: NotRequired[pulumi.Input['DatasetContentVersionValueArgsDict']]
+    """
+    The value of the variable as a structure that specifies a dataset content version.
+    """
+    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of the variable as a double (numeric).
+    """
+    output_file_uri_value: NotRequired[pulumi.Input['DatasetOutputFileUriValueArgsDict']]
+    """
+    The value of the variable as a structure that specifies an output file URI.
+    """
+    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the variable as a string.
+    """
 
 @pulumi.input_type
 class DatasetVariableArgs:
@@ -1434,18 +1357,15 @@ class DatasetVariableArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class DatasetVersioningConfigurationArgsDict(TypedDict):
-        max_versions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
-        """
-        unlimited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, unlimited versions of dataset contents are kept.
-        """
-elif False:
-    DatasetVersioningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetVersioningConfigurationArgsDict(TypedDict):
+    max_versions: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
+    """
+    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, unlimited versions of dataset contents are kept.
+    """
 
 @pulumi.input_type
 class DatasetVersioningConfigurationArgs:
@@ -1486,18 +1406,15 @@ class DatasetVersioningConfigurationArgs:
         pulumi.set(self, "unlimited", value)
 
 
-if not MYPY:
-    class DatastoreColumnArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of data. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
-        """
-elif False:
-    DatastoreColumnArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of data. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
+    """
 
 @pulumi.input_type
 class DatastoreColumnArgs:
@@ -1536,18 +1453,15 @@ class DatastoreColumnArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DatastoreCustomerManagedS3StorageArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon S3 bucket where your data is stored.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-        """
-elif False:
-    DatastoreCustomerManagedS3StorageArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreCustomerManagedS3StorageArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket where your data is stored.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+    """
 
 @pulumi.input_type
 class DatastoreCustomerManagedS3StorageArgs:
@@ -1587,22 +1501,19 @@ class DatastoreCustomerManagedS3StorageArgs:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class DatastoreCustomerManagedS3ArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon S3 bucket where your data is stored.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-        """
-elif False:
-    DatastoreCustomerManagedS3ArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreCustomerManagedS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket where your data is stored.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+    """
 
 @pulumi.input_type
 class DatastoreCustomerManagedS3Args:
@@ -1657,18 +1568,15 @@ class DatastoreCustomerManagedS3Args:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class DatastoreFileFormatConfigurationArgsDict(TypedDict):
-        json_configuration: NotRequired[pulumi.Input['DatastoreJsonConfigurationArgsDict']]
-        """
-        Contains the configuration information of the JSON format.
-        """
-        parquet_configuration: NotRequired[pulumi.Input['DatastoreParquetConfigurationArgsDict']]
-        """
-        Contains the configuration information of the Parquet format.
-        """
-elif False:
-    DatastoreFileFormatConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreFileFormatConfigurationArgsDict(TypedDict):
+    json_configuration: NotRequired[pulumi.Input['DatastoreJsonConfigurationArgsDict']]
+    """
+    Contains the configuration information of the JSON format.
+    """
+    parquet_configuration: NotRequired[pulumi.Input['DatastoreParquetConfigurationArgsDict']]
+    """
+    Contains the configuration information of the Parquet format.
+    """
 
 @pulumi.input_type
 class DatastoreFileFormatConfigurationArgs:
@@ -1709,14 +1617,11 @@ class DatastoreFileFormatConfigurationArgs:
         pulumi.set(self, "parquet_configuration", value)
 
 
-if not MYPY:
-    class DatastoreIotSiteWiseMultiLayerStorageArgsDict(TypedDict):
-        customer_managed_s3_storage: NotRequired[pulumi.Input['DatastoreCustomerManagedS3StorageArgsDict']]
-        """
-        Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
-        """
-elif False:
-    DatastoreIotSiteWiseMultiLayerStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreIotSiteWiseMultiLayerStorageArgsDict(TypedDict):
+    customer_managed_s3_storage: NotRequired[pulumi.Input['DatastoreCustomerManagedS3StorageArgsDict']]
+    """
+    Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
+    """
 
 @pulumi.input_type
 class DatastoreIotSiteWiseMultiLayerStorageArgs:
@@ -1741,11 +1646,8 @@ class DatastoreIotSiteWiseMultiLayerStorageArgs:
         pulumi.set(self, "customer_managed_s3_storage", value)
 
 
-if not MYPY:
-    class DatastoreJsonConfigurationArgsDict(TypedDict):
-        pass
-elif False:
-    DatastoreJsonConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreJsonConfigurationArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class DatastoreJsonConfigurationArgs:
@@ -1753,14 +1655,11 @@ class DatastoreJsonConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class DatastoreParquetConfigurationArgsDict(TypedDict):
-        schema_definition: NotRequired[pulumi.Input['DatastoreSchemaDefinitionArgsDict']]
-        """
-        Information needed to define a schema.
-        """
-elif False:
-    DatastoreParquetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreParquetConfigurationArgsDict(TypedDict):
+    schema_definition: NotRequired[pulumi.Input['DatastoreSchemaDefinitionArgsDict']]
+    """
+    Information needed to define a schema.
+    """
 
 @pulumi.input_type
 class DatastoreParquetConfigurationArgs:
@@ -1785,14 +1684,11 @@ class DatastoreParquetConfigurationArgs:
         pulumi.set(self, "schema_definition", value)
 
 
-if not MYPY:
-    class DatastorePartitionsArgsDict(TypedDict):
-        partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgsDict']]]]
-        """
-        A list of partition dimensions in a data store.
-        """
-elif False:
-    DatastorePartitionsArgsDict: TypeAlias = Mapping[str, Any]
+class DatastorePartitionsArgsDict(TypedDict):
+    partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgsDict']]]]
+    """
+    A list of partition dimensions in a data store.
+    """
 
 @pulumi.input_type
 class DatastorePartitionsArgs:
@@ -1817,18 +1713,15 @@ class DatastorePartitionsArgs:
         pulumi.set(self, "partitions", value)
 
 
-if not MYPY:
-    class DatastorePartitionArgsDict(TypedDict):
-        partition: NotRequired[pulumi.Input['PartitionArgsDict']]
-        """
-        A partition dimension defined by an attribute.
-        """
-        timestamp_partition: NotRequired[pulumi.Input['DatastoreTimestampPartitionArgsDict']]
-        """
-        A partition dimension defined by a timestamp attribute.
-        """
-elif False:
-    DatastorePartitionArgsDict: TypeAlias = Mapping[str, Any]
+class DatastorePartitionArgsDict(TypedDict):
+    partition: NotRequired[pulumi.Input['PartitionArgsDict']]
+    """
+    A partition dimension defined by an attribute.
+    """
+    timestamp_partition: NotRequired[pulumi.Input['DatastoreTimestampPartitionArgsDict']]
+    """
+    A partition dimension defined by a timestamp attribute.
+    """
 
 @pulumi.input_type
 class DatastorePartitionArgs:
@@ -1869,18 +1762,15 @@ class DatastorePartitionArgs:
         pulumi.set(self, "timestamp_partition", value)
 
 
-if not MYPY:
-    class DatastoreRetentionPeriodArgsDict(TypedDict):
-        number_of_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days that message data is kept. The `unlimited` parameter must be false.
-        """
-        unlimited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, message data is kept indefinitely.
-        """
-elif False:
-    DatastoreRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreRetentionPeriodArgsDict(TypedDict):
+    number_of_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days that message data is kept. The `unlimited` parameter must be false.
+    """
+    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, message data is kept indefinitely.
+    """
 
 @pulumi.input_type
 class DatastoreRetentionPeriodArgs:
@@ -1921,16 +1811,13 @@ class DatastoreRetentionPeriodArgs:
         pulumi.set(self, "unlimited", value)
 
 
-if not MYPY:
-    class DatastoreSchemaDefinitionArgsDict(TypedDict):
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgsDict']]]]
-        """
-        Specifies one or more columns that store your data.
+class DatastoreSchemaDefinitionArgsDict(TypedDict):
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgsDict']]]]
+    """
+    Specifies one or more columns that store your data.
 
-        Each schema can have up to 100 columns. Each column can have up to 100 nested types.
-        """
-elif False:
-    DatastoreSchemaDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+    Each schema can have up to 100 columns. Each column can have up to 100 nested types.
+    """
 
 @pulumi.input_type
 class DatastoreSchemaDefinitionArgs:
@@ -1959,11 +1846,8 @@ class DatastoreSchemaDefinitionArgs:
         pulumi.set(self, "columns", value)
 
 
-if not MYPY:
-    class DatastoreServiceManagedS3ArgsDict(TypedDict):
-        pass
-elif False:
-    DatastoreServiceManagedS3ArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreServiceManagedS3ArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class DatastoreServiceManagedS3Args:
@@ -1971,22 +1855,19 @@ class DatastoreServiceManagedS3Args:
         pass
 
 
-if not MYPY:
-    class DatastoreStorageArgsDict(TypedDict):
-        customer_managed_s3: NotRequired[pulumi.Input['DatastoreCustomerManagedS3ArgsDict']]
-        """
-        Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-        """
-        iot_site_wise_multi_layer_storage: NotRequired[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgsDict']]
-        """
-        Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
-        """
-        service_managed_s3: NotRequired[pulumi.Input['DatastoreServiceManagedS3ArgsDict']]
-        """
-        Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-        """
-elif False:
-    DatastoreStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreStorageArgsDict(TypedDict):
+    customer_managed_s3: NotRequired[pulumi.Input['DatastoreCustomerManagedS3ArgsDict']]
+    """
+    Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+    """
+    iot_site_wise_multi_layer_storage: NotRequired[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgsDict']]
+    """
+    Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+    """
+    service_managed_s3: NotRequired[pulumi.Input['DatastoreServiceManagedS3ArgsDict']]
+    """
+    Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+    """
 
 @pulumi.input_type
 class DatastoreStorageArgs:
@@ -2043,18 +1924,15 @@ class DatastoreStorageArgs:
         pulumi.set(self, "service_managed_s3", value)
 
 
-if not MYPY:
-    class DatastoreTimestampPartitionArgsDict(TypedDict):
-        attribute_name: pulumi.Input[_builtins.str]
-        """
-        The attribute name of the partition defined by a timestamp.
-        """
-        timestamp_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
-        """
-elif False:
-    DatastoreTimestampPartitionArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreTimestampPartitionArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+    """
+    The attribute name of the partition defined by a timestamp.
+    """
+    timestamp_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
+    """
 
 @pulumi.input_type
 class DatastoreTimestampPartitionArgs:
@@ -2094,14 +1972,11 @@ class DatastoreTimestampPartitionArgs:
         pulumi.set(self, "timestamp_format", value)
 
 
-if not MYPY:
-    class PartitionArgsDict(TypedDict):
-        attribute_name: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute that defines a partition dimension.
-        """
-elif False:
-    PartitionArgsDict: TypeAlias = Mapping[str, Any]
+class PartitionArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute that defines a partition dimension.
+    """
 
 @pulumi.input_type
 class PartitionArgs:
@@ -2125,50 +2000,47 @@ class PartitionArgs:
         pulumi.set(self, "attribute_name", value)
 
 
-if not MYPY:
-    class PipelineActivityArgsDict(TypedDict):
-        add_attributes: NotRequired[pulumi.Input['PipelineAddAttributesArgsDict']]
-        """
-        Adds other attributes based on existing attributes in the message.
-        """
-        channel: NotRequired[pulumi.Input['PipelineChannelArgsDict']]
-        """
-        Determines the source of the messages to be processed.
-        """
-        datastore: NotRequired[pulumi.Input['PipelineDatastoreArgsDict']]
-        """
-        Specifies where to store the processed message data.
-        """
-        device_registry_enrich: NotRequired[pulumi.Input['PipelineDeviceRegistryEnrichArgsDict']]
-        """
-        Adds data from the AWS IoT device registry to your message.
-        """
-        device_shadow_enrich: NotRequired[pulumi.Input['PipelineDeviceShadowEnrichArgsDict']]
-        """
-        Adds information from the AWS IoT Device Shadows service to a message.
-        """
-        filter: NotRequired[pulumi.Input['PipelineFilterArgsDict']]
-        """
-        Filters a message based on its attributes.
-        """
-        lambda_: NotRequired[pulumi.Input['PipelineLambdaArgsDict']]
-        """
-        Runs a Lambda function to modify the message.
-        """
-        math: NotRequired[pulumi.Input['PipelineMathArgsDict']]
-        """
-        Computes an arithmetic expression using the message's attributes and adds it to the message.
-        """
-        remove_attributes: NotRequired[pulumi.Input['PipelineRemoveAttributesArgsDict']]
-        """
-        Removes attributes from a message.
-        """
-        select_attributes: NotRequired[pulumi.Input['PipelineSelectAttributesArgsDict']]
-        """
-        Creates a new message using only the specified attributes from the original message.
-        """
-elif False:
-    PipelineActivityArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineActivityArgsDict(TypedDict):
+    add_attributes: NotRequired[pulumi.Input['PipelineAddAttributesArgsDict']]
+    """
+    Adds other attributes based on existing attributes in the message.
+    """
+    channel: NotRequired[pulumi.Input['PipelineChannelArgsDict']]
+    """
+    Determines the source of the messages to be processed.
+    """
+    datastore: NotRequired[pulumi.Input['PipelineDatastoreArgsDict']]
+    """
+    Specifies where to store the processed message data.
+    """
+    device_registry_enrich: NotRequired[pulumi.Input['PipelineDeviceRegistryEnrichArgsDict']]
+    """
+    Adds data from the AWS IoT device registry to your message.
+    """
+    device_shadow_enrich: NotRequired[pulumi.Input['PipelineDeviceShadowEnrichArgsDict']]
+    """
+    Adds information from the AWS IoT Device Shadows service to a message.
+    """
+    filter: NotRequired[pulumi.Input['PipelineFilterArgsDict']]
+    """
+    Filters a message based on its attributes.
+    """
+    lambda_: NotRequired[pulumi.Input['PipelineLambdaArgsDict']]
+    """
+    Runs a Lambda function to modify the message.
+    """
+    math: NotRequired[pulumi.Input['PipelineMathArgsDict']]
+    """
+    Computes an arithmetic expression using the message's attributes and adds it to the message.
+    """
+    remove_attributes: NotRequired[pulumi.Input['PipelineRemoveAttributesArgsDict']]
+    """
+    Removes attributes from a message.
+    """
+    select_attributes: NotRequired[pulumi.Input['PipelineSelectAttributesArgsDict']]
+    """
+    Creates a new message using only the specified attributes from the original message.
+    """
 
 @pulumi.input_type
 class PipelineActivityArgs:
@@ -2337,24 +2209,21 @@ class PipelineActivityArgs:
         pulumi.set(self, "select_attributes", value)
 
 
-if not MYPY:
-    class PipelineAddAttributesArgsDict(TypedDict):
-        attributes: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+class PipelineAddAttributesArgsDict(TypedDict):
+    attributes: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
 
-        > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'addAttributes' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineAddAttributesArgsDict: TypeAlias = Mapping[str, Any]
+    > The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'addAttributes' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineAddAttributesArgs:
@@ -2413,22 +2282,19 @@ class PipelineAddAttributesArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineChannelArgsDict(TypedDict):
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The name of the channel from which the messages are processed.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'channel' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineChannelArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineChannelArgsDict(TypedDict):
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The name of the channel from which the messages are processed.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'channel' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineChannelArgs:
@@ -2483,18 +2349,15 @@ class PipelineChannelArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineDatastoreArgsDict(TypedDict):
-        datastore_name: pulumi.Input[_builtins.str]
-        """
-        The name of the data store where processed messages are stored.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the datastore activity.
-        """
-elif False:
-    PipelineDatastoreArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDatastoreArgsDict(TypedDict):
+    datastore_name: pulumi.Input[_builtins.str]
+    """
+    The name of the data store where processed messages are stored.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the datastore activity.
+    """
 
 @pulumi.input_type
 class PipelineDatastoreArgs:
@@ -2533,30 +2396,27 @@ class PipelineDatastoreArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PipelineDeviceRegistryEnrichArgsDict(TypedDict):
-        attribute: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute that is added to the message.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'deviceRegistryEnrich' activity.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that allows access to the device's registry information.
-        """
-        thing_name: pulumi.Input[_builtins.str]
-        """
-        The name of the IoT device whose registry information is added to the message.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineDeviceRegistryEnrichArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDeviceRegistryEnrichArgsDict(TypedDict):
+    attribute: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute that is added to the message.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'deviceRegistryEnrich' activity.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that allows access to the device's registry information.
+    """
+    thing_name: pulumi.Input[_builtins.str]
+    """
+    The name of the IoT device whose registry information is added to the message.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineDeviceRegistryEnrichArgs:
@@ -2641,30 +2501,27 @@ class PipelineDeviceRegistryEnrichArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineDeviceShadowEnrichArgsDict(TypedDict):
-        attribute: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute that is added to the message.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'deviceShadowEnrich' activity.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that allows access to the device's shadow.
-        """
-        thing_name: pulumi.Input[_builtins.str]
-        """
-        The name of the IoT device whose shadow information is added to the message.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineDeviceShadowEnrichArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDeviceShadowEnrichArgsDict(TypedDict):
+    attribute: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute that is added to the message.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'deviceShadowEnrich' activity.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that allows access to the device's shadow.
+    """
+    thing_name: pulumi.Input[_builtins.str]
+    """
+    The name of the IoT device whose shadow information is added to the message.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineDeviceShadowEnrichArgs:
@@ -2749,22 +2606,19 @@ class PipelineDeviceShadowEnrichArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineFilterArgsDict(TypedDict):
-        filter: pulumi.Input[_builtins.str]
-        """
-        An expression that looks like an SQL WHERE clause that must return a Boolean value.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'filter' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineFilterArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineFilterArgsDict(TypedDict):
+    filter: pulumi.Input[_builtins.str]
+    """
+    An expression that looks like an SQL WHERE clause that must return a Boolean value.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'filter' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineFilterArgs:
@@ -2819,28 +2673,25 @@ class PipelineFilterArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineLambdaArgsDict(TypedDict):
-        batch_size: pulumi.Input[_builtins.int]
-        """
-        The number of messages passed to the Lambda function for processing.
+class PipelineLambdaArgsDict(TypedDict):
+    batch_size: pulumi.Input[_builtins.int]
+    """
+    The number of messages passed to the Lambda function for processing.
 
-        The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
-        """
-        lambda_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Lambda function that is run on the message.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'lambda' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineLambdaArgsDict: TypeAlias = Mapping[str, Any]
+    The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
+    """
+    lambda_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Lambda function that is run on the message.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'lambda' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineLambdaArgs:
@@ -2914,26 +2765,23 @@ class PipelineLambdaArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineMathArgsDict(TypedDict):
-        attribute: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute that contains the result of the math operation.
-        """
-        math: pulumi.Input[_builtins.str]
-        """
-        An expression that uses one or more existing attributes and must return an integer value.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'math' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineMathArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineMathArgsDict(TypedDict):
+    attribute: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute that contains the result of the math operation.
+    """
+    math: pulumi.Input[_builtins.str]
+    """
+    An expression that uses one or more existing attributes and must return an integer value.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'math' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineMathArgs:
@@ -3003,22 +2851,19 @@ class PipelineMathArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineRemoveAttributesArgsDict(TypedDict):
-        attributes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of 1-50 attributes to remove from the message.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'removeAttributes' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineRemoveAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineRemoveAttributesArgsDict(TypedDict):
+    attributes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of 1-50 attributes to remove from the message.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'removeAttributes' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineRemoveAttributesArgs:
@@ -3073,22 +2918,19 @@ class PipelineRemoveAttributesArgs:
         pulumi.set(self, "next", value)
 
 
-if not MYPY:
-    class PipelineSelectAttributesArgsDict(TypedDict):
-        attributes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of the attributes to select from the message.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the 'selectAttributes' activity.
-        """
-        next: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next activity in the pipeline.
-        """
-elif False:
-    PipelineSelectAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineSelectAttributesArgsDict(TypedDict):
+    attributes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of the attributes to select from the message.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the 'selectAttributes' activity.
+    """
+    next: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next activity in the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineSelectAttributesArgs:

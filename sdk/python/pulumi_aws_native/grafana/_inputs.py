@@ -30,39 +30,34 @@ __all__ = [
     'WorkspaceVpcConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class WorkspaceAssertionAttributesArgsDict(TypedDict):
-        """
-        Maps Grafana friendly names to the IdPs SAML attributes.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the attribute within the SAML assert to use as the users email in Grafana.
-        """
-        groups: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the attribute within the SAML assert to use as the users groups in Grafana.
-        """
-        login: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the attribute within the SAML assert to use as the users login handle in Grafana.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the attribute within the SAML assert to use as the users name in Grafana.
-        """
-        org: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the attribute within the SAML assert to use as the users organizations in Grafana.
-        """
-        role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the attribute within the SAML assert to use as the users roles in Grafana.
-        """
-elif False:
-    WorkspaceAssertionAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceAssertionAttributesArgsDict(TypedDict):
+    """
+    Maps Grafana friendly names to the IdPs SAML attributes.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the attribute within the SAML assert to use as the users email in Grafana.
+    """
+    groups: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the attribute within the SAML assert to use as the users groups in Grafana.
+    """
+    login: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the attribute within the SAML assert to use as the users login handle in Grafana.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the attribute within the SAML assert to use as the users name in Grafana.
+    """
+    org: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the attribute within the SAML assert to use as the users organizations in Grafana.
+    """
+    role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the attribute within the SAML assert to use as the users roles in Grafana.
+    """
 
 @pulumi.input_type
 class WorkspaceAssertionAttributesArgs:
@@ -168,21 +163,18 @@ class WorkspaceAssertionAttributesArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class WorkspaceIdpMetadataArgsDict(TypedDict):
-        """
-        IdP Metadata used to configure SAML authentication in Grafana.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL that vends the IdPs metadata.
-        """
-        xml: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        XML blob of the IdPs metadata.
-        """
-elif False:
-    WorkspaceIdpMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceIdpMetadataArgsDict(TypedDict):
+    """
+    IdP Metadata used to configure SAML authentication in Grafana.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL that vends the IdPs metadata.
+    """
+    xml: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    XML blob of the IdPs metadata.
+    """
 
 @pulumi.input_type
 class WorkspaceIdpMetadataArgs:
@@ -224,21 +216,18 @@ class WorkspaceIdpMetadataArgs:
         pulumi.set(self, "xml", value)
 
 
-if not MYPY:
-    class WorkspaceNetworkAccessControlArgsDict(TypedDict):
-        """
-        The configuration settings for Network Access Control.
-        """
-        prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
-        """
-        vpce_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
-        """
-elif False:
-    WorkspaceNetworkAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceNetworkAccessControlArgsDict(TypedDict):
+    """
+    The configuration settings for Network Access Control.
+    """
+    prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+    """
+    vpce_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+    """
 
 @pulumi.input_type
 class WorkspaceNetworkAccessControlArgs:
@@ -280,21 +269,18 @@ class WorkspaceNetworkAccessControlArgs:
         pulumi.set(self, "vpce_ids", value)
 
 
-if not MYPY:
-    class WorkspaceRoleValuesArgsDict(TypedDict):
-        """
-        Maps SAML roles to the Grafana Editor and Admin roles.
-        """
-        admin: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of SAML roles which will be mapped into the Grafana Admin role.
-        """
-        editor: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of SAML roles which will be mapped into the Grafana Editor role.
-        """
-elif False:
-    WorkspaceRoleValuesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceRoleValuesArgsDict(TypedDict):
+    """
+    Maps SAML roles to the Grafana Editor and Admin roles.
+    """
+    admin: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of SAML roles which will be mapped into the Grafana Admin role.
+    """
+    editor: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of SAML roles which will be mapped into the Grafana Editor role.
+    """
 
 @pulumi.input_type
 class WorkspaceRoleValuesArgs:
@@ -336,33 +322,30 @@ class WorkspaceRoleValuesArgs:
         pulumi.set(self, "editor", value)
 
 
-if not MYPY:
-    class WorkspaceSamlConfigurationArgsDict(TypedDict):
-        """
-        SAML configuration data associated with an AMG workspace.
-        """
-        idp_metadata: pulumi.Input['WorkspaceIdpMetadataArgsDict']
-        """
-        A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
-        """
-        allowed_organizations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of SAML organizations allowed to access Grafana.
-        """
-        assertion_attributes: NotRequired[pulumi.Input['WorkspaceAssertionAttributesArgsDict']]
-        """
-        A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
-        """
-        login_validity_duration: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
-        """
-        role_values: NotRequired[pulumi.Input['WorkspaceRoleValuesArgsDict']]
-        """
-        A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
-        """
-elif False:
-    WorkspaceSamlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceSamlConfigurationArgsDict(TypedDict):
+    """
+    SAML configuration data associated with an AMG workspace.
+    """
+    idp_metadata: pulumi.Input['WorkspaceIdpMetadataArgsDict']
+    """
+    A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
+    """
+    allowed_organizations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of SAML organizations allowed to access Grafana.
+    """
+    assertion_attributes: NotRequired[pulumi.Input['WorkspaceAssertionAttributesArgsDict']]
+    """
+    A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
+    """
+    login_validity_duration: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
+    """
+    role_values: NotRequired[pulumi.Input['WorkspaceRoleValuesArgsDict']]
+    """
+    A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
+    """
 
 @pulumi.input_type
 class WorkspaceSamlConfigurationArgs:
@@ -451,21 +434,18 @@ class WorkspaceSamlConfigurationArgs:
         pulumi.set(self, "role_values", value)
 
 
-if not MYPY:
-    class WorkspaceVpcConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-        """
-elif False:
-    WorkspaceVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceVpcConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+    """
 
 @pulumi.input_type
 class WorkspaceVpcConfigurationArgs:

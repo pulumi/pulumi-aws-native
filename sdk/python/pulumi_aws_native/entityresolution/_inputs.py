@@ -70,13 +70,8 @@ __all__ = [
     'SchemaMappingSchemaInputAttributeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict(TypedDict):
-        incremental_run_type: pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType']
-elif False:
-    IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict(TypedDict):
+    incremental_run_type: pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType']
 
 @pulumi.input_type
 class IdMappingWorkflowIdMappingIncrementalRunConfigArgs:
@@ -94,34 +89,31 @@ class IdMappingWorkflowIdMappingIncrementalRunConfigArgs:
         pulumi.set(self, "incremental_run_type", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict(TypedDict):
-        attribute_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel']
-        """
-        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+class IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict(TypedDict):
+    attribute_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel']
+    """
+    The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+    If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-        """
-        record_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel']
-        """
-        The type of matching record that is allowed to be used in an ID mapping workflow.
+    If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+    """
+    record_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel']
+    """
+    The type of matching record that is allowed to be used in an ID mapping workflow.
 
-        If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
+    If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
 
-        If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
-        """
-        rule_definition_type: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]
-        """
-        The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowRuleArgsDict']]]]
-        """
-        The rules that can be used for ID mapping.
-        """
-elif False:
-    IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , multiple records in the source can be matched to one record in the target.
+    """
+    rule_definition_type: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType']]
+    """
+    The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowRuleArgsDict']]]]
+    """
+    The rules that can be used for ID mapping.
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowIdMappingRuleBasedPropertiesArgs:
@@ -208,23 +200,20 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowIdMappingTechniquesArgsDict(TypedDict):
-        id_mapping_type: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']]
-        """
-        The type of ID mapping.
-        """
-        normalization_version: NotRequired[pulumi.Input[_builtins.str]]
-        provider_properties: NotRequired[pulumi.Input['IdMappingWorkflowProviderPropertiesArgsDict']]
-        """
-        An object which defines any additional configurations required by the provider service.
-        """
-        rule_based_properties: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict']]
-        """
-        An object which defines any additional configurations required by rule-based matching.
-        """
-elif False:
-    IdMappingWorkflowIdMappingTechniquesArgsDict: TypeAlias = Mapping[str, Any]
+class IdMappingWorkflowIdMappingTechniquesArgsDict(TypedDict):
+    id_mapping_type: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']]
+    """
+    The type of ID mapping.
+    """
+    normalization_version: NotRequired[pulumi.Input[_builtins.str]]
+    provider_properties: NotRequired[pulumi.Input['IdMappingWorkflowProviderPropertiesArgsDict']]
+    """
+    An object which defines any additional configurations required by the provider service.
+    """
+    rule_based_properties: NotRequired[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict']]
+    """
+    An object which defines any additional configurations required by rule-based matching.
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowIdMappingTechniquesArgs:
@@ -293,26 +282,23 @@ class IdMappingWorkflowIdMappingTechniquesArgs:
         pulumi.set(self, "rule_based_properties", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowInputSourceArgsDict(TypedDict):
-        input_source_arn: pulumi.Input[_builtins.str]
-        """
-        An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
-        """
-        schema_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
-        """
-        type: NotRequired[pulumi.Input['IdMappingWorkflowInputSourceType']]
-        """
-        The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+class IdMappingWorkflowInputSourceArgsDict(TypedDict):
+    input_source_arn: pulumi.Input[_builtins.str]
+    """
+    An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
+    """
+    schema_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
+    """
+    type: NotRequired[pulumi.Input['IdMappingWorkflowInputSourceType']]
+    """
+    The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
 
-        The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+    The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 
-        The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
-        """
-elif False:
-    IdMappingWorkflowInputSourceArgsDict: TypeAlias = Mapping[str, Any]
+    The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowInputSourceArgs:
@@ -376,14 +362,11 @@ class IdMappingWorkflowInputSourceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowIntermediateSourceConfigurationArgsDict(TypedDict):
-        intermediate_s3_path: pulumi.Input[_builtins.str]
-        """
-        The s3 path that would be used to stage the intermediate data being generated during workflow execution.
-        """
-elif False:
-    IdMappingWorkflowIntermediateSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IdMappingWorkflowIntermediateSourceConfigurationArgsDict(TypedDict):
+    intermediate_s3_path: pulumi.Input[_builtins.str]
+    """
+    The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowIntermediateSourceConfigurationArgs:
@@ -407,18 +390,15 @@ class IdMappingWorkflowIntermediateSourceConfigurationArgs:
         pulumi.set(self, "intermediate_s3_path", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowOutputSourceArgsDict(TypedDict):
-        output_s3_path: pulumi.Input[_builtins.str]
-        """
-        The S3 path to which Entity Resolution will write the output table
-        """
-        kms_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
-        """
-elif False:
-    IdMappingWorkflowOutputSourceArgsDict: TypeAlias = Mapping[str, Any]
+class IdMappingWorkflowOutputSourceArgsDict(TypedDict):
+    output_s3_path: pulumi.Input[_builtins.str]
+    """
+    The S3 path to which Entity Resolution will write the output table
+    """
+    kms_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowOutputSourceArgs:
@@ -458,22 +438,19 @@ class IdMappingWorkflowOutputSourceArgs:
         pulumi.set(self, "kms_arn", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowProviderPropertiesArgsDict(TypedDict):
-        provider_service_arn: pulumi.Input[_builtins.str]
-        """
-        Arn of the Provider Service being used.
-        """
-        intermediate_source_configuration: NotRequired[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgsDict']]
-        """
-        The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
-        """
-        provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-        """
-elif False:
-    IdMappingWorkflowProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdMappingWorkflowProviderPropertiesArgsDict(TypedDict):
+    provider_service_arn: pulumi.Input[_builtins.str]
+    """
+    Arn of the Provider Service being used.
+    """
+    intermediate_source_configuration: NotRequired[pulumi.Input['IdMappingWorkflowIntermediateSourceConfigurationArgsDict']]
+    """
+    The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
+    """
+    provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowProviderPropertiesArgs:
@@ -529,18 +506,15 @@ class IdMappingWorkflowProviderPropertiesArgs:
         pulumi.set(self, "provider_configuration", value)
 
 
-if not MYPY:
-    class IdMappingWorkflowRuleArgsDict(TypedDict):
-        matching_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
-        """
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        A name for the matching rule.
-        """
-elif False:
-    IdMappingWorkflowRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IdMappingWorkflowRuleArgsDict(TypedDict):
+    matching_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+    """
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    A name for the matching rule.
+    """
 
 @pulumi.input_type
 class IdMappingWorkflowRuleArgs:
@@ -579,22 +553,19 @@ class IdMappingWorkflowRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class IdNamespaceIdMappingWorkflowPropertiesArgsDict(TypedDict):
-        id_mapping_type: pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesIdMappingType']
-        """
-        The type of ID mapping.
-        """
-        provider_properties: NotRequired[pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgsDict']]
-        """
-        An object which defines any additional configurations required by the provider service.
-        """
-        rule_based_properties: NotRequired[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesArgsDict']]
-        """
-        An object which defines any additional configurations required by rule-based matching.
-        """
-elif False:
-    IdNamespaceIdMappingWorkflowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdNamespaceIdMappingWorkflowPropertiesArgsDict(TypedDict):
+    id_mapping_type: pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesIdMappingType']
+    """
+    The type of ID mapping.
+    """
+    provider_properties: NotRequired[pulumi.Input['IdNamespaceNamespaceProviderPropertiesArgsDict']]
+    """
+    An object which defines any additional configurations required by the provider service.
+    """
+    rule_based_properties: NotRequired[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesArgsDict']]
+    """
+    An object which defines any additional configurations required by rule-based matching.
+    """
 
 @pulumi.input_type
 class IdNamespaceIdMappingWorkflowPropertiesArgs:
@@ -650,18 +621,15 @@ class IdNamespaceIdMappingWorkflowPropertiesArgs:
         pulumi.set(self, "rule_based_properties", value)
 
 
-if not MYPY:
-    class IdNamespaceInputSourceArgsDict(TypedDict):
-        input_source_arn: pulumi.Input[_builtins.str]
-        """
-        An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
-        """
-        schema_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the schema.
-        """
-elif False:
-    IdNamespaceInputSourceArgsDict: TypeAlias = Mapping[str, Any]
+class IdNamespaceInputSourceArgsDict(TypedDict):
+    input_source_arn: pulumi.Input[_builtins.str]
+    """
+    An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
+    """
+    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the schema.
+    """
 
 @pulumi.input_type
 class IdNamespaceInputSourceArgs:
@@ -701,18 +669,15 @@ class IdNamespaceInputSourceArgs:
         pulumi.set(self, "schema_name", value)
 
 
-if not MYPY:
-    class IdNamespaceNamespaceProviderPropertiesArgsDict(TypedDict):
-        provider_service_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the provider service.
-        """
-        provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
-        """
-elif False:
-    IdNamespaceNamespaceProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdNamespaceNamespaceProviderPropertiesArgsDict(TypedDict):
+    provider_service_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the provider service.
+    """
+    provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+    """
 
 @pulumi.input_type
 class IdNamespaceNamespaceProviderPropertiesArgs:
@@ -752,34 +717,31 @@ class IdNamespaceNamespaceProviderPropertiesArgs:
         pulumi.set(self, "provider_configuration", value)
 
 
-if not MYPY:
-    class IdNamespaceNamespaceRuleBasedPropertiesArgsDict(TypedDict):
-        attribute_matching_model: NotRequired[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]
-        """
-        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+class IdNamespaceNamespaceRuleBasedPropertiesArgsDict(TypedDict):
+    attribute_matching_model: NotRequired[pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel']]
+    """
+    The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+    If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-        """
-        record_matching_models: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]
-        """
-        The type of matching record that is allowed to be used in an ID mapping workflow.
+    If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+    """
+    record_matching_models: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]
+    """
+    The type of matching record that is allowed to be used in an ID mapping workflow.
 
-        If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source is matched to one record in the target.
+    If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source is matched to one record in the target.
 
-        If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , all matching records in the source are matched to one record in the target.
-        """
-        rule_definition_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]
-        """
-        The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgsDict']]]]
-        """
-        The rules for the ID namespace.
-        """
-elif False:
-    IdNamespaceNamespaceRuleBasedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , all matching records in the source are matched to one record in the target.
+    """
+    rule_definition_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]]]
+    """
+    The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgsDict']]]]
+    """
+    The rules for the ID namespace.
+    """
 
 @pulumi.input_type
 class IdNamespaceNamespaceRuleBasedPropertiesArgs:
@@ -868,18 +830,15 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class IdNamespaceRuleArgsDict(TypedDict):
-        matching_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
-        """
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        A name for the matching rule.
-        """
-elif False:
-    IdNamespaceRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IdNamespaceRuleArgsDict(TypedDict):
+    matching_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+    """
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    A name for the matching rule.
+    """
 
 @pulumi.input_type
 class IdNamespaceRuleArgs:
@@ -918,12 +877,9 @@ class IdNamespaceRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict(TypedDict):
-        domain_arn: pulumi.Input[_builtins.str]
-        object_type_arn: pulumi.Input[_builtins.str]
-elif False:
-    MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict(TypedDict):
+    domain_arn: pulumi.Input[_builtins.str]
+    object_type_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MatchingWorkflowCustomerProfilesIntegrationConfigArgs:
@@ -952,16 +908,13 @@ class MatchingWorkflowCustomerProfilesIntegrationConfigArgs:
         pulumi.set(self, "object_type_arn", value)
 
 
-if not MYPY:
-    class MatchingWorkflowIncrementalRunConfigArgsDict(TypedDict):
-        incremental_run_type: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']
-        """
-        The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+class MatchingWorkflowIncrementalRunConfigArgsDict(TypedDict):
+    incremental_run_type: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']
+    """
+    The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 
-        > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
-        """
-elif False:
-    MatchingWorkflowIncrementalRunConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowIncrementalRunConfigArgs:
@@ -989,22 +942,19 @@ class MatchingWorkflowIncrementalRunConfigArgs:
         pulumi.set(self, "incremental_run_type", value)
 
 
-if not MYPY:
-    class MatchingWorkflowInputSourceArgsDict(TypedDict):
-        input_source_arn: pulumi.Input[_builtins.str]
-        """
-        An Glue table ARN for the input source table
-        """
-        schema_arn: pulumi.Input[_builtins.str]
-        """
-        The name of the schema.
-        """
-        apply_normalization: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
-        """
-elif False:
-    MatchingWorkflowInputSourceArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowInputSourceArgsDict(TypedDict):
+    input_source_arn: pulumi.Input[_builtins.str]
+    """
+    An Glue table ARN for the input source table
+    """
+    schema_arn: pulumi.Input[_builtins.str]
+    """
+    The name of the schema.
+    """
+    apply_normalization: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowInputSourceArgs:
@@ -1059,14 +1009,11 @@ class MatchingWorkflowInputSourceArgs:
         pulumi.set(self, "apply_normalization", value)
 
 
-if not MYPY:
-    class MatchingWorkflowIntermediateSourceConfigurationArgsDict(TypedDict):
-        intermediate_s3_path: pulumi.Input[_builtins.str]
-        """
-        The s3 path that would be used to stage the intermediate data being generated during workflow execution.
-        """
-elif False:
-    MatchingWorkflowIntermediateSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowIntermediateSourceConfigurationArgsDict(TypedDict):
+    intermediate_s3_path: pulumi.Input[_builtins.str]
+    """
+    The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowIntermediateSourceConfigurationArgs:
@@ -1090,18 +1037,15 @@ class MatchingWorkflowIntermediateSourceConfigurationArgs:
         pulumi.set(self, "intermediate_s3_path", value)
 
 
-if not MYPY:
-    class MatchingWorkflowOutputAttributeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
-        """
-        hashed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables the ability to hash the column values in the output.
-        """
-elif False:
-    MatchingWorkflowOutputAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowOutputAttributeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
+    """
+    hashed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables the ability to hash the column values in the output.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowOutputAttributeArgs:
@@ -1141,27 +1085,24 @@ class MatchingWorkflowOutputAttributeArgs:
         pulumi.set(self, "hashed", value)
 
 
-if not MYPY:
-    class MatchingWorkflowOutputSourceArgsDict(TypedDict):
-        output: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputAttributeArgsDict']]]
-        """
-        A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
-        """
-        apply_normalization: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
-        """
-        customer_profiles_integration_config: NotRequired[pulumi.Input['MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict']]
-        kms_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
-        """
-        output_s3_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 path to which Entity Resolution will write the output table
-        """
-elif False:
-    MatchingWorkflowOutputSourceArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowOutputSourceArgsDict(TypedDict):
+    output: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputAttributeArgsDict']]]
+    """
+    A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+    """
+    apply_normalization: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+    """
+    customer_profiles_integration_config: NotRequired[pulumi.Input['MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict']]
+    kms_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+    """
+    output_s3_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 path to which Entity Resolution will write the output table
+    """
 
 @pulumi.input_type
 class MatchingWorkflowOutputSourceArgs:
@@ -1245,22 +1186,19 @@ class MatchingWorkflowOutputSourceArgs:
         pulumi.set(self, "output_s3_path", value)
 
 
-if not MYPY:
-    class MatchingWorkflowProviderPropertiesArgsDict(TypedDict):
-        provider_service_arn: pulumi.Input[_builtins.str]
-        """
-        Arn of the Provider service being used.
-        """
-        intermediate_source_configuration: NotRequired[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgsDict']]
-        """
-        The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
-        """
-        provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
-        """
-elif False:
-    MatchingWorkflowProviderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowProviderPropertiesArgsDict(TypedDict):
+    provider_service_arn: pulumi.Input[_builtins.str]
+    """
+    Arn of the Provider service being used.
+    """
+    intermediate_source_configuration: NotRequired[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgsDict']]
+    """
+    The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
+    """
+    provider_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+    """
 
 @pulumi.input_type
 class MatchingWorkflowProviderPropertiesArgs:
@@ -1316,30 +1254,27 @@ class MatchingWorkflowProviderPropertiesArgs:
         pulumi.set(self, "provider_configuration", value)
 
 
-if not MYPY:
-    class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
-        provider_properties: NotRequired[pulumi.Input['MatchingWorkflowProviderPropertiesArgsDict']]
-        """
-        The properties of the provider service.
-        """
-        resolution_type: NotRequired[pulumi.Input['MatchingWorkflowResolutionType']]
-        """
-        The type of matching workflow to create. Specify one of the following types:
+class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
+    provider_properties: NotRequired[pulumi.Input['MatchingWorkflowProviderPropertiesArgsDict']]
+    """
+    The properties of the provider service.
+    """
+    resolution_type: NotRequired[pulumi.Input['MatchingWorkflowResolutionType']]
+    """
+    The type of matching workflow to create. Specify one of the following types:
 
-        - `RULE_MATCHING` : Match records using configurable rule-based criteria
-        - `ML_MATCHING` : Match records using machine learning models
-        - `PROVIDER` : Match records using a third-party matching provider
-        """
-        rule_based_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgsDict']]
-        """
-        An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
-        """
-        rule_condition_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgsDict']]
-        """
-        An object containing the `rules` for a matching workflow.
-        """
-elif False:
-    MatchingWorkflowResolutionTechniquesArgsDict: TypeAlias = Mapping[str, Any]
+    - `RULE_MATCHING` : Match records using configurable rule-based criteria
+    - `ML_MATCHING` : Match records using machine learning models
+    - `PROVIDER` : Match records using a third-party matching provider
+    """
+    rule_based_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgsDict']]
+    """
+    An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
+    """
+    rule_condition_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgsDict']]
+    """
+    An object containing the `rules` for a matching workflow.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowResolutionTechniquesArgs:
@@ -1420,30 +1355,27 @@ class MatchingWorkflowResolutionTechniquesArgs:
         pulumi.set(self, "rule_condition_properties", value)
 
 
-if not MYPY:
-    class MatchingWorkflowRuleBasedPropertiesArgsDict(TypedDict):
-        attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel']
-        """
-        The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+class MatchingWorkflowRuleBasedPropertiesArgsDict(TypedDict):
+    attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel']
+    """
+    The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+    If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgsDict']]]
-        """
-        A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
-        """
-        match_purpose: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]
-        """
-        An indicator of whether to generate IDs and index the data or not.
+    If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgsDict']]]
+    """
+    A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
+    """
+    match_purpose: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]
+    """
+    An indicator of whether to generate IDs and index the data or not.
 
-        If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+    If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
 
-        If you choose `INDEXING` , the process indexes the data without generating IDs.
-        """
-elif False:
-    MatchingWorkflowRuleBasedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    If you choose `INDEXING` , the process indexes the data without generating IDs.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowRuleBasedPropertiesArgs:
@@ -1514,14 +1446,11 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
         pulumi.set(self, "match_purpose", value)
 
 
-if not MYPY:
-    class MatchingWorkflowRuleConditionPropertiesArgsDict(TypedDict):
-        rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgsDict']]]
-        """
-        A list of rule objects, each of which have fields `ruleName` and `condition` .
-        """
-elif False:
-    MatchingWorkflowRuleConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowRuleConditionPropertiesArgsDict(TypedDict):
+    rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgsDict']]]
+    """
+    A list of rule objects, each of which have fields `ruleName` and `condition` .
+    """
 
 @pulumi.input_type
 class MatchingWorkflowRuleConditionPropertiesArgs:
@@ -1545,28 +1474,25 @@ class MatchingWorkflowRuleConditionPropertiesArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class MatchingWorkflowRuleConditionArgsDict(TypedDict):
-        condition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A statement that specifies the conditions for a matching rule.
+class MatchingWorkflowRuleConditionArgsDict(TypedDict):
+    condition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A statement that specifies the conditions for a matching rule.
 
-        If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+    If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
 
-        If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+    If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
 
-        Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+    Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
 
-        For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
-        """
-        rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A name for the matching rule.
+    For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+    """
+    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A name for the matching rule.
 
-        For example: `Rule1`
-        """
-elif False:
-    MatchingWorkflowRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+    For example: `Rule1`
+    """
 
 @pulumi.input_type
 class MatchingWorkflowRuleConditionArgs:
@@ -1627,18 +1553,15 @@ class MatchingWorkflowRuleConditionArgs:
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class MatchingWorkflowRuleArgsDict(TypedDict):
-        matching_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
-        """
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        A name for the matching rule.
-        """
-elif False:
-    MatchingWorkflowRuleArgsDict: TypeAlias = Mapping[str, Any]
+class MatchingWorkflowRuleArgsDict(TypedDict):
+    matching_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
+    """
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    A name for the matching rule.
+    """
 
 @pulumi.input_type
 class MatchingWorkflowRuleArgs:
@@ -1677,19 +1600,16 @@ class MatchingWorkflowRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class SchemaMappingSchemaInputAttributeArgsDict(TypedDict):
-        field_name: pulumi.Input[_builtins.str]
-        type: pulumi.Input['SchemaMappingSchemaAttributeType']
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        hashed: NotRequired[pulumi.Input[_builtins.bool]]
-        match_key: NotRequired[pulumi.Input[_builtins.str]]
-        sub_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subtype of the Attribute. Would be required only when type is PROVIDER_ID
-        """
-elif False:
-    SchemaMappingSchemaInputAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaMappingSchemaInputAttributeArgsDict(TypedDict):
+    field_name: pulumi.Input[_builtins.str]
+    type: pulumi.Input['SchemaMappingSchemaAttributeType']
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    hashed: NotRequired[pulumi.Input[_builtins.bool]]
+    match_key: NotRequired[pulumi.Input[_builtins.str]]
+    sub_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subtype of the Attribute. Would be required only when type is PROVIDER_ID
+    """
 
 @pulumi.input_type
 class SchemaMappingSchemaInputAttributeArgs:
