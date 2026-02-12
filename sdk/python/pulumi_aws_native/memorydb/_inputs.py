@@ -22,27 +22,22 @@ __all__ = [
     'ClusterEndpointArgsDict',
 ]
 
-MYPY = False
+class AuthenticationModePropertiesArgsDict(TypedDict):
+    """
+    Denotes whether the user requires a password to authenticate.
 
-if not MYPY:
-    class AuthenticationModePropertiesArgsDict(TypedDict):
-        """
-        Denotes whether the user requires a password to authenticate.
+    *Example:*
 
-        *Example:*
-
-        `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
-        """
-        passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Passwords used for this user account. You can create up to two passwords for each user.
-        """
-        type: NotRequired[pulumi.Input['UserAuthenticationModePropertiesType']]
-        """
-        Type of authentication strategy for this user.
-        """
-elif False:
-    AuthenticationModePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+    """
+    passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Passwords used for this user account. You can create up to two passwords for each user.
+    """
+    type: NotRequired[pulumi.Input['UserAuthenticationModePropertiesType']]
+    """
+    Type of authentication strategy for this user.
+    """
 
 @pulumi.input_type
 class AuthenticationModePropertiesArgs:
@@ -88,18 +83,15 @@ class AuthenticationModePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ClusterEndpointArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS address of the primary read-write node.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number that the engine is listening on. 
-        """
-elif False:
-    ClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterEndpointArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS address of the primary read-write node.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number that the engine is listening on. 
+    """
 
 @pulumi.input_type
 class ClusterEndpointArgs:

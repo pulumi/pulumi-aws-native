@@ -45,14 +45,9 @@ __all__ = [
     'StudioEncryptionConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LaunchProfileStreamConfigurationSessionBackupArgsDict(TypedDict):
-        max_backups_to_retain: NotRequired[pulumi.Input[_builtins.float]]
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    LaunchProfileStreamConfigurationSessionBackupArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchProfileStreamConfigurationSessionBackupArgsDict(TypedDict):
+    max_backups_to_retain: NotRequired[pulumi.Input[_builtins.float]]
+    mode: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class LaunchProfileStreamConfigurationSessionBackupArgs:
@@ -83,12 +78,9 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class LaunchProfileStreamConfigurationSessionStorageArgsDict(TypedDict):
-        mode: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        root: NotRequired[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgsDict']]
-elif False:
-    LaunchProfileStreamConfigurationSessionStorageArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchProfileStreamConfigurationSessionStorageArgsDict(TypedDict):
+    mode: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    root: NotRequired[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgsDict']]
 
 @pulumi.input_type
 class LaunchProfileStreamConfigurationSessionStorageArgs:
@@ -118,20 +110,17 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
         pulumi.set(self, "root", value)
 
 
-if not MYPY:
-    class LaunchProfileStreamConfigurationArgsDict(TypedDict):
-        clipboard_mode: pulumi.Input[_builtins.str]
-        ec2_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        streaming_image_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        automatic_termination_mode: NotRequired[pulumi.Input[_builtins.str]]
-        max_session_length_in_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        max_stopped_session_length_in_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        session_backup: NotRequired[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgsDict']]
-        session_persistence_mode: NotRequired[pulumi.Input[_builtins.str]]
-        session_storage: NotRequired[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgsDict']]
-        volume_configuration: NotRequired[pulumi.Input['LaunchProfileVolumeConfigurationArgsDict']]
-elif False:
-    LaunchProfileStreamConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchProfileStreamConfigurationArgsDict(TypedDict):
+    clipboard_mode: pulumi.Input[_builtins.str]
+    ec2_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    streaming_image_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    automatic_termination_mode: NotRequired[pulumi.Input[_builtins.str]]
+    max_session_length_in_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    max_stopped_session_length_in_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    session_backup: NotRequired[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgsDict']]
+    session_persistence_mode: NotRequired[pulumi.Input[_builtins.str]]
+    session_storage: NotRequired[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgsDict']]
+    volume_configuration: NotRequired[pulumi.Input['LaunchProfileVolumeConfigurationArgsDict']]
 
 @pulumi.input_type
 class LaunchProfileStreamConfigurationArgs:
@@ -255,12 +244,9 @@ class LaunchProfileStreamConfigurationArgs:
         pulumi.set(self, "volume_configuration", value)
 
 
-if not MYPY:
-    class LaunchProfileStreamingSessionStorageRootArgsDict(TypedDict):
-        linux: NotRequired[pulumi.Input[_builtins.str]]
-        windows: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    LaunchProfileStreamingSessionStorageRootArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchProfileStreamingSessionStorageRootArgsDict(TypedDict):
+    linux: NotRequired[pulumi.Input[_builtins.str]]
+    windows: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class LaunchProfileStreamingSessionStorageRootArgs:
@@ -291,13 +277,10 @@ class LaunchProfileStreamingSessionStorageRootArgs:
         pulumi.set(self, "windows", value)
 
 
-if not MYPY:
-    class LaunchProfileVolumeConfigurationArgsDict(TypedDict):
-        iops: NotRequired[pulumi.Input[_builtins.float]]
-        size: NotRequired[pulumi.Input[_builtins.float]]
-        throughput: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    LaunchProfileVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchProfileVolumeConfigurationArgsDict(TypedDict):
+    iops: NotRequired[pulumi.Input[_builtins.float]]
+    size: NotRequired[pulumi.Input[_builtins.float]]
+    throughput: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class LaunchProfileVolumeConfigurationArgs:
@@ -340,12 +323,9 @@ class LaunchProfileVolumeConfigurationArgs:
         pulumi.set(self, "throughput", value)
 
 
-if not MYPY:
-    class StudioComponentActiveDirectoryComputerAttributeArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentActiveDirectoryComputerAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentActiveDirectoryComputerAttributeArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentActiveDirectoryComputerAttributeArgs:
@@ -376,13 +356,10 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class StudioComponentActiveDirectoryConfigurationArgsDict(TypedDict):
-        computer_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgsDict']]]]
-        directory_id: NotRequired[pulumi.Input[_builtins.str]]
-        organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentActiveDirectoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentActiveDirectoryConfigurationArgsDict(TypedDict):
+    computer_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgsDict']]]]
+    directory_id: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentActiveDirectoryConfigurationArgs:
@@ -425,12 +402,9 @@ class StudioComponentActiveDirectoryConfigurationArgs:
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
-if not MYPY:
-    class StudioComponentComputeFarmConfigurationArgsDict(TypedDict):
-        active_directory_user: NotRequired[pulumi.Input[_builtins.str]]
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentComputeFarmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentComputeFarmConfigurationArgsDict(TypedDict):
+    active_directory_user: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentComputeFarmConfigurationArgs:
@@ -461,14 +435,11 @@ class StudioComponentComputeFarmConfigurationArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class StudioComponentConfigurationArgsDict(TypedDict):
-        active_directory_configuration: NotRequired[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgsDict']]
-        compute_farm_configuration: NotRequired[pulumi.Input['StudioComponentComputeFarmConfigurationArgsDict']]
-        license_service_configuration: NotRequired[pulumi.Input['StudioComponentLicenseServiceConfigurationArgsDict']]
-        shared_file_system_configuration: NotRequired[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgsDict']]
-elif False:
-    StudioComponentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentConfigurationArgsDict(TypedDict):
+    active_directory_configuration: NotRequired[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgsDict']]
+    compute_farm_configuration: NotRequired[pulumi.Input['StudioComponentComputeFarmConfigurationArgsDict']]
+    license_service_configuration: NotRequired[pulumi.Input['StudioComponentLicenseServiceConfigurationArgsDict']]
+    shared_file_system_configuration: NotRequired[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgsDict']]
 
 @pulumi.input_type
 class StudioComponentConfigurationArgs:
@@ -523,14 +494,11 @@ class StudioComponentConfigurationArgs:
         pulumi.set(self, "shared_file_system_configuration", value)
 
 
-if not MYPY:
-    class StudioComponentInitializationScriptArgsDict(TypedDict):
-        launch_profile_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
-        platform: NotRequired[pulumi.Input[_builtins.str]]
-        run_context: NotRequired[pulumi.Input[_builtins.str]]
-        script: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentInitializationScriptArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentInitializationScriptArgsDict(TypedDict):
+    launch_profile_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
+    platform: NotRequired[pulumi.Input[_builtins.str]]
+    run_context: NotRequired[pulumi.Input[_builtins.str]]
+    script: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentInitializationScriptArgs:
@@ -585,11 +553,8 @@ class StudioComponentInitializationScriptArgs:
         pulumi.set(self, "script", value)
 
 
-if not MYPY:
-    class StudioComponentLicenseServiceConfigurationArgsDict(TypedDict):
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentLicenseServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentLicenseServiceConfigurationArgsDict(TypedDict):
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentLicenseServiceConfigurationArgs:
@@ -608,12 +573,9 @@ class StudioComponentLicenseServiceConfigurationArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class StudioComponentScriptParameterKeyValueArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentScriptParameterKeyValueArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentScriptParameterKeyValueArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentScriptParameterKeyValueArgs:
@@ -644,15 +606,12 @@ class StudioComponentScriptParameterKeyValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class StudioComponentSharedFileSystemConfigurationArgsDict(TypedDict):
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        file_system_id: NotRequired[pulumi.Input[_builtins.str]]
-        linux_mount_point: NotRequired[pulumi.Input[_builtins.str]]
-        share_name: NotRequired[pulumi.Input[_builtins.str]]
-        windows_mount_drive: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioComponentSharedFileSystemConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StudioComponentSharedFileSystemConfigurationArgsDict(TypedDict):
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    file_system_id: NotRequired[pulumi.Input[_builtins.str]]
+    linux_mount_point: NotRequired[pulumi.Input[_builtins.str]]
+    share_name: NotRequired[pulumi.Input[_builtins.str]]
+    windows_mount_drive: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioComponentSharedFileSystemConfigurationArgs:
@@ -719,12 +678,9 @@ class StudioComponentSharedFileSystemConfigurationArgs:
         pulumi.set(self, "windows_mount_drive", value)
 
 
-if not MYPY:
-    class StudioEncryptionConfigurationArgsDict(TypedDict):
-        key_type: pulumi.Input[_builtins.str]
-        key_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    StudioEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StudioEncryptionConfigurationArgsDict(TypedDict):
+    key_type: pulumi.Input[_builtins.str]
+    key_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StudioEncryptionConfigurationArgs:

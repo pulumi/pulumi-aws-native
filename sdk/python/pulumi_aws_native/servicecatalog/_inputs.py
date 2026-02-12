@@ -32,28 +32,23 @@ __all__ = [
     'ServiceActionDefinitionParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CloudFormationProductCodeStarParametersArgsDict(TypedDict):
-        artifact_path: pulumi.Input[_builtins.str]
-        """
-        The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
-        """
-        branch: pulumi.Input[_builtins.str]
-        """
-        The specific branch where the artifact resides.
-        """
-        connection_arn: pulumi.Input[_builtins.str]
-        """
-        The CodeStar ARN, which is the connection between AWS Service Catalog and the external repository.
-        """
-        repository: pulumi.Input[_builtins.str]
-        """
-        The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
-        """
-elif False:
-    CloudFormationProductCodeStarParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CloudFormationProductCodeStarParametersArgsDict(TypedDict):
+    artifact_path: pulumi.Input[_builtins.str]
+    """
+    The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
+    """
+    branch: pulumi.Input[_builtins.str]
+    """
+    The specific branch where the artifact resides.
+    """
+    connection_arn: pulumi.Input[_builtins.str]
+    """
+    The CodeStar ARN, which is the connection between AWS Service Catalog and the external repository.
+    """
+    repository: pulumi.Input[_builtins.str]
+    """
+    The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
+    """
 
 @pulumi.input_type
 class CloudFormationProductCodeStarParametersArgs:
@@ -122,14 +117,11 @@ class CloudFormationProductCodeStarParametersArgs:
         pulumi.set(self, "repository", value)
 
 
-if not MYPY:
-    class CloudFormationProductConnectionParametersArgsDict(TypedDict):
-        code_star: NotRequired[pulumi.Input['CloudFormationProductCodeStarParametersArgsDict']]
-        """
-        Provides `ConnectionType` details.
-        """
-elif False:
-    CloudFormationProductConnectionParametersArgsDict: TypeAlias = Mapping[str, Any]
+class CloudFormationProductConnectionParametersArgsDict(TypedDict):
+    code_star: NotRequired[pulumi.Input['CloudFormationProductCodeStarParametersArgsDict']]
+    """
+    Provides `ConnectionType` details.
+    """
 
 @pulumi.input_type
 class CloudFormationProductConnectionParametersArgs:
@@ -154,41 +146,38 @@ class CloudFormationProductConnectionParametersArgs:
         pulumi.set(self, "code_star", value)
 
 
-if not MYPY:
-    class CloudFormationProductProvisioningArtifactPropertiesArgsDict(TypedDict):
-        info: Any
-        """
-        Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
+class CloudFormationProductProvisioningArtifactPropertiesArgsDict(TypedDict):
+    info: Any
+    """
+    Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
 
-        The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+    The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
 
-        `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
+    `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
 
-        `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
-        """
-        disable_template_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of provisioning artifact.
+    `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+    """
+    disable_template_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of provisioning artifact.
 
-        - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
-        - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
-        - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
-        - `EXTERNAL` - External configuration file
-        """
-elif False:
-    CloudFormationProductProvisioningArtifactPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
+    - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
+    - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
+    - `EXTERNAL` - External configuration file
+    """
 
 @pulumi.input_type
 class CloudFormationProductProvisioningArtifactPropertiesArgs:
@@ -298,18 +287,15 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CloudFormationProductSourceConnectionArgsDict(TypedDict):
-        connection_parameters: pulumi.Input['CloudFormationProductConnectionParametersArgsDict']
-        """
-        The connection details based on the connection `Type` .
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The only supported `SourceConnection` type is Codestar.
-        """
-elif False:
-    CloudFormationProductSourceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class CloudFormationProductSourceConnectionArgsDict(TypedDict):
+    connection_parameters: pulumi.Input['CloudFormationProductConnectionParametersArgsDict']
+    """
+    The connection details based on the connection `Type` .
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The only supported `SourceConnection` type is Codestar.
+    """
 
 @pulumi.input_type
 class CloudFormationProductSourceConnectionArgs:
@@ -348,18 +334,15 @@ class CloudFormationProductSourceConnectionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CloudFormationProvisionedProductProvisioningParameterArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The parameter key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The parameter value.
-        """
-elif False:
-    CloudFormationProvisionedProductProvisioningParameterArgsDict: TypeAlias = Mapping[str, Any]
+class CloudFormationProvisionedProductProvisioningParameterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The parameter key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The parameter value.
+    """
 
 @pulumi.input_type
 class CloudFormationProvisionedProductProvisioningParameterArgs:
@@ -398,82 +381,79 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict):
-        stack_set_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more AWS accounts where the provisioned product will be available.
+class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict):
+    stack_set_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more AWS accounts where the provisioned product will be available.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+    The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 
-        If no values are specified, the default value is all acounts from the `STACKSET` constraint.
-        """
-        stack_set_failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+    If no values are specified, the default value is all acounts from the `STACKSET` constraint.
+    """
+    stack_set_failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+    Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
 
-        The default value is `0` if no value is specified.
-        """
-        stack_set_failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+    The default value is `0` if no value is specified.
+    """
+    stack_set_failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
 
-        When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
+    When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
-        """
-        stack_set_max_concurrency_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
+    Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+    """
+    stack_set_max_concurrency_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
 
-        Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+    Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
-        """
-        stack_set_max_concurrency_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
+    Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+    """
+    stack_set_max_concurrency_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum percentage of accounts in which to perform this operation at one time.
 
-        When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
+    When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
 
-        Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+    Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
-        """
-        stack_set_operation_type: NotRequired[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]
-        """
-        Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+    Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+    """
+    stack_set_operation_type: NotRequired[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]
+    """
+    Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
-        - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
-        - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
-        """
-        stack_set_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more AWS Regions where the provisioned product will be available.
+    - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+    - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+    - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
+    """
+    stack_set_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more AWS Regions where the provisioned product will be available.
 
-        Applicable only to a `CFN_STACKSET` provisioned product type.
+    Applicable only to a `CFN_STACKSET` provisioned product type.
 
-        The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+    The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 
-        If no values are specified, the default value is all Regions from the `STACKSET` constraint.
-        """
-elif False:
-    CloudFormationProvisionedProductProvisioningPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+    If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+    """
 
 @pulumi.input_type
 class CloudFormationProvisionedProductProvisioningPreferencesArgs:
@@ -682,18 +662,15 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_regions", value)
 
 
-if not MYPY:
-    class ServiceActionDefinitionParameterArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The parameter key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter.
-        """
-elif False:
-    ServiceActionDefinitionParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceActionDefinitionParameterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The parameter key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the parameter.
+    """
 
 @pulumi.input_type
 class ServiceActionDefinitionParameterArgs:

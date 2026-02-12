@@ -96,19 +96,14 @@ __all__ = [
     'ApplicationZeppelinMonitoringConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationCatalogConfigurationArgsDict(TypedDict):
-        """
-        The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
-        """
-        glue_data_catalog_configuration: NotRequired[pulumi.Input['ApplicationGlueDataCatalogConfigurationArgsDict']]
-        """
-        The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
-        """
-elif False:
-    ApplicationCatalogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCatalogConfigurationArgsDict(TypedDict):
+    """
+    The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
+    """
+    glue_data_catalog_configuration: NotRequired[pulumi.Input['ApplicationGlueDataCatalogConfigurationArgsDict']]
+    """
+    The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
+    """
 
 @pulumi.input_type
 class ApplicationCatalogConfigurationArgs:
@@ -134,29 +129,26 @@ class ApplicationCatalogConfigurationArgs:
         pulumi.set(self, "glue_data_catalog_configuration", value)
 
 
-if not MYPY:
-    class ApplicationCheckpointConfigurationArgsDict(TypedDict):
-        """
-        Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
-        """
-        configuration_type: pulumi.Input['ApplicationCheckpointConfigurationConfigurationType']
-        """
-        Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
-        """
-        checkpoint_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the interval in milliseconds between checkpoint operations.
-        """
-        checkpointing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
-        """
-        min_pause_between_checkpoints: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
-        """
-elif False:
-    ApplicationCheckpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCheckpointConfigurationArgsDict(TypedDict):
+    """
+    Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+    """
+    configuration_type: pulumi.Input['ApplicationCheckpointConfigurationConfigurationType']
+    """
+    Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
+    """
+    checkpoint_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the interval in milliseconds between checkpoint operations.
+    """
+    checkpointing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    min_pause_between_checkpoints: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
+    """
 
 @pulumi.input_type
 class ApplicationCheckpointConfigurationArgs:
@@ -229,21 +221,18 @@ class ApplicationCheckpointConfigurationArgs:
         pulumi.set(self, "min_pause_between_checkpoints", value)
 
 
-if not MYPY:
-    class ApplicationCodeConfigurationArgsDict(TypedDict):
-        """
-        Describes code configuration for an application.
-        """
-        code_content: pulumi.Input['ApplicationCodeContentArgsDict']
-        """
-        The location and type of the application code.
-        """
-        code_content_type: pulumi.Input['ApplicationCodeConfigurationCodeContentType']
-        """
-        Specifies whether the code content is in text or zip format.
-        """
-elif False:
-    ApplicationCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCodeConfigurationArgsDict(TypedDict):
+    """
+    Describes code configuration for an application.
+    """
+    code_content: pulumi.Input['ApplicationCodeContentArgsDict']
+    """
+    The location and type of the application code.
+    """
+    code_content_type: pulumi.Input['ApplicationCodeConfigurationCodeContentType']
+    """
+    Specifies whether the code content is in text or zip format.
+    """
 
 @pulumi.input_type
 class ApplicationCodeConfigurationArgs:
@@ -283,25 +272,22 @@ class ApplicationCodeConfigurationArgs:
         pulumi.set(self, "code_content_type", value)
 
 
-if not MYPY:
-    class ApplicationCodeContentArgsDict(TypedDict):
-        """
-        Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
-        """
-        s3_content_location: NotRequired[pulumi.Input['ApplicationS3ContentLocationArgsDict']]
-        """
-        Information about the Amazon S3 bucket that contains the application code.
-        """
-        text_content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text-format code for a Flink-based Kinesis Data Analytics application.
-        """
-        zip_file_content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip-format code for a Flink-based Kinesis Data Analytics application.
-        """
-elif False:
-    ApplicationCodeContentArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCodeContentArgsDict(TypedDict):
+    """
+    Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
+    """
+    s3_content_location: NotRequired[pulumi.Input['ApplicationS3ContentLocationArgsDict']]
+    """
+    Information about the Amazon S3 bucket that contains the application code.
+    """
+    text_content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text-format code for a Flink-based Kinesis Data Analytics application.
+    """
+    zip_file_content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip-format code for a Flink-based Kinesis Data Analytics application.
+    """
 
 @pulumi.input_type
 class ApplicationCodeContentArgs:
@@ -359,49 +345,46 @@ class ApplicationCodeContentArgs:
         pulumi.set(self, "zip_file_content", value)
 
 
-if not MYPY:
-    class ApplicationConfigurationArgsDict(TypedDict):
-        """
-        Specifies the creation parameters for a Kinesis Data Analytics application.
-        """
-        application_code_configuration: NotRequired[pulumi.Input['ApplicationCodeConfigurationArgsDict']]
-        """
-        The code location and type parameters for a Flink-based Kinesis Data Analytics application.
-        """
-        application_encryption_configuration: NotRequired[pulumi.Input['ApplicationEncryptionConfigurationArgsDict']]
-        """
-        Describes whether customer managed key is enabled and key details for customer data encryption
-        """
-        application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationSnapshotConfigurationArgsDict']]
-        """
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-        application_system_rollback_configuration: NotRequired[pulumi.Input['ApplicationSystemRollbackConfigurationArgsDict']]
-        """
-        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-        environment_properties: NotRequired[pulumi.Input['ApplicationEnvironmentPropertiesArgsDict']]
-        """
-        Describes execution properties for a Flink-based Kinesis Data Analytics application.
-        """
-        flink_application_configuration: NotRequired[pulumi.Input['ApplicationFlinkApplicationConfigurationArgsDict']]
-        """
-        The creation and update parameters for a Flink-based Kinesis Data Analytics application.
-        """
-        sql_application_configuration: NotRequired[pulumi.Input['ApplicationSqlApplicationConfigurationArgsDict']]
-        """
-        The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-        """
-        vpc_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationVpcConfigurationArgsDict']]]]
-        """
-        The array of descriptions of VPC configurations available to the application.
-        """
-        zeppelin_application_configuration: NotRequired[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgsDict']]
-        """
-        The configuration parameters for a Kinesis Data Analytics Studio notebook.
-        """
-elif False:
-    ApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationConfigurationArgsDict(TypedDict):
+    """
+    Specifies the creation parameters for a Kinesis Data Analytics application.
+    """
+    application_code_configuration: NotRequired[pulumi.Input['ApplicationCodeConfigurationArgsDict']]
+    """
+    The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+    """
+    application_encryption_configuration: NotRequired[pulumi.Input['ApplicationEncryptionConfigurationArgsDict']]
+    """
+    Describes whether customer managed key is enabled and key details for customer data encryption
+    """
+    application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationSnapshotConfigurationArgsDict']]
+    """
+    Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    application_system_rollback_configuration: NotRequired[pulumi.Input['ApplicationSystemRollbackConfigurationArgsDict']]
+    """
+    Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    environment_properties: NotRequired[pulumi.Input['ApplicationEnvironmentPropertiesArgsDict']]
+    """
+    Describes execution properties for a Flink-based Kinesis Data Analytics application.
+    """
+    flink_application_configuration: NotRequired[pulumi.Input['ApplicationFlinkApplicationConfigurationArgsDict']]
+    """
+    The creation and update parameters for a Flink-based Kinesis Data Analytics application.
+    """
+    sql_application_configuration: NotRequired[pulumi.Input['ApplicationSqlApplicationConfigurationArgsDict']]
+    """
+    The creation and update parameters for a SQL-based Kinesis Data Analytics application.
+    """
+    vpc_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationVpcConfigurationArgsDict']]]]
+    """
+    The array of descriptions of VPC configurations available to the application.
+    """
+    zeppelin_application_configuration: NotRequired[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgsDict']]
+    """
+    The configuration parameters for a Kinesis Data Analytics Studio notebook.
+    """
 
 @pulumi.input_type
 class ApplicationConfigurationArgs:
@@ -555,23 +538,20 @@ class ApplicationConfigurationArgs:
         pulumi.set(self, "zeppelin_application_configuration", value)
 
 
-if not MYPY:
-    class ApplicationCsvMappingParametersArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
-        `"name1", "address1"`
-        `"name2", "address2"`
-        """
-        record_column_delimiter: pulumi.Input[_builtins.str]
-        """
-        The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-        """
-        record_row_delimiter: pulumi.Input[_builtins.str]
-        """
-        The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
-        """
-elif False:
-    ApplicationCsvMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCsvMappingParametersArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
+    `"name1", "address1"`
+    `"name2", "address2"`
+    """
+    record_column_delimiter: pulumi.Input[_builtins.str]
+    """
+    The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+    """
+    record_row_delimiter: pulumi.Input[_builtins.str]
+    """
+    The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
+    """
 
 @pulumi.input_type
 class ApplicationCsvMappingParametersArgs:
@@ -613,25 +593,22 @@ class ApplicationCsvMappingParametersArgs:
         pulumi.set(self, "record_row_delimiter", value)
 
 
-if not MYPY:
-    class ApplicationCustomArtifactConfigurationArgsDict(TypedDict):
-        """
-        The configuration of connectors and user-defined functions.
-        """
-        artifact_type: pulumi.Input['ApplicationCustomArtifactConfigurationArtifactType']
-        """
-        Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
-        """
-        maven_reference: NotRequired[pulumi.Input['ApplicationMavenReferenceArgsDict']]
-        """
-        The parameters required to fully specify a Maven reference.
-        """
-        s3_content_location: NotRequired[pulumi.Input['ApplicationS3ContentLocationArgsDict']]
-        """
-        The location of the custom artifacts.
-        """
-elif False:
-    ApplicationCustomArtifactConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCustomArtifactConfigurationArgsDict(TypedDict):
+    """
+    The configuration of connectors and user-defined functions.
+    """
+    artifact_type: pulumi.Input['ApplicationCustomArtifactConfigurationArtifactType']
+    """
+    Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
+    """
+    maven_reference: NotRequired[pulumi.Input['ApplicationMavenReferenceArgsDict']]
+    """
+    The parameters required to fully specify a Maven reference.
+    """
+    s3_content_location: NotRequired[pulumi.Input['ApplicationS3ContentLocationArgsDict']]
+    """
+    The location of the custom artifacts.
+    """
 
 @pulumi.input_type
 class ApplicationCustomArtifactConfigurationArgs:
@@ -688,17 +665,14 @@ class ApplicationCustomArtifactConfigurationArgs:
         pulumi.set(self, "s3_content_location", value)
 
 
-if not MYPY:
-    class ApplicationDeployAsApplicationConfigurationArgsDict(TypedDict):
-        """
-        The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
-        """
-        s3_content_location: pulumi.Input['ApplicationS3ContentBaseLocationArgsDict']
-        """
-        The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
-        """
-elif False:
-    ApplicationDeployAsApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationDeployAsApplicationConfigurationArgsDict(TypedDict):
+    """
+    The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
+    """
+    s3_content_location: pulumi.Input['ApplicationS3ContentBaseLocationArgsDict']
+    """
+    The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
+    """
 
 @pulumi.input_type
 class ApplicationDeployAsApplicationConfigurationArgs:
@@ -723,21 +697,18 @@ class ApplicationDeployAsApplicationConfigurationArgs:
         pulumi.set(self, "s3_content_location", value)
 
 
-if not MYPY:
-    class ApplicationEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Describes whether customer managed key is enabled and key details for customer data encryption
-        """
-        key_type: pulumi.Input['ApplicationEncryptionConfigurationKeyType']
-        """
-        Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
-        """
-        key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
-        """
-elif False:
-    ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Describes whether customer managed key is enabled and key details for customer data encryption
+    """
+    key_type: pulumi.Input['ApplicationEncryptionConfigurationKeyType']
+    """
+    Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+    """
+    key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+    """
 
 @pulumi.input_type
 class ApplicationEncryptionConfigurationArgs:
@@ -778,17 +749,14 @@ class ApplicationEncryptionConfigurationArgs:
         pulumi.set(self, "key_id", value)
 
 
-if not MYPY:
-    class ApplicationEnvironmentPropertiesArgsDict(TypedDict):
-        """
-        Describes execution properties for a Flink-based Kinesis Data Analytics application.
-        """
-        property_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationPropertyGroupArgsDict']]]]
-        """
-        Describes the execution property groups.
-        """
-elif False:
-    ApplicationEnvironmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationEnvironmentPropertiesArgsDict(TypedDict):
+    """
+    Describes execution properties for a Flink-based Kinesis Data Analytics application.
+    """
+    property_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationPropertyGroupArgsDict']]]]
+    """
+    Describes the execution property groups.
+    """
 
 @pulumi.input_type
 class ApplicationEnvironmentPropertiesArgs:
@@ -814,25 +782,22 @@ class ApplicationEnvironmentPropertiesArgs:
         pulumi.set(self, "property_groups", value)
 
 
-if not MYPY:
-    class ApplicationFlinkApplicationConfigurationArgsDict(TypedDict):
-        """
-        Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
-        """
-        checkpoint_configuration: NotRequired[pulumi.Input['ApplicationCheckpointConfigurationArgsDict']]
-        """
-        Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
-        """
-        monitoring_configuration: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationArgsDict']]
-        """
-        Describes configuration parameters for Amazon CloudWatch logging for an application.
-        """
-        parallelism_configuration: NotRequired[pulumi.Input['ApplicationParallelismConfigurationArgsDict']]
-        """
-        Describes parameters for how an application executes multiple tasks simultaneously.
-        """
-elif False:
-    ApplicationFlinkApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationFlinkApplicationConfigurationArgsDict(TypedDict):
+    """
+    Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
+    """
+    checkpoint_configuration: NotRequired[pulumi.Input['ApplicationCheckpointConfigurationArgsDict']]
+    """
+    Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+    """
+    monitoring_configuration: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationArgsDict']]
+    """
+    Describes configuration parameters for Amazon CloudWatch logging for an application.
+    """
+    parallelism_configuration: NotRequired[pulumi.Input['ApplicationParallelismConfigurationArgsDict']]
+    """
+    Describes parameters for how an application executes multiple tasks simultaneously.
+    """
 
 @pulumi.input_type
 class ApplicationFlinkApplicationConfigurationArgs:
@@ -890,17 +855,14 @@ class ApplicationFlinkApplicationConfigurationArgs:
         pulumi.set(self, "parallelism_configuration", value)
 
 
-if not MYPY:
-    class ApplicationFlinkRunConfigurationArgsDict(TypedDict):
-        """
-        Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
-        """
-        allow_non_restored_state: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
-        """
-elif False:
-    ApplicationFlinkRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationFlinkRunConfigurationArgsDict(TypedDict):
+    """
+    Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+    """
+    allow_non_restored_state: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
+    """
 
 @pulumi.input_type
 class ApplicationFlinkRunConfigurationArgs:
@@ -926,17 +888,14 @@ class ApplicationFlinkRunConfigurationArgs:
         pulumi.set(self, "allow_non_restored_state", value)
 
 
-if not MYPY:
-    class ApplicationGlueDataCatalogConfigurationArgsDict(TypedDict):
-        """
-        The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
-        """
-        database_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the database.
-        """
-elif False:
-    ApplicationGlueDataCatalogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGlueDataCatalogConfigurationArgsDict(TypedDict):
+    """
+    The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
+    """
+    database_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the database.
+    """
 
 @pulumi.input_type
 class ApplicationGlueDataCatalogConfigurationArgs:
@@ -962,17 +921,14 @@ class ApplicationGlueDataCatalogConfigurationArgs:
         pulumi.set(self, "database_arn", value)
 
 
-if not MYPY:
-    class ApplicationInputLambdaProcessorArgsDict(TypedDict):
-        """
-        An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
-        """
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Amazon Lambda function that operates on records in the stream.
-        """
-elif False:
-    ApplicationInputLambdaProcessorArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInputLambdaProcessorArgsDict(TypedDict):
+    """
+    An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Amazon Lambda function that operates on records in the stream.
+    """
 
 @pulumi.input_type
 class ApplicationInputLambdaProcessorArgs:
@@ -997,17 +953,14 @@ class ApplicationInputLambdaProcessorArgs:
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationInputParallelismArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
-        """
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of in-application streams to create.
-        """
-elif False:
-    ApplicationInputParallelismArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInputParallelismArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
+    """
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of in-application streams to create.
+    """
 
 @pulumi.input_type
 class ApplicationInputParallelismArgs:
@@ -1033,17 +986,14 @@ class ApplicationInputParallelismArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class ApplicationInputProcessingConfigurationArgsDict(TypedDict):
-        """
-        For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
-        """
-        input_lambda_processor: NotRequired[pulumi.Input['ApplicationInputLambdaProcessorArgsDict']]
-        """
-        The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
-        """
-elif False:
-    ApplicationInputProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInputProcessingConfigurationArgsDict(TypedDict):
+    """
+    For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
+    """
+    input_lambda_processor: NotRequired[pulumi.Input['ApplicationInputLambdaProcessorArgsDict']]
+    """
+    The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
+    """
 
 @pulumi.input_type
 class ApplicationInputProcessingConfigurationArgs:
@@ -1069,25 +1019,22 @@ class ApplicationInputProcessingConfigurationArgs:
         pulumi.set(self, "input_lambda_processor", value)
 
 
-if not MYPY:
-    class ApplicationInputSchemaArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        """
-        record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgsDict']]]
-        """
-        A list of `RecordColumn` objects.
-        """
-        record_format: pulumi.Input['ApplicationRecordFormatArgsDict']
-        """
-        Specifies the format of the records on the streaming source.
-        """
-        record_encoding: NotRequired[pulumi.Input['ApplicationInputSchemaRecordEncoding']]
-        """
-        Specifies the encoding of the records in the streaming source. For example, UTF-8.
-        """
-elif False:
-    ApplicationInputSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInputSchemaArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+    """
+    record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgsDict']]]
+    """
+    A list of `RecordColumn` objects.
+    """
+    record_format: pulumi.Input['ApplicationRecordFormatArgsDict']
+    """
+    Specifies the format of the records on the streaming source.
+    """
+    record_encoding: NotRequired[pulumi.Input['ApplicationInputSchemaRecordEncoding']]
+    """
+    Specifies the encoding of the records in the streaming source. For example, UTF-8.
+    """
 
 @pulumi.input_type
 class ApplicationInputSchemaArgs:
@@ -1143,37 +1090,34 @@ class ApplicationInputSchemaArgs:
         pulumi.set(self, "record_encoding", value)
 
 
-if not MYPY:
-    class ApplicationInputArgsDict(TypedDict):
-        """
-        When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
-        """
-        input_schema: pulumi.Input['ApplicationInputSchemaArgsDict']
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        """
-        name_prefix: pulumi.Input[_builtins.str]
-        """
-        The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
-        """
-        input_parallelism: NotRequired[pulumi.Input['ApplicationInputParallelismArgsDict']]
-        """
-        Describes the number of in-application streams to create.
-        """
-        input_processing_configuration: NotRequired[pulumi.Input['ApplicationInputProcessingConfigurationArgsDict']]
-        """
-        The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
-        """
-        kinesis_firehose_input: NotRequired[pulumi.Input['ApplicationKinesisFirehoseInputArgsDict']]
-        """
-        If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        """
-        kinesis_streams_input: NotRequired[pulumi.Input['ApplicationKinesisStreamsInputArgsDict']]
-        """
-        If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
-elif False:
-    ApplicationInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInputArgsDict(TypedDict):
+    """
+    When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
+    """
+    input_schema: pulumi.Input['ApplicationInputSchemaArgsDict']
+    """
+    Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+    """
+    name_prefix: pulumi.Input[_builtins.str]
+    """
+    The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
+    """
+    input_parallelism: NotRequired[pulumi.Input['ApplicationInputParallelismArgsDict']]
+    """
+    Describes the number of in-application streams to create.
+    """
+    input_processing_configuration: NotRequired[pulumi.Input['ApplicationInputProcessingConfigurationArgsDict']]
+    """
+    The InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is InputLambdaProcessor.
+    """
+    kinesis_firehose_input: NotRequired[pulumi.Input['ApplicationKinesisFirehoseInputArgsDict']]
+    """
+    If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+    """
+    kinesis_streams_input: NotRequired[pulumi.Input['ApplicationKinesisStreamsInputArgsDict']]
+    """
+    If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+    """
 
 @pulumi.input_type
 class ApplicationInputArgs:
@@ -1277,17 +1221,14 @@ class ApplicationInputArgs:
         pulumi.set(self, "kinesis_streams_input", value)
 
 
-if not MYPY:
-    class ApplicationJsonMappingParametersArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
-        """
-        record_row_path: pulumi.Input[_builtins.str]
-        """
-        The path to the top-level parent that contains the records.
-        """
-elif False:
-    ApplicationJsonMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationJsonMappingParametersArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
+    """
+    record_row_path: pulumi.Input[_builtins.str]
+    """
+    The path to the top-level parent that contains the records.
+    """
 
 @pulumi.input_type
 class ApplicationJsonMappingParametersArgs:
@@ -1312,17 +1253,14 @@ class ApplicationJsonMappingParametersArgs:
         pulumi.set(self, "record_row_path", value)
 
 
-if not MYPY:
-    class ApplicationKinesisFirehoseInputArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
-        """
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the delivery stream.
-        """
-elif False:
-    ApplicationKinesisFirehoseInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationKinesisFirehoseInputArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the delivery stream.
+    """
 
 @pulumi.input_type
 class ApplicationKinesisFirehoseInputArgs:
@@ -1347,17 +1285,14 @@ class ApplicationKinesisFirehoseInputArgs:
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationKinesisStreamsInputArgsDict(TypedDict):
-        """
-        Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
-        """
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the input Kinesis data stream to read.
-        """
-elif False:
-    ApplicationKinesisStreamsInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationKinesisStreamsInputArgsDict(TypedDict):
+    """
+    Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the input Kinesis data stream to read.
+    """
 
 @pulumi.input_type
 class ApplicationKinesisStreamsInputArgs:
@@ -1382,17 +1317,14 @@ class ApplicationKinesisStreamsInputArgs:
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationMaintenanceConfigurationArgsDict(TypedDict):
-        """
-        Describes the maintenance configuration for the application.
-        """
-        application_maintenance_window_start_time: pulumi.Input[_builtins.str]
-        """
-        The start time for the maintenance window.
-        """
-elif False:
-    ApplicationMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMaintenanceConfigurationArgsDict(TypedDict):
+    """
+    Describes the maintenance configuration for the application.
+    """
+    application_maintenance_window_start_time: pulumi.Input[_builtins.str]
+    """
+    The start time for the maintenance window.
+    """
 
 @pulumi.input_type
 class ApplicationMaintenanceConfigurationArgs:
@@ -1417,21 +1349,18 @@ class ApplicationMaintenanceConfigurationArgs:
         pulumi.set(self, "application_maintenance_window_start_time", value)
 
 
-if not MYPY:
-    class ApplicationMappingParametersArgsDict(TypedDict):
-        """
-        When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
-        csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationCsvMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
-        json_mapping_parameters: NotRequired[pulumi.Input['ApplicationJsonMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
-elif False:
-    ApplicationMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMappingParametersArgsDict(TypedDict):
+    """
+    When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    """
+    csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationCsvMappingParametersArgsDict']]
+    """
+    Provides additional mapping information when the record format uses delimiters (for example, CSV).
+    """
+    json_mapping_parameters: NotRequired[pulumi.Input['ApplicationJsonMappingParametersArgsDict']]
+    """
+    Provides additional mapping information when JSON is the record format on the streaming source.
+    """
 
 @pulumi.input_type
 class ApplicationMappingParametersArgs:
@@ -1473,25 +1402,22 @@ class ApplicationMappingParametersArgs:
         pulumi.set(self, "json_mapping_parameters", value)
 
 
-if not MYPY:
-    class ApplicationMavenReferenceArgsDict(TypedDict):
-        """
-        The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
-        """
-        artifact_id: pulumi.Input[_builtins.str]
-        """
-        The artifact ID of the Maven reference.
-        """
-        group_id: pulumi.Input[_builtins.str]
-        """
-        The group ID of the Maven reference.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The version of the Maven reference.
-        """
-elif False:
-    ApplicationMavenReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMavenReferenceArgsDict(TypedDict):
+    """
+    The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
+    """
+    artifact_id: pulumi.Input[_builtins.str]
+    """
+    The artifact ID of the Maven reference.
+    """
+    group_id: pulumi.Input[_builtins.str]
+    """
+    The group ID of the Maven reference.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The version of the Maven reference.
+    """
 
 @pulumi.input_type
 class ApplicationMavenReferenceArgs:
@@ -1546,25 +1472,22 @@ class ApplicationMavenReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ApplicationMonitoringConfigurationArgsDict(TypedDict):
-        """
-        Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
-        """
-        configuration_type: pulumi.Input['ApplicationMonitoringConfigurationConfigurationType']
-        """
-        Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
-        """
-        log_level: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationLogLevel']]
-        """
-        Describes the verbosity of the CloudWatch Logs for an application.
-        """
-        metrics_level: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationMetricsLevel']]
-        """
-        Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
-        """
-elif False:
-    ApplicationMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMonitoringConfigurationArgsDict(TypedDict):
+    """
+    Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
+    """
+    configuration_type: pulumi.Input['ApplicationMonitoringConfigurationConfigurationType']
+    """
+    Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
+    """
+    log_level: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationLogLevel']]
+    """
+    Describes the verbosity of the CloudWatch Logs for an application.
+    """
+    metrics_level: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationMetricsLevel']]
+    """
+    Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
+    """
 
 @pulumi.input_type
 class ApplicationMonitoringConfigurationArgs:
@@ -1621,29 +1544,26 @@ class ApplicationMonitoringConfigurationArgs:
         pulumi.set(self, "metrics_level", value)
 
 
-if not MYPY:
-    class ApplicationParallelismConfigurationArgsDict(TypedDict):
-        """
-        Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
-        """
-        configuration_type: pulumi.Input['ApplicationParallelismConfigurationConfigurationType']
-        """
-        Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
-        """
-        auto_scaling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-        """
-        parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
-        """
-        parallelism_per_kpu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
-        """
-elif False:
-    ApplicationParallelismConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationParallelismConfigurationArgsDict(TypedDict):
+    """
+    Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
+    """
+    configuration_type: pulumi.Input['ApplicationParallelismConfigurationConfigurationType']
+    """
+    Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
+    """
+    auto_scaling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+    """
+    parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
+    """
+    parallelism_per_kpu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
+    """
 
 @pulumi.input_type
 class ApplicationParallelismConfigurationArgs:
@@ -1716,21 +1636,18 @@ class ApplicationParallelismConfigurationArgs:
         pulumi.set(self, "parallelism_per_kpu", value)
 
 
-if not MYPY:
-    class ApplicationPropertyGroupArgsDict(TypedDict):
-        """
-        Property key-value pairs passed into an application.
-        """
-        property_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the key of an application execution property key-value pair.
-        """
-        property_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Describes the value of an application execution property key-value pair.
-        """
-elif False:
-    ApplicationPropertyGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPropertyGroupArgsDict(TypedDict):
+    """
+    Property key-value pairs passed into an application.
+    """
+    property_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describes the key of an application execution property key-value pair.
+    """
+    property_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Describes the value of an application execution property key-value pair.
+    """
 
 @pulumi.input_type
 class ApplicationPropertyGroupArgs:
@@ -1772,26 +1689,23 @@ class ApplicationPropertyGroupArgs:
         pulumi.set(self, "property_map", value)
 
 
-if not MYPY:
-    class ApplicationRecordColumnArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        Also used to describe the format of the reference data source.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
-        sql_type: pulumi.Input[_builtins.str]
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
-        mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
-elif False:
-    ApplicationRecordColumnArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationRecordColumnArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+    Also used to describe the format of the reference data source.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column that is created in the in-application input stream or reference table.
+    """
+    sql_type: pulumi.Input[_builtins.str]
+    """
+    The type of column created in the in-application input stream or reference table.
+    """
+    mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A reference to the data element in the streaming input or the reference data source.
+    """
 
 @pulumi.input_type
 class ApplicationRecordColumnArgs:
@@ -1848,21 +1762,18 @@ class ApplicationRecordColumnArgs:
         pulumi.set(self, "mapping", value)
 
 
-if not MYPY:
-    class ApplicationRecordFormatArgsDict(TypedDict):
-        """
-        For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
-        """
-        record_format_type: pulumi.Input['ApplicationRecordFormatRecordFormatType']
-        """
-        The type of record format.
-        """
-        mapping_parameters: NotRequired[pulumi.Input['ApplicationMappingParametersArgsDict']]
-        """
-        When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
-elif False:
-    ApplicationRecordFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationRecordFormatArgsDict(TypedDict):
+    """
+    For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
+    """
+    record_format_type: pulumi.Input['ApplicationRecordFormatRecordFormatType']
+    """
+    The type of record format.
+    """
+    mapping_parameters: NotRequired[pulumi.Input['ApplicationMappingParametersArgsDict']]
+    """
+    When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    """
 
 @pulumi.input_type
 class ApplicationRecordFormatArgs:
@@ -1903,21 +1814,18 @@ class ApplicationRecordFormatArgs:
         pulumi.set(self, "mapping_parameters", value)
 
 
-if not MYPY:
-    class ApplicationRestoreConfigurationArgsDict(TypedDict):
-        """
-        Describes the restore behavior of a restarting application.
-        """
-        application_restore_type: pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType']
-        """
-        Specifies how the application should be restored.
-        """
-        snapshot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
-        """
-elif False:
-    ApplicationRestoreConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationRestoreConfigurationArgsDict(TypedDict):
+    """
+    Describes the restore behavior of a restarting application.
+    """
+    application_restore_type: pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType']
+    """
+    Specifies how the application should be restored.
+    """
+    snapshot_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
+    """
 
 @pulumi.input_type
 class ApplicationRestoreConfigurationArgs:
@@ -1958,21 +1866,18 @@ class ApplicationRestoreConfigurationArgs:
         pulumi.set(self, "snapshot_name", value)
 
 
-if not MYPY:
-    class ApplicationRunConfigurationArgsDict(TypedDict):
-        """
-        Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
-        """
-        application_restore_configuration: NotRequired[pulumi.Input['ApplicationRestoreConfigurationArgsDict']]
-        """
-        Describes the restore behavior of a restarting application.
-        """
-        flink_run_configuration: NotRequired[pulumi.Input['ApplicationFlinkRunConfigurationArgsDict']]
-        """
-        Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
-        """
-elif False:
-    ApplicationRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationRunConfigurationArgsDict(TypedDict):
+    """
+    Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+    """
+    application_restore_configuration: NotRequired[pulumi.Input['ApplicationRestoreConfigurationArgsDict']]
+    """
+    Describes the restore behavior of a restarting application.
+    """
+    flink_run_configuration: NotRequired[pulumi.Input['ApplicationFlinkRunConfigurationArgsDict']]
+    """
+    Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+    """
 
 @pulumi.input_type
 class ApplicationRunConfigurationArgs:
@@ -2014,21 +1919,18 @@ class ApplicationRunConfigurationArgs:
         pulumi.set(self, "flink_run_configuration", value)
 
 
-if not MYPY:
-    class ApplicationS3ContentBaseLocationArgsDict(TypedDict):
-        """
-        The base location of the Amazon Data Analytics application.
-        """
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the S3 bucket.
-        """
-        base_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base path for the S3 bucket.
-        """
-elif False:
-    ApplicationS3ContentBaseLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationS3ContentBaseLocationArgsDict(TypedDict):
+    """
+    The base location of the Amazon Data Analytics application.
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the S3 bucket.
+    """
+    base_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base path for the S3 bucket.
+    """
 
 @pulumi.input_type
 class ApplicationS3ContentBaseLocationArgs:
@@ -2069,25 +1971,22 @@ class ApplicationS3ContentBaseLocationArgs:
         pulumi.set(self, "base_path", value)
 
 
-if not MYPY:
-    class ApplicationS3ContentLocationArgsDict(TypedDict):
-        """
-        The location of an application or a custom artifact.
-        """
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-        """
-        file_key: pulumi.Input[_builtins.str]
-        """
-        The file key for the object containing the application code.
-        """
-        object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the object containing the application code.
-        """
-elif False:
-    ApplicationS3ContentLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationS3ContentLocationArgsDict(TypedDict):
+    """
+    The location of an application or a custom artifact.
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
+    """
+    file_key: pulumi.Input[_builtins.str]
+    """
+    The file key for the object containing the application code.
+    """
+    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the object containing the application code.
+    """
 
 @pulumi.input_type
 class ApplicationS3ContentLocationArgs:
@@ -2143,17 +2042,14 @@ class ApplicationS3ContentLocationArgs:
         pulumi.set(self, "object_version", value)
 
 
-if not MYPY:
-    class ApplicationSnapshotConfigurationArgsDict(TypedDict):
-        """
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-        snapshots_enabled: pulumi.Input[_builtins.bool]
-        """
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-elif False:
-    ApplicationSnapshotConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSnapshotConfigurationArgsDict(TypedDict):
+    """
+    Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    snapshots_enabled: pulumi.Input[_builtins.bool]
+    """
+    Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+    """
 
 @pulumi.input_type
 class ApplicationSnapshotConfigurationArgs:
@@ -2178,17 +2074,14 @@ class ApplicationSnapshotConfigurationArgs:
         pulumi.set(self, "snapshots_enabled", value)
 
 
-if not MYPY:
-    class ApplicationSqlApplicationConfigurationArgsDict(TypedDict):
-        """
-        Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
-        """
-        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgsDict']]]]
-        """
-        The array of Input objects describing the input streams used by the application.
-        """
-elif False:
-    ApplicationSqlApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSqlApplicationConfigurationArgsDict(TypedDict):
+    """
+    Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
+    """
+    inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgsDict']]]]
+    """
+    The array of Input objects describing the input streams used by the application.
+    """
 
 @pulumi.input_type
 class ApplicationSqlApplicationConfigurationArgs:
@@ -2214,17 +2107,14 @@ class ApplicationSqlApplicationConfigurationArgs:
         pulumi.set(self, "inputs", value)
 
 
-if not MYPY:
-    class ApplicationSystemRollbackConfigurationArgsDict(TypedDict):
-        """
-        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-        rollback_enabled: pulumi.Input[_builtins.bool]
-        """
-        Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-elif False:
-    ApplicationSystemRollbackConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSystemRollbackConfigurationArgsDict(TypedDict):
+    """
+    Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    rollback_enabled: pulumi.Input[_builtins.bool]
+    """
+    Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+    """
 
 @pulumi.input_type
 class ApplicationSystemRollbackConfigurationArgs:
@@ -2249,21 +2139,18 @@ class ApplicationSystemRollbackConfigurationArgs:
         pulumi.set(self, "rollback_enabled", value)
 
 
-if not MYPY:
-    class ApplicationVpcConfigurationArgsDict(TypedDict):
-        """
-        Describes the parameters of a VPC used by the application.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The array of SecurityGroup IDs used by the VPC configuration.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The array of Subnet IDs used by the VPC configuration.
-        """
-elif False:
-    ApplicationVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationVpcConfigurationArgsDict(TypedDict):
+    """
+    Describes the parameters of a VPC used by the application.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The array of SecurityGroup IDs used by the VPC configuration.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The array of Subnet IDs used by the VPC configuration.
+    """
 
 @pulumi.input_type
 class ApplicationVpcConfigurationArgs:
@@ -2303,29 +2190,26 @@ class ApplicationVpcConfigurationArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class ApplicationZeppelinApplicationConfigurationArgsDict(TypedDict):
-        """
-        The configuration of a Kinesis Data Analytics Studio notebook.
-        """
-        catalog_configuration: NotRequired[pulumi.Input['ApplicationCatalogConfigurationArgsDict']]
-        """
-        The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
-        """
-        custom_artifacts_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgsDict']]]]
-        """
-        A list of CustomArtifactConfiguration objects.
-        """
-        deploy_as_application_configuration: NotRequired[pulumi.Input['ApplicationDeployAsApplicationConfigurationArgsDict']]
-        """
-        The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
-        """
-        monitoring_configuration: NotRequired[pulumi.Input['ApplicationZeppelinMonitoringConfigurationArgsDict']]
-        """
-        The monitoring configuration of a Kinesis Data Analytics Studio notebook.
-        """
-elif False:
-    ApplicationZeppelinApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationZeppelinApplicationConfigurationArgsDict(TypedDict):
+    """
+    The configuration of a Kinesis Data Analytics Studio notebook.
+    """
+    catalog_configuration: NotRequired[pulumi.Input['ApplicationCatalogConfigurationArgsDict']]
+    """
+    The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
+    """
+    custom_artifacts_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgsDict']]]]
+    """
+    A list of CustomArtifactConfiguration objects.
+    """
+    deploy_as_application_configuration: NotRequired[pulumi.Input['ApplicationDeployAsApplicationConfigurationArgsDict']]
+    """
+    The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
+    """
+    monitoring_configuration: NotRequired[pulumi.Input['ApplicationZeppelinMonitoringConfigurationArgsDict']]
+    """
+    The monitoring configuration of a Kinesis Data Analytics Studio notebook.
+    """
 
 @pulumi.input_type
 class ApplicationZeppelinApplicationConfigurationArgs:
@@ -2399,17 +2283,14 @@ class ApplicationZeppelinApplicationConfigurationArgs:
         pulumi.set(self, "monitoring_configuration", value)
 
 
-if not MYPY:
-    class ApplicationZeppelinMonitoringConfigurationArgsDict(TypedDict):
-        """
-        Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
-        """
-        log_level: NotRequired[pulumi.Input['ApplicationZeppelinMonitoringConfigurationLogLevel']]
-        """
-        The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
-        """
-elif False:
-    ApplicationZeppelinMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationZeppelinMonitoringConfigurationArgsDict(TypedDict):
+    """
+    Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
+    """
+    log_level: NotRequired[pulumi.Input['ApplicationZeppelinMonitoringConfigurationLogLevel']]
+    """
+    The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
+    """
 
 @pulumi.input_type
 class ApplicationZeppelinMonitoringConfigurationArgs:

@@ -30,20 +30,15 @@ __all__ = [
     'BrokerUserArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BrokerConfigurationIdArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        Required. The unique ID that Amazon MQ generates for the configuration.
-        """
-        revision: pulumi.Input[_builtins.int]
-        """
-        The revision number of the configuration.
-        """
-elif False:
-    BrokerConfigurationIdArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerConfigurationIdArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Required. The unique ID that Amazon MQ generates for the configuration.
+    """
+    revision: pulumi.Input[_builtins.int]
+    """
+    The revision number of the configuration.
+    """
 
 @pulumi.input_type
 class BrokerConfigurationIdArgs:
@@ -82,21 +77,18 @@ class BrokerConfigurationIdArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class BrokerEncryptionOptionsArgsDict(TypedDict):
-        use_aws_owned_key: pulumi.Input[_builtins.bool]
-        """
-        Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer master key (CMK) to use for the A KMS (KMS). 
-        This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
-        The Key ARN is recommended so that drift can be detected,
-        but a key ID or key alias will also be accepted for API compatibility reasons.
-        """
-elif False:
-    BrokerEncryptionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerEncryptionOptionsArgsDict(TypedDict):
+    use_aws_owned_key: pulumi.Input[_builtins.bool]
+    """
+    Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer master key (CMK) to use for the A KMS (KMS). 
+    This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
+    The Key ARN is recommended so that drift can be detected,
+    but a key ID or key alias will also be accepted for API compatibility reasons.
+    """
 
 @pulumi.input_type
 class BrokerEncryptionOptionsArgs:
@@ -142,21 +134,18 @@ class BrokerEncryptionOptionsArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class BrokerLdapServerMetadataArgsDict(TypedDict):
-        hosts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        role_base: pulumi.Input[_builtins.str]
-        role_search_matching: pulumi.Input[_builtins.str]
-        service_account_username: pulumi.Input[_builtins.str]
-        user_base: pulumi.Input[_builtins.str]
-        user_search_matching: pulumi.Input[_builtins.str]
-        role_name: NotRequired[pulumi.Input[_builtins.str]]
-        role_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-        service_account_password: NotRequired[pulumi.Input[_builtins.str]]
-        user_role_name: NotRequired[pulumi.Input[_builtins.str]]
-        user_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    BrokerLdapServerMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerLdapServerMetadataArgsDict(TypedDict):
+    hosts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    role_base: pulumi.Input[_builtins.str]
+    role_search_matching: pulumi.Input[_builtins.str]
+    service_account_username: pulumi.Input[_builtins.str]
+    user_base: pulumi.Input[_builtins.str]
+    user_search_matching: pulumi.Input[_builtins.str]
+    role_name: NotRequired[pulumi.Input[_builtins.str]]
+    role_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
+    service_account_password: NotRequired[pulumi.Input[_builtins.str]]
+    user_role_name: NotRequired[pulumi.Input[_builtins.str]]
+    user_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class BrokerLdapServerMetadataArgs:
@@ -289,18 +278,15 @@ class BrokerLdapServerMetadataArgs:
         pulumi.set(self, "user_search_subtree", value)
 
 
-if not MYPY:
-    class BrokerLogListArgsDict(TypedDict):
-        audit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-        """
-        general: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables general logging.
-        """
-elif False:
-    BrokerLogListArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerLogListArgsDict(TypedDict):
+    audit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
+    """
+    general: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables general logging.
+    """
 
 @pulumi.input_type
 class BrokerLogListArgs:
@@ -341,23 +327,20 @@ class BrokerLogListArgs:
         pulumi.set(self, "general", value)
 
 
-if not MYPY:
-    class BrokerMaintenanceWindowArgsDict(TypedDict):
-        day_of_week: pulumi.Input[Union['BrokerMaintenanceWindowDayOfWeek', _builtins.str]]
-        """
-        _Allowed Values_: <code>MONDAY</code> | <code>TUESDAY</code> | <code>WEDNESDAY</code> | <code>THURSDAY</code> | <code>FRIDAY</code> | <code>SATURDAY</code> | <code>SUNDAY</code>
-        """
-        time_of_day: pulumi.Input[_builtins.str]
-        """
-        The time, in 24-hour format, and use only numbers separated by a colon, HH:MM or HH:MM:SS. Example: 13:05.
-        When writing YAML this may need to be quoted to prevent a timestamp being read and converted to a number of minutes or seconds.
-        """
-        time_zone: pulumi.Input[_builtins.str]
-        """
-        The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
-        """
-elif False:
-    BrokerMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerMaintenanceWindowArgsDict(TypedDict):
+    day_of_week: pulumi.Input[Union['BrokerMaintenanceWindowDayOfWeek', _builtins.str]]
+    """
+    _Allowed Values_: <code>MONDAY</code> | <code>TUESDAY</code> | <code>WEDNESDAY</code> | <code>THURSDAY</code> | <code>FRIDAY</code> | <code>SATURDAY</code> | <code>SUNDAY</code>
+    """
+    time_of_day: pulumi.Input[_builtins.str]
+    """
+    The time, in 24-hour format, and use only numbers separated by a colon, HH:MM or HH:MM:SS. Example: 13:05.
+    When writing YAML this may need to be quoted to prevent a timestamp being read and converted to a number of minutes or seconds.
+    """
+    time_zone: pulumi.Input[_builtins.str]
+    """
+    The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
+    """
 
 @pulumi.input_type
 class BrokerMaintenanceWindowArgs:
@@ -413,35 +396,32 @@ class BrokerMaintenanceWindowArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class BrokerUserArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The username of the broker user. The following restrictions apply to broker usernames:
+class BrokerUserArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The username of the broker user. The following restrictions apply to broker usernames:
 
-        - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-        - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
+    - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
 
-        > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
-        """
-        console_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
-        """
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
-        """
-        replication_user: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Defines if this user is intended for CRDR replication purposes.
-        """
-elif False:
-    BrokerUserArgsDict: TypeAlias = Mapping[str, Any]
+    > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
+    """
+    console_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+    """
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
+    """
+    replication_user: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Defines if this user is intended for CRDR replication purposes.
+    """
 
 @pulumi.input_type
 class BrokerUserArgs:

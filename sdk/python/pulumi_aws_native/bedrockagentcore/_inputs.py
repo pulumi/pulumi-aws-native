@@ -184,20 +184,15 @@ __all__ = [
     'RuntimeVpcConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BrowserCustomBrowserNetworkConfigurationArgsDict(TypedDict):
-        """
-        Network configuration for browser
-        """
-        network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode']
-        """
-        The network mode.
-        """
-        vpc_config: NotRequired[pulumi.Input['BrowserCustomVpcConfigArgsDict']]
-elif False:
-    BrowserCustomBrowserNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserCustomBrowserNetworkConfigurationArgsDict(TypedDict):
+    """
+    Network configuration for browser
+    """
+    network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode']
+    """
+    The network mode.
+    """
+    vpc_config: NotRequired[pulumi.Input['BrowserCustomVpcConfigArgsDict']]
 
 @pulumi.input_type
 class BrowserCustomBrowserNetworkConfigurationArgs:
@@ -234,14 +229,11 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class BrowserCustomBrowserSigningArgsDict(TypedDict):
-        """
-        Browser signing configuration
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    BrowserCustomBrowserSigningArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserCustomBrowserSigningArgsDict(TypedDict):
+    """
+    Browser signing configuration
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class BrowserCustomBrowserSigningArgs:
@@ -263,21 +255,18 @@ class BrowserCustomBrowserSigningArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BrowserCustomRecordingConfigArgsDict(TypedDict):
-        """
-        Recording configuration for browser
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The recording configuration for a browser. This structure defines how browser sessions are recorded.
-        """
-        s3_location: NotRequired[pulumi.Input['BrowserCustomS3LocationArgsDict']]
-        """
-        The S3 location.
-        """
-elif False:
-    BrowserCustomRecordingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserCustomRecordingConfigArgsDict(TypedDict):
+    """
+    Recording configuration for browser
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The recording configuration for a browser. This structure defines how browser sessions are recorded.
+    """
+    s3_location: NotRequired[pulumi.Input['BrowserCustomS3LocationArgsDict']]
+    """
+    The S3 location.
+    """
 
 @pulumi.input_type
 class BrowserCustomRecordingConfigArgs:
@@ -319,21 +308,18 @@ class BrowserCustomRecordingConfigArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class BrowserCustomS3LocationArgsDict(TypedDict):
-        """
-        S3 Location Configuration
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 location bucket name.
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        The S3 location object prefix.
-        """
-elif False:
-    BrowserCustomS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserCustomS3LocationArgsDict(TypedDict):
+    """
+    S3 Location Configuration
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 location bucket name.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    The S3 location object prefix.
+    """
 
 @pulumi.input_type
 class BrowserCustomS3LocationArgs:
@@ -373,15 +359,12 @@ class BrowserCustomS3LocationArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class BrowserCustomVpcConfigArgsDict(TypedDict):
-        """
-        Network mode configuration for VPC
-        """
-        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    BrowserCustomVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserCustomVpcConfigArgsDict(TypedDict):
+    """
+    Network mode configuration for VPC
+    """
+    security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class BrowserCustomVpcConfigArgs:
@@ -413,18 +396,15 @@ class BrowserCustomVpcConfigArgs:
         pulumi.set(self, "subnets", value)
 
 
-if not MYPY:
-    class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
-        """
-        Network configuration for code interpreter
-        """
-        network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']
-        """
-        The network mode.
-        """
-        vpc_config: NotRequired[pulumi.Input['CodeInterpreterCustomVpcConfigArgsDict']]
-elif False:
-    CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
+    """
+    Network configuration for code interpreter
+    """
+    network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']
+    """
+    The network mode.
+    """
+    vpc_config: NotRequired[pulumi.Input['CodeInterpreterCustomVpcConfigArgsDict']]
 
 @pulumi.input_type
 class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
@@ -461,15 +441,12 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class CodeInterpreterCustomVpcConfigArgsDict(TypedDict):
-        """
-        Network mode configuration for VPC
-        """
-        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    CodeInterpreterCustomVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CodeInterpreterCustomVpcConfigArgsDict(TypedDict):
+    """
+    Network mode configuration for VPC
+    """
+    security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class CodeInterpreterCustomVpcConfigArgs:
@@ -501,11 +478,8 @@ class CodeInterpreterCustomVpcConfigArgs:
         pulumi.set(self, "subnets", value)
 
 
-if not MYPY:
-    class GatewayAuthorizerConfigurationPropertiesArgsDict(TypedDict):
-        custom_jwt_authorizer: pulumi.Input['GatewayCustomJwtAuthorizerConfigurationArgsDict']
-elif False:
-    GatewayAuthorizerConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayAuthorizerConfigurationPropertiesArgsDict(TypedDict):
+    custom_jwt_authorizer: pulumi.Input['GatewayCustomJwtAuthorizerConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayAuthorizerConfigurationPropertiesArgs:
@@ -523,15 +497,12 @@ class GatewayAuthorizerConfigurationPropertiesArgs:
         pulumi.set(self, "custom_jwt_authorizer", value)
 
 
-if not MYPY:
-    class GatewayAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
-        """
-        The value or values in the custom claim to match and relationship of match
-        """
-        claim_match_operator: pulumi.Input['GatewayClaimMatchOperator']
-        claim_match_value: pulumi.Input['GatewayClaimMatchValueTypeArgsDict']
-elif False:
-    GatewayAuthorizingClaimMatchValueTypeArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
+    """
+    The value or values in the custom claim to match and relationship of match
+    """
+    claim_match_operator: pulumi.Input['GatewayClaimMatchOperator']
+    claim_match_value: pulumi.Input['GatewayClaimMatchValueTypeArgsDict']
 
 @pulumi.input_type
 class GatewayAuthorizingClaimMatchValueTypeArgs:
@@ -563,15 +534,12 @@ class GatewayAuthorizingClaimMatchValueTypeArgs:
         pulumi.set(self, "claim_match_value", value)
 
 
-if not MYPY:
-    class GatewayClaimMatchValueTypeArgsDict(TypedDict):
-        """
-        The value or values in the custom claim to match for
-        """
-        match_value_string: NotRequired[pulumi.Input[_builtins.str]]
-        match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GatewayClaimMatchValueTypeArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayClaimMatchValueTypeArgsDict(TypedDict):
+    """
+    The value or values in the custom claim to match for
+    """
+    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
+    match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GatewayClaimMatchValueTypeArgs:
@@ -605,16 +573,13 @@ class GatewayClaimMatchValueTypeArgs:
         pulumi.set(self, "match_value_string_list", value)
 
 
-if not MYPY:
-    class GatewayCustomClaimValidationTypeArgsDict(TypedDict):
-        """
-        Required custom claim
-        """
-        authorizing_claim_match_value: pulumi.Input['GatewayAuthorizingClaimMatchValueTypeArgsDict']
-        inbound_token_claim_name: pulumi.Input[_builtins.str]
-        inbound_token_claim_value_type: pulumi.Input['GatewayInboundTokenClaimValueType']
-elif False:
-    GatewayCustomClaimValidationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayCustomClaimValidationTypeArgsDict(TypedDict):
+    """
+    Required custom claim
+    """
+    authorizing_claim_match_value: pulumi.Input['GatewayAuthorizingClaimMatchValueTypeArgsDict']
+    inbound_token_claim_name: pulumi.Input[_builtins.str]
+    inbound_token_claim_value_type: pulumi.Input['GatewayInboundTokenClaimValueType']
 
 @pulumi.input_type
 class GatewayCustomClaimValidationTypeArgs:
@@ -657,15 +622,12 @@ class GatewayCustomClaimValidationTypeArgs:
         pulumi.set(self, "inbound_token_claim_value_type", value)
 
 
-if not MYPY:
-    class GatewayCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
-        discovery_url: pulumi.Input[_builtins.str]
-        allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgsDict']]]]
-elif False:
-    GatewayCustomJwtAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
+    discovery_url: pulumi.Input[_builtins.str]
+    allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayCustomClaimValidationTypeArgsDict']]]]
 
 @pulumi.input_type
 class GatewayCustomJwtAuthorizerConfigurationArgs:
@@ -731,13 +693,10 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
         pulumi.set(self, "custom_claims", value)
 
 
-if not MYPY:
-    class GatewayInterceptorConfigurationArgsDict(TypedDict):
-        interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]
-        interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgsDict']
-        input_configuration: NotRequired[pulumi.Input['GatewayInterceptorInputConfigurationArgsDict']]
-elif False:
-    GatewayInterceptorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayInterceptorConfigurationArgsDict(TypedDict):
+    interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]
+    interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgsDict']
+    input_configuration: NotRequired[pulumi.Input['GatewayInterceptorInputConfigurationArgsDict']]
 
 @pulumi.input_type
 class GatewayInterceptorConfigurationArgs:
@@ -778,11 +737,8 @@ class GatewayInterceptorConfigurationArgs:
         pulumi.set(self, "input_configuration", value)
 
 
-if not MYPY:
-    class GatewayInterceptorInputConfigurationArgsDict(TypedDict):
-        pass_request_headers: pulumi.Input[_builtins.bool]
-elif False:
-    GatewayInterceptorInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayInterceptorInputConfigurationArgsDict(TypedDict):
+    pass_request_headers: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class GatewayInterceptorInputConfigurationArgs:
@@ -800,11 +756,8 @@ class GatewayInterceptorInputConfigurationArgs:
         pulumi.set(self, "pass_request_headers", value)
 
 
-if not MYPY:
-    class GatewayLambdaInterceptorConfigurationArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-elif False:
-    GatewayLambdaInterceptorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayLambdaInterceptorConfigurationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class GatewayLambdaInterceptorConfigurationArgs:
@@ -822,13 +775,10 @@ class GatewayLambdaInterceptorConfigurationArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class GatewayMcpGatewayConfigurationArgsDict(TypedDict):
-        instructions: NotRequired[pulumi.Input[_builtins.str]]
-        search_type: NotRequired[pulumi.Input['GatewaySearchType']]
-        supported_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GatewayMcpGatewayConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayMcpGatewayConfigurationArgsDict(TypedDict):
+    instructions: NotRequired[pulumi.Input[_builtins.str]]
+    search_type: NotRequired[pulumi.Input['GatewaySearchType']]
+    supported_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GatewayMcpGatewayConfigurationArgs:
@@ -871,11 +821,8 @@ class GatewayMcpGatewayConfigurationArgs:
         pulumi.set(self, "supported_versions", value)
 
 
-if not MYPY:
-    class GatewayProtocolConfigurationPropertiesArgsDict(TypedDict):
-        mcp: pulumi.Input['GatewayMcpGatewayConfigurationArgsDict']
-elif False:
-    GatewayProtocolConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayProtocolConfigurationPropertiesArgsDict(TypedDict):
+    mcp: pulumi.Input['GatewayMcpGatewayConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayProtocolConfigurationPropertiesArgs:
@@ -893,13 +840,10 @@ class GatewayProtocolConfigurationPropertiesArgs:
         pulumi.set(self, "mcp", value)
 
 
-if not MYPY:
-    class GatewayTargetApiGatewayTargetConfigurationArgsDict(TypedDict):
-        api_gateway_tool_configuration: pulumi.Input['GatewayTargetApiGatewayToolConfigurationArgsDict']
-        rest_api_id: pulumi.Input[_builtins.str]
-        stage: pulumi.Input[_builtins.str]
-elif False:
-    GatewayTargetApiGatewayTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiGatewayTargetConfigurationArgsDict(TypedDict):
+    api_gateway_tool_configuration: pulumi.Input['GatewayTargetApiGatewayToolConfigurationArgsDict']
+    rest_api_id: pulumi.Input[_builtins.str]
+    stage: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class GatewayTargetApiGatewayTargetConfigurationArgs:
@@ -939,12 +883,9 @@ class GatewayTargetApiGatewayTargetConfigurationArgs:
         pulumi.set(self, "stage", value)
 
 
-if not MYPY:
-    class GatewayTargetApiGatewayToolConfigurationArgsDict(TypedDict):
-        tool_filters: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgsDict']]]
-        tool_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgsDict']]]]
-elif False:
-    GatewayTargetApiGatewayToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiGatewayToolConfigurationArgsDict(TypedDict):
+    tool_filters: pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolFilterArgsDict']]]
+    tool_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetApiGatewayToolOverrideArgsDict']]]]
 
 @pulumi.input_type
 class GatewayTargetApiGatewayToolConfigurationArgs:
@@ -974,12 +915,9 @@ class GatewayTargetApiGatewayToolConfigurationArgs:
         pulumi.set(self, "tool_overrides", value)
 
 
-if not MYPY:
-    class GatewayTargetApiGatewayToolFilterArgsDict(TypedDict):
-        filter_path: pulumi.Input[_builtins.str]
-        methods: pulumi.Input[Sequence[pulumi.Input['GatewayTargetRestApiMethod']]]
-elif False:
-    GatewayTargetApiGatewayToolFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiGatewayToolFilterArgsDict(TypedDict):
+    filter_path: pulumi.Input[_builtins.str]
+    methods: pulumi.Input[Sequence[pulumi.Input['GatewayTargetRestApiMethod']]]
 
 @pulumi.input_type
 class GatewayTargetApiGatewayToolFilterArgs:
@@ -1008,14 +946,11 @@ class GatewayTargetApiGatewayToolFilterArgs:
         pulumi.set(self, "methods", value)
 
 
-if not MYPY:
-    class GatewayTargetApiGatewayToolOverrideArgsDict(TypedDict):
-        method: pulumi.Input['GatewayTargetRestApiMethod']
-        name: pulumi.Input[_builtins.str]
-        path: pulumi.Input[_builtins.str]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    GatewayTargetApiGatewayToolOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiGatewayToolOverrideArgsDict(TypedDict):
+    method: pulumi.Input['GatewayTargetRestApiMethod']
+    name: pulumi.Input[_builtins.str]
+    path: pulumi.Input[_builtins.str]
+    description: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class GatewayTargetApiGatewayToolOverrideArgs:
@@ -1067,14 +1002,11 @@ class GatewayTargetApiGatewayToolOverrideArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class GatewayTargetApiKeyCredentialProviderArgsDict(TypedDict):
-        provider_arn: pulumi.Input[_builtins.str]
-        credential_location: NotRequired[pulumi.Input['GatewayTargetApiKeyCredentialLocation']]
-        credential_parameter_name: NotRequired[pulumi.Input[_builtins.str]]
-        credential_prefix: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    GatewayTargetApiKeyCredentialProviderArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiKeyCredentialProviderArgsDict(TypedDict):
+    provider_arn: pulumi.Input[_builtins.str]
+    credential_location: NotRequired[pulumi.Input['GatewayTargetApiKeyCredentialLocation']]
+    credential_parameter_name: NotRequired[pulumi.Input[_builtins.str]]
+    credential_prefix: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class GatewayTargetApiKeyCredentialProviderArgs:
@@ -1128,11 +1060,8 @@ class GatewayTargetApiKeyCredentialProviderArgs:
         pulumi.set(self, "credential_prefix", value)
 
 
-if not MYPY:
-    class GatewayTargetApiSchemaConfiguration0PropertiesArgsDict(TypedDict):
-        s3: pulumi.Input['GatewayTargetS3ConfigurationArgsDict']
-elif False:
-    GatewayTargetApiSchemaConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiSchemaConfiguration0PropertiesArgsDict(TypedDict):
+    s3: pulumi.Input['GatewayTargetS3ConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayTargetApiSchemaConfiguration0PropertiesArgs:
@@ -1150,11 +1079,8 @@ class GatewayTargetApiSchemaConfiguration0PropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class GatewayTargetApiSchemaConfiguration1PropertiesArgsDict(TypedDict):
-        inline_payload: pulumi.Input[_builtins.str]
-elif False:
-    GatewayTargetApiSchemaConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetApiSchemaConfiguration1PropertiesArgsDict(TypedDict):
+    inline_payload: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class GatewayTargetApiSchemaConfiguration1PropertiesArgs:
@@ -1172,11 +1098,8 @@ class GatewayTargetApiSchemaConfiguration1PropertiesArgs:
         pulumi.set(self, "inline_payload", value)
 
 
-if not MYPY:
-    class GatewayTargetCredentialProvider0PropertiesArgsDict(TypedDict):
-        oauth_credential_provider: pulumi.Input['GatewayTargetOAuthCredentialProviderArgsDict']
-elif False:
-    GatewayTargetCredentialProvider0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetCredentialProvider0PropertiesArgsDict(TypedDict):
+    oauth_credential_provider: pulumi.Input['GatewayTargetOAuthCredentialProviderArgsDict']
 
 @pulumi.input_type
 class GatewayTargetCredentialProvider0PropertiesArgs:
@@ -1194,11 +1117,8 @@ class GatewayTargetCredentialProvider0PropertiesArgs:
         pulumi.set(self, "oauth_credential_provider", value)
 
 
-if not MYPY:
-    class GatewayTargetCredentialProvider1PropertiesArgsDict(TypedDict):
-        api_key_credential_provider: pulumi.Input['GatewayTargetApiKeyCredentialProviderArgsDict']
-elif False:
-    GatewayTargetCredentialProvider1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetCredentialProvider1PropertiesArgsDict(TypedDict):
+    api_key_credential_provider: pulumi.Input['GatewayTargetApiKeyCredentialProviderArgsDict']
 
 @pulumi.input_type
 class GatewayTargetCredentialProvider1PropertiesArgs:
@@ -1216,18 +1136,15 @@ class GatewayTargetCredentialProvider1PropertiesArgs:
         pulumi.set(self, "api_key_credential_provider", value)
 
 
-if not MYPY:
-    class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
-        credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType']
-        """
-        The credential provider type for the gateway target.
-        """
-        credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict']]]
-        """
-        The credential provider for the gateway target.
-        """
-elif False:
-    GatewayTargetCredentialProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
+    credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType']
+    """
+    The credential provider type for the gateway target.
+    """
+    credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict']]]
+    """
+    The credential provider for the gateway target.
+    """
 
 @pulumi.input_type
 class GatewayTargetCredentialProviderConfigurationArgs:
@@ -1267,12 +1184,9 @@ class GatewayTargetCredentialProviderConfigurationArgs:
         pulumi.set(self, "credential_provider", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpLambdaTargetConfigurationArgsDict(TypedDict):
-        lambda_arn: pulumi.Input[_builtins.str]
-        tool_schema: pulumi.Input[Union['GatewayTargetToolSchema0PropertiesArgsDict', 'GatewayTargetToolSchema1PropertiesArgsDict']]
-elif False:
-    GatewayTargetMcpLambdaTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpLambdaTargetConfigurationArgsDict(TypedDict):
+    lambda_arn: pulumi.Input[_builtins.str]
+    tool_schema: pulumi.Input[Union['GatewayTargetToolSchema0PropertiesArgsDict', 'GatewayTargetToolSchema1PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetMcpLambdaTargetConfigurationArgs:
@@ -1301,11 +1215,8 @@ class GatewayTargetMcpLambdaTargetConfigurationArgs:
         pulumi.set(self, "tool_schema", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-elif False:
-    GatewayTargetMcpServerTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class GatewayTargetMcpServerTargetConfigurationArgs:
@@ -1323,11 +1234,8 @@ class GatewayTargetMcpServerTargetConfigurationArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpTargetConfiguration0PropertiesArgsDict(TypedDict):
-        open_api_schema: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict']]
-elif False:
-    GatewayTargetMcpTargetConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpTargetConfiguration0PropertiesArgsDict(TypedDict):
+    open_api_schema: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetMcpTargetConfiguration0PropertiesArgs:
@@ -1345,11 +1253,8 @@ class GatewayTargetMcpTargetConfiguration0PropertiesArgs:
         pulumi.set(self, "open_api_schema", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpTargetConfiguration1PropertiesArgsDict(TypedDict):
-        smithy_model: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict']]
-elif False:
-    GatewayTargetMcpTargetConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpTargetConfiguration1PropertiesArgsDict(TypedDict):
+    smithy_model: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetMcpTargetConfiguration1PropertiesArgs:
@@ -1367,11 +1272,8 @@ class GatewayTargetMcpTargetConfiguration1PropertiesArgs:
         pulumi.set(self, "smithy_model", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpTargetConfiguration2PropertiesArgsDict(TypedDict):
-        lambda_: pulumi.Input['GatewayTargetMcpLambdaTargetConfigurationArgsDict']
-elif False:
-    GatewayTargetMcpTargetConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpTargetConfiguration2PropertiesArgsDict(TypedDict):
+    lambda_: pulumi.Input['GatewayTargetMcpLambdaTargetConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayTargetMcpTargetConfiguration2PropertiesArgs:
@@ -1389,11 +1291,8 @@ class GatewayTargetMcpTargetConfiguration2PropertiesArgs:
         pulumi.set(self, "lambda_", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpTargetConfiguration3PropertiesArgsDict(TypedDict):
-        mcp_server: pulumi.Input['GatewayTargetMcpServerTargetConfigurationArgsDict']
-elif False:
-    GatewayTargetMcpTargetConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpTargetConfiguration3PropertiesArgsDict(TypedDict):
+    mcp_server: pulumi.Input['GatewayTargetMcpServerTargetConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayTargetMcpTargetConfiguration3PropertiesArgs:
@@ -1411,11 +1310,8 @@ class GatewayTargetMcpTargetConfiguration3PropertiesArgs:
         pulumi.set(self, "mcp_server", value)
 
 
-if not MYPY:
-    class GatewayTargetMcpTargetConfiguration4PropertiesArgsDict(TypedDict):
-        api_gateway: pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgsDict']
-elif False:
-    GatewayTargetMcpTargetConfiguration4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMcpTargetConfiguration4PropertiesArgsDict(TypedDict):
+    api_gateway: pulumi.Input['GatewayTargetApiGatewayTargetConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayTargetMcpTargetConfiguration4PropertiesArgs:
@@ -1433,13 +1329,10 @@ class GatewayTargetMcpTargetConfiguration4PropertiesArgs:
         pulumi.set(self, "api_gateway", value)
 
 
-if not MYPY:
-    class GatewayTargetMetadataConfigurationArgsDict(TypedDict):
-        allowed_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GatewayTargetMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetMetadataConfigurationArgsDict(TypedDict):
+    allowed_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GatewayTargetMetadataConfigurationArgs:
@@ -1482,18 +1375,15 @@ class GatewayTargetMetadataConfigurationArgs:
         pulumi.set(self, "allowed_response_headers", value)
 
 
-if not MYPY:
-    class GatewayTargetOAuthCredentialProviderArgsDict(TypedDict):
-        provider_arn: pulumi.Input[_builtins.str]
-        scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        default_return_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Return URL for OAuth callback.
-        """
-        grant_type: NotRequired[pulumi.Input['GatewayTargetOAuthGrantType']]
-elif False:
-    GatewayTargetOAuthCredentialProviderArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetOAuthCredentialProviderArgsDict(TypedDict):
+    provider_arn: pulumi.Input[_builtins.str]
+    scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    default_return_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Return URL for OAuth callback.
+    """
+    grant_type: NotRequired[pulumi.Input['GatewayTargetOAuthGrantType']]
 
 @pulumi.input_type
 class GatewayTargetOAuthCredentialProviderArgs:
@@ -1564,12 +1454,9 @@ class GatewayTargetOAuthCredentialProviderArgs:
         pulumi.set(self, "grant_type", value)
 
 
-if not MYPY:
-    class GatewayTargetS3ConfigurationArgsDict(TypedDict):
-        bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    GatewayTargetS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetS3ConfigurationArgsDict(TypedDict):
+    bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class GatewayTargetS3ConfigurationArgs:
@@ -1600,15 +1487,12 @@ class GatewayTargetS3ConfigurationArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class GatewayTargetSchemaDefinitionArgsDict(TypedDict):
-        type: pulumi.Input['GatewayTargetSchemaType']
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        items: NotRequired[pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]]]
-        required: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GatewayTargetSchemaDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetSchemaDefinitionArgsDict(TypedDict):
+    type: pulumi.Input['GatewayTargetSchemaType']
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    items: NotRequired[pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]]]
+    required: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GatewayTargetSchemaDefinitionArgs:
@@ -1674,11 +1558,8 @@ class GatewayTargetSchemaDefinitionArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class GatewayTargetTargetConfigurationPropertiesArgsDict(TypedDict):
-        mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict']]
-elif False:
-    GatewayTargetTargetConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetTargetConfigurationPropertiesArgsDict(TypedDict):
+    mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetTargetConfigurationPropertiesArgs:
@@ -1696,14 +1577,11 @@ class GatewayTargetTargetConfigurationPropertiesArgs:
         pulumi.set(self, "mcp", value)
 
 
-if not MYPY:
-    class GatewayTargetToolDefinitionArgsDict(TypedDict):
-        description: pulumi.Input[_builtins.str]
-        input_schema: pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']
-        name: pulumi.Input[_builtins.str]
-        output_schema: NotRequired[pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]
-elif False:
-    GatewayTargetToolDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetToolDefinitionArgsDict(TypedDict):
+    description: pulumi.Input[_builtins.str]
+    input_schema: pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']
+    name: pulumi.Input[_builtins.str]
+    output_schema: NotRequired[pulumi.Input['GatewayTargetSchemaDefinitionArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetToolDefinitionArgs:
@@ -1755,11 +1633,8 @@ class GatewayTargetToolDefinitionArgs:
         pulumi.set(self, "output_schema", value)
 
 
-if not MYPY:
-    class GatewayTargetToolSchema0PropertiesArgsDict(TypedDict):
-        s3: pulumi.Input['GatewayTargetS3ConfigurationArgsDict']
-elif False:
-    GatewayTargetToolSchema0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetToolSchema0PropertiesArgsDict(TypedDict):
+    s3: pulumi.Input['GatewayTargetS3ConfigurationArgsDict']
 
 @pulumi.input_type
 class GatewayTargetToolSchema0PropertiesArgs:
@@ -1777,11 +1652,8 @@ class GatewayTargetToolSchema0PropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class GatewayTargetToolSchema1PropertiesArgsDict(TypedDict):
-        inline_payload: pulumi.Input[Sequence[pulumi.Input['GatewayTargetToolDefinitionArgsDict']]]
-elif False:
-    GatewayTargetToolSchema1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayTargetToolSchema1PropertiesArgsDict(TypedDict):
+    inline_payload: pulumi.Input[Sequence[pulumi.Input['GatewayTargetToolDefinitionArgsDict']]]
 
 @pulumi.input_type
 class GatewayTargetToolSchema1PropertiesArgs:
@@ -1799,11 +1671,8 @@ class GatewayTargetToolSchema1PropertiesArgs:
         pulumi.set(self, "inline_payload", value)
 
 
-if not MYPY:
-    class InterceptorConfigurationPropertiesArgsDict(TypedDict):
-        lambda_: pulumi.Input['GatewayLambdaInterceptorConfigurationArgsDict']
-elif False:
-    InterceptorConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InterceptorConfigurationPropertiesArgsDict(TypedDict):
+    lambda_: pulumi.Input['GatewayLambdaInterceptorConfigurationArgsDict']
 
 @pulumi.input_type
 class InterceptorConfigurationPropertiesArgs:
@@ -1821,15 +1690,12 @@ class InterceptorConfigurationPropertiesArgs:
         pulumi.set(self, "lambda_", value)
 
 
-if not MYPY:
-    class MemoryCustomConfigurationInputArgsDict(TypedDict):
-        episodic_override: NotRequired[pulumi.Input['MemoryEpisodicOverrideArgsDict']]
-        self_managed_configuration: NotRequired[pulumi.Input['MemorySelfManagedConfigurationArgsDict']]
-        semantic_override: NotRequired[pulumi.Input['MemorySemanticOverrideArgsDict']]
-        summary_override: NotRequired[pulumi.Input['MemorySummaryOverrideArgsDict']]
-        user_preference_override: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideArgsDict']]
-elif False:
-    MemoryCustomConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryCustomConfigurationInputArgsDict(TypedDict):
+    episodic_override: NotRequired[pulumi.Input['MemoryEpisodicOverrideArgsDict']]
+    self_managed_configuration: NotRequired[pulumi.Input['MemorySelfManagedConfigurationArgsDict']]
+    semantic_override: NotRequired[pulumi.Input['MemorySemanticOverrideArgsDict']]
+    summary_override: NotRequired[pulumi.Input['MemorySummaryOverrideArgsDict']]
+    user_preference_override: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideArgsDict']]
 
 @pulumi.input_type
 class MemoryCustomConfigurationInputArgs:
@@ -1896,34 +1762,31 @@ class MemoryCustomConfigurationInputArgs:
         pulumi.set(self, "user_preference_override", value)
 
 
-if not MYPY:
-    class MemoryCustomMemoryStrategyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        configuration: NotRequired[pulumi.Input['MemoryCustomConfigurationInputArgsDict']]
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation timestamp of the memory strategy
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        status: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyStatus']]
-        """
-        Status of the memory strategy
-        """
-        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the memory strategy
-        """
-        type: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyType']]
-        """
-        Type of memory strategy
-        """
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last update timestamp of the memory strategy
-        """
-elif False:
-    MemoryCustomMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryCustomMemoryStrategyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    configuration: NotRequired[pulumi.Input['MemoryCustomConfigurationInputArgsDict']]
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation timestamp of the memory strategy
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    status: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyStatus']]
+    """
+    Status of the memory strategy
+    """
+    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the memory strategy
+    """
+    type: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyType']]
+    """
+    Type of memory strategy
+    """
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last update timestamp of the memory strategy
+    """
 
 @pulumi.input_type
 class MemoryCustomMemoryStrategyArgs:
@@ -2059,34 +1922,31 @@ class MemoryCustomMemoryStrategyArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation timestamp of the memory strategy
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        reflection_configuration: NotRequired[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgsDict']]
-        status: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']]
-        """
-        Status of the memory strategy
-        """
-        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the memory strategy
-        """
-        type: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyType']]
-        """
-        Type of memory strategy
-        """
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last update timestamp of the memory strategy
-        """
-elif False:
-    MemoryEpisodicMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation timestamp of the memory strategy
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    reflection_configuration: NotRequired[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgsDict']]
+    status: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']]
+    """
+    Status of the memory strategy
+    """
+    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the memory strategy
+    """
+    type: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyType']]
+    """
+    Type of memory strategy
+    """
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last update timestamp of the memory strategy
+    """
 
 @pulumi.input_type
 class MemoryEpisodicMemoryStrategyArgs:
@@ -2222,12 +2082,9 @@ class MemoryEpisodicMemoryStrategyArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemoryEpisodicOverrideConsolidationConfigurationInputArgs:
@@ -2256,12 +2113,9 @@ class MemoryEpisodicOverrideConsolidationConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemoryEpisodicOverrideExtractionConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemoryEpisodicOverrideExtractionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryEpisodicOverrideExtractionConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemoryEpisodicOverrideExtractionConfigurationInputArgs:
@@ -2290,13 +2144,10 @@ class MemoryEpisodicOverrideExtractionConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemoryEpisodicOverrideReflectionConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    MemoryEpisodicOverrideReflectionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryEpisodicOverrideReflectionConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
@@ -2337,13 +2188,10 @@ class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
         pulumi.set(self, "namespaces", value)
 
 
-if not MYPY:
-    class MemoryEpisodicOverrideArgsDict(TypedDict):
-        consolidation: NotRequired[pulumi.Input['MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict']]
-        extraction: NotRequired[pulumi.Input['MemoryEpisodicOverrideExtractionConfigurationInputArgsDict']]
-        reflection: NotRequired[pulumi.Input['MemoryEpisodicOverrideReflectionConfigurationInputArgsDict']]
-elif False:
-    MemoryEpisodicOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryEpisodicOverrideArgsDict(TypedDict):
+    consolidation: NotRequired[pulumi.Input['MemoryEpisodicOverrideConsolidationConfigurationInputArgsDict']]
+    extraction: NotRequired[pulumi.Input['MemoryEpisodicOverrideExtractionConfigurationInputArgsDict']]
+    reflection: NotRequired[pulumi.Input['MemoryEpisodicOverrideReflectionConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class MemoryEpisodicOverrideArgs:
@@ -2386,11 +2234,8 @@ class MemoryEpisodicOverrideArgs:
         pulumi.set(self, "reflection", value)
 
 
-if not MYPY:
-    class MemoryEpisodicReflectionConfigurationInputArgsDict(TypedDict):
-        namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    MemoryEpisodicReflectionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryEpisodicReflectionConfigurationInputArgsDict(TypedDict):
+    namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class MemoryEpisodicReflectionConfigurationInputArgs:
@@ -2408,12 +2253,9 @@ class MemoryEpisodicReflectionConfigurationInputArgs:
         pulumi.set(self, "namespaces", value)
 
 
-if not MYPY:
-    class MemoryInvocationConfigurationInputArgsDict(TypedDict):
-        payload_delivery_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    MemoryInvocationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryInvocationConfigurationInputArgsDict(TypedDict):
+    payload_delivery_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class MemoryInvocationConfigurationInputArgs:
@@ -2444,11 +2286,8 @@ class MemoryInvocationConfigurationInputArgs:
         pulumi.set(self, "topic_arn", value)
 
 
-if not MYPY:
-    class MemoryMessageBasedTriggerInputArgsDict(TypedDict):
-        message_count: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    MemoryMessageBasedTriggerInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryMessageBasedTriggerInputArgsDict(TypedDict):
+    message_count: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class MemoryMessageBasedTriggerInputArgs:
@@ -2467,13 +2306,10 @@ class MemoryMessageBasedTriggerInputArgs:
         pulumi.set(self, "message_count", value)
 
 
-if not MYPY:
-    class MemorySelfManagedConfigurationArgsDict(TypedDict):
-        historical_context_window_size: NotRequired[pulumi.Input[_builtins.int]]
-        invocation_configuration: NotRequired[pulumi.Input['MemoryInvocationConfigurationInputArgsDict']]
-        trigger_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgsDict']]]]
-elif False:
-    MemorySelfManagedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySelfManagedConfigurationArgsDict(TypedDict):
+    historical_context_window_size: NotRequired[pulumi.Input[_builtins.int]]
+    invocation_configuration: NotRequired[pulumi.Input['MemoryInvocationConfigurationInputArgsDict']]
+    trigger_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgsDict']]]]
 
 @pulumi.input_type
 class MemorySelfManagedConfigurationArgs:
@@ -2516,33 +2352,30 @@ class MemorySelfManagedConfigurationArgs:
         pulumi.set(self, "trigger_conditions", value)
 
 
-if not MYPY:
-    class MemorySemanticMemoryStrategyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation timestamp of the memory strategy
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        status: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyStatus']]
-        """
-        Status of the memory strategy
-        """
-        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the memory strategy
-        """
-        type: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyType']]
-        """
-        Type of memory strategy
-        """
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last update timestamp of the memory strategy
-        """
-elif False:
-    MemorySemanticMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySemanticMemoryStrategyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation timestamp of the memory strategy
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    status: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyStatus']]
+    """
+    Status of the memory strategy
+    """
+    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the memory strategy
+    """
+    type: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyType']]
+    """
+    Type of memory strategy
+    """
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last update timestamp of the memory strategy
+    """
 
 @pulumi.input_type
 class MemorySemanticMemoryStrategyArgs:
@@ -2666,12 +2499,9 @@ class MemorySemanticMemoryStrategyArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class MemorySemanticOverrideConsolidationConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemorySemanticOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySemanticOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemorySemanticOverrideConsolidationConfigurationInputArgs:
@@ -2700,12 +2530,9 @@ class MemorySemanticOverrideConsolidationConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemorySemanticOverrideExtractionConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemorySemanticOverrideExtractionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySemanticOverrideExtractionConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemorySemanticOverrideExtractionConfigurationInputArgs:
@@ -2734,12 +2561,9 @@ class MemorySemanticOverrideExtractionConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemorySemanticOverrideArgsDict(TypedDict):
-        consolidation: NotRequired[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgsDict']]
-        extraction: NotRequired[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgsDict']]
-elif False:
-    MemorySemanticOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySemanticOverrideArgsDict(TypedDict):
+    consolidation: NotRequired[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgsDict']]
+    extraction: NotRequired[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class MemorySemanticOverrideArgs:
@@ -2770,15 +2594,12 @@ class MemorySemanticOverrideArgs:
         pulumi.set(self, "extraction", value)
 
 
-if not MYPY:
-    class MemoryStrategyArgsDict(TypedDict):
-        custom_memory_strategy: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyArgsDict']]
-        episodic_memory_strategy: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyArgsDict']]
-        semantic_memory_strategy: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyArgsDict']]
-        summary_memory_strategy: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyArgsDict']]
-        user_preference_memory_strategy: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgsDict']]
-elif False:
-    MemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryStrategyArgsDict(TypedDict):
+    custom_memory_strategy: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyArgsDict']]
+    episodic_memory_strategy: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyArgsDict']]
+    semantic_memory_strategy: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyArgsDict']]
+    summary_memory_strategy: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyArgsDict']]
+    user_preference_memory_strategy: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgsDict']]
 
 @pulumi.input_type
 class MemoryStrategyArgs:
@@ -2845,33 +2666,30 @@ class MemoryStrategyArgs:
         pulumi.set(self, "user_preference_memory_strategy", value)
 
 
-if not MYPY:
-    class MemorySummaryMemoryStrategyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation timestamp of the memory strategy
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        status: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyStatus']]
-        """
-        Status of the memory strategy
-        """
-        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the memory strategy
-        """
-        type: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyType']]
-        """
-        Type of memory strategy
-        """
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last update timestamp of the memory strategy
-        """
-elif False:
-    MemorySummaryMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySummaryMemoryStrategyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation timestamp of the memory strategy
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    status: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyStatus']]
+    """
+    Status of the memory strategy
+    """
+    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the memory strategy
+    """
+    type: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyType']]
+    """
+    Type of memory strategy
+    """
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last update timestamp of the memory strategy
+    """
 
 @pulumi.input_type
 class MemorySummaryMemoryStrategyArgs:
@@ -2995,12 +2813,9 @@ class MemorySummaryMemoryStrategyArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class MemorySummaryOverrideConsolidationConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemorySummaryOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySummaryOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemorySummaryOverrideConsolidationConfigurationInputArgs:
@@ -3029,11 +2844,8 @@ class MemorySummaryOverrideConsolidationConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemorySummaryOverrideArgsDict(TypedDict):
-        consolidation: NotRequired[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgsDict']]
-elif False:
-    MemorySummaryOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class MemorySummaryOverrideArgsDict(TypedDict):
+    consolidation: NotRequired[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class MemorySummaryOverrideArgs:
@@ -3052,11 +2864,8 @@ class MemorySummaryOverrideArgs:
         pulumi.set(self, "consolidation", value)
 
 
-if not MYPY:
-    class MemoryTimeBasedTriggerInputArgsDict(TypedDict):
-        idle_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    MemoryTimeBasedTriggerInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryTimeBasedTriggerInputArgsDict(TypedDict):
+    idle_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class MemoryTimeBasedTriggerInputArgs:
@@ -3075,11 +2884,8 @@ class MemoryTimeBasedTriggerInputArgs:
         pulumi.set(self, "idle_session_timeout", value)
 
 
-if not MYPY:
-    class MemoryTokenBasedTriggerInputArgsDict(TypedDict):
-        token_count: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    MemoryTokenBasedTriggerInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryTokenBasedTriggerInputArgsDict(TypedDict):
+    token_count: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class MemoryTokenBasedTriggerInputArgs:
@@ -3098,13 +2904,10 @@ class MemoryTokenBasedTriggerInputArgs:
         pulumi.set(self, "token_count", value)
 
 
-if not MYPY:
-    class MemoryTriggerConditionInputArgsDict(TypedDict):
-        message_based_trigger: NotRequired[pulumi.Input['MemoryMessageBasedTriggerInputArgsDict']]
-        time_based_trigger: NotRequired[pulumi.Input['MemoryTimeBasedTriggerInputArgsDict']]
-        token_based_trigger: NotRequired[pulumi.Input['MemoryTokenBasedTriggerInputArgsDict']]
-elif False:
-    MemoryTriggerConditionInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryTriggerConditionInputArgsDict(TypedDict):
+    message_based_trigger: NotRequired[pulumi.Input['MemoryMessageBasedTriggerInputArgsDict']]
+    time_based_trigger: NotRequired[pulumi.Input['MemoryTimeBasedTriggerInputArgsDict']]
+    token_based_trigger: NotRequired[pulumi.Input['MemoryTokenBasedTriggerInputArgsDict']]
 
 @pulumi.input_type
 class MemoryTriggerConditionInputArgs:
@@ -3147,33 +2950,30 @@ class MemoryTriggerConditionInputArgs:
         pulumi.set(self, "token_based_trigger", value)
 
 
-if not MYPY:
-    class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Creation timestamp of the memory strategy
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        status: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]
-        """
-        Status of the memory strategy
-        """
-        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the memory strategy
-        """
-        type: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]
-        """
-        Type of memory strategy
-        """
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last update timestamp of the memory strategy
-        """
-elif False:
-    MemoryUserPreferenceMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Creation timestamp of the memory strategy
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    status: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]
+    """
+    Status of the memory strategy
+    """
+    strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the memory strategy
+    """
+    type: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]
+    """
+    Type of memory strategy
+    """
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last update timestamp of the memory strategy
+    """
 
 @pulumi.input_type
 class MemoryUserPreferenceMemoryStrategyArgs:
@@ -3297,12 +3097,9 @@ class MemoryUserPreferenceMemoryStrategyArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs:
@@ -3331,12 +3128,9 @@ class MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict(TypedDict):
-        append_to_prompt: pulumi.Input[_builtins.str]
-        model_id: pulumi.Input[_builtins.str]
-elif False:
-    MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    model_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MemoryUserPreferenceOverrideExtractionConfigurationInputArgs:
@@ -3365,12 +3159,9 @@ class MemoryUserPreferenceOverrideExtractionConfigurationInputArgs:
         pulumi.set(self, "model_id", value)
 
 
-if not MYPY:
-    class MemoryUserPreferenceOverrideArgsDict(TypedDict):
-        consolidation: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict']]
-        extraction: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict']]
-elif False:
-    MemoryUserPreferenceOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class MemoryUserPreferenceOverrideArgsDict(TypedDict):
+    consolidation: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict']]
+    extraction: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict']]
 
 @pulumi.input_type
 class MemoryUserPreferenceOverrideArgs:
@@ -3401,15 +3192,12 @@ class MemoryUserPreferenceOverrideArgs:
         pulumi.set(self, "extraction", value)
 
 
-if not MYPY:
-    class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
-        code_configuration: NotRequired[pulumi.Input['RuntimeCodeConfigurationArgsDict']]
-        container_configuration: NotRequired[pulumi.Input['RuntimeContainerConfigurationArgsDict']]
-        """
-        Representation of a container configuration.
-        """
-elif False:
-    RuntimeAgentRuntimeArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
+    code_configuration: NotRequired[pulumi.Input['RuntimeCodeConfigurationArgsDict']]
+    container_configuration: NotRequired[pulumi.Input['RuntimeContainerConfigurationArgsDict']]
+    """
+    Representation of a container configuration.
+    """
 
 @pulumi.input_type
 class RuntimeAgentRuntimeArtifactArgs:
@@ -3446,17 +3234,14 @@ class RuntimeAgentRuntimeArtifactArgs:
         pulumi.set(self, "container_configuration", value)
 
 
-if not MYPY:
-    class RuntimeAuthorizerConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the authorizer
-        """
-        custom_jwt_authorizer: NotRequired[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgsDict']]
-        """
-        Represents inbound authorization configuration options used to authenticate incoming requests.
-        """
-elif False:
-    RuntimeAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeAuthorizerConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the authorizer
+    """
+    custom_jwt_authorizer: NotRequired[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgsDict']]
+    """
+    Represents inbound authorization configuration options used to authenticate incoming requests.
+    """
 
 @pulumi.input_type
 class RuntimeAuthorizerConfigurationArgs:
@@ -3482,15 +3267,12 @@ class RuntimeAuthorizerConfigurationArgs:
         pulumi.set(self, "custom_jwt_authorizer", value)
 
 
-if not MYPY:
-    class RuntimeAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
-        """
-        The value or values in the custom claim to match and relationship of match
-        """
-        claim_match_operator: pulumi.Input['RuntimeClaimMatchOperator']
-        claim_match_value: pulumi.Input['RuntimeClaimMatchValueTypeArgsDict']
-elif False:
-    RuntimeAuthorizingClaimMatchValueTypeArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
+    """
+    The value or values in the custom claim to match and relationship of match
+    """
+    claim_match_operator: pulumi.Input['RuntimeClaimMatchOperator']
+    claim_match_value: pulumi.Input['RuntimeClaimMatchValueTypeArgsDict']
 
 @pulumi.input_type
 class RuntimeAuthorizingClaimMatchValueTypeArgs:
@@ -3522,15 +3304,12 @@ class RuntimeAuthorizingClaimMatchValueTypeArgs:
         pulumi.set(self, "claim_match_value", value)
 
 
-if not MYPY:
-    class RuntimeClaimMatchValueTypeArgsDict(TypedDict):
-        """
-        The value or values in the custom claim to match for
-        """
-        match_value_string: NotRequired[pulumi.Input[_builtins.str]]
-        match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    RuntimeClaimMatchValueTypeArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeClaimMatchValueTypeArgsDict(TypedDict):
+    """
+    The value or values in the custom claim to match for
+    """
+    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
+    match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class RuntimeClaimMatchValueTypeArgs:
@@ -3564,16 +3343,13 @@ class RuntimeClaimMatchValueTypeArgs:
         pulumi.set(self, "match_value_string_list", value)
 
 
-if not MYPY:
-    class RuntimeCodeConfigurationArgsDict(TypedDict):
-        """
-        Representation of a code configuration
-        """
-        code: pulumi.Input['RuntimeCodeArgsDict']
-        entry_point: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        runtime: pulumi.Input['RuntimeAgentManagedRuntimeType']
-elif False:
-    RuntimeCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeCodeConfigurationArgsDict(TypedDict):
+    """
+    Representation of a code configuration
+    """
+    code: pulumi.Input['RuntimeCodeArgsDict']
+    entry_point: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    runtime: pulumi.Input['RuntimeAgentManagedRuntimeType']
 
 @pulumi.input_type
 class RuntimeCodeConfigurationArgs:
@@ -3616,14 +3392,11 @@ class RuntimeCodeConfigurationArgs:
         pulumi.set(self, "runtime", value)
 
 
-if not MYPY:
-    class RuntimeCodeArgsDict(TypedDict):
-        """
-        Object represents source code from zip file
-        """
-        s3: NotRequired[pulumi.Input['RuntimeS3LocationArgsDict']]
-elif False:
-    RuntimeCodeArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeCodeArgsDict(TypedDict):
+    """
+    Object represents source code from zip file
+    """
+    s3: NotRequired[pulumi.Input['RuntimeS3LocationArgsDict']]
 
 @pulumi.input_type
 class RuntimeCodeArgs:
@@ -3645,14 +3418,11 @@ class RuntimeCodeArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class RuntimeContainerConfigurationArgsDict(TypedDict):
-        container_uri: pulumi.Input[_builtins.str]
-        """
-        The container Uri.
-        """
-elif False:
-    RuntimeContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeContainerConfigurationArgsDict(TypedDict):
+    container_uri: pulumi.Input[_builtins.str]
+    """
+    The container Uri.
+    """
 
 @pulumi.input_type
 class RuntimeContainerConfigurationArgs:
@@ -3676,16 +3446,13 @@ class RuntimeContainerConfigurationArgs:
         pulumi.set(self, "container_uri", value)
 
 
-if not MYPY:
-    class RuntimeCustomClaimValidationTypeArgsDict(TypedDict):
-        """
-        Required custom claim
-        """
-        authorizing_claim_match_value: pulumi.Input['RuntimeAuthorizingClaimMatchValueTypeArgsDict']
-        inbound_token_claim_name: pulumi.Input[_builtins.str]
-        inbound_token_claim_value_type: pulumi.Input['RuntimeInboundTokenClaimValueType']
-elif False:
-    RuntimeCustomClaimValidationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeCustomClaimValidationTypeArgsDict(TypedDict):
+    """
+    Required custom claim
+    """
+    authorizing_claim_match_value: pulumi.Input['RuntimeAuthorizingClaimMatchValueTypeArgsDict']
+    inbound_token_claim_name: pulumi.Input[_builtins.str]
+    inbound_token_claim_value_type: pulumi.Input['RuntimeInboundTokenClaimValueType']
 
 @pulumi.input_type
 class RuntimeCustomClaimValidationTypeArgs:
@@ -3728,27 +3495,24 @@ class RuntimeCustomClaimValidationTypeArgs:
         pulumi.set(self, "inbound_token_claim_value_type", value)
 
 
-if not MYPY:
-    class RuntimeCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
-        """
-        Configuration for custom JWT authorizer
-        """
-        discovery_url: pulumi.Input[_builtins.str]
-        """
-        The configuration authorization.
-        """
-        allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Represents inbound authorization configuration options used to authenticate incoming requests.
-        """
-        allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Represents individual client IDs that are validated in the incoming JWT token validation process.
-        """
-        allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgsDict']]]]
-elif False:
-    RuntimeCustomJwtAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
+    """
+    Configuration for custom JWT authorizer
+    """
+    discovery_url: pulumi.Input[_builtins.str]
+    """
+    The configuration authorization.
+    """
+    allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Represents inbound authorization configuration options used to authenticate incoming requests.
+    """
+    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Represents individual client IDs that are validated in the incoming JWT token validation process.
+    """
+    allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgsDict']]]]
 
 @pulumi.input_type
 class RuntimeCustomJwtAuthorizerConfigurationArgs:
@@ -3829,21 +3593,18 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
         pulumi.set(self, "custom_claims", value)
 
 
-if not MYPY:
-    class RuntimeLifecycleConfigurationArgsDict(TypedDict):
-        """
-        Configuration for managing the lifecycle of runtime sessions and resources
-        """
-        idle_runtime_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in seconds for idle runtime sessions
-        """
-        max_lifetime: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum lifetime in seconds for runtime sessions
-        """
-elif False:
-    RuntimeLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeLifecycleConfigurationArgsDict(TypedDict):
+    """
+    Configuration for managing the lifecycle of runtime sessions and resources
+    """
+    idle_runtime_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in seconds for idle runtime sessions
+    """
+    max_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum lifetime in seconds for runtime sessions
+    """
 
 @pulumi.input_type
 class RuntimeLifecycleConfigurationArgs:
@@ -3885,15 +3646,12 @@ class RuntimeLifecycleConfigurationArgs:
         pulumi.set(self, "max_lifetime", value)
 
 
-if not MYPY:
-    class RuntimeNetworkConfigurationArgsDict(TypedDict):
-        network_mode: pulumi.Input['RuntimeNetworkMode']
-        """
-        The network mode.
-        """
-        network_mode_config: NotRequired[pulumi.Input['RuntimeVpcConfigArgsDict']]
-elif False:
-    RuntimeNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeNetworkConfigurationArgsDict(TypedDict):
+    network_mode: pulumi.Input['RuntimeNetworkMode']
+    """
+    The network mode.
+    """
+    network_mode_config: NotRequired[pulumi.Input['RuntimeVpcConfigArgsDict']]
 
 @pulumi.input_type
 class RuntimeNetworkConfigurationArgs:
@@ -3929,14 +3687,11 @@ class RuntimeNetworkConfigurationArgs:
         pulumi.set(self, "network_mode_config", value)
 
 
-if not MYPY:
-    class RuntimeRequestHeaderConfigurationArgsDict(TypedDict):
-        """
-        Configuration for HTTP request headers
-        """
-        request_header_allowlist: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    RuntimeRequestHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeRequestHeaderConfigurationArgsDict(TypedDict):
+    """
+    Configuration for HTTP request headers
+    """
+    request_header_allowlist: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class RuntimeRequestHeaderConfigurationArgs:
@@ -3958,25 +3713,22 @@ class RuntimeRequestHeaderConfigurationArgs:
         pulumi.set(self, "request_header_allowlist", value)
 
 
-if not MYPY:
-    class RuntimeS3LocationArgsDict(TypedDict):
-        """
-        S3 Location Configuration
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        S3 bucket name
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        S3 object key prefix
-        """
-        version_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 object version ID
-        """
-elif False:
-    RuntimeS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeS3LocationArgsDict(TypedDict):
+    """
+    S3 Location Configuration
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    S3 bucket name
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    S3 object key prefix
+    """
+    version_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 object version ID
+    """
 
 @pulumi.input_type
 class RuntimeS3LocationArgs:
@@ -4032,15 +3784,12 @@ class RuntimeS3LocationArgs:
         pulumi.set(self, "version_id", value)
 
 
-if not MYPY:
-    class RuntimeVpcConfigArgsDict(TypedDict):
-        """
-        Network mode configuration for VPC
-        """
-        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    RuntimeVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeVpcConfigArgsDict(TypedDict):
+    """
+    Network mode configuration for VPC
+    """
+    security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class RuntimeVpcConfigArgs:

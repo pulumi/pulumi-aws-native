@@ -54,19 +54,14 @@ __all__ = [
     'ApplicationWindowsEventArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationAlarmMetricArgsDict(TypedDict):
-        """
-        A metric to be monitored for the component.
-        """
-        alarm_metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the metric to be monitored for the component.
-        """
-elif False:
-    ApplicationAlarmMetricArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAlarmMetricArgsDict(TypedDict):
+    """
+    A metric to be monitored for the component.
+    """
+    alarm_metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the metric to be monitored for the component.
+    """
 
 @pulumi.input_type
 class ApplicationAlarmMetricArgs:
@@ -91,21 +86,18 @@ class ApplicationAlarmMetricArgs:
         pulumi.set(self, "alarm_metric_name", value)
 
 
-if not MYPY:
-    class ApplicationAlarmArgsDict(TypedDict):
-        """
-        A CloudWatch alarm to be monitored for the component.
-        """
-        alarm_name: pulumi.Input[_builtins.str]
-        """
-        The name of the CloudWatch alarm to be monitored for the component.
-        """
-        severity: NotRequired[pulumi.Input['ApplicationAlarmSeverity']]
-        """
-        Indicates the degree of outage when the alarm goes off.
-        """
-elif False:
-    ApplicationAlarmArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAlarmArgsDict(TypedDict):
+    """
+    A CloudWatch alarm to be monitored for the component.
+    """
+    alarm_name: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch alarm to be monitored for the component.
+    """
+    severity: NotRequired[pulumi.Input['ApplicationAlarmSeverity']]
+    """
+    Indicates the degree of outage when the alarm goes off.
+    """
 
 @pulumi.input_type
 class ApplicationAlarmArgs:
@@ -146,21 +138,18 @@ class ApplicationAlarmArgs:
         pulumi.set(self, "severity", value)
 
 
-if not MYPY:
-    class ApplicationComponentConfigurationArgsDict(TypedDict):
-        """
-        The configuration settings of the component.
-        """
-        configuration_details: NotRequired[pulumi.Input['ApplicationConfigurationDetailsArgsDict']]
-        """
-        The configuration settings
-        """
-        sub_component_type_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgsDict']]]]
-        """
-        Sub component configurations of the component.
-        """
-elif False:
-    ApplicationComponentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationComponentConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings of the component.
+    """
+    configuration_details: NotRequired[pulumi.Input['ApplicationConfigurationDetailsArgsDict']]
+    """
+    The configuration settings
+    """
+    sub_component_type_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgsDict']]]]
+    """
+    Sub component configurations of the component.
+    """
 
 @pulumi.input_type
 class ApplicationComponentConfigurationArgs:
@@ -202,37 +191,34 @@ class ApplicationComponentConfigurationArgs:
         pulumi.set(self, "sub_component_type_configurations", value)
 
 
-if not MYPY:
-    class ApplicationComponentMonitoringSettingArgsDict(TypedDict):
-        """
-        The monitoring setting of the component.
-        """
-        component_configuration_mode: pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode']
-        """
-        The component monitoring configuration mode.
-        """
-        tier: pulumi.Input[_builtins.str]
-        """
-        The tier of the application component.
-        """
-        component_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the compnonent.
-        """
-        component_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the component.
-        """
-        custom_component_configuration: NotRequired[pulumi.Input['ApplicationComponentConfigurationArgsDict']]
-        """
-        The monitoring configuration of the component.
-        """
-        default_overwrite_component_configuration: NotRequired[pulumi.Input['ApplicationComponentConfigurationArgsDict']]
-        """
-        The overwritten settings on default component monitoring configuration.
-        """
-elif False:
-    ApplicationComponentMonitoringSettingArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationComponentMonitoringSettingArgsDict(TypedDict):
+    """
+    The monitoring setting of the component.
+    """
+    component_configuration_mode: pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode']
+    """
+    The component monitoring configuration mode.
+    """
+    tier: pulumi.Input[_builtins.str]
+    """
+    The tier of the application component.
+    """
+    component_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the compnonent.
+    """
+    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the component.
+    """
+    custom_component_configuration: NotRequired[pulumi.Input['ApplicationComponentConfigurationArgsDict']]
+    """
+    The monitoring configuration of the component.
+    """
+    default_overwrite_component_configuration: NotRequired[pulumi.Input['ApplicationComponentConfigurationArgsDict']]
+    """
+    The overwritten settings on default component monitoring configuration.
+    """
 
 @pulumi.input_type
 class ApplicationComponentMonitoringSettingArgs:
@@ -336,53 +322,50 @@ class ApplicationComponentMonitoringSettingArgs:
         pulumi.set(self, "default_overwrite_component_configuration", value)
 
 
-if not MYPY:
-    class ApplicationConfigurationDetailsArgsDict(TypedDict):
-        """
-        The configuration settings.
-        """
-        alarm_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]]
-        """
-        A list of metrics to monitor for the component.
-        """
-        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgsDict']]]]
-        """
-        A list of alarms to monitor for the component.
-        """
-        ha_cluster_prometheus_exporter: NotRequired[pulumi.Input['ApplicationHaClusterPrometheusExporterArgsDict']]
-        """
-        The HA cluster Prometheus Exporter settings.
-        """
-        hana_prometheus_exporter: NotRequired[pulumi.Input['ApplicationHanaPrometheusExporterArgsDict']]
-        """
-        The HANA DB Prometheus Exporter settings.
-        """
-        jmx_prometheus_exporter: NotRequired[pulumi.Input['ApplicationJmxPrometheusExporterArgsDict']]
-        """
-        The JMX Prometheus Exporter settings.
-        """
-        logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgsDict']]]]
-        """
-        A list of logs to monitor for the component.
-        """
-        net_weaver_prometheus_exporter: NotRequired[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgsDict']]
-        """
-        The NetWeaver Prometheus Exporter settings.
-        """
-        processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgsDict']]]]
-        """
-        A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
-        """
-        sql_server_prometheus_exporter: NotRequired[pulumi.Input['ApplicationSqlServerPrometheusExporterArgsDict']]
-        """
-        The SQL Prometheus Exporter settings.
-        """
-        windows_events: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgsDict']]]]
-        """
-        A list of Windows Events to log.
-        """
-elif False:
-    ApplicationConfigurationDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationConfigurationDetailsArgsDict(TypedDict):
+    """
+    The configuration settings.
+    """
+    alarm_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]]
+    """
+    A list of metrics to monitor for the component.
+    """
+    alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgsDict']]]]
+    """
+    A list of alarms to monitor for the component.
+    """
+    ha_cluster_prometheus_exporter: NotRequired[pulumi.Input['ApplicationHaClusterPrometheusExporterArgsDict']]
+    """
+    The HA cluster Prometheus Exporter settings.
+    """
+    hana_prometheus_exporter: NotRequired[pulumi.Input['ApplicationHanaPrometheusExporterArgsDict']]
+    """
+    The HANA DB Prometheus Exporter settings.
+    """
+    jmx_prometheus_exporter: NotRequired[pulumi.Input['ApplicationJmxPrometheusExporterArgsDict']]
+    """
+    The JMX Prometheus Exporter settings.
+    """
+    logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgsDict']]]]
+    """
+    A list of logs to monitor for the component.
+    """
+    net_weaver_prometheus_exporter: NotRequired[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgsDict']]
+    """
+    The NetWeaver Prometheus Exporter settings.
+    """
+    processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgsDict']]]]
+    """
+    A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+    """
+    sql_server_prometheus_exporter: NotRequired[pulumi.Input['ApplicationSqlServerPrometheusExporterArgsDict']]
+    """
+    The SQL Prometheus Exporter settings.
+    """
+    windows_events: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgsDict']]]]
+    """
+    A list of Windows Events to log.
+    """
 
 @pulumi.input_type
 class ApplicationConfigurationDetailsArgs:
@@ -552,21 +535,18 @@ class ApplicationConfigurationDetailsArgs:
         pulumi.set(self, "windows_events", value)
 
 
-if not MYPY:
-    class ApplicationCustomComponentArgsDict(TypedDict):
-        """
-        The custom grouped component.
-        """
-        component_name: pulumi.Input[_builtins.str]
-        """
-        The name of the component.
-        """
-        resource_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of resource ARNs that belong to the component.
-        """
-elif False:
-    ApplicationCustomComponentArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCustomComponentArgsDict(TypedDict):
+    """
+    The custom grouped component.
+    """
+    component_name: pulumi.Input[_builtins.str]
+    """
+    The name of the component.
+    """
+    resource_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of resource ARNs that belong to the component.
+    """
 
 @pulumi.input_type
 class ApplicationCustomComponentArgs:
@@ -606,17 +586,14 @@ class ApplicationCustomComponentArgs:
         pulumi.set(self, "resource_list", value)
 
 
-if not MYPY:
-    class ApplicationHaClusterPrometheusExporterArgsDict(TypedDict):
-        """
-        The HA cluster Prometheus Exporter settings.
-        """
-        prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prometheus exporter port.
-        """
-elif False:
-    ApplicationHaClusterPrometheusExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationHaClusterPrometheusExporterArgsDict(TypedDict):
+    """
+    The HA cluster Prometheus Exporter settings.
+    """
+    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prometheus exporter port.
+    """
 
 @pulumi.input_type
 class ApplicationHaClusterPrometheusExporterArgs:
@@ -642,36 +619,33 @@ class ApplicationHaClusterPrometheusExporterArgs:
         pulumi.set(self, "prometheus_port", value)
 
 
-if not MYPY:
-    class ApplicationHanaPrometheusExporterArgsDict(TypedDict):
-        """
-        The HANA DB Prometheus Exporter settings.
-        """
-        agree_to_install_hanadb_client: pulumi.Input[_builtins.bool]
-        """
-        A flag which indicates agreeing to install SAP HANA DB client.
-        """
-        hana_port: pulumi.Input[_builtins.str]
-        """
-        The HANA DB port.
-        """
-        hana_secret_name: pulumi.Input[_builtins.str]
-        """
-        The secret name which manages the HANA DB credentials e.g. {
-          "username": "<>",
-          "password": "<>"
-        }.
-        """
-        hanasid: pulumi.Input[_builtins.str]
-        """
-        HANA DB SID.
-        """
-        prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prometheus exporter port.
-        """
-elif False:
-    ApplicationHanaPrometheusExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationHanaPrometheusExporterArgsDict(TypedDict):
+    """
+    The HANA DB Prometheus Exporter settings.
+    """
+    agree_to_install_hanadb_client: pulumi.Input[_builtins.bool]
+    """
+    A flag which indicates agreeing to install SAP HANA DB client.
+    """
+    hana_port: pulumi.Input[_builtins.str]
+    """
+    The HANA DB port.
+    """
+    hana_secret_name: pulumi.Input[_builtins.str]
+    """
+    The secret name which manages the HANA DB credentials e.g. {
+      "username": "<>",
+      "password": "<>"
+    }.
+    """
+    hanasid: pulumi.Input[_builtins.str]
+    """
+    HANA DB SID.
+    """
+    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prometheus exporter port.
+    """
 
 @pulumi.input_type
 class ApplicationHanaPrometheusExporterArgs:
@@ -763,25 +737,22 @@ class ApplicationHanaPrometheusExporterArgs:
         pulumi.set(self, "prometheus_port", value)
 
 
-if not MYPY:
-    class ApplicationJmxPrometheusExporterArgsDict(TypedDict):
-        """
-        The JMX Prometheus Exporter settings.
-        """
-        host_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Java agent host port
-        """
-        jmxurl: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JMX service URL.
-        """
-        prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prometheus exporter port.
-        """
-elif False:
-    ApplicationJmxPrometheusExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationJmxPrometheusExporterArgsDict(TypedDict):
+    """
+    The JMX Prometheus Exporter settings.
+    """
+    host_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Java agent host port
+    """
+    jmxurl: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    JMX service URL.
+    """
+    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prometheus exporter port.
+    """
 
 @pulumi.input_type
 class ApplicationJmxPrometheusExporterArgs:
@@ -839,21 +810,18 @@ class ApplicationJmxPrometheusExporterArgs:
         pulumi.set(self, "prometheus_port", value)
 
 
-if not MYPY:
-    class ApplicationLogPatternSetArgsDict(TypedDict):
-        """
-        The log pattern set.
-        """
-        log_patterns: pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgsDict']]]
-        """
-        The log patterns of a set.
-        """
-        pattern_set_name: pulumi.Input[_builtins.str]
-        """
-        The name of the log pattern set.
-        """
-elif False:
-    ApplicationLogPatternSetArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationLogPatternSetArgsDict(TypedDict):
+    """
+    The log pattern set.
+    """
+    log_patterns: pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgsDict']]]
+    """
+    The log patterns of a set.
+    """
+    pattern_set_name: pulumi.Input[_builtins.str]
+    """
+    The name of the log pattern set.
+    """
 
 @pulumi.input_type
 class ApplicationLogPatternSetArgs:
@@ -893,25 +861,22 @@ class ApplicationLogPatternSetArgs:
         pulumi.set(self, "pattern_set_name", value)
 
 
-if not MYPY:
-    class ApplicationLogPatternArgsDict(TypedDict):
-        """
-        The log pattern.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The log pattern.
-        """
-        pattern_name: pulumi.Input[_builtins.str]
-        """
-        The name of the log pattern.
-        """
-        rank: pulumi.Input[_builtins.int]
-        """
-        Rank of the log pattern.
-        """
-elif False:
-    ApplicationLogPatternArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationLogPatternArgsDict(TypedDict):
+    """
+    The log pattern.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The log pattern.
+    """
+    pattern_name: pulumi.Input[_builtins.str]
+    """
+    The name of the log pattern.
+    """
+    rank: pulumi.Input[_builtins.int]
+    """
+    Rank of the log pattern.
+    """
 
 @pulumi.input_type
 class ApplicationLogPatternArgs:
@@ -966,33 +931,30 @@ class ApplicationLogPatternArgs:
         pulumi.set(self, "rank", value)
 
 
-if not MYPY:
-    class ApplicationLogArgsDict(TypedDict):
-        """
-        A log to be monitored for the component.
-        """
-        log_type: pulumi.Input[_builtins.str]
-        """
-        The log type decides the log patterns against which Application Insights analyzes the log.
-        """
-        encoding: NotRequired[pulumi.Input['ApplicationLogEncoding']]
-        """
-        The type of encoding of the logs to be monitored.
-        """
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CloudWatch log group name to be associated to the monitored log.
-        """
-        log_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path of the logs to be monitored.
-        """
-        pattern_set: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the log pattern set.
-        """
-elif False:
-    ApplicationLogArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationLogArgsDict(TypedDict):
+    """
+    A log to be monitored for the component.
+    """
+    log_type: pulumi.Input[_builtins.str]
+    """
+    The log type decides the log patterns against which Application Insights analyzes the log.
+    """
+    encoding: NotRequired[pulumi.Input['ApplicationLogEncoding']]
+    """
+    The type of encoding of the logs to be monitored.
+    """
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CloudWatch log group name to be associated to the monitored log.
+    """
+    log_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path of the logs to be monitored.
+    """
+    pattern_set: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the log pattern set.
+    """
 
 @pulumi.input_type
 class ApplicationLogArgs:
@@ -1081,25 +1043,22 @@ class ApplicationLogArgs:
         pulumi.set(self, "pattern_set", value)
 
 
-if not MYPY:
-    class ApplicationNetWeaverPrometheusExporterArgsDict(TypedDict):
-        """
-        The NetWeaver Prometheus Exporter Settings.
-        """
-        instance_numbers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        SAP instance numbers for ASCS, ERS, and App Servers.
-        """
-        sapsid: pulumi.Input[_builtins.str]
-        """
-        SAP NetWeaver SID.
-        """
-        prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prometheus exporter port.
-        """
-elif False:
-    ApplicationNetWeaverPrometheusExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationNetWeaverPrometheusExporterArgsDict(TypedDict):
+    """
+    The NetWeaver Prometheus Exporter Settings.
+    """
+    instance_numbers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    SAP instance numbers for ASCS, ERS, and App Servers.
+    """
+    sapsid: pulumi.Input[_builtins.str]
+    """
+    SAP NetWeaver SID.
+    """
+    prometheus_port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prometheus exporter port.
+    """
 
 @pulumi.input_type
 class ApplicationNetWeaverPrometheusExporterArgs:
@@ -1155,21 +1114,18 @@ class ApplicationNetWeaverPrometheusExporterArgs:
         pulumi.set(self, "prometheus_port", value)
 
 
-if not MYPY:
-    class ApplicationProcessArgsDict(TypedDict):
-        """
-        A process to be monitored for the component.
-        """
-        alarm_metrics: pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]
-        """
-        A list of metrics to monitor for the component.
-        """
-        process_name: pulumi.Input[_builtins.str]
-        """
-        The name of the process to be monitored for the component.
-        """
-elif False:
-    ApplicationProcessArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationProcessArgsDict(TypedDict):
+    """
+    A process to be monitored for the component.
+    """
+    alarm_metrics: pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]
+    """
+    A list of metrics to monitor for the component.
+    """
+    process_name: pulumi.Input[_builtins.str]
+    """
+    The name of the process to be monitored for the component.
+    """
 
 @pulumi.input_type
 class ApplicationProcessArgs:
@@ -1209,21 +1165,18 @@ class ApplicationProcessArgs:
         pulumi.set(self, "process_name", value)
 
 
-if not MYPY:
-    class ApplicationSqlServerPrometheusExporterArgsDict(TypedDict):
-        """
-        The SQL prometheus exporter settings.
-        """
-        prometheus_port: pulumi.Input[_builtins.str]
-        """
-        Prometheus exporter port.
-        """
-        sql_secret_name: pulumi.Input[_builtins.str]
-        """
-        Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
-        """
-elif False:
-    ApplicationSqlServerPrometheusExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSqlServerPrometheusExporterArgsDict(TypedDict):
+    """
+    The SQL prometheus exporter settings.
+    """
+    prometheus_port: pulumi.Input[_builtins.str]
+    """
+    Prometheus exporter port.
+    """
+    sql_secret_name: pulumi.Input[_builtins.str]
+    """
+    Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+    """
 
 @pulumi.input_type
 class ApplicationSqlServerPrometheusExporterArgs:
@@ -1263,29 +1216,26 @@ class ApplicationSqlServerPrometheusExporterArgs:
         pulumi.set(self, "sql_secret_name", value)
 
 
-if not MYPY:
-    class ApplicationSubComponentConfigurationDetailsArgsDict(TypedDict):
-        """
-        The configuration settings of sub components.
-        """
-        alarm_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]]
-        """
-        A list of metrics to monitor for the component.
-        """
-        logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgsDict']]]]
-        """
-        A list of logs to monitor for the component.
-        """
-        processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgsDict']]]]
-        """
-        A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
-        """
-        windows_events: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgsDict']]]]
-        """
-        A list of Windows Events to log.
-        """
-elif False:
-    ApplicationSubComponentConfigurationDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSubComponentConfigurationDetailsArgsDict(TypedDict):
+    """
+    The configuration settings of sub components.
+    """
+    alarm_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgsDict']]]]
+    """
+    A list of metrics to monitor for the component.
+    """
+    logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgsDict']]]]
+    """
+    A list of logs to monitor for the component.
+    """
+    processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgsDict']]]]
+    """
+    A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+    """
+    windows_events: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgsDict']]]]
+    """
+    A list of Windows Events to log.
+    """
 
 @pulumi.input_type
 class ApplicationSubComponentConfigurationDetailsArgs:
@@ -1359,21 +1309,18 @@ class ApplicationSubComponentConfigurationDetailsArgs:
         pulumi.set(self, "windows_events", value)
 
 
-if not MYPY:
-    class ApplicationSubComponentTypeConfigurationArgsDict(TypedDict):
-        """
-        One type sub component configurations for the component.
-        """
-        sub_component_configuration_details: pulumi.Input['ApplicationSubComponentConfigurationDetailsArgsDict']
-        """
-        The configuration settings of sub components.
-        """
-        sub_component_type: pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType']
-        """
-        The sub component type.
-        """
-elif False:
-    ApplicationSubComponentTypeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSubComponentTypeConfigurationArgsDict(TypedDict):
+    """
+    One type sub component configurations for the component.
+    """
+    sub_component_configuration_details: pulumi.Input['ApplicationSubComponentConfigurationDetailsArgsDict']
+    """
+    The configuration settings of sub components.
+    """
+    sub_component_type: pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType']
+    """
+    The sub component type.
+    """
 
 @pulumi.input_type
 class ApplicationSubComponentTypeConfigurationArgs:
@@ -1413,29 +1360,26 @@ class ApplicationSubComponentTypeConfigurationArgs:
         pulumi.set(self, "sub_component_type", value)
 
 
-if not MYPY:
-    class ApplicationWindowsEventArgsDict(TypedDict):
-        """
-        A Windows Event to be monitored for the component.
-        """
-        event_levels: pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]]
-        """
-        The levels of event to log. 
-        """
-        event_name: pulumi.Input[_builtins.str]
-        """
-        The type of Windows Events to log.
-        """
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch log group name to be associated to the monitored log.
-        """
-        pattern_set: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the log pattern set.
-        """
-elif False:
-    ApplicationWindowsEventArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationWindowsEventArgsDict(TypedDict):
+    """
+    A Windows Event to be monitored for the component.
+    """
+    event_levels: pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]]
+    """
+    The levels of event to log. 
+    """
+    event_name: pulumi.Input[_builtins.str]
+    """
+    The type of Windows Events to log.
+    """
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch log group name to be associated to the monitored log.
+    """
+    pattern_set: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the log pattern set.
+    """
 
 @pulumi.input_type
 class ApplicationWindowsEventArgs:

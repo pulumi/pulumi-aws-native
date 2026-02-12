@@ -23,20 +23,15 @@ __all__ = [
     'StreamGroupLocationConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationRuntimeEnvironmentArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The operating system and other drivers. For Proton, this also includes the Proton compatibility layer.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Versioned container environment for the application operating system.
-        """
-elif False:
-    ApplicationRuntimeEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationRuntimeEnvironmentArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The operating system and other drivers. For Proton, this also includes the Proton compatibility layer.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Versioned container environment for the application operating system.
+    """
 
 @pulumi.input_type
 class ApplicationRuntimeEnvironmentArgs:
@@ -75,18 +70,15 @@ class ApplicationRuntimeEnvironmentArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class StreamGroupDefaultApplicationArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
-        """
-elif False:
-    StreamGroupDefaultApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamGroupDefaultApplicationArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
+    """
 
 @pulumi.input_type
 class StreamGroupDefaultApplicationArgs:
@@ -127,24 +119,21 @@ class StreamGroupDefaultApplicationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class StreamGroupLocationConfigurationArgsDict(TypedDict):
-        location_name: pulumi.Input[_builtins.str]
-        """
-        A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
-        """
-        always_on_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
-        """
-        maximum_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        on_demand_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        This shape is deprecated.
-        """
-        target_idle_capacity: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    StreamGroupLocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamGroupLocationConfigurationArgsDict(TypedDict):
+    location_name: pulumi.Input[_builtins.str]
+    """
+    A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+    """
+    always_on_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
+    """
+    maximum_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    on_demand_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    This shape is deprecated.
+    """
+    target_idle_capacity: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class StreamGroupLocationConfigurationArgs:

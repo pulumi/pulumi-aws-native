@@ -58,16 +58,11 @@ __all__ = [
     'WorkflowVersionWorkflowParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AnnotationStoreReferenceItemArgsDict(TypedDict):
-        reference_arn: pulumi.Input[_builtins.str]
-        """
-        The reference's ARN.
-        """
-elif False:
-    AnnotationStoreReferenceItemArgsDict: TypeAlias = Mapping[str, Any]
+class AnnotationStoreReferenceItemArgsDict(TypedDict):
+    reference_arn: pulumi.Input[_builtins.str]
+    """
+    The reference's ARN.
+    """
 
 @pulumi.input_type
 class AnnotationStoreReferenceItemArgs:
@@ -91,18 +86,15 @@ class AnnotationStoreReferenceItemArgs:
         pulumi.set(self, "reference_arn", value)
 
 
-if not MYPY:
-    class AnnotationStoreSseConfigArgsDict(TypedDict):
-        type: pulumi.Input['AnnotationStoreEncryptionType']
-        """
-        The encryption type.
-        """
-        key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An encryption key ARN.
-        """
-elif False:
-    AnnotationStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AnnotationStoreSseConfigArgsDict(TypedDict):
+    type: pulumi.Input['AnnotationStoreEncryptionType']
+    """
+    The encryption type.
+    """
+    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An encryption key ARN.
+    """
 
 @pulumi.input_type
 class AnnotationStoreSseConfigArgs:
@@ -142,11 +134,8 @@ class AnnotationStoreSseConfigArgs:
         pulumi.set(self, "key_arn", value)
 
 
-if not MYPY:
-    class AnnotationStoreStoreOptionsPropertiesArgsDict(TypedDict):
-        tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgsDict']
-elif False:
-    AnnotationStoreStoreOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AnnotationStoreStoreOptionsPropertiesArgsDict(TypedDict):
+    tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgsDict']
 
 @pulumi.input_type
 class AnnotationStoreStoreOptionsPropertiesArgs:
@@ -164,13 +153,10 @@ class AnnotationStoreStoreOptionsPropertiesArgs:
         pulumi.set(self, "tsv_store_options", value)
 
 
-if not MYPY:
-    class AnnotationStoreTsvStoreOptionsArgsDict(TypedDict):
-        annotation_type: NotRequired[pulumi.Input['AnnotationStoreAnnotationType']]
-        format_to_header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        schema: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]
-elif False:
-    AnnotationStoreTsvStoreOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class AnnotationStoreTsvStoreOptionsArgsDict(TypedDict):
+    annotation_type: NotRequired[pulumi.Input['AnnotationStoreAnnotationType']]
+    format_to_header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    schema: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]
 
 @pulumi.input_type
 class AnnotationStoreTsvStoreOptionsArgs:
@@ -213,21 +199,18 @@ class AnnotationStoreTsvStoreOptionsArgs:
         pulumi.set(self, "schema", value)
 
 
-if not MYPY:
-    class ReferenceStoreSseConfigArgsDict(TypedDict):
-        """
-        Server-side encryption (SSE) settings for a store.
-        """
-        type: pulumi.Input['ReferenceStoreEncryptionType']
-        """
-        The encryption type.
-        """
-        key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An encryption key ARN.
-        """
-elif False:
-    ReferenceStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ReferenceStoreSseConfigArgsDict(TypedDict):
+    """
+    Server-side encryption (SSE) settings for a store.
+    """
+    type: pulumi.Input['ReferenceStoreEncryptionType']
+    """
+    The encryption type.
+    """
+    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An encryption key ARN.
+    """
 
 @pulumi.input_type
 class ReferenceStoreSseConfigArgs:
@@ -268,21 +251,18 @@ class ReferenceStoreSseConfigArgs:
         pulumi.set(self, "key_arn", value)
 
 
-if not MYPY:
-    class SequenceStoreSseConfigArgsDict(TypedDict):
-        """
-        Server-side encryption (SSE) settings for a store.
-        """
-        type: pulumi.Input['SequenceStoreEncryptionType']
-        """
-        The encryption type.
-        """
-        key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An encryption key ARN.
-        """
-elif False:
-    SequenceStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SequenceStoreSseConfigArgsDict(TypedDict):
+    """
+    Server-side encryption (SSE) settings for a store.
+    """
+    type: pulumi.Input['SequenceStoreEncryptionType']
+    """
+    The encryption type.
+    """
+    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An encryption key ARN.
+    """
 
 @pulumi.input_type
 class SequenceStoreSseConfigArgs:
@@ -323,14 +303,11 @@ class SequenceStoreSseConfigArgs:
         pulumi.set(self, "key_arn", value)
 
 
-if not MYPY:
-    class VariantStoreReferenceItemArgsDict(TypedDict):
-        reference_arn: pulumi.Input[_builtins.str]
-        """
-        The reference's ARN.
-        """
-elif False:
-    VariantStoreReferenceItemArgsDict: TypeAlias = Mapping[str, Any]
+class VariantStoreReferenceItemArgsDict(TypedDict):
+    reference_arn: pulumi.Input[_builtins.str]
+    """
+    The reference's ARN.
+    """
 
 @pulumi.input_type
 class VariantStoreReferenceItemArgs:
@@ -354,18 +331,15 @@ class VariantStoreReferenceItemArgs:
         pulumi.set(self, "reference_arn", value)
 
 
-if not MYPY:
-    class VariantStoreSseConfigArgsDict(TypedDict):
-        type: pulumi.Input['VariantStoreEncryptionType']
-        """
-        The encryption type.
-        """
-        key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An encryption key ARN.
-        """
-elif False:
-    VariantStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class VariantStoreSseConfigArgsDict(TypedDict):
+    type: pulumi.Input['VariantStoreEncryptionType']
+    """
+    The encryption type.
+    """
+    key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An encryption key ARN.
+    """
 
 @pulumi.input_type
 class VariantStoreSseConfigArgs:
@@ -405,18 +379,15 @@ class VariantStoreSseConfigArgs:
         pulumi.set(self, "key_arn", value)
 
 
-if not MYPY:
-    class WorkflowContainerRegistryMapArgsDict(TypedDict):
-        image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgsDict']]]]
-        """
-        Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
-        """
-        registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgsDict']]]]
-        """
-        Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
-        """
-elif False:
-    WorkflowContainerRegistryMapArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowContainerRegistryMapArgsDict(TypedDict):
+    image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgsDict']]]]
+    """
+    Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+    """
+    registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgsDict']]]]
+    """
+    Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+    """
 
 @pulumi.input_type
 class WorkflowContainerRegistryMapArgs:
@@ -457,26 +428,23 @@ class WorkflowContainerRegistryMapArgs:
         pulumi.set(self, "registry_mappings", value)
 
 
-if not MYPY:
-    class WorkflowDefinitionRepositoryArgsDict(TypedDict):
-        connection_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the connection to the source code repository.
-        """
-        exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of file patterns to exclude when retrieving the workflow definition from the repository.
-        """
-        full_repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
-        """
-        source_reference: NotRequired[pulumi.Input['WorkflowSourceReferenceArgsDict']]
-        """
-        The source reference for the repository, such as a branch name, tag, or commit ID.
-        """
-elif False:
-    WorkflowDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowDefinitionRepositoryArgsDict(TypedDict):
+    connection_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the connection to the source code repository.
+    """
+    exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of file patterns to exclude when retrieving the workflow definition from the repository.
+    """
+    full_repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+    """
+    source_reference: NotRequired[pulumi.Input['WorkflowSourceReferenceArgsDict']]
+    """
+    The source reference for the repository, such as a branch name, tag, or commit ID.
+    """
 
 @pulumi.input_type
 class WorkflowDefinitionRepositoryArgs:
@@ -549,18 +517,15 @@ class WorkflowDefinitionRepositoryArgs:
         pulumi.set(self, "source_reference", value)
 
 
-if not MYPY:
-    class WorkflowImageMappingArgsDict(TypedDict):
-        destination_image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the URI of the corresponding image in the private ECR registry.
-        """
-        source_image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the URI of the source image in the upstream registry.
-        """
-elif False:
-    WorkflowImageMappingArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowImageMappingArgsDict(TypedDict):
+    destination_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the URI of the corresponding image in the private ECR registry.
+    """
+    source_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the URI of the source image in the upstream registry.
+    """
 
 @pulumi.input_type
 class WorkflowImageMappingArgs:
@@ -601,18 +566,15 @@ class WorkflowImageMappingArgs:
         pulumi.set(self, "source_image", value)
 
 
-if not MYPY:
-    class WorkflowParameterArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parameter's description.
-        """
-        optional: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the parameter is optional.
-        """
-elif False:
-    WorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowParameterArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parameter's description.
+    """
+    optional: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the parameter is optional.
+    """
 
 @pulumi.input_type
 class WorkflowParameterArgs:
@@ -653,26 +615,23 @@ class WorkflowParameterArgs:
         pulumi.set(self, "optional", value)
 
 
-if not MYPY:
-    class WorkflowRegistryMappingArgsDict(TypedDict):
-        ecr_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account ID of the account that owns the upstream container image.
-        """
-        ecr_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository prefix to use in the ECR private repository.
-        """
-        upstream_registry_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the upstream registry.
-        """
-        upstream_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository prefix of the corresponding repository in the upstream registry.
-        """
-elif False:
-    WorkflowRegistryMappingArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowRegistryMappingArgsDict(TypedDict):
+    ecr_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account ID of the account that owns the upstream container image.
+    """
+    ecr_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository prefix to use in the ECR private repository.
+    """
+    upstream_registry_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the upstream registry.
+    """
+    upstream_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository prefix of the corresponding repository in the upstream registry.
+    """
 
 @pulumi.input_type
 class WorkflowRegistryMappingArgs:
@@ -745,18 +704,15 @@ class WorkflowRegistryMappingArgs:
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
-if not MYPY:
-    class WorkflowSourceReferenceArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input['WorkflowSourceReferencetype']]
-        """
-        The type of source reference, such as branch, tag, or commit.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the source reference, such as the branch name, tag name, or commit ID.
-        """
-elif False:
-    WorkflowSourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowSourceReferenceArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input['WorkflowSourceReferencetype']]
+    """
+    The type of source reference, such as branch, tag, or commit.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the source reference, such as the branch name, tag name, or commit ID.
+    """
 
 @pulumi.input_type
 class WorkflowSourceReferenceArgs:
@@ -797,18 +753,15 @@ class WorkflowSourceReferenceArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkflowVersionContainerRegistryMapArgsDict(TypedDict):
-        image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgsDict']]]]
-        """
-        Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
-        """
-        registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgsDict']]]]
-        """
-        Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
-        """
-elif False:
-    WorkflowVersionContainerRegistryMapArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionContainerRegistryMapArgsDict(TypedDict):
+    image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgsDict']]]]
+    """
+    Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+    """
+    registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgsDict']]]]
+    """
+    Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+    """
 
 @pulumi.input_type
 class WorkflowVersionContainerRegistryMapArgs:
@@ -849,26 +802,23 @@ class WorkflowVersionContainerRegistryMapArgs:
         pulumi.set(self, "registry_mappings", value)
 
 
-if not MYPY:
-    class WorkflowVersionDefinitionRepositoryArgsDict(TypedDict):
-        connection_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the connection to the source code repository.
-        """
-        exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of file patterns to exclude when retrieving the workflow definition from the repository.
-        """
-        full_repository_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
-        """
-        source_reference: NotRequired[pulumi.Input['WorkflowVersionSourceReferenceArgsDict']]
-        """
-        The source reference for the repository, such as a branch name, tag, or commit ID.
-        """
-elif False:
-    WorkflowVersionDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionDefinitionRepositoryArgsDict(TypedDict):
+    connection_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the connection to the source code repository.
+    """
+    exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of file patterns to exclude when retrieving the workflow definition from the repository.
+    """
+    full_repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+    """
+    source_reference: NotRequired[pulumi.Input['WorkflowVersionSourceReferenceArgsDict']]
+    """
+    The source reference for the repository, such as a branch name, tag, or commit ID.
+    """
 
 @pulumi.input_type
 class WorkflowVersionDefinitionRepositoryArgs:
@@ -941,18 +891,15 @@ class WorkflowVersionDefinitionRepositoryArgs:
         pulumi.set(self, "source_reference", value)
 
 
-if not MYPY:
-    class WorkflowVersionImageMappingArgsDict(TypedDict):
-        destination_image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the URI of the corresponding image in the private ECR registry.
-        """
-        source_image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the URI of the source image in the upstream registry.
-        """
-elif False:
-    WorkflowVersionImageMappingArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionImageMappingArgsDict(TypedDict):
+    destination_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the URI of the corresponding image in the private ECR registry.
+    """
+    source_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the URI of the source image in the upstream registry.
+    """
 
 @pulumi.input_type
 class WorkflowVersionImageMappingArgs:
@@ -993,26 +940,23 @@ class WorkflowVersionImageMappingArgs:
         pulumi.set(self, "source_image", value)
 
 
-if not MYPY:
-    class WorkflowVersionRegistryMappingArgsDict(TypedDict):
-        ecr_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account ID of the account that owns the upstream container image.
-        """
-        ecr_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository prefix to use in the ECR private repository.
-        """
-        upstream_registry_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the upstream registry.
-        """
-        upstream_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository prefix of the corresponding repository in the upstream registry.
-        """
-elif False:
-    WorkflowVersionRegistryMappingArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionRegistryMappingArgsDict(TypedDict):
+    ecr_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account ID of the account that owns the upstream container image.
+    """
+    ecr_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository prefix to use in the ECR private repository.
+    """
+    upstream_registry_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the upstream registry.
+    """
+    upstream_repository_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository prefix of the corresponding repository in the upstream registry.
+    """
 
 @pulumi.input_type
 class WorkflowVersionRegistryMappingArgs:
@@ -1085,18 +1029,15 @@ class WorkflowVersionRegistryMappingArgs:
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
-if not MYPY:
-    class WorkflowVersionSourceReferenceArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input['WorkflowVersionSourceReferencetype']]
-        """
-        The type of source reference, such as branch, tag, or commit.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the source reference, such as the branch name, tag name, or commit ID.
-        """
-elif False:
-    WorkflowVersionSourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionSourceReferenceArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input['WorkflowVersionSourceReferencetype']]
+    """
+    The type of source reference, such as branch, tag, or commit.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the source reference, such as the branch name, tag name, or commit ID.
+    """
 
 @pulumi.input_type
 class WorkflowVersionSourceReferenceArgs:
@@ -1137,18 +1078,15 @@ class WorkflowVersionSourceReferenceArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkflowVersionWorkflowParameterArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parameter's description.
-        """
-        optional: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the parameter is optional.
-        """
-elif False:
-    WorkflowVersionWorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionWorkflowParameterArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parameter's description.
+    """
+    optional: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the parameter is optional.
+    """
 
 @pulumi.input_type
 class WorkflowVersionWorkflowParameterArgs:

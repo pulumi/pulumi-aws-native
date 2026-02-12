@@ -21,37 +21,32 @@ __all__ = [
     'SuiteDefinitionDeviceUnderTestArgsDict',
 ]
 
-MYPY = False
+class SuiteDefinitionConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Gets the suite definition configuration.
+    """
+    device_permission_role_arn: pulumi.Input[_builtins.str]
+    """
+    Gets the device permission ARN. This is a required parameter.
+    """
+    root_group: pulumi.Input[_builtins.str]
+    """
+    Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
 
-if not MYPY:
-    class SuiteDefinitionConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Gets the suite definition configuration.
-        """
-        device_permission_role_arn: pulumi.Input[_builtins.str]
-        """
-        Gets the device permission ARN. This is a required parameter.
-        """
-        root_group: pulumi.Input[_builtins.str]
-        """
-        Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
-
-        For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
-        """
-        devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgsDict']]]]
-        """
-        Gets the devices configured.
-        """
-        intended_for_qualification: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Gets the tests intended for qualification in a suite.
-        """
-        suite_definition_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets the suite definition name. This is a required parameter.
-        """
-elif False:
-    SuiteDefinitionConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
+    """
+    devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgsDict']]]]
+    """
+    Gets the devices configured.
+    """
+    intended_for_qualification: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Gets the tests intended for qualification in a suite.
+    """
+    suite_definition_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets the suite definition name. This is a required parameter.
+    """
 
 @pulumi.input_type
 class SuiteDefinitionConfigurationPropertiesArgs:
@@ -143,12 +138,9 @@ class SuiteDefinitionConfigurationPropertiesArgs:
         pulumi.set(self, "suite_definition_name", value)
 
 
-if not MYPY:
-    class SuiteDefinitionDeviceUnderTestArgsDict(TypedDict):
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        thing_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SuiteDefinitionDeviceUnderTestArgsDict: TypeAlias = Mapping[str, Any]
+class SuiteDefinitionDeviceUnderTestArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    thing_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SuiteDefinitionDeviceUnderTestArgs:

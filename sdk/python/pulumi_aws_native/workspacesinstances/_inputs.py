@@ -66,38 +66,33 @@ __all__ = [
     'WorkspaceInstanceTagArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ManagedInstancePropertiesArgsDict(TypedDict):
-        image_id: pulumi.Input[_builtins.str]
-        instance_type: pulumi.Input[_builtins.str]
-        block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgsDict']]]]
-        capacity_reservation_specification: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgsDict']]
-        cpu_options: NotRequired[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgsDict']]
-        credit_specification: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgsDict']]
-        disable_api_stop: NotRequired[pulumi.Input[_builtins.bool]]
-        ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
-        enable_primary_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
-        enclave_options: NotRequired[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgsDict']]
-        hibernation_options: NotRequired[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgsDict']]
-        iam_instance_profile: NotRequired[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgsDict']]
-        instance_market_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgsDict']]
-        ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgsDict']]]]
-        maintenance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict']]
-        metadata_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict']]
-        monitoring: NotRequired[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict']]
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict']]]]
-        network_performance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict']]
-        placement: NotRequired[pulumi.Input['WorkspaceInstancePlacementArgsDict']]
-        private_dns_name_options: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict']]
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgsDict']]]]
-        user_data: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ManagedInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedInstancePropertiesArgsDict(TypedDict):
+    image_id: pulumi.Input[_builtins.str]
+    instance_type: pulumi.Input[_builtins.str]
+    block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgsDict']]]]
+    capacity_reservation_specification: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgsDict']]
+    cpu_options: NotRequired[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgsDict']]
+    credit_specification: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgsDict']]
+    disable_api_stop: NotRequired[pulumi.Input[_builtins.bool]]
+    ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_primary_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
+    enclave_options: NotRequired[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgsDict']]
+    hibernation_options: NotRequired[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgsDict']]
+    iam_instance_profile: NotRequired[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgsDict']]
+    instance_market_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgsDict']]
+    ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgsDict']]]]
+    maintenance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict']]
+    metadata_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict']]
+    monitoring: NotRequired[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict']]
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict']]]]
+    network_performance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict']]
+    placement: NotRequired[pulumi.Input['WorkspaceInstancePlacementArgsDict']]
+    private_dns_name_options: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict']]
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgsDict']]]]
+    user_data: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ManagedInstancePropertiesArgs:
@@ -414,15 +409,12 @@ class ManagedInstancePropertiesArgs:
         pulumi.set(self, "user_data", value)
 
 
-if not MYPY:
-    class VolumeTagSpecificationArgsDict(TypedDict):
-        resource_type: NotRequired[pulumi.Input['VolumeTagSpecificationResourceType']]
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgsDict']]]]
-        """
-        The tags to apply to the resource
-        """
-elif False:
-    VolumeTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeTagSpecificationArgsDict(TypedDict):
+    resource_type: NotRequired[pulumi.Input['VolumeTagSpecificationResourceType']]
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgsDict']]]]
+    """
+    The tags to apply to the resource
+    """
 
 @pulumi.input_type
 class VolumeTagSpecificationArgs:
@@ -459,18 +451,15 @@ class VolumeTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class VolumeTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag
-        """
-elif False:
-    VolumeTagArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag
+    """
 
 @pulumi.input_type
 class VolumeTagArgs:
@@ -509,14 +498,11 @@ class VolumeTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceBlockDeviceMappingArgsDict(TypedDict):
-        device_name: NotRequired[pulumi.Input[_builtins.str]]
-        ebs: NotRequired[pulumi.Input['WorkspaceInstanceEbsBlockDeviceArgsDict']]
-        no_device: NotRequired[pulumi.Input[_builtins.str]]
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceBlockDeviceMappingArgsDict(TypedDict):
+    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    ebs: NotRequired[pulumi.Input['WorkspaceInstanceEbsBlockDeviceArgsDict']]
+    no_device: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceBlockDeviceMappingArgs:
@@ -571,12 +557,9 @@ class WorkspaceInstanceBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceCapacityReservationSpecificationArgsDict(TypedDict):
-        capacity_reservation_preference: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]
-        capacity_reservation_target: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgsDict']]
-elif False:
-    WorkspaceInstanceCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceCapacityReservationSpecificationArgsDict(TypedDict):
+    capacity_reservation_preference: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]
+    capacity_reservation_target: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgsDict']]
 
 @pulumi.input_type
 class WorkspaceInstanceCapacityReservationSpecificationArgs:
@@ -607,12 +590,9 @@ class WorkspaceInstanceCapacityReservationSpecificationArgs:
         pulumi.set(self, "capacity_reservation_target", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceCapacityReservationTargetArgsDict(TypedDict):
-        capacity_reservation_id: NotRequired[pulumi.Input[_builtins.str]]
-        capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceCapacityReservationTargetArgsDict(TypedDict):
+    capacity_reservation_id: NotRequired[pulumi.Input[_builtins.str]]
+    capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceCapacityReservationTargetArgs:
@@ -643,12 +623,9 @@ class WorkspaceInstanceCapacityReservationTargetArgs:
         pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceCpuOptionsRequestArgsDict(TypedDict):
-        core_count: NotRequired[pulumi.Input[_builtins.int]]
-        threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    WorkspaceInstanceCpuOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceCpuOptionsRequestArgsDict(TypedDict):
+    core_count: NotRequired[pulumi.Input[_builtins.int]]
+    threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class WorkspaceInstanceCpuOptionsRequestArgs:
@@ -679,11 +656,8 @@ class WorkspaceInstanceCpuOptionsRequestArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceCreditSpecificationRequestArgsDict(TypedDict):
-        cpu_credits: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]
-elif False:
-    WorkspaceInstanceCreditSpecificationRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceCreditSpecificationRequestArgsDict(TypedDict):
+    cpu_credits: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestCpuCredits']]
 
 @pulumi.input_type
 class WorkspaceInstanceCreditSpecificationRequestArgs:
@@ -702,16 +676,13 @@ class WorkspaceInstanceCreditSpecificationRequestArgs:
         pulumi.set(self, "cpu_credits", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceEbsBlockDeviceArgsDict(TypedDict):
-        encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        throughput: NotRequired[pulumi.Input[_builtins.int]]
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        volume_type: NotRequired[pulumi.Input['WorkspaceInstanceEbsBlockDeviceVolumeType']]
-elif False:
-    WorkspaceInstanceEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceEbsBlockDeviceArgsDict(TypedDict):
+    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    volume_type: NotRequired[pulumi.Input['WorkspaceInstanceEbsBlockDeviceVolumeType']]
 
 @pulumi.input_type
 class WorkspaceInstanceEbsBlockDeviceArgs:
@@ -790,11 +761,8 @@ class WorkspaceInstanceEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceEnclaveOptionsRequestArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    WorkspaceInstanceEnclaveOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceEnclaveOptionsRequestArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class WorkspaceInstanceEnclaveOptionsRequestArgs:
@@ -813,11 +781,8 @@ class WorkspaceInstanceEnclaveOptionsRequestArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceHibernationOptionsRequestArgsDict(TypedDict):
-        configured: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    WorkspaceInstanceHibernationOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceHibernationOptionsRequestArgsDict(TypedDict):
+    configured: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class WorkspaceInstanceHibernationOptionsRequestArgs:
@@ -836,12 +801,9 @@ class WorkspaceInstanceHibernationOptionsRequestArgs:
         pulumi.set(self, "configured", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceIamInstanceProfileSpecificationArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceIamInstanceProfileSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceIamInstanceProfileSpecificationArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceIamInstanceProfileSpecificationArgs:
@@ -872,11 +834,8 @@ class WorkspaceInstanceIamInstanceProfileSpecificationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict(TypedDict):
-        auto_recovery: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]
-elif False:
-    WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict(TypedDict):
+    auto_recovery: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs:
@@ -895,12 +854,9 @@ class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs:
         pulumi.set(self, "auto_recovery", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceInstanceMarketOptionsRequestArgsDict(TypedDict):
-        market_type: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]
-        spot_options: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgsDict']]
-elif False:
-    WorkspaceInstanceInstanceMarketOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceInstanceMarketOptionsRequestArgsDict(TypedDict):
+    market_type: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]
+    spot_options: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgsDict']]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceMarketOptionsRequestArgs:
@@ -931,15 +887,12 @@ class WorkspaceInstanceInstanceMarketOptionsRequestArgs:
         pulumi.set(self, "spot_options", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict(TypedDict):
-        http_endpoint: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]
-        http_protocol_ipv6: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]
-        http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
-        http_tokens: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]
-        instance_metadata_tags: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]
-elif False:
-    WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict(TypedDict):
+    http_endpoint: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]
+    http_protocol_ipv6: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]
+    http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
+    http_tokens: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens']]
+    instance_metadata_tags: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestInstanceMetadataTags']]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceMetadataOptionsRequestArgs:
@@ -1006,14 +959,11 @@ class WorkspaceInstanceInstanceMetadataOptionsRequestArgs:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        device_index: NotRequired[pulumi.Input[_builtins.int]]
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    device_index: NotRequired[pulumi.Input[_builtins.int]]
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs:
@@ -1068,11 +1018,8 @@ class WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict(TypedDict):
-        bandwidth_weighting: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]
-elif False:
-    WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict(TypedDict):
+    bandwidth_weighting: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeighting']]
 
 @pulumi.input_type
 class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs:
@@ -1091,11 +1038,8 @@ class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs:
         pulumi.set(self, "bandwidth_weighting", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceLicenseConfigurationRequestArgsDict(TypedDict):
-        license_configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceLicenseConfigurationRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceLicenseConfigurationRequestArgsDict(TypedDict):
+    license_configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceLicenseConfigurationRequestArgs:
@@ -1114,15 +1058,12 @@ class WorkspaceInstanceLicenseConfigurationRequestArgs:
         pulumi.set(self, "license_configuration_arn", value)
 
 
-if not MYPY:
-    class WorkspaceInstancePlacementArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        partition_number: NotRequired[pulumi.Input[_builtins.int]]
-        tenancy: NotRequired[pulumi.Input['WorkspaceInstancePlacementTenancy']]
-elif False:
-    WorkspaceInstancePlacementArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstancePlacementArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    partition_number: NotRequired[pulumi.Input[_builtins.int]]
+    tenancy: NotRequired[pulumi.Input['WorkspaceInstancePlacementTenancy']]
 
 @pulumi.input_type
 class WorkspaceInstancePlacementArgs:
@@ -1189,13 +1130,10 @@ class WorkspaceInstancePlacementArgs:
         pulumi.set(self, "tenancy", value)
 
 
-if not MYPY:
-    class WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict(TypedDict):
-        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
-        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
-        hostname_type: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]
-elif False:
-    WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict(TypedDict):
+    enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
+    hostname_type: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType']]
 
 @pulumi.input_type
 class WorkspaceInstancePrivateDnsNameOptionsRequestArgs:
@@ -1238,11 +1176,8 @@ class WorkspaceInstancePrivateDnsNameOptionsRequestArgs:
         pulumi.set(self, "hostname_type", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class WorkspaceInstanceRunInstancesMonitoringEnabledArgs:
@@ -1261,14 +1196,11 @@ class WorkspaceInstanceRunInstancesMonitoringEnabledArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceSpotMarketOptionsArgsDict(TypedDict):
-        instance_interruption_behavior: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]
-        max_price: NotRequired[pulumi.Input[_builtins.str]]
-        spot_instance_type: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]
-        valid_until_utc: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceSpotMarketOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceSpotMarketOptionsArgsDict(TypedDict):
+    instance_interruption_behavior: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]
+    max_price: NotRequired[pulumi.Input[_builtins.str]]
+    spot_instance_type: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]
+    valid_until_utc: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceSpotMarketOptionsArgs:
@@ -1323,12 +1255,9 @@ class WorkspaceInstanceSpotMarketOptionsArgs:
         pulumi.set(self, "valid_until_utc", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceTagSpecificationArgsDict(TypedDict):
-        resource_type: NotRequired[pulumi.Input['WorkspaceInstanceTagSpecificationResourceType']]
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagArgsDict']]]]
-elif False:
-    WorkspaceInstanceTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceTagSpecificationArgsDict(TypedDict):
+    resource_type: NotRequired[pulumi.Input['WorkspaceInstanceTagSpecificationResourceType']]
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagArgsDict']]]]
 
 @pulumi.input_type
 class WorkspaceInstanceTagSpecificationArgs:
@@ -1359,12 +1288,9 @@ class WorkspaceInstanceTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class WorkspaceInstanceTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkspaceInstanceTagArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceInstanceTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceInstanceTagArgs:

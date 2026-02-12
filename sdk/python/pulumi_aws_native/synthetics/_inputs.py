@@ -40,16 +40,11 @@ __all__ = [
     'CanaryVpcConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CanaryArtifactConfigArgsDict(TypedDict):
-        s3_encryption: NotRequired[pulumi.Input['CanaryS3EncryptionArgsDict']]
-        """
-        Encryption configuration for uploading artifacts to S3
-        """
-elif False:
-    CanaryArtifactConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryArtifactConfigArgsDict(TypedDict):
+    s3_encryption: NotRequired[pulumi.Input['CanaryS3EncryptionArgsDict']]
+    """
+    Encryption configuration for uploading artifacts to S3
+    """
 
 @pulumi.input_type
 class CanaryArtifactConfigArgs:
@@ -74,18 +69,15 @@ class CanaryArtifactConfigArgs:
         pulumi.set(self, "s3_encryption", value)
 
 
-if not MYPY:
-    class CanaryBaseScreenshotArgsDict(TypedDict):
-        screenshot_name: pulumi.Input[_builtins.str]
-        """
-        Name of the screenshot to be used as base reference for visual testing
-        """
-        ignore_coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of coordinates of rectangles to be ignored during visual testing
-        """
-elif False:
-    CanaryBaseScreenshotArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryBaseScreenshotArgsDict(TypedDict):
+    screenshot_name: pulumi.Input[_builtins.str]
+    """
+    Name of the screenshot to be used as base reference for visual testing
+    """
+    ignore_coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of coordinates of rectangles to be ignored during visual testing
+    """
 
 @pulumi.input_type
 class CanaryBaseScreenshotArgs:
@@ -125,14 +117,11 @@ class CanaryBaseScreenshotArgs:
         pulumi.set(self, "ignore_coordinates", value)
 
 
-if not MYPY:
-    class CanaryBrowserConfigArgsDict(TypedDict):
-        browser_type: pulumi.Input['CanaryBrowserType']
-        """
-        The browser type associated with this browser configuration.
-        """
-elif False:
-    CanaryBrowserConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryBrowserConfigArgsDict(TypedDict):
+    browser_type: pulumi.Input['CanaryBrowserType']
+    """
+    The browser type associated with this browser configuration.
+    """
 
 @pulumi.input_type
 class CanaryBrowserConfigArgs:
@@ -156,46 +145,43 @@ class CanaryBrowserConfigArgs:
         pulumi.set(self, "browser_type", value)
 
 
-if not MYPY:
-    class CanaryCodeArgsDict(TypedDict):
-        blueprint_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+class CanaryCodeArgsDict(TypedDict):
+    blueprint_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
 
-        When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
-        """
-        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgsDict']]]]
-        """
-        List of Lambda layers to attach to the canary
-        """
-        handler: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+    When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+    """
+    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgsDict']]]]
+    """
+    List of Lambda layers to attach to the canary
+    """
+    handler: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 
-        This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
-        """
-        s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
-        """
-        s3_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
-        """
-        s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 version ID of your script.
-        """
-        script: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
-        """
-        source_location_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Lambda layer where Synthetics stores the canary script code.
-        """
-elif False:
-    CanaryCodeArgsDict: TypeAlias = Mapping[str, Any]
+    This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
+    """
+    s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
+    """
+    s3_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+    """
+    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 version ID of your script.
+    """
+    script: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
+    """
+    source_location_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Lambda layer where Synthetics stores the canary script code.
+    """
 
 @pulumi.input_type
 class CanaryCodeArgs:
@@ -340,18 +326,15 @@ class CanaryCodeArgs:
         pulumi.set(self, "source_location_arn", value)
 
 
-if not MYPY:
-    class CanaryDependencyArgsDict(TypedDict):
-        reference: pulumi.Input[_builtins.str]
-        """
-        ARN of the Lambda layer
-        """
-        type: NotRequired[pulumi.Input['CanaryDependencyType']]
-        """
-        Type of dependency
-        """
-elif False:
-    CanaryDependencyArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryDependencyArgsDict(TypedDict):
+    reference: pulumi.Input[_builtins.str]
+    """
+    ARN of the Lambda layer
+    """
+    type: NotRequired[pulumi.Input['CanaryDependencyType']]
+    """
+    Type of dependency
+    """
 
 @pulumi.input_type
 class CanaryDependencyArgs:
@@ -391,14 +374,11 @@ class CanaryDependencyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CanaryRetryConfigArgsDict(TypedDict):
-        max_retries: pulumi.Input[_builtins.int]
-        """
-        maximum times the canary will be retried upon the scheduled run failure
-        """
-elif False:
-    CanaryRetryConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryRetryConfigArgsDict(TypedDict):
+    max_retries: pulumi.Input[_builtins.int]
+    """
+    maximum times the canary will be retried upon the scheduled run failure
+    """
 
 @pulumi.input_type
 class CanaryRetryConfigArgs:
@@ -422,30 +402,27 @@ class CanaryRetryConfigArgs:
         pulumi.set(self, "max_retries", value)
 
 
-if not MYPY:
-    class CanaryRunConfigArgsDict(TypedDict):
-        active_tracing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable active tracing if set to true
-        """
-        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Environment variable key-value pairs.
-        """
-        ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Provide ephemeralStorage available for canary in MB
-        """
-        memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Provide maximum memory available for canary in MB
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Provide maximum canary timeout per run in seconds
-        """
-elif False:
-    CanaryRunConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryRunConfigArgsDict(TypedDict):
+    active_tracing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable active tracing if set to true
+    """
+    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Environment variable key-value pairs.
+    """
+    ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Provide ephemeralStorage available for canary in MB
+    """
+    memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Provide maximum memory available for canary in MB
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Provide maximum canary timeout per run in seconds
+    """
 
 @pulumi.input_type
 class CanaryRunConfigArgs:
@@ -534,18 +511,15 @@ class CanaryRunConfigArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-if not MYPY:
-    class CanaryS3EncryptionArgsDict(TypedDict):
-        encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
-        """
-elif False:
-    CanaryS3EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryS3EncryptionArgsDict(TypedDict):
+    encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+    """
 
 @pulumi.input_type
 class CanaryS3EncryptionArgs:
@@ -586,30 +560,27 @@ class CanaryS3EncryptionArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class CanaryScheduleArgsDict(TypedDict):
-        expression: pulumi.Input[_builtins.str]
-        """
-        A `rate` expression or a `cron` expression that defines how often the canary is to run.
+class CanaryScheduleArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    A `rate` expression or a `cron` expression that defines how often the canary is to run.
 
-        For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+    For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
 
-        For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+    For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
 
-        Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+    Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
 
-        Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
-        """
-        duration_in_seconds: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
-        """
-        retry_config: NotRequired[pulumi.Input['CanaryRetryConfigArgsDict']]
-        """
-        Provide canary auto retry configuration
-        """
-elif False:
-    CanaryScheduleArgsDict: TypeAlias = Mapping[str, Any]
+    Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+    """
+    duration_in_seconds: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
+    """
+    retry_config: NotRequired[pulumi.Input['CanaryRetryConfigArgsDict']]
+    """
+    Provide canary auto retry configuration
+    """
 
 @pulumi.input_type
 class CanaryScheduleArgs:
@@ -681,22 +652,19 @@ class CanaryScheduleArgs:
         pulumi.set(self, "retry_config", value)
 
 
-if not MYPY:
-    class CanaryVisualReferenceArgsDict(TypedDict):
-        base_canary_run_id: pulumi.Input[_builtins.str]
-        """
-        Canary run id to be used as base reference for visual testing
-        """
-        base_screenshots: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgsDict']]]]
-        """
-        List of screenshots used as base reference for visual testing
-        """
-        browser_type: NotRequired[pulumi.Input['CanaryBrowserType']]
-        """
-        The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
-        """
-elif False:
-    CanaryVisualReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryVisualReferenceArgsDict(TypedDict):
+    base_canary_run_id: pulumi.Input[_builtins.str]
+    """
+    Canary run id to be used as base reference for visual testing
+    """
+    base_screenshots: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgsDict']]]]
+    """
+    List of screenshots used as base reference for visual testing
+    """
+    browser_type: NotRequired[pulumi.Input['CanaryBrowserType']]
+    """
+    The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+    """
 
 @pulumi.input_type
 class CanaryVisualReferenceArgs:
@@ -752,26 +720,23 @@ class CanaryVisualReferenceArgs:
         pulumi.set(self, "browser_type", value)
 
 
-if not MYPY:
-    class CanaryVpcConfigArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The IDs of the security groups for this canary.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The IDs of the subnets where this canary is to run.
-        """
-        ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the VPC where this canary is to run.
-        """
-elif False:
-    CanaryVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryVpcConfigArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the security groups for this canary.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the subnets where this canary is to run.
+    """
+    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the VPC where this canary is to run.
+    """
 
 @pulumi.input_type
 class CanaryVpcConfigArgs:

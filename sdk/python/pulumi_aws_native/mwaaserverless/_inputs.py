@@ -26,14 +26,9 @@ __all__ = [
     'WorkflowS3LocationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class WorkflowEncryptionConfigurationArgsDict(TypedDict):
-        type: pulumi.Input['WorkflowEncryptionConfigurationType']
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkflowEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowEncryptionConfigurationArgsDict(TypedDict):
+    type: pulumi.Input['WorkflowEncryptionConfigurationType']
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkflowEncryptionConfigurationArgs:
@@ -63,11 +58,8 @@ class WorkflowEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class WorkflowLoggingConfigurationArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-elif False:
-    WorkflowLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowLoggingConfigurationArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class WorkflowLoggingConfigurationArgs:
@@ -85,12 +77,9 @@ class WorkflowLoggingConfigurationArgs:
         pulumi.set(self, "log_group_name", value)
 
 
-if not MYPY:
-    class WorkflowNetworkConfigurationArgsDict(TypedDict):
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    WorkflowNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowNetworkConfigurationArgsDict(TypedDict):
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class WorkflowNetworkConfigurationArgs:
@@ -121,13 +110,10 @@ class WorkflowNetworkConfigurationArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class WorkflowS3LocationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        object_key: pulumi.Input[_builtins.str]
-        version_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkflowS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowS3LocationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    object_key: pulumi.Input[_builtins.str]
+    version_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkflowS3LocationArgs:

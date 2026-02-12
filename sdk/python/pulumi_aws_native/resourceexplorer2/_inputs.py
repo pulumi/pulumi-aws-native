@@ -22,16 +22,11 @@ __all__ = [
     'ViewSearchFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ViewIncludedPropertyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the property that is included in this view.
-        """
-elif False:
-    ViewIncludedPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ViewIncludedPropertyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the property that is included in this view.
+    """
 
 @pulumi.input_type
 class ViewIncludedPropertyArgs:
@@ -55,18 +50,15 @@ class ViewIncludedPropertyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ViewSearchFilterArgsDict(TypedDict):
-        filter_string: pulumi.Input[_builtins.str]
-        """
-        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+class ViewSearchFilterArgsDict(TypedDict):
+    filter_string: pulumi.Input[_builtins.str]
+    """
+    The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
 
-        For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+    For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
 
-        > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
-        """
-elif False:
-    ViewSearchFilterArgsDict: TypeAlias = Mapping[str, Any]
+    > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+    """
 
 @pulumi.input_type
 class ViewSearchFilterArgs:

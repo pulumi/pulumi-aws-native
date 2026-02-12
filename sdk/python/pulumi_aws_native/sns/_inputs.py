@@ -22,32 +22,27 @@ __all__ = [
     'TopicSubscriptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class TopicLoggingConfigArgsDict(TypedDict):
-        """
-        The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
-        """
-        protocol: pulumi.Input['TopicLoggingConfigProtocol']
-        """
-        Indicates one of the supported protocols for the Amazon SNS topic.
-          At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
-        """
-        failure_feedback_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
-        """
-        success_feedback_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
-        """
-        success_feedback_sample_rate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
-        """
-elif False:
-    TopicLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TopicLoggingConfigArgsDict(TypedDict):
+    """
+    The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
+    """
+    protocol: pulumi.Input['TopicLoggingConfigProtocol']
+    """
+    Indicates one of the supported protocols for the Amazon SNS topic.
+      At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
+    """
+    failure_feedback_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
+    """
+    success_feedback_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
+    """
+    success_feedback_sample_rate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
+    """
 
 @pulumi.input_type
 class TopicLoggingConfigArgs:
@@ -122,22 +117,19 @@ class TopicLoggingConfigArgs:
         pulumi.set(self, "success_feedback_sample_rate", value)
 
 
-if not MYPY:
-    class TopicSubscriptionArgsDict(TypedDict):
-        """
-        ``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.
-          For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
-        """
-elif False:
-    TopicSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicSubscriptionArgsDict(TypedDict):
+    """
+    ``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.
+      For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
+    """
 
 @pulumi.input_type
 class TopicSubscriptionArgs:

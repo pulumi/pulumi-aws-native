@@ -42,23 +42,18 @@ __all__ = [
     'TableStorageClassConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class TableBucketEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Specifies encryption settings for the table bucket
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key to use for encryption
-        """
-        sse_algorithm: NotRequired[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']]
-        """
-        Server-side encryption algorithm
-        """
-elif False:
-    TableBucketEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Specifies encryption settings for the table bucket
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the KMS key to use for encryption
+    """
+    sse_algorithm: NotRequired[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']]
+    """
+    Server-side encryption algorithm
+    """
 
 @pulumi.input_type
 class TableBucketEncryptionConfigurationArgs:
@@ -100,17 +95,14 @@ class TableBucketEncryptionConfigurationArgs:
         pulumi.set(self, "sse_algorithm", value)
 
 
-if not MYPY:
-    class TableBucketMetricsConfigurationArgsDict(TypedDict):
-        """
-        Settings governing the Metric configuration for the table bucket.
-        """
-        status: NotRequired[pulumi.Input['TableBucketMetricsConfigurationStatus']]
-        """
-        Indicates whether Metrics are enabled.
-        """
-elif False:
-    TableBucketMetricsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketMetricsConfigurationArgsDict(TypedDict):
+    """
+    Settings governing the Metric configuration for the table bucket.
+    """
+    status: NotRequired[pulumi.Input['TableBucketMetricsConfigurationStatus']]
+    """
+    Indicates whether Metrics are enabled.
+    """
 
 @pulumi.input_type
 class TableBucketMetricsConfigurationArgs:
@@ -136,14 +128,11 @@ class TableBucketMetricsConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class TableBucketPolicyResourcePolicyArgsDict(TypedDict):
-        """
-        A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-        """
-        pass
-elif False:
-    TableBucketPolicyResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketPolicyResourcePolicyArgsDict(TypedDict):
+    """
+    A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+    """
+    pass
 
 @pulumi.input_type
 class TableBucketPolicyResourcePolicyArgs:
@@ -154,17 +143,14 @@ class TableBucketPolicyResourcePolicyArgs:
         pass
 
 
-if not MYPY:
-    class TableBucketStorageClassConfigurationArgsDict(TypedDict):
-        """
-        Specifies storage class settings for the table bucket
-        """
-        storage_class: NotRequired[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]
-        """
-        The storage class for the table bucket
-        """
-elif False:
-    TableBucketStorageClassConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketStorageClassConfigurationArgsDict(TypedDict):
+    """
+    Specifies storage class settings for the table bucket
+    """
+    storage_class: NotRequired[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]
+    """
+    The storage class for the table bucket
+    """
 
 @pulumi.input_type
 class TableBucketStorageClassConfigurationArgs:
@@ -190,25 +176,22 @@ class TableBucketStorageClassConfigurationArgs:
         pulumi.set(self, "storage_class", value)
 
 
-if not MYPY:
-    class TableBucketUnreferencedFileRemovalArgsDict(TypedDict):
-        """
-        Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
-        """
-        noncurrent_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        S3 permanently deletes noncurrent objects after the number of days specified by the NoncurrentDays property.
-        """
-        status: NotRequired[pulumi.Input['TableBucketUnreferencedFileRemovalStatus']]
-        """
-        Indicates whether the Unreferenced File Removal maintenance action is enabled.
-        """
-        unreferenced_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
-        """
-elif False:
-    TableBucketUnreferencedFileRemovalArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketUnreferencedFileRemovalArgsDict(TypedDict):
+    """
+    Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
+    """
+    noncurrent_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    S3 permanently deletes noncurrent objects after the number of days specified by the NoncurrentDays property.
+    """
+    status: NotRequired[pulumi.Input['TableBucketUnreferencedFileRemovalStatus']]
+    """
+    Indicates whether the Unreferenced File Removal maintenance action is enabled.
+    """
+    unreferenced_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
+    """
 
 @pulumi.input_type
 class TableBucketUnreferencedFileRemovalArgs:
@@ -266,21 +249,18 @@ class TableBucketUnreferencedFileRemovalArgs:
         pulumi.set(self, "unreferenced_days", value)
 
 
-if not MYPY:
-    class TableCompactionArgsDict(TypedDict):
-        """
-        Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
-        """
-        status: NotRequired[pulumi.Input['TableCompactionStatus']]
-        """
-        Indicates whether the Compaction maintenance action is enabled.
-        """
-        target_file_size_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The target file size for the table in MB.
-        """
-elif False:
-    TableCompactionArgsDict: TypeAlias = Mapping[str, Any]
+class TableCompactionArgsDict(TypedDict):
+    """
+    Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+    """
+    status: NotRequired[pulumi.Input['TableCompactionStatus']]
+    """
+    Indicates whether the Compaction maintenance action is enabled.
+    """
+    target_file_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The target file size for the table in MB.
+    """
 
 @pulumi.input_type
 class TableCompactionArgs:
@@ -322,17 +302,14 @@ class TableCompactionArgs:
         pulumi.set(self, "target_file_size_mb", value)
 
 
-if not MYPY:
-    class TableIcebergMetadataArgsDict(TypedDict):
-        """
-        Contains details about the metadata for an Iceberg table.
-        """
-        iceberg_schema: pulumi.Input['TableIcebergSchemaArgsDict']
-        """
-        The schema for an Iceberg table.
-        """
-elif False:
-    TableIcebergMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class TableIcebergMetadataArgsDict(TypedDict):
+    """
+    Contains details about the metadata for an Iceberg table.
+    """
+    iceberg_schema: pulumi.Input['TableIcebergSchemaArgsDict']
+    """
+    The schema for an Iceberg table.
+    """
 
 @pulumi.input_type
 class TableIcebergMetadataArgs:
@@ -357,17 +334,14 @@ class TableIcebergMetadataArgs:
         pulumi.set(self, "iceberg_schema", value)
 
 
-if not MYPY:
-    class TableIcebergSchemaArgsDict(TypedDict):
-        """
-        Contains details about the schema for an Iceberg table
-        """
-        schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgsDict']]]
-        """
-        The schema fields for the table
-        """
-elif False:
-    TableIcebergSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class TableIcebergSchemaArgsDict(TypedDict):
+    """
+    Contains details about the schema for an Iceberg table
+    """
+    schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgsDict']]]
+    """
+    The schema fields for the table
+    """
 
 @pulumi.input_type
 class TableIcebergSchemaArgs:
@@ -392,14 +366,11 @@ class TableIcebergSchemaArgs:
         pulumi.set(self, "schema_field_list", value)
 
 
-if not MYPY:
-    class TablePolicyResourcePolicyArgsDict(TypedDict):
-        """
-        A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-        """
-        pass
-elif False:
-    TablePolicyResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class TablePolicyResourcePolicyArgsDict(TypedDict):
+    """
+    A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+    """
+    pass
 
 @pulumi.input_type
 class TablePolicyResourcePolicyArgs:
@@ -410,25 +381,22 @@ class TablePolicyResourcePolicyArgs:
         pass
 
 
-if not MYPY:
-    class TableSchemaFieldArgsDict(TypedDict):
-        """
-        Contains details about the schema for an Iceberg table
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the field
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The field type
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean value that specifies whether values are required for each row in this field
-        """
-elif False:
-    TableSchemaFieldArgsDict: TypeAlias = Mapping[str, Any]
+class TableSchemaFieldArgsDict(TypedDict):
+    """
+    Contains details about the schema for an Iceberg table
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the field
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The field type
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean value that specifies whether values are required for each row in this field
+    """
 
 @pulumi.input_type
 class TableSchemaFieldArgs:
@@ -484,25 +452,22 @@ class TableSchemaFieldArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class TableSnapshotManagementArgsDict(TypedDict):
-        """
-        Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
-        """
-        max_snapshot_age_hours: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum age of a snapshot before it can be expired.
-        """
-        min_snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of snapshots to keep.
-        """
-        status: NotRequired[pulumi.Input['TableSnapshotManagementStatus']]
-        """
-        Indicates whether the SnapshotManagement maintenance action is enabled.
-        """
-elif False:
-    TableSnapshotManagementArgsDict: TypeAlias = Mapping[str, Any]
+class TableSnapshotManagementArgsDict(TypedDict):
+    """
+    Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+    """
+    max_snapshot_age_hours: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum age of a snapshot before it can be expired.
+    """
+    min_snapshots_to_keep: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of snapshots to keep.
+    """
+    status: NotRequired[pulumi.Input['TableSnapshotManagementStatus']]
+    """
+    Indicates whether the SnapshotManagement maintenance action is enabled.
+    """
 
 @pulumi.input_type
 class TableSnapshotManagementArgs:
@@ -560,17 +525,14 @@ class TableSnapshotManagementArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class TableStorageClassConfigurationArgsDict(TypedDict):
-        """
-        Specifies storage class settings for the table
-        """
-        storage_class: NotRequired[pulumi.Input['TableStorageClassConfigurationStorageClass']]
-        """
-        The storage class for the table
-        """
-elif False:
-    TableStorageClassConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableStorageClassConfigurationArgsDict(TypedDict):
+    """
+    Specifies storage class settings for the table
+    """
+    storage_class: NotRequired[pulumi.Input['TableStorageClassConfigurationStorageClass']]
+    """
+    The storage class for the table
+    """
 
 @pulumi.input_type
 class TableStorageClassConfigurationArgs:

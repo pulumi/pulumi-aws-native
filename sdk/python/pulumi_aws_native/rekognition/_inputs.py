@@ -35,31 +35,26 @@ __all__ = [
     'StreamProcessorS3DestinationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StreamProcessorBoundingBoxArgsDict(TypedDict):
-        """
-        A bounding box denoting a region of interest in the frame to be analyzed.
-        """
-        height: pulumi.Input[_builtins.float]
-        """
-        Height of the bounding box as a ratio of the overall image height.
-        """
-        left: pulumi.Input[_builtins.float]
-        """
-        Left coordinate of the bounding box as a ratio of overall image width.
-        """
-        top: pulumi.Input[_builtins.float]
-        """
-        Top coordinate of the bounding box as a ratio of overall image height.
-        """
-        width: pulumi.Input[_builtins.float]
-        """
-        Width of the bounding box as a ratio of the overall image width.
-        """
-elif False:
-    StreamProcessorBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorBoundingBoxArgsDict(TypedDict):
+    """
+    A bounding box denoting a region of interest in the frame to be analyzed.
+    """
+    height: pulumi.Input[_builtins.float]
+    """
+    Height of the bounding box as a ratio of the overall image height.
+    """
+    left: pulumi.Input[_builtins.float]
+    """
+    Left coordinate of the bounding box as a ratio of overall image width.
+    """
+    top: pulumi.Input[_builtins.float]
+    """
+    Top coordinate of the bounding box as a ratio of overall image height.
+    """
+    width: pulumi.Input[_builtins.float]
+    """
+    Width of the bounding box as a ratio of the overall image width.
+    """
 
 @pulumi.input_type
 class StreamProcessorBoundingBoxArgs:
@@ -129,21 +124,18 @@ class StreamProcessorBoundingBoxArgs:
         pulumi.set(self, "width", value)
 
 
-if not MYPY:
-    class StreamProcessorConnectedHomeSettingsArgsDict(TypedDict):
-        """
-        Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
-        """
-        labels: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
-        """
-        min_confidence: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum object class match confidence score that must be met to return a result for a recognized object.
-        """
-elif False:
-    StreamProcessorConnectedHomeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorConnectedHomeSettingsArgsDict(TypedDict):
+    """
+    Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
+    """
+    labels: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+    """
+    min_confidence: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum object class match confidence score that must be met to return a result for a recognized object.
+    """
 
 @pulumi.input_type
 class StreamProcessorConnectedHomeSettingsArgs:
@@ -184,17 +176,14 @@ class StreamProcessorConnectedHomeSettingsArgs:
         pulumi.set(self, "min_confidence", value)
 
 
-if not MYPY:
-    class StreamProcessorDataSharingPreferenceArgsDict(TypedDict):
-        """
-        Indicates whether Rekognition is allowed to store the video stream data for model-training.
-        """
-        opt_in: pulumi.Input[_builtins.bool]
-        """
-        Flag to enable data-sharing
-        """
-elif False:
-    StreamProcessorDataSharingPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorDataSharingPreferenceArgsDict(TypedDict):
+    """
+    Indicates whether Rekognition is allowed to store the video stream data for model-training.
+    """
+    opt_in: pulumi.Input[_builtins.bool]
+    """
+    Flag to enable data-sharing
+    """
 
 @pulumi.input_type
 class StreamProcessorDataSharingPreferenceArgs:
@@ -219,21 +208,18 @@ class StreamProcessorDataSharingPreferenceArgs:
         pulumi.set(self, "opt_in", value)
 
 
-if not MYPY:
-    class StreamProcessorFaceSearchSettingsArgsDict(TypedDict):
-        """
-        Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both
-        """
-        collection_id: pulumi.Input[_builtins.str]
-        """
-        The ID of a collection that contains faces that you want to search for.
-        """
-        face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
-        """
-elif False:
-    StreamProcessorFaceSearchSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorFaceSearchSettingsArgsDict(TypedDict):
+    """
+    Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both
+    """
+    collection_id: pulumi.Input[_builtins.str]
+    """
+    The ID of a collection that contains faces that you want to search for.
+    """
+    face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
+    """
 
 @pulumi.input_type
 class StreamProcessorFaceSearchSettingsArgs:
@@ -274,17 +260,14 @@ class StreamProcessorFaceSearchSettingsArgs:
         pulumi.set(self, "face_match_threshold", value)
 
 
-if not MYPY:
-    class StreamProcessorKinesisDataStreamArgsDict(TypedDict):
-        """
-        The Amazon Kinesis Data Stream stream to which the Amazon Rekognition stream processor streams the analysis results, as part of face search feature.
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Kinesis Data Stream stream.
-        """
-elif False:
-    StreamProcessorKinesisDataStreamArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorKinesisDataStreamArgsDict(TypedDict):
+    """
+    The Amazon Kinesis Data Stream stream to which the Amazon Rekognition stream processor streams the analysis results, as part of face search feature.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Kinesis Data Stream stream.
+    """
 
 @pulumi.input_type
 class StreamProcessorKinesisDataStreamArgs:
@@ -309,17 +292,14 @@ class StreamProcessorKinesisDataStreamArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StreamProcessorKinesisVideoStreamArgsDict(TypedDict):
-        """
-        The Kinesis Video Stream that streams the source video.
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Kinesis Video Stream that streams the source video.
-        """
-elif False:
-    StreamProcessorKinesisVideoStreamArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorKinesisVideoStreamArgsDict(TypedDict):
+    """
+    The Kinesis Video Stream that streams the source video.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Kinesis Video Stream that streams the source video.
+    """
 
 @pulumi.input_type
 class StreamProcessorKinesisVideoStreamArgs:
@@ -344,17 +324,14 @@ class StreamProcessorKinesisVideoStreamArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StreamProcessorNotificationChannelArgsDict(TypedDict):
-        """
-        The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the SNS topic.
-        """
-elif False:
-    StreamProcessorNotificationChannelArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorNotificationChannelArgsDict(TypedDict):
+    """
+    The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the SNS topic.
+    """
 
 @pulumi.input_type
 class StreamProcessorNotificationChannelArgs:
@@ -379,21 +356,18 @@ class StreamProcessorNotificationChannelArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StreamProcessorPointArgsDict(TypedDict):
-        """
-        An (X, Y) cartesian coordinate denoting a point on the frame
-        """
-        x: pulumi.Input[_builtins.float]
-        """
-        The X coordinate of the point.
-        """
-        y: pulumi.Input[_builtins.float]
-        """
-        The Y coordinate of the point.
-        """
-elif False:
-    StreamProcessorPointArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorPointArgsDict(TypedDict):
+    """
+    An (X, Y) cartesian coordinate denoting a point on the frame
+    """
+    x: pulumi.Input[_builtins.float]
+    """
+    The X coordinate of the point.
+    """
+    y: pulumi.Input[_builtins.float]
+    """
+    The Y coordinate of the point.
+    """
 
 @pulumi.input_type
 class StreamProcessorPointArgs:
@@ -433,21 +407,18 @@ class StreamProcessorPointArgs:
         pulumi.set(self, "y", value)
 
 
-if not MYPY:
-    class StreamProcessorS3DestinationArgsDict(TypedDict):
-        """
-        The S3 location in customer's account where inference output & artifacts are stored, as part of connected home feature.
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Name of the S3 bucket.
-        """
-        object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key prefix path where the results will be stored. Default is no prefix path
-        """
-elif False:
-    StreamProcessorS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorS3DestinationArgsDict(TypedDict):
+    """
+    The S3 location in customer's account where inference output & artifacts are stored, as part of connected home feature.
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Name of the S3 bucket.
+    """
+    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object key prefix path where the results will be stored. Default is no prefix path
+    """
 
 @pulumi.input_type
 class StreamProcessorS3DestinationArgs:

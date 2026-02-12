@@ -34,16 +34,11 @@ __all__ = [
     'EndpointFailedReasonArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessPointVpcConfigurationArgsDict(TypedDict):
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
-        """
-elif False:
-    AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointVpcConfigurationArgsDict(TypedDict):
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
+    """
 
 @pulumi.input_type
 class AccessPointVpcConfigurationArgs:
@@ -68,17 +63,14 @@ class AccessPointVpcConfigurationArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class BucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
-        """
-        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
-        """
-        days_after_initiation: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
-        """
-elif False:
-    BucketAbortIncompleteMultipartUploadArgsDict: TypeAlias = Mapping[str, Any]
+class BucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
+    """
+    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
+    """
+    days_after_initiation: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
+    """
 
 @pulumi.input_type
 class BucketAbortIncompleteMultipartUploadArgs:
@@ -103,18 +95,15 @@ class BucketAbortIncompleteMultipartUploadArgs:
         pulumi.set(self, "days_after_initiation", value)
 
 
-if not MYPY:
-    class BucketFilterAndOperatorPropertiesArgsDict(TypedDict):
-        tags: pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgsDict']]]
-        """
-        All of these tags must exist in the object's tag set in order for the rule to apply.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prefix identifies one or more objects to which the rule applies.
-        """
-elif False:
-    BucketFilterAndOperatorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BucketFilterAndOperatorPropertiesArgsDict(TypedDict):
+    tags: pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgsDict']]]
+    """
+    All of these tags must exist in the object's tag set in order for the rule to apply.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prefix identifies one or more objects to which the rule applies.
+    """
 
 @pulumi.input_type
 class BucketFilterAndOperatorPropertiesArgs:
@@ -154,15 +143,12 @@ class BucketFilterAndOperatorPropertiesArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class BucketFilterTagArgsDict(TypedDict):
-        """
-        Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
-        """
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BucketFilterTagArgsDict: TypeAlias = Mapping[str, Any]
+class BucketFilterTagArgsDict(TypedDict):
+    """
+    Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+    """
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BucketFilterTagArgs:
@@ -194,14 +180,11 @@ class BucketFilterTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BucketLifecycleConfigurationArgsDict(TypedDict):
-        rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgsDict']]]
-        """
-        A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
-        """
-elif False:
-    BucketLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLifecycleConfigurationArgsDict(TypedDict):
+    rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgsDict']]]
+    """
+    A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
+    """
 
 @pulumi.input_type
 class BucketLifecycleConfigurationArgs:
@@ -225,25 +208,22 @@ class BucketLifecycleConfigurationArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class BucketRuleFilterPropertiesArgsDict(TypedDict):
-        """
-        The container for the filter of the lifecycle rule.
-        """
-        and_operator: NotRequired[pulumi.Input['BucketFilterAndOperatorPropertiesArgsDict']]
-        """
-        The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object key prefix that identifies one or more objects to which this rule applies.
-        """
-        tag: NotRequired[pulumi.Input['BucketFilterTagArgsDict']]
-        """
-        Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
-        """
-elif False:
-    BucketRuleFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRuleFilterPropertiesArgsDict(TypedDict):
+    """
+    The container for the filter of the lifecycle rule.
+    """
+    and_operator: NotRequired[pulumi.Input['BucketFilterAndOperatorPropertiesArgsDict']]
+    """
+    The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object key prefix that identifies one or more objects to which this rule applies.
+    """
+    tag: NotRequired[pulumi.Input['BucketFilterTagArgsDict']]
+    """
+    Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+    """
 
 @pulumi.input_type
 class BucketRuleFilterPropertiesArgs:
@@ -301,37 +281,34 @@ class BucketRuleFilterPropertiesArgs:
         pulumi.set(self, "tag", value)
 
 
-if not MYPY:
-    class BucketRuleArgsDict(TypedDict):
-        """
-        Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
-        """
-        abort_incomplete_multipart_upload: NotRequired[pulumi.Input['BucketAbortIncompleteMultipartUploadArgsDict']]
-        """
-        Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
-        """
-        expiration_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
-        """
-        expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
-        """
-        filter: NotRequired[pulumi.Input['BucketRuleFilterPropertiesArgsDict']]
-        """
-        The container for the filter of the lifecycle rule.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
-        """
-        status: NotRequired[pulumi.Input['BucketRuleStatus']]
-        """
-        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
-        """
-elif False:
-    BucketRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketRuleArgsDict(TypedDict):
+    """
+    Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
+    """
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input['BucketAbortIncompleteMultipartUploadArgsDict']]
+    """
+    Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
+    """
+    expiration_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
+    """
+    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
+    """
+    filter: NotRequired[pulumi.Input['BucketRuleFilterPropertiesArgsDict']]
+    """
+    The container for the filter of the lifecycle rule.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
+    """
+    status: NotRequired[pulumi.Input['BucketRuleStatus']]
+    """
+    If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+    """
 
 @pulumi.input_type
 class BucketRuleArgs:
@@ -437,18 +414,15 @@ class BucketRuleArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class EndpointFailedReasonArgsDict(TypedDict):
-        error_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The failure code, if any, for a create or delete endpoint operation.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Additional error details describing the endpoint failure and recommended action.
-        """
-elif False:
-    EndpointFailedReasonArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointFailedReasonArgsDict(TypedDict):
+    error_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The failure code, if any, for a create or delete endpoint operation.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Additional error details describing the endpoint failure and recommended action.
+    """
 
 @pulumi.input_type
 class EndpointFailedReasonArgs:

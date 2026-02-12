@@ -26,31 +26,26 @@ __all__ = [
     'FhirDatastoreSseConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FhirDatastoreIdentityProviderConfigurationArgsDict(TypedDict):
-        """
-        The identity provider configuration for the datastore
-        """
-        authorization_strategy: pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy']
-        """
-        Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
-        """
-        fine_grained_authorization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to indicate if fine-grained authorization will be enabled for the datastore
-        """
-        idp_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
-        """
-        metadata: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JSON metadata elements for identity provider configuration.
-        """
-elif False:
-    FhirDatastoreIdentityProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirDatastoreIdentityProviderConfigurationArgsDict(TypedDict):
+    """
+    The identity provider configuration for the datastore
+    """
+    authorization_strategy: pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy']
+    """
+    Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+    """
+    fine_grained_authorization_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to indicate if fine-grained authorization will be enabled for the datastore
+    """
+    idp_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+    """
+    metadata: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JSON metadata elements for identity provider configuration.
+    """
 
 @pulumi.input_type
 class FhirDatastoreIdentityProviderConfigurationArgs:
@@ -123,21 +118,18 @@ class FhirDatastoreIdentityProviderConfigurationArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class FhirDatastoreKmsEncryptionConfigArgsDict(TypedDict):
-        """
-        The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
-        """
-        cmk_type: pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType']
-        """
-        The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
-        """
-elif False:
-    FhirDatastoreKmsEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FhirDatastoreKmsEncryptionConfigArgsDict(TypedDict):
+    """
+    The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
+    """
+    cmk_type: pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType']
+    """
+    The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+    """
 
 @pulumi.input_type
 class FhirDatastoreKmsEncryptionConfigArgs:
@@ -178,17 +170,14 @@ class FhirDatastoreKmsEncryptionConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class FhirDatastorePreloadDataConfigArgsDict(TypedDict):
-        """
-        The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
-        """
-        preload_data_type: pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']
-        """
-        The type of preloaded data. Only Synthea preloaded data is supported.
-        """
-elif False:
-    FhirDatastorePreloadDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FhirDatastorePreloadDataConfigArgsDict(TypedDict):
+    """
+    The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
+    """
+    preload_data_type: pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']
+    """
+    The type of preloaded data. Only Synthea preloaded data is supported.
+    """
 
 @pulumi.input_type
 class FhirDatastorePreloadDataConfigArgs:
@@ -213,17 +202,14 @@ class FhirDatastorePreloadDataConfigArgs:
         pulumi.set(self, "preload_data_type", value)
 
 
-if not MYPY:
-    class FhirDatastoreSseConfigurationArgsDict(TypedDict):
-        """
-        The server-side encryption key configuration for a customer provided encryption key.
-        """
-        kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgsDict']
-        """
-        The server-side encryption key configuration for a customer provided encryption key.
-        """
-elif False:
-    FhirDatastoreSseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirDatastoreSseConfigurationArgsDict(TypedDict):
+    """
+    The server-side encryption key configuration for a customer provided encryption key.
+    """
+    kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgsDict']
+    """
+    The server-side encryption key configuration for a customer provided encryption key.
+    """
 
 @pulumi.input_type
 class FhirDatastoreSseConfigurationArgs:

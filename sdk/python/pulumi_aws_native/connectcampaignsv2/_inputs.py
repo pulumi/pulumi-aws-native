@@ -84,16 +84,11 @@ __all__ = [
     'CampaignWhatsAppOutboundModeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CampaignAgentlessConfigArgsDict(TypedDict):
-        """
-        Agentless config
-        """
-        pass
-elif False:
-    CampaignAgentlessConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignAgentlessConfigArgsDict(TypedDict):
+    """
+    Agentless config
+    """
+    pass
 
 @pulumi.input_type
 class CampaignAgentlessConfigArgs:
@@ -104,21 +99,18 @@ class CampaignAgentlessConfigArgs:
         pass
 
 
-if not MYPY:
-    class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
-        """
-        The configuration used for answering machine detection during outbound calls
-        """
-        enable_answer_machine_detection: pulumi.Input[_builtins.bool]
-        """
-        Flag to decided whether outbound calls should have answering machine detection enabled or not
-        """
-        await_answer_machine_prompt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables detection of prompts (e.g., beep after after a voicemail greeting)
-        """
-elif False:
-    CampaignAnswerMachineDetectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
+    """
+    The configuration used for answering machine detection during outbound calls
+    """
+    enable_answer_machine_detection: pulumi.Input[_builtins.bool]
+    """
+    Flag to decided whether outbound calls should have answering machine detection enabled or not
+    """
+    await_answer_machine_prompt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables detection of prompts (e.g., beep after after a voicemail greeting)
+    """
 
 @pulumi.input_type
 class CampaignAnswerMachineDetectionConfigArgs:
@@ -159,29 +151,26 @@ class CampaignAnswerMachineDetectionConfigArgs:
         pulumi.set(self, "await_answer_machine_prompt", value)
 
 
-if not MYPY:
-    class CampaignChannelSubtypeConfigArgsDict(TypedDict):
-        """
-        The possible types of channel subtype config parameters
-        """
-        email: NotRequired[pulumi.Input['CampaignEmailChannelSubtypeConfigArgsDict']]
-        """
-        The configuration of the email channel subtype.
-        """
-        sms: NotRequired[pulumi.Input['CampaignSmsChannelSubtypeConfigArgsDict']]
-        """
-        The configuration of the SMS channel subtype.
-        """
-        telephony: NotRequired[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgsDict']]
-        """
-        The configuration of the telephony channel subtype.
-        """
-        whats_app: NotRequired[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgsDict']]
-        """
-        The configuration of the WhatsApp channel subtype.
-        """
-elif False:
-    CampaignChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignChannelSubtypeConfigArgsDict(TypedDict):
+    """
+    The possible types of channel subtype config parameters
+    """
+    email: NotRequired[pulumi.Input['CampaignEmailChannelSubtypeConfigArgsDict']]
+    """
+    The configuration of the email channel subtype.
+    """
+    sms: NotRequired[pulumi.Input['CampaignSmsChannelSubtypeConfigArgsDict']]
+    """
+    The configuration of the SMS channel subtype.
+    """
+    telephony: NotRequired[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgsDict']]
+    """
+    The configuration of the telephony channel subtype.
+    """
+    whats_app: NotRequired[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgsDict']]
+    """
+    The configuration of the WhatsApp channel subtype.
+    """
 
 @pulumi.input_type
 class CampaignChannelSubtypeConfigArgs:
@@ -255,21 +244,18 @@ class CampaignChannelSubtypeConfigArgs:
         pulumi.set(self, "whats_app", value)
 
 
-if not MYPY:
-    class CampaignCommunicationLimitsConfigArgsDict(TypedDict):
-        """
-        Communication limits config
-        """
-        all_channels_subtypes: NotRequired[pulumi.Input['CampaignCommunicationLimitsArgsDict']]
-        """
-        The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
-        """
-        instance_limits_handling: NotRequired[pulumi.Input['CampaignInstanceLimitsHandling']]
-        """
-        Opt-in or Opt-out from instance-level limits.
-        """
-elif False:
-    CampaignCommunicationLimitsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignCommunicationLimitsConfigArgsDict(TypedDict):
+    """
+    Communication limits config
+    """
+    all_channels_subtypes: NotRequired[pulumi.Input['CampaignCommunicationLimitsArgsDict']]
+    """
+    The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
+    """
+    instance_limits_handling: NotRequired[pulumi.Input['CampaignInstanceLimitsHandling']]
+    """
+    Opt-in or Opt-out from instance-level limits.
+    """
 
 @pulumi.input_type
 class CampaignCommunicationLimitsConfigArgs:
@@ -311,17 +297,14 @@ class CampaignCommunicationLimitsConfigArgs:
         pulumi.set(self, "instance_limits_handling", value)
 
 
-if not MYPY:
-    class CampaignCommunicationLimitsArgsDict(TypedDict):
-        """
-        Communication limits
-        """
-        communication_limit_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgsDict']]]]
-        """
-        The list of CommunicationLimits.
-        """
-elif False:
-    CampaignCommunicationLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignCommunicationLimitsArgsDict(TypedDict):
+    """
+    Communication limits
+    """
+    communication_limit_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgsDict']]]]
+    """
+    The list of CommunicationLimits.
+    """
 
 @pulumi.input_type
 class CampaignCommunicationLimitsArgs:
@@ -347,16 +330,13 @@ class CampaignCommunicationLimitsArgs:
         pulumi.set(self, "communication_limit_list", value)
 
 
-if not MYPY:
-    class CampaignCommunicationLimitArgsDict(TypedDict):
-        """
-        Communication Limit
-        """
-        frequency: pulumi.Input[_builtins.int]
-        max_count_per_recipient: pulumi.Input[_builtins.int]
-        unit: pulumi.Input['CampaignCommunicationLimitTimeUnit']
-elif False:
-    CampaignCommunicationLimitArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignCommunicationLimitArgsDict(TypedDict):
+    """
+    Communication Limit
+    """
+    frequency: pulumi.Input[_builtins.int]
+    max_count_per_recipient: pulumi.Input[_builtins.int]
+    unit: pulumi.Input['CampaignCommunicationLimitTimeUnit']
 
 @pulumi.input_type
 class CampaignCommunicationLimitArgs:
@@ -399,33 +379,30 @@ class CampaignCommunicationLimitArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class CampaignCommunicationTimeConfigArgsDict(TypedDict):
-        """
-        Campaign communication time config
-        """
-        local_time_zone_config: pulumi.Input['CampaignLocalTimeZoneConfigArgsDict']
-        """
-        The local timezone configuration.
-        """
-        email: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
-        """
-        The communication time configuration for the email channel subtype.
-        """
-        sms: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
-        """
-        The communication time configuration for the SMS channel subtype.
-        """
-        telephony: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
-        """
-        The communication time configuration for the telephony channel subtype.
-        """
-        whats_app: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
-        """
-        The communication time configuration for the WhatsApp channel subtype.
-        """
-elif False:
-    CampaignCommunicationTimeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignCommunicationTimeConfigArgsDict(TypedDict):
+    """
+    Campaign communication time config
+    """
+    local_time_zone_config: pulumi.Input['CampaignLocalTimeZoneConfigArgsDict']
+    """
+    The local timezone configuration.
+    """
+    email: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    """
+    The communication time configuration for the email channel subtype.
+    """
+    sms: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    """
+    The communication time configuration for the SMS channel subtype.
+    """
+    telephony: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    """
+    The communication time configuration for the telephony channel subtype.
+    """
+    whats_app: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+    """
+    The communication time configuration for the WhatsApp channel subtype.
+    """
 
 @pulumi.input_type
 class CampaignCommunicationTimeConfigArgs:
@@ -514,15 +491,12 @@ class CampaignCommunicationTimeConfigArgs:
         pulumi.set(self, "whats_app", value)
 
 
-if not MYPY:
-    class CampaignDailyHourArgsDict(TypedDict):
-        """
-        Daily Hour
-        """
-        key: NotRequired[pulumi.Input['CampaignDayOfWeek']]
-        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignTimeRangeArgsDict']]]]
-elif False:
-    CampaignDailyHourArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignDailyHourArgsDict(TypedDict):
+    """
+    Daily Hour
+    """
+    key: NotRequired[pulumi.Input['CampaignDayOfWeek']]
+    value: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignTimeRangeArgsDict']]]]
 
 @pulumi.input_type
 class CampaignDailyHourArgs:
@@ -556,25 +530,22 @@ class CampaignDailyHourArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CampaignEmailChannelSubtypeConfigArgsDict(TypedDict):
-        """
-        Email Channel Subtype config
-        """
-        default_outbound_config: pulumi.Input['CampaignEmailOutboundConfigArgsDict']
-        """
-        The default email outbound configuration of an outbound campaign.
-        """
-        outbound_mode: pulumi.Input['CampaignEmailOutboundModeArgsDict']
-        """
-        The outbound mode for email of an outbound campaign.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The allocation of email capacity between multiple running outbound campaigns.
-        """
-elif False:
-    CampaignEmailChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignEmailChannelSubtypeConfigArgsDict(TypedDict):
+    """
+    Email Channel Subtype config
+    """
+    default_outbound_config: pulumi.Input['CampaignEmailOutboundConfigArgsDict']
+    """
+    The default email outbound configuration of an outbound campaign.
+    """
+    outbound_mode: pulumi.Input['CampaignEmailOutboundModeArgsDict']
+    """
+    The outbound mode for email of an outbound campaign.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The allocation of email capacity between multiple running outbound campaigns.
+    """
 
 @pulumi.input_type
 class CampaignEmailChannelSubtypeConfigArgs:
@@ -630,25 +601,22 @@ class CampaignEmailChannelSubtypeConfigArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class CampaignEmailOutboundConfigArgsDict(TypedDict):
-        """
-        Default Email outbound config
-        """
-        connect_source_email_address: pulumi.Input[_builtins.str]
-        """
-        The Amazon Connect source email address.
-        """
-        wisdom_template_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
-        """
-        source_email_address_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name for the Amazon Connect source email address.
-        """
-elif False:
-    CampaignEmailOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignEmailOutboundConfigArgsDict(TypedDict):
+    """
+    Default Email outbound config
+    """
+    connect_source_email_address: pulumi.Input[_builtins.str]
+    """
+    The Amazon Connect source email address.
+    """
+    wisdom_template_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+    """
+    source_email_address_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name for the Amazon Connect source email address.
+    """
 
 @pulumi.input_type
 class CampaignEmailOutboundConfigArgs:
@@ -704,17 +672,14 @@ class CampaignEmailOutboundConfigArgs:
         pulumi.set(self, "source_email_address_display_name", value)
 
 
-if not MYPY:
-    class CampaignEmailOutboundModeArgsDict(TypedDict):
-        """
-        Email Outbound Mode
-        """
-        agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
-        """
-        The agentless outbound mode configuration for email.
-        """
-elif False:
-    CampaignEmailOutboundModeArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignEmailOutboundModeArgsDict(TypedDict):
+    """
+    Email Outbound Mode
+    """
+    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    """
+    The agentless outbound mode configuration for email.
+    """
 
 @pulumi.input_type
 class CampaignEmailOutboundModeArgs:
@@ -740,17 +705,14 @@ class CampaignEmailOutboundModeArgs:
         pulumi.set(self, "agentless_config", value)
 
 
-if not MYPY:
-    class CampaignEventTriggerArgsDict(TypedDict):
-        """
-        The event trigger of the campaign
-        """
-        customer_profiles_domain_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the Customer Profiles domain.
-        """
-elif False:
-    CampaignEventTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignEventTriggerArgsDict(TypedDict):
+    """
+    The event trigger of the campaign
+    """
+    customer_profiles_domain_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the Customer Profiles domain.
+    """
 
 @pulumi.input_type
 class CampaignEventTriggerArgs:
@@ -776,21 +738,18 @@ class CampaignEventTriggerArgs:
         pulumi.set(self, "customer_profiles_domain_arn", value)
 
 
-if not MYPY:
-    class CampaignLocalTimeZoneConfigArgsDict(TypedDict):
-        """
-        Local time zone config
-        """
-        default_time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timezone to use for all recipients.
-        """
-        local_time_zone_detection: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]
-        """
-        Detects methods for the recipient's timezone.
-        """
-elif False:
-    CampaignLocalTimeZoneConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignLocalTimeZoneConfigArgsDict(TypedDict):
+    """
+    Local time zone config
+    """
+    default_time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timezone to use for all recipients.
+    """
+    local_time_zone_detection: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]
+    """
+    Detects methods for the recipient's timezone.
+    """
 
 @pulumi.input_type
 class CampaignLocalTimeZoneConfigArgs:
@@ -832,17 +791,14 @@ class CampaignLocalTimeZoneConfigArgs:
         pulumi.set(self, "local_time_zone_detection", value)
 
 
-if not MYPY:
-    class CampaignOpenHoursArgsDict(TypedDict):
-        """
-        Open Hours config
-        """
-        daily_hours: pulumi.Input[Sequence[pulumi.Input['CampaignDailyHourArgsDict']]]
-        """
-        The daily hours configuration.
-        """
-elif False:
-    CampaignOpenHoursArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignOpenHoursArgsDict(TypedDict):
+    """
+    Open Hours config
+    """
+    daily_hours: pulumi.Input[Sequence[pulumi.Input['CampaignDailyHourArgsDict']]]
+    """
+    The daily hours configuration.
+    """
 
 @pulumi.input_type
 class CampaignOpenHoursArgs:
@@ -867,17 +823,14 @@ class CampaignOpenHoursArgs:
         pulumi.set(self, "daily_hours", value)
 
 
-if not MYPY:
-    class CampaignPredictiveConfigArgsDict(TypedDict):
-        """
-        Predictive config
-        """
-        bandwidth_allocation: pulumi.Input[_builtins.float]
-        """
-        Bandwidth allocation for the predictive outbound mode.
-        """
-elif False:
-    CampaignPredictiveConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignPredictiveConfigArgsDict(TypedDict):
+    """
+    Predictive config
+    """
+    bandwidth_allocation: pulumi.Input[_builtins.float]
+    """
+    Bandwidth allocation for the predictive outbound mode.
+    """
 
 @pulumi.input_type
 class CampaignPredictiveConfigArgs:
@@ -902,25 +855,22 @@ class CampaignPredictiveConfigArgs:
         pulumi.set(self, "bandwidth_allocation", value)
 
 
-if not MYPY:
-    class CampaignPreviewConfigArgsDict(TypedDict):
-        """
-        Preview config
-        """
-        bandwidth_allocation: pulumi.Input[_builtins.float]
-        """
-        Bandwidth allocation for the preview outbound mode.
-        """
-        timeout_config: pulumi.Input['CampaignTimeoutConfigArgsDict']
-        """
-        Countdown timer configuration for preview outbound mode.
-        """
-        agent_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]
-        """
-        Agent actions for the preview outbound mode.
-        """
-elif False:
-    CampaignPreviewConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignPreviewConfigArgsDict(TypedDict):
+    """
+    Preview config
+    """
+    bandwidth_allocation: pulumi.Input[_builtins.float]
+    """
+    Bandwidth allocation for the preview outbound mode.
+    """
+    timeout_config: pulumi.Input['CampaignTimeoutConfigArgsDict']
+    """
+    Countdown timer configuration for preview outbound mode.
+    """
+    agent_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]
+    """
+    Agent actions for the preview outbound mode.
+    """
 
 @pulumi.input_type
 class CampaignPreviewConfigArgs:
@@ -976,17 +926,14 @@ class CampaignPreviewConfigArgs:
         pulumi.set(self, "agent_actions", value)
 
 
-if not MYPY:
-    class CampaignProgressiveConfigArgsDict(TypedDict):
-        """
-        Progressive config
-        """
-        bandwidth_allocation: pulumi.Input[_builtins.float]
-        """
-        Bandwidth allocation for the progressive outbound mode.
-        """
-elif False:
-    CampaignProgressiveConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignProgressiveConfigArgsDict(TypedDict):
+    """
+    Progressive config
+    """
+    bandwidth_allocation: pulumi.Input[_builtins.float]
+    """
+    Bandwidth allocation for the progressive outbound mode.
+    """
 
 @pulumi.input_type
 class CampaignProgressiveConfigArgs:
@@ -1011,17 +958,14 @@ class CampaignProgressiveConfigArgs:
         pulumi.set(self, "bandwidth_allocation", value)
 
 
-if not MYPY:
-    class CampaignRestrictedPeriodsArgsDict(TypedDict):
-        """
-        Restricted period config
-        """
-        restricted_period_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgsDict']]]]
-        """
-        The restricted period list.
-        """
-elif False:
-    CampaignRestrictedPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignRestrictedPeriodsArgsDict(TypedDict):
+    """
+    Restricted period config
+    """
+    restricted_period_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgsDict']]]]
+    """
+    The restricted period list.
+    """
 
 @pulumi.input_type
 class CampaignRestrictedPeriodsArgs:
@@ -1047,19 +991,16 @@ class CampaignRestrictedPeriodsArgs:
         pulumi.set(self, "restricted_period_list", value)
 
 
-if not MYPY:
-    class CampaignRestrictedPeriodArgsDict(TypedDict):
-        """
-        Restricted period
-        """
-        end_date: pulumi.Input[_builtins.str]
-        start_date: pulumi.Input[_builtins.str]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a restricted period
-        """
-elif False:
-    CampaignRestrictedPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignRestrictedPeriodArgsDict(TypedDict):
+    """
+    Restricted period
+    """
+    end_date: pulumi.Input[_builtins.str]
+    start_date: pulumi.Input[_builtins.str]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a restricted period
+    """
 
 @pulumi.input_type
 class CampaignRestrictedPeriodArgs:
@@ -1107,25 +1048,22 @@ class CampaignRestrictedPeriodArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CampaignScheduleArgsDict(TypedDict):
-        """
-        Campaign schedule
-        """
-        end_time: pulumi.Input[_builtins.str]
-        """
-        The end time of the schedule in UTC.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        The start time of the schedule in UTC.
-        """
-        refresh_frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The refresh frequency of the campaign.
-        """
-elif False:
-    CampaignScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignScheduleArgsDict(TypedDict):
+    """
+    Campaign schedule
+    """
+    end_time: pulumi.Input[_builtins.str]
+    """
+    The end time of the schedule in UTC.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    The start time of the schedule in UTC.
+    """
+    refresh_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The refresh frequency of the campaign.
+    """
 
 @pulumi.input_type
 class CampaignScheduleArgs:
@@ -1181,25 +1119,22 @@ class CampaignScheduleArgs:
         pulumi.set(self, "refresh_frequency", value)
 
 
-if not MYPY:
-    class CampaignSmsChannelSubtypeConfigArgsDict(TypedDict):
-        """
-        SMS Channel Subtype config
-        """
-        default_outbound_config: pulumi.Input['CampaignSmsOutboundConfigArgsDict']
-        """
-        The default SMS outbound configuration of an outbound campaign.
-        """
-        outbound_mode: pulumi.Input['CampaignSmsOutboundModeArgsDict']
-        """
-        The outbound mode of SMS for an outbound campaign.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The allocation of SMS capacity between multiple running outbound campaigns.
-        """
-elif False:
-    CampaignSmsChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignSmsChannelSubtypeConfigArgsDict(TypedDict):
+    """
+    SMS Channel Subtype config
+    """
+    default_outbound_config: pulumi.Input['CampaignSmsOutboundConfigArgsDict']
+    """
+    The default SMS outbound configuration of an outbound campaign.
+    """
+    outbound_mode: pulumi.Input['CampaignSmsOutboundModeArgsDict']
+    """
+    The outbound mode of SMS for an outbound campaign.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The allocation of SMS capacity between multiple running outbound campaigns.
+    """
 
 @pulumi.input_type
 class CampaignSmsChannelSubtypeConfigArgs:
@@ -1255,21 +1190,18 @@ class CampaignSmsChannelSubtypeConfigArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class CampaignSmsOutboundConfigArgsDict(TypedDict):
-        """
-        Default SMS outbound config
-        """
-        connect_source_phone_number_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
-        """
-        wisdom_template_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
-        """
-elif False:
-    CampaignSmsOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignSmsOutboundConfigArgsDict(TypedDict):
+    """
+    Default SMS outbound config
+    """
+    connect_source_phone_number_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
+    """
+    wisdom_template_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+    """
 
 @pulumi.input_type
 class CampaignSmsOutboundConfigArgs:
@@ -1309,17 +1241,14 @@ class CampaignSmsOutboundConfigArgs:
         pulumi.set(self, "wisdom_template_arn", value)
 
 
-if not MYPY:
-    class CampaignSmsOutboundModeArgsDict(TypedDict):
-        """
-        SMS Outbound Mode
-        """
-        agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
-        """
-        Contains agentless outbound mode configuration.
-        """
-elif False:
-    CampaignSmsOutboundModeArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignSmsOutboundModeArgsDict(TypedDict):
+    """
+    SMS Outbound Mode
+    """
+    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    """
+    Contains agentless outbound mode configuration.
+    """
 
 @pulumi.input_type
 class CampaignSmsOutboundModeArgs:
@@ -1345,21 +1274,18 @@ class CampaignSmsOutboundModeArgs:
         pulumi.set(self, "agentless_config", value)
 
 
-if not MYPY:
-    class CampaignSourceArgsDict(TypedDict):
-        """
-        The possible source of the campaign
-        """
-        customer_profiles_segment_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the Customer Profiles segment.
-        """
-        event_trigger: NotRequired[pulumi.Input['CampaignEventTriggerArgsDict']]
-        """
-        The event trigger of the campaign.
-        """
-elif False:
-    CampaignSourceArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignSourceArgsDict(TypedDict):
+    """
+    The possible source of the campaign
+    """
+    customer_profiles_segment_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the Customer Profiles segment.
+    """
+    event_trigger: NotRequired[pulumi.Input['CampaignEventTriggerArgsDict']]
+    """
+    The event trigger of the campaign.
+    """
 
 @pulumi.input_type
 class CampaignSourceArgs:
@@ -1401,29 +1327,26 @@ class CampaignSourceArgs:
         pulumi.set(self, "event_trigger", value)
 
 
-if not MYPY:
-    class CampaignTelephonyChannelSubtypeConfigArgsDict(TypedDict):
-        """
-        Telephony Channel Subtype config
-        """
-        default_outbound_config: pulumi.Input['CampaignTelephonyOutboundConfigArgsDict']
-        """
-        The default telephony outbound configuration of an outbound campaign.
-        """
-        outbound_mode: pulumi.Input['CampaignTelephonyOutboundModeArgsDict']
-        """
-        The outbound mode of telephony for an outbound campaign.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The allocation of telephony capacity between multiple running outbound campaigns.
-        """
-        connect_queue_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
-        """
-elif False:
-    CampaignTelephonyChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignTelephonyChannelSubtypeConfigArgsDict(TypedDict):
+    """
+    Telephony Channel Subtype config
+    """
+    default_outbound_config: pulumi.Input['CampaignTelephonyOutboundConfigArgsDict']
+    """
+    The default telephony outbound configuration of an outbound campaign.
+    """
+    outbound_mode: pulumi.Input['CampaignTelephonyOutboundModeArgsDict']
+    """
+    The outbound mode of telephony for an outbound campaign.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The allocation of telephony capacity between multiple running outbound campaigns.
+    """
+    connect_queue_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
+    """
 
 @pulumi.input_type
 class CampaignTelephonyChannelSubtypeConfigArgs:
@@ -1495,29 +1418,26 @@ class CampaignTelephonyChannelSubtypeConfigArgs:
         pulumi.set(self, "connect_queue_id", value)
 
 
-if not MYPY:
-    class CampaignTelephonyOutboundConfigArgsDict(TypedDict):
-        """
-        Default Telephone Outbound config
-        """
-        connect_contact_flow_id: pulumi.Input[_builtins.str]
-        """
-        The identifier of the published Amazon Connect contact flow.
-        """
-        answer_machine_detection_config: NotRequired[pulumi.Input['CampaignAnswerMachineDetectionConfigArgsDict']]
-        """
-        The answering machine detection configuration.
-        """
-        connect_source_phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Connect source phone number.
-        """
-        ring_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
-        """
-elif False:
-    CampaignTelephonyOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignTelephonyOutboundConfigArgsDict(TypedDict):
+    """
+    Default Telephone Outbound config
+    """
+    connect_contact_flow_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the published Amazon Connect contact flow.
+    """
+    answer_machine_detection_config: NotRequired[pulumi.Input['CampaignAnswerMachineDetectionConfigArgsDict']]
+    """
+    The answering machine detection configuration.
+    """
+    connect_source_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Connect source phone number.
+    """
+    ring_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+    """
 
 @pulumi.input_type
 class CampaignTelephonyOutboundConfigArgs:
@@ -1590,29 +1510,26 @@ class CampaignTelephonyOutboundConfigArgs:
         pulumi.set(self, "ring_timeout", value)
 
 
-if not MYPY:
-    class CampaignTelephonyOutboundModeArgsDict(TypedDict):
-        """
-        Telephony Outbound Mode
-        """
-        agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
-        """
-        The agentless outbound mode configuration for telephony.
-        """
-        predictive_config: NotRequired[pulumi.Input['CampaignPredictiveConfigArgsDict']]
-        """
-        Contains predictive outbound mode configuration.
-        """
-        preview_config: NotRequired[pulumi.Input['CampaignPreviewConfigArgsDict']]
-        """
-        Contains preview outbound mode configuration.
-        """
-        progressive_config: NotRequired[pulumi.Input['CampaignProgressiveConfigArgsDict']]
-        """
-        Contains progressive telephony outbound mode configuration.
-        """
-elif False:
-    CampaignTelephonyOutboundModeArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignTelephonyOutboundModeArgsDict(TypedDict):
+    """
+    Telephony Outbound Mode
+    """
+    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+    """
+    The agentless outbound mode configuration for telephony.
+    """
+    predictive_config: NotRequired[pulumi.Input['CampaignPredictiveConfigArgsDict']]
+    """
+    Contains predictive outbound mode configuration.
+    """
+    preview_config: NotRequired[pulumi.Input['CampaignPreviewConfigArgsDict']]
+    """
+    Contains preview outbound mode configuration.
+    """
+    progressive_config: NotRequired[pulumi.Input['CampaignProgressiveConfigArgsDict']]
+    """
+    Contains progressive telephony outbound mode configuration.
+    """
 
 @pulumi.input_type
 class CampaignTelephonyOutboundModeArgs:
@@ -1686,15 +1603,12 @@ class CampaignTelephonyOutboundModeArgs:
         pulumi.set(self, "progressive_config", value)
 
 
-if not MYPY:
-    class CampaignTimeRangeArgsDict(TypedDict):
-        """
-        Time range in 24 hour format
-        """
-        end_time: pulumi.Input[_builtins.str]
-        start_time: pulumi.Input[_builtins.str]
-elif False:
-    CampaignTimeRangeArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignTimeRangeArgsDict(TypedDict):
+    """
+    Time range in 24 hour format
+    """
+    end_time: pulumi.Input[_builtins.str]
+    start_time: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class CampaignTimeRangeArgs:
@@ -1726,21 +1640,18 @@ class CampaignTimeRangeArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class CampaignTimeWindowArgsDict(TypedDict):
-        """
-        Time window config
-        """
-        open_hours: pulumi.Input['CampaignOpenHoursArgsDict']
-        """
-        The open hours configuration.
-        """
-        restricted_periods: NotRequired[pulumi.Input['CampaignRestrictedPeriodsArgsDict']]
-        """
-        The restricted periods configuration.
-        """
-elif False:
-    CampaignTimeWindowArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignTimeWindowArgsDict(TypedDict):
+    """
+    Time window config
+    """
+    open_hours: pulumi.Input['CampaignOpenHoursArgsDict']
+    """
+    The open hours configuration.
+    """
+    restricted_periods: NotRequired[pulumi.Input['CampaignRestrictedPeriodsArgsDict']]
+    """
+    The restricted periods configuration.
+    """
 
 @pulumi.input_type
 class CampaignTimeWindowArgs:
@@ -1781,17 +1692,14 @@ class CampaignTimeWindowArgs:
         pulumi.set(self, "restricted_periods", value)
 
 
-if not MYPY:
-    class CampaignTimeoutConfigArgsDict(TypedDict):
-        """
-        Timeout Config for preview contacts
-        """
-        duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration in seconds for the countdown timer.
-        """
-elif False:
-    CampaignTimeoutConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignTimeoutConfigArgsDict(TypedDict):
+    """
+    Timeout Config for preview contacts
+    """
+    duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration in seconds for the countdown timer.
+    """
 
 @pulumi.input_type
 class CampaignTimeoutConfigArgs:
@@ -1817,25 +1725,22 @@ class CampaignTimeoutConfigArgs:
         pulumi.set(self, "duration_in_seconds", value)
 
 
-if not MYPY:
-    class CampaignWhatsAppChannelSubtypeConfigArgsDict(TypedDict):
-        """
-        WhatsApp Channel Subtype config
-        """
-        default_outbound_config: pulumi.Input['CampaignWhatsAppOutboundConfigArgsDict']
-        """
-        The default WhatsApp outbound configuration of an outbound campaign.
-        """
-        outbound_mode: pulumi.Input['CampaignWhatsAppOutboundModeArgsDict']
-        """
-        The outbound mode for WhatsApp of an outbound campaign.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The allocation of WhatsApp capacity between multiple running outbound campaigns.
-        """
-elif False:
-    CampaignWhatsAppChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignWhatsAppChannelSubtypeConfigArgsDict(TypedDict):
+    """
+    WhatsApp Channel Subtype config
+    """
+    default_outbound_config: pulumi.Input['CampaignWhatsAppOutboundConfigArgsDict']
+    """
+    The default WhatsApp outbound configuration of an outbound campaign.
+    """
+    outbound_mode: pulumi.Input['CampaignWhatsAppOutboundModeArgsDict']
+    """
+    The outbound mode for WhatsApp of an outbound campaign.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The allocation of WhatsApp capacity between multiple running outbound campaigns.
+    """
 
 @pulumi.input_type
 class CampaignWhatsAppChannelSubtypeConfigArgs:
@@ -1891,21 +1796,18 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class CampaignWhatsAppOutboundConfigArgsDict(TypedDict):
-        """
-        Default WhatsApp outbound config
-        """
-        connect_source_phone_number_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
-        """
-        wisdom_template_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
-        """
-elif False:
-    CampaignWhatsAppOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignWhatsAppOutboundConfigArgsDict(TypedDict):
+    """
+    Default WhatsApp outbound config
+    """
+    connect_source_phone_number_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
+    """
+    wisdom_template_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+    """
 
 @pulumi.input_type
 class CampaignWhatsAppOutboundConfigArgs:
@@ -1945,14 +1847,11 @@ class CampaignWhatsAppOutboundConfigArgs:
         pulumi.set(self, "wisdom_template_arn", value)
 
 
-if not MYPY:
-    class CampaignWhatsAppOutboundModeArgsDict(TypedDict):
-        """
-        WhatsApp Outbound Mode
-        """
-        agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
-elif False:
-    CampaignWhatsAppOutboundModeArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignWhatsAppOutboundModeArgsDict(TypedDict):
+    """
+    WhatsApp Outbound Mode
+    """
+    agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
 
 @pulumi.input_type
 class CampaignWhatsAppOutboundModeArgs:

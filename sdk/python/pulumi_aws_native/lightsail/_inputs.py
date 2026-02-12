@@ -64,23 +64,18 @@ __all__ = [
     'InstanceStateArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BucketAccessRulesArgsDict(TypedDict):
-        """
-        An object that sets the public accessibility of objects in the specified bucket.
-        """
-        allow_public_overrides: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
-        """
-        get_object: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the anonymous access to all objects in a bucket.
-        """
-elif False:
-    BucketAccessRulesArgsDict: TypeAlias = Mapping[str, Any]
+class BucketAccessRulesArgsDict(TypedDict):
+    """
+    An object that sets the public accessibility of objects in the specified bucket.
+    """
+    allow_public_overrides: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
+    """
+    get_object: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the anonymous access to all objects in a bucket.
+    """
 
 @pulumi.input_type
 class BucketAccessRulesArgs:
@@ -122,18 +117,15 @@ class BucketAccessRulesArgs:
         pulumi.set(self, "get_object", value)
 
 
-if not MYPY:
-    class ContainerEnvironmentVariableArgsDict(TypedDict):
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The environment variable value.
-        """
-        variable: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The environment variable key.
-        """
-elif False:
-    ContainerEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerEnvironmentVariableArgsDict(TypedDict):
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The environment variable value.
+    """
+    variable: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The environment variable key.
+    """
 
 @pulumi.input_type
 class ContainerEnvironmentVariableArgs:
@@ -174,37 +166,34 @@ class ContainerEnvironmentVariableArgs:
         pulumi.set(self, "variable", value)
 
 
-if not MYPY:
-    class ContainerHealthCheckConfigArgsDict(TypedDict):
-        """
-        Describes the health check configuration of an Amazon Lightsail container service.
-        """
-        healthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path on the container on which to perform the health check. The default value is /.
-        """
-        success_codes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
-        """
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
-        """
-        unhealthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
-        """
-elif False:
-    ContainerHealthCheckConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerHealthCheckConfigArgsDict(TypedDict):
+    """
+    Describes the health check configuration of an Amazon Lightsail container service.
+    """
+    healthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path on the container on which to perform the health check. The default value is /.
+    """
+    success_codes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
+    """
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
+    """
+    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
+    """
 
 @pulumi.input_type
 class ContainerHealthCheckConfigArgs:
@@ -310,20 +299,17 @@ class ContainerHealthCheckConfigArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
-if not MYPY:
-    class ContainerPortInfoArgsDict(TypedDict):
-        port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The open firewall ports of the container.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The protocol name for the open ports.
+class ContainerPortInfoArgsDict(TypedDict):
+    port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The open firewall ports of the container.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The protocol name for the open ports.
 
-        *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
-        """
-elif False:
-    ContainerPortInfoArgsDict: TypeAlias = Mapping[str, Any]
+    *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+    """
 
 @pulumi.input_type
 class ContainerPortInfoArgs:
@@ -368,21 +354,18 @@ class ContainerPortInfoArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict(TypedDict):
-        """
-        An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean value that indicates whether to activate the role.
-        """
-        principal_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the role, if it is activated.
-        """
-elif False:
-    ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict(TypedDict):
+    """
+    An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean value that indicates whether to activate the role.
+    """
+    principal_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the role, if it is activated.
+    """
 
 @pulumi.input_type
 class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs:
@@ -424,17 +407,14 @@ class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs:
         pulumi.set(self, "principal_arn", value)
 
 
-if not MYPY:
-    class ContainerPrivateRegistryAccessArgsDict(TypedDict):
-        """
-        An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
-        """
-        ecr_image_puller_role: NotRequired[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict']]
-        """
-        An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
-        """
-elif False:
-    ContainerPrivateRegistryAccessArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerPrivateRegistryAccessArgsDict(TypedDict):
+    """
+    An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+    """
+    ecr_image_puller_role: NotRequired[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict']]
+    """
+    An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+    """
 
 @pulumi.input_type
 class ContainerPrivateRegistryAccessArgs:
@@ -460,21 +440,18 @@ class ContainerPrivateRegistryAccessArgs:
         pulumi.set(self, "ecr_image_puller_role", value)
 
 
-if not MYPY:
-    class ContainerPublicDomainNameArgsDict(TypedDict):
-        """
-        The public domain name to use with the container service, such as example.com and www.example.com.
-        """
-        certificate_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the certificate for the public domains.
-        """
-        domain_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An object that describes the configuration for the containers of the deployment.
-        """
-elif False:
-    ContainerPublicDomainNameArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerPublicDomainNameArgsDict(TypedDict):
+    """
+    The public domain name to use with the container service, such as example.com and www.example.com.
+    """
+    certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the certificate for the public domains.
+    """
+    domain_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An object that describes the configuration for the containers of the deployment.
+    """
 
 @pulumi.input_type
 class ContainerPublicDomainNameArgs:
@@ -516,25 +493,22 @@ class ContainerPublicDomainNameArgs:
         pulumi.set(self, "domain_names", value)
 
 
-if not MYPY:
-    class ContainerPublicEndpointArgsDict(TypedDict):
-        """
-        Describes the settings of a public endpoint for an Amazon Lightsail container service.
-        """
-        container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the container for the endpoint.
-        """
-        container_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port of the container to which traffic is forwarded to.
-        """
-        health_check_config: NotRequired[pulumi.Input['ContainerHealthCheckConfigArgsDict']]
-        """
-        An object that describes the health check configuration of the container.
-        """
-elif False:
-    ContainerPublicEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerPublicEndpointArgsDict(TypedDict):
+    """
+    Describes the settings of a public endpoint for an Amazon Lightsail container service.
+    """
+    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the container for the endpoint.
+    """
+    container_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port of the container to which traffic is forwarded to.
+    """
+    health_check_config: NotRequired[pulumi.Input['ContainerHealthCheckConfigArgsDict']]
+    """
+    An object that describes the health check configuration of the container.
+    """
 
 @pulumi.input_type
 class ContainerPublicEndpointArgs:
@@ -592,21 +566,18 @@ class ContainerPublicEndpointArgs:
         pulumi.set(self, "health_check_config", value)
 
 
-if not MYPY:
-    class ContainerServiceDeploymentArgsDict(TypedDict):
-        """
-        Describes a container deployment configuration of an Amazon Lightsail container service.
-        """
-        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerArgsDict']]]]
-        """
-        An object that describes the configuration for the containers of the deployment.
-        """
-        public_endpoint: NotRequired[pulumi.Input['ContainerPublicEndpointArgsDict']]
-        """
-        An object that describes the endpoint of the deployment.
-        """
-elif False:
-    ContainerServiceDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerServiceDeploymentArgsDict(TypedDict):
+    """
+    Describes a container deployment configuration of an Amazon Lightsail container service.
+    """
+    containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerArgsDict']]]]
+    """
+    An object that describes the configuration for the containers of the deployment.
+    """
+    public_endpoint: NotRequired[pulumi.Input['ContainerPublicEndpointArgsDict']]
+    """
+    An object that describes the endpoint of the deployment.
+    """
 
 @pulumi.input_type
 class ContainerServiceDeploymentArgs:
@@ -648,33 +619,30 @@ class ContainerServiceDeploymentArgs:
         pulumi.set(self, "public_endpoint", value)
 
 
-if not MYPY:
-    class ContainerArgsDict(TypedDict):
-        """
-        Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The launch command for the container.
-        """
-        container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the container.
-        """
-        environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgsDict']]]]
-        """
-        The environment variables of the container.
-        """
-        image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the image used for the container.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgsDict']]]]
-        """
-        The open firewall ports of the container.
-        """
-elif False:
-    ContainerArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerArgsDict(TypedDict):
+    """
+    Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The launch command for the container.
+    """
+    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the container.
+    """
+    environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgsDict']]]]
+    """
+    The environment variables of the container.
+    """
+    image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the image used for the container.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgsDict']]]]
+    """
+    The open firewall ports of the container.
+    """
 
 @pulumi.input_type
 class ContainerArgs:
@@ -764,45 +732,42 @@ class ContainerArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class DatabaseRelationalDatabaseParameterArgsDict(TypedDict):
-        """
-        Describes the parameters of the database.
-        """
-        allowed_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the valid range of values for the parameter.
-        """
-        apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates when parameter updates are applied. Can be immediate or pending-reboot.
-        """
-        apply_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the engine-specific parameter type.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the valid data type for the parameter.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides a description of the parameter.
-        """
-        is_modifiable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean value indicating whether the parameter can be modified.
-        """
-        parameter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the parameter.
-        """
-        parameter_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value of the parameter.
-        """
-elif False:
-    DatabaseRelationalDatabaseParameterArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseRelationalDatabaseParameterArgsDict(TypedDict):
+    """
+    Describes the parameters of the database.
+    """
+    allowed_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the valid range of values for the parameter.
+    """
+    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+    """
+    apply_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the engine-specific parameter type.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the valid data type for the parameter.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides a description of the parameter.
+    """
+    is_modifiable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean value indicating whether the parameter can be modified.
+    """
+    parameter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the parameter.
+    """
+    parameter_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value of the parameter.
+    """
 
 @pulumi.input_type
 class DatabaseRelationalDatabaseParameterArgs:
@@ -940,25 +905,22 @@ class DatabaseRelationalDatabaseParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class DiskAddOnArgsDict(TypedDict):
-        """
-        A addon associate with a resource.
-        """
-        add_on_type: pulumi.Input[_builtins.str]
-        """
-        The add-on type
-        """
-        auto_snapshot_add_on_request: NotRequired[pulumi.Input['DiskAutoSnapshotAddOnArgsDict']]
-        """
-        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
-        """
-        status: NotRequired[pulumi.Input['DiskAddOnStatus']]
-        """
-        Status of the Addon
-        """
-elif False:
-    DiskAddOnArgsDict: TypeAlias = Mapping[str, Any]
+class DiskAddOnArgsDict(TypedDict):
+    """
+    A addon associate with a resource.
+    """
+    add_on_type: pulumi.Input[_builtins.str]
+    """
+    The add-on type
+    """
+    auto_snapshot_add_on_request: NotRequired[pulumi.Input['DiskAutoSnapshotAddOnArgsDict']]
+    """
+    The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
+    """
+    status: NotRequired[pulumi.Input['DiskAddOnStatus']]
+    """
+    Status of the Addon
+    """
 
 @pulumi.input_type
 class DiskAddOnArgs:
@@ -1015,17 +977,14 @@ class DiskAddOnArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class DiskAutoSnapshotAddOnArgsDict(TypedDict):
-        """
-        An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
-        """
-        snapshot_time_of_day: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The daily time when an automatic snapshot will be created.
-        """
-elif False:
-    DiskAutoSnapshotAddOnArgsDict: TypeAlias = Mapping[str, Any]
+class DiskAutoSnapshotAddOnArgsDict(TypedDict):
+    """
+    An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+    """
+    snapshot_time_of_day: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The daily time when an automatic snapshot will be created.
+    """
 
 @pulumi.input_type
 class DiskAutoSnapshotAddOnArgs:
@@ -1051,21 +1010,18 @@ class DiskAutoSnapshotAddOnArgs:
         pulumi.set(self, "snapshot_time_of_day", value)
 
 
-if not MYPY:
-    class DiskLocationArgsDict(TypedDict):
-        """
-        Location of a resource.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-        """
-        region_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Region Name in which to create your disk.
-        """
-elif False:
-    DiskLocationArgsDict: TypeAlias = Mapping[str, Any]
+class DiskLocationArgsDict(TypedDict):
+    """
+    Location of a resource.
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+    """
+    region_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Region Name in which to create your disk.
+    """
 
 @pulumi.input_type
 class DiskLocationArgs:
@@ -1107,25 +1063,22 @@ class DiskLocationArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class InstanceAddOnArgsDict(TypedDict):
-        """
-        A addon associate with a resource.
-        """
-        add_on_type: pulumi.Input[_builtins.str]
-        """
-        The add-on type
-        """
-        auto_snapshot_add_on_request: NotRequired[pulumi.Input['InstanceAutoSnapshotAddOnArgsDict']]
-        """
-        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
-        """
-        status: NotRequired[pulumi.Input['InstanceAddOnStatus']]
-        """
-        Status of the Addon
-        """
-elif False:
-    InstanceAddOnArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceAddOnArgsDict(TypedDict):
+    """
+    A addon associate with a resource.
+    """
+    add_on_type: pulumi.Input[_builtins.str]
+    """
+    The add-on type
+    """
+    auto_snapshot_add_on_request: NotRequired[pulumi.Input['InstanceAutoSnapshotAddOnArgsDict']]
+    """
+    The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
+    """
+    status: NotRequired[pulumi.Input['InstanceAddOnStatus']]
+    """
+    Status of the Addon
+    """
 
 @pulumi.input_type
 class InstanceAddOnArgs:
@@ -1182,17 +1135,14 @@ class InstanceAddOnArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class InstanceAutoSnapshotAddOnArgsDict(TypedDict):
-        """
-        An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
-        """
-        snapshot_time_of_day: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The daily time when an automatic snapshot will be created.
-        """
-elif False:
-    InstanceAutoSnapshotAddOnArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceAutoSnapshotAddOnArgsDict(TypedDict):
+    """
+    An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+    """
+    snapshot_time_of_day: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The daily time when an automatic snapshot will be created.
+    """
 
 @pulumi.input_type
 class InstanceAutoSnapshotAddOnArgs:
@@ -1218,41 +1168,38 @@ class InstanceAutoSnapshotAddOnArgs:
         pulumi.set(self, "snapshot_time_of_day", value)
 
 
-if not MYPY:
-    class InstanceDiskArgsDict(TypedDict):
-        """
-        Disk associated with the Instance.
-        """
-        disk_name: pulumi.Input[_builtins.str]
-        """
-        The names to use for your new Lightsail disk.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        Path of the disk attached to the instance.
-        """
-        attached_to: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instance attached to the disk.
-        """
-        attachment_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Attachment state of the disk.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        IOPS of disk.
-        """
-        is_system_disk: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the Attached disk is the system disk of the Instance.
-        """
-        size_in_gb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Size of the disk attached to the Instance.
-        """
-elif False:
-    InstanceDiskArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceDiskArgsDict(TypedDict):
+    """
+    Disk associated with the Instance.
+    """
+    disk_name: pulumi.Input[_builtins.str]
+    """
+    The names to use for your new Lightsail disk.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    Path of the disk attached to the instance.
+    """
+    attached_to: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instance attached to the disk.
+    """
+    attachment_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Attachment state of the disk.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    IOPS of disk.
+    """
+    is_system_disk: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the Attached disk is the system disk of the Instance.
+    """
+    size_in_gb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Size of the disk attached to the Instance.
+    """
 
 @pulumi.input_type
 class InstanceDiskArgs:
@@ -1372,25 +1319,22 @@ class InstanceDiskArgs:
         pulumi.set(self, "size_in_gb", value)
 
 
-if not MYPY:
-    class InstanceHardwareArgsDict(TypedDict):
-        """
-        Hardware of the Instance.
-        """
-        cpu_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        CPU count of the Instance.
-        """
-        disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgsDict']]]]
-        """
-        Disks attached to the Instance.
-        """
-        ram_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        RAM Size of the Instance.
-        """
-elif False:
-    InstanceHardwareArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceHardwareArgsDict(TypedDict):
+    """
+    Hardware of the Instance.
+    """
+    cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    CPU count of the Instance.
+    """
+    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgsDict']]]]
+    """
+    Disks attached to the Instance.
+    """
+    ram_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    RAM Size of the Instance.
+    """
 
 @pulumi.input_type
 class InstanceHardwareArgs:
@@ -1448,21 +1392,18 @@ class InstanceHardwareArgs:
         pulumi.set(self, "ram_size_in_gb", value)
 
 
-if not MYPY:
-    class InstanceLocationArgsDict(TypedDict):
-        """
-        Location of a resource.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-        """
-        region_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Region Name in which to create your instance.
-        """
-elif False:
-    InstanceLocationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLocationArgsDict(TypedDict):
+    """
+    Location of a resource.
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+    """
+    region_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Region Name in which to create your instance.
+    """
 
 @pulumi.input_type
 class InstanceLocationArgs:
@@ -1504,17 +1445,14 @@ class InstanceLocationArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class InstanceMonthlyTransferArgsDict(TypedDict):
-        """
-        Monthly Transfer of the Instance.
-        """
-        gb_per_month_allocated: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GbPerMonthAllocated of the Instance.
-        """
-elif False:
-    InstanceMonthlyTransferArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceMonthlyTransferArgsDict(TypedDict):
+    """
+    Monthly Transfer of the Instance.
+    """
+    gb_per_month_allocated: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GbPerMonthAllocated of the Instance.
+    """
 
 @pulumi.input_type
 class InstanceMonthlyTransferArgs:
@@ -1540,21 +1478,18 @@ class InstanceMonthlyTransferArgs:
         pulumi.set(self, "gb_per_month_allocated", value)
 
 
-if not MYPY:
-    class InstanceNetworkingArgsDict(TypedDict):
-        """
-        Networking of the Instance.
-        """
-        ports: pulumi.Input[Sequence[pulumi.Input['InstancePortArgsDict']]]
-        """
-        Ports to the Instance.
-        """
-        monthly_transfer: NotRequired[pulumi.Input['InstanceMonthlyTransferArgsDict']]
-        """
-        The monthly amount of data transfer, in GB, allocated for the instance
-        """
-elif False:
-    InstanceNetworkingArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceNetworkingArgsDict(TypedDict):
+    """
+    Networking of the Instance.
+    """
+    ports: pulumi.Input[Sequence[pulumi.Input['InstancePortArgsDict']]]
+    """
+    Ports to the Instance.
+    """
+    monthly_transfer: NotRequired[pulumi.Input['InstanceMonthlyTransferArgsDict']]
+    """
+    The monthly amount of data transfer, in GB, allocated for the instance
+    """
 
 @pulumi.input_type
 class InstanceNetworkingArgs:
@@ -1595,64 +1530,61 @@ class InstanceNetworkingArgs:
         pulumi.set(self, "monthly_transfer", value)
 
 
-if not MYPY:
-    class InstancePortArgsDict(TypedDict):
-        """
-        Port of the Instance.
-        """
-        access_direction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Access Direction for Protocol of the Instance(inbound/outbound).
-        """
-        access_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Access From Protocol of the Instance.
-        """
-        access_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Access Type Protocol of the Instance.
-        """
-        cidr_list_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An alias that defines access for a preconfigured range of IP addresses.
+class InstancePortArgsDict(TypedDict):
+    """
+    Port of the Instance.
+    """
+    access_direction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access Direction for Protocol of the Instance(inbound/outbound).
+    """
+    access_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access From Protocol of the Instance.
+    """
+    access_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access Type Protocol of the Instance.
+    """
+    cidr_list_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An alias that defines access for a preconfigured range of IP addresses.
 
-        The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
-        """
-        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+    The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
+    """
+    cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 
-        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+    > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
 
-        Examples:
+    Examples:
 
-        - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
-        - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
-        """
-        common_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CommonName for Protocol of the Instance.
-        """
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        From Port of the Instance.
-        """
-        ipv6_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
+    - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
+    - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
+    """
+    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CommonName for Protocol of the Instance.
+    """
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    From Port of the Instance.
+    """
+    ipv6_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
 
-        > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port Protocol of the Instance.
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        To Port of the Instance.
-        """
-elif False:
-    InstancePortArgsDict: TypeAlias = Mapping[str, Any]
+    > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port Protocol of the Instance.
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    To Port of the Instance.
+    """
 
 @pulumi.input_type
 class InstancePortArgs:
@@ -1844,21 +1776,18 @@ class InstancePortArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class InstanceStateArgsDict(TypedDict):
-        """
-        Current State of the Instance.
-        """
-        code: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Status code of the Instance.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status code of the Instance.
-        """
-elif False:
-    InstanceStateArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStateArgsDict(TypedDict):
+    """
+    Current State of the Instance.
+    """
+    code: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Status code of the Instance.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status code of the Instance.
+    """
 
 @pulumi.input_type
 class InstanceStateArgs:

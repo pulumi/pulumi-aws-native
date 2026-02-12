@@ -22,19 +22,14 @@ __all__ = [
     'ProfilingGroupChannelArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AgentPermissionsPropertiesArgsDict(TypedDict):
-        """
-        The agent permissions attached to this profiling group.
-        """
-        principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The principals for the agent permissions.
-        """
-elif False:
-    AgentPermissionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentPermissionsPropertiesArgsDict(TypedDict):
+    """
+    The agent permissions attached to this profiling group.
+    """
+    principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The principals for the agent permissions.
+    """
 
 @pulumi.input_type
 class AgentPermissionsPropertiesArgs:
@@ -59,21 +54,18 @@ class AgentPermissionsPropertiesArgs:
         pulumi.set(self, "principals", value)
 
 
-if not MYPY:
-    class ProfilingGroupChannelArgsDict(TypedDict):
-        """
-        Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
-        """
-        channel_uri: pulumi.Input[_builtins.str]
-        """
-        The channel URI.
-        """
-        channel_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The channel ID.
-        """
-elif False:
-    ProfilingGroupChannelArgsDict: TypeAlias = Mapping[str, Any]
+class ProfilingGroupChannelArgsDict(TypedDict):
+    """
+    Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
+    """
+    channel_uri: pulumi.Input[_builtins.str]
+    """
+    The channel URI.
+    """
+    channel_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The channel ID.
+    """
 
 @pulumi.input_type
 class ProfilingGroupChannelArgs:

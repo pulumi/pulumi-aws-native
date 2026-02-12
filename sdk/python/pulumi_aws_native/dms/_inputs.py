@@ -52,24 +52,19 @@ __all__ = [
     'SettingsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataMigrationSettingsArgsDict(TypedDict):
-        cloudwatch_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The property specifies whether to enable the CloudWatch log.
-        """
-        number_of_jobs: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
-        """
-        selection_rules: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property specifies the rules of selecting objects for data migration.
-        """
-elif False:
-    DataMigrationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DataMigrationSettingsArgsDict(TypedDict):
+    cloudwatch_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The property specifies whether to enable the CloudWatch log.
+    """
+    number_of_jobs: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+    """
+    selection_rules: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property specifies the rules of selecting objects for data migration.
+    """
 
 @pulumi.input_type
 class DataMigrationSettingsArgs:
@@ -126,26 +121,23 @@ class DataMigrationSettingsArgs:
         pulumi.set(self, "selection_rules", value)
 
 
-if not MYPY:
-    class DataMigrationSourceDataSettingsArgsDict(TypedDict):
-        cdc_start_position: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property is a point in the database engine's log that defines a time where you can begin CDC.
-        """
-        cdc_start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
-        """
-        cdc_stop_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
-        """
-        slot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
-        """
-elif False:
-    DataMigrationSourceDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DataMigrationSourceDataSettingsArgsDict(TypedDict):
+    cdc_start_position: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property is a point in the database engine's log that defines a time where you can begin CDC.
+    """
+    cdc_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+    """
+    cdc_stop_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+    """
+    slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+    """
 
 @pulumi.input_type
 class DataMigrationSourceDataSettingsArgs:
@@ -218,30 +210,27 @@ class DataMigrationSourceDataSettingsArgs:
         pulumi.set(self, "slot_name", value)
 
 
-if not MYPY:
-    class MigrationProjectDataProviderDescriptorArgsDict(TypedDict):
-        """
-        It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
-        """
-        data_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the data provider.
-        """
-        data_provider_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        data_provider_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user-friendly name of the data provider.
-        """
-        secrets_manager_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role used to access AWS Secrets Manager.
-        """
-        secrets_manager_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
-        """
-elif False:
-    MigrationProjectDataProviderDescriptorArgsDict: TypeAlias = Mapping[str, Any]
+class MigrationProjectDataProviderDescriptorArgsDict(TypedDict):
+    """
+    It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+    """
+    data_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the data provider.
+    """
+    data_provider_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    data_provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user-friendly name of the data provider.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role used to access AWS Secrets Manager.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
+    """
 
 @pulumi.input_type
 class MigrationProjectDataProviderDescriptorArgs:
@@ -327,57 +316,54 @@ class MigrationProjectDataProviderDescriptorArgs:
         pulumi.set(self, "secrets_manager_secret_id", value)
 
 
-if not MYPY:
-    class ReplicationConfigComputeConfigArgsDict(TypedDict):
-        """
-        Configuration parameters for provisioning a AWS DMS Serverless replication
-        """
-        max_capacity_units: pulumi.Input[_builtins.int]
-        """
-        Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
-        """
-        dns_name_servers: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An AWS Key Management Service ( AWS  ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+class ReplicationConfigComputeConfigArgsDict(TypedDict):
+    """
+    Configuration parameters for provisioning a AWS DMS Serverless replication
+    """
+    max_capacity_units: pulumi.Input[_builtins.int]
+    """
+    Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
+    """
+    dns_name_servers: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An AWS Key Management Service ( AWS  ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
 
-        If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+    If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
 
-        AWS  creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
-        """
-        min_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
-        """
-        multi_az: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
-        """
-        preferred_maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+    AWS  creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
+    """
+    min_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
+    """
+    multi_az: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
+    """
+    preferred_maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
 
-        The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+    The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
 
-        Constraints include a minimum 30-minute window.
-        """
-        replication_subnet_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
-        """
-        vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-        """
-elif False:
-    ReplicationConfigComputeConfigArgsDict: TypeAlias = Mapping[str, Any]
+    Constraints include a minimum 30-minute window.
+    """
+    replication_subnet_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
+    """
+    vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+    """
 
 @pulumi.input_type
 class ReplicationConfigComputeConfigArgs:
@@ -546,15 +532,12 @@ class ReplicationConfigComputeConfigArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-if not MYPY:
-    class SchemaConversionApplicationAttributesPropertiesArgsDict(TypedDict):
-        """
-        The property describes schema conversion application attributes for the migration project.
-        """
-        s3_bucket_path: NotRequired[pulumi.Input[_builtins.str]]
-        s3_bucket_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SchemaConversionApplicationAttributesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaConversionApplicationAttributesPropertiesArgsDict(TypedDict):
+    """
+    The property describes schema conversion application attributes for the migration project.
+    """
+    s3_bucket_path: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_role_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SchemaConversionApplicationAttributesPropertiesArgs:
@@ -588,18 +571,15 @@ class SchemaConversionApplicationAttributesPropertiesArgs:
         pulumi.set(self, "s3_bucket_role_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesDocDbSettingsPropertiesArgsDict(TypedDict):
-        """
-        DocDbSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
-elif False:
-    SettingsPropertiesDocDbSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesDocDbSettingsPropertiesArgsDict(TypedDict):
+    """
+    DocDbSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
 
 @pulumi.input_type
 class SettingsPropertiesDocDbSettingsPropertiesArgs:
@@ -666,18 +646,15 @@ class SettingsPropertiesDocDbSettingsPropertiesArgs:
         pulumi.set(self, "ssl_mode", value)
 
 
-if not MYPY:
-    class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict(TypedDict):
-        """
-        IbmDb2LuwSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict(TypedDict):
+    """
+    IbmDb2LuwSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
@@ -743,18 +720,15 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict(TypedDict):
-        """
-        IbmDb2zOsSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict(TypedDict):
+    """
+    IbmDb2zOsSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs:
@@ -820,17 +794,14 @@ class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesMariaDbSettingsPropertiesArgsDict(TypedDict):
-        """
-        MariaDbSettings property identifier.
-        """
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesMariaDbSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesMariaDbSettingsPropertiesArgsDict(TypedDict):
+    """
+    MariaDbSettings property identifier.
+    """
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesMariaDbSettingsPropertiesArgs:
@@ -885,18 +856,15 @@ class SettingsPropertiesMariaDbSettingsPropertiesArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict(TypedDict):
-        """
-        MicrosoftSqlServerSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict(TypedDict):
+    """
+    MicrosoftSqlServerSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
@@ -962,21 +930,18 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesMongoDbSettingsPropertiesArgsDict(TypedDict):
-        """
-        MongoDbSettings property identifier.
-        """
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        auth_mechanism: NotRequired[pulumi.Input['DataProviderMongoDbAuthMechanism']]
-        auth_source: NotRequired[pulumi.Input[_builtins.str]]
-        auth_type: NotRequired[pulumi.Input['DataProviderMongoDbAuthType']]
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
-elif False:
-    SettingsPropertiesMongoDbSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesMongoDbSettingsPropertiesArgsDict(TypedDict):
+    """
+    MongoDbSettings property identifier.
+    """
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    auth_mechanism: NotRequired[pulumi.Input['DataProviderMongoDbAuthMechanism']]
+    auth_source: NotRequired[pulumi.Input[_builtins.str]]
+    auth_type: NotRequired[pulumi.Input['DataProviderMongoDbAuthType']]
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
 
 @pulumi.input_type
 class SettingsPropertiesMongoDbSettingsPropertiesArgs:
@@ -1080,17 +1045,14 @@ class SettingsPropertiesMongoDbSettingsPropertiesArgs:
         pulumi.set(self, "ssl_mode", value)
 
 
-if not MYPY:
-    class SettingsPropertiesMySqlSettingsPropertiesArgsDict(TypedDict):
-        """
-        MySqlSettings property identifier.
-        """
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesMySqlSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesMySqlSettingsPropertiesArgsDict(TypedDict):
+    """
+    MySqlSettings property identifier.
+    """
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesMySqlSettingsPropertiesArgs:
@@ -1145,23 +1107,20 @@ class SettingsPropertiesMySqlSettingsPropertiesArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesOracleSettingsPropertiesArgsDict(TypedDict):
-        """
-        OracleSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-        asm_server: NotRequired[pulumi.Input[_builtins.str]]
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        secrets_manager_security_db_encryption_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        secrets_manager_security_db_encryption_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesOracleSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesOracleSettingsPropertiesArgsDict(TypedDict):
+    """
+    OracleSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
+    asm_server: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_security_db_encryption_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_security_db_encryption_secret_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesOracleSettingsPropertiesArgs:
@@ -1287,18 +1246,15 @@ class SettingsPropertiesOracleSettingsPropertiesArgs:
         pulumi.set(self, "secrets_manager_security_db_encryption_secret_id", value)
 
 
-if not MYPY:
-    class SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict(TypedDict):
-        """
-        PostgreSqlSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict(TypedDict):
+    """
+    PostgreSqlSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
@@ -1364,16 +1320,13 @@ class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class SettingsPropertiesRedshiftSettingsPropertiesArgsDict(TypedDict):
-        """
-        RedshiftSettings property identifier.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-elif False:
-    SettingsPropertiesRedshiftSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesRedshiftSettingsPropertiesArgsDict(TypedDict):
+    """
+    RedshiftSettings property identifier.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class SettingsPropertiesRedshiftSettingsPropertiesArgs:
@@ -1416,19 +1369,16 @@ class SettingsPropertiesRedshiftSettingsPropertiesArgs:
         pulumi.set(self, "server_name", value)
 
 
-if not MYPY:
-    class SettingsPropertiesSybaseAseSettingsPropertiesArgsDict(TypedDict):
-        """
-        SybaseAseSettings property identifier.
-        """
-        port: pulumi.Input[_builtins.int]
-        server_name: pulumi.Input[_builtins.str]
-        ssl_mode: pulumi.Input['DataProviderSybaseSslModeValue']
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        encrypt_password: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    SettingsPropertiesSybaseAseSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesSybaseAseSettingsPropertiesArgsDict(TypedDict):
+    """
+    SybaseAseSettings property identifier.
+    """
+    port: pulumi.Input[_builtins.int]
+    server_name: pulumi.Input[_builtins.str]
+    ssl_mode: pulumi.Input['DataProviderSybaseSslModeValue']
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    encrypt_password: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class SettingsPropertiesSybaseAseSettingsPropertiesArgs:
@@ -1507,57 +1457,54 @@ class SettingsPropertiesSybaseAseSettingsPropertiesArgs:
         pulumi.set(self, "encrypt_password", value)
 
 
-if not MYPY:
-    class SettingsPropertiesArgsDict(TypedDict):
-        """
-        The property identifies the exact type of settings for the data provider.
-        """
-        doc_db_settings: NotRequired[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgsDict']]
-        """
-        DocDbSettings property identifier.
-        """
-        ibm_db2_luw_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict']]
-        """
-        IbmDb2LuwSettings property identifier.
-        """
-        ibm_db2z_os_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict']]
-        """
-        IbmDb2zOsSettings property identifier.
-        """
-        maria_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgsDict']]
-        """
-        MariaDbSettings property identifier.
-        """
-        microsoft_sql_server_settings: NotRequired[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict']]
-        """
-        MicrosoftSqlServerSettings property identifier.
-        """
-        mongo_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgsDict']]
-        """
-        MongoDbSettings property identifier.
-        """
-        my_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgsDict']]
-        """
-        MySqlSettings property identifier.
-        """
-        oracle_settings: NotRequired[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgsDict']]
-        """
-        OracleSettings property identifier.
-        """
-        postgre_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict']]
-        """
-        PostgreSqlSettings property identifier.
-        """
-        redshift_settings: NotRequired[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgsDict']]
-        """
-        RedshiftSettings property identifier.
-        """
-        sybase_ase_settings: NotRequired[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgsDict']]
-        """
-        SybaseAseSettings property identifier.
-        """
-elif False:
-    SettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SettingsPropertiesArgsDict(TypedDict):
+    """
+    The property identifies the exact type of settings for the data provider.
+    """
+    doc_db_settings: NotRequired[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgsDict']]
+    """
+    DocDbSettings property identifier.
+    """
+    ibm_db2_luw_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict']]
+    """
+    IbmDb2LuwSettings property identifier.
+    """
+    ibm_db2z_os_settings: NotRequired[pulumi.Input['SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict']]
+    """
+    IbmDb2zOsSettings property identifier.
+    """
+    maria_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgsDict']]
+    """
+    MariaDbSettings property identifier.
+    """
+    microsoft_sql_server_settings: NotRequired[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict']]
+    """
+    MicrosoftSqlServerSettings property identifier.
+    """
+    mongo_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgsDict']]
+    """
+    MongoDbSettings property identifier.
+    """
+    my_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgsDict']]
+    """
+    MySqlSettings property identifier.
+    """
+    oracle_settings: NotRequired[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgsDict']]
+    """
+    OracleSettings property identifier.
+    """
+    postgre_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict']]
+    """
+    PostgreSqlSettings property identifier.
+    """
+    redshift_settings: NotRequired[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgsDict']]
+    """
+    RedshiftSettings property identifier.
+    """
+    sybase_ase_settings: NotRequired[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgsDict']]
+    """
+    SybaseAseSettings property identifier.
+    """
 
 @pulumi.input_type
 class SettingsPropertiesArgs:

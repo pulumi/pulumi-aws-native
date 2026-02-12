@@ -52,23 +52,18 @@ __all__ = [
     'TypeActivationLoggingConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GuardHookS3LocationArgsDict(TypedDict):
-        """
-        S3 Source Location for the Guard files.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        S3 uri of Guard files.
-        """
-        version_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 object version
-        """
-elif False:
-    GuardHookS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class GuardHookS3LocationArgsDict(TypedDict):
+    """
+    S3 Source Location for the Guard files.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    S3 uri of Guard files.
+    """
+    version_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 object version
+    """
 
 @pulumi.input_type
 class GuardHookS3LocationArgs:
@@ -109,18 +104,15 @@ class GuardHookS3LocationArgs:
         pulumi.set(self, "version_id", value)
 
 
-if not MYPY:
-    class HookVersionLoggingConfigArgsDict(TypedDict):
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-        """
-        log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-        """
-elif False:
-    HookVersionLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class HookVersionLoggingConfigArgsDict(TypedDict):
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+    """
+    log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+    """
 
 @pulumi.input_type
 class HookVersionLoggingConfigArgs:
@@ -161,16 +153,13 @@ class HookVersionLoggingConfigArgs:
         pulumi.set(self, "log_role_arn", value)
 
 
-if not MYPY:
-    class LambdaHookHookTargetArgsDict(TypedDict):
-        """
-        Hook targets are the destination where hooks will be invoked against.
-        """
-        action: pulumi.Input['LambdaHookAction']
-        invocation_point: pulumi.Input['LambdaHookInvocationPoint']
-        target_name: pulumi.Input[_builtins.str]
-elif False:
-    LambdaHookHookTargetArgsDict: TypeAlias = Mapping[str, Any]
+class LambdaHookHookTargetArgsDict(TypedDict):
+    """
+    Hook targets are the destination where hooks will be invoked against.
+    """
+    action: pulumi.Input['LambdaHookAction']
+    invocation_point: pulumi.Input['LambdaHookInvocationPoint']
+    target_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class LambdaHookHookTargetArgs:
@@ -213,23 +202,20 @@ class LambdaHookHookTargetArgs:
         pulumi.set(self, "target_name", value)
 
 
-if not MYPY:
-    class ManagedExecutionPropertiesArgsDict(TypedDict):
-        """
-        Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
-        """
-        active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
+class ManagedExecutionPropertiesArgsDict(TypedDict):
+    """
+    Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+    """
+    active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 
-        > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
-        > 
-        > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet. 
+    > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
+    > 
+    > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet. 
 
-        When `false` (default), StackSets performs one operation at a time in request order.
-        """
-elif False:
-    ManagedExecutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    When `false` (default), StackSets performs one operation at a time in request order.
+    """
 
 @pulumi.input_type
 class ManagedExecutionPropertiesArgs:
@@ -267,17 +253,14 @@ class ManagedExecutionPropertiesArgs:
         pulumi.set(self, "active", value)
 
 
-if not MYPY:
-    class OptionsPropertiesArgsDict(TypedDict):
-        """
-        Specifies the S3 location of your input parameters.
-        """
-        input_params: NotRequired[pulumi.Input['GuardHookS3LocationArgsDict']]
-        """
-        Specifies the S3 location where your input parameters are located.
-        """
-elif False:
-    OptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OptionsPropertiesArgsDict(TypedDict):
+    """
+    Specifies the S3 location of your input parameters.
+    """
+    input_params: NotRequired[pulumi.Input['GuardHookS3LocationArgsDict']]
+    """
+    Specifies the S3 location where your input parameters are located.
+    """
 
 @pulumi.input_type
 class OptionsPropertiesArgs:
@@ -303,18 +286,15 @@ class OptionsPropertiesArgs:
         pulumi.set(self, "input_params", value)
 
 
-if not MYPY:
-    class ResourceVersionLoggingConfigArgsDict(TypedDict):
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-        """
-        log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-        """
-elif False:
-    ResourceVersionLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceVersionLoggingConfigArgsDict(TypedDict):
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+    """
+    log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+    """
 
 @pulumi.input_type
 class ResourceVersionLoggingConfigArgs:
@@ -355,21 +335,18 @@ class ResourceVersionLoggingConfigArgs:
         pulumi.set(self, "log_role_arn", value)
 
 
-if not MYPY:
-    class StackFiltersPropertiesStackNamesPropertiesArgsDict(TypedDict):
-        """
-        List of stack names as filters
-        """
-        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stack names that the hook is going to be excluded from
-        """
-        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stack names that the hook is going to target
-        """
-elif False:
-    StackFiltersPropertiesStackNamesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StackFiltersPropertiesStackNamesPropertiesArgsDict(TypedDict):
+    """
+    List of stack names as filters
+    """
+    exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stack names that the hook is going to be excluded from
+    """
+    include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stack names that the hook is going to target
+    """
 
 @pulumi.input_type
 class StackFiltersPropertiesStackNamesPropertiesArgs:
@@ -411,21 +388,18 @@ class StackFiltersPropertiesStackNamesPropertiesArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class StackFiltersPropertiesStackRolesPropertiesArgsDict(TypedDict):
-        """
-        List of stack roles that are performing the stack operations.
-        """
-        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stack roles that the hook is going to be excluded from
-        """
-        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stack roles that the hook is going to target
-        """
-elif False:
-    StackFiltersPropertiesStackRolesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StackFiltersPropertiesStackRolesPropertiesArgsDict(TypedDict):
+    """
+    List of stack roles that are performing the stack operations.
+    """
+    exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stack roles that the hook is going to be excluded from
+    """
+    include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stack roles that the hook is going to target
+    """
 
 @pulumi.input_type
 class StackFiltersPropertiesStackRolesPropertiesArgs:
@@ -467,25 +441,22 @@ class StackFiltersPropertiesStackRolesPropertiesArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class StackFiltersPropertiesArgsDict(TypedDict):
-        """
-        Filters to allow hooks to target specific stack attributes
-        """
-        filtering_criteria: pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria']
-        """
-        Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
-        """
-        stack_names: NotRequired[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgsDict']]
-        """
-        List of stack names as filters
-        """
-        stack_roles: NotRequired[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgsDict']]
-        """
-        List of stack roles that are performing the stack operations.
-        """
-elif False:
-    StackFiltersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StackFiltersPropertiesArgsDict(TypedDict):
+    """
+    Filters to allow hooks to target specific stack attributes
+    """
+    filtering_criteria: pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria']
+    """
+    Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+    """
+    stack_names: NotRequired[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgsDict']]
+    """
+    List of stack names as filters
+    """
+    stack_roles: NotRequired[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgsDict']]
+    """
+    List of stack roles that are performing the stack operations.
+    """
 
 @pulumi.input_type
 class StackFiltersPropertiesArgs:
@@ -542,22 +513,19 @@ class StackFiltersPropertiesArgs:
         pulumi.set(self, "stack_roles", value)
 
 
-if not MYPY:
-    class StackSetAutoDeploymentArgsDict(TypedDict):
-        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
-        """
-        retain_stacks_on_account_removal: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
-        """
-elif False:
-    StackSetAutoDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetAutoDeploymentArgsDict(TypedDict):
+    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
+    """
+    retain_stacks_on_account_removal: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
+    """
 
 @pulumi.input_type
 class StackSetAutoDeploymentArgs:
@@ -614,29 +582,26 @@ class StackSetAutoDeploymentArgs:
         pulumi.set(self, "retain_stacks_on_account_removal", value)
 
 
-if not MYPY:
-    class StackSetDeploymentTargetsArgsDict(TypedDict):
-        """
-         The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
-        """
-        account_filter_type: NotRequired[pulumi.Input['StackSetDeploymentTargetsAccountFilterType']]
-        """
-        The filter type you want to apply on organizational units and accounts.
-        """
-        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        AWS accounts that you want to create stack instances in the specified Region(s) for.
-        """
-        accounts_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Returns the value of the AccountsUrl property.
-        """
-        organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
-elif False:
-    StackSetDeploymentTargetsArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetDeploymentTargetsArgsDict(TypedDict):
+    """
+     The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+    """
+    account_filter_type: NotRequired[pulumi.Input['StackSetDeploymentTargetsAccountFilterType']]
+    """
+    The filter type you want to apply on organizational units and accounts.
+    """
+    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    AWS accounts that you want to create stack instances in the specified Region(s) for.
+    """
+    accounts_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Returns the value of the AccountsUrl property.
+    """
+    organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+    """
 
 @pulumi.input_type
 class StackSetDeploymentTargetsArgs:
@@ -710,62 +675,59 @@ class StackSetDeploymentTargetsArgs:
         pulumi.set(self, "organizational_unit_ids", value)
 
 
-if not MYPY:
-    class StackSetOperationPreferencesArgsDict(TypedDict):
-        """
-        The user-specified preferences for how AWS CloudFormation performs a stack set operation.
-        """
-        concurrency_mode: NotRequired[pulumi.Input['StackSetConcurrencyMode']]
-        """
-        Specifies how the concurrency level behaves during the operation execution.
+class StackSetOperationPreferencesArgsDict(TypedDict):
+    """
+    The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+    """
+    concurrency_mode: NotRequired[pulumi.Input['StackSetConcurrencyMode']]
+    """
+    Specifies how the concurrency level behaves during the operation execution.
 
-        - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
+    - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 
-        If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-        - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
-        """
-        failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+    If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
+    - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+    """
+    failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
-        Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-        """
-        failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+    Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
+    """
+    failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
-        When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
+    When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 
-        Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
-        """
-        max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
+    Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
+    """
+    max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
 
-        Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+    Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 
-        Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-        """
-        max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
+    Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+    """
+    max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum percentage of accounts in which to perform this operation at one time.
 
-        When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+    When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
 
-        Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+    Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 
-        Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-        """
-        region_concurrency_type: NotRequired[pulumi.Input['StackSetRegionConcurrencyType']]
-        """
-        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        """
-        region_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The order of the Regions where you want to perform the stack operation.
-        """
-elif False:
-    StackSetOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+    Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+    """
+    region_concurrency_type: NotRequired[pulumi.Input['StackSetRegionConcurrencyType']]
+    """
+    The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+    """
+    region_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The order of the Regions where you want to perform the stack operation.
+    """
 
 @pulumi.input_type
 class StackSetOperationPreferencesArgs:
@@ -929,18 +891,15 @@ class StackSetOperationPreferencesArgs:
         pulumi.set(self, "region_order", value)
 
 
-if not MYPY:
-    class StackSetParameterArgsDict(TypedDict):
-        parameter_key: pulumi.Input[_builtins.str]
-        """
-        The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        The input value associated with the parameter.
-        """
-elif False:
-    StackSetParameterArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetParameterArgsDict(TypedDict):
+    parameter_key: pulumi.Input[_builtins.str]
+    """
+    The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    The input value associated with the parameter.
+    """
 
 @pulumi.input_type
 class StackSetParameterArgs:
@@ -979,25 +938,22 @@ class StackSetParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class StackSetStackInstancesArgsDict(TypedDict):
-        """
-        Stack instances in some specific accounts and Regions.
-        """
-        deployment_targets: pulumi.Input['StackSetDeploymentTargetsArgsDict']
-        """
-        The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
-        """
-        regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
-        """
-        parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgsDict']]]]
-        """
-        A list of stack set parameters whose values you want to override in the selected stack instances.
-        """
-elif False:
-    StackSetStackInstancesArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetStackInstancesArgsDict(TypedDict):
+    """
+    Stack instances in some specific accounts and Regions.
+    """
+    deployment_targets: pulumi.Input['StackSetDeploymentTargetsArgsDict']
+    """
+    The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
+    """
+    regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
+    """
+    parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgsDict']]]]
+    """
+    A list of stack set parameters whose values you want to override in the selected stack instances.
+    """
 
 @pulumi.input_type
 class StackSetStackInstancesArgs:
@@ -1053,25 +1009,22 @@ class StackSetStackInstancesArgs:
         pulumi.set(self, "parameter_overrides", value)
 
 
-if not MYPY:
-    class TargetFilters0PropertiesArgsDict(TypedDict):
-        """
-        Attribute to specify which targets should invoke the hook
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]
-        """
-        List of actions that the hook is going to target
-        """
-        invocation_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]
-        """
-        List of invocation points that the hook is going to target
-        """
-        target_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of type names that the hook is going to target
-        """
-elif False:
-    TargetFilters0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TargetFilters0PropertiesArgsDict(TypedDict):
+    """
+    Attribute to specify which targets should invoke the hook
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]
+    """
+    List of actions that the hook is going to target
+    """
+    invocation_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]
+    """
+    List of invocation points that the hook is going to target
+    """
+    target_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of type names that the hook is going to target
+    """
 
 @pulumi.input_type
 class TargetFilters0PropertiesArgs:
@@ -1129,17 +1082,14 @@ class TargetFilters0PropertiesArgs:
         pulumi.set(self, "target_names", value)
 
 
-if not MYPY:
-    class TargetFilters1PropertiesArgsDict(TypedDict):
-        """
-        Attribute to specify which targets should invoke the hook
-        """
-        targets: pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgsDict']]]
-        """
-        List of hook targets
-        """
-elif False:
-    TargetFilters1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TargetFilters1PropertiesArgsDict(TypedDict):
+    """
+    Attribute to specify which targets should invoke the hook
+    """
+    targets: pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgsDict']]]
+    """
+    List of hook targets
+    """
 
 @pulumi.input_type
 class TargetFilters1PropertiesArgs:
@@ -1164,18 +1114,15 @@ class TargetFilters1PropertiesArgs:
         pulumi.set(self, "targets", value)
 
 
-if not MYPY:
-    class TypeActivationLoggingConfigArgsDict(TypedDict):
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-        """
-        log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-        """
-elif False:
-    TypeActivationLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TypeActivationLoggingConfigArgsDict(TypedDict):
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+    """
+    log_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+    """
 
 @pulumi.input_type
 class TypeActivationLoggingConfigArgs:

@@ -24,24 +24,19 @@ __all__ = [
     'CustomActionDefinitionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomActionAttachmentCriteriaArgsDict(TypedDict):
-        operator: pulumi.Input['CustomActionAttachmentCriteriaOperator']
-        """
-        The operation to perform on the named variable.
-        """
-        variable_name: pulumi.Input[_builtins.str]
-        """
-        The name of the variable to operate on.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A value that is compared with the actual value of the variable based on the behavior of the operator.
-        """
-elif False:
-    CustomActionAttachmentCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class CustomActionAttachmentCriteriaArgsDict(TypedDict):
+    operator: pulumi.Input['CustomActionAttachmentCriteriaOperator']
+    """
+    The operation to perform on the named variable.
+    """
+    variable_name: pulumi.Input[_builtins.str]
+    """
+    The name of the variable to operate on.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A value that is compared with the actual value of the variable based on the behavior of the operator.
+    """
 
 @pulumi.input_type
 class CustomActionAttachmentCriteriaArgs:
@@ -96,26 +91,23 @@ class CustomActionAttachmentCriteriaArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CustomActionAttachmentArgsDict(TypedDict):
-        button_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text of the button that appears on the notification.
-        """
-        criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgsDict']]]]
-        """
-        The criteria for when a button should be shown based on values in the notification.
-        """
-        notification_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of notification that the custom action should be attached to.
-        """
-        variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The variables to extract from the notification.
-        """
-elif False:
-    CustomActionAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class CustomActionAttachmentArgsDict(TypedDict):
+    button_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text of the button that appears on the notification.
+    """
+    criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgsDict']]]]
+    """
+    The criteria for when a button should be shown based on values in the notification.
+    """
+    notification_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of notification that the custom action should be attached to.
+    """
+    variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The variables to extract from the notification.
+    """
 
 @pulumi.input_type
 class CustomActionAttachmentArgs:
@@ -188,14 +180,11 @@ class CustomActionAttachmentArgs:
         pulumi.set(self, "variables", value)
 
 
-if not MYPY:
-    class CustomActionDefinitionArgsDict(TypedDict):
-        command_text: pulumi.Input[_builtins.str]
-        """
-        The command string to run which may include variables by prefixing with a dollar sign ($).
-        """
-elif False:
-    CustomActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomActionDefinitionArgsDict(TypedDict):
+    command_text: pulumi.Input[_builtins.str]
+    """
+    The command string to run which may include variables by prefixing with a dollar sign ($).
+    """
 
 @pulumi.input_type
 class CustomActionDefinitionArgs:

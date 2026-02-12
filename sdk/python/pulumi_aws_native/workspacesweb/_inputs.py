@@ -52,24 +52,19 @@ __all__ = [
     'UserSettingsToolbarConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BrowserSettingsWebContentFilteringPolicyArgsDict(TypedDict):
-        allowed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        URLs and domains that are always accessible to end users.
-        """
-        blocked_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]]]
-        """
-        Categories of websites that are blocked on the end user's browsers.
-        """
-        blocked_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        URLs and domains that end users cannot access.
-        """
-elif False:
-    BrowserSettingsWebContentFilteringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserSettingsWebContentFilteringPolicyArgsDict(TypedDict):
+    allowed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    URLs and domains that are always accessible to end users.
+    """
+    blocked_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]]]
+    """
+    Categories of websites that are blocked on the end user's browsers.
+    """
+    blocked_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    URLs and domains that end users cannot access.
+    """
 
 @pulumi.input_type
 class BrowserSettingsWebContentFilteringPolicyArgs:
@@ -126,26 +121,23 @@ class BrowserSettingsWebContentFilteringPolicyArgs:
         pulumi.set(self, "blocked_urls", value)
 
 
-if not MYPY:
-    class DataProtectionSettingsCustomPatternArgsDict(TypedDict):
-        pattern_name: pulumi.Input[_builtins.str]
-        """
-        The pattern name for the custom pattern.
-        """
-        pattern_regex: pulumi.Input[_builtins.str]
-        """
-        The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
-        """
-        keyword_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
-        """
-        pattern_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pattern description for the customer pattern.
-        """
-elif False:
-    DataProtectionSettingsCustomPatternArgsDict: TypeAlias = Mapping[str, Any]
+class DataProtectionSettingsCustomPatternArgsDict(TypedDict):
+    pattern_name: pulumi.Input[_builtins.str]
+    """
+    The pattern name for the custom pattern.
+    """
+    pattern_regex: pulumi.Input[_builtins.str]
+    """
+    The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
+    """
+    keyword_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
+    """
+    pattern_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pattern description for the customer pattern.
+    """
 
 @pulumi.input_type
 class DataProtectionSettingsCustomPatternArgs:
@@ -216,26 +208,23 @@ class DataProtectionSettingsCustomPatternArgs:
         pulumi.set(self, "pattern_description", value)
 
 
-if not MYPY:
-    class DataProtectionSettingsInlineRedactionConfigurationArgsDict(TypedDict):
-        inline_redaction_patterns: pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgsDict']]]
-        """
-        The inline redaction patterns to be enabled for the inline redaction configuration.
-        """
-        global_confidence_level: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
-        """
-        global_enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
-        """
-        global_exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
-        """
-elif False:
-    DataProtectionSettingsInlineRedactionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataProtectionSettingsInlineRedactionConfigurationArgsDict(TypedDict):
+    inline_redaction_patterns: pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgsDict']]]
+    """
+    The inline redaction patterns to be enabled for the inline redaction configuration.
+    """
+    global_confidence_level: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+    """
+    global_enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+    """
+    global_exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+    """
 
 @pulumi.input_type
 class DataProtectionSettingsInlineRedactionConfigurationArgs:
@@ -307,34 +296,31 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
         pulumi.set(self, "global_exempt_urls", value)
 
 
-if not MYPY:
-    class DataProtectionSettingsInlineRedactionPatternArgsDict(TypedDict):
-        redaction_place_holder: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgsDict']
-        """
-        The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
-        """
-        built_in_pattern_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
-        """
-        confidence_level: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
-        """
-        custom_pattern: NotRequired[pulumi.Input['DataProtectionSettingsCustomPatternArgsDict']]
-        """
-        The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
-        """
-        enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
-        """
-        exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
-        """
-elif False:
-    DataProtectionSettingsInlineRedactionPatternArgsDict: TypeAlias = Mapping[str, Any]
+class DataProtectionSettingsInlineRedactionPatternArgsDict(TypedDict):
+    redaction_place_holder: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgsDict']
+    """
+    The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
+    """
+    built_in_pattern_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
+    """
+    confidence_level: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
+    """
+    custom_pattern: NotRequired[pulumi.Input['DataProtectionSettingsCustomPatternArgsDict']]
+    """
+    The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
+    """
+    enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
+    """
+    exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
+    """
 
 @pulumi.input_type
 class DataProtectionSettingsInlineRedactionPatternArgs:
@@ -438,18 +424,15 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
         pulumi.set(self, "exempt_urls", value)
 
 
-if not MYPY:
-    class DataProtectionSettingsRedactionPlaceHolderArgsDict(TypedDict):
-        redaction_place_holder_type: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']
-        """
-        The redaction placeholder type that will replace the redacted text in session.
-        """
-        redaction_place_holder_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-        """
-elif False:
-    DataProtectionSettingsRedactionPlaceHolderArgsDict: TypeAlias = Mapping[str, Any]
+class DataProtectionSettingsRedactionPlaceHolderArgsDict(TypedDict):
+    redaction_place_holder_type: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']
+    """
+    The redaction placeholder type that will replace the redacted text in session.
+    """
+    redaction_place_holder_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+    """
 
 @pulumi.input_type
 class DataProtectionSettingsRedactionPlaceHolderArgs:
@@ -489,18 +472,15 @@ class DataProtectionSettingsRedactionPlaceHolderArgs:
         pulumi.set(self, "redaction_place_holder_text", value)
 
 
-if not MYPY:
-    class IpAccessSettingsIpRuleArgsDict(TypedDict):
-        ip_range: pulumi.Input[_builtins.str]
-        """
-        A single IP address or an IP address range in CIDR notation
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the IP rule.
-        """
-elif False:
-    IpAccessSettingsIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpAccessSettingsIpRuleArgsDict(TypedDict):
+    ip_range: pulumi.Input[_builtins.str]
+    """
+    A single IP address or an IP address range in CIDR notation
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the IP rule.
+    """
 
 @pulumi.input_type
 class IpAccessSettingsIpRuleArgs:
@@ -540,11 +520,8 @@ class IpAccessSettingsIpRuleArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class SessionLoggerEventFilter0PropertiesArgsDict(TypedDict):
-        all: pulumi.Input['SessionLoggerUnitArgsDict']
-elif False:
-    SessionLoggerEventFilter0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SessionLoggerEventFilter0PropertiesArgsDict(TypedDict):
+    all: pulumi.Input['SessionLoggerUnitArgsDict']
 
 @pulumi.input_type
 class SessionLoggerEventFilter0PropertiesArgs:
@@ -562,11 +539,8 @@ class SessionLoggerEventFilter0PropertiesArgs:
         pulumi.set(self, "all", value)
 
 
-if not MYPY:
-    class SessionLoggerEventFilter1PropertiesArgsDict(TypedDict):
-        include: pulumi.Input[Sequence[pulumi.Input['SessionLoggerEvent']]]
-elif False:
-    SessionLoggerEventFilter1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SessionLoggerEventFilter1PropertiesArgsDict(TypedDict):
+    include: pulumi.Input[Sequence[pulumi.Input['SessionLoggerEvent']]]
 
 @pulumi.input_type
 class SessionLoggerEventFilter1PropertiesArgs:
@@ -584,14 +558,11 @@ class SessionLoggerEventFilter1PropertiesArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class SessionLoggerLogConfigurationArgsDict(TypedDict):
-        s3: NotRequired[pulumi.Input['SessionLoggerS3LogConfigurationArgsDict']]
-        """
-        The configuration for delivering the logs to S3.
-        """
-elif False:
-    SessionLoggerLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SessionLoggerLogConfigurationArgsDict(TypedDict):
+    s3: NotRequired[pulumi.Input['SessionLoggerS3LogConfigurationArgsDict']]
+    """
+    The configuration for delivering the logs to S3.
+    """
 
 @pulumi.input_type
 class SessionLoggerLogConfigurationArgs:
@@ -616,30 +587,27 @@ class SessionLoggerLogConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class SessionLoggerS3LogConfigurationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket name where logs are delivered.
-        """
-        folder_structure: pulumi.Input['SessionLoggerFolderStructure']
-        """
-        The folder structure that defines the organizational structure for log files in S3.
-        """
-        log_file_format: pulumi.Input['SessionLoggerLogFileFormat']
-        """
-        The format of the LogFile that is written to S3.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 path prefix that determines where log files are stored.
-        """
-elif False:
-    SessionLoggerS3LogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SessionLoggerS3LogConfigurationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket name where logs are delivered.
+    """
+    folder_structure: pulumi.Input['SessionLoggerFolderStructure']
+    """
+    The folder structure that defines the organizational structure for log files in S3.
+    """
+    log_file_format: pulumi.Input['SessionLoggerLogFileFormat']
+    """
+    The format of the LogFile that is written to S3.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 path prefix that determines where log files are stored.
+    """
 
 @pulumi.input_type
 class SessionLoggerS3LogConfigurationArgs:
@@ -725,11 +693,8 @@ class SessionLoggerS3LogConfigurationArgs:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class SessionLoggerUnitArgsDict(TypedDict):
-        pass
-elif False:
-    SessionLoggerUnitArgsDict: TypeAlias = Mapping[str, Any]
+class SessionLoggerUnitArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class SessionLoggerUnitArgs:
@@ -737,46 +702,43 @@ class SessionLoggerUnitArgs:
         pass
 
 
-if not MYPY:
-    class UserSettingsBrandingConfigurationArgsDict(TypedDict):
-        color_theme: NotRequired[pulumi.Input['UserSettingsColorTheme']]
-        """
-        The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
-        """
-        favicon: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
-        """
-        favicon_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
-        """
-        Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
-        """
-        localized_strings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgsDict']]]]
-        """
-        A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
-        """
-        logo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
-        """
-        logo_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
-        """
-        Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
-        """
-        terms_of_service: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The terms of service text in Markdown format that users must accept before accessing the portal.
-        """
-        wallpaper: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
-        """
-        wallpaper_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
-        """
-        Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
-        """
-elif False:
-    UserSettingsBrandingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class UserSettingsBrandingConfigurationArgsDict(TypedDict):
+    color_theme: NotRequired[pulumi.Input['UserSettingsColorTheme']]
+    """
+    The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+    """
+    favicon: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+    """
+    favicon_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
+    """
+    Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+    """
+    localized_strings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgsDict']]]]
+    """
+    A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+    """
+    logo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+    """
+    logo_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
+    """
+    Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+    """
+    terms_of_service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The terms of service text in Markdown format that users must accept before accessing the portal.
+    """
+    wallpaper: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+    """
+    wallpaper_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
+    """
+    Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+    """
 
 @pulumi.input_type
 class UserSettingsBrandingConfigurationArgs:
@@ -929,22 +891,19 @@ class UserSettingsBrandingConfigurationArgs:
         pulumi.set(self, "wallpaper_metadata", value)
 
 
-if not MYPY:
-    class UserSettingsCookieSpecificationArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        """
-        The domain of the cookie.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the cookie.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path of the cookie.
-        """
-elif False:
-    UserSettingsCookieSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class UserSettingsCookieSpecificationArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    """
+    The domain of the cookie.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the cookie.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path of the cookie.
+    """
 
 @pulumi.input_type
 class UserSettingsCookieSpecificationArgs:
@@ -1000,18 +959,15 @@ class UserSettingsCookieSpecificationArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class UserSettingsCookieSynchronizationConfigurationArgsDict(TypedDict):
-        allowlist: pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgsDict']]]
-        """
-        The list of cookie specifications that are allowed to be synchronized to the remote browser.
-        """
-        blocklist: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgsDict']]]]
-        """
-        The list of cookie specifications that are blocked from being synchronized to the remote browser.
-        """
-elif False:
-    UserSettingsCookieSynchronizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class UserSettingsCookieSynchronizationConfigurationArgsDict(TypedDict):
+    allowlist: pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgsDict']]]
+    """
+    The list of cookie specifications that are allowed to be synchronized to the remote browser.
+    """
+    blocklist: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgsDict']]]]
+    """
+    The list of cookie specifications that are blocked from being synchronized to the remote browser.
+    """
 
 @pulumi.input_type
 class UserSettingsCookieSynchronizationConfigurationArgs:
@@ -1051,22 +1007,19 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
         pulumi.set(self, "blocklist", value)
 
 
-if not MYPY:
-    class UserSettingsImageMetadataArgsDict(TypedDict):
-        file_extension: pulumi.Input[_builtins.str]
-        """
-        The file extension of the image.
-        """
-        last_upload_timestamp: pulumi.Input[_builtins.str]
-        """
-        The timestamp when the image was last uploaded.
-        """
-        mime_type: pulumi.Input['UserSettingsMimeType']
-        """
-        The MIME type of the image.
-        """
-elif False:
-    UserSettingsImageMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class UserSettingsImageMetadataArgsDict(TypedDict):
+    file_extension: pulumi.Input[_builtins.str]
+    """
+    The file extension of the image.
+    """
+    last_upload_timestamp: pulumi.Input[_builtins.str]
+    """
+    The timestamp when the image was last uploaded.
+    """
+    mime_type: pulumi.Input['UserSettingsMimeType']
+    """
+    The MIME type of the image.
+    """
 
 @pulumi.input_type
 class UserSettingsImageMetadataArgs:
@@ -1120,42 +1073,39 @@ class UserSettingsImageMetadataArgs:
         pulumi.set(self, "mime_type", value)
 
 
-if not MYPY:
-    class UserSettingsLocalizedBrandingStringsArgsDict(TypedDict):
-        browser_tab_title: pulumi.Input[_builtins.str]
-        """
-        The text displayed in the browser tab title.
-        """
-        welcome_text: pulumi.Input[_builtins.str]
-        """
-        The welcome text displayed on the sign-in page.
-        """
-        contact_button_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text displayed on the contact button. This field is optional and defaults to "Contact us".
-        """
-        contact_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
-        """
-        loading_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text displayed during session loading. This field is optional and defaults to "Loading your session".
-        """
-        login_button_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text displayed on the login button. This field is optional and defaults to "Sign In".
-        """
-        login_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description text for the login section. This field is optional and defaults to "Sign in to your session".
-        """
-        login_title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The title text for the login section. This field is optional and defaults to "Sign In".
-        """
-elif False:
-    UserSettingsLocalizedBrandingStringsArgsDict: TypeAlias = Mapping[str, Any]
+class UserSettingsLocalizedBrandingStringsArgsDict(TypedDict):
+    browser_tab_title: pulumi.Input[_builtins.str]
+    """
+    The text displayed in the browser tab title.
+    """
+    welcome_text: pulumi.Input[_builtins.str]
+    """
+    The welcome text displayed on the sign-in page.
+    """
+    contact_button_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text displayed on the contact button. This field is optional and defaults to "Contact us".
+    """
+    contact_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+    """
+    loading_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text displayed during session loading. This field is optional and defaults to "Loading your session".
+    """
+    login_button_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text displayed on the login button. This field is optional and defaults to "Sign In".
+    """
+    login_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description text for the login section. This field is optional and defaults to "Sign in to your session".
+    """
+    login_title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The title text for the login section. This field is optional and defaults to "Sign In".
+    """
 
 @pulumi.input_type
 class UserSettingsLocalizedBrandingStringsArgs:
@@ -1290,26 +1240,23 @@ class UserSettingsLocalizedBrandingStringsArgs:
         pulumi.set(self, "login_title", value)
 
 
-if not MYPY:
-    class UserSettingsToolbarConfigurationArgsDict(TypedDict):
-        hidden_toolbar_items: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsToolbarItem']]]]
-        """
-        The list of toolbar items to be hidden.
-        """
-        max_display_resolution: NotRequired[pulumi.Input['UserSettingsMaxDisplayResolution']]
-        """
-        The maximum display resolution that is allowed for the session.
-        """
-        toolbar_type: NotRequired[pulumi.Input['UserSettingsToolbarType']]
-        """
-        The type of toolbar displayed during the session.
-        """
-        visual_mode: NotRequired[pulumi.Input['UserSettingsVisualMode']]
-        """
-        The visual mode of the toolbar.
-        """
-elif False:
-    UserSettingsToolbarConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class UserSettingsToolbarConfigurationArgsDict(TypedDict):
+    hidden_toolbar_items: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsToolbarItem']]]]
+    """
+    The list of toolbar items to be hidden.
+    """
+    max_display_resolution: NotRequired[pulumi.Input['UserSettingsMaxDisplayResolution']]
+    """
+    The maximum display resolution that is allowed for the session.
+    """
+    toolbar_type: NotRequired[pulumi.Input['UserSettingsToolbarType']]
+    """
+    The type of toolbar displayed during the session.
+    """
+    visual_mode: NotRequired[pulumi.Input['UserSettingsVisualMode']]
+    """
+    The visual mode of the toolbar.
+    """
 
 @pulumi.input_type
 class UserSettingsToolbarConfigurationArgs:

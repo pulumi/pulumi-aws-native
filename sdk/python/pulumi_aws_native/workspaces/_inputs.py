@@ -24,20 +24,15 @@ __all__ = [
     'WorkspacesPoolTimeoutSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class WorkspacesPoolApplicationSettingsArgsDict(TypedDict):
-        status: pulumi.Input['WorkspacesPoolApplicationSettingsStatus']
-        """
-        Enables or disables persistent application settings for users during their pool sessions.
-        """
-        settings_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path prefix for the S3 bucket where users’ persistent application settings are stored.
-        """
-elif False:
-    WorkspacesPoolApplicationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspacesPoolApplicationSettingsArgsDict(TypedDict):
+    status: pulumi.Input['WorkspacesPoolApplicationSettingsStatus']
+    """
+    Enables or disables persistent application settings for users during their pool sessions.
+    """
+    settings_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path prefix for the S3 bucket where users’ persistent application settings are stored.
+    """
 
 @pulumi.input_type
 class WorkspacesPoolApplicationSettingsArgs:
@@ -77,14 +72,11 @@ class WorkspacesPoolApplicationSettingsArgs:
         pulumi.set(self, "settings_group", value)
 
 
-if not MYPY:
-    class WorkspacesPoolCapacityArgsDict(TypedDict):
-        desired_user_sessions: pulumi.Input[_builtins.int]
-        """
-        The desired number of user sessions for the WorkSpaces in the pool.
-        """
-elif False:
-    WorkspacesPoolCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspacesPoolCapacityArgsDict(TypedDict):
+    desired_user_sessions: pulumi.Input[_builtins.int]
+    """
+    The desired number of user sessions for the WorkSpaces in the pool.
+    """
 
 @pulumi.input_type
 class WorkspacesPoolCapacityArgs:
@@ -108,22 +100,19 @@ class WorkspacesPoolCapacityArgs:
         pulumi.set(self, "desired_user_sessions", value)
 
 
-if not MYPY:
-    class WorkspacesPoolTimeoutSettingsArgsDict(TypedDict):
-        disconnect_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
-        """
-        idle_disconnect_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time in seconds a connection will stay active while idle.
-        """
-        max_user_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
-        """
-elif False:
-    WorkspacesPoolTimeoutSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspacesPoolTimeoutSettingsArgsDict(TypedDict):
+    disconnect_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+    """
+    idle_disconnect_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time in seconds a connection will stay active while idle.
+    """
+    max_user_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+    """
 
 @pulumi.input_type
 class WorkspacesPoolTimeoutSettingsArgs:

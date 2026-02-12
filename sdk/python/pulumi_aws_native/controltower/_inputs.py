@@ -22,14 +22,9 @@ __all__ = [
     'EnabledControlParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EnabledBaselineParameterArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]
-elif False:
-    EnabledBaselineParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnabledBaselineParameterArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]
 
 @pulumi.input_type
 class EnabledBaselineParameterArgs:
@@ -60,18 +55,15 @@ class EnabledBaselineParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnabledControlParameterArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of a key/value pair. It is of type `string` .
-        """
-        value: pulumi.Input[Union[Sequence[pulumi.Input[Union[_builtins.str, _builtins.float, Any, _builtins.bool]]], _builtins.str, _builtins.float, Any, _builtins.bool]]
-        """
-        The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
-        """
-elif False:
-    EnabledControlParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnabledControlParameterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of a key/value pair. It is of type `string` .
+    """
+    value: pulumi.Input[Union[Sequence[pulumi.Input[Union[_builtins.str, _builtins.float, Any, _builtins.bool]]], _builtins.str, _builtins.float, Any, _builtins.bool]]
+    """
+    The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+    """
 
 @pulumi.input_type
 class EnabledControlParameterArgs:

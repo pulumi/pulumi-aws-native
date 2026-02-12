@@ -35,24 +35,19 @@ __all__ = [
     'EnvironmentTierArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationMaxAgeRuleArgsDict(TypedDict):
-        delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify true to apply the rule, or false to disable it.
-        """
-        max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specify the number of days to retain an application versions.
-        """
-elif False:
-    ApplicationMaxAgeRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMaxAgeRuleArgsDict(TypedDict):
+    delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify true to apply the rule, or false to disable it.
+    """
+    max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specify the number of days to retain an application versions.
+    """
 
 @pulumi.input_type
 class ApplicationMaxAgeRuleArgs:
@@ -109,22 +104,19 @@ class ApplicationMaxAgeRuleArgs:
         pulumi.set(self, "max_age_in_days", value)
 
 
-if not MYPY:
-    class ApplicationMaxCountRuleArgsDict(TypedDict):
-        delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify true to apply the rule, or false to disable it.
-        """
-        max_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specify the maximum number of application versions to retain.
-        """
-elif False:
-    ApplicationMaxCountRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMaxCountRuleArgsDict(TypedDict):
+    delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify true to apply the rule, or false to disable it.
+    """
+    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specify the maximum number of application versions to retain.
+    """
 
 @pulumi.input_type
 class ApplicationMaxCountRuleArgs:
@@ -181,18 +173,15 @@ class ApplicationMaxCountRuleArgs:
         pulumi.set(self, "max_count", value)
 
 
-if not MYPY:
-    class ApplicationResourceLifecycleConfigArgsDict(TypedDict):
-        service_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
-        """
-        version_lifecycle_config: NotRequired[pulumi.Input['ApplicationVersionLifecycleConfigArgsDict']]
-        """
-        Defines lifecycle settings for application versions.
-        """
-elif False:
-    ApplicationResourceLifecycleConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationResourceLifecycleConfigArgsDict(TypedDict):
+    service_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
+    """
+    version_lifecycle_config: NotRequired[pulumi.Input['ApplicationVersionLifecycleConfigArgsDict']]
+    """
+    Defines lifecycle settings for application versions.
+    """
 
 @pulumi.input_type
 class ApplicationResourceLifecycleConfigArgs:
@@ -233,18 +222,15 @@ class ApplicationResourceLifecycleConfigArgs:
         pulumi.set(self, "version_lifecycle_config", value)
 
 
-if not MYPY:
-    class ApplicationVersionLifecycleConfigArgsDict(TypedDict):
-        max_age_rule: NotRequired[pulumi.Input['ApplicationMaxAgeRuleArgsDict']]
-        """
-        Specify a max age rule to restrict the length of time that application versions are retained for an application.
-        """
-        max_count_rule: NotRequired[pulumi.Input['ApplicationMaxCountRuleArgsDict']]
-        """
-        Specify a max count rule to restrict the number of application versions that are retained for an application.
-        """
-elif False:
-    ApplicationVersionLifecycleConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationVersionLifecycleConfigArgsDict(TypedDict):
+    max_age_rule: NotRequired[pulumi.Input['ApplicationMaxAgeRuleArgsDict']]
+    """
+    Specify a max age rule to restrict the length of time that application versions are retained for an application.
+    """
+    max_count_rule: NotRequired[pulumi.Input['ApplicationMaxCountRuleArgsDict']]
+    """
+    Specify a max count rule to restrict the number of application versions that are retained for an application.
+    """
 
 @pulumi.input_type
 class ApplicationVersionLifecycleConfigArgs:
@@ -285,18 +271,15 @@ class ApplicationVersionLifecycleConfigArgs:
         pulumi.set(self, "max_count_rule", value)
 
 
-if not MYPY:
-    class ApplicationVersionSourceBundleArgsDict(TypedDict):
-        s3_bucket: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket where the data is located.
-        """
-        s3_key: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 key where the data is located.
-        """
-elif False:
-    ApplicationVersionSourceBundleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationVersionSourceBundleArgsDict(TypedDict):
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket where the data is located.
+    """
+    s3_key: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 key where the data is located.
+    """
 
 @pulumi.input_type
 class ApplicationVersionSourceBundleArgs:
@@ -335,26 +318,23 @@ class ApplicationVersionSourceBundleArgs:
         pulumi.set(self, "s3_key", value)
 
 
-if not MYPY:
-    class ConfigurationTemplateConfigurationOptionSettingArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        A unique namespace that identifies the option's associated AWS resource.
-        """
-        option_name: pulumi.Input[_builtins.str]
-        """
-        The name of the configuration option.
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current value for the configuration option.
-        """
-elif False:
-    ConfigurationTemplateConfigurationOptionSettingArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationTemplateConfigurationOptionSettingArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    A unique namespace that identifies the option's associated AWS resource.
+    """
+    option_name: pulumi.Input[_builtins.str]
+    """
+    The name of the configuration option.
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current value for the configuration option.
+    """
 
 @pulumi.input_type
 class ConfigurationTemplateConfigurationOptionSettingArgs:
@@ -425,18 +405,15 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConfigurationTemplateSourceConfigurationArgsDict(TypedDict):
-        application_name: pulumi.Input[_builtins.str]
-        """
-        The name of the application associated with the configuration.
-        """
-        template_name: pulumi.Input[_builtins.str]
-        """
-        The name of the configuration template.
-        """
-elif False:
-    ConfigurationTemplateSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationTemplateSourceConfigurationArgsDict(TypedDict):
+    application_name: pulumi.Input[_builtins.str]
+    """
+    The name of the application associated with the configuration.
+    """
+    template_name: pulumi.Input[_builtins.str]
+    """
+    The name of the configuration template.
+    """
 
 @pulumi.input_type
 class ConfigurationTemplateSourceConfigurationArgs:
@@ -475,26 +452,23 @@ class ConfigurationTemplateSourceConfigurationArgs:
         pulumi.set(self, "template_name", value)
 
 
-if not MYPY:
-    class EnvironmentOptionSettingArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        A unique namespace that identifies the option's associated AWS resource.
-        """
-        option_name: pulumi.Input[_builtins.str]
-        """
-        The name of the configuration option.
-        """
-        resource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique resource name for the option setting. Use it for a time–based scaling configuration option.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current value for the configuration option.
-        """
-elif False:
-    EnvironmentOptionSettingArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentOptionSettingArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    A unique namespace that identifies the option's associated AWS resource.
+    """
+    option_name: pulumi.Input[_builtins.str]
+    """
+    The name of the configuration option.
+    """
+    resource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current value for the configuration option.
+    """
 
 @pulumi.input_type
 class EnvironmentOptionSettingArgs:
@@ -565,22 +539,19 @@ class EnvironmentOptionSettingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnvironmentTierArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of this environment tier.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of this environment tier.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
-        """
-elif False:
-    EnvironmentTierArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentTierArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of this environment tier.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of this environment tier.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+    """
 
 @pulumi.input_type
 class EnvironmentTierArgs:

@@ -27,23 +27,18 @@ __all__ = [
     'SecretReplicaRegionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RotationScheduleExternalSecretRotationMetadataItemArgsDict(TypedDict):
-        """
-        The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
-        """
-elif False:
-    RotationScheduleExternalSecretRotationMetadataItemArgsDict: TypeAlias = Mapping[str, Any]
+class RotationScheduleExternalSecretRotationMetadataItemArgsDict(TypedDict):
+    """
+    The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+    """
 
 @pulumi.input_type
 class RotationScheduleExternalSecretRotationMetadataItemArgs:
@@ -83,54 +78,51 @@ class RotationScheduleExternalSecretRotationMetadataItemArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RotationScheduleHostedRotationLambdaArgsDict(TypedDict):
-        rotation_type: pulumi.Input[_builtins.str]
-        """
-        The type of rotation template to use
-        """
-        exclude_characters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string of the characters that you don't want in the password.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
-        """
-        master_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
-        """
-        master_secret_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
-        """
-        rotation_lambda_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Lambda rotation function.
-        """
-        runtime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The python runtime associated with the Lambda function
-        """
-        superuser_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
-        """
-        superuser_secret_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
-        """
-        vpc_security_group_ids: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A comma-separated list of security group IDs applied to the target database.
-        """
-        vpc_subnet_ids: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
-        """
-elif False:
-    RotationScheduleHostedRotationLambdaArgsDict: TypeAlias = Mapping[str, Any]
+class RotationScheduleHostedRotationLambdaArgsDict(TypedDict):
+    rotation_type: pulumi.Input[_builtins.str]
+    """
+    The type of rotation template to use
+    """
+    exclude_characters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string of the characters that you don't want in the password.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+    """
+    master_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+    """
+    master_secret_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+    """
+    rotation_lambda_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Lambda rotation function.
+    """
+    runtime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The python runtime associated with the Lambda function
+    """
+    superuser_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+    """
+    superuser_secret_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+    """
+    vpc_security_group_ids: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A comma-separated list of security group IDs applied to the target database.
+    """
+    vpc_subnet_ids: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+    """
 
 @pulumi.input_type
 class RotationScheduleHostedRotationLambdaArgs:
@@ -314,22 +306,19 @@ class RotationScheduleHostedRotationLambdaArgs:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
-if not MYPY:
-    class RotationScheduleRotationRulesArgsDict(TypedDict):
-        automatically_after_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
-        """
-        schedule_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
-        """
-elif False:
-    RotationScheduleRotationRulesArgsDict: TypeAlias = Mapping[str, Any]
+class RotationScheduleRotationRulesArgsDict(TypedDict):
+    automatically_after_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+    """
+    schedule_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+    """
 
 @pulumi.input_type
 class RotationScheduleRotationRulesArgs:
@@ -386,54 +375,51 @@ class RotationScheduleRotationRulesArgs:
         pulumi.set(self, "schedule_expression", value)
 
 
-if not MYPY:
-    class SecretGenerateSecretStringArgsDict(TypedDict):
-        """
-        Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-         *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
-        """
-        exclude_characters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string of the characters that you don't want in the password.
-        """
-        exclude_lowercase: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
-        """
-        exclude_numbers: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
-        """
-        exclude_punctuation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~``. If you don't include this switch, the password can contain punctuation.
-        """
-        exclude_uppercase: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to exclude uppercase letters from the password. If you don't include this switch, the password can contain uppercase letters.
-        """
-        generate_string_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JSON key name for the key/value pair, where the value is the generated password. This pair is added to the JSON structure specified by the ``SecretStringTemplate`` parameter. If you specify this parameter, then you must also specify ``SecretStringTemplate``.
-        """
-        include_space: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to include the space character. If you include this switch, the password can contain space characters.
-        """
-        password_length: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The length of the password. If you don't include this parameter, the default length is 32 characters.
-        """
-        require_each_included_type: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation. If you don't include this switch, the password contains at least one of every character type.
-        """
-        secret_string_template: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A template that the generated string must match. When you make a change to this property, a new secret version is created.
-        """
-elif False:
-    SecretGenerateSecretStringArgsDict: TypeAlias = Mapping[str, Any]
+class SecretGenerateSecretStringArgsDict(TypedDict):
+    """
+    Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
+     *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+    """
+    exclude_characters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string of the characters that you don't want in the password.
+    """
+    exclude_lowercase: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
+    """
+    exclude_numbers: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
+    """
+    exclude_punctuation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~``. If you don't include this switch, the password can contain punctuation.
+    """
+    exclude_uppercase: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to exclude uppercase letters from the password. If you don't include this switch, the password can contain uppercase letters.
+    """
+    generate_string_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JSON key name for the key/value pair, where the value is the generated password. This pair is added to the JSON structure specified by the ``SecretStringTemplate`` parameter. If you specify this parameter, then you must also specify ``SecretStringTemplate``.
+    """
+    include_space: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to include the space character. If you include this switch, the password can contain space characters.
+    """
+    password_length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The length of the password. If you don't include this parameter, the default length is 32 characters.
+    """
+    require_each_included_type: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation. If you don't include this switch, the password contains at least one of every character type.
+    """
+    secret_string_template: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A template that the generated string must match. When you make a change to this property, a new secret version is created.
+    """
 
 @pulumi.input_type
 class SecretGenerateSecretStringArgs:
@@ -604,21 +590,18 @@ class SecretGenerateSecretStringArgs:
         pulumi.set(self, "secret_string_template", value)
 
 
-if not MYPY:
-    class SecretReplicaRegionArgsDict(TypedDict):
-        """
-        Specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        A string that represents a ``Region``, for example "us-east-1".
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses ``aws/secretsmanager``.
-        """
-elif False:
-    SecretReplicaRegionArgsDict: TypeAlias = Mapping[str, Any]
+class SecretReplicaRegionArgsDict(TypedDict):
+    """
+    Specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    A string that represents a ``Region``, for example "us-east-1".
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses ``aws/secretsmanager``.
+    """
 
 @pulumi.input_type
 class SecretReplicaRegionArgs:

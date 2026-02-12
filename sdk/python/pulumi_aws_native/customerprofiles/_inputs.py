@@ -134,23 +134,18 @@ __all__ = [
     'SegmentDefinitionSourceSegmentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CalculatedAttributeDefinitionAttributeDetailsArgsDict(TypedDict):
-        """
-        Mathematical expression and a list of attribute items specified in that expression.
-        """
-        attributes: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgsDict']]]
-        """
-        Mathematical expression and a list of attribute items specified in that expression.
-        """
-        expression: pulumi.Input[_builtins.str]
-        """
-        Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \\"{ObjectTypeName.AttributeName}\\".
-        """
-elif False:
-    CalculatedAttributeDefinitionAttributeDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CalculatedAttributeDefinitionAttributeDetailsArgsDict(TypedDict):
+    """
+    Mathematical expression and a list of attribute items specified in that expression.
+    """
+    attributes: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgsDict']]]
+    """
+    Mathematical expression and a list of attribute items specified in that expression.
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \\"{ObjectTypeName.AttributeName}\\".
+    """
 
 @pulumi.input_type
 class CalculatedAttributeDefinitionAttributeDetailsArgs:
@@ -190,14 +185,11 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
         pulumi.set(self, "expression", value)
 
 
-if not MYPY:
-    class CalculatedAttributeDefinitionAttributeItemArgsDict(TypedDict):
-        """
-        The details of a single attribute item specified in the mathematical expression.
-        """
-        name: pulumi.Input[_builtins.str]
-elif False:
-    CalculatedAttributeDefinitionAttributeItemArgsDict: TypeAlias = Mapping[str, Any]
+class CalculatedAttributeDefinitionAttributeItemArgsDict(TypedDict):
+    """
+    The details of a single attribute item specified in the mathematical expression.
+    """
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class CalculatedAttributeDefinitionAttributeItemArgs:
@@ -218,25 +210,22 @@ class CalculatedAttributeDefinitionAttributeItemArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CalculatedAttributeDefinitionConditionsArgsDict(TypedDict):
-        """
-        The conditions including range, object count, and threshold for the calculated attribute.
-        """
-        object_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of profile objects used for the calculated attribute.
-        """
-        range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionRangeArgsDict']]
-        """
-        The relative time period over which data is included in the aggregation.
-        """
-        threshold: NotRequired[pulumi.Input['CalculatedAttributeDefinitionThresholdArgsDict']]
-        """
-        The threshold for the calculated attribute.
-        """
-elif False:
-    CalculatedAttributeDefinitionConditionsArgsDict: TypeAlias = Mapping[str, Any]
+class CalculatedAttributeDefinitionConditionsArgsDict(TypedDict):
+    """
+    The conditions including range, object count, and threshold for the calculated attribute.
+    """
+    object_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of profile objects used for the calculated attribute.
+    """
+    range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionRangeArgsDict']]
+    """
+    The relative time period over which data is included in the aggregation.
+    """
+    threshold: NotRequired[pulumi.Input['CalculatedAttributeDefinitionThresholdArgsDict']]
+    """
+    The threshold for the calculated attribute.
+    """
 
 @pulumi.input_type
 class CalculatedAttributeDefinitionConditionsArgs:
@@ -294,33 +283,30 @@ class CalculatedAttributeDefinitionConditionsArgs:
         pulumi.set(self, "threshold", value)
 
 
-if not MYPY:
-    class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
-        """
-        The relative time period over which data is included in the aggregation.
-        """
-        unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit']
-        """
-        The unit of time.
-        """
-        timestamp_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
-        """
-        timestamp_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time of the specified unit.
-        """
-        value_range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgsDict']]
-        """
-        A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
-        """
-elif False:
-    CalculatedAttributeDefinitionRangeArgsDict: TypeAlias = Mapping[str, Any]
+class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
+    """
+    The relative time period over which data is included in the aggregation.
+    """
+    unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit']
+    """
+    The unit of time.
+    """
+    timestamp_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+    """
+    timestamp_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time of the specified unit.
+    """
+    value_range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgsDict']]
+    """
+    A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
+    """
 
 @pulumi.input_type
 class CalculatedAttributeDefinitionRangeArgs:
@@ -409,21 +395,18 @@ class CalculatedAttributeDefinitionRangeArgs:
         pulumi.set(self, "value_range", value)
 
 
-if not MYPY:
-    class CalculatedAttributeDefinitionThresholdArgsDict(TypedDict):
-        """
-        The threshold for the calculated attribute.
-        """
-        operator: pulumi.Input['CalculatedAttributeDefinitionThresholdOperator']
-        """
-        The operator of the threshold.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the threshold.
-        """
-elif False:
-    CalculatedAttributeDefinitionThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class CalculatedAttributeDefinitionThresholdArgsDict(TypedDict):
+    """
+    The threshold for the calculated attribute.
+    """
+    operator: pulumi.Input['CalculatedAttributeDefinitionThresholdOperator']
+    """
+    The operator of the threshold.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the threshold.
+    """
 
 @pulumi.input_type
 class CalculatedAttributeDefinitionThresholdArgs:
@@ -463,21 +446,18 @@ class CalculatedAttributeDefinitionThresholdArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CalculatedAttributeDefinitionValueRangeArgsDict(TypedDict):
-        """
-        A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
-        """
-        end: pulumi.Input[_builtins.int]
-        """
-        The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
-        """
-elif False:
-    CalculatedAttributeDefinitionValueRangeArgsDict: TypeAlias = Mapping[str, Any]
+class CalculatedAttributeDefinitionValueRangeArgsDict(TypedDict):
+    """
+    A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+    """
+    end: pulumi.Input[_builtins.int]
+    """
+    The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+    """
 
 @pulumi.input_type
 class CalculatedAttributeDefinitionValueRangeArgs:
@@ -517,29 +497,26 @@ class CalculatedAttributeDefinitionValueRangeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class DomainAttributeTypesSelectorArgsDict(TypedDict):
-        """
-        Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
-        """
-        attribute_matching_model: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel']
-        """
-        Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
-        """
-        address: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
-        """
-        email_address: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
-        """
-        phone_number: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
-        """
-elif False:
-    DomainAttributeTypesSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAttributeTypesSelectorArgsDict(TypedDict):
+    """
+    Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+    """
+    attribute_matching_model: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel']
+    """
+    Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+    """
+    address: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+    """
+    email_address: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+    """
+    phone_number: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+    """
 
 @pulumi.input_type
 class DomainAttributeTypesSelectorArgs:
@@ -612,29 +589,26 @@ class DomainAttributeTypesSelectorArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class DomainAutoMergingArgsDict(TypedDict):
-        """
-        Configuration information about the auto-merging process.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        The flag that enables the auto-merging of duplicate profiles.
-        """
-        conflict_resolution: NotRequired[pulumi.Input['DomainConflictResolutionArgsDict']]
-        """
-        Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
-        """
-        consolidation: NotRequired[pulumi.Input['DomainConsolidationArgsDict']]
-        """
-        A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
-        """
-        min_allowed_confidence_score_for_merging: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        """
-elif False:
-    DomainAutoMergingArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAutoMergingArgsDict(TypedDict):
+    """
+    Configuration information about the auto-merging process.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    The flag that enables the auto-merging of duplicate profiles.
+    """
+    conflict_resolution: NotRequired[pulumi.Input['DomainConflictResolutionArgsDict']]
+    """
+    Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+    """
+    consolidation: NotRequired[pulumi.Input['DomainConsolidationArgsDict']]
+    """
+    A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+    """
+    min_allowed_confidence_score_for_merging: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+    """
 
 @pulumi.input_type
 class DomainAutoMergingArgs:
@@ -707,21 +681,18 @@ class DomainAutoMergingArgs:
         pulumi.set(self, "min_allowed_confidence_score_for_merging", value)
 
 
-if not MYPY:
-    class DomainConflictResolutionArgsDict(TypedDict):
-        """
-        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
-        """
-        conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel']
-        """
-        How the auto-merging process should resolve conflicts between different profiles.
-        """
-        source_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
-        """
-elif False:
-    DomainConflictResolutionArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConflictResolutionArgsDict(TypedDict):
+    """
+    How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+    """
+    conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel']
+    """
+    How the auto-merging process should resolve conflicts between different profiles.
+    """
+    source_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+    """
 
 @pulumi.input_type
 class DomainConflictResolutionArgs:
@@ -762,17 +733,14 @@ class DomainConflictResolutionArgs:
         pulumi.set(self, "source_name", value)
 
 
-if not MYPY:
-    class DomainConsolidationArgsDict(TypedDict):
-        """
-        A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
-        """
-        matching_attributes_list: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]
-        """
-        A list of matching criteria.
-        """
-elif False:
-    DomainConsolidationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConsolidationArgsDict(TypedDict):
+    """
+    A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+    """
+    matching_attributes_list: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of matching criteria.
+    """
 
 @pulumi.input_type
 class DomainConsolidationArgs:
@@ -797,18 +765,15 @@ class DomainConsolidationArgs:
         pulumi.set(self, "matching_attributes_list", value)
 
 
-if not MYPY:
-    class DomainDataStoreArgsDict(TypedDict):
-        """
-        Configuration and status of the data store for the domain.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the data store is enabled.
-        """
-        readiness: NotRequired[pulumi.Input['DomainReadinessArgsDict']]
-elif False:
-    DomainDataStoreArgsDict: TypeAlias = Mapping[str, Any]
+class DomainDataStoreArgsDict(TypedDict):
+    """
+    Configuration and status of the data store for the domain.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the data store is enabled.
+    """
+    readiness: NotRequired[pulumi.Input['DomainReadinessArgsDict']]
 
 @pulumi.input_type
 class DomainDataStoreArgs:
@@ -846,14 +811,11 @@ class DomainDataStoreArgs:
         pulumi.set(self, "readiness", value)
 
 
-if not MYPY:
-    class DomainExportingConfigArgsDict(TypedDict):
-        """
-        Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
-        """
-        s3_exporting: NotRequired[pulumi.Input['DomainS3ExportingConfigArgsDict']]
-elif False:
-    DomainExportingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainExportingConfigArgsDict(TypedDict):
+    """
+    Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+    """
+    s3_exporting: NotRequired[pulumi.Input['DomainS3ExportingConfigArgsDict']]
 
 @pulumi.input_type
 class DomainExportingConfigArgs:
@@ -875,21 +837,18 @@ class DomainExportingConfigArgs:
         pulumi.set(self, "s3_exporting", value)
 
 
-if not MYPY:
-    class DomainJobScheduleArgsDict(TypedDict):
-        """
-        The day and time when do you want to start the Identity Resolution Job every week.
-        """
-        day_of_the_week: pulumi.Input['DomainJobScheduleDayOfTheWeek']
-        """
-        The day when the Identity Resolution Job should run every week.
-        """
-        time: pulumi.Input[_builtins.str]
-        """
-        The time when the Identity Resolution Job should run every week.
-        """
-elif False:
-    DomainJobScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class DomainJobScheduleArgsDict(TypedDict):
+    """
+    The day and time when do you want to start the Identity Resolution Job every week.
+    """
+    day_of_the_week: pulumi.Input['DomainJobScheduleDayOfTheWeek']
+    """
+    The day when the Identity Resolution Job should run every week.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time when the Identity Resolution Job should run every week.
+    """
 
 @pulumi.input_type
 class DomainJobScheduleArgs:
@@ -929,17 +888,14 @@ class DomainJobScheduleArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class DomainMatchingRuleArgsDict(TypedDict):
-        """
-        Specifies how does the rule-based matching process should match profiles.
-        """
-        rule: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
-        """
-elif False:
-    DomainMatchingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DomainMatchingRuleArgsDict(TypedDict):
+    """
+    Specifies how does the rule-based matching process should match profiles.
+    """
+    rule: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
+    """
 
 @pulumi.input_type
 class DomainMatchingRuleArgs:
@@ -964,29 +920,26 @@ class DomainMatchingRuleArgs:
         pulumi.set(self, "rule", value)
 
 
-if not MYPY:
-    class DomainMatchingArgsDict(TypedDict):
-        """
-        The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        The flag that enables the matching process of duplicate profiles.
-        """
-        auto_merging: NotRequired[pulumi.Input['DomainAutoMergingArgsDict']]
-        """
-        Configuration information about the auto-merging process.
-        """
-        exporting_config: NotRequired[pulumi.Input['DomainExportingConfigArgsDict']]
-        """
-        The S3 location where Identity Resolution Jobs write result files.
-        """
-        job_schedule: NotRequired[pulumi.Input['DomainJobScheduleArgsDict']]
-        """
-        The day and time when do you want to start the Identity Resolution Job every week.
-        """
-elif False:
-    DomainMatchingArgsDict: TypeAlias = Mapping[str, Any]
+class DomainMatchingArgsDict(TypedDict):
+    """
+    The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    The flag that enables the matching process of duplicate profiles.
+    """
+    auto_merging: NotRequired[pulumi.Input['DomainAutoMergingArgsDict']]
+    """
+    Configuration information about the auto-merging process.
+    """
+    exporting_config: NotRequired[pulumi.Input['DomainExportingConfigArgsDict']]
+    """
+    The S3 location where Identity Resolution Jobs write result files.
+    """
+    job_schedule: NotRequired[pulumi.Input['DomainJobScheduleArgsDict']]
+    """
+    The day and time when do you want to start the Identity Resolution Job every week.
+    """
 
 @pulumi.input_type
 class DomainMatchingArgs:
@@ -1059,21 +1012,18 @@ class DomainMatchingArgs:
         pulumi.set(self, "job_schedule", value)
 
 
-if not MYPY:
-    class DomainReadinessArgsDict(TypedDict):
-        """
-        Progress information for data store setup.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message describing the current progress.
-        """
-        progress_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of progress completed.
-        """
-elif False:
-    DomainReadinessArgsDict: TypeAlias = Mapping[str, Any]
+class DomainReadinessArgsDict(TypedDict):
+    """
+    Progress information for data store setup.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message describing the current progress.
+    """
+    progress_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of progress completed.
+    """
 
 @pulumi.input_type
 class DomainReadinessArgs:
@@ -1115,45 +1065,42 @@ class DomainReadinessArgs:
         pulumi.set(self, "progress_percentage", value)
 
 
-if not MYPY:
-    class DomainRuleBasedMatchingArgsDict(TypedDict):
-        """
-        The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        The flag that enables the rule-based matching process of duplicate profiles.
-        """
-        attribute_types_selector: NotRequired[pulumi.Input['DomainAttributeTypesSelectorArgsDict']]
-        """
-        Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
-        """
-        conflict_resolution: NotRequired[pulumi.Input['DomainConflictResolutionArgsDict']]
-        """
-        Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
-        """
-        exporting_config: NotRequired[pulumi.Input['DomainExportingConfigArgsDict']]
-        """
-        The S3 location where Identity Resolution Jobs write result files.
-        """
-        matching_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgsDict']]]]
-        """
-        Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
-        """
-        max_allowed_rule_level_for_matching: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the maximum allowed rule level for matching.
-        """
-        max_allowed_rule_level_for_merging: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the maximum allowed rule level for merging.
-        """
-        status: NotRequired[pulumi.Input['DomainRuleBasedMatchingStatus']]
-        """
-        The status of rule-based matching rule.
-        """
-elif False:
-    DomainRuleBasedMatchingArgsDict: TypeAlias = Mapping[str, Any]
+class DomainRuleBasedMatchingArgsDict(TypedDict):
+    """
+    The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    The flag that enables the rule-based matching process of duplicate profiles.
+    """
+    attribute_types_selector: NotRequired[pulumi.Input['DomainAttributeTypesSelectorArgsDict']]
+    """
+    Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
+    """
+    conflict_resolution: NotRequired[pulumi.Input['DomainConflictResolutionArgsDict']]
+    """
+    Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+    """
+    exporting_config: NotRequired[pulumi.Input['DomainExportingConfigArgsDict']]
+    """
+    The S3 location where Identity Resolution Jobs write result files.
+    """
+    matching_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgsDict']]]]
+    """
+    Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+    """
+    max_allowed_rule_level_for_matching: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the maximum allowed rule level for matching.
+    """
+    max_allowed_rule_level_for_merging: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the maximum allowed rule level for merging.
+    """
+    status: NotRequired[pulumi.Input['DomainRuleBasedMatchingStatus']]
+    """
+    The status of rule-based matching rule.
+    """
 
 @pulumi.input_type
 class DomainRuleBasedMatchingArgs:
@@ -1290,21 +1237,18 @@ class DomainRuleBasedMatchingArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class DomainS3ExportingConfigArgsDict(TypedDict):
-        """
-        The S3 location where Identity Resolution Jobs write result files.
-        """
-        s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
-        s3_key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
-elif False:
-    DomainS3ExportingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainS3ExportingConfigArgsDict(TypedDict):
+    """
+    The S3 location where Identity Resolution Jobs write result files.
+    """
+    s3_bucket_name: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket where Identity Resolution Jobs write result files.
+    """
+    s3_key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 key name of the location where Identity Resolution Jobs write result files.
+    """
 
 @pulumi.input_type
 class DomainS3ExportingConfigArgs:
@@ -1345,15 +1289,12 @@ class DomainS3ExportingConfigArgs:
         pulumi.set(self, "s3_key_name", value)
 
 
-if not MYPY:
-    class EventTriggerConditionArgsDict(TypedDict):
-        """
-        Specifies the circumstances under which the event should trigger the destination.
-        """
-        event_trigger_dimensions: pulumi.Input[Sequence[pulumi.Input['EventTriggerDimensionArgsDict']]]
-        logical_operator: pulumi.Input['EventTriggerLogicalOperator']
-elif False:
-    EventTriggerConditionArgsDict: TypeAlias = Mapping[str, Any]
+class EventTriggerConditionArgsDict(TypedDict):
+    """
+    Specifies the circumstances under which the event should trigger the destination.
+    """
+    event_trigger_dimensions: pulumi.Input[Sequence[pulumi.Input['EventTriggerDimensionArgsDict']]]
+    logical_operator: pulumi.Input['EventTriggerLogicalOperator']
 
 @pulumi.input_type
 class EventTriggerConditionArgs:
@@ -1385,14 +1326,11 @@ class EventTriggerConditionArgs:
         pulumi.set(self, "logical_operator", value)
 
 
-if not MYPY:
-    class EventTriggerDimensionArgsDict(TypedDict):
-        """
-        A specific event dimension to be assessed.
-        """
-        object_attributes: pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgsDict']]]
-elif False:
-    EventTriggerDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class EventTriggerDimensionArgsDict(TypedDict):
+    """
+    A specific event dimension to be assessed.
+    """
+    object_attributes: pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgsDict']]]
 
 @pulumi.input_type
 class EventTriggerDimensionArgs:
@@ -1413,21 +1351,18 @@ class EventTriggerDimensionArgs:
         pulumi.set(self, "object_attributes", value)
 
 
-if not MYPY:
-    class EventTriggerLimitsArgsDict(TypedDict):
-        """
-        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
-        """
-        event_expiration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies that an event will only trigger the destination if it is processed within a certain latency period.
-        """
-        periods: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgsDict']]]]
-        """
-        A list of time periods during which the limits apply.
-        """
-elif False:
-    EventTriggerLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class EventTriggerLimitsArgsDict(TypedDict):
+    """
+    Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+    """
+    event_expiration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+    """
+    periods: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgsDict']]]]
+    """
+    A list of time periods during which the limits apply.
+    """
 
 @pulumi.input_type
 class EventTriggerLimitsArgs:
@@ -1469,29 +1404,26 @@ class EventTriggerLimitsArgs:
         pulumi.set(self, "periods", value)
 
 
-if not MYPY:
-    class EventTriggerObjectAttributeArgsDict(TypedDict):
-        """
-        The criteria that a specific object attribute must meet to trigger the destination.
-        """
-        comparison_operator: pulumi.Input['EventTriggerObjectAttributeComparisonOperator']
-        """
-        The operator used to compare an attribute against a list of values.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of attribute values used for comparison.
-        """
-        field_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A field defined within an object type.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An attribute contained within a source object.
-        """
-elif False:
-    EventTriggerObjectAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class EventTriggerObjectAttributeArgsDict(TypedDict):
+    """
+    The criteria that a specific object attribute must meet to trigger the destination.
+    """
+    comparison_operator: pulumi.Input['EventTriggerObjectAttributeComparisonOperator']
+    """
+    The operator used to compare an attribute against a list of values.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of attribute values used for comparison.
+    """
+    field_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A field defined within an object type.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An attribute contained within a source object.
+    """
 
 @pulumi.input_type
 class EventTriggerObjectAttributeArgs:
@@ -1563,29 +1495,26 @@ class EventTriggerObjectAttributeArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class EventTriggerPeriodArgsDict(TypedDict):
-        """
-        Defines a limit and the time period during which it is enforced.
-        """
-        unit: pulumi.Input['EventTriggerPeriodUnit']
-        """
-        The unit of time.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        The amount of time of the specified unit.
-        """
-        max_invocations_per_profile: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum allowed number of destination invocations per profile.
-        """
-        unlimited: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, there is no limit on the number of destination invocations per profile. The default is false.
-        """
-elif False:
-    EventTriggerPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class EventTriggerPeriodArgsDict(TypedDict):
+    """
+    Defines a limit and the time period during which it is enforced.
+    """
+    unit: pulumi.Input['EventTriggerPeriodUnit']
+    """
+    The unit of time.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    The amount of time of the specified unit.
+    """
+    max_invocations_per_profile: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum allowed number of destination invocations per profile.
+    """
+    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+    """
 
 @pulumi.input_type
 class EventTriggerPeriodArgs:
@@ -1657,30 +1586,27 @@ class EventTriggerPeriodArgs:
         pulumi.set(self, "unlimited", value)
 
 
-if not MYPY:
-    class IntegrationConnectorOperatorArgsDict(TypedDict):
-        marketo: NotRequired[pulumi.Input['IntegrationMarketoConnectorOperator']]
-        """
-        The operation to be performed on the provided Marketo source fields.
-        """
-        s3: NotRequired[pulumi.Input['IntegrationS3ConnectorOperator']]
-        """
-        The operation to be performed on the provided Amazon S3 source fields.
-        """
-        salesforce: NotRequired[pulumi.Input['IntegrationSalesforceConnectorOperator']]
-        """
-        The operation to be performed on the provided Salesforce source fields.
-        """
-        service_now: NotRequired[pulumi.Input['IntegrationServiceNowConnectorOperator']]
-        """
-        The operation to be performed on the provided ServiceNow source fields.
-        """
-        zendesk: NotRequired[pulumi.Input['IntegrationZendeskConnectorOperator']]
-        """
-        The operation to be performed on the provided Zendesk source fields.
-        """
-elif False:
-    IntegrationConnectorOperatorArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationConnectorOperatorArgsDict(TypedDict):
+    marketo: NotRequired[pulumi.Input['IntegrationMarketoConnectorOperator']]
+    """
+    The operation to be performed on the provided Marketo source fields.
+    """
+    s3: NotRequired[pulumi.Input['IntegrationS3ConnectorOperator']]
+    """
+    The operation to be performed on the provided Amazon S3 source fields.
+    """
+    salesforce: NotRequired[pulumi.Input['IntegrationSalesforceConnectorOperator']]
+    """
+    The operation to be performed on the provided Salesforce source fields.
+    """
+    service_now: NotRequired[pulumi.Input['IntegrationServiceNowConnectorOperator']]
+    """
+    The operation to be performed on the provided ServiceNow source fields.
+    """
+    zendesk: NotRequired[pulumi.Input['IntegrationZendeskConnectorOperator']]
+    """
+    The operation to be performed on the provided Zendesk source fields.
+    """
 
 @pulumi.input_type
 class IntegrationConnectorOperatorArgs:
@@ -1769,34 +1695,31 @@ class IntegrationConnectorOperatorArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class IntegrationFlowDefinitionArgsDict(TypedDict):
-        flow_name: pulumi.Input[_builtins.str]
-        """
-        The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
-        """
-        kms_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
-        """
-        source_flow_config: pulumi.Input['IntegrationSourceFlowConfigArgsDict']
-        """
-        The configuration that controls how Customer Profiles retrieves data from the source.
-        """
-        tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgsDict']]]
-        """
-        A list of tasks that Customer Profiles performs while transferring the data in the flow run.
-        """
-        trigger_config: pulumi.Input['IntegrationTriggerConfigArgsDict']
-        """
-        The trigger settings that determine how and when the flow runs.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the flow you want to create.
-        """
-elif False:
-    IntegrationFlowDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationFlowDefinitionArgsDict(TypedDict):
+    flow_name: pulumi.Input[_builtins.str]
+    """
+    The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+    """
+    kms_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+    """
+    source_flow_config: pulumi.Input['IntegrationSourceFlowConfigArgsDict']
+    """
+    The configuration that controls how Customer Profiles retrieves data from the source.
+    """
+    tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgsDict']]]
+    """
+    A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+    """
+    trigger_config: pulumi.Input['IntegrationTriggerConfigArgsDict']
+    """
+    The trigger settings that determine how and when the flow runs.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the flow you want to create.
+    """
 
 @pulumi.input_type
 class IntegrationFlowDefinitionArgs:
@@ -1896,14 +1819,11 @@ class IntegrationFlowDefinitionArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class IntegrationIncrementalPullConfigArgsDict(TypedDict):
-        datetime_type_field_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-        """
-elif False:
-    IntegrationIncrementalPullConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationIncrementalPullConfigArgsDict(TypedDict):
+    datetime_type_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+    """
 
 @pulumi.input_type
 class IntegrationIncrementalPullConfigArgs:
@@ -1928,14 +1848,11 @@ class IntegrationIncrementalPullConfigArgs:
         pulumi.set(self, "datetime_type_field_name", value)
 
 
-if not MYPY:
-    class IntegrationMarketoSourcePropertiesArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        """
-        The object specified in the Marketo flow source.
-        """
-elif False:
-    IntegrationMarketoSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationMarketoSourcePropertiesArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    """
+    The object specified in the Marketo flow source.
+    """
 
 @pulumi.input_type
 class IntegrationMarketoSourcePropertiesArgs:
@@ -1959,18 +1876,15 @@ class IntegrationMarketoSourcePropertiesArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class IntegrationObjectTypeMappingArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value.
-        """
-elif False:
-    IntegrationObjectTypeMappingArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationObjectTypeMappingArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value.
+    """
 
 @pulumi.input_type
 class IntegrationObjectTypeMappingArgs:
@@ -2009,18 +1923,15 @@ class IntegrationObjectTypeMappingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class IntegrationS3SourcePropertiesArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name where the source files are stored.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key for the Amazon S3 bucket in which the source files are stored.
-        """
-elif False:
-    IntegrationS3SourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationS3SourcePropertiesArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name where the source files are stored.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object key for the Amazon S3 bucket in which the source files are stored.
+    """
 
 @pulumi.input_type
 class IntegrationS3SourcePropertiesArgs:
@@ -2060,22 +1971,19 @@ class IntegrationS3SourcePropertiesArgs:
         pulumi.set(self, "bucket_prefix", value)
 
 
-if not MYPY:
-    class IntegrationSalesforceSourcePropertiesArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        """
-        The object specified in the Salesforce flow source.
-        """
-        enable_dynamic_field_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-        """
-        include_deleted_records: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Amazon AppFlow includes deleted files in the flow run.
-        """
-elif False:
-    IntegrationSalesforceSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationSalesforceSourcePropertiesArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    """
+    The object specified in the Salesforce flow source.
+    """
+    enable_dynamic_field_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+    """
+    include_deleted_records: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Amazon AppFlow includes deleted files in the flow run.
+    """
 
 @pulumi.input_type
 class IntegrationSalesforceSourcePropertiesArgs:
@@ -2131,38 +2039,35 @@ class IntegrationSalesforceSourcePropertiesArgs:
         pulumi.set(self, "include_deleted_records", value)
 
 
-if not MYPY:
-    class IntegrationScheduledTriggerPropertiesArgsDict(TypedDict):
-        schedule_expression: pulumi.Input[_builtins.str]
-        """
-        The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
-        """
-        data_pull_mode: NotRequired[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]
-        """
-        Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
-        """
-        first_execution_from: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the date range for the records to import from the connector in the first flow run.
-        """
-        schedule_end_time: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the scheduled end time for a scheduled-trigger flow.
-        """
-        schedule_offset: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
-        """
-        schedule_start_time: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
-        """
-elif False:
-    IntegrationScheduledTriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationScheduledTriggerPropertiesArgsDict(TypedDict):
+    schedule_expression: pulumi.Input[_builtins.str]
+    """
+    The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
+    """
+    data_pull_mode: NotRequired[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]
+    """
+    Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+    """
+    first_execution_from: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the date range for the records to import from the connector in the first flow run.
+    """
+    schedule_end_time: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the scheduled end time for a scheduled-trigger flow.
+    """
+    schedule_offset: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+    """
+    schedule_start_time: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
+    """
 
 @pulumi.input_type
 class IntegrationScheduledTriggerPropertiesArgs:
@@ -2282,14 +2187,11 @@ class IntegrationScheduledTriggerPropertiesArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class IntegrationServiceNowSourcePropertiesArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        """
-        The object specified in the ServiceNow flow source.
-        """
-elif False:
-    IntegrationServiceNowSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationServiceNowSourcePropertiesArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    """
+    The object specified in the ServiceNow flow source.
+    """
 
 @pulumi.input_type
 class IntegrationServiceNowSourcePropertiesArgs:
@@ -2313,30 +2215,27 @@ class IntegrationServiceNowSourcePropertiesArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class IntegrationSourceConnectorPropertiesArgsDict(TypedDict):
-        marketo: NotRequired[pulumi.Input['IntegrationMarketoSourcePropertiesArgsDict']]
-        """
-        The properties that are applied when Marketo is being used as a source.
-        """
-        s3: NotRequired[pulumi.Input['IntegrationS3SourcePropertiesArgsDict']]
-        """
-        The properties that are applied when Amazon S3 is being used as the flow source.
-        """
-        salesforce: NotRequired[pulumi.Input['IntegrationSalesforceSourcePropertiesArgsDict']]
-        """
-        The properties that are applied when Salesforce is being used as a source.
-        """
-        service_now: NotRequired[pulumi.Input['IntegrationServiceNowSourcePropertiesArgsDict']]
-        """
-        The properties that are applied when ServiceNow is being used as a source.
-        """
-        zendesk: NotRequired[pulumi.Input['IntegrationZendeskSourcePropertiesArgsDict']]
-        """
-        The properties that are applied when using Zendesk as a flow source.
-        """
-elif False:
-    IntegrationSourceConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationSourceConnectorPropertiesArgsDict(TypedDict):
+    marketo: NotRequired[pulumi.Input['IntegrationMarketoSourcePropertiesArgsDict']]
+    """
+    The properties that are applied when Marketo is being used as a source.
+    """
+    s3: NotRequired[pulumi.Input['IntegrationS3SourcePropertiesArgsDict']]
+    """
+    The properties that are applied when Amazon S3 is being used as the flow source.
+    """
+    salesforce: NotRequired[pulumi.Input['IntegrationSalesforceSourcePropertiesArgsDict']]
+    """
+    The properties that are applied when Salesforce is being used as a source.
+    """
+    service_now: NotRequired[pulumi.Input['IntegrationServiceNowSourcePropertiesArgsDict']]
+    """
+    The properties that are applied when ServiceNow is being used as a source.
+    """
+    zendesk: NotRequired[pulumi.Input['IntegrationZendeskSourcePropertiesArgsDict']]
+    """
+    The properties that are applied when using Zendesk as a flow source.
+    """
 
 @pulumi.input_type
 class IntegrationSourceConnectorPropertiesArgs:
@@ -2425,26 +2324,23 @@ class IntegrationSourceConnectorPropertiesArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class IntegrationSourceFlowConfigArgsDict(TypedDict):
-        connector_type: pulumi.Input['IntegrationConnectorType']
-        """
-        The type of connector, such as Salesforce, Marketo, and so on.
-        """
-        source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgsDict']
-        """
-        Specifies the information that is required to query a particular source connector.
-        """
-        connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
-        """
-        incremental_pull_config: NotRequired[pulumi.Input['IntegrationIncrementalPullConfigArgsDict']]
-        """
-        Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
-        """
-elif False:
-    IntegrationSourceFlowConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationSourceFlowConfigArgsDict(TypedDict):
+    connector_type: pulumi.Input['IntegrationConnectorType']
+    """
+    The type of connector, such as Salesforce, Marketo, and so on.
+    """
+    source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgsDict']
+    """
+    Specifies the information that is required to query a particular source connector.
+    """
+    connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
+    """
+    incremental_pull_config: NotRequired[pulumi.Input['IntegrationIncrementalPullConfigArgsDict']]
+    """
+    Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
+    """
 
 @pulumi.input_type
 class IntegrationSourceFlowConfigArgs:
@@ -2515,18 +2411,15 @@ class IntegrationSourceFlowConfigArgs:
         pulumi.set(self, "incremental_pull_config", value)
 
 
-if not MYPY:
-    class IntegrationTaskPropertiesMapArgsDict(TypedDict):
-        operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys']
-        """
-        The task property key.
-        """
-        property: pulumi.Input[_builtins.str]
-        """
-        The task property value.
-        """
-elif False:
-    IntegrationTaskPropertiesMapArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTaskPropertiesMapArgsDict(TypedDict):
+    operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys']
+    """
+    The task property key.
+    """
+    property: pulumi.Input[_builtins.str]
+    """
+    The task property value.
+    """
 
 @pulumi.input_type
 class IntegrationTaskPropertiesMapArgs:
@@ -2565,30 +2458,27 @@ class IntegrationTaskPropertiesMapArgs:
         pulumi.set(self, "property", value)
 
 
-if not MYPY:
-    class IntegrationTaskArgsDict(TypedDict):
-        source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The source fields to which a particular task is applied.
-        """
-        task_type: pulumi.Input['IntegrationTaskType']
-        """
-        Specifies the particular task implementation that Amazon AppFlow performs.
-        """
-        connector_operator: NotRequired[pulumi.Input['IntegrationConnectorOperatorArgsDict']]
-        """
-        The operation to be performed on the provided source fields.
-        """
-        destination_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-        """
-        task_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgsDict']]]]
-        """
-        A map used to store task-related information. The service looks for particular information based on the TaskType.
-        """
-elif False:
-    IntegrationTaskArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTaskArgsDict(TypedDict):
+    source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The source fields to which a particular task is applied.
+    """
+    task_type: pulumi.Input['IntegrationTaskType']
+    """
+    Specifies the particular task implementation that Amazon AppFlow performs.
+    """
+    connector_operator: NotRequired[pulumi.Input['IntegrationConnectorOperatorArgsDict']]
+    """
+    The operation to be performed on the provided source fields.
+    """
+    destination_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+    """
+    task_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgsDict']]]]
+    """
+    A map used to store task-related information. The service looks for particular information based on the TaskType.
+    """
 
 @pulumi.input_type
 class IntegrationTaskArgs:
@@ -2675,18 +2565,15 @@ class IntegrationTaskArgs:
         pulumi.set(self, "task_properties", value)
 
 
-if not MYPY:
-    class IntegrationTriggerConfigArgsDict(TypedDict):
-        trigger_type: pulumi.Input['IntegrationTriggerType']
-        """
-        Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
-        """
-        trigger_properties: NotRequired[pulumi.Input['IntegrationTriggerPropertiesArgsDict']]
-        """
-        Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
-        """
-elif False:
-    IntegrationTriggerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTriggerConfigArgsDict(TypedDict):
+    trigger_type: pulumi.Input['IntegrationTriggerType']
+    """
+    Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+    """
+    trigger_properties: NotRequired[pulumi.Input['IntegrationTriggerPropertiesArgsDict']]
+    """
+    Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
+    """
 
 @pulumi.input_type
 class IntegrationTriggerConfigArgs:
@@ -2726,14 +2613,11 @@ class IntegrationTriggerConfigArgs:
         pulumi.set(self, "trigger_properties", value)
 
 
-if not MYPY:
-    class IntegrationTriggerPropertiesArgsDict(TypedDict):
-        scheduled: NotRequired[pulumi.Input['IntegrationScheduledTriggerPropertiesArgsDict']]
-        """
-        Specifies the configuration details of a schedule-triggered flow that you define.
-        """
-elif False:
-    IntegrationTriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTriggerPropertiesArgsDict(TypedDict):
+    scheduled: NotRequired[pulumi.Input['IntegrationScheduledTriggerPropertiesArgsDict']]
+    """
+    Specifies the configuration details of a schedule-triggered flow that you define.
+    """
 
 @pulumi.input_type
 class IntegrationTriggerPropertiesArgs:
@@ -2758,14 +2642,11 @@ class IntegrationTriggerPropertiesArgs:
         pulumi.set(self, "scheduled", value)
 
 
-if not MYPY:
-    class IntegrationZendeskSourcePropertiesArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        """
-        The object specified in the Zendesk flow source.
-        """
-elif False:
-    IntegrationZendeskSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationZendeskSourcePropertiesArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    """
+    The object specified in the Zendesk flow source.
+    """
 
 @pulumi.input_type
 class IntegrationZendeskSourcePropertiesArgs:
@@ -2789,18 +2670,15 @@ class IntegrationZendeskSourcePropertiesArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class ObjectTypeFieldMapArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the field.
-        """
-        object_type_field: NotRequired[pulumi.Input['ObjectTypeFieldArgsDict']]
-        """
-        Represents a field in a ProfileObjectType.
-        """
-elif False:
-    ObjectTypeFieldMapArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectTypeFieldMapArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the field.
+    """
+    object_type_field: NotRequired[pulumi.Input['ObjectTypeFieldArgsDict']]
+    """
+    Represents a field in a ProfileObjectType.
+    """
 
 @pulumi.input_type
 class ObjectTypeFieldMapArgs:
@@ -2841,25 +2719,22 @@ class ObjectTypeFieldMapArgs:
         pulumi.set(self, "object_type_field", value)
 
 
-if not MYPY:
-    class ObjectTypeFieldArgsDict(TypedDict):
-        """
-        Represents a field in a ProfileObjectType.
-        """
-        content_type: NotRequired[pulumi.Input['ObjectTypeFieldContentType']]
-        """
-        The content type of the field. Used for determining equality when searching.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
-        """
-elif False:
-    ObjectTypeFieldArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectTypeFieldArgsDict(TypedDict):
+    """
+    Represents a field in a ProfileObjectType.
+    """
+    content_type: NotRequired[pulumi.Input['ObjectTypeFieldContentType']]
+    """
+    The content type of the field. Used for determining equality when searching.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
+    """
 
 @pulumi.input_type
 class ObjectTypeFieldArgs:
@@ -2917,18 +2792,15 @@ class ObjectTypeFieldArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class ObjectTypeKeyMapArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the key.
-        """
-        object_type_key_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgsDict']]]]
-        """
-        A list of ObjectTypeKey.
-        """
-elif False:
-    ObjectTypeKeyMapArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectTypeKeyMapArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the key.
+    """
+    object_type_key_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgsDict']]]]
+    """
+    A list of ObjectTypeKey.
+    """
 
 @pulumi.input_type
 class ObjectTypeKeyMapArgs:
@@ -2969,21 +2841,18 @@ class ObjectTypeKeyMapArgs:
         pulumi.set(self, "object_type_key_list", value)
 
 
-if not MYPY:
-    class ObjectTypeKeyArgsDict(TypedDict):
-        """
-        An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
-        """
-        field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The reference for the key name of the fields map. 
-        """
-        standard_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]
-        """
-        The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-        """
-elif False:
-    ObjectTypeKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectTypeKeyArgsDict(TypedDict):
+    """
+    An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+    """
+    field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The reference for the key name of the fields map. 
+    """
+    standard_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]
+    """
+    The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+    """
 
 @pulumi.input_type
 class ObjectTypeKeyArgs:
@@ -3025,19 +2894,16 @@ class ObjectTypeKeyArgs:
         pulumi.set(self, "standard_identifiers", value)
 
 
-if not MYPY:
-    class SegmentDefinitionAddressDimensionArgsDict(TypedDict):
-        """
-        The address based criteria for the segment.
-        """
-        city: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        country: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        county: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        postal_code: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        province: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        state: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-elif False:
-    SegmentDefinitionAddressDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionAddressDimensionArgsDict(TypedDict):
+    """
+    The address based criteria for the segment.
+    """
+    city: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    country: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    county: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    postal_code: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    province: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    state: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
 
 @pulumi.input_type
 class SegmentDefinitionAddressDimensionArgs:
@@ -3119,15 +2985,12 @@ class SegmentDefinitionAddressDimensionArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class SegmentDefinitionAttributeDimensionArgsDict(TypedDict):
-        """
-        Specifies attribute based criteria for a segment.
-        """
-        dimension_type: pulumi.Input['SegmentDefinitionAttributeDimensionType']
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    SegmentDefinitionAttributeDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionAttributeDimensionArgsDict(TypedDict):
+    """
+    Specifies attribute based criteria for a segment.
+    """
+    dimension_type: pulumi.Input['SegmentDefinitionAttributeDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class SegmentDefinitionAttributeDimensionArgs:
@@ -3159,16 +3022,13 @@ class SegmentDefinitionAttributeDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SegmentDefinitionCalculatedAttributeDimensionArgsDict(TypedDict):
-        """
-        Specifies calculated attribute based criteria for a segment.
-        """
-        dimension_type: pulumi.Input['SegmentDefinitionAttributeDimensionType']
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        condition_overrides: NotRequired[pulumi.Input['SegmentDefinitionConditionOverridesArgsDict']]
-elif False:
-    SegmentDefinitionCalculatedAttributeDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionCalculatedAttributeDimensionArgsDict(TypedDict):
+    """
+    Specifies calculated attribute based criteria for a segment.
+    """
+    dimension_type: pulumi.Input['SegmentDefinitionAttributeDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    condition_overrides: NotRequired[pulumi.Input['SegmentDefinitionConditionOverridesArgsDict']]
 
 @pulumi.input_type
 class SegmentDefinitionCalculatedAttributeDimensionArgs:
@@ -3212,14 +3072,11 @@ class SegmentDefinitionCalculatedAttributeDimensionArgs:
         pulumi.set(self, "condition_overrides", value)
 
 
-if not MYPY:
-    class SegmentDefinitionConditionOverridesArgsDict(TypedDict):
-        """
-        Overrides the condition block within the original calculated attribute definition.
-        """
-        range: NotRequired[pulumi.Input['SegmentDefinitionRangeOverrideArgsDict']]
-elif False:
-    SegmentDefinitionConditionOverridesArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionConditionOverridesArgsDict(TypedDict):
+    """
+    Overrides the condition block within the original calculated attribute definition.
+    """
+    range: NotRequired[pulumi.Input['SegmentDefinitionRangeOverrideArgsDict']]
 
 @pulumi.input_type
 class SegmentDefinitionConditionOverridesArgs:
@@ -3241,15 +3098,12 @@ class SegmentDefinitionConditionOverridesArgs:
         pulumi.set(self, "range", value)
 
 
-if not MYPY:
-    class SegmentDefinitionDateDimensionArgsDict(TypedDict):
-        """
-        Specifies date based criteria for a segment.
-        """
-        dimension_type: pulumi.Input['SegmentDefinitionDateDimensionType']
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    SegmentDefinitionDateDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionDateDimensionArgsDict(TypedDict):
+    """
+    Specifies date based criteria for a segment.
+    """
+    dimension_type: pulumi.Input['SegmentDefinitionDateDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class SegmentDefinitionDateDimensionArgs:
@@ -3281,14 +3135,11 @@ class SegmentDefinitionDateDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SegmentDefinitionDimension0PropertiesArgsDict(TypedDict):
-        """
-        The criteria that define the dimensions for the segment.
-        """
-        profile_attributes: pulumi.Input['SegmentDefinitionProfileAttributesArgsDict']
-elif False:
-    SegmentDefinitionDimension0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionDimension0PropertiesArgsDict(TypedDict):
+    """
+    The criteria that define the dimensions for the segment.
+    """
+    profile_attributes: pulumi.Input['SegmentDefinitionProfileAttributesArgsDict']
 
 @pulumi.input_type
 class SegmentDefinitionDimension0PropertiesArgs:
@@ -3309,14 +3160,11 @@ class SegmentDefinitionDimension0PropertiesArgs:
         pulumi.set(self, "profile_attributes", value)
 
 
-if not MYPY:
-    class SegmentDefinitionDimension1PropertiesArgsDict(TypedDict):
-        """
-        The criteria that define the dimensions for the segment.
-        """
-        calculated_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgsDict']]]]
-elif False:
-    SegmentDefinitionDimension1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionDimension1PropertiesArgsDict(TypedDict):
+    """
+    The criteria that define the dimensions for the segment.
+    """
+    calculated_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgsDict']]]]
 
 @pulumi.input_type
 class SegmentDefinitionDimension1PropertiesArgs:
@@ -3338,15 +3186,12 @@ class SegmentDefinitionDimension1PropertiesArgs:
         pulumi.set(self, "calculated_attributes", value)
 
 
-if not MYPY:
-    class SegmentDefinitionExtraLengthValueProfileDimensionArgsDict(TypedDict):
-        """
-        Specifies criteria for a segment using extended-length string values.
-        """
-        dimension_type: pulumi.Input['SegmentDefinitionStringDimensionType']
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    SegmentDefinitionExtraLengthValueProfileDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionExtraLengthValueProfileDimensionArgsDict(TypedDict):
+    """
+    Specifies criteria for a segment using extended-length string values.
+    """
+    dimension_type: pulumi.Input['SegmentDefinitionStringDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class SegmentDefinitionExtraLengthValueProfileDimensionArgs:
@@ -3378,29 +3223,26 @@ class SegmentDefinitionExtraLengthValueProfileDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SegmentDefinitionGroupArgsDict(TypedDict):
-        """
-        An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgsDict', 'SegmentDefinitionDimension1PropertiesArgsDict']]]]]
-        """
-        Defines the attributes to segment on.
-        """
-        source_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgsDict']]]]
-        """
-        Defines the starting source of data.
-        """
-        source_type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
-        """
-        Defines how to interact with the source data.
-        """
-        type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
-        """
-        Defines how to interact with the profiles found in the current filtering.
-        """
-elif False:
-    SegmentDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionGroupArgsDict(TypedDict):
+    """
+    An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+    """
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgsDict', 'SegmentDefinitionDimension1PropertiesArgsDict']]]]]
+    """
+    Defines the attributes to segment on.
+    """
+    source_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgsDict']]]]
+    """
+    Defines the starting source of data.
+    """
+    source_type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+    """
+    Defines how to interact with the source data.
+    """
+    type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+    """
+    Defines how to interact with the profiles found in the current filtering.
+    """
 
 @pulumi.input_type
 class SegmentDefinitionGroupArgs:
@@ -3474,35 +3316,32 @@ class SegmentDefinitionGroupArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SegmentDefinitionProfileAttributesArgsDict(TypedDict):
-        """
-        Specifies the dimension settings within profile attributes for a segment.
-        """
-        account_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        additional_information: NotRequired[pulumi.Input['SegmentDefinitionExtraLengthValueProfileDimensionArgsDict']]
-        address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgsDict']]]]
-        billing_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-        birth_date: NotRequired[pulumi.Input['SegmentDefinitionDateDimensionArgsDict']]
-        business_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        business_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        business_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        first_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        gender_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        home_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        last_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        mailing_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-        middle_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        mobile_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        party_type_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        personal_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-        profile_type: NotRequired[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgsDict']]
-        shipping_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-elif False:
-    SegmentDefinitionProfileAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionProfileAttributesArgsDict(TypedDict):
+    """
+    Specifies the dimension settings within profile attributes for a segment.
+    """
+    account_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    additional_information: NotRequired[pulumi.Input['SegmentDefinitionExtraLengthValueProfileDimensionArgsDict']]
+    address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgsDict']]]]
+    billing_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
+    birth_date: NotRequired[pulumi.Input['SegmentDefinitionDateDimensionArgsDict']]
+    business_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    business_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    business_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    first_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    gender_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    home_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    last_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    mailing_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
+    middle_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    mobile_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    party_type_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    personal_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    profile_type: NotRequired[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgsDict']]
+    shipping_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
 
 @pulumi.input_type
 class SegmentDefinitionProfileAttributesArgs:
@@ -3776,15 +3615,12 @@ class SegmentDefinitionProfileAttributesArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class SegmentDefinitionProfileDimensionArgsDict(TypedDict):
-        """
-        Specifies profile based criteria for a segment.
-        """
-        dimension_type: pulumi.Input['SegmentDefinitionStringDimensionType']
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    SegmentDefinitionProfileDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionProfileDimensionArgsDict(TypedDict):
+    """
+    Specifies profile based criteria for a segment.
+    """
+    dimension_type: pulumi.Input['SegmentDefinitionStringDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class SegmentDefinitionProfileDimensionArgs:
@@ -3816,15 +3652,12 @@ class SegmentDefinitionProfileDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SegmentDefinitionProfileTypeDimensionArgsDict(TypedDict):
-        """
-        Specifies profile type based criteria for a segment.
-        """
-        dimension_type: pulumi.Input['SegmentDefinitionProfileTypeDimensionType']
-        values: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionProfileType']]]
-elif False:
-    SegmentDefinitionProfileTypeDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionProfileTypeDimensionArgsDict(TypedDict):
+    """
+    Specifies profile type based criteria for a segment.
+    """
+    dimension_type: pulumi.Input['SegmentDefinitionProfileTypeDimensionType']
+    values: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionProfileType']]]
 
 @pulumi.input_type
 class SegmentDefinitionProfileTypeDimensionArgs:
@@ -3856,25 +3689,22 @@ class SegmentDefinitionProfileTypeDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SegmentDefinitionRangeOverrideArgsDict(TypedDict):
-        """
-        Defines the range to be applied to the calculated attribute definition.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
-        """
-        unit: pulumi.Input['SegmentDefinitionRangeOverrideUnit']
-        """
-        The unit to be applied to the range.
-        """
-        end: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
-        """
-elif False:
-    SegmentDefinitionRangeOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionRangeOverrideArgsDict(TypedDict):
+    """
+    Defines the range to be applied to the calculated attribute definition.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+    """
+    unit: pulumi.Input['SegmentDefinitionRangeOverrideUnit']
+    """
+    The unit to be applied to the range.
+    """
+    end: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+    """
 
 @pulumi.input_type
 class SegmentDefinitionRangeOverrideArgs:
@@ -3930,18 +3760,15 @@ class SegmentDefinitionRangeOverrideArgs:
         pulumi.set(self, "end", value)
 
 
-if not MYPY:
-    class SegmentDefinitionSegmentGroupArgsDict(TypedDict):
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgsDict']]]]
-        """
-        Holds the list of groups within the segment definition.
-        """
-        include: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
-        """
-        Defines whether to include or exclude the profiles that fit the segment criteria.
-        """
-elif False:
-    SegmentDefinitionSegmentGroupArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionSegmentGroupArgsDict(TypedDict):
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgsDict']]]]
+    """
+    Holds the list of groups within the segment definition.
+    """
+    include: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+    """
+    Defines whether to include or exclude the profiles that fit the segment criteria.
+    """
 
 @pulumi.input_type
 class SegmentDefinitionSegmentGroupArgs:
@@ -3982,17 +3809,14 @@ class SegmentDefinitionSegmentGroupArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class SegmentDefinitionSourceSegmentArgsDict(TypedDict):
-        """
-        The base segment to build the segment on.
-        """
-        segment_definition_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the source segment.
-        """
-elif False:
-    SegmentDefinitionSourceSegmentArgsDict: TypeAlias = Mapping[str, Any]
+class SegmentDefinitionSourceSegmentArgsDict(TypedDict):
+    """
+    The base segment to build the segment on.
+    """
+    segment_definition_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the source segment.
+    """
 
 @pulumi.input_type
 class SegmentDefinitionSourceSegmentArgs:

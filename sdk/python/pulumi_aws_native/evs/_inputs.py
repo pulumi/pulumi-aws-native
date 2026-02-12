@@ -32,19 +32,14 @@ __all__ = [
     'VcfHostnamesPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectivityInfoPropertiesArgsDict(TypedDict):
-        """
-        The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
-        """
-        private_route_server_peerings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The unique IDs for private route server peers.
-        """
-elif False:
-    ConnectivityInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectivityInfoPropertiesArgsDict(TypedDict):
+    """
+    The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+    """
+    private_route_server_peerings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The unique IDs for private route server peers.
+    """
 
 @pulumi.input_type
 class ConnectivityInfoPropertiesArgs:
@@ -69,30 +64,27 @@ class ConnectivityInfoPropertiesArgs:
         pulumi.set(self, "private_route_server_peerings", value)
 
 
-if not MYPY:
-    class EnvironmentHostInfoForCreateArgsDict(TypedDict):
-        host_name: pulumi.Input[_builtins.str]
-        """
-        The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
-        """
-        instance_type: pulumi.Input['EnvironmentHostInfoForCreateInstanceType']
-        """
-        The EC2 instance type that represents the host.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        The name of the SSH key that is used to access the host.
-        """
-        dedicated_host_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique ID of the Amazon EC2 Dedicated Host.
-        """
-        placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique ID of the placement group where the host is placed.
-        """
-elif False:
-    EnvironmentHostInfoForCreateArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentHostInfoForCreateArgsDict(TypedDict):
+    host_name: pulumi.Input[_builtins.str]
+    """
+    The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+    """
+    instance_type: pulumi.Input['EnvironmentHostInfoForCreateInstanceType']
+    """
+    The EC2 instance type that represents the host.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    The name of the SSH key that is used to access the host.
+    """
+    dedicated_host_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique ID of the Amazon EC2 Dedicated Host.
+    """
+    placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique ID of the placement group where the host is placed.
+    """
 
 @pulumi.input_type
 class EnvironmentHostInfoForCreateArgs:
@@ -178,14 +170,11 @@ class EnvironmentHostInfoForCreateArgs:
         pulumi.set(self, "placement_group_id", value)
 
 
-if not MYPY:
-    class EnvironmentInitialVlanInfoArgsDict(TypedDict):
-        cidr: pulumi.Input[_builtins.str]
-        """
-        The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
-        """
-elif False:
-    EnvironmentInitialVlanInfoArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentInitialVlanInfoArgsDict(TypedDict):
+    cidr: pulumi.Input[_builtins.str]
+    """
+    The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
+    """
 
 @pulumi.input_type
 class EnvironmentInitialVlanInfoArgs:
@@ -209,67 +198,64 @@ class EnvironmentInitialVlanInfoArgs:
         pulumi.set(self, "cidr", value)
 
 
-if not MYPY:
-    class InitialVlansPropertiesArgsDict(TypedDict):
-        """
-        The initial Vlan configuration only required upon creation. Modification after creation will have no effect
-        """
-        edge_v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
-        """
-        expansion_vlan1: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
-        """
-        expansion_vlan2: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
-        """
-        hcx: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+class InitialVlansPropertiesArgsDict(TypedDict):
+    """
+    The initial Vlan configuration only required upon creation. Modification after creation will have no effect
+    """
+    edge_v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+    """
+    expansion_vlan1: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+    """
+    expansion_vlan2: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+    """
+    hcx: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
 
-        If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+    If you plan to use a public HCX VLAN subnet, the following requirements must be met:
 
-        - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
-        - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
-        - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
-        """
-        nsx_up_link: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
-        """
-        v_motion: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
-        """
-        v_san: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
-        """
-        v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
-        """
-        vm_management: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
-        """
-        vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
-        """
-        The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
-        """
-        hcx_network_acl_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
-        """
-        is_hcx_public: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if the HCX VLAN that Amazon EVS provisions is public or private.
-        """
-elif False:
-    InitialVlansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+    - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+    - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
+    """
+    nsx_up_link: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+    """
+    v_motion: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+    """
+    v_san: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+    """
+    v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+    """
+    vm_management: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+    """
+    vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+    """
+    The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+    """
+    hcx_network_acl_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+    """
+    is_hcx_public: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+    """
 
 @pulumi.input_type
 class InitialVlansPropertiesArgs:
@@ -473,21 +459,18 @@ class InitialVlansPropertiesArgs:
         pulumi.set(self, "is_hcx_public", value)
 
 
-if not MYPY:
-    class LicenseInfoPropertiesArgsDict(TypedDict):
-        """
-        The license information for an EVS environment
-        """
-        solution_key: pulumi.Input[_builtins.str]
-        """
-        The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
-        """
-        vsan_key: pulumi.Input[_builtins.str]
-        """
-        The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
-        """
-elif False:
-    LicenseInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseInfoPropertiesArgsDict(TypedDict):
+    """
+    The license information for an EVS environment
+    """
+    solution_key: pulumi.Input[_builtins.str]
+    """
+    The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
+    """
+    vsan_key: pulumi.Input[_builtins.str]
+    """
+    The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
+    """
 
 @pulumi.input_type
 class LicenseInfoPropertiesArgs:
@@ -527,17 +510,14 @@ class LicenseInfoPropertiesArgs:
         pulumi.set(self, "vsan_key", value)
 
 
-if not MYPY:
-    class ServiceAccessSecurityGroupsPropertiesArgsDict(TypedDict):
-        """
-        The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The security groups that allow service access.
-        """
-elif False:
-    ServiceAccessSecurityGroupsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceAccessSecurityGroupsPropertiesArgsDict(TypedDict):
+    """
+    The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The security groups that allow service access.
+    """
 
 @pulumi.input_type
 class ServiceAccessSecurityGroupsPropertiesArgs:
@@ -563,51 +543,48 @@ class ServiceAccessSecurityGroupsPropertiesArgs:
         pulumi.set(self, "security_groups", value)
 
 
-if not MYPY:
-    class VcfHostnamesPropertiesArgsDict(TypedDict):
-        """
-        The DNS hostnames to be used by the VCF management appliances in your environment.
+class VcfHostnamesPropertiesArgsDict(TypedDict):
+    """
+    The DNS hostnames to be used by the VCF management appliances in your environment.
 
-        For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
-        """
-        cloud_builder: pulumi.Input[_builtins.str]
-        """
-        The hostname for VMware Cloud Builder.
-        """
-        nsx: pulumi.Input[_builtins.str]
-        """
-        The VMware NSX hostname.
-        """
-        nsx_edge1: pulumi.Input[_builtins.str]
-        """
-        The hostname for the first NSX Edge node.
-        """
-        nsx_edge2: pulumi.Input[_builtins.str]
-        """
-        The hostname for the second NSX Edge node.
-        """
-        nsx_manager1: pulumi.Input[_builtins.str]
-        """
-        The hostname for the first VMware NSX Manager virtual machine (VM).
-        """
-        nsx_manager2: pulumi.Input[_builtins.str]
-        """
-        The hostname for the second VMware NSX Manager virtual machine (VM).
-        """
-        nsx_manager3: pulumi.Input[_builtins.str]
-        """
-        The hostname for the third VMware NSX Manager virtual machine (VM).
-        """
-        sddc_manager: pulumi.Input[_builtins.str]
-        """
-        The hostname for SDDC Manager.
-        """
-        v_center: pulumi.Input[_builtins.str]
-        """
-        The VMware vCenter hostname.
-        """
-elif False:
-    VcfHostnamesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+    """
+    cloud_builder: pulumi.Input[_builtins.str]
+    """
+    The hostname for VMware Cloud Builder.
+    """
+    nsx: pulumi.Input[_builtins.str]
+    """
+    The VMware NSX hostname.
+    """
+    nsx_edge1: pulumi.Input[_builtins.str]
+    """
+    The hostname for the first NSX Edge node.
+    """
+    nsx_edge2: pulumi.Input[_builtins.str]
+    """
+    The hostname for the second NSX Edge node.
+    """
+    nsx_manager1: pulumi.Input[_builtins.str]
+    """
+    The hostname for the first VMware NSX Manager virtual machine (VM).
+    """
+    nsx_manager2: pulumi.Input[_builtins.str]
+    """
+    The hostname for the second VMware NSX Manager virtual machine (VM).
+    """
+    nsx_manager3: pulumi.Input[_builtins.str]
+    """
+    The hostname for the third VMware NSX Manager virtual machine (VM).
+    """
+    sddc_manager: pulumi.Input[_builtins.str]
+    """
+    The hostname for SDDC Manager.
+    """
+    v_center: pulumi.Input[_builtins.str]
+    """
+    The VMware vCenter hostname.
+    """
 
 @pulumi.input_type
 class VcfHostnamesPropertiesArgs:

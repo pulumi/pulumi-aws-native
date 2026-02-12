@@ -64,14 +64,9 @@ __all__ = [
     'StorageProfileFileSystemLocationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FleetAcceleratorCapabilitiesArgsDict(TypedDict):
-        selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgsDict']]]
-        count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
-elif False:
-    FleetAcceleratorCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAcceleratorCapabilitiesArgsDict(TypedDict):
+    selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgsDict']]]
+    count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
 
 @pulumi.input_type
 class FleetAcceleratorCapabilitiesArgs:
@@ -101,12 +96,9 @@ class FleetAcceleratorCapabilitiesArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class FleetAcceleratorCountRangeArgsDict(TypedDict):
-        min: pulumi.Input[_builtins.int]
-        max: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FleetAcceleratorCountRangeArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAcceleratorCountRangeArgsDict(TypedDict):
+    min: pulumi.Input[_builtins.int]
+    max: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FleetAcceleratorCountRangeArgs:
@@ -136,12 +128,9 @@ class FleetAcceleratorCountRangeArgs:
         pulumi.set(self, "max", value)
 
 
-if not MYPY:
-    class FleetAcceleratorSelectionArgsDict(TypedDict):
-        name: pulumi.Input['FleetAcceleratorSelectionName']
-        runtime: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FleetAcceleratorSelectionArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAcceleratorSelectionArgsDict(TypedDict):
+    name: pulumi.Input['FleetAcceleratorSelectionName']
+    runtime: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FleetAcceleratorSelectionArgs:
@@ -171,12 +160,9 @@ class FleetAcceleratorSelectionArgs:
         pulumi.set(self, "runtime", value)
 
 
-if not MYPY:
-    class FleetAcceleratorTotalMemoryMiBRangeArgsDict(TypedDict):
-        min: pulumi.Input[_builtins.int]
-        max: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FleetAcceleratorTotalMemoryMiBRangeArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAcceleratorTotalMemoryMiBRangeArgsDict(TypedDict):
+    min: pulumi.Input[_builtins.int]
+    max: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FleetAcceleratorTotalMemoryMiBRangeArgs:
@@ -206,22 +192,19 @@ class FleetAcceleratorTotalMemoryMiBRangeArgs:
         pulumi.set(self, "max", value)
 
 
-if not MYPY:
-    class FleetAmountCapabilityArgsDict(TypedDict):
-        min: pulumi.Input[_builtins.float]
-        """
-        The minimum amount of fleet worker capability.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the fleet capability.
-        """
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of the fleet worker capability.
-        """
-elif False:
-    FleetAmountCapabilityArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAmountCapabilityArgsDict(TypedDict):
+    min: pulumi.Input[_builtins.float]
+    """
+    The minimum amount of fleet worker capability.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the fleet capability.
+    """
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of the fleet worker capability.
+    """
 
 @pulumi.input_type
 class FleetAmountCapabilityArgs:
@@ -276,18 +259,15 @@ class FleetAmountCapabilityArgs:
         pulumi.set(self, "max", value)
 
 
-if not MYPY:
-    class FleetAttributeCapabilityArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the fleet attribute capability for the worker.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The number of fleet attribute capabilities.
-        """
-elif False:
-    FleetAttributeCapabilityArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAttributeCapabilityArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the fleet attribute capability for the worker.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The number of fleet attribute capabilities.
+    """
 
 @pulumi.input_type
 class FleetAttributeCapabilityArgs:
@@ -326,11 +306,8 @@ class FleetAttributeCapabilityArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class FleetConfiguration0PropertiesArgsDict(TypedDict):
-        customer_managed: pulumi.Input['FleetCustomerManagedFleetConfigurationArgsDict']
-elif False:
-    FleetConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetConfiguration0PropertiesArgsDict(TypedDict):
+    customer_managed: pulumi.Input['FleetCustomerManagedFleetConfigurationArgsDict']
 
 @pulumi.input_type
 class FleetConfiguration0PropertiesArgs:
@@ -348,11 +325,8 @@ class FleetConfiguration0PropertiesArgs:
         pulumi.set(self, "customer_managed", value)
 
 
-if not MYPY:
-    class FleetConfiguration1PropertiesArgsDict(TypedDict):
-        service_managed_ec2: pulumi.Input['FleetServiceManagedEc2FleetConfigurationArgsDict']
-elif False:
-    FleetConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetConfiguration1PropertiesArgsDict(TypedDict):
+    service_managed_ec2: pulumi.Input['FleetServiceManagedEc2FleetConfigurationArgsDict']
 
 @pulumi.input_type
 class FleetConfiguration1PropertiesArgs:
@@ -370,14 +344,11 @@ class FleetConfiguration1PropertiesArgs:
         pulumi.set(self, "service_managed_ec2", value)
 
 
-if not MYPY:
-    class FleetCustomerManagedFleetConfigurationArgsDict(TypedDict):
-        mode: pulumi.Input['FleetAutoScalingMode']
-        worker_capabilities: pulumi.Input['FleetCustomerManagedWorkerCapabilitiesArgsDict']
-        storage_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        tag_propagation_mode: NotRequired[pulumi.Input['FleetTagPropagationMode']]
-elif False:
-    FleetCustomerManagedFleetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetCustomerManagedFleetConfigurationArgsDict(TypedDict):
+    mode: pulumi.Input['FleetAutoScalingMode']
+    worker_capabilities: pulumi.Input['FleetCustomerManagedWorkerCapabilitiesArgsDict']
+    storage_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    tag_propagation_mode: NotRequired[pulumi.Input['FleetTagPropagationMode']]
 
 @pulumi.input_type
 class FleetCustomerManagedFleetConfigurationArgs:
@@ -430,19 +401,16 @@ class FleetCustomerManagedFleetConfigurationArgs:
         pulumi.set(self, "tag_propagation_mode", value)
 
 
-if not MYPY:
-    class FleetCustomerManagedWorkerCapabilitiesArgsDict(TypedDict):
-        cpu_architecture_type: pulumi.Input['FleetCpuArchitectureType']
-        memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
-        os_family: pulumi.Input['FleetCustomerManagedFleetOperatingSystemFamily']
-        v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
-        accelerator_count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
-        accelerator_total_memory_mi_b: NotRequired[pulumi.Input['FleetAcceleratorTotalMemoryMiBRangeArgsDict']]
-        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorType']]]]
-        custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
-        custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
-elif False:
-    FleetCustomerManagedWorkerCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetCustomerManagedWorkerCapabilitiesArgsDict(TypedDict):
+    cpu_architecture_type: pulumi.Input['FleetCpuArchitectureType']
+    memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
+    os_family: pulumi.Input['FleetCustomerManagedFleetOperatingSystemFamily']
+    v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
+    accelerator_count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
+    accelerator_total_memory_mi_b: NotRequired[pulumi.Input['FleetAcceleratorTotalMemoryMiBRangeArgsDict']]
+    accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorType']]]]
+    custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
+    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
 
 @pulumi.input_type
 class FleetCustomerManagedWorkerCapabilitiesArgs:
@@ -553,13 +521,10 @@ class FleetCustomerManagedWorkerCapabilitiesArgs:
         pulumi.set(self, "custom_attributes", value)
 
 
-if not MYPY:
-    class FleetEc2EbsVolumeArgsDict(TypedDict):
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        size_gi_b: NotRequired[pulumi.Input[_builtins.int]]
-        throughput_mi_b: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FleetEc2EbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class FleetEc2EbsVolumeArgsDict(TypedDict):
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    size_gi_b: NotRequired[pulumi.Input[_builtins.int]]
+    throughput_mi_b: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FleetEc2EbsVolumeArgs:
@@ -602,26 +567,23 @@ class FleetEc2EbsVolumeArgs:
         pulumi.set(self, "throughput_mi_b", value)
 
 
-if not MYPY:
-    class FleetHostConfigurationArgsDict(TypedDict):
-        script_body: pulumi.Input[_builtins.str]
-        """
-        The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+class FleetHostConfigurationArgsDict(TypedDict):
+    script_body: pulumi.Input[_builtins.str]
+    """
+    The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
 
-        For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+    For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
 
-        > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
-        """
-        script_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+    > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+    """
+    script_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
 
-        > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+    > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
 
-        The default is 300 seconds (5 minutes).
-        """
-elif False:
-    FleetHostConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The default is 300 seconds (5 minutes).
+    """
 
 @pulumi.input_type
 class FleetHostConfigurationArgs:
@@ -677,12 +639,9 @@ class FleetHostConfigurationArgs:
         pulumi.set(self, "script_timeout_seconds", value)
 
 
-if not MYPY:
-    class FleetMemoryMiBRangeArgsDict(TypedDict):
-        min: pulumi.Input[_builtins.int]
-        max: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FleetMemoryMiBRangeArgsDict: TypeAlias = Mapping[str, Any]
+class FleetMemoryMiBRangeArgsDict(TypedDict):
+    min: pulumi.Input[_builtins.int]
+    max: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FleetMemoryMiBRangeArgs:
@@ -712,14 +671,11 @@ class FleetMemoryMiBRangeArgs:
         pulumi.set(self, "max", value)
 
 
-if not MYPY:
-    class FleetServiceManagedEc2FleetConfigurationArgsDict(TypedDict):
-        instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgsDict']
-        instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgsDict']
-        storage_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        vpc_configuration: NotRequired[pulumi.Input['FleetVpcConfigurationArgsDict']]
-elif False:
-    FleetServiceManagedEc2FleetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetServiceManagedEc2FleetConfigurationArgsDict(TypedDict):
+    instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgsDict']
+    instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgsDict']
+    storage_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_configuration: NotRequired[pulumi.Input['FleetVpcConfigurationArgsDict']]
 
 @pulumi.input_type
 class FleetServiceManagedEc2FleetConfigurationArgs:
@@ -772,20 +728,17 @@ class FleetServiceManagedEc2FleetConfigurationArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
-if not MYPY:
-    class FleetServiceManagedEc2InstanceCapabilitiesArgsDict(TypedDict):
-        cpu_architecture_type: pulumi.Input['FleetCpuArchitectureType']
-        memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
-        os_family: pulumi.Input['FleetServiceManagedFleetOperatingSystemFamily']
-        v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
-        accelerator_capabilities: NotRequired[pulumi.Input['FleetAcceleratorCapabilitiesArgsDict']]
-        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
-        custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
-        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        root_ebs_volume: NotRequired[pulumi.Input['FleetEc2EbsVolumeArgsDict']]
-elif False:
-    FleetServiceManagedEc2InstanceCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class FleetServiceManagedEc2InstanceCapabilitiesArgsDict(TypedDict):
+    cpu_architecture_type: pulumi.Input['FleetCpuArchitectureType']
+    memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
+    os_family: pulumi.Input['FleetServiceManagedFleetOperatingSystemFamily']
+    v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
+    accelerator_capabilities: NotRequired[pulumi.Input['FleetAcceleratorCapabilitiesArgsDict']]
+    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
+    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
+    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    root_ebs_volume: NotRequired[pulumi.Input['FleetEc2EbsVolumeArgsDict']]
 
 @pulumi.input_type
 class FleetServiceManagedEc2InstanceCapabilitiesArgs:
@@ -908,11 +861,8 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
         pulumi.set(self, "root_ebs_volume", value)
 
 
-if not MYPY:
-    class FleetServiceManagedEc2InstanceMarketOptionsArgsDict(TypedDict):
-        type: pulumi.Input['FleetEc2MarketType']
-elif False:
-    FleetServiceManagedEc2InstanceMarketOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class FleetServiceManagedEc2InstanceMarketOptionsArgsDict(TypedDict):
+    type: pulumi.Input['FleetEc2MarketType']
 
 @pulumi.input_type
 class FleetServiceManagedEc2InstanceMarketOptionsArgs:
@@ -930,12 +880,9 @@ class FleetServiceManagedEc2InstanceMarketOptionsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FleetVCpuCountRangeArgsDict(TypedDict):
-        min: pulumi.Input[_builtins.int]
-        max: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    FleetVCpuCountRangeArgsDict: TypeAlias = Mapping[str, Any]
+class FleetVCpuCountRangeArgsDict(TypedDict):
+    min: pulumi.Input[_builtins.int]
+    max: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class FleetVCpuCountRangeArgs:
@@ -965,11 +912,8 @@ class FleetVCpuCountRangeArgs:
         pulumi.set(self, "max", value)
 
 
-if not MYPY:
-    class FleetVpcConfigurationArgsDict(TypedDict):
-        resource_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    FleetVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetVpcConfigurationArgsDict(TypedDict):
+    resource_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class FleetVpcConfigurationArgs:
@@ -988,18 +932,15 @@ class FleetVpcConfigurationArgs:
         pulumi.set(self, "resource_configuration_arns", value)
 
 
-if not MYPY:
-    class QueueJobAttachmentSettingsArgsDict(TypedDict):
-        root_prefix: pulumi.Input[_builtins.str]
-        """
-        The root prefix.
-        """
-        s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name.
-        """
-elif False:
-    QueueJobAttachmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class QueueJobAttachmentSettingsArgsDict(TypedDict):
+    root_prefix: pulumi.Input[_builtins.str]
+    """
+    The root prefix.
+    """
+    s3_bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name.
+    """
 
 @pulumi.input_type
 class QueueJobAttachmentSettingsArgs:
@@ -1038,22 +979,19 @@ class QueueJobAttachmentSettingsArgs:
         pulumi.set(self, "s3_bucket_name", value)
 
 
-if not MYPY:
-    class QueueJobRunAsUserArgsDict(TypedDict):
-        run_as: pulumi.Input['QueueRunAs']
-        """
-        Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
-        """
-        posix: NotRequired[pulumi.Input['QueuePosixUserArgsDict']]
-        """
-        The user and group that the jobs in the queue run as.
-        """
-        windows: NotRequired[pulumi.Input['QueueWindowsUserArgsDict']]
-        """
-        Identifies a Microsoft Windows user.
-        """
-elif False:
-    QueueJobRunAsUserArgsDict: TypeAlias = Mapping[str, Any]
+class QueueJobRunAsUserArgsDict(TypedDict):
+    run_as: pulumi.Input['QueueRunAs']
+    """
+    Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+    """
+    posix: NotRequired[pulumi.Input['QueuePosixUserArgsDict']]
+    """
+    The user and group that the jobs in the queue run as.
+    """
+    windows: NotRequired[pulumi.Input['QueueWindowsUserArgsDict']]
+    """
+    Identifies a Microsoft Windows user.
+    """
 
 @pulumi.input_type
 class QueueJobRunAsUserArgs:
@@ -1109,18 +1047,15 @@ class QueueJobRunAsUserArgs:
         pulumi.set(self, "windows", value)
 
 
-if not MYPY:
-    class QueuePosixUserArgsDict(TypedDict):
-        group: pulumi.Input[_builtins.str]
-        """
-        The name of the POSIX user's group.
-        """
-        user: pulumi.Input[_builtins.str]
-        """
-        The name of the POSIX user.
-        """
-elif False:
-    QueuePosixUserArgsDict: TypeAlias = Mapping[str, Any]
+class QueuePosixUserArgsDict(TypedDict):
+    group: pulumi.Input[_builtins.str]
+    """
+    The name of the POSIX user's group.
+    """
+    user: pulumi.Input[_builtins.str]
+    """
+    The name of the POSIX user.
+    """
 
 @pulumi.input_type
 class QueuePosixUserArgs:
@@ -1159,18 +1094,15 @@ class QueuePosixUserArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class QueueWindowsUserArgsDict(TypedDict):
-        password_arn: pulumi.Input[_builtins.str]
-        """
-        The password ARN for the Windows user.
-        """
-        user: pulumi.Input[_builtins.str]
-        """
-        The user.
-        """
-elif False:
-    QueueWindowsUserArgsDict: TypeAlias = Mapping[str, Any]
+class QueueWindowsUserArgsDict(TypedDict):
+    password_arn: pulumi.Input[_builtins.str]
+    """
+    The password ARN for the Windows user.
+    """
+    user: pulumi.Input[_builtins.str]
+    """
+    The user.
+    """
 
 @pulumi.input_type
 class QueueWindowsUserArgs:
@@ -1209,22 +1141,19 @@ class QueueWindowsUserArgs:
         pulumi.set(self, "user", value)
 
 
-if not MYPY:
-    class StorageProfileFileSystemLocationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The location name.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The file path.
-        """
-        type: pulumi.Input['StorageProfileFileSystemLocationType']
-        """
-        The type of file.
-        """
-elif False:
-    StorageProfileFileSystemLocationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileFileSystemLocationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The location name.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The file path.
+    """
+    type: pulumi.Input['StorageProfileFileSystemLocationType']
+    """
+    The type of file.
+    """
 
 @pulumi.input_type
 class StorageProfileFileSystemLocationArgs:

@@ -23,23 +23,18 @@ __all__ = [
     'PreferencesS3BucketArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectionRecordingPreferencesPropertiesArgsDict(TypedDict):
-        """
-        The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
-        """
-        kms_key_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
-        """
-        recording_destinations: pulumi.Input['PreferencesRecordingDestinationsArgsDict']
-        """
-        Determines where recordings of RDP connections are stored.
-        """
-elif False:
-    ConnectionRecordingPreferencesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionRecordingPreferencesPropertiesArgsDict(TypedDict):
+    """
+    The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
+    """
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+    """
+    recording_destinations: pulumi.Input['PreferencesRecordingDestinationsArgsDict']
+    """
+    Determines where recordings of RDP connections are stored.
+    """
 
 @pulumi.input_type
 class ConnectionRecordingPreferencesPropertiesArgs:
@@ -79,17 +74,14 @@ class ConnectionRecordingPreferencesPropertiesArgs:
         pulumi.set(self, "recording_destinations", value)
 
 
-if not MYPY:
-    class PreferencesRecordingDestinationsArgsDict(TypedDict):
-        """
-        Determines where recordings of RDP connections are stored.
-        """
-        s3_buckets: pulumi.Input[Sequence[pulumi.Input['PreferencesS3BucketArgsDict']]]
-        """
-        The S3 bucket where RDP connection recordings are stored.
-        """
-elif False:
-    PreferencesRecordingDestinationsArgsDict: TypeAlias = Mapping[str, Any]
+class PreferencesRecordingDestinationsArgsDict(TypedDict):
+    """
+    Determines where recordings of RDP connections are stored.
+    """
+    s3_buckets: pulumi.Input[Sequence[pulumi.Input['PreferencesS3BucketArgsDict']]]
+    """
+    The S3 bucket where RDP connection recordings are stored.
+    """
 
 @pulumi.input_type
 class PreferencesRecordingDestinationsArgs:
@@ -114,15 +106,12 @@ class PreferencesRecordingDestinationsArgs:
         pulumi.set(self, "s3_buckets", value)
 
 
-if not MYPY:
-    class PreferencesS3BucketArgsDict(TypedDict):
-        """
-        The S3 bucket where RDP connection recordings are stored.
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        bucket_owner: pulumi.Input[_builtins.str]
-elif False:
-    PreferencesS3BucketArgsDict: TypeAlias = Mapping[str, Any]
+class PreferencesS3BucketArgsDict(TypedDict):
+    """
+    The S3 bucket where RDP connection recordings are stored.
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    bucket_owner: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PreferencesS3BucketArgs:

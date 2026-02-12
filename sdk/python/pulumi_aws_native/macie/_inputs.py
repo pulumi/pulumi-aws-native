@@ -24,16 +24,11 @@ __all__ = [
     'FindingsFilterFindingCriteriaArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AllowListCriteriaArgsDict(TypedDict):
-        """
-        The regex or s3 object to use for the AllowList.
-        """
-        pass
-elif False:
-    AllowListCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class AllowListCriteriaArgsDict(TypedDict):
+    """
+    The regex or s3 object to use for the AllowList.
+    """
+    pass
 
 @pulumi.input_type
 class AllowListCriteriaArgs:
@@ -44,34 +39,31 @@ class AllowListCriteriaArgs:
         pass
 
 
-if not MYPY:
-    class FindingsFilterCriterionAdditionalPropertiesArgsDict(TypedDict):
-        eq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
-        gt: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The value for the specified property is greater than the specified value.
-        """
-        gte: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The value for the specified property is greater than or equal to the specified value.
-        """
-        lt: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The value for the specified property is less than the specified value.
-        """
-        lte: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The value for the specified property is less than or equal to the specified value.
-        """
-        neq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
-elif False:
-    FindingsFilterCriterionAdditionalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FindingsFilterCriterionAdditionalPropertiesArgsDict(TypedDict):
+    eq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+    """
+    gt: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The value for the specified property is greater than the specified value.
+    """
+    gte: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The value for the specified property is greater than or equal to the specified value.
+    """
+    lt: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The value for the specified property is less than the specified value.
+    """
+    lte: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The value for the specified property is less than or equal to the specified value.
+    """
+    neq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+    """
 
 @pulumi.input_type
 class FindingsFilterCriterionAdditionalPropertiesArgs:
@@ -176,14 +168,11 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
         pulumi.set(self, "neq", value)
 
 
-if not MYPY:
-    class FindingsFilterFindingCriteriaArgsDict(TypedDict):
-        criterion: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FindingsFilterCriterionAdditionalPropertiesArgsDict']]]]
-        """
-        Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
-        """
-elif False:
-    FindingsFilterFindingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class FindingsFilterFindingCriteriaArgsDict(TypedDict):
+    criterion: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FindingsFilterCriterionAdditionalPropertiesArgsDict']]]]
+    """
+    Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+    """
 
 @pulumi.input_type
 class FindingsFilterFindingCriteriaArgs:

@@ -64,14 +64,9 @@ __all__ = [
     'DeploymentSystemResourceLimitsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ComponentVersionComponentDependencyRequirementArgsDict(TypedDict):
-        dependency_type: NotRequired[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]
-        version_requirement: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ComponentVersionComponentDependencyRequirementArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentVersionComponentDependencyRequirementArgsDict(TypedDict):
+    dependency_type: NotRequired[pulumi.Input['ComponentVersionComponentDependencyRequirementDependencyType']]
+    version_requirement: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ComponentVersionComponentDependencyRequirementArgs:
@@ -102,20 +97,17 @@ class ComponentVersionComponentDependencyRequirementArgs:
         pulumi.set(self, "version_requirement", value)
 
 
-if not MYPY:
-    class ComponentVersionComponentPlatformArgsDict(TypedDict):
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The friendly name of the platform. This name helps you identify the platform.
+class ComponentVersionComponentPlatformArgsDict(TypedDict):
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The friendly name of the platform. This name helps you identify the platform.
 
-        If you omit this parameter, AWS IoT Greengrass creates a friendly name from the `os` and `architecture` of the platform.
-        """
-elif False:
-    ComponentVersionComponentPlatformArgsDict: TypeAlias = Mapping[str, Any]
+    If you omit this parameter, AWS IoT Greengrass creates a friendly name from the `os` and `architecture` of the platform.
+    """
 
 @pulumi.input_type
 class ComponentVersionComponentPlatformArgs:
@@ -160,30 +152,27 @@ class ComponentVersionComponentPlatformArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaContainerParamsArgsDict(TypedDict):
-        devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgsDict']]]]
-        """
-        The list of system devices that the container can access.
-        """
-        memory_size_in_kb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The memory size of the container, expressed in kilobytes.
+class ComponentVersionLambdaContainerParamsArgsDict(TypedDict):
+    devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaDeviceMountArgsDict']]]]
+    """
+    The list of system devices that the container can access.
+    """
+    memory_size_in_kb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The memory size of the container, expressed in kilobytes.
 
-        Default: `16384` (16 MB)
-        """
-        mount_ro_sysfs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the container can read information from the device's `/sys` folder.
+    Default: `16384` (16 MB)
+    """
+    mount_ro_sysfs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the container can read information from the device's `/sys` folder.
 
-        Default: `false`
-        """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgsDict']]]]
-        """
-        The list of volumes that the container can access.
-        """
-elif False:
-    ComponentVersionLambdaContainerParamsArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `false`
+    """
+    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgsDict']]]]
+    """
+    The list of volumes that the container can access.
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaContainerParamsArgs:
@@ -264,26 +253,23 @@ class ComponentVersionLambdaContainerParamsArgs:
         pulumi.set(self, "volumes", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaDeviceMountArgsDict(TypedDict):
-        add_group_owner: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to add the component's system user as an owner of the device.
+class ComponentVersionLambdaDeviceMountArgsDict(TypedDict):
+    add_group_owner: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not to add the component's system user as an owner of the device.
 
-        Default: `false`
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The mount path for the device in the file system.
-        """
-        permission: NotRequired[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]
-        """
-        The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
+    Default: `false`
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The mount path for the device in the file system.
+    """
+    permission: NotRequired[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]
+    """
+    The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
 
-        Default: `ro`
-        """
-elif False:
-    ComponentVersionLambdaDeviceMountArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `ro`
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaDeviceMountArgs:
@@ -348,21 +334,18 @@ class ComponentVersionLambdaDeviceMountArgs:
         pulumi.set(self, "permission", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaEventSourceArgsDict(TypedDict):
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The topic to which to subscribe to receive event messages.
-        """
-        type: NotRequired[pulumi.Input['ComponentVersionLambdaEventSourceType']]
-        """
-        The type of event source. Choose from the following options:
+class ComponentVersionLambdaEventSourceArgsDict(TypedDict):
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The topic to which to subscribe to receive event messages.
+    """
+    type: NotRequired[pulumi.Input['ComponentVersionLambdaEventSourceType']]
+    """
+    The type of event source. Choose from the following options:
 
-        - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
-        - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
-        """
-elif False:
-    ComponentVersionLambdaEventSourceArgsDict: TypeAlias = Mapping[str, Any]
+    - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+    - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaEventSourceArgs:
@@ -409,61 +392,58 @@ class ComponentVersionLambdaEventSourceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaExecutionParametersArgsDict(TypedDict):
-        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The map of environment variables that are available to the Lambda function when it runs.
-        """
-        event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgsDict']]]]
-        """
-        The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
-        """
-        exec_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of arguments to pass to the Lambda function when it runs.
-        """
-        input_payload_encoding_type: NotRequired[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]
-        """
-        The encoding type that the Lambda function supports.
+class ComponentVersionLambdaExecutionParametersArgsDict(TypedDict):
+    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The map of environment variables that are available to the Lambda function when it runs.
+    """
+    event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgsDict']]]]
+    """
+    The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
+    """
+    exec_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of arguments to pass to the Lambda function when it runs.
+    """
+    input_payload_encoding_type: NotRequired[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]
+    """
+    The encoding type that the Lambda function supports.
 
-        Default: `json`
-        """
-        linux_process_params: NotRequired[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgsDict']]
-        """
-        The parameters for the Linux process that contains the Lambda function.
-        """
-        max_idle_time_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
-        """
-        max_instances_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of instances that a non-pinned Lambda function can run at the same time.
-        """
-        max_queue_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
-        """
-        pinned: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the Lambda function is pinned, or long-lived.
+    Default: `json`
+    """
+    linux_process_params: NotRequired[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgsDict']]
+    """
+    The parameters for the Linux process that contains the Lambda function.
+    """
+    max_idle_time_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
+    """
+    max_instances_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of instances that a non-pinned Lambda function can run at the same time.
+    """
+    max_queue_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
+    """
+    pinned: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the Lambda function is pinned, or long-lived.
 
-        - A pinned Lambda function starts when the AWS IoT Greengrass Core starts and keeps running in its own container.
-        - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.
+    - A pinned Lambda function starts when the AWS IoT Greengrass Core starts and keeps running in its own container.
+    - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.
 
-        Default: `true`
-        """
-        status_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of time in seconds that the Lambda function can process a work item.
-        """
-elif False:
-    ComponentVersionLambdaExecutionParametersArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `true`
+    """
+    status_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of time in seconds that the Lambda function can process a work item.
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaExecutionParametersArgs:
@@ -662,38 +642,35 @@ class ComponentVersionLambdaExecutionParametersArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaFunctionRecipeSourceArgsDict(TypedDict):
-        component_dependencies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgsDict']]]]
-        """
-        The component versions on which this Lambda function component depends.
-        """
-        component_lambda_parameters: NotRequired[pulumi.Input['ComponentVersionLambdaExecutionParametersArgsDict']]
-        """
-        The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
-        """
-        component_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the component.
+class ComponentVersionLambdaFunctionRecipeSourceArgsDict(TypedDict):
+    component_dependencies: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentVersionComponentDependencyRequirementArgsDict']]]]
+    """
+    The component versions on which this Lambda function component depends.
+    """
+    component_lambda_parameters: NotRequired[pulumi.Input['ComponentVersionLambdaExecutionParametersArgsDict']]
+    """
+    The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
+    """
+    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the component.
 
-        Defaults to the name of the Lambda function.
-        """
-        component_platforms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgsDict']]]]
-        """
-        The platforms that the component version supports.
-        """
-        component_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the component.
+    Defaults to the name of the Lambda function.
+    """
+    component_platforms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgsDict']]]]
+    """
+    The platforms that the component version supports.
+    """
+    component_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the component.
 
-        Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
-        """
-        lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
-        """
-elif False:
-    ComponentVersionLambdaFunctionRecipeSourceArgsDict: TypeAlias = Mapping[str, Any]
+    Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
+    """
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaFunctionRecipeSourceArgs:
@@ -806,20 +783,17 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
         pulumi.set(self, "lambda_arn", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaLinuxProcessParamsArgsDict(TypedDict):
-        container_params: NotRequired[pulumi.Input['ComponentVersionLambdaContainerParamsArgsDict']]
-        """
-        The parameters for the container in which the Lambda function runs.
-        """
-        isolation_mode: NotRequired[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]
-        """
-        The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+class ComponentVersionLambdaLinuxProcessParamsArgsDict(TypedDict):
+    container_params: NotRequired[pulumi.Input['ComponentVersionLambdaContainerParamsArgsDict']]
+    """
+    The parameters for the container in which the Lambda function runs.
+    """
+    isolation_mode: NotRequired[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]
+    """
+    The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 
-        Default: `GreengrassContainer`
-        """
-elif False:
-    ComponentVersionLambdaLinuxProcessParamsArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `GreengrassContainer`
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaLinuxProcessParamsArgs:
@@ -864,30 +838,27 @@ class ComponentVersionLambdaLinuxProcessParamsArgs:
         pulumi.set(self, "isolation_mode", value)
 
 
-if not MYPY:
-    class ComponentVersionLambdaVolumeMountArgsDict(TypedDict):
-        add_group_owner: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
+class ComponentVersionLambdaVolumeMountArgsDict(TypedDict):
+    add_group_owner: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
 
-        Default: `false`
-        """
-        destination_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the logical volume in the file system.
-        """
-        permission: NotRequired[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]
-        """
-        The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
+    Default: `false`
+    """
+    destination_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the logical volume in the file system.
+    """
+    permission: NotRequired[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]
+    """
+    The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
 
-        Default: `ro`
-        """
-        source_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the physical volume in the file system.
-        """
-elif False:
-    ComponentVersionLambdaVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `ro`
+    """
+    source_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the physical volume in the file system.
+    """
 
 @pulumi.input_type
 class ComponentVersionLambdaVolumeMountArgs:
@@ -968,12 +939,9 @@ class ComponentVersionLambdaVolumeMountArgs:
         pulumi.set(self, "source_path", value)
 
 
-if not MYPY:
-    class DeploymentComponentConfigurationUpdateArgsDict(TypedDict):
-        merge: NotRequired[pulumi.Input[_builtins.str]]
-        reset: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    DeploymentComponentConfigurationUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentComponentConfigurationUpdateArgsDict(TypedDict):
+    merge: NotRequired[pulumi.Input[_builtins.str]]
+    reset: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class DeploymentComponentConfigurationUpdateArgs:
@@ -1004,13 +972,10 @@ class DeploymentComponentConfigurationUpdateArgs:
         pulumi.set(self, "reset", value)
 
 
-if not MYPY:
-    class DeploymentComponentDeploymentSpecificationArgsDict(TypedDict):
-        component_version: NotRequired[pulumi.Input[_builtins.str]]
-        configuration_update: NotRequired[pulumi.Input['DeploymentComponentConfigurationUpdateArgsDict']]
-        run_with: NotRequired[pulumi.Input['DeploymentComponentRunWithArgsDict']]
-elif False:
-    DeploymentComponentDeploymentSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentComponentDeploymentSpecificationArgsDict(TypedDict):
+    component_version: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_update: NotRequired[pulumi.Input['DeploymentComponentConfigurationUpdateArgsDict']]
+    run_with: NotRequired[pulumi.Input['DeploymentComponentRunWithArgsDict']]
 
 @pulumi.input_type
 class DeploymentComponentDeploymentSpecificationArgs:
@@ -1053,13 +1018,10 @@ class DeploymentComponentDeploymentSpecificationArgs:
         pulumi.set(self, "run_with", value)
 
 
-if not MYPY:
-    class DeploymentComponentRunWithArgsDict(TypedDict):
-        posix_user: NotRequired[pulumi.Input[_builtins.str]]
-        system_resource_limits: NotRequired[pulumi.Input['DeploymentSystemResourceLimitsArgsDict']]
-        windows_user: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DeploymentComponentRunWithArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentComponentRunWithArgsDict(TypedDict):
+    posix_user: NotRequired[pulumi.Input[_builtins.str]]
+    system_resource_limits: NotRequired[pulumi.Input['DeploymentSystemResourceLimitsArgsDict']]
+    windows_user: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DeploymentComponentRunWithArgs:
@@ -1102,25 +1064,22 @@ class DeploymentComponentRunWithArgs:
         pulumi.set(self, "windows_user", value)
 
 
-if not MYPY:
-    class DeploymentComponentUpdatePolicyArgsDict(TypedDict):
-        action: NotRequired[pulumi.Input['DeploymentComponentUpdatePolicyAction']]
-        """
-        Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
+class DeploymentComponentUpdatePolicyArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input['DeploymentComponentUpdatePolicyAction']]
+    """
+    Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
 
-        - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
-        - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
+    - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+    - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
 
-        Default: `NOTIFY_COMPONENTS`
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.
+    Default: `NOTIFY_COMPONENTS`
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.
 
-        Default: `60`
-        """
-elif False:
-    DeploymentComponentUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `60`
+    """
 
 @pulumi.input_type
 class DeploymentComponentUpdatePolicyArgs:
@@ -1175,16 +1134,13 @@ class DeploymentComponentUpdatePolicyArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-if not MYPY:
-    class DeploymentConfigurationValidationPolicyArgsDict(TypedDict):
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
+class DeploymentConfigurationValidationPolicyArgsDict(TypedDict):
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
 
-        Default: `30`
-        """
-elif False:
-    DeploymentConfigurationValidationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `30`
+    """
 
 @pulumi.input_type
 class DeploymentConfigurationValidationPolicyArgs:
@@ -1213,14 +1169,11 @@ class DeploymentConfigurationValidationPolicyArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-if not MYPY:
-    class DeploymentIoTJobAbortConfigArgsDict(TypedDict):
-        criteria_list: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgsDict']]]
-        """
-        The list of criteria that define when and how to cancel the configuration deployment.
-        """
-elif False:
-    DeploymentIoTJobAbortConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentIoTJobAbortConfigArgsDict(TypedDict):
+    criteria_list: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgsDict']]]
+    """
+    The list of criteria that define when and how to cancel the configuration deployment.
+    """
 
 @pulumi.input_type
 class DeploymentIoTJobAbortConfigArgs:
@@ -1244,28 +1197,25 @@ class DeploymentIoTJobAbortConfigArgs:
         pulumi.set(self, "criteria_list", value)
 
 
-if not MYPY:
-    class DeploymentIoTJobAbortCriteriaArgsDict(TypedDict):
-        action: pulumi.Input['DeploymentIoTJobAbortCriteriaAction']
-        """
-        The action to perform when the criteria are met.
-        """
-        failure_type: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType']
-        """
-        The type of job deployment failure that can cancel a job.
-        """
-        min_number_of_executed_things: pulumi.Input[_builtins.int]
-        """
-        The minimum number of things that receive the configuration before the job can cancel.
-        """
-        threshold_percentage: pulumi.Input[_builtins.float]
-        """
-        The minimum percentage of `failureType` failures that occur before the job can cancel.
+class DeploymentIoTJobAbortCriteriaArgsDict(TypedDict):
+    action: pulumi.Input['DeploymentIoTJobAbortCriteriaAction']
+    """
+    The action to perform when the criteria are met.
+    """
+    failure_type: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType']
+    """
+    The type of job deployment failure that can cancel a job.
+    """
+    min_number_of_executed_things: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things that receive the configuration before the job can cancel.
+    """
+    threshold_percentage: pulumi.Input[_builtins.float]
+    """
+    The minimum percentage of `failureType` failures that occur before the job can cancel.
 
-        This parameter supports up to two digits after the decimal (for example, you can specify `10.9` or `10.99` , but not `10.999` ).
-        """
-elif False:
-    DeploymentIoTJobAbortCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+    This parameter supports up to two digits after the decimal (for example, you can specify `10.9` or `10.99` , but not `10.999` ).
+    """
 
 @pulumi.input_type
 class DeploymentIoTJobAbortCriteriaArgs:
@@ -1338,22 +1288,19 @@ class DeploymentIoTJobAbortCriteriaArgs:
         pulumi.set(self, "threshold_percentage", value)
 
 
-if not MYPY:
-    class DeploymentIoTJobConfigurationArgsDict(TypedDict):
-        abort_config: NotRequired[pulumi.Input['DeploymentIoTJobAbortConfigArgsDict']]
-        """
-        The stop configuration for the job. This configuration defines when and how to stop a job rollout.
-        """
-        job_executions_rollout_config: NotRequired[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgsDict']]
-        """
-        The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
-        """
-        timeout_config: NotRequired[pulumi.Input['DeploymentIoTJobTimeoutConfigArgsDict']]
-        """
-        The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
-        """
-elif False:
-    DeploymentIoTJobConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentIoTJobConfigurationArgsDict(TypedDict):
+    abort_config: NotRequired[pulumi.Input['DeploymentIoTJobAbortConfigArgsDict']]
+    """
+    The stop configuration for the job. This configuration defines when and how to stop a job rollout.
+    """
+    job_executions_rollout_config: NotRequired[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgsDict']]
+    """
+    The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
+    """
+    timeout_config: NotRequired[pulumi.Input['DeploymentIoTJobTimeoutConfigArgsDict']]
+    """
+    The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
+    """
 
 @pulumi.input_type
 class DeploymentIoTJobConfigurationArgs:
@@ -1410,18 +1357,15 @@ class DeploymentIoTJobConfigurationArgs:
         pulumi.set(self, "timeout_config", value)
 
 
-if not MYPY:
-    class DeploymentIoTJobExecutionsRolloutConfigArgsDict(TypedDict):
-        exponential_rate: NotRequired[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgsDict']]
-        """
-        The exponential rate to increase the job rollout rate.
-        """
-        maximum_per_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of devices that receive a pending job notification, per minute.
-        """
-elif False:
-    DeploymentIoTJobExecutionsRolloutConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentIoTJobExecutionsRolloutConfigArgsDict(TypedDict):
+    exponential_rate: NotRequired[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgsDict']]
+    """
+    The exponential rate to increase the job rollout rate.
+    """
+    maximum_per_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of devices that receive a pending job notification, per minute.
+    """
 
 @pulumi.input_type
 class DeploymentIoTJobExecutionsRolloutConfigArgs:
@@ -1462,24 +1406,21 @@ class DeploymentIoTJobExecutionsRolloutConfigArgs:
         pulumi.set(self, "maximum_per_minute", value)
 
 
-if not MYPY:
-    class DeploymentIoTJobExponentialRolloutRateArgsDict(TypedDict):
-        base_rate_per_minute: pulumi.Input[_builtins.int]
-        """
-        The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.
-        """
-        increment_factor: pulumi.Input[_builtins.float]
-        """
-        The exponential factor to increase the rollout rate for the job.
+class DeploymentIoTJobExponentialRolloutRateArgsDict(TypedDict):
+    base_rate_per_minute: pulumi.Input[_builtins.int]
+    """
+    The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.
+    """
+    increment_factor: pulumi.Input[_builtins.float]
+    """
+    The exponential factor to increase the rollout rate for the job.
 
-        This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
-        """
-        rate_increase_criteria: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgsDict']
-        """
-        The criteria to increase the rollout rate for the job.
-        """
-elif False:
-    DeploymentIoTJobExponentialRolloutRateArgsDict: TypeAlias = Mapping[str, Any]
+    This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
+    """
+    rate_increase_criteria: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgsDict']
+    """
+    The criteria to increase the rollout rate for the job.
+    """
 
 @pulumi.input_type
 class DeploymentIoTJobExponentialRolloutRateArgs:
@@ -1537,11 +1478,8 @@ class DeploymentIoTJobExponentialRolloutRateArgs:
         pulumi.set(self, "rate_increase_criteria", value)
 
 
-if not MYPY:
-    class DeploymentIoTJobRateIncreaseCriteriaArgsDict(TypedDict):
-        pass
-elif False:
-    DeploymentIoTJobRateIncreaseCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentIoTJobRateIncreaseCriteriaArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class DeploymentIoTJobRateIncreaseCriteriaArgs:
@@ -1549,16 +1487,13 @@ class DeploymentIoTJobRateIncreaseCriteriaArgs:
         pass
 
 
-if not MYPY:
-    class DeploymentIoTJobTimeoutConfigArgsDict(TypedDict):
-        in_progress_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
+class DeploymentIoTJobTimeoutConfigArgsDict(TypedDict):
+    in_progress_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
 
-        The timeout interval must be between 1 minute and 7 days (10080 minutes).
-        """
-elif False:
-    DeploymentIoTJobTimeoutConfigArgsDict: TypeAlias = Mapping[str, Any]
+    The timeout interval must be between 1 minute and 7 days (10080 minutes).
+    """
 
 @pulumi.input_type
 class DeploymentIoTJobTimeoutConfigArgs:
@@ -1587,24 +1522,21 @@ class DeploymentIoTJobTimeoutConfigArgs:
         pulumi.set(self, "in_progress_timeout_in_minutes", value)
 
 
-if not MYPY:
-    class DeploymentPoliciesArgsDict(TypedDict):
-        component_update_policy: NotRequired[pulumi.Input['DeploymentComponentUpdatePolicyArgsDict']]
-        """
-        The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
-        """
-        configuration_validation_policy: NotRequired[pulumi.Input['DeploymentConfigurationValidationPolicyArgsDict']]
-        """
-        The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
-        """
-        failure_handling_policy: NotRequired[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]
-        """
-        The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+class DeploymentPoliciesArgsDict(TypedDict):
+    component_update_policy: NotRequired[pulumi.Input['DeploymentComponentUpdatePolicyArgsDict']]
+    """
+    The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
+    """
+    configuration_validation_policy: NotRequired[pulumi.Input['DeploymentConfigurationValidationPolicyArgsDict']]
+    """
+    The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
+    """
+    failure_handling_policy: NotRequired[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]
+    """
+    The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
 
-        Default: `ROLLBACK`
-        """
-elif False:
-    DeploymentPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `ROLLBACK`
+    """
 
 @pulumi.input_type
 class DeploymentPoliciesArgs:
@@ -1665,12 +1597,9 @@ class DeploymentPoliciesArgs:
         pulumi.set(self, "failure_handling_policy", value)
 
 
-if not MYPY:
-    class DeploymentSystemResourceLimitsArgsDict(TypedDict):
-        cpus: NotRequired[pulumi.Input[_builtins.float]]
-        memory: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    DeploymentSystemResourceLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentSystemResourceLimitsArgsDict(TypedDict):
+    cpus: NotRequired[pulumi.Input[_builtins.float]]
+    memory: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class DeploymentSystemResourceLimitsArgs:

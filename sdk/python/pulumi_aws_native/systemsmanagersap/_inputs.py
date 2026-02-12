@@ -22,30 +22,25 @@ __all__ = [
     'ApplicationCredentialArgsDict',
 ]
 
-MYPY = False
+class ApplicationComponentInfoArgsDict(TypedDict):
+    component_type: NotRequired[pulumi.Input['ApplicationComponentInfoComponentType']]
+    """
+    This string is the type of the component.
 
-if not MYPY:
-    class ApplicationComponentInfoArgsDict(TypedDict):
-        component_type: NotRequired[pulumi.Input['ApplicationComponentInfoComponentType']]
-        """
-        This string is the type of the component.
+    Accepted value is `WD` .
+    """
+    ec2_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is the Amazon EC2 instance on which your SAP component is running.
 
-        Accepted value is `WD` .
-        """
-        ec2_instance_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is the Amazon EC2 instance on which your SAP component is running.
+    Accepted values are alphanumeric.
+    """
+    sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This string is the SAP System ID of the component.
 
-        Accepted values are alphanumeric.
-        """
-        sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This string is the SAP System ID of the component.
-
-        Accepted values are alphanumeric.
-        """
-elif False:
-    ApplicationComponentInfoArgsDict: TypeAlias = Mapping[str, Any]
+    Accepted values are alphanumeric.
+    """
 
 @pulumi.input_type
 class ApplicationComponentInfoArgs:
@@ -114,22 +109,19 @@ class ApplicationComponentInfoArgs:
         pulumi.set(self, "sid", value)
 
 
-if not MYPY:
-    class ApplicationCredentialArgsDict(TypedDict):
-        credential_type: NotRequired[pulumi.Input['ApplicationCredentialCredentialType']]
-        """
-        The type of the application credentials.
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the SAP HANA database.
-        """
-        secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
-        """
-elif False:
-    ApplicationCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCredentialArgsDict(TypedDict):
+    credential_type: NotRequired[pulumi.Input['ApplicationCredentialCredentialType']]
+    """
+    The type of the application credentials.
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the SAP HANA database.
+    """
+    secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+    """
 
 @pulumi.input_type
 class ApplicationCredentialArgs:

@@ -28,25 +28,20 @@ __all__ = [
     'UserPolicyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupPolicyArgsDict(TypedDict):
-        """
-        Contains information about an attached policy.
-         An attached policy is a managed policy that has been attached to a user, group, or role.
-         For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
-        """
-        policy_document: Any
-        """
-        The policy document.
-        """
-        policy_name: pulumi.Input[_builtins.str]
-        """
-        The friendly name (not ARN) identifying the policy.
-        """
-elif False:
-    GroupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicyArgsDict(TypedDict):
+    """
+    Contains information about an attached policy.
+     An attached policy is a managed policy that has been attached to a user, group, or role.
+     For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+    """
+    policy_document: Any
+    """
+    The policy document.
+    """
+    policy_name: pulumi.Input[_builtins.str]
+    """
+    The friendly name (not ARN) identifying the policy.
+    """
 
 @pulumi.input_type
 class GroupPolicyArgs:
@@ -88,23 +83,20 @@ class GroupPolicyArgs:
         pulumi.set(self, "policy_name", value)
 
 
-if not MYPY:
-    class RolePolicyArgsDict(TypedDict):
-        """
-        Contains information about an attached policy.
-         An attached policy is a managed policy that has been attached to a user, group, or role.
-         For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
-        """
-        policy_document: Any
-        """
-        The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
-        """
-        policy_name: pulumi.Input[_builtins.str]
-        """
-        The friendly name (not ARN) identifying the policy.
-        """
-elif False:
-    RolePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RolePolicyArgsDict(TypedDict):
+    """
+    Contains information about an attached policy.
+     An attached policy is a managed policy that has been attached to a user, group, or role.
+     For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+    """
+    policy_document: Any
+    """
+    The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+    """
+    policy_name: pulumi.Input[_builtins.str]
+    """
+    The friendly name (not ARN) identifying the policy.
+    """
 
 @pulumi.input_type
 class RolePolicyArgs:
@@ -146,21 +138,18 @@ class RolePolicyArgs:
         pulumi.set(self, "policy_name", value)
 
 
-if not MYPY:
-    class SamlProviderSamlPrivateKeyArgsDict(TypedDict):
-        """
-        The private key metadata for the SAML provider
-        """
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the SAML private key.
-        """
-        timestamp: pulumi.Input[_builtins.str]
-        """
-        The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
-        """
-elif False:
-    SamlProviderSamlPrivateKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SamlProviderSamlPrivateKeyArgsDict(TypedDict):
+    """
+    The private key metadata for the SAML provider
+    """
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the SAML private key.
+    """
+    timestamp: pulumi.Input[_builtins.str]
+    """
+    The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
+    """
 
 @pulumi.input_type
 class SamlProviderSamlPrivateKeyArgs:
@@ -200,21 +189,18 @@ class SamlProviderSamlPrivateKeyArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class UserLoginProfileArgsDict(TypedDict):
-        """
-        Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        The user's password.
-        """
-        password_reset_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the user is required to set a new password on next sign-in.
-        """
-elif False:
-    UserLoginProfileArgsDict: TypeAlias = Mapping[str, Any]
+class UserLoginProfileArgsDict(TypedDict):
+    """
+    Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    The user's password.
+    """
+    password_reset_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the user is required to set a new password on next sign-in.
+    """
 
 @pulumi.input_type
 class UserLoginProfileArgs:
@@ -255,23 +241,20 @@ class UserLoginProfileArgs:
         pulumi.set(self, "password_reset_required", value)
 
 
-if not MYPY:
-    class UserPolicyArgsDict(TypedDict):
-        """
-        Contains information about an attached policy.
-         An attached policy is a managed policy that has been attached to a user, group, or role.
-         For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
-        """
-        policy_document: Any
-        """
-        The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
-        """
-        policy_name: pulumi.Input[_builtins.str]
-        """
-        The friendly name (not ARN) identifying the policy.
-        """
-elif False:
-    UserPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class UserPolicyArgsDict(TypedDict):
+    """
+    Contains information about an attached policy.
+     An attached policy is a managed policy that has been attached to a user, group, or role.
+     For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+    """
+    policy_document: Any
+    """
+    The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+    """
+    policy_name: pulumi.Input[_builtins.str]
+    """
+    The friendly name (not ARN) identifying the policy.
+    """
 
 @pulumi.input_type
 class UserPolicyArgs:

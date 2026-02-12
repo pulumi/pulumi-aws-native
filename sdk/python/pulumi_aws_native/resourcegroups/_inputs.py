@@ -28,14 +28,9 @@ __all__ = [
     'GroupTagFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupConfigurationItemArgsDict(TypedDict):
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    GroupConfigurationItemArgsDict: TypeAlias = Mapping[str, Any]
+class GroupConfigurationItemArgsDict(TypedDict):
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class GroupConfigurationItemArgs:
@@ -66,12 +61,9 @@ class GroupConfigurationItemArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GroupConfigurationParameterArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GroupConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class GroupConfigurationParameterArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GroupConfigurationParameterArgs:
@@ -102,26 +94,23 @@ class GroupConfigurationParameterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GroupQueryArgsDict(TypedDict):
-        resource_type_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies limits to the types of resources that can be included in the resource group. For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
-        """
-        stack_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
+class GroupQueryArgsDict(TypedDict):
+    resource_type_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies limits to the types of resources that can be included in the resource group. For example, if `ResourceTypeFilters` is `["AWS::EC2::Instance", "AWS::DynamoDB::Table"]` , only EC2 instances or DynamoDB tables can be members of this resource group. The default value is `["AWS::AllSupported"]` .
+    """
+    stack_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
 
-        You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
-        """
-        tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgsDict']]]]
-        """
-        A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
+    You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
+    """
+    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgsDict']]]]
+    """
+    A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 
-        A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
-        """
-elif False:
-    GroupQueryArgsDict: TypeAlias = Mapping[str, Any]
+    A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
+    """
 
 @pulumi.input_type
 class GroupQueryArgs:
@@ -186,26 +175,23 @@ class GroupQueryArgs:
         pulumi.set(self, "tag_filters", value)
 
 
-if not MYPY:
-    class GroupResourceQueryArgsDict(TypedDict):
-        query: NotRequired[pulumi.Input['GroupQueryArgsDict']]
-        """
-        The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+class GroupResourceQueryArgsDict(TypedDict):
+    query: NotRequired[pulumi.Input['GroupQueryArgsDict']]
+    """
+    The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
 
-        The `Query` structure must be included in the following scenarios:
+    The `Query` structure must be included in the following scenarios:
 
-        - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
-        - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
-        """
-        type: NotRequired[pulumi.Input['GroupResourceQueryType']]
-        """
-        Specifies the type of resource query that determines this group's membership. There are two valid query types:
+    - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+    - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
+    """
+    type: NotRequired[pulumi.Input['GroupResourceQueryType']]
+    """
+    Specifies the type of resource query that determines this group's membership. There are two valid query types:
 
-        - `TAG_FILTERS_1_0` indicates that the group is a tag-based group. To complete the group membership, you must include the `TagFilters` property to specify the tag filters to use in the query.
-        - `CLOUDFORMATION_STACK_1_0` , the default, indicates that the group is a CloudFormation stack-based group. Group membership is based on the CloudFormation stack. You must specify the `StackIdentifier` property in the query to define which stack to associate the group with, or leave it empty to default to the stack where the group is defined.
-        """
-elif False:
-    GroupResourceQueryArgsDict: TypeAlias = Mapping[str, Any]
+    - `TAG_FILTERS_1_0` indicates that the group is a tag-based group. To complete the group membership, you must include the `TagFilters` property to specify the tag filters to use in the query.
+    - `CLOUDFORMATION_STACK_1_0` , the default, indicates that the group is a CloudFormation stack-based group. Group membership is based on the CloudFormation stack. You must specify the `StackIdentifier` property in the query to define which stack to associate the group with, or leave it empty to default to the stack where the group is defined.
+    """
 
 @pulumi.input_type
 class GroupResourceQueryArgs:
@@ -262,20 +248,17 @@ class GroupResourceQueryArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GroupTagFilterArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that defines a tag key. Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
+class GroupTagFilterArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that defines a tag key. Only resources in the account that are tagged with a specified tag key are members of the tag-based resource group.
 
-        This field is required when the `ResourceQuery` structure's `Type` property is `TAG_FILTERS_1_0` . You must specify at least one tag key.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of tag values that can be included in the tag-based resource group. This is optional. If you don't specify a value or values for a key, then an AWS resource with any value for that key is a member.
-        """
-elif False:
-    GroupTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+    This field is required when the `ResourceQuery` structure's `Type` property is `TAG_FILTERS_1_0` . You must specify at least one tag key.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of tag values that can be included in the tag-based resource group. This is optional. If you don't specify a value or values for a key, then an AWS resource with any value for that key is a member.
+    """
 
 @pulumi.input_type
 class GroupTagFilterArgs:

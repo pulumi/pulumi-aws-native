@@ -40,19 +40,14 @@ __all__ = [
     'SolutionIntegerHyperParameterRangeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatasetImportJobDataSourcePropertiesArgsDict(TypedDict):
-        """
-        The Amazon S3 bucket that contains the training data to import.
-        """
-        data_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
-        """
-elif False:
-    DatasetImportJobDataSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetImportJobDataSourcePropertiesArgsDict(TypedDict):
+    """
+    The Amazon S3 bucket that contains the training data to import.
+    """
+    data_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
+    """
 
 @pulumi.input_type
 class DatasetImportJobDataSourcePropertiesArgs:
@@ -78,33 +73,30 @@ class DatasetImportJobDataSourcePropertiesArgs:
         pulumi.set(self, "data_location", value)
 
 
-if not MYPY:
-    class DatasetImportJobArgsDict(TypedDict):
-        """
-        Initial DatasetImportJob for the created dataset
-        """
-        data_source: NotRequired[pulumi.Input['DatasetImportJobDataSourcePropertiesArgsDict']]
-        """
-        The Amazon S3 bucket that contains the training data to import.
-        """
-        dataset_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the dataset that receives the imported data
-        """
-        dataset_import_job_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the dataset import job
-        """
-        job_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name for the dataset import job.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
-        """
-elif False:
-    DatasetImportJobArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetImportJobArgsDict(TypedDict):
+    """
+    Initial DatasetImportJob for the created dataset
+    """
+    data_source: NotRequired[pulumi.Input['DatasetImportJobDataSourcePropertiesArgsDict']]
+    """
+    The Amazon S3 bucket that contains the training data to import.
+    """
+    dataset_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the dataset that receives the imported data
+    """
+    dataset_import_job_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the dataset import job
+    """
+    job_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name for the dataset import job.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
+    """
 
 @pulumi.input_type
 class DatasetImportJobArgs:
@@ -194,21 +186,18 @@ class DatasetImportJobArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class SolutionCategoricalHyperParameterRangeArgsDict(TypedDict):
-        """
-        Provides the name and values of a Categorical hyperparameter.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the hyperparameter.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the categories for the hyperparameter.
-        """
-elif False:
-    SolutionCategoricalHyperParameterRangeArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionCategoricalHyperParameterRangeArgsDict(TypedDict):
+    """
+    Provides the name and values of a Categorical hyperparameter.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the hyperparameter.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the categories for the hyperparameter.
+    """
 
 @pulumi.input_type
 class SolutionCategoricalHyperParameterRangeArgs:
@@ -250,21 +239,18 @@ class SolutionCategoricalHyperParameterRangeArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SolutionConfigAutoMlConfigPropertiesArgsDict(TypedDict):
-        """
-        The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-        """
-        metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The metric to optimize.
-        """
-        recipe_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of candidate recipes.
-        """
-elif False:
-    SolutionConfigAutoMlConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionConfigAutoMlConfigPropertiesArgsDict(TypedDict):
+    """
+    The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+    """
+    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The metric to optimize.
+    """
+    recipe_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of candidate recipes.
+    """
 
 @pulumi.input_type
 class SolutionConfigAutoMlConfigPropertiesArgs:
@@ -306,25 +292,22 @@ class SolutionConfigAutoMlConfigPropertiesArgs:
         pulumi.set(self, "recipe_list", value)
 
 
-if not MYPY:
-    class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgsDict(TypedDict):
-        """
-        The hyperparameters and their allowable ranges
-        """
-        categorical_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgsDict']]]]
-        """
-        The categorical hyperparameters and their ranges.
-        """
-        continuous_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgsDict']]]]
-        """
-        The continuous hyperparameters and their ranges.
-        """
-        integer_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgsDict']]]]
-        """
-        The integer hyperparameters and their ranges.
-        """
-elif False:
-    SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgsDict(TypedDict):
+    """
+    The hyperparameters and their allowable ranges
+    """
+    categorical_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgsDict']]]]
+    """
+    The categorical hyperparameters and their ranges.
+    """
+    continuous_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgsDict']]]]
+    """
+    The continuous hyperparameters and their ranges.
+    """
+    integer_hyper_parameter_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgsDict']]]]
+    """
+    The integer hyperparameters and their ranges.
+    """
 
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs:
@@ -382,25 +365,22 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesAr
         pulumi.set(self, "integer_hyper_parameter_ranges", value)
 
 
-if not MYPY:
-    class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict(TypedDict):
-        """
-        The metric to optimize during HPO.
-        """
-        metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the metric
-        """
-        metric_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A regular expression for finding the metric in the training job logs.
-        """
-        type: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]
-        """
-        The type of the metric. Valid values are Maximize and Minimize.
-        """
-elif False:
-    SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict(TypedDict):
+    """
+    The metric to optimize during HPO.
+    """
+    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the metric
+    """
+    metric_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A regular expression for finding the metric in the training job logs.
+    """
+    type: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']]
+    """
+    The type of the metric. Valid values are Maximize and Minimize.
+    """
 
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs:
@@ -458,21 +438,18 @@ class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict(TypedDict):
-        """
-        Describes the resource configuration for hyperparameter optimization (HPO).
-        """
-        max_number_of_training_jobs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
-        """
-        max_parallel_training_jobs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
-        """
-elif False:
-    SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict(TypedDict):
+    """
+    Describes the resource configuration for hyperparameter optimization (HPO).
+    """
+    max_number_of_training_jobs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
+    """
+    max_parallel_training_jobs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
+    """
 
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs:
@@ -514,25 +491,22 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs:
         pulumi.set(self, "max_parallel_training_jobs", value)
 
 
-if not MYPY:
-    class SolutionConfigHpoConfigPropertiesArgsDict(TypedDict):
-        """
-        Describes the properties for hyperparameter optimization (HPO)
-        """
-        algorithm_hyper_parameter_ranges: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgsDict']]
-        """
-        The hyperparameters and their allowable ranges
-        """
-        hpo_objective: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict']]
-        """
-        The metric to optimize during HPO.
-        """
-        hpo_resource_config: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict']]
-        """
-        Describes the resource configuration for hyperparameter optimization (HPO).
-        """
-elif False:
-    SolutionConfigHpoConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionConfigHpoConfigPropertiesArgsDict(TypedDict):
+    """
+    Describes the properties for hyperparameter optimization (HPO)
+    """
+    algorithm_hyper_parameter_ranges: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgsDict']]
+    """
+    The hyperparameters and their allowable ranges
+    """
+    hpo_objective: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgsDict']]
+    """
+    The metric to optimize during HPO.
+    """
+    hpo_resource_config: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgsDict']]
+    """
+    Describes the resource configuration for hyperparameter optimization (HPO).
+    """
 
 @pulumi.input_type
 class SolutionConfigHpoConfigPropertiesArgs:
@@ -590,33 +564,30 @@ class SolutionConfigHpoConfigPropertiesArgs:
         pulumi.set(self, "hpo_resource_config", value)
 
 
-if not MYPY:
-    class SolutionConfigArgsDict(TypedDict):
-        """
-        The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
-        """
-        algorithm_hyper_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Lists the hyperparameter names and ranges.
-        """
-        auto_ml_config: NotRequired[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgsDict']]
-        """
-        The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-        """
-        event_value_threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Only events with a value greater than or equal to this threshold are used for training a model.
-        """
-        feature_transformation_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Lists the feature transformation parameters.
-        """
-        hpo_config: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesArgsDict']]
-        """
-        Describes the properties for hyperparameter optimization (HPO)
-        """
-elif False:
-    SolutionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionConfigArgsDict(TypedDict):
+    """
+    The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
+    """
+    algorithm_hyper_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Lists the hyperparameter names and ranges.
+    """
+    auto_ml_config: NotRequired[pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgsDict']]
+    """
+    The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+    """
+    event_value_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Only events with a value greater than or equal to this threshold are used for training a model.
+    """
+    feature_transformation_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Lists the feature transformation parameters.
+    """
+    hpo_config: NotRequired[pulumi.Input['SolutionConfigHpoConfigPropertiesArgsDict']]
+    """
+    Describes the properties for hyperparameter optimization (HPO)
+    """
 
 @pulumi.input_type
 class SolutionConfigArgs:
@@ -706,25 +677,22 @@ class SolutionConfigArgs:
         pulumi.set(self, "hpo_config", value)
 
 
-if not MYPY:
-    class SolutionContinuousHyperParameterRangeArgsDict(TypedDict):
-        """
-        Provides the name and range of a continuous hyperparameter.
-        """
-        max_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum allowable value for the hyperparameter.
-        """
-        min_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum allowable value for the hyperparameter.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the hyperparameter.
-        """
-elif False:
-    SolutionContinuousHyperParameterRangeArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionContinuousHyperParameterRangeArgsDict(TypedDict):
+    """
+    Provides the name and range of a continuous hyperparameter.
+    """
+    max_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum allowable value for the hyperparameter.
+    """
+    min_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum allowable value for the hyperparameter.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the hyperparameter.
+    """
 
 @pulumi.input_type
 class SolutionContinuousHyperParameterRangeArgs:
@@ -782,25 +750,22 @@ class SolutionContinuousHyperParameterRangeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SolutionIntegerHyperParameterRangeArgsDict(TypedDict):
-        """
-        Provides the name and range of an integer-valued hyperparameter.
-        """
-        max_value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum allowable value for the hyperparameter.
-        """
-        min_value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum allowable value for the hyperparameter.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the hyperparameter.
-        """
-elif False:
-    SolutionIntegerHyperParameterRangeArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionIntegerHyperParameterRangeArgsDict(TypedDict):
+    """
+    Provides the name and range of an integer-valued hyperparameter.
+    """
+    max_value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum allowable value for the hyperparameter.
+    """
+    min_value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum allowable value for the hyperparameter.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the hyperparameter.
+    """
 
 @pulumi.input_type
 class SolutionIntegerHyperParameterRangeArgs:

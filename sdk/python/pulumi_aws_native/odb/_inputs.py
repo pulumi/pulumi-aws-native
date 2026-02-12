@@ -30,39 +30,34 @@ __all__ = [
     'CloudVmClusterTagArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
-        """
-        The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
-        """
-        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]
-        """
-        The days of the week when maintenance can be performed.
-        """
-        hours_of_day: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The hours of the day when maintenance can be performed.
-        """
-        lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The lead time in weeks before the maintenance window.
-        """
-        months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]
-        """
-        The months when maintenance can be performed.
-        """
-        preference: NotRequired[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowPreference']]
-        """
-        The preference for the maintenance window scheduling.
-        """
-        weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The weeks of the month when maintenance can be performed.
-        """
-elif False:
-    CloudAutonomousVmClusterMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
+    """
+    The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+    """
+    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]
+    """
+    The days of the week when maintenance can be performed.
+    """
+    hours_of_day: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The hours of the day when maintenance can be performed.
+    """
+    lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The lead time in weeks before the maintenance window.
+    """
+    months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]
+    """
+    The months when maintenance can be performed.
+    """
+    preference: NotRequired[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowPreference']]
+    """
+    The preference for the maintenance window scheduling.
+    """
+    weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The weeks of the month when maintenance can be performed.
+    """
 
 @pulumi.input_type
 class CloudAutonomousVmClusterMaintenanceWindowArgs:
@@ -168,17 +163,14 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
         pulumi.set(self, "weeks_of_month", value)
 
 
-if not MYPY:
-    class CloudExadataInfrastructureCustomerContactArgsDict(TypedDict):
-        """
-        A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address of the contact.
-        """
-elif False:
-    CloudExadataInfrastructureCustomerContactArgsDict: TypeAlias = Mapping[str, Any]
+class CloudExadataInfrastructureCustomerContactArgsDict(TypedDict):
+    """
+    A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address of the contact.
+    """
 
 @pulumi.input_type
 class CloudExadataInfrastructureCustomerContactArgs:
@@ -204,49 +196,46 @@ class CloudExadataInfrastructureCustomerContactArgs:
         pulumi.set(self, "email", value)
 
 
-if not MYPY:
-    class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
-        """
-        The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
-        """
-        custom_action_timeout_in_mins: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The timeout duration for custom actions in minutes.
-        """
-        days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]
-        """
-        The days of the week when maintenance can be performed.
-        """
-        hours_of_day: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The hours of the day when maintenance can be performed.
-        """
-        is_custom_action_timeout_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether custom action timeout is enabled.
-        """
-        lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The lead time in weeks before the maintenance window.
-        """
-        months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]
-        """
-        The months when maintenance can be performed.
-        """
-        patching_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The patching mode for the maintenance window.
-        """
-        preference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The preference for the maintenance window scheduling.
-        """
-        weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The weeks of the month when maintenance can be performed.
-        """
-elif False:
-    CloudExadataInfrastructureMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
+    """
+    The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+    """
+    custom_action_timeout_in_mins: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The timeout duration for custom actions in minutes.
+    """
+    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]
+    """
+    The days of the week when maintenance can be performed.
+    """
+    hours_of_day: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The hours of the day when maintenance can be performed.
+    """
+    is_custom_action_timeout_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether custom action timeout is enabled.
+    """
+    lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The lead time in weeks before the maintenance window.
+    """
+    months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]
+    """
+    The months when maintenance can be performed.
+    """
+    patching_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The patching mode for the maintenance window.
+    """
+    preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The preference for the maintenance window scheduling.
+    """
+    weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The weeks of the month when maintenance can be performed.
+    """
 
 @pulumi.input_type
 class CloudExadataInfrastructureMaintenanceWindowArgs:
@@ -400,25 +389,22 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
         pulumi.set(self, "weeks_of_month", value)
 
 
-if not MYPY:
-    class CloudVmClusterDataCollectionOptionsArgsDict(TypedDict):
-        """
-        Information about the data collection options enabled for a VM cluster.
-        """
-        is_diagnostics_events_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether diagnostic collection is enabled for the VM cluster.
-        """
-        is_health_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether health monitoring is enabled for the VM cluster.
-        """
-        is_incident_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether incident logs are enabled for the cloud VM cluster.
-        """
-elif False:
-    CloudVmClusterDataCollectionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class CloudVmClusterDataCollectionOptionsArgsDict(TypedDict):
+    """
+    Information about the data collection options enabled for a VM cluster.
+    """
+    is_diagnostics_events_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether diagnostic collection is enabled for the VM cluster.
+    """
+    is_health_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether health monitoring is enabled for the VM cluster.
+    """
+    is_incident_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether incident logs are enabled for the cloud VM cluster.
+    """
 
 @pulumi.input_type
 class CloudVmClusterDataCollectionOptionsArgs:
@@ -476,74 +462,71 @@ class CloudVmClusterDataCollectionOptionsArgs:
         pulumi.set(self, "is_incident_logs_enabled", value)
 
 
-if not MYPY:
-    class CloudVmClusterDbNodeArgsDict(TypedDict):
-        """
-        A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster
-        """
-        db_server_id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier of the database server that's associated with the DB node.
-        """
-        backup_ip_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
-        """
-        backup_vnic2_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OCID of the second backup virtual network interface card (VNIC) for the DB node.
-        """
-        cpu_core_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of CPU cores enabled on the DB node.
-        """
-        db_node_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the DB node.
-        """
-        db_node_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the DB node.
-        """
-        db_node_storage_size_in_gbs: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
-        """
-        db_system_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OCID of the DB system.
-        """
-        host_ip_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OCID of the host IP address that's associated with the DB node.
-        """
-        hostname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The host name for the DB node.
-        """
-        memory_size_in_gbs: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of memory, in gigabytes (GB), that allocated on the DB node.
-        """
-        ocid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OCID of the DB node.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current status of the DB node.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterTagArgsDict']]]]
-        vnic2_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OCID of the second VNIC.
-        """
-        vnic_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OCID of the VNIC.
-        """
-elif False:
-    CloudVmClusterDbNodeArgsDict: TypeAlias = Mapping[str, Any]
+class CloudVmClusterDbNodeArgsDict(TypedDict):
+    """
+    A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster
+    """
+    db_server_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the database server that's associated with the DB node.
+    """
+    backup_ip_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+    """
+    backup_vnic2_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OCID of the second backup virtual network interface card (VNIC) for the DB node.
+    """
+    cpu_core_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of CPU cores enabled on the DB node.
+    """
+    db_node_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the DB node.
+    """
+    db_node_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the DB node.
+    """
+    db_node_storage_size_in_gbs: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
+    """
+    db_system_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OCID of the DB system.
+    """
+    host_ip_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OCID of the host IP address that's associated with the DB node.
+    """
+    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The host name for the DB node.
+    """
+    memory_size_in_gbs: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of memory, in gigabytes (GB), that allocated on the DB node.
+    """
+    ocid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OCID of the DB node.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current status of the DB node.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterTagArgsDict']]]]
+    vnic2_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OCID of the second VNIC.
+    """
+    vnic_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OCID of the VNIC.
+    """
 
 @pulumi.input_type
 class CloudVmClusterDbNodeArgs:
@@ -804,21 +787,18 @@ class CloudVmClusterDbNodeArgs:
         pulumi.set(self, "vnic_id", value)
 
 
-if not MYPY:
-    class CloudVmClusterTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, @, -, and ".
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    CloudVmClusterTagArgsDict: TypeAlias = Mapping[str, Any]
+class CloudVmClusterTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, @, -, and ".
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class CloudVmClusterTagArgs:

@@ -20,19 +20,14 @@ __all__ = [
     'StreamStorageConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StreamStorageConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the storage tier of the Kinesis Video Stream.
-        """
-        default_storage_tier: NotRequired[pulumi.Input['StreamStorageConfigurationDefaultStorageTier']]
-        """
-        The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
-        """
-elif False:
-    StreamStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamStorageConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the storage tier of the Kinesis Video Stream.
+    """
+    default_storage_tier: NotRequired[pulumi.Input['StreamStorageConfigurationDefaultStorageTier']]
+    """
+    The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
+    """
 
 @pulumi.input_type
 class StreamStorageConfigurationArgs:

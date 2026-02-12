@@ -31,20 +31,15 @@ __all__ = [
     'LicenseValidityDateFormatArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LicenseBorrowConfigurationArgsDict(TypedDict):
-        allow_early_check_in: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether early check-ins are allowed.
-        """
-        max_time_to_live_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Maximum time for the borrow configuration, in minutes.
-        """
-elif False:
-    LicenseBorrowConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseBorrowConfigurationArgsDict(TypedDict):
+    allow_early_check_in: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether early check-ins are allowed.
+    """
+    max_time_to_live_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Maximum time for the borrow configuration, in minutes.
+    """
 
 @pulumi.input_type
 class LicenseBorrowConfigurationArgs:
@@ -83,22 +78,19 @@ class LicenseBorrowConfigurationArgs:
         pulumi.set(self, "max_time_to_live_in_minutes", value)
 
 
-if not MYPY:
-    class LicenseConsumptionConfigurationArgsDict(TypedDict):
-        borrow_configuration: NotRequired[pulumi.Input['LicenseBorrowConfigurationArgsDict']]
-        """
-        Details about a borrow configuration.
-        """
-        provisional_configuration: NotRequired[pulumi.Input['LicenseProvisionalConfigurationArgsDict']]
-        """
-        Details about a provisional configuration.
-        """
-        renew_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Renewal frequency.
-        """
-elif False:
-    LicenseConsumptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseConsumptionConfigurationArgsDict(TypedDict):
+    borrow_configuration: NotRequired[pulumi.Input['LicenseBorrowConfigurationArgsDict']]
+    """
+    Details about a borrow configuration.
+    """
+    provisional_configuration: NotRequired[pulumi.Input['LicenseProvisionalConfigurationArgsDict']]
+    """
+    Details about a provisional configuration.
+    """
+    renew_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Renewal frequency.
+    """
 
 @pulumi.input_type
 class LicenseConsumptionConfigurationArgs:
@@ -155,34 +147,31 @@ class LicenseConsumptionConfigurationArgs:
         pulumi.set(self, "renew_type", value)
 
 
-if not MYPY:
-    class LicenseEntitlementArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Entitlement name.
-        """
-        unit: pulumi.Input[_builtins.str]
-        """
-        Entitlement unit.
-        """
-        allow_check_in: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether check-ins are allowed.
-        """
-        max_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum entitlement count. Use if the unit is not None.
-        """
-        overage: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether overages are allowed.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entitlement resource. Use only if the unit is None.
-        """
-elif False:
-    LicenseEntitlementArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseEntitlementArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Entitlement name.
+    """
+    unit: pulumi.Input[_builtins.str]
+    """
+    Entitlement unit.
+    """
+    allow_check_in: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether check-ins are allowed.
+    """
+    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum entitlement count. Use if the unit is not None.
+    """
+    overage: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether overages are allowed.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entitlement resource. Use only if the unit is None.
+    """
 
 @pulumi.input_type
 class LicenseEntitlementArgs:
@@ -285,18 +274,15 @@ class LicenseEntitlementArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LicenseIssuerDataArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Issuer name.
-        """
-        sign_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-        """
-elif False:
-    LicenseIssuerDataArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseIssuerDataArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Issuer name.
+    """
+    sign_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+    """
 
 @pulumi.input_type
 class LicenseIssuerDataArgs:
@@ -336,18 +322,15 @@ class LicenseIssuerDataArgs:
         pulumi.set(self, "sign_key", value)
 
 
-if not MYPY:
-    class LicenseMetadataArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The key name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value.
-        """
-elif False:
-    LicenseMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseMetadataArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The key name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value.
+    """
 
 @pulumi.input_type
 class LicenseMetadataArgs:
@@ -386,14 +369,11 @@ class LicenseMetadataArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LicenseProvisionalConfigurationArgsDict(TypedDict):
-        max_time_to_live_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Maximum time for the provisional configuration, in minutes.
-        """
-elif False:
-    LicenseProvisionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseProvisionalConfigurationArgsDict(TypedDict):
+    max_time_to_live_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Maximum time for the provisional configuration, in minutes.
+    """
 
 @pulumi.input_type
 class LicenseProvisionalConfigurationArgs:
@@ -417,18 +397,15 @@ class LicenseProvisionalConfigurationArgs:
         pulumi.set(self, "max_time_to_live_in_minutes", value)
 
 
-if not MYPY:
-    class LicenseValidityDateFormatArgsDict(TypedDict):
-        begin: pulumi.Input[_builtins.str]
-        """
-        Validity begin date for the license.
-        """
-        end: pulumi.Input[_builtins.str]
-        """
-        Validity begin date for the license.
-        """
-elif False:
-    LicenseValidityDateFormatArgsDict: TypeAlias = Mapping[str, Any]
+class LicenseValidityDateFormatArgsDict(TypedDict):
+    begin: pulumi.Input[_builtins.str]
+    """
+    Validity begin date for the license.
+    """
+    end: pulumi.Input[_builtins.str]
+    """
+    Validity begin date for the license.
+    """
 
 @pulumi.input_type
 class LicenseValidityDateFormatArgs:

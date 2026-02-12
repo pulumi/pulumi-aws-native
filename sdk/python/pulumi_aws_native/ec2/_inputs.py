@@ -402,42 +402,37 @@ __all__ = [
     'VpnConnectionVpnTunnelOptionsSpecificationArgsDict',
 ]
 
-MYPY = False
+class CapacityReservationFleetInstanceTypeSpecificationArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
+    """
+    availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
+    """
+    ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using EBS-optimized instance types.
+    """
+    instance_platform: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of operating system for which the Capacity Reservation Fleet reserves capacity.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type for which the Capacity Reservation Fleet reserves capacity.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
+    """
+    weight: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
 
-if not MYPY:
-    class CapacityReservationFleetInstanceTypeSpecificationArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
-        """
-        availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
-        """
-        ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using EBS-optimized instance types.
-        """
-        instance_platform: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of operating system for which the Capacity Reservation Fleet reserves capacity.
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type for which the Capacity Reservation Fleet reserves capacity.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority to assign to the instance type. This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
-        """
-        weight: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of capacity units provided by the specified instance type. This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
-
-        Valid Range: Minimum value of `0.001` . Maximum value of `99.999` .
-        """
-elif False:
-    CapacityReservationFleetInstanceTypeSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    Valid Range: Minimum value of `0.001` . Maximum value of `99.999` .
+    """
 
 @pulumi.input_type
 class CapacityReservationFleetInstanceTypeSpecificationArgs:
@@ -562,20 +557,17 @@ class CapacityReservationFleetInstanceTypeSpecificationArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class CapacityReservationFleetTagSpecificationArgsDict(TypedDict):
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
+class CapacityReservationFleetTagSpecificationArgsDict(TypedDict):
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
 
-        To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagArgsDict']]]]
-        """
-        The tags to apply to the resource.
-        """
-elif False:
-    CapacityReservationFleetTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagArgsDict']]]]
+    """
+    The tags to apply to the resource.
+    """
 
 @pulumi.input_type
 class CapacityReservationFleetTagSpecificationArgs:
@@ -620,18 +612,15 @@ class CapacityReservationFleetTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class CapacityReservationFleetTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    CapacityReservationFleetTagArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityReservationFleetTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class CapacityReservationFleetTagArgs:
@@ -670,18 +659,15 @@ class CapacityReservationFleetTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CapacityReservationTagSpecificationArgsDict(TypedDict):
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of resource to tag. Specify `capacity-reservation` .
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgsDict']]]]
-        """
-        The tags to apply to the resource.
-        """
-elif False:
-    CapacityReservationTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityReservationTagSpecificationArgsDict(TypedDict):
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of resource to tag. Specify `capacity-reservation` .
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgsDict']]]]
+    """
+    The tags to apply to the resource.
+    """
 
 @pulumi.input_type
 class CapacityReservationTagSpecificationArgs:
@@ -722,18 +708,15 @@ class CapacityReservationTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class CapacityReservationTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    CapacityReservationTagArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityReservationTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class CapacityReservationTagArgs:
@@ -772,21 +755,18 @@ class CapacityReservationTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CpuOptionsPropertiesArgsDict(TypedDict):
-        """
-        The CPU options for the instance.
-        """
-        core_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of CPU cores for the instance.
-        """
-        threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of threads per CPU core.
-        """
-elif False:
-    CpuOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CpuOptionsPropertiesArgsDict(TypedDict):
+    """
+    The CPU options for the instance.
+    """
+    core_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of CPU cores for the instance.
+    """
+    threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of threads per CPU core.
+    """
 
 @pulumi.input_type
 class CpuOptionsPropertiesArgs:
@@ -828,21 +808,18 @@ class CpuOptionsPropertiesArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
-if not MYPY:
-    class CreditSpecificationPropertiesArgsDict(TypedDict):
-        """
-        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
-        """
-        cpu_credits: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The credit option for CPU usage of the instance.
+class CreditSpecificationPropertiesArgsDict(TypedDict):
+    """
+    The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+    """
+    cpu_credits: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The credit option for CPU usage of the instance.
 
-        Valid values: `standard` | `unlimited`
+    Valid values: `standard` | `unlimited`
 
-        T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
-        """
-elif False:
-    CreditSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
+    """
 
 @pulumi.input_type
 class CreditSpecificationPropertiesArgs:
@@ -876,25 +853,22 @@ class CreditSpecificationPropertiesArgs:
         pulumi.set(self, "cpu_credits", value)
 
 
-if not MYPY:
-    class DestinationOptionsPropertiesArgsDict(TypedDict):
-        """
-        The destination options.
-        """
-        file_format: pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']
-        """
-        The format for the flow log. The default is `plain-text` .
-        """
-        hive_compatible_partitions: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
-        """
-        per_hour_partition: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
-        """
-elif False:
-    DestinationOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DestinationOptionsPropertiesArgsDict(TypedDict):
+    """
+    The destination options.
+    """
+    file_format: pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']
+    """
+    The format for the flow log. The default is `plain-text` .
+    """
+    hive_compatible_partitions: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
+    """
+    per_hour_partition: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
+    """
 
 @pulumi.input_type
 class DestinationOptionsPropertiesArgs:
@@ -949,18 +923,15 @@ class DestinationOptionsPropertiesArgs:
         pulumi.set(self, "per_hour_partition", value)
 
 
-if not MYPY:
-    class Ec2FleetAcceleratorCountRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of accelerators. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetAcceleratorCountRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetAcceleratorCountRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of accelerators. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetAcceleratorCountRequestArgs:
@@ -1001,18 +972,15 @@ class Ec2FleetAcceleratorCountRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetAcceleratorTotalMemoryMiBRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetAcceleratorTotalMemoryMiBRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetAcceleratorTotalMemoryMiBRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetAcceleratorTotalMemoryMiBRequestArgs:
@@ -1053,18 +1021,15 @@ class Ec2FleetAcceleratorTotalMemoryMiBRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetBaselineEbsBandwidthMbpsRequestArgs:
@@ -1105,14 +1070,11 @@ class Ec2FleetBaselineEbsBandwidthMbpsRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetBaselinePerformanceFactorsRequestArgsDict(TypedDict):
-        cpu: NotRequired[pulumi.Input['Ec2FleetCpuPerformanceFactorRequestArgsDict']]
-        """
-        The CPU performance to consider, using an instance family as the baseline reference.
-        """
-elif False:
-    Ec2FleetBaselinePerformanceFactorsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetBaselinePerformanceFactorsRequestArgsDict(TypedDict):
+    cpu: NotRequired[pulumi.Input['Ec2FleetCpuPerformanceFactorRequestArgsDict']]
+    """
+    The CPU performance to consider, using an instance family as the baseline reference.
+    """
 
 @pulumi.input_type
 class Ec2FleetBaselinePerformanceFactorsRequestArgs:
@@ -1137,30 +1099,27 @@ class Ec2FleetBaselinePerformanceFactorsRequestArgs:
         pulumi.set(self, "cpu", value)
 
 
-if not MYPY:
-    class Ec2FleetBlockDeviceMappingArgsDict(TypedDict):
-        device_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
-        """
-        ebs: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceArgsDict']]
-        """
-        Parameters used to automatically set up EBS volumes when the instance is launched.
-        """
-        no_device: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
-        """
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+class Ec2FleetBlockDeviceMappingArgsDict(TypedDict):
+    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
+    """
+    ebs: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceArgsDict']]
+    """
+    Parameters used to automatically set up EBS volumes when the instance is launched.
+    """
+    no_device: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+    """
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 
-        NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+    NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
 
-        Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
-        """
-elif False:
-    Ec2FleetBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+    Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+    """
 
 @pulumi.input_type
 class Ec2FleetBlockDeviceMappingArgs:
@@ -1241,28 +1200,25 @@ class Ec2FleetBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class Ec2FleetCapacityRebalanceArgsDict(TypedDict):
-        replacement_strategy: NotRequired[pulumi.Input['Ec2FleetCapacityRebalanceReplacementStrategy']]
-        """
-        The replacement strategy to use. Only available for fleets of type `maintain` .
+class Ec2FleetCapacityRebalanceArgsDict(TypedDict):
+    replacement_strategy: NotRequired[pulumi.Input['Ec2FleetCapacityRebalanceReplacementStrategy']]
+    """
+    The replacement strategy to use. Only available for fleets of type `maintain` .
 
-        `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+    `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
 
-        `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
-        """
-        termination_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+    `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
+    """
+    termination_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
 
-        Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+    Required when `ReplacementStrategy` is set to `launch-before-terminate` .
 
-        Not valid when `ReplacementStrategy` is set to `launch` .
+    Not valid when `ReplacementStrategy` is set to `launch` .
 
-        Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
-        """
-elif False:
-    Ec2FleetCapacityRebalanceArgsDict: TypeAlias = Mapping[str, Any]
+    Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+    """
 
 @pulumi.input_type
 class Ec2FleetCapacityRebalanceArgs:
@@ -1323,18 +1279,15 @@ class Ec2FleetCapacityRebalanceArgs:
         pulumi.set(self, "termination_delay", value)
 
 
-if not MYPY:
-    class Ec2FleetCapacityReservationOptionsRequestArgsDict(TypedDict):
-        usage_strategy: NotRequired[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestUsageStrategy']]
-        """
-        Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+class Ec2FleetCapacityReservationOptionsRequestArgsDict(TypedDict):
+    usage_strategy: NotRequired[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestUsageStrategy']]
+    """
+    Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
 
-        If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
+    If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
 
-        If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
-        """
-elif False:
-    Ec2FleetCapacityReservationOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+    If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
+    """
 
 @pulumi.input_type
 class Ec2FleetCapacityReservationOptionsRequestArgs:
@@ -1367,16 +1320,13 @@ class Ec2FleetCapacityReservationOptionsRequestArgs:
         pulumi.set(self, "usage_strategy", value)
 
 
-if not MYPY:
-    class Ec2FleetCpuPerformanceFactorRequestArgsDict(TypedDict):
-        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetPerformanceFactorReferenceRequestArgsDict']]]]
-        """
-        Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+class Ec2FleetCpuPerformanceFactorRequestArgsDict(TypedDict):
+    references: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetPerformanceFactorReferenceRequestArgsDict']]]]
+    """
+    Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 
-        > Currently, only one instance family can be specified in the list.
-        """
-elif False:
-    Ec2FleetCpuPerformanceFactorRequestArgsDict: TypeAlias = Mapping[str, Any]
+    > Currently, only one instance family can be specified in the list.
+    """
 
 @pulumi.input_type
 class Ec2FleetCpuPerformanceFactorRequestArgs:
@@ -1405,68 +1355,65 @@ class Ec2FleetCpuPerformanceFactorRequestArgs:
         pulumi.set(self, "references", value)
 
 
-if not MYPY:
-    class Ec2FleetEbsBlockDeviceArgsDict(TypedDict):
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
-        """
-        encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+class Ec2FleetEbsBlockDeviceArgsDict(TypedDict):
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+    """
+    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
 
-        In no case can you remove encryption from an encrypted volume.
+    In no case can you remove encryption from an encrypted volume.
 
-        Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+    Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
 
-        - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
-        - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
-        - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
-        - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+    - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+    - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+    - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+    - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 
-        The following are the supported values for each volume type:
+    The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 80,000 IOPS
-        - `io1` : 100 - 64,000 IOPS
-        - `io2` : 100 - 256,000 IOPS
+    - `gp3` : 3,000 - 80,000 IOPS
+    - `io1` : 100 - 64,000 IOPS
+    - `io2` : 100 - 256,000 IOPS
 
-        For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+    For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
 
-        This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+    This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 
-        This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the snapshot.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+    This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the snapshot.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 
-        The following are the supported sizes for each volume type:
+    The following are the supported sizes for each volume type:
 
-        - `gp2` : 1 - 16,384 GiB
-        - `gp3` : 1 - 65,536 GiB
-        - `io1` : 4 - 16,384 GiB
-        - `io2` : 4 - 65,536 GiB
-        - `st1` and `sc1` : 125 - 16,384 GiB
-        - `standard` : 1 - 1024 GiB
-        """
-        volume_type: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]
-        """
-        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-        """
-elif False:
-    Ec2FleetEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+    - `gp2` : 1 - 16,384 GiB
+    - `gp3` : 1 - 65,536 GiB
+    - `io1` : 4 - 16,384 GiB
+    - `io2` : 4 - 65,536 GiB
+    - `st1` and `sc1` : 125 - 16,384 GiB
+    - `standard` : 1 - 1024 GiB
+    """
+    volume_type: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]
+    """
+    The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+    """
 
 @pulumi.input_type
 class Ec2FleetEbsBlockDeviceArgs:
@@ -1647,20 +1594,17 @@ class Ec2FleetEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class Ec2FleetFleetLaunchTemplateConfigRequestArgsDict(TypedDict):
-        launch_template_specification: NotRequired[pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgsDict']]
-        """
-        The launch template to use. You must specify either the launch template ID or launch template name in the request.
-        """
-        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgsDict']]]]
-        """
-        Any parameters that you specify override the same parameters in the launch template.
+class Ec2FleetFleetLaunchTemplateConfigRequestArgsDict(TypedDict):
+    launch_template_specification: NotRequired[pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgsDict']]
+    """
+    The launch template to use. You must specify either the launch template ID or launch template name in the request.
+    """
+    overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgsDict']]]]
+    """
+    Any parameters that you specify override the same parameters in the launch template.
 
-        For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
-        """
-elif False:
-    Ec2FleetFleetLaunchTemplateConfigRequestArgsDict: TypeAlias = Mapping[str, Any]
+    For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
+    """
 
 @pulumi.input_type
 class Ec2FleetFleetLaunchTemplateConfigRequestArgs:
@@ -1705,78 +1649,75 @@ class Ec2FleetFleetLaunchTemplateConfigRequestArgs:
         pulumi.set(self, "overrides", value)
 
 
-if not MYPY:
-    class Ec2FleetFleetLaunchTemplateOverridesRequestArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+class Ec2FleetFleetLaunchTemplateOverridesRequestArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which to launch the instances. For example, `us-east-2a` .
 
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
-        """
-        availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+    Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+    """
+    availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
 
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
-        """
-        block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgsDict']]]]
-        """
-        The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+    Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+    """
+    block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgsDict']]]]
+    """
+    The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
 
-        Supported only for fleets of type `instant` .
+    Supported only for fleets of type `instant` .
 
-        For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
-        """
-        instance_requirements: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestArgsDict']]
-        """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
+    For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
+    """
+    instance_requirements: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestArgsDict']]
+    """
+    The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 
-        > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type.
+    > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type.
 
-        `mac1.metal` is not supported as a launch template override.
+    `mac1.metal` is not supported as a launch template override.
 
-        > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
-        """
-        max_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+    > If you specify `InstanceType` , you can't specify `InstanceRequirements` .
+    """
+    max_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
-        > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
-        > 
-        > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
-        """
-        placement: NotRequired[pulumi.Input['Ec2FleetPlacementArgsDict']]
-        """
-        The location where the instance launched, if applicable.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The priority for the launch template override. The highest priority is launched first.
+    > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+    > 
+    > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
+    """
+    placement: NotRequired[pulumi.Input['Ec2FleetPlacementArgsDict']]
+    """
+    The location where the instance launched, if applicable.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The priority for the launch template override. The highest priority is launched first.
 
-        If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+    If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
 
-        If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+    If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
 
-        Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
-        """
-        weighted_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+    Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
+    """
+    weighted_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 
-        If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+    If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 
-        > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
-        """
-elif False:
-    Ec2FleetFleetLaunchTemplateOverridesRequestArgsDict: TypeAlias = Mapping[str, Any]
+    > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+    """
 
 @pulumi.input_type
 class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
@@ -2001,30 +1942,27 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
-if not MYPY:
-    class Ec2FleetFleetLaunchTemplateSpecificationRequestArgsDict(TypedDict):
-        version: pulumi.Input[_builtins.str]
-        """
-        The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
+class Ec2FleetFleetLaunchTemplateSpecificationRequestArgsDict(TypedDict):
+    version: pulumi.Input[_builtins.str]
+    """
+    The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 
-        If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
+    If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
 
-        If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
-        """
-        launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the launch template.
+    If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
+    """
+    launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the launch template.
 
-        You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
-        """
-        launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the launch template.
+    You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+    """
+    launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the launch template.
 
-        You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
-        """
-elif False:
-    Ec2FleetFleetLaunchTemplateSpecificationRequestArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
+    """
 
 @pulumi.input_type
 class Ec2FleetFleetLaunchTemplateSpecificationRequestArgs:
@@ -2096,253 +2034,250 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequestArgs:
         pulumi.set(self, "launch_template_name", value)
 
 
-if not MYPY:
-    class Ec2FleetInstanceRequirementsRequestArgsDict(TypedDict):
-        accelerator_count: NotRequired[pulumi.Input['Ec2FleetAcceleratorCountRequestArgsDict']]
-        """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+class Ec2FleetInstanceRequirementsRequestArgsDict(TypedDict):
+    accelerator_count: NotRequired[pulumi.Input['Ec2FleetAcceleratorCountRequestArgsDict']]
+    """
+    The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 
-        To exclude accelerator-enabled instance types, set `Max` to `0` .
+    To exclude accelerator-enabled instance types, set `Max` to `0` .
 
-        Default: No minimum or maximum limits
-        """
-        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']]]]
-        """
-        Indicates whether instance types must have accelerators by specific manufacturers.
+    Default: No minimum or maximum limits
+    """
+    accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']]]]
+    """
+    Indicates whether instance types must have accelerators by specific manufacturers.
 
-        - For instance types with AWS devices, specify `amazon-web-services` .
-        - For instance types with AMD devices, specify `amd` .
-        - For instance types with Habana devices, specify `habana` .
-        - For instance types with NVIDIA devices, specify `nvidia` .
-        - For instance types with Xilinx devices, specify `xilinx` .
+    - For instance types with AWS devices, specify `amazon-web-services` .
+    - For instance types with AMD devices, specify `amd` .
+    - For instance types with Habana devices, specify `habana` .
+    - For instance types with NVIDIA devices, specify `nvidia` .
+    - For instance types with Xilinx devices, specify `xilinx` .
 
-        Default: Any manufacturer
-        """
-        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem']]]]
-        """
-        The accelerators that must be on the instance type.
+    Default: Any manufacturer
+    """
+    accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem']]]]
+    """
+    The accelerators that must be on the instance type.
 
-        - For instance types with NVIDIA A10G GPUs, specify `a10g` .
-        - For instance types with NVIDIA A100 GPUs, specify `a100` .
-        - For instance types with NVIDIA H100 GPUs, specify `h100` .
-        - For instance types with AWS Inferentia chips, specify `inferentia` .
-        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
-        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
-        - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
-        - For instance types with NVIDIA K80 GPUs, specify `k80` .
-        - For instance types with NVIDIA L4 GPUs, specify `l4` .
-        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
-        - For instance types with NVIDIA M60 GPUs, specify `m60` .
-        - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
-        - For instance types with AWS Trainium chips, specify `trainium` .
-        - For instance types with AWS Trainium2 chips, specify `trainium2` .
-        - For instance types with NVIDIA T4 GPUs, specify `t4` .
-        - For instance types with NVIDIA T4G GPUs, specify `t4g` .
-        - For instance types with Xilinx U30 cards, specify `u30` .
-        - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
-        - For instance types with NVIDIA V100 GPUs, specify `v100` .
+    - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+    - For instance types with NVIDIA A100 GPUs, specify `a100` .
+    - For instance types with NVIDIA H100 GPUs, specify `h100` .
+    - For instance types with AWS Inferentia chips, specify `inferentia` .
+    - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+    - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
+    - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+    - For instance types with NVIDIA K80 GPUs, specify `k80` .
+    - For instance types with NVIDIA L4 GPUs, specify `l4` .
+    - For instance types with NVIDIA L40S GPUs, specify `l40s` .
+    - For instance types with NVIDIA M60 GPUs, specify `m60` .
+    - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+    - For instance types with AWS Trainium chips, specify `trainium` .
+    - For instance types with AWS Trainium2 chips, specify `trainium2` .
+    - For instance types with NVIDIA T4 GPUs, specify `t4` .
+    - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+    - For instance types with Xilinx U30 cards, specify `u30` .
+    - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+    - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
-        Default: Any accelerator
-        """
-        accelerator_total_memory_mi_b: NotRequired[pulumi.Input['Ec2FleetAcceleratorTotalMemoryMiBRequestArgsDict']]
-        """
-        The minimum and maximum amount of total accelerator memory, in MiB.
+    Default: Any accelerator
+    """
+    accelerator_total_memory_mi_b: NotRequired[pulumi.Input['Ec2FleetAcceleratorTotalMemoryMiBRequestArgsDict']]
+    """
+    The minimum and maximum amount of total accelerator memory, in MiB.
 
-        Default: No minimum or maximum limits
-        """
-        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem']]]]
-        """
-        The accelerator types that must be on the instance type.
+    Default: No minimum or maximum limits
+    """
+    accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem']]]]
+    """
+    The accelerator types that must be on the instance type.
 
-        - For instance types with FPGA accelerators, specify `fpga` .
-        - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
-        - For instance types with Media accelerators, specify `media` .
+    - For instance types with FPGA accelerators, specify `fpga` .
+    - For instance types with GPU accelerators, specify `gpu` .
+    - For instance types with Inference accelerators, specify `inference` .
+    - For instance types with Media accelerators, specify `media` .
 
-        Default: Any accelerator type
-        """
-        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+    Default: Any accelerator type
+    """
+    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
 
-        You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+    You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
 
-        For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+    For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+    > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
 
-        Default: All instance types
-        """
-        bare_metal: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestBareMetal']]
-        """
-        Indicates whether bare metal instance types must be included, excluded, or required.
+    Default: All instance types
+    """
+    bare_metal: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestBareMetal']]
+    """
+    Indicates whether bare metal instance types must be included, excluded, or required.
 
-        - To include bare metal instance types, specify `included` .
-        - To require only bare metal instance types, specify `required` .
-        - To exclude bare metal instance types, specify `excluded` .
+    - To include bare metal instance types, specify `included` .
+    - To require only bare metal instance types, specify `required` .
+    - To exclude bare metal instance types, specify `excluded` .
 
-        Default: `excluded`
-        """
-        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict']]
-        """
-        The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+    Default: `excluded`
+    """
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict']]
+    """
+    The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 
-        Default: No minimum or maximum limits
-        """
-        baseline_performance_factors: NotRequired[pulumi.Input['Ec2FleetBaselinePerformanceFactorsRequestArgsDict']]
-        """
-        The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
-        """
-        burstable_performance: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestBurstablePerformance']]
-        """
-        Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+    Default: No minimum or maximum limits
+    """
+    baseline_performance_factors: NotRequired[pulumi.Input['Ec2FleetBaselinePerformanceFactorsRequestArgsDict']]
+    """
+    The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
+    """
+    burstable_performance: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestBurstablePerformance']]
+    """
+    Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
 
-        - To include burstable performance instance types, specify `included` .
-        - To require only burstable performance instance types, specify `required` .
-        - To exclude burstable performance instance types, specify `excluded` .
+    - To include burstable performance instance types, specify `included` .
+    - To require only burstable performance instance types, specify `required` .
+    - To exclude burstable performance instance types, specify `excluded` .
 
-        Default: `excluded`
-        """
-        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestCpuManufacturersItem']]]]
-        """
-        The CPU manufacturers to include.
+    Default: `excluded`
+    """
+    cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestCpuManufacturersItem']]]]
+    """
+    The CPU manufacturers to include.
 
-        - For instance types with Intel CPUs, specify `intel` .
-        - For instance types with AMD CPUs, specify `amd` .
-        - For instance types with AWS CPUs, specify `amazon-web-services` .
-        - For instance types with Apple CPUs, specify `apple` .
+    - For instance types with Intel CPUs, specify `intel` .
+    - For instance types with AMD CPUs, specify `amd` .
+    - For instance types with AWS CPUs, specify `amazon-web-services` .
+    - For instance types with Apple CPUs, specify `apple` .
 
-        > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+    > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
 
-        Default: Any manufacturer
-        """
-        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The instance types to exclude.
+    Default: Any manufacturer
+    """
+    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The instance types to exclude.
 
-        You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+    You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
 
-        For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+    For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+    > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
 
-        Default: No excluded instance types
-        """
-        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem']]]]
-        """
-        Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+    Default: No excluded instance types
+    """
+    instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem']]]]
+    """
+    Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 
-        For current generation instance types, specify `current` .
+    For current generation instance types, specify `current` .
 
-        For previous generation instance types, specify `previous` .
+    For previous generation instance types, specify `previous` .
 
-        Default: Current and previous generation instance types
-        """
-        local_storage: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestLocalStorage']]
-        """
-        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+    Default: Current and previous generation instance types
+    """
+    local_storage: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestLocalStorage']]
+    """
+    Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
 
-        - To include instance types with instance store volumes, specify `included` .
-        - To require only instance types with instance store volumes, specify `required` .
-        - To exclude instance types with instance store volumes, specify `excluded` .
+    - To include instance types with instance store volumes, specify `included` .
+    - To require only instance types with instance store volumes, specify `required` .
+    - To exclude instance types with instance store volumes, specify `excluded` .
 
-        Default: `included`
-        """
-        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem']]]]
-        """
-        The type of local storage that is required.
+    Default: `included`
+    """
+    local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem']]]]
+    """
+    The type of local storage that is required.
 
-        - For instance types with hard disk drive (HDD) storage, specify `hdd` .
-        - For instance types with solid state drive (SSD) storage, specify `ssd` .
+    - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+    - For instance types with solid state drive (SSD) storage, specify `ssd` .
 
-        Default: `hdd` and `ssd`
-        """
-        max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+    Default: `hdd` and `ssd`
+    """
+    max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 
-        The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+    The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 
-        If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+    If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
 
-        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
-        """
-        memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['Ec2FleetMemoryGiBPerVCpuRequestArgsDict']]
-        """
-        The minimum and maximum amount of memory per vCPU, in GiB.
+    > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+    """
+    memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['Ec2FleetMemoryGiBPerVCpuRequestArgsDict']]
+    """
+    The minimum and maximum amount of memory per vCPU, in GiB.
 
-        Default: No minimum or maximum limits
-        """
-        memory_mi_b: NotRequired[pulumi.Input['Ec2FleetMemoryMiBRequestArgsDict']]
-        """
-        The minimum and maximum amount of memory, in MiB.
-        """
-        network_bandwidth_gbps: NotRequired[pulumi.Input['Ec2FleetNetworkBandwidthGbpsRequestArgsDict']]
-        """
-        The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+    Default: No minimum or maximum limits
+    """
+    memory_mi_b: NotRequired[pulumi.Input['Ec2FleetMemoryMiBRequestArgsDict']]
+    """
+    The minimum and maximum amount of memory, in MiB.
+    """
+    network_bandwidth_gbps: NotRequired[pulumi.Input['Ec2FleetNetworkBandwidthGbpsRequestArgsDict']]
+    """
+    The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
 
-        Default: No minimum or maximum limits
-        """
-        network_interface_count: NotRequired[pulumi.Input['Ec2FleetNetworkInterfaceCountRequestArgsDict']]
-        """
-        The minimum and maximum number of network interfaces.
+    Default: No minimum or maximum limits
+    """
+    network_interface_count: NotRequired[pulumi.Input['Ec2FleetNetworkInterfaceCountRequestArgsDict']]
+    """
+    The minimum and maximum number of network interfaces.
 
-        Default: No minimum or maximum limits
-        """
-        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+    Default: No minimum or maximum limits
+    """
+    on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 
-        The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+    The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 
-        To indicate no price protection threshold, specify a high value, such as `999999` .
+    To indicate no price protection threshold, specify a high value, such as `999999` .
 
-        This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+    This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+    > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
 
-        Default: `20`
-        """
-        require_encryption_in_transit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+    Default: `20`
+    """
+    require_encryption_in_transit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
 
-        Default: `false`
-        """
-        require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether instance types must support hibernation for On-Demand Instances.
+    Default: `false`
+    """
+    require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether instance types must support hibernation for On-Demand Instances.
 
-        This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+    This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
 
-        Default: `false`
-        """
-        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+    Default: `false`
+    """
+    spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
 
-        The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+    The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 
-        If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+    If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 
-        This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+    This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+    > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
 
-        Default: `100`
-        """
-        total_local_storage_gb: NotRequired[pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgsDict']]
-        """
-        The minimum and maximum amount of total local storage, in GB.
+    Default: `100`
+    """
+    total_local_storage_gb: NotRequired[pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgsDict']]
+    """
+    The minimum and maximum amount of total local storage, in GB.
 
-        Default: No minimum or maximum limits
-        """
-        v_cpu_count: NotRequired[pulumi.Input['Ec2FleetVCpuCountRangeRequestArgsDict']]
-        """
-        The minimum and maximum number of vCPUs.
-        """
-elif False:
-    Ec2FleetInstanceRequirementsRequestArgsDict: TypeAlias = Mapping[str, Any]
+    Default: No minimum or maximum limits
+    """
+    v_cpu_count: NotRequired[pulumi.Input['Ec2FleetVCpuCountRangeRequestArgsDict']]
+    """
+    The minimum and maximum number of vCPUs.
+    """
 
 @pulumi.input_type
 class Ec2FleetInstanceRequirementsRequestArgs:
@@ -3045,14 +2980,11 @@ class Ec2FleetInstanceRequirementsRequestArgs:
         pulumi.set(self, "v_cpu_count", value)
 
 
-if not MYPY:
-    class Ec2FleetMaintenanceStrategiesArgsDict(TypedDict):
-        capacity_rebalance: NotRequired[pulumi.Input['Ec2FleetCapacityRebalanceArgsDict']]
-        """
-        The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
-        """
-elif False:
-    Ec2FleetMaintenanceStrategiesArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetMaintenanceStrategiesArgsDict(TypedDict):
+    capacity_rebalance: NotRequired[pulumi.Input['Ec2FleetCapacityRebalanceArgsDict']]
+    """
+    The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
+    """
 
 @pulumi.input_type
 class Ec2FleetMaintenanceStrategiesArgs:
@@ -3077,18 +3009,15 @@ class Ec2FleetMaintenanceStrategiesArgs:
         pulumi.set(self, "capacity_rebalance", value)
 
 
-if not MYPY:
-    class Ec2FleetMemoryGiBPerVCpuRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetMemoryGiBPerVCpuRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetMemoryGiBPerVCpuRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetMemoryGiBPerVCpuRequestArgs:
@@ -3129,18 +3058,15 @@ class Ec2FleetMemoryGiBPerVCpuRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetMemoryMiBRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
-        """
-elif False:
-    Ec2FleetMemoryMiBRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetMemoryMiBRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
+    """
 
 @pulumi.input_type
 class Ec2FleetMemoryMiBRequestArgs:
@@ -3181,18 +3107,15 @@ class Ec2FleetMemoryMiBRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetNetworkBandwidthGbpsRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetNetworkBandwidthGbpsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetNetworkBandwidthGbpsRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetNetworkBandwidthGbpsRequestArgs:
@@ -3233,18 +3156,15 @@ class Ec2FleetNetworkBandwidthGbpsRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetNetworkInterfaceCountRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetNetworkInterfaceCountRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetNetworkInterfaceCountRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetNetworkInterfaceCountRequestArgs:
@@ -3285,52 +3205,49 @@ class Ec2FleetNetworkInterfaceCountRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetOnDemandOptionsRequestArgsDict(TypedDict):
-        allocation_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
+class Ec2FleetOnDemandOptionsRequestArgsDict(TypedDict):
+    allocation_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The strategy that determines the order of the launch template overrides to use in fulfilling On-Demand capacity.
 
-        `lowest-price` - EC2 Fleet uses price to determine the order, launching the lowest price first.
+    `lowest-price` - EC2 Fleet uses price to determine the order, launching the lowest price first.
 
-        `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
+    `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
 
-        Default: `lowest-price`
-        """
-        capacity_reservation_options: NotRequired[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestArgsDict']]
-        """
-        The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+    Default: `lowest-price`
+    """
+    capacity_reservation_options: NotRequired[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestArgsDict']]
+    """
+    The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
 
-        Supported only for fleets of type `instant` .
-        """
-        max_total_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum amount per hour for On-Demand Instances that you're willing to pay.
+    Supported only for fleets of type `instant` .
+    """
+    max_total_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum amount per hour for On-Demand Instances that you're willing to pay.
 
-        > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
-        """
-        min_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
+    > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
+    """
+    min_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 
-        Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
+    Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 
-        At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
-        """
-        single_availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+    At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
+    """
+    single_availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
 
-        Supported only for fleets of type `instant` .
-        """
-        single_instance_type: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+    Supported only for fleets of type `instant` .
+    """
+    single_instance_type: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
 
-        Supported only for fleets of type `instant` .
-        """
-elif False:
-    Ec2FleetOnDemandOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+    Supported only for fleets of type `instant` .
+    """
 
 @pulumi.input_type
 class Ec2FleetOnDemandOptionsRequestArgs:
@@ -3471,31 +3388,28 @@ class Ec2FleetOnDemandOptionsRequestArgs:
         pulumi.set(self, "single_instance_type", value)
 
 
-if not MYPY:
-    class Ec2FleetPerformanceFactorReferenceRequestArgsDict(TypedDict):
-        instance_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance family to use as a baseline reference.
+class Ec2FleetPerformanceFactorReferenceRequestArgsDict(TypedDict):
+    instance_family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance family to use as a baseline reference.
 
-        > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
+    > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
 
-        The following instance families are *not supported* for performance protection:
+    The following instance families are *not supported* for performance protection:
 
-        - `c1`
-        - `g3` | `g3s`
-        - `hpc7g`
-        - `m1` | `m2`
-        - `mac1` | `mac2` | `mac2-m1ultra` | `mac2-m2` | `mac2-m2pro`
-        - `p3dn` | `p4d` | `p5`
-        - `t1`
-        - `u-12tb1` | `u-18tb1` | `u-24tb1` | `u-3tb1` | `u-6tb1` | `u-9tb1` | `u7i-12tb` | `u7in-16tb` | `u7in-24tb` | `u7in-32tb`
+    - `c1`
+    - `g3` | `g3s`
+    - `hpc7g`
+    - `m1` | `m2`
+    - `mac1` | `mac2` | `mac2-m1ultra` | `mac2-m2` | `mac2-m2pro`
+    - `p3dn` | `p4d` | `p5`
+    - `t1`
+    - `u-12tb1` | `u-18tb1` | `u-24tb1` | `u-3tb1` | `u-6tb1` | `u-9tb1` | `u7i-12tb` | `u7in-16tb` | `u7in-24tb` | `u7in-32tb`
 
-        If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
+    If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
 
-        If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response response for [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) and an exception for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , [ModifyFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet.html) , and [ModifySpotFleetRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest.html) .
-        """
-elif False:
-    Ec2FleetPerformanceFactorReferenceRequestArgsDict: TypeAlias = Mapping[str, Any]
+    If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response response for [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) and an exception for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , [ModifyFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet.html) , and [ModifySpotFleetRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest.html) .
+    """
 
 @pulumi.input_type
 class Ec2FleetPerformanceFactorReferenceRequestArgs:
@@ -3554,60 +3468,57 @@ class Ec2FleetPerformanceFactorReferenceRequestArgs:
         pulumi.set(self, "instance_family", value)
 
 
-if not MYPY:
-    class Ec2FleetPlacementArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The affinity setting for the instance on the Dedicated Host.
+class Ec2FleetPlacementArgsDict(TypedDict):
+    affinity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The affinity setting for the instance on the Dedicated Host.
 
-        This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone of the instance.
+    This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone of the instance.
 
-        On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
+    On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
 
-        This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-        """
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the placement group that the instance is in.
+    This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+    """
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the placement group that the instance is in.
 
-        On input, you can specify `GroupId` or `GroupName` , but not both.
-        """
-        host_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Dedicated Host on which the instance resides.
+    On input, you can specify `GroupId` or `GroupName` , but not both.
+    """
+    host_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Dedicated Host on which the instance resides.
 
-        This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
-        """
-        host_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the host resource group in which to launch the instances.
+    This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
+    """
+    host_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the host resource group in which to launch the instances.
 
-        On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+    On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 
-        This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-        """
-        partition_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
+    This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+    """
+    partition_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
 
-        This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-        """
-        spread_domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reserved for future use.
-        """
-        tenancy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
+    This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
+    """
+    spread_domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reserved for future use.
+    """
+    tenancy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenancy of the instance. An instance with a tenancy of `dedicated` runs on single-tenant hardware.
 
-        This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
-        """
-elif False:
-    Ec2FleetPlacementArgsDict: TypeAlias = Mapping[str, Any]
+    This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
+    """
 
 @pulumi.input_type
 class Ec2FleetPlacementArgs:
@@ -3780,64 +3691,61 @@ class Ec2FleetPlacementArgs:
         pulumi.set(self, "tenancy", value)
 
 
-if not MYPY:
-    class Ec2FleetSpotOptionsRequestArgsDict(TypedDict):
-        allocation_strategy: NotRequired[pulumi.Input['Ec2FleetSpotOptionsRequestAllocationStrategy']]
-        """
-        Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+class Ec2FleetSpotOptionsRequestArgsDict(TypedDict):
+    allocation_strategy: NotRequired[pulumi.Input['Ec2FleetSpotOptionsRequestAllocationStrategy']]
+    """
+    Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
 
-        If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+    If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
 
-        If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
+    If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
 
-        If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
+    If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
 
-        *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
-        """
-        instance_interruption_behavior: NotRequired[pulumi.Input['Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior']]
-        """
-        The behavior when a Spot Instance is interrupted.
+    *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
+    """
+    instance_interruption_behavior: NotRequired[pulumi.Input['Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior']]
+    """
+    The behavior when a Spot Instance is interrupted.
 
-        Default: `terminate`
-        """
-        instance_pools_to_use_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of Spot pools across which to allocate your target Spot capacity. Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+    Default: `terminate`
+    """
+    instance_pools_to_use_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of Spot pools across which to allocate your target Spot capacity. Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
 
-        Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
-        """
-        maintenance_strategies: NotRequired[pulumi.Input['Ec2FleetMaintenanceStrategiesArgsDict']]
-        """
-        The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
-        """
-        max_total_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+    Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
+    """
+    maintenance_strategies: NotRequired[pulumi.Input['Ec2FleetMaintenanceStrategiesArgsDict']]
+    """
+    The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+    """
+    max_total_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
-        > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
-        """
-        min_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
+    > If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter. > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
+    """
+    min_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't reached, no instances are launched.
 
-        Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
+    Constraints: Maximum value of `1000` . Supported only for fleets of type `instant` .
 
-        At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
-        """
-        single_availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+    At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`
+    """
+    single_availability_zone: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that the fleet launches all Spot Instances into a single Availability Zone.
 
-        Supported only for fleets of type `instant` .
-        """
-        single_instance_type: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+    Supported only for fleets of type `instant` .
+    """
+    single_instance_type: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
 
-        Supported only for fleets of type `instant` .
-        """
-elif False:
-    Ec2FleetSpotOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+    Supported only for fleets of type `instant` .
+    """
 
 @pulumi.input_type
 class Ec2FleetSpotOptionsRequestArgs:
@@ -4018,18 +3926,15 @@ class Ec2FleetSpotOptionsRequestArgs:
         pulumi.set(self, "single_instance_type", value)
 
 
-if not MYPY:
-    class Ec2FleetTagSpecificationArgsDict(TypedDict):
-        resource_type: NotRequired[pulumi.Input['Ec2FleetTagSpecificationResourceType']]
-        """
-        The type of resource to tag.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgsDict']]]]
-        """
-        The tags to apply to the resource.
-        """
-elif False:
-    Ec2FleetTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetTagSpecificationArgsDict(TypedDict):
+    resource_type: NotRequired[pulumi.Input['Ec2FleetTagSpecificationResourceType']]
+    """
+    The type of resource to tag.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgsDict']]]]
+    """
+    The tags to apply to the resource.
+    """
 
 @pulumi.input_type
 class Ec2FleetTagSpecificationArgs:
@@ -4070,18 +3975,15 @@ class Ec2FleetTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class Ec2FleetTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    Ec2FleetTagArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class Ec2FleetTagArgs:
@@ -4120,32 +4022,29 @@ class Ec2FleetTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class Ec2FleetTargetCapacitySpecificationRequestArgsDict(TypedDict):
-        total_target_capacity: pulumi.Input[_builtins.int]
-        """
-        The number of units to request, filled using the default target capacity type.
-        """
-        default_target_capacity_type: NotRequired[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']]
-        """
-        The default target capacity type.
-        """
-        on_demand_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of On-Demand units to request.
-        """
-        spot_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of Spot units to request.
-        """
-        target_capacity_unit_type: NotRequired[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType']]
-        """
-        The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
+class Ec2FleetTargetCapacitySpecificationRequestArgsDict(TypedDict):
+    total_target_capacity: pulumi.Input[_builtins.int]
+    """
+    The number of units to request, filled using the default target capacity type.
+    """
+    default_target_capacity_type: NotRequired[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']]
+    """
+    The default target capacity type.
+    """
+    on_demand_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of On-Demand units to request.
+    """
+    spot_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of Spot units to request.
+    """
+    target_capacity_unit_type: NotRequired[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType']]
+    """
+    The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
 
-        Default: `units` (the number of instances)
-        """
-elif False:
-    Ec2FleetTargetCapacitySpecificationRequestArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `units` (the number of instances)
+    """
 
 @pulumi.input_type
 class Ec2FleetTargetCapacitySpecificationRequestArgs:
@@ -4237,18 +4136,15 @@ class Ec2FleetTargetCapacitySpecificationRequestArgs:
         pulumi.set(self, "target_capacity_unit_type", value)
 
 
-if not MYPY:
-    class Ec2FleetTotalLocalStorageGbRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    Ec2FleetTotalLocalStorageGbRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetTotalLocalStorageGbRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class Ec2FleetTotalLocalStorageGbRequestArgs:
@@ -4289,18 +4185,15 @@ class Ec2FleetTotalLocalStorageGbRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class Ec2FleetVCpuCountRangeRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0` .
-        """
-elif False:
-    Ec2FleetVCpuCountRangeRequestArgsDict: TypeAlias = Mapping[str, Any]
+class Ec2FleetVCpuCountRangeRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of vCPUs. To specify no minimum limit, specify `0` .
+    """
 
 @pulumi.input_type
 class Ec2FleetVCpuCountRangeRequestArgs:
@@ -4341,17 +4234,14 @@ class Ec2FleetVCpuCountRangeRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class EnclaveOptionsPropertiesArgsDict(TypedDict):
-        """
-        Indicates whether the instance is enabled for AWS Nitro Enclaves.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-        """
-elif False:
-    EnclaveOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EnclaveOptionsPropertiesArgsDict(TypedDict):
+    """
+    Indicates whether the instance is enabled for AWS Nitro Enclaves.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+    """
 
 @pulumi.input_type
 class EnclaveOptionsPropertiesArgs:
@@ -4377,17 +4267,14 @@ class EnclaveOptionsPropertiesArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class HibernationOptionsPropertiesArgsDict(TypedDict):
-        """
-        Indicates whether an instance is enabled for hibernation.
-        """
-        configured: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If you set this parameter to true, your instance is enabled for hibernation.
-        """
-elif False:
-    HibernationOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HibernationOptionsPropertiesArgsDict(TypedDict):
+    """
+    Indicates whether an instance is enabled for hibernation.
+    """
+    configured: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If you set this parameter to true, your instance is enabled for hibernation.
+    """
 
 @pulumi.input_type
 class HibernationOptionsPropertiesArgs:
@@ -4413,18 +4300,15 @@ class HibernationOptionsPropertiesArgs:
         pulumi.set(self, "configured", value)
 
 
-if not MYPY:
-    class InstanceAssociationParameterArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of an input parameter that is in the associated SSM document.
-        """
-        value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The value of an input parameter.
-        """
-elif False:
-    InstanceAssociationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceAssociationParameterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of an input parameter that is in the associated SSM document.
+    """
+    value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The value of an input parameter.
+    """
 
 @pulumi.input_type
 class InstanceAssociationParameterArgs:
@@ -4463,34 +4347,31 @@ class InstanceAssociationParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InstanceBlockDeviceMappingArgsDict(TypedDict):
-        device_name: pulumi.Input[_builtins.str]
-        """
-        The device name (for example, /dev/sdh or xvdh).
-        """
-        ebs: NotRequired[pulumi.Input['InstanceEbsArgsDict']]
-        """
-        Parameters used to automatically set up EBS volumes when the instance is launched.
-        """
-        no_device: NotRequired[Any]
-        """
-        To omit the device from the block device mapping, specify an empty string.
+class InstanceBlockDeviceMappingArgsDict(TypedDict):
+    device_name: pulumi.Input[_builtins.str]
+    """
+    The device name (for example, /dev/sdh or xvdh).
+    """
+    ebs: NotRequired[pulumi.Input['InstanceEbsArgsDict']]
+    """
+    Parameters used to automatically set up EBS volumes when the instance is launched.
+    """
+    no_device: NotRequired[Any]
+    """
+    To omit the device from the block device mapping, specify an empty string.
 
-        > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-        """
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual device name ( `ephemeral` N). The name must be in the form `ephemeral` *X* where *X* is a number starting from zero (0). For example, an instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+    > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+    """
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual device name ( `ephemeral` N). The name must be in the form `ephemeral` *X* where *X* is a number starting from zero (0). For example, an instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 
-        NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+    NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
 
-        *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+    *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 
-        > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-        """
-elif False:
-    InstanceBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+    > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
+    """
 
 @pulumi.input_type
 class InstanceBlockDeviceMappingArgs:
@@ -4578,38 +4459,35 @@ class InstanceBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class InstanceEbsArgsDict(TypedDict):
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the EBS volume is deleted on instance termination.
-        """
-        encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the volume should be encrypted.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the snapshot.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-        """
-        volume_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The volume type.
-        """
-elif False:
-    InstanceEbsArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceEbsArgsDict(TypedDict):
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the EBS volume is deleted on instance termination.
+    """
+    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the volume should be encrypted.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the snapshot.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+    """
+    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The volume type.
+    """
 
 @pulumi.input_type
 class InstanceEbsArgs:
@@ -4730,14 +4608,11 @@ class InstanceEbsArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class InstanceElasticGpuSpecificationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
-        """
-elif False:
-    InstanceElasticGpuSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceElasticGpuSpecificationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
+    """
 
 @pulumi.input_type
 class InstanceElasticGpuSpecificationArgs:
@@ -4761,18 +4636,15 @@ class InstanceElasticGpuSpecificationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class InstanceElasticInferenceAcceleratorArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
-        """
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
-        """
-elif False:
-    InstanceElasticInferenceAcceleratorArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceElasticInferenceAcceleratorArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
+    """
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
+    """
 
 @pulumi.input_type
 class InstanceElasticInferenceAcceleratorArgs:
@@ -4812,21 +4684,18 @@ class InstanceElasticInferenceAcceleratorArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class InstanceEnaSrdSpecificationArgsDict(TypedDict):
-        """
-        Specifies the ENA Express settings for the network interface that's attached to the instance.
-        """
-        ena_srd_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether ENA Express is enabled for the network interface when you launch an instance.
-        """
-        ena_srd_udp_specification: NotRequired[pulumi.Input['InstanceEnaSrdUdpSpecificationArgsDict']]
-        """
-        Configures ENA Express for UDP network traffic.
-        """
-elif False:
-    InstanceEnaSrdSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceEnaSrdSpecificationArgsDict(TypedDict):
+    """
+    Specifies the ENA Express settings for the network interface that's attached to the instance.
+    """
+    ena_srd_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+    """
+    ena_srd_udp_specification: NotRequired[pulumi.Input['InstanceEnaSrdUdpSpecificationArgsDict']]
+    """
+    Configures ENA Express for UDP network traffic.
+    """
 
 @pulumi.input_type
 class InstanceEnaSrdSpecificationArgs:
@@ -4868,17 +4737,14 @@ class InstanceEnaSrdSpecificationArgs:
         pulumi.set(self, "ena_srd_udp_specification", value)
 
 
-if not MYPY:
-    class InstanceEnaSrdUdpSpecificationArgsDict(TypedDict):
-        """
-        Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
-        """
-        ena_srd_udp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether UDP traffic uses ENA Express for your instance.
-        """
-elif False:
-    InstanceEnaSrdUdpSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceEnaSrdUdpSpecificationArgsDict(TypedDict):
+    """
+    Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+    """
+    ena_srd_udp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether UDP traffic uses ENA Express for your instance.
+    """
 
 @pulumi.input_type
 class InstanceEnaSrdUdpSpecificationArgs:
@@ -4904,14 +4770,11 @@ class InstanceEnaSrdUdpSpecificationArgs:
         pulumi.set(self, "ena_srd_udp_enabled", value)
 
 
-if not MYPY:
-    class InstanceIpv6AddressArgsDict(TypedDict):
-        ipv6_address: pulumi.Input[_builtins.str]
-        """
-        The IPv6 address.
-        """
-elif False:
-    InstanceIpv6AddressArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceIpv6AddressArgsDict(TypedDict):
+    ipv6_address: pulumi.Input[_builtins.str]
+    """
+    The IPv6 address.
+    """
 
 @pulumi.input_type
 class InstanceIpv6AddressArgs:
@@ -4935,22 +4798,19 @@ class InstanceIpv6AddressArgs:
         pulumi.set(self, "ipv6_address", value)
 
 
-if not MYPY:
-    class InstanceLaunchTemplateSpecificationArgsDict(TypedDict):
-        launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
-        """
-        launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version number of the launch template.
-        """
-elif False:
-    InstanceLaunchTemplateSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLaunchTemplateSpecificationArgsDict(TypedDict):
+    launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+    """
+    launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version number of the launch template.
+    """
 
 @pulumi.input_type
 class InstanceLaunchTemplateSpecificationArgs:
@@ -5007,14 +4867,11 @@ class InstanceLaunchTemplateSpecificationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class InstanceLicenseSpecificationArgsDict(TypedDict):
-        license_configuration_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the license configuration.
-        """
-elif False:
-    InstanceLicenseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLicenseSpecificationArgsDict(TypedDict):
+    license_configuration_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the license configuration.
+    """
 
 @pulumi.input_type
 class InstanceLicenseSpecificationArgs:
@@ -5038,30 +4895,27 @@ class InstanceLicenseSpecificationArgs:
         pulumi.set(self, "license_configuration_arn", value)
 
 
-if not MYPY:
-    class InstanceMetadataOptionsArgsDict(TypedDict):
-        http_endpoint: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpEndpoint']]
-        """
-        Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
-        """
-        http_protocol_ipv6: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6']]
-        """
-        Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
-        """
-        http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of network hops that the metadata token can travel. Maximum is 64.
-        """
-        http_tokens: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpTokens']]
-        """
-        Indicates whether IMDSv2 is required.
-        """
-        instance_metadata_tags: NotRequired[pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags']]
-        """
-        Indicates whether tags from the instance are propagated to the EBS volumes.
-        """
-elif False:
-    InstanceMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceMetadataOptionsArgsDict(TypedDict):
+    http_endpoint: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpEndpoint']]
+    """
+    Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+    """
+    http_protocol_ipv6: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6']]
+    """
+    Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+    """
+    http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of network hops that the metadata token can travel. Maximum is 64.
+    """
+    http_tokens: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpTokens']]
+    """
+    Indicates whether IMDSv2 is required.
+    """
+    instance_metadata_tags: NotRequired[pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags']]
+    """
+    Indicates whether tags from the instance are propagated to the EBS volumes.
+    """
 
 @pulumi.input_type
 class InstanceMetadataOptionsArgs:
@@ -5150,66 +5004,63 @@ class InstanceMetadataOptionsArgs:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
-if not MYPY:
-    class InstanceNetworkInterfaceArgsDict(TypedDict):
-        device_index: pulumi.Input[_builtins.str]
-        """
-        The position of the network interface in the attachment order. A primary network interface has a device index of 0.
-        """
-        associate_carrier_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Not currently supported by AWS CloudFormation.
-        """
-        associate_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
-        """
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, the interface is deleted when the instance is terminated.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the network interface.
-        """
-        ena_srd_specification: NotRequired[pulumi.Input['InstanceEnaSrdSpecificationArgsDict']]
-        """
-        Configures ENA Express for UDP network traffic.
-        """
-        group_set: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the security groups for the network interface.
-        """
-        ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A number of IPv6 addresses to assign to the network interface.
-        """
-        ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgsDict']]]]
-        """
-        The IPv6 addresses associated with the network interface.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the network interface.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IPv4 address of the network interface.
-        """
-        private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgsDict']]]]
-        """
-        One or more private IPv4 addresses to assign to the network interface.
-        """
-        secondary_private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of secondary private IPv4 addresses.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the subnet.
-        """
-elif False:
-    InstanceNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceNetworkInterfaceArgsDict(TypedDict):
+    device_index: pulumi.Input[_builtins.str]
+    """
+    The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+    """
+    associate_carrier_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Not currently supported by AWS CloudFormation.
+    """
+    associate_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+    """
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, the interface is deleted when the instance is terminated.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the network interface.
+    """
+    ena_srd_specification: NotRequired[pulumi.Input['InstanceEnaSrdSpecificationArgsDict']]
+    """
+    Configures ENA Express for UDP network traffic.
+    """
+    group_set: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the security groups for the network interface.
+    """
+    ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A number of IPv6 addresses to assign to the network interface.
+    """
+    ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgsDict']]]]
+    """
+    The IPv6 addresses associated with the network interface.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the network interface.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IPv4 address of the network interface.
+    """
+    private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgsDict']]]]
+    """
+    One or more private IPv4 addresses to assign to the network interface.
+    """
+    secondary_private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of secondary private IPv4 addresses.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the subnet.
+    """
 
 @pulumi.input_type
 class InstanceNetworkInterfaceArgs:
@@ -5441,22 +5292,19 @@ class InstanceNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class InstancePrivateDnsNameOptionsArgsDict(TypedDict):
-        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
-        """
-        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
-        """
-        hostname_type: NotRequired[pulumi.Input['InstancePrivateDnsNameOptionsHostnameType']]
-        """
-        The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
-        """
-elif False:
-    InstancePrivateDnsNameOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class InstancePrivateDnsNameOptionsArgsDict(TypedDict):
+    enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+    """
+    enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+    """
+    hostname_type: NotRequired[pulumi.Input['InstancePrivateDnsNameOptionsHostnameType']]
+    """
+    The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+    """
 
 @pulumi.input_type
 class InstancePrivateDnsNameOptionsArgs:
@@ -5513,18 +5361,15 @@ class InstancePrivateDnsNameOptionsArgs:
         pulumi.set(self, "hostname_type", value)
 
 
-if not MYPY:
-    class InstancePrivateIpAddressSpecificationArgsDict(TypedDict):
-        primary: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
-        """
-        private_ip_address: pulumi.Input[_builtins.str]
-        """
-        The private IPv4 addresses.
-        """
-elif False:
-    InstancePrivateIpAddressSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class InstancePrivateIpAddressSpecificationArgsDict(TypedDict):
+    primary: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+    """
+    private_ip_address: pulumi.Input[_builtins.str]
+    """
+    The private IPv4 addresses.
+    """
 
 @pulumi.input_type
 class InstancePrivateIpAddressSpecificationArgs:
@@ -5563,18 +5408,15 @@ class InstancePrivateIpAddressSpecificationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class InstanceSsmAssociationArgsDict(TypedDict):
-        document_name: pulumi.Input[_builtins.str]
-        """
-        The name of an SSM document to associate with the instance.
-        """
-        association_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgsDict']]]]
-        """
-        The input parameter values to use with the associated SSM document.
-        """
-elif False:
-    InstanceSsmAssociationArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceSsmAssociationArgsDict(TypedDict):
+    document_name: pulumi.Input[_builtins.str]
+    """
+    The name of an SSM document to associate with the instance.
+    """
+    association_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgsDict']]]]
+    """
+    The input parameter values to use with the associated SSM document.
+    """
 
 @pulumi.input_type
 class InstanceSsmAssociationArgs:
@@ -5614,18 +5456,15 @@ class InstanceSsmAssociationArgs:
         pulumi.set(self, "association_parameters", value)
 
 
-if not MYPY:
-    class InstanceVolumeArgsDict(TypedDict):
-        device: pulumi.Input[_builtins.str]
-        """
-        The device name (for example, /dev/sdh or xvdh).
-        """
-        volume_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
-        """
-elif False:
-    InstanceVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceVolumeArgsDict(TypedDict):
+    device: pulumi.Input[_builtins.str]
+    """
+    The device name (for example, /dev/sdh or xvdh).
+    """
+    volume_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+    """
 
 @pulumi.input_type
 class InstanceVolumeArgs:
@@ -5664,17 +5503,14 @@ class InstanceVolumeArgs:
         pulumi.set(self, "volume_id", value)
 
 
-if not MYPY:
-    class IpamOperatingRegionArgsDict(TypedDict):
-        """
-        The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-        """
-        region_name: pulumi.Input[_builtins.str]
-        """
-        The name of the region.
-        """
-elif False:
-    IpamOperatingRegionArgsDict: TypeAlias = Mapping[str, Any]
+class IpamOperatingRegionArgsDict(TypedDict):
+    """
+    The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+    """
+    region_name: pulumi.Input[_builtins.str]
+    """
+    The name of the region.
+    """
 
 @pulumi.input_type
 class IpamOperatingRegionArgs:
@@ -5699,17 +5535,14 @@ class IpamOperatingRegionArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class IpamOrganizationalUnitExclusionArgsDict(TypedDict):
-        """
-        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
-        """
-        organizations_entity_path: pulumi.Input[_builtins.str]
-        """
-        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
-        """
-elif False:
-    IpamOrganizationalUnitExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class IpamOrganizationalUnitExclusionArgsDict(TypedDict):
+    """
+    If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+    """
+    organizations_entity_path: pulumi.Input[_builtins.str]
+    """
+    An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+    """
 
 @pulumi.input_type
 class IpamOrganizationalUnitExclusionArgs:
@@ -5734,17 +5567,14 @@ class IpamOrganizationalUnitExclusionArgs:
         pulumi.set(self, "organizations_entity_path", value)
 
 
-if not MYPY:
-    class IpamPoolProvisionedCidrArgsDict(TypedDict):
-        """
-        An address space to be inserted into this pool. All allocations must be made from this address space.
-        """
-        cidr: pulumi.Input[_builtins.str]
-        """
-        The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
-        """
-elif False:
-    IpamPoolProvisionedCidrArgsDict: TypeAlias = Mapping[str, Any]
+class IpamPoolProvisionedCidrArgsDict(TypedDict):
+    """
+    An address space to be inserted into this pool. All allocations must be made from this address space.
+    """
+    cidr: pulumi.Input[_builtins.str]
+    """
+    The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
+    """
 
 @pulumi.input_type
 class IpamPoolProvisionedCidrArgs:
@@ -5769,29 +5599,26 @@ class IpamPoolProvisionedCidrArgs:
         pulumi.set(self, "cidr", value)
 
 
-if not MYPY:
-    class IpamPoolSourceResourceArgsDict(TypedDict):
-        """
-        The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        The source resource ID.
-        """
-        resource_owner: pulumi.Input[_builtins.str]
-        """
-        The source resource owner.
-        """
-        resource_region: pulumi.Input[_builtins.str]
-        """
-        The source resource Region.
-        """
-        resource_type: pulumi.Input[_builtins.str]
-        """
-        The source resource type.
-        """
-elif False:
-    IpamPoolSourceResourceArgsDict: TypeAlias = Mapping[str, Any]
+class IpamPoolSourceResourceArgsDict(TypedDict):
+    """
+    The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The source resource ID.
+    """
+    resource_owner: pulumi.Input[_builtins.str]
+    """
+    The source resource owner.
+    """
+    resource_region: pulumi.Input[_builtins.str]
+    """
+    The source resource Region.
+    """
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    The source resource type.
+    """
 
 @pulumi.input_type
 class IpamPoolSourceResourceArgs:
@@ -5861,21 +5688,18 @@ class IpamPoolSourceResourceArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class IpamPoolTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    IpamPoolTagArgsDict: TypeAlias = Mapping[str, Any]
+class IpamPoolTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class IpamPoolTagArgs:
@@ -5915,17 +5739,14 @@ class IpamPoolTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class IpamResourceDiscoveryIpamOperatingRegionArgsDict(TypedDict):
-        """
-        The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
-        """
-        region_name: pulumi.Input[_builtins.str]
-        """
-        The name of the region.
-        """
-elif False:
-    IpamResourceDiscoveryIpamOperatingRegionArgsDict: TypeAlias = Mapping[str, Any]
+class IpamResourceDiscoveryIpamOperatingRegionArgsDict(TypedDict):
+    """
+    The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+    """
+    region_name: pulumi.Input[_builtins.str]
+    """
+    The name of the region.
+    """
 
 @pulumi.input_type
 class IpamResourceDiscoveryIpamOperatingRegionArgs:
@@ -5950,17 +5771,14 @@ class IpamResourceDiscoveryIpamOperatingRegionArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict(TypedDict):
-        """
-        If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
-        """
-        organizations_entity_path: pulumi.Input[_builtins.str]
-        """
-        An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
-        """
-elif False:
-    IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict(TypedDict):
+    """
+    If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+    """
+    organizations_entity_path: pulumi.Input[_builtins.str]
+    """
+    An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+    """
 
 @pulumi.input_type
 class IpamResourceDiscoveryOrganizationalUnitExclusionArgs:
@@ -5985,21 +5803,18 @@ class IpamResourceDiscoveryOrganizationalUnitExclusionArgs:
         pulumi.set(self, "organizations_entity_path", value)
 
 
-if not MYPY:
-    class IpamScopeExternalAuthorityConfigurationArgsDict(TypedDict):
-        """
-        External service configuration to connect your AWS IPAM scope.
-        """
-        external_resource_identifier: pulumi.Input[_builtins.str]
-        """
-        Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
-        """
-        ipam_scope_external_authority_type: pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType']
-        """
-        An external service connecting to your AWS IPAM scope.
-        """
-elif False:
-    IpamScopeExternalAuthorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IpamScopeExternalAuthorityConfigurationArgsDict(TypedDict):
+    """
+    External service configuration to connect your AWS IPAM scope.
+    """
+    external_resource_identifier: pulumi.Input[_builtins.str]
+    """
+    Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+    """
+    ipam_scope_external_authority_type: pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType']
+    """
+    An external service connecting to your AWS IPAM scope.
+    """
 
 @pulumi.input_type
 class IpamScopeExternalAuthorityConfigurationArgs:
@@ -6039,21 +5854,18 @@ class IpamScopeExternalAuthorityConfigurationArgs:
         pulumi.set(self, "ipam_scope_external_authority_type", value)
 
 
-if not MYPY:
-    class LaunchTemplateAcceleratorCountArgsDict(TypedDict):
-        """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of accelerators. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    LaunchTemplateAcceleratorCountArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateAcceleratorCountArgsDict(TypedDict):
+    """
+    The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of accelerators. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class LaunchTemplateAcceleratorCountArgs:
@@ -6095,21 +5907,18 @@ class LaunchTemplateAcceleratorCountArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateAcceleratorTotalMemoryMiBArgsDict(TypedDict):
-        """
-        The minimum and maximum amount of total accelerator memory, in MiB.
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    LaunchTemplateAcceleratorTotalMemoryMiBArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateAcceleratorTotalMemoryMiBArgsDict(TypedDict):
+    """
+    The minimum and maximum amount of total accelerator memory, in MiB.
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class LaunchTemplateAcceleratorTotalMemoryMiBArgs:
@@ -6151,21 +5960,18 @@ class LaunchTemplateAcceleratorTotalMemoryMiBArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateBaselineEbsBandwidthMbpsArgsDict(TypedDict):
-        """
-        The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    LaunchTemplateBaselineEbsBandwidthMbpsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateBaselineEbsBandwidthMbpsArgsDict(TypedDict):
+    """
+    The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class LaunchTemplateBaselineEbsBandwidthMbpsArgs:
@@ -6207,18 +6013,15 @@ class LaunchTemplateBaselineEbsBandwidthMbpsArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateBaselinePerformanceFactorsArgsDict(TypedDict):
-        """
-        The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
-         Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` would use the CPU performance of the ``c6i`` family as the baseline reference.
-        """
-        cpu: NotRequired[pulumi.Input['LaunchTemplateCpuArgsDict']]
-        """
-        The CPU performance to consider, using an instance family as the baseline reference.
-        """
-elif False:
-    LaunchTemplateBaselinePerformanceFactorsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateBaselinePerformanceFactorsArgsDict(TypedDict):
+    """
+    The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
+     Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` would use the CPU performance of the ``c6i`` family as the baseline reference.
+    """
+    cpu: NotRequired[pulumi.Input['LaunchTemplateCpuArgsDict']]
+    """
+    The CPU performance to consider, using an instance family as the baseline reference.
+    """
 
 @pulumi.input_type
 class LaunchTemplateBaselinePerformanceFactorsArgs:
@@ -6245,30 +6048,27 @@ class LaunchTemplateBaselinePerformanceFactorsArgs:
         pulumi.set(self, "cpu", value)
 
 
-if not MYPY:
-    class LaunchTemplateBlockDeviceMappingArgsDict(TypedDict):
-        """
-        Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
-         ``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        device_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The device name (for example, /dev/sdh or xvdh).
-        """
-        ebs: NotRequired[pulumi.Input['LaunchTemplateEbsArgsDict']]
-        """
-        Parameters used to automatically set up EBS volumes when the instance is launched.
-        """
-        no_device: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        To omit the device from the block device mapping, specify an empty string.
-        """
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
-        """
-elif False:
-    LaunchTemplateBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateBlockDeviceMappingArgsDict(TypedDict):
+    """
+    Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
+     ``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The device name (for example, /dev/sdh or xvdh).
+    """
+    ebs: NotRequired[pulumi.Input['LaunchTemplateEbsArgsDict']]
+    """
+    Parameters used to automatically set up EBS volumes when the instance is launched.
+    """
+    no_device: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    To omit the device from the block device mapping, specify an empty string.
+    """
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+    """
 
 @pulumi.input_type
 class LaunchTemplateBlockDeviceMappingArgs:
@@ -6343,25 +6143,22 @@ class LaunchTemplateBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class LaunchTemplateCapacityReservationSpecificationArgsDict(TypedDict):
-        """
-        Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
-         ``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        capacity_reservation_preference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-          +  ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
-          +  ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
-          +  ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
-        """
-        capacity_reservation_target: NotRequired[pulumi.Input['LaunchTemplateCapacityReservationTargetArgsDict']]
-        """
-        Information about the target Capacity Reservation or Capacity Reservation group.
-        """
-elif False:
-    LaunchTemplateCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateCapacityReservationSpecificationArgsDict(TypedDict):
+    """
+    Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
+     ``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    capacity_reservation_preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+      +  ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
+      +  ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
+      +  ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+    """
+    capacity_reservation_target: NotRequired[pulumi.Input['LaunchTemplateCapacityReservationTargetArgsDict']]
+    """
+    Information about the target Capacity Reservation or Capacity Reservation group.
+    """
 
 @pulumi.input_type
 class LaunchTemplateCapacityReservationSpecificationArgs:
@@ -6410,22 +6207,19 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
         pulumi.set(self, "capacity_reservation_target", value)
 
 
-if not MYPY:
-    class LaunchTemplateCapacityReservationTargetArgsDict(TypedDict):
-        """
-        Specifies a target Capacity Reservation.
-         ``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
-        """
-        capacity_reservation_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Capacity Reservation in which to run the instance.
-        """
-        capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Capacity Reservation resource group in which to run the instance.
-        """
-elif False:
-    LaunchTemplateCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateCapacityReservationTargetArgsDict(TypedDict):
+    """
+    Specifies a target Capacity Reservation.
+     ``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
+    """
+    capacity_reservation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Capacity Reservation in which to run the instance.
+    """
+    capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Capacity Reservation resource group in which to run the instance.
+    """
 
 @pulumi.input_type
 class LaunchTemplateCapacityReservationTargetArgs:
@@ -6468,25 +6262,22 @@ class LaunchTemplateCapacityReservationTargetArgs:
         pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
-if not MYPY:
-    class LaunchTemplateConnectionTrackingSpecificationArgsDict(TypedDict):
-        """
-        A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
-        """
-        tcp_established_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
-        """
-        udp_stream_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
-        """
-        udp_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-        """
-elif False:
-    LaunchTemplateConnectionTrackingSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateConnectionTrackingSpecificationArgsDict(TypedDict):
+    """
+    A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
+    """
+    tcp_established_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+    """
+    udp_stream_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+    """
+    udp_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+    """
 
 @pulumi.input_type
 class LaunchTemplateConnectionTrackingSpecificationArgs:
@@ -6544,26 +6335,23 @@ class LaunchTemplateConnectionTrackingSpecificationArgs:
         pulumi.set(self, "udp_timeout", value)
 
 
-if not MYPY:
-    class LaunchTemplateCpuOptionsArgsDict(TypedDict):
-        """
-        Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
-         ``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        amd_sev_snp: NotRequired[pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp']]
-        """
-        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
-        """
-        core_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of CPU cores for the instance.
-        """
-        threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
-        """
-elif False:
-    LaunchTemplateCpuOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateCpuOptionsArgsDict(TypedDict):
+    """
+    Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
+     ``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    amd_sev_snp: NotRequired[pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp']]
+    """
+    Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+    """
+    core_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of CPU cores for the instance.
+    """
+    threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
+    """
 
 @pulumi.input_type
 class LaunchTemplateCpuOptionsArgs:
@@ -6622,17 +6410,14 @@ class LaunchTemplateCpuOptionsArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
-if not MYPY:
-    class LaunchTemplateCpuArgsDict(TypedDict):
-        """
-        Specifies the CPU performance to consider when using an instance family as the baseline reference.
-        """
-        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgsDict']]]]
-        """
-        The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
-        """
-elif False:
-    LaunchTemplateCpuArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateCpuArgsDict(TypedDict):
+    """
+    Specifies the CPU performance to consider when using an instance family as the baseline reference.
+    """
+    references: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgsDict']]]]
+    """
+    The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+    """
 
 @pulumi.input_type
 class LaunchTemplateCpuArgs:
@@ -6658,19 +6443,16 @@ class LaunchTemplateCpuArgs:
         pulumi.set(self, "references", value)
 
 
-if not MYPY:
-    class LaunchTemplateCreditSpecificationArgsDict(TypedDict):
-        """
-        Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
-         ``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        cpu_credits: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The credit option for CPU usage of a T instance.
-         Valid values: ``standard`` | ``unlimited``
-        """
-elif False:
-    LaunchTemplateCreditSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateCreditSpecificationArgsDict(TypedDict):
+    """
+    Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+     ``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    cpu_credits: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The credit option for CPU usage of a T instance.
+     Valid values: ``standard`` | ``unlimited``
+    """
 
 @pulumi.input_type
 class LaunchTemplateCreditSpecificationArgs:
@@ -6699,160 +6481,157 @@ class LaunchTemplateCreditSpecificationArgs:
         pulumi.set(self, "cpu_credits", value)
 
 
-if not MYPY:
-    class LaunchTemplateDataArgsDict(TypedDict):
-        """
-        The information to include in the launch template.
-          You must specify at least one parameter for the launch template data.
-        """
-        block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgsDict']]]]
-        """
-        The block device mapping.
-        """
-        capacity_reservation_specification: NotRequired[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgsDict']]
-        """
-        The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
-        """
-        cpu_options: NotRequired[pulumi.Input['LaunchTemplateCpuOptionsArgsDict']]
-        """
-        The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
-        """
-        credit_specification: NotRequired[pulumi.Input['LaunchTemplateCreditSpecificationArgsDict']]
-        """
-        The credit option for CPU usage of the instance. Valid only for T instances.
-        """
-        disable_api_stop: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
-        """
-        disable_api_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
-        """
-        ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
-        """
-        enclave_options: NotRequired[pulumi.Input['LaunchTemplateEnclaveOptionsArgsDict']]
-        """
-        Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
-         You can't enable AWS Nitro Enclaves and hibernation on the same instance.
-        """
-        hibernation_options: NotRequired[pulumi.Input['LaunchTemplateHibernationOptionsArgsDict']]
-        """
-        Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
-        """
-        iam_instance_profile: NotRequired[pulumi.Input['LaunchTemplateIamInstanceProfileArgsDict']]
-        """
-        The name or Amazon Resource Name (ARN) of an IAM instance profile.
-        """
-        image_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
-         Valid formats:
-          +   ``ami-0ac394d6a3example`` 
-          +   ``resolve:ssm:parameter-name`` 
-          +   ``resolve:ssm:parameter-name:version-number`` 
-          +   ``resolve:ssm:parameter-name:label`` 
-          
-         For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
-        """
-        instance_initiated_shutdown_behavior: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-         Default: ``stop``
-        """
-        instance_market_options: NotRequired[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgsDict']]
-        """
-        The market (purchasing) option for the instances.
-        """
-        instance_requirements: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsArgsDict']]
-        """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-         You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
-         When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-         To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-          +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-          +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-          
-          If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
-         Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-          For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
-         If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
-        """
-        kernel_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the kernel.
-         We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
-          If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
-        """
-        license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgsDict']]]]
-        """
-        The license configurations.
-        """
-        maintenance_options: NotRequired[pulumi.Input['LaunchTemplateMaintenanceOptionsArgsDict']]
-        """
-        The maintenance options of your instance.
-        """
-        metadata_options: NotRequired[pulumi.Input['LaunchTemplateMetadataOptionsArgsDict']]
-        """
-        The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
-        """
-        monitoring: NotRequired[pulumi.Input['LaunchTemplateMonitoringArgsDict']]
-        """
-        The monitoring for the instance.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgsDict']]]]
-        """
-        The network interfaces for the instance.
-        """
-        network_performance_options: NotRequired[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgsDict']]
-        """
-        The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
-        """
-        placement: NotRequired[pulumi.Input['LaunchTemplatePlacementArgsDict']]
-        """
-        The placement for the instance.
-        """
-        private_dns_name_options: NotRequired[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgsDict']]
-        """
-        The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
-        """
-        ram_disk_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the RAM disk.
-          We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
-         If you specify a network interface, you must specify any security groups as part of the network interface instead.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
-         If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
-        """
-        tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgsDict']]]]
-        """
-        The tags to apply to resources that are created during instance launch.
-         To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
-        """
-        user_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-         If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
-        """
-elif False:
-    LaunchTemplateDataArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateDataArgsDict(TypedDict):
+    """
+    The information to include in the launch template.
+      You must specify at least one parameter for the launch template data.
+    """
+    block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgsDict']]]]
+    """
+    The block device mapping.
+    """
+    capacity_reservation_specification: NotRequired[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgsDict']]
+    """
+    The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+    """
+    cpu_options: NotRequired[pulumi.Input['LaunchTemplateCpuOptionsArgsDict']]
+    """
+    The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+    """
+    credit_specification: NotRequired[pulumi.Input['LaunchTemplateCreditSpecificationArgsDict']]
+    """
+    The credit option for CPU usage of the instance. Valid only for T instances.
+    """
+    disable_api_stop: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+    """
+    disable_api_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
+    """
+    ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+    """
+    enclave_options: NotRequired[pulumi.Input['LaunchTemplateEnclaveOptionsArgsDict']]
+    """
+    Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
+     You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+    """
+    hibernation_options: NotRequired[pulumi.Input['LaunchTemplateHibernationOptionsArgsDict']]
+    """
+    Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+    """
+    iam_instance_profile: NotRequired[pulumi.Input['LaunchTemplateIamInstanceProfileArgsDict']]
+    """
+    The name or Amazon Resource Name (ARN) of an IAM instance profile.
+    """
+    image_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+     Valid formats:
+      +   ``ami-0ac394d6a3example`` 
+      +   ``resolve:ssm:parameter-name`` 
+      +   ``resolve:ssm:parameter-name:version-number`` 
+      +   ``resolve:ssm:parameter-name:label`` 
+      
+     For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
+    """
+    instance_initiated_shutdown_behavior: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+     Default: ``stop``
+    """
+    instance_market_options: NotRequired[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgsDict']]
+    """
+    The market (purchasing) option for the instances.
+    """
+    instance_requirements: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsArgsDict']]
+    """
+    The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+     You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+     When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+     To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+      +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+      +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+      
+      If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+     Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+      For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+     If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
+    """
+    kernel_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the kernel.
+     We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
+      If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+    """
+    license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgsDict']]]]
+    """
+    The license configurations.
+    """
+    maintenance_options: NotRequired[pulumi.Input['LaunchTemplateMaintenanceOptionsArgsDict']]
+    """
+    The maintenance options of your instance.
+    """
+    metadata_options: NotRequired[pulumi.Input['LaunchTemplateMetadataOptionsArgsDict']]
+    """
+    The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
+    """
+    monitoring: NotRequired[pulumi.Input['LaunchTemplateMonitoringArgsDict']]
+    """
+    The monitoring for the instance.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgsDict']]]]
+    """
+    The network interfaces for the instance.
+    """
+    network_performance_options: NotRequired[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgsDict']]
+    """
+    The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
+    """
+    placement: NotRequired[pulumi.Input['LaunchTemplatePlacementArgsDict']]
+    """
+    The placement for the instance.
+    """
+    private_dns_name_options: NotRequired[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgsDict']]
+    """
+    The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+    """
+    ram_disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the RAM disk.
+      We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+     If you specify a network interface, you must specify any security groups as part of the network interface instead.
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+     If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
+    """
+    tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgsDict']]]]
+    """
+    The tags to apply to resources that are created during instance launch.
+     To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
+    """
+    user_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+     If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
+    """
 
 @pulumi.input_type
 class LaunchTemplateDataArgs:
@@ -7395,72 +7174,69 @@ class LaunchTemplateDataArgs:
         pulumi.set(self, "user_data", value)
 
 
-if not MYPY:
-    class LaunchTemplateEbsArgsDict(TypedDict):
-        """
-        Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
-         ``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
-        """
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the EBS volume is deleted on instance termination.
-        """
-        ebs_card_index: NotRequired[pulumi.Input[_builtins.int]]
-        encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-         The following are the supported values for each volume type:
-          +  ``gp3``: 3,000 - 80,000 IOPS
-          +  ``io1``: 100 - 64,000 IOPS
-          +  ``io2``: 100 - 256,000 IOPS
-          
-         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-         This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the snapshot.
-        """
-        throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The throughput to provision for a ``gp3`` volume, with a maximum of 2,000 MiB/s.
-         Valid Range: Minimum value of 125. Maximum value of 2,000.
-        """
-        volume_initialization_rate: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
-         This parameter is supported only for volumes created from snapshots. Omit this parameter if:
-          +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
-          If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
-           +  You want to create a volume that is initialized at the default rate.
-          
-         For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
-         Valid range: 100 - 300 MiB/s
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
-          +  ``gp2``: 1 - 16,384 GiB
-          +  ``gp3``: 1 - 65,536 GiB
-          +  ``io1``: 4 - 16,384 GiB
-          +  ``io2``: 4 - 65,536 GiB
-          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +  ``standard``: 1 - 1024 GiB
-        """
-        volume_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
-        """
-elif False:
-    LaunchTemplateEbsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateEbsArgsDict(TypedDict):
+    """
+    Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+     ``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
+    """
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the EBS volume is deleted on instance termination.
+    """
+    ebs_card_index: NotRequired[pulumi.Input[_builtins.int]]
+    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+     The following are the supported values for each volume type:
+      +  ``gp3``: 3,000 - 80,000 IOPS
+      +  ``io1``: 100 - 64,000 IOPS
+      +  ``io2``: 100 - 256,000 IOPS
+      
+     For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
+     This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the snapshot.
+    """
+    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The throughput to provision for a ``gp3`` volume, with a maximum of 2,000 MiB/s.
+     Valid Range: Minimum value of 125. Maximum value of 2,000.
+    """
+    volume_initialization_rate: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+     This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+      +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+      If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+       +  You want to create a volume that is initialized at the default rate.
+      
+     For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
+     Valid range: 100 - 300 MiB/s
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
+      +  ``gp2``: 1 - 16,384 GiB
+      +  ``gp3``: 1 - 65,536 GiB
+      +  ``io1``: 4 - 16,384 GiB
+      +  ``io2``: 4 - 65,536 GiB
+      +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+      +  ``standard``: 1 - 1024 GiB
+    """
+    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
+    """
 
 @pulumi.input_type
 class LaunchTemplateEbsArgs:
@@ -7669,22 +7445,19 @@ class LaunchTemplateEbsArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class LaunchTemplateEnaSrdSpecificationArgsDict(TypedDict):
-        """
-        ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
-         To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
-        """
-        ena_srd_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether ENA Express is enabled for the network interface.
-        """
-        ena_srd_udp_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdUdpSpecificationArgsDict']]
-        """
-        Configures ENA Express for UDP network traffic.
-        """
-elif False:
-    LaunchTemplateEnaSrdSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateEnaSrdSpecificationArgsDict(TypedDict):
+    """
+    ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+     To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
+    """
+    ena_srd_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether ENA Express is enabled for the network interface.
+    """
+    ena_srd_udp_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdUdpSpecificationArgsDict']]
+    """
+    Configures ENA Express for UDP network traffic.
+    """
 
 @pulumi.input_type
 class LaunchTemplateEnaSrdSpecificationArgs:
@@ -7727,17 +7500,14 @@ class LaunchTemplateEnaSrdSpecificationArgs:
         pulumi.set(self, "ena_srd_udp_specification", value)
 
 
-if not MYPY:
-    class LaunchTemplateEnaSrdUdpSpecificationArgsDict(TypedDict):
-        """
-        ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
-        """
-        ena_srd_udp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
-        """
-elif False:
-    LaunchTemplateEnaSrdUdpSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateEnaSrdUdpSpecificationArgsDict(TypedDict):
+    """
+    ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
+    """
+    ena_srd_udp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
+    """
 
 @pulumi.input_type
 class LaunchTemplateEnaSrdUdpSpecificationArgs:
@@ -7763,17 +7533,14 @@ class LaunchTemplateEnaSrdUdpSpecificationArgs:
         pulumi.set(self, "ena_srd_udp_enabled", value)
 
 
-if not MYPY:
-    class LaunchTemplateEnclaveOptionsArgsDict(TypedDict):
-        """
-        Indicates whether the instance is enabled for AWS Nitro Enclaves.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-        """
-elif False:
-    LaunchTemplateEnclaveOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateEnclaveOptionsArgsDict(TypedDict):
+    """
+    Indicates whether the instance is enabled for AWS Nitro Enclaves.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+    """
 
 @pulumi.input_type
 class LaunchTemplateEnclaveOptionsArgs:
@@ -7799,19 +7566,16 @@ class LaunchTemplateEnclaveOptionsArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class LaunchTemplateHibernationOptionsArgsDict(TypedDict):
-        """
-        Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
-         ``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        configured: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If you set this parameter to ``true``, the instance is enabled for hibernation.
-         Default: ``false``
-        """
-elif False:
-    LaunchTemplateHibernationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateHibernationOptionsArgsDict(TypedDict):
+    """
+    Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+     ``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    configured: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If you set this parameter to ``true``, the instance is enabled for hibernation.
+     Default: ``false``
+    """
 
 @pulumi.input_type
 class LaunchTemplateHibernationOptionsArgs:
@@ -7840,23 +7604,20 @@ class LaunchTemplateHibernationOptionsArgs:
         pulumi.set(self, "configured", value)
 
 
-if not MYPY:
-    class LaunchTemplateIamInstanceProfileArgsDict(TypedDict):
-        """
-        Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
-         If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
-         ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the instance profile.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the instance profile.
-        """
-elif False:
-    LaunchTemplateIamInstanceProfileArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateIamInstanceProfileArgsDict(TypedDict):
+    """
+    Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
+     If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
+     ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the instance profile.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the instance profile.
+    """
 
 @pulumi.input_type
 class LaunchTemplateIamInstanceProfileArgs:
@@ -7900,22 +7661,19 @@ class LaunchTemplateIamInstanceProfileArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LaunchTemplateInstanceMarketOptionsArgsDict(TypedDict):
-        """
-        Specifies the market (purchasing) option for an instance.
-         ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        market_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The market type.
-        """
-        spot_options: NotRequired[pulumi.Input['LaunchTemplateSpotOptionsArgsDict']]
-        """
-        The options for Spot Instances.
-        """
-elif False:
-    LaunchTemplateInstanceMarketOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateInstanceMarketOptionsArgsDict(TypedDict):
+    """
+    Specifies the market (purchasing) option for an instance.
+     ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    market_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The market type.
+    """
+    spot_options: NotRequired[pulumi.Input['LaunchTemplateSpotOptionsArgsDict']]
+    """
+    The options for Spot Instances.
+    """
 
 @pulumi.input_type
 class LaunchTemplateInstanceMarketOptionsArgs:
@@ -7958,208 +7716,205 @@ class LaunchTemplateInstanceMarketOptionsArgs:
         pulumi.set(self, "spot_options", value)
 
 
-if not MYPY:
-    class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
-        """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-         You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
-         When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-         To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-          +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-          +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-          
-          If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
-         Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-          For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
-        """
-        accelerator_count: NotRequired[pulumi.Input['LaunchTemplateAcceleratorCountArgsDict']]
-        """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
-         To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
-         Default: No minimum or maximum limits
-        """
-        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Indicates whether instance types must have accelerators by specific manufacturers.
-          +  For instance types with AWS devices, specify ``amazon-web-services``.
-          +  For instance types with AMD devices, specify ``amd``.
-          +  For instance types with Habana devices, specify ``habana``.
-          +  For instance types with NVIDIA devices, specify ``nvidia``.
-          +  For instance types with Xilinx devices, specify ``xilinx``.
-          
-         Default: Any manufacturer
-        """
-        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The accelerators that must be on the instance type.
-          +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.
-          +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
-          +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
-          +  For instance types with AWS Inferentia chips, specify ``inferentia``.
-          +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
-          +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
-          +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
-          +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
-          +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
-          +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
-          +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
-          +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
-          
-         Default: Any accelerator
-        """
-        accelerator_total_memory_mi_b: NotRequired[pulumi.Input['LaunchTemplateAcceleratorTotalMemoryMiBArgsDict']]
-        """
-        The minimum and maximum amount of total accelerator memory, in MiB.
-         Default: No minimum or maximum limits
-        """
-        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The accelerator types that must be on the instance type.
-          +  For instance types with FPGA accelerators, specify ``fpga``.
-          +  For instance types with GPU accelerators, specify ``gpu``.
-          +  For instance types with Inference accelerators, specify ``inference``.
-          
-         Default: Any accelerator type
-        """
-        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
-         You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
-         For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
-          If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
-          Default: All instance types
-        """
-        bare_metal: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether bare metal instance types must be included, excluded, or required.
-          +  To include bare metal instance types, specify ``included``.
-          +  To require only bare metal instance types, specify ``required``.
-          +  To exclude bare metal instance types, specify ``excluded``.
-          
-         Default: ``excluded``
-        """
-        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['LaunchTemplateBaselineEbsBandwidthMbpsArgsDict']]
-        """
-        The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
-         Default: No minimum or maximum limits
-        """
-        baseline_performance_factors: NotRequired[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgsDict']]
-        """
-        The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
-        """
-        burstable_performance: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
-          +  To include burstable performance instance types, specify ``included``.
-          +  To require only burstable performance instance types, specify ``required``.
-          +  To exclude burstable performance instance types, specify ``excluded``.
-          
-         Default: ``excluded``
-        """
-        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The CPU manufacturers to include.
-          +  For instance types with Intel CPUs, specify ``intel``.
-          +  For instance types with AMD CPUs, specify ``amd``.
-          +  For instance types with AWS CPUs, specify ``amazon-web-services``.
-          +  For instance types with Apple CPUs, specify ``apple``.
-          
-          Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-          Default: Any manufacturer
-        """
-        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The instance types to exclude.
-         You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
-         For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
-          If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
-          Default: No excluded instance types
-        """
-        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
-         For current generation instance types, specify ``current``.
-         For previous generation instance types, specify ``previous``.
-         Default: Current and previous generation instance types
-        """
-        local_storage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
-          +  To include instance types with instance store volumes, specify ``included``.
-          +  To require only instance types with instance store volumes, specify ``required``.
-          +  To exclude instance types with instance store volumes, specify ``excluded``.
-          
-         Default: ``included``
-        """
-        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The type of local storage that is required.
-          +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
-          +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
-          
-         Default: ``hdd`` and ``ssd``
-        """
-        max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
-         The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
-          Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
-        """
-        memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['LaunchTemplateMemoryGiBPerVCpuArgsDict']]
-        """
-        The minimum and maximum amount of memory per vCPU, in GiB.
-         Default: No minimum or maximum limits
-        """
-        memory_mi_b: NotRequired[pulumi.Input['LaunchTemplateMemoryMiBArgsDict']]
-        """
-        The minimum and maximum amount of memory, in MiB.
-        """
-        network_bandwidth_gbps: NotRequired[pulumi.Input['LaunchTemplateNetworkBandwidthGbpsArgsDict']]
-        """
-        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
-         Default: No minimum or maximum limits
-        """
-        network_interface_count: NotRequired[pulumi.Input['LaunchTemplateNetworkInterfaceCountArgsDict']]
-        """
-        The minimum and maximum number of network interfaces.
-         Default: No minimum or maximum limits
-        """
-        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
-         The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         To turn off price protection, specify a high value, such as ``999999``.
-         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-          If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
-          Default: ``20``
-        """
-        require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether instance types must support hibernation for On-Demand Instances.
-         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
-         Default: ``false``
-        """
-        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
-         The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
-         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-          Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
-          Default: ``100``
-        """
-        total_local_storage_gb: NotRequired[pulumi.Input['LaunchTemplateTotalLocalStorageGbArgsDict']]
-        """
-        The minimum and maximum amount of total local storage, in GB.
-         Default: No minimum or maximum limits
-        """
-        v_cpu_count: NotRequired[pulumi.Input['LaunchTemplateVCpuCountArgsDict']]
-        """
-        The minimum and maximum number of vCPUs.
-        """
-elif False:
-    LaunchTemplateInstanceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
+    """
+    The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+     You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+     When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+     To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+      +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+      +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+      
+      If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+     Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+      For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+    """
+    accelerator_count: NotRequired[pulumi.Input['LaunchTemplateAcceleratorCountArgsDict']]
+    """
+    The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+     To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+     Default: No minimum or maximum limits
+    """
+    accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Indicates whether instance types must have accelerators by specific manufacturers.
+      +  For instance types with AWS devices, specify ``amazon-web-services``.
+      +  For instance types with AMD devices, specify ``amd``.
+      +  For instance types with Habana devices, specify ``habana``.
+      +  For instance types with NVIDIA devices, specify ``nvidia``.
+      +  For instance types with Xilinx devices, specify ``xilinx``.
+      
+     Default: Any manufacturer
+    """
+    accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The accelerators that must be on the instance type.
+      +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.
+      +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+      +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
+      +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+      +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
+      +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+      +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+      +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+      +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+      +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+      +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+      +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+      
+     Default: Any accelerator
+    """
+    accelerator_total_memory_mi_b: NotRequired[pulumi.Input['LaunchTemplateAcceleratorTotalMemoryMiBArgsDict']]
+    """
+    The minimum and maximum amount of total accelerator memory, in MiB.
+     Default: No minimum or maximum limits
+    """
+    accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The accelerator types that must be on the instance type.
+      +  For instance types with FPGA accelerators, specify ``fpga``.
+      +  For instance types with GPU accelerators, specify ``gpu``.
+      +  For instance types with Inference accelerators, specify ``inference``.
+      
+     Default: Any accelerator type
+    """
+    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+     You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+     For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+      If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+      Default: All instance types
+    """
+    bare_metal: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether bare metal instance types must be included, excluded, or required.
+      +  To include bare metal instance types, specify ``included``.
+      +  To require only bare metal instance types, specify ``required``.
+      +  To exclude bare metal instance types, specify ``excluded``.
+      
+     Default: ``excluded``
+    """
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['LaunchTemplateBaselineEbsBandwidthMbpsArgsDict']]
+    """
+    The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+     Default: No minimum or maximum limits
+    """
+    baseline_performance_factors: NotRequired[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgsDict']]
+    """
+    The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
+    """
+    burstable_performance: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
+      +  To include burstable performance instance types, specify ``included``.
+      +  To require only burstable performance instance types, specify ``required``.
+      +  To exclude burstable performance instance types, specify ``excluded``.
+      
+     Default: ``excluded``
+    """
+    cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The CPU manufacturers to include.
+      +  For instance types with Intel CPUs, specify ``intel``.
+      +  For instance types with AMD CPUs, specify ``amd``.
+      +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+      +  For instance types with Apple CPUs, specify ``apple``.
+      
+      Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+      Default: Any manufacturer
+    """
+    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The instance types to exclude.
+     You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+     For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+      If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+      Default: No excluded instance types
+    """
+    instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+     For current generation instance types, specify ``current``.
+     For previous generation instance types, specify ``previous``.
+     Default: Current and previous generation instance types
+    """
+    local_storage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+      +  To include instance types with instance store volumes, specify ``included``.
+      +  To require only instance types with instance store volumes, specify ``required``.
+      +  To exclude instance types with instance store volumes, specify ``excluded``.
+      
+     Default: ``included``
+    """
+    local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The type of local storage that is required.
+      +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+      +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+      
+     Default: ``hdd`` and ``ssd``
+    """
+    max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+     The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+     If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+      Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+    """
+    memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['LaunchTemplateMemoryGiBPerVCpuArgsDict']]
+    """
+    The minimum and maximum amount of memory per vCPU, in GiB.
+     Default: No minimum or maximum limits
+    """
+    memory_mi_b: NotRequired[pulumi.Input['LaunchTemplateMemoryMiBArgsDict']]
+    """
+    The minimum and maximum amount of memory, in MiB.
+    """
+    network_bandwidth_gbps: NotRequired[pulumi.Input['LaunchTemplateNetworkBandwidthGbpsArgsDict']]
+    """
+    The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+     Default: No minimum or maximum limits
+    """
+    network_interface_count: NotRequired[pulumi.Input['LaunchTemplateNetworkInterfaceCountArgsDict']]
+    """
+    The minimum and maximum number of network interfaces.
+     Default: No minimum or maximum limits
+    """
+    on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+     The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+     To turn off price protection, specify a high value, such as ``999999``.
+     This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+      If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+      Default: ``20``
+    """
+    require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether instance types must support hibernation for On-Demand Instances.
+     This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
+     Default: ``false``
+    """
+    spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+     The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+     If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+     This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+      Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+      Default: ``100``
+    """
+    total_local_storage_gb: NotRequired[pulumi.Input['LaunchTemplateTotalLocalStorageGbArgsDict']]
+    """
+    The minimum and maximum amount of total local storage, in GB.
+     Default: No minimum or maximum limits
+    """
+    v_cpu_count: NotRequired[pulumi.Input['LaunchTemplateVCpuCountArgsDict']]
+    """
+    The minimum and maximum number of vCPUs.
+    """
 
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsArgs:
@@ -8750,18 +8505,15 @@ class LaunchTemplateInstanceRequirementsArgs:
         pulumi.set(self, "v_cpu_count", value)
 
 
-if not MYPY:
-    class LaunchTemplateIpv4PrefixSpecificationArgsDict(TypedDict):
-        """
-        Specifies an IPv4 prefix for a network interface.
-         ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
-        """
-        ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
-        """
-elif False:
-    LaunchTemplateIpv4PrefixSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateIpv4PrefixSpecificationArgsDict(TypedDict):
+    """
+    Specifies an IPv4 prefix for a network interface.
+     ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+    """
+    ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
+    """
 
 @pulumi.input_type
 class LaunchTemplateIpv4PrefixSpecificationArgs:
@@ -8788,18 +8540,15 @@ class LaunchTemplateIpv4PrefixSpecificationArgs:
         pulumi.set(self, "ipv4_prefix", value)
 
 
-if not MYPY:
-    class LaunchTemplateIpv6AddArgsDict(TypedDict):
-        """
-        Specifies an IPv6 address in an Amazon EC2 launch template.
-         ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
-        """
-        ipv6_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-        """
-elif False:
-    LaunchTemplateIpv6AddArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateIpv6AddArgsDict(TypedDict):
+    """
+    Specifies an IPv6 address in an Amazon EC2 launch template.
+     ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+    """
+    ipv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+    """
 
 @pulumi.input_type
 class LaunchTemplateIpv6AddArgs:
@@ -8826,18 +8575,15 @@ class LaunchTemplateIpv6AddArgs:
         pulumi.set(self, "ipv6_address", value)
 
 
-if not MYPY:
-    class LaunchTemplateIpv6PrefixSpecificationArgsDict(TypedDict):
-        """
-        Specifies an IPv6 prefix for a network interface.
-         ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
-        """
-        ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 prefix.
-        """
-elif False:
-    LaunchTemplateIpv6PrefixSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateIpv6PrefixSpecificationArgsDict(TypedDict):
+    """
+    Specifies an IPv6 prefix for a network interface.
+     ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+    """
+    ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 prefix.
+    """
 
 @pulumi.input_type
 class LaunchTemplateIpv6PrefixSpecificationArgs:
@@ -8864,18 +8610,15 @@ class LaunchTemplateIpv6PrefixSpecificationArgs:
         pulumi.set(self, "ipv6_prefix", value)
 
 
-if not MYPY:
-    class LaunchTemplateLicenseSpecificationArgsDict(TypedDict):
-        """
-        Specifies a license configuration for an instance.
-         ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        license_configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the license configuration.
-        """
-elif False:
-    LaunchTemplateLicenseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateLicenseSpecificationArgsDict(TypedDict):
+    """
+    Specifies a license configuration for an instance.
+     ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    license_configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the license configuration.
+    """
 
 @pulumi.input_type
 class LaunchTemplateLicenseSpecificationArgs:
@@ -8902,17 +8645,14 @@ class LaunchTemplateLicenseSpecificationArgs:
         pulumi.set(self, "license_configuration_arn", value)
 
 
-if not MYPY:
-    class LaunchTemplateMaintenanceOptionsArgsDict(TypedDict):
-        """
-        The maintenance options of your instance.
-        """
-        auto_recovery: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Disables the automatic recovery behavior of your instance or sets it to default.
-        """
-elif False:
-    LaunchTemplateMaintenanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateMaintenanceOptionsArgsDict(TypedDict):
+    """
+    The maintenance options of your instance.
+    """
+    auto_recovery: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Disables the automatic recovery behavior of your instance or sets it to default.
+    """
 
 @pulumi.input_type
 class LaunchTemplateMaintenanceOptionsArgs:
@@ -8938,21 +8678,18 @@ class LaunchTemplateMaintenanceOptionsArgs:
         pulumi.set(self, "auto_recovery", value)
 
 
-if not MYPY:
-    class LaunchTemplateMemoryGiBPerVCpuArgsDict(TypedDict):
-        """
-        The minimum and maximum amount of memory per vCPU, in GiB.
-        """
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    LaunchTemplateMemoryGiBPerVCpuArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateMemoryGiBPerVCpuArgsDict(TypedDict):
+    """
+    The minimum and maximum amount of memory per vCPU, in GiB.
+    """
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class LaunchTemplateMemoryGiBPerVCpuArgs:
@@ -8994,21 +8731,18 @@ class LaunchTemplateMemoryGiBPerVCpuArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateMemoryMiBArgsDict(TypedDict):
-        """
-        The minimum and maximum amount of memory, in MiB.
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum amount of memory, in MiB. To specify no minimum limit, specify ``0``.
-        """
-elif False:
-    LaunchTemplateMemoryMiBArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateMemoryMiBArgsDict(TypedDict):
+    """
+    The minimum and maximum amount of memory, in MiB.
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum amount of memory, in MiB. To specify no minimum limit, specify ``0``.
+    """
 
 @pulumi.input_type
 class LaunchTemplateMemoryMiBArgs:
@@ -9050,43 +8784,40 @@ class LaunchTemplateMemoryMiBArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateMetadataOptionsArgsDict(TypedDict):
-        """
-        The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-         ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        http_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
-          If you specify a value of ``disabled``, you will not be able to access your instance metadata.
-        """
-        http_protocol_ipv6: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enables or disables the IPv6 endpoint for the instance metadata service.
-         Default: ``disabled``
-        """
-        http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
-         Default: ``1``
-         Possible values: Integers from 1 to 64
-        """
-        http_tokens: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether IMDSv2 is required.
-          +  ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
-          +  ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
-          
-         Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
-        """
-        instance_metadata_tags: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
-         Default: ``disabled``
-        """
-elif False:
-    LaunchTemplateMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateMetadataOptionsArgsDict(TypedDict):
+    """
+    The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+     ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    http_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
+      If you specify a value of ``disabled``, you will not be able to access your instance metadata.
+    """
+    http_protocol_ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enables or disables the IPv6 endpoint for the instance metadata service.
+     Default: ``disabled``
+    """
+    http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+     Default: ``1``
+     Possible values: Integers from 1 to 64
+    """
+    http_tokens: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether IMDSv2 is required.
+      +  ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
+      +  ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
+      
+     Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
+    """
+    instance_metadata_tags: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
+     Default: ``disabled``
+    """
 
 @pulumi.input_type
 class LaunchTemplateMetadataOptionsArgs:
@@ -9195,18 +8926,15 @@ class LaunchTemplateMetadataOptionsArgs:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
-if not MYPY:
-    class LaunchTemplateMonitoringArgsDict(TypedDict):
-        """
-        Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-         ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
-        """
-elif False:
-    LaunchTemplateMonitoringArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateMonitoringArgsDict(TypedDict):
+    """
+    Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
+     ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
+    """
 
 @pulumi.input_type
 class LaunchTemplateMonitoringArgs:
@@ -9233,22 +8961,19 @@ class LaunchTemplateMonitoringArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class LaunchTemplateNetworkBandwidthGbpsArgsDict(TypedDict):
-        """
-        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
-          Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
-        """
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
-        """
-elif False:
-    LaunchTemplateNetworkBandwidthGbpsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateNetworkBandwidthGbpsArgsDict(TypedDict):
+    """
+    The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+      Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
+    """
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
+    """
 
 @pulumi.input_type
 class LaunchTemplateNetworkBandwidthGbpsArgs:
@@ -9291,21 +9016,18 @@ class LaunchTemplateNetworkBandwidthGbpsArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateNetworkInterfaceCountArgsDict(TypedDict):
-        """
-        The minimum and maximum number of network interfaces.
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    LaunchTemplateNetworkInterfaceCountArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateNetworkInterfaceCountArgsDict(TypedDict):
+    """
+    The minimum and maximum number of network interfaces.
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class LaunchTemplateNetworkInterfaceCountArgs:
@@ -9347,112 +9069,109 @@ class LaunchTemplateNetworkInterfaceCountArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
-        """
-        Specifies the parameters for a network interface.
-         ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        associate_carrier_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Associates a Carrier IP address with eth0 for a new network interface.
-         Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
-        """
-        associate_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Associates a public IPv4 address with eth0 for a new network interface.
-         AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
-        """
-        connection_tracking_specification: NotRequired[pulumi.Input['LaunchTemplateConnectionTrackingSpecificationArgsDict']]
-        """
-        A connection tracking specification for the network interface.
-        """
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the network interface is deleted when the instance is terminated.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for the network interface.
-        """
-        device_index: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
-         If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
-        """
-        ena_queue_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of ENA queues to be created with the instance.
-        """
-        ena_srd_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgsDict']]
-        """
-        The ENA Express configuration for the network interface.
-        """
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of one or more security groups.
-        """
-        interface_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
-         If you are not creating an EFA, specify ``interface`` or omit this parameter.
-         If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
-         Valid values: ``interface`` | ``efa`` | ``efa-only``
-        """
-        ipv4_prefix_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
-        """
-        ipv4_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv4PrefixSpecificationArgsDict']]]]
-        """
-        One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv4PrefixCount`` option.
-        """
-        ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
-        """
-        ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgsDict']]]]
-        """
-        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-        """
-        ipv6_prefix_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv6Prefix`` option.
-        """
-        ipv6_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgsDict']]]]
-        """
-        One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.
-        """
-        network_card_index: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the network interface.
-        """
-        primary_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The primary private IPv4 address of the network interface.
-        """
-        private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgsDict']]]]
-        """
-        One or more private IPv4 addresses.
-        """
-        secondary_private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of secondary private IPv4 addresses to assign to a network interface.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the subnet for the network interface.
-        """
-elif False:
-    LaunchTemplateNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
+    """
+    Specifies the parameters for a network interface.
+     ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    associate_carrier_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Associates a Carrier IP address with eth0 for a new network interface.
+     Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
+    """
+    associate_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Associates a public IPv4 address with eth0 for a new network interface.
+     AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+    """
+    connection_tracking_specification: NotRequired[pulumi.Input['LaunchTemplateConnectionTrackingSpecificationArgsDict']]
+    """
+    A connection tracking specification for the network interface.
+    """
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the network interface is deleted when the instance is terminated.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the network interface.
+    """
+    device_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
+     If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
+    """
+    ena_queue_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of ENA queues to be created with the instance.
+    """
+    ena_srd_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgsDict']]
+    """
+    The ENA Express configuration for the network interface.
+    """
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of one or more security groups.
+    """
+    interface_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+     If you are not creating an EFA, specify ``interface`` or omit this parameter.
+     If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
+     Valid values: ``interface`` | ``efa`` | ``efa-only``
+    """
+    ipv4_prefix_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
+    """
+    ipv4_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv4PrefixSpecificationArgsDict']]]]
+    """
+    One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv4PrefixCount`` option.
+    """
+    ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+    """
+    ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgsDict']]]]
+    """
+    One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+    """
+    ipv6_prefix_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv6Prefix`` option.
+    """
+    ipv6_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6PrefixSpecificationArgsDict']]]]
+    """
+    One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.
+    """
+    network_card_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the network interface.
+    """
+    primary_ipv6: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The primary private IPv4 address of the network interface.
+    """
+    private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgsDict']]]]
+    """
+    One or more private IPv4 addresses.
+    """
+    secondary_private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of secondary private IPv4 addresses to assign to a network interface.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the subnet for the network interface.
+    """
 
 @pulumi.input_type
 class LaunchTemplateNetworkInterfaceArgs:
@@ -9843,18 +9562,15 @@ class LaunchTemplateNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class LaunchTemplateNetworkPerformanceOptionsArgsDict(TypedDict):
-        """
-        Contains settings for the network performance options for the instance.
-        """
-        bandwidth_weighting: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
-          + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
-        """
-elif False:
-    LaunchTemplateNetworkPerformanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateNetworkPerformanceOptionsArgsDict(TypedDict):
+    """
+    Contains settings for the network performance options for the instance.
+    """
+    bandwidth_weighting: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+      + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
+    """
 
 @pulumi.input_type
 class LaunchTemplateNetworkPerformanceOptionsArgs:
@@ -9882,51 +9598,48 @@ class LaunchTemplateNetworkPerformanceOptionsArgs:
         pulumi.set(self, "bandwidth_weighting", value)
 
 
-if not MYPY:
-    class LaunchTemplatePlacementArgsDict(TypedDict):
-        """
-        Specifies the placement of an instance.
-         ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        affinity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The affinity setting for an instance on a Dedicated Host.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone for the instance.
-         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
-        """
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the placement group for the instance.
-        """
-        host_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Dedicated Host for the instance.
-        """
-        host_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to ``host``.
-        """
-        partition_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of the partition the instance should launch in. Valid only if the placement group strategy is set to ``partition``.
-        """
-        spread_domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reserved for future use.
-        """
-        tenancy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
-        """
-elif False:
-    LaunchTemplatePlacementArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplatePlacementArgsDict(TypedDict):
+    """
+    Specifies the placement of an instance.
+     ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    affinity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The affinity setting for an instance on a Dedicated Host.
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone for the instance.
+     Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
+    """
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the placement group for the instance.
+    """
+    host_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Dedicated Host for the instance.
+    """
+    host_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to ``host``.
+    """
+    partition_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of the partition the instance should launch in. Valid only if the placement group strategy is set to ``partition``.
+    """
+    spread_domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reserved for future use.
+    """
+    tenancy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
+    """
 
 @pulumi.input_type
 class LaunchTemplatePlacementArgs:
@@ -10083,25 +9796,22 @@ class LaunchTemplatePlacementArgs:
         pulumi.set(self, "tenancy", value)
 
 
-if not MYPY:
-    class LaunchTemplatePrivateDnsNameOptionsArgsDict(TypedDict):
-        """
-        The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
-        """
-        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-        """
-        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        """
-        hostname_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
-        """
-elif False:
-    LaunchTemplatePrivateDnsNameOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplatePrivateDnsNameOptionsArgsDict(TypedDict):
+    """
+    The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+    """
+    enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+    """
+    enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+    """
+    hostname_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+    """
 
 @pulumi.input_type
 class LaunchTemplatePrivateDnsNameOptionsArgs:
@@ -10159,22 +9869,19 @@ class LaunchTemplatePrivateDnsNameOptionsArgs:
         pulumi.set(self, "hostname_type", value)
 
 
-if not MYPY:
-    class LaunchTemplatePrivateIpAddArgsDict(TypedDict):
-        """
-        Specifies a secondary private IPv4 address for a network interface.
-         ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
-        """
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IPv4 address.
-        """
-elif False:
-    LaunchTemplatePrivateIpAddArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplatePrivateIpAddArgsDict(TypedDict):
+    """
+    Specifies a secondary private IPv4 address for a network interface.
+     ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+    """
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IPv4 address.
+    """
 
 @pulumi.input_type
 class LaunchTemplatePrivateIpAddArgs:
@@ -10217,29 +9924,26 @@ class LaunchTemplatePrivateIpAddArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class LaunchTemplateReferenceArgsDict(TypedDict):
-        """
-        Specifies an instance family to use as the baseline reference for CPU performance.
-        """
-        instance_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance family to use as a baseline reference.
-          Ensure that you specify the correct value for the instance family. The instance family is everything before the period (``.``) in the instance type name. For example, in the instance type ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
-          The following instance families are *not supported* for performance protection:
-          +   ``c1`` 
-          +  ``g3`` | ``g3s``
-          +   ``hpc7g`` 
-          +  ``m1`` | ``m2``
-          +  ``mac1`` | ``mac2`` | ``mac2-m1ultra`` | ``mac2-m2`` | ``mac2-m2pro``
-          +  ``p3dn`` | ``p4d`` | ``p5``
-          +   ``t1`` 
-          +  ``u-12tb1`` | ``u-18tb1`` | ``u-24tb1`` | ``u-3tb1`` | ``u-6tb1`` | ``u-9tb1`` | ``u7i-12tb`` | ``u7in-16tb`` | ``u7in-24tb`` | ``u7in-32tb``
-          
-         If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
-        """
-elif False:
-    LaunchTemplateReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateReferenceArgsDict(TypedDict):
+    """
+    Specifies an instance family to use as the baseline reference for CPU performance.
+    """
+    instance_family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance family to use as a baseline reference.
+      Ensure that you specify the correct value for the instance family. The instance family is everything before the period (``.``) in the instance type name. For example, in the instance type ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
+      The following instance families are *not supported* for performance protection:
+      +   ``c1`` 
+      +  ``g3`` | ``g3s``
+      +   ``hpc7g`` 
+      +  ``m1`` | ``m2``
+      +  ``mac1`` | ``mac2`` | ``mac2-m1ultra`` | ``mac2-m2`` | ``mac2-m2pro``
+      +  ``p3dn`` | ``p4d`` | ``p5``
+      +   ``t1`` 
+      +  ``u-12tb1`` | ``u-18tb1`` | ``u-24tb1`` | ``u-3tb1`` | ``u-6tb1`` | ``u-9tb1`` | ``u7i-12tb`` | ``u7in-16tb`` | ``u7in-24tb`` | ``u7in-32tb``
+      
+     If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
+    """
 
 @pulumi.input_type
 class LaunchTemplateReferenceArgs:
@@ -10289,40 +9993,37 @@ class LaunchTemplateReferenceArgs:
         pulumi.set(self, "instance_family", value)
 
 
-if not MYPY:
-    class LaunchTemplateSpotOptionsArgsDict(TypedDict):
-        """
-        Specifies options for Spot Instances.
-         ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
-        """
-        block_duration_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Deprecated.
-        """
-        instance_interruption_behavior: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The behavior when a Spot Instance is interrupted. The default is ``terminate``.
-        """
-        max_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
-          If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
-        """
-        spot_instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Spot Instance request type.
-         If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
-        """
-        valid_until: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
-          +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
-          +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
-          
-         Default: 7 days from the current date
-        """
-elif False:
-    LaunchTemplateSpotOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateSpotOptionsArgsDict(TypedDict):
+    """
+    Specifies options for Spot Instances.
+     ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+    """
+    block_duration_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Deprecated.
+    """
+    instance_interruption_behavior: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The behavior when a Spot Instance is interrupted. The default is ``terminate``.
+    """
+    max_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
+      If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
+    """
+    spot_instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Spot Instance request type.
+     If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
+    """
+    valid_until: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
+      +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
+      +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
+      
+     Default: 7 days from the current date
+    """
 
 @pulumi.input_type
 class LaunchTemplateSpotOptionsArgs:
@@ -10425,23 +10126,20 @@ class LaunchTemplateSpotOptionsArgs:
         pulumi.set(self, "valid_until", value)
 
 
-if not MYPY:
-    class LaunchTemplateTagSpecificationArgsDict(TypedDict):
-        """
-        Specifies the tags to apply to the launch template during creation.
-         To specify the tags for the resources that are created during instance launch, use [AWS::EC2::LaunchTemplate TagSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html).
-         ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgsDict']]]]
-        """
-        The tags for the resource.
-        """
-elif False:
-    LaunchTemplateTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateTagSpecificationArgsDict(TypedDict):
+    """
+    Specifies the tags to apply to the launch template during creation.
+     To specify the tags for the resources that are created during instance launch, use [AWS::EC2::LaunchTemplate TagSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html).
+     ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgsDict']]]]
+    """
+    The tags for the resource.
+    """
 
 @pulumi.input_type
 class LaunchTemplateTagSpecificationArgs:
@@ -10485,21 +10183,18 @@ class LaunchTemplateTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class LaunchTemplateTagArgsDict(TypedDict):
-        """
-        Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    LaunchTemplateTagArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateTagArgsDict(TypedDict):
+    """
+    Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class LaunchTemplateTagArgs:
@@ -10539,21 +10234,18 @@ class LaunchTemplateTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LaunchTemplateTotalLocalStorageGbArgsDict(TypedDict):
-        """
-        The minimum and maximum amount of total local storage, in GB.
-        """
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    LaunchTemplateTotalLocalStorageGbArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateTotalLocalStorageGbArgsDict(TypedDict):
+    """
+    The minimum and maximum amount of total local storage, in GB.
+    """
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class LaunchTemplateTotalLocalStorageGbArgs:
@@ -10595,21 +10287,18 @@ class LaunchTemplateTotalLocalStorageGbArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class LaunchTemplateVCpuCountArgsDict(TypedDict):
-        """
-        The minimum and maximum number of vCPUs.
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of vCPUs. To specify no minimum limit, specify ``0``.
-        """
-elif False:
-    LaunchTemplateVCpuCountArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchTemplateVCpuCountArgsDict(TypedDict):
+    """
+    The minimum and maximum number of vCPUs.
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of vCPUs. To specify no minimum limit, specify ``0``.
+    """
 
 @pulumi.input_type
 class LaunchTemplateVCpuCountArgs:
@@ -10651,29 +10340,26 @@ class LaunchTemplateVCpuCountArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class NatGatewayAvailabilityZoneAddressArgsDict(TypedDict):
-        """
-        For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone. 
-         A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
-         For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
-        """
-        allocation_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. 
-         A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
-        """
-        availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions. 
-         A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
-        """
-elif False:
-    NatGatewayAvailabilityZoneAddressArgsDict: TypeAlias = Mapping[str, Any]
+class NatGatewayAvailabilityZoneAddressArgsDict(TypedDict):
+    """
+    For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone. 
+     A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+     For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
+    """
+    allocation_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. 
+     A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+    """
+    availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions. 
+     A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+    """
 
 @pulumi.input_type
 class NatGatewayAvailabilityZoneAddressArgs:
@@ -10736,22 +10422,19 @@ class NatGatewayAvailabilityZoneAddressArgs:
         pulumi.set(self, "availability_zone_id", value)
 
 
-if not MYPY:
-    class NetworkInsightsAccessScopeAccessScopePathRequestArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgsDict']]
-        """
-        The destination.
-        """
-        source: NotRequired[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgsDict']]
-        """
-        The source.
-        """
-        through_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgsDict']]]]
-        """
-        The through resources.
-        """
-elif False:
-    NetworkInsightsAccessScopeAccessScopePathRequestArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsAccessScopeAccessScopePathRequestArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgsDict']]
+    """
+    The destination.
+    """
+    source: NotRequired[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgsDict']]
+    """
+    The source.
+    """
+    through_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgsDict']]]]
+    """
+    The through resources.
+    """
 
 @pulumi.input_type
 class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
@@ -10808,38 +10491,35 @@ class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
         pulumi.set(self, "through_resources", value)
 
 
-if not MYPY:
-    class NetworkInsightsAccessScopePacketHeaderStatementRequestArgsDict(TypedDict):
-        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination addresses.
-        """
-        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination ports.
-        """
-        destination_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The destination prefix lists.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeProtocol']]]]
-        """
-        The protocols.
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The source addresses.
-        """
-        source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The source ports.
-        """
-        source_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The source prefix lists.
-        """
-elif False:
-    NetworkInsightsAccessScopePacketHeaderStatementRequestArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsAccessScopePacketHeaderStatementRequestArgsDict(TypedDict):
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination addresses.
+    """
+    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination ports.
+    """
+    destination_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination prefix lists.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeProtocol']]]]
+    """
+    The protocols.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source addresses.
+    """
+    source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source ports.
+    """
+    source_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source prefix lists.
+    """
 
 @pulumi.input_type
 class NetworkInsightsAccessScopePacketHeaderStatementRequestArgs:
@@ -10960,18 +10640,15 @@ class NetworkInsightsAccessScopePacketHeaderStatementRequestArgs:
         pulumi.set(self, "source_prefix_lists", value)
 
 
-if not MYPY:
-    class NetworkInsightsAccessScopePathStatementRequestArgsDict(TypedDict):
-        packet_header_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgsDict']]
-        """
-        The packet header statement.
-        """
-        resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgsDict']]
-        """
-        The resource statement.
-        """
-elif False:
-    NetworkInsightsAccessScopePathStatementRequestArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsAccessScopePathStatementRequestArgsDict(TypedDict):
+    packet_header_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgsDict']]
+    """
+    The packet header statement.
+    """
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgsDict']]
+    """
+    The resource statement.
+    """
 
 @pulumi.input_type
 class NetworkInsightsAccessScopePathStatementRequestArgs:
@@ -11012,18 +10689,15 @@ class NetworkInsightsAccessScopePathStatementRequestArgs:
         pulumi.set(self, "resource_statement", value)
 
 
-if not MYPY:
-    class NetworkInsightsAccessScopeResourceStatementRequestArgsDict(TypedDict):
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource types.
-        """
-        resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resources.
-        """
-elif False:
-    NetworkInsightsAccessScopeResourceStatementRequestArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsAccessScopeResourceStatementRequestArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource types.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resources.
+    """
 
 @pulumi.input_type
 class NetworkInsightsAccessScopeResourceStatementRequestArgs:
@@ -11064,14 +10738,11 @@ class NetworkInsightsAccessScopeResourceStatementRequestArgs:
         pulumi.set(self, "resources", value)
 
 
-if not MYPY:
-    class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgsDict(TypedDict):
-        resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgsDict']]
-        """
-        The resource statement.
-        """
-elif False:
-    NetworkInsightsAccessScopeThroughResourcesStatementRequestArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgsDict(TypedDict):
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgsDict']]
+    """
+    The resource statement.
+    """
 
 @pulumi.input_type
 class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs:
@@ -11096,18 +10767,15 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs:
         pulumi.set(self, "resource_statement", value)
 
 
-if not MYPY:
-    class NetworkInsightsPathFilterPortRangeArgsDict(TypedDict):
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The first port in the range.
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The last port in the range.
-        """
-elif False:
-    NetworkInsightsPathFilterPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsPathFilterPortRangeArgsDict(TypedDict):
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The first port in the range.
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The last port in the range.
+    """
 
 @pulumi.input_type
 class NetworkInsightsPathFilterPortRangeArgs:
@@ -11148,26 +10816,23 @@ class NetworkInsightsPathFilterPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class NetworkInsightsPathPathFilterArgsDict(TypedDict):
-        destination_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination IPv4 address.
-        """
-        destination_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterPortRangeArgsDict']]
-        """
-        The destination port range.
-        """
-        source_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The source IPv4 address.
-        """
-        source_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterPortRangeArgsDict']]
-        """
-        The source port range.
-        """
-elif False:
-    NetworkInsightsPathPathFilterArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInsightsPathPathFilterArgsDict(TypedDict):
+    destination_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination IPv4 address.
+    """
+    destination_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterPortRangeArgsDict']]
+    """
+    The destination port range.
+    """
+    source_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source IPv4 address.
+    """
+    source_port_range: NotRequired[pulumi.Input['NetworkInsightsPathFilterPortRangeArgsDict']]
+    """
+    The source port range.
+    """
 
 @pulumi.input_type
 class NetworkInsightsPathPathFilterArgs:
@@ -11240,14 +10905,11 @@ class NetworkInsightsPathPathFilterArgs:
         pulumi.set(self, "source_port_range", value)
 
 
-if not MYPY:
-    class NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgsDict(TypedDict):
-        """
-        Configures ENA Express for UDP network traffic.
-        """
-        ena_srd_udp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgsDict(TypedDict):
+    """
+    Configures ENA Express for UDP network traffic.
+    """
+    ena_srd_udp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs:
@@ -11269,22 +10931,19 @@ class NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropert
         pulumi.set(self, "ena_srd_udp_enabled", value)
 
 
-if not MYPY:
-    class NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict(TypedDict):
-        """
-        ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
-         To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
-        """
-        ena_srd_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether ENA Express is enabled for the network interface.
-        """
-        ena_srd_udp_specification: NotRequired[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgsDict']]
-        """
-        Configures ENA Express for UDP network traffic.
-        """
-elif False:
-    NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict(TypedDict):
+    """
+    ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+     To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
+    """
+    ena_srd_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether ENA Express is enabled for the network interface.
+    """
+    ena_srd_udp_specification: NotRequired[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgsDict']]
+    """
+    Configures ENA Express for UDP network traffic.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceAttachmentEnaSrdSpecificationArgs:
@@ -11327,22 +10986,19 @@ class NetworkInterfaceAttachmentEnaSrdSpecificationArgs:
         pulumi.set(self, "ena_srd_udp_specification", value)
 
 
-if not MYPY:
-    class NetworkInterfaceConnectionTrackingSpecificationArgsDict(TypedDict):
-        tcp_established_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
-        """
-        udp_stream_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
-        """
-        udp_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-        """
-elif False:
-    NetworkInterfaceConnectionTrackingSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceConnectionTrackingSpecificationArgsDict(TypedDict):
+    tcp_established_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+    """
+    udp_stream_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+    """
+    udp_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceConnectionTrackingSpecificationArgs:
@@ -11399,14 +11055,11 @@ class NetworkInterfaceConnectionTrackingSpecificationArgs:
         pulumi.set(self, "udp_timeout", value)
 
 
-if not MYPY:
-    class NetworkInterfaceInstanceIpv6AddressArgsDict(TypedDict):
-        ipv6_address: pulumi.Input[_builtins.str]
-        """
-        An IPv6 address to associate with the network interface.
-        """
-elif False:
-    NetworkInterfaceInstanceIpv6AddressArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceInstanceIpv6AddressArgsDict(TypedDict):
+    ipv6_address: pulumi.Input[_builtins.str]
+    """
+    An IPv6 address to associate with the network interface.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceInstanceIpv6AddressArgs:
@@ -11430,14 +11083,11 @@ class NetworkInterfaceInstanceIpv6AddressArgs:
         pulumi.set(self, "ipv6_address", value)
 
 
-if not MYPY:
-    class NetworkInterfaceIpv4PrefixSpecificationArgsDict(TypedDict):
-        ipv4_prefix: pulumi.Input[_builtins.str]
-        """
-        The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
-        """
-elif False:
-    NetworkInterfaceIpv4PrefixSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceIpv4PrefixSpecificationArgsDict(TypedDict):
+    ipv4_prefix: pulumi.Input[_builtins.str]
+    """
+    The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide* .
+    """
 
 @pulumi.input_type
 class NetworkInterfaceIpv4PrefixSpecificationArgs:
@@ -11461,14 +11111,11 @@ class NetworkInterfaceIpv4PrefixSpecificationArgs:
         pulumi.set(self, "ipv4_prefix", value)
 
 
-if not MYPY:
-    class NetworkInterfaceIpv6PrefixSpecificationArgsDict(TypedDict):
-        ipv6_prefix: pulumi.Input[_builtins.str]
-        """
-        The IPv6 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
-        """
-elif False:
-    NetworkInterfaceIpv6PrefixSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfaceIpv6PrefixSpecificationArgsDict(TypedDict):
+    ipv6_prefix: pulumi.Input[_builtins.str]
+    """
+    The IPv6 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
+    """
 
 @pulumi.input_type
 class NetworkInterfaceIpv6PrefixSpecificationArgs:
@@ -11492,18 +11139,15 @@ class NetworkInterfaceIpv6PrefixSpecificationArgs:
         pulumi.set(self, "ipv6_prefix", value)
 
 
-if not MYPY:
-    class NetworkInterfacePrivateIpAddressSpecificationArgsDict(TypedDict):
-        primary: pulumi.Input[_builtins.bool]
-        """
-        Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
-        """
-        private_ip_address: pulumi.Input[_builtins.str]
-        """
-        The private IP address of the network interface.
-        """
-elif False:
-    NetworkInterfacePrivateIpAddressSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkInterfacePrivateIpAddressSpecificationArgsDict(TypedDict):
+    primary: pulumi.Input[_builtins.bool]
+    """
+    Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
+    """
+    private_ip_address: pulumi.Input[_builtins.str]
+    """
+    The private IP address of the network interface.
+    """
 
 @pulumi.input_type
 class NetworkInterfacePrivateIpAddressSpecificationArgs:
@@ -11542,29 +11186,26 @@ class NetworkInterfacePrivateIpAddressSpecificationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class OptionsPropertiesArgsDict(TypedDict):
-        """
-        The options for the transit gateway vpc attachment.
-        """
-        appliance_mode_support: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
-        """
-        dns_support: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
-        """
-        ipv6_support: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
-        """
-        security_group_referencing_support: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
-        """
-elif False:
-    OptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OptionsPropertiesArgsDict(TypedDict):
+    """
+    The options for the transit gateway vpc attachment.
+    """
+    appliance_mode_support: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+    """
+    dns_support: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+    """
+    ipv6_support: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+    """
+    security_group_referencing_support: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+    """
 
 @pulumi.input_type
 class OptionsPropertiesArgs:
@@ -11638,20 +11279,17 @@ class OptionsPropertiesArgs:
         pulumi.set(self, "security_group_referencing_support", value)
 
 
-if not MYPY:
-    class PrefixListEntryArgsDict(TypedDict):
-        cidr: pulumi.Input[_builtins.str]
-        """
-        The CIDR block.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for the entry.
+class PrefixListEntryArgsDict(TypedDict):
+    cidr: pulumi.Input[_builtins.str]
+    """
+    The CIDR block.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the entry.
 
-        Constraints: Up to 255 characters in length.
-        """
-elif False:
-    PrefixListEntryArgsDict: TypeAlias = Mapping[str, Any]
+    Constraints: Up to 255 characters in length.
+    """
 
 @pulumi.input_type
 class PrefixListEntryArgs:
@@ -11695,29 +11333,26 @@ class PrefixListEntryArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PrivateDnsNameOptionsOnLaunchPropertiesArgsDict(TypedDict):
-        """
-        The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
-         Available options:
-          +  EnableResourceNameDnsAAAARecord (true | false)
-          +  EnableResourceNameDnsARecord (true | false)
-          +  HostnameType (ip-name | resource-name)
-        """
-        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-        """
-        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
-        """
-        hostname_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
-        """
-elif False:
-    PrivateDnsNameOptionsOnLaunchPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateDnsNameOptionsOnLaunchPropertiesArgsDict(TypedDict):
+    """
+    The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+     Available options:
+      +  EnableResourceNameDnsAAAARecord (true | false)
+      +  EnableResourceNameDnsARecord (true | false)
+      +  HostnameType (ip-name | resource-name)
+    """
+    enable_resource_name_dns_a_record: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+    """
+    enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
+    """
+    hostname_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
+    """
 
 @pulumi.input_type
 class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
@@ -11779,21 +11414,18 @@ class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
         pulumi.set(self, "hostname_type", value)
 
 
-if not MYPY:
-    class RouteServerPeerBgpOptionsArgsDict(TypedDict):
-        """
-        BGP Options
-        """
-        peer_asn: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        BGP ASN of the Route Server Peer
-        """
-        peer_liveness_detection: NotRequired[pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection']]
-        """
-        BGP Liveness Detection
-        """
-elif False:
-    RouteServerPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerPeerBgpOptionsArgsDict(TypedDict):
+    """
+    BGP Options
+    """
+    peer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    BGP ASN of the Route Server Peer
+    """
+    peer_liveness_detection: NotRequired[pulumi.Input['RouteServerPeerBgpOptionsPeerLivenessDetection']]
+    """
+    BGP Liveness Detection
+    """
 
 @pulumi.input_type
 class RouteServerPeerBgpOptionsArgs:
@@ -11835,58 +11467,55 @@ class RouteServerPeerBgpOptionsArgs:
         pulumi.set(self, "peer_liveness_detection", value)
 
 
-if not MYPY:
-    class SecurityGroupEgressArgsDict(TypedDict):
-        ip_protocol: pulumi.Input[_builtins.str]
-        """
-        The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+class SecurityGroupEgressArgsDict(TypedDict):
+    ip_protocol: pulumi.Input[_builtins.str]
+    """
+    The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 
-        Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
-        """
-        cidr_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address range, in CIDR format.
+    Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+    """
+    cidr_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address range, in CIDR format.
 
-        You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+    You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 
-        For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-        """
-        cidr_ipv6: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 address range, in CIDR format.
+    For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+    """
+    cidr_ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 address range, in CIDR format.
 
-        You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+    You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 
-        For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for the security group rule.
+    For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the security group rule.
 
-        Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-        """
-        destination_prefix_list_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix list IDs for the destination AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+    Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+    """
+    destination_prefix_list_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix list IDs for the destination AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 
-        You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
-        """
-        destination_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the destination VPC security group.
+    You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+    """
+    destination_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the destination VPC security group.
 
-        You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
-        """
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
-        """
-elif False:
-    SecurityGroupEgressArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
+    """
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
+    """
 
 @pulumi.input_type
 class SecurityGroupEgressArgs:
@@ -12054,66 +11683,63 @@ class SecurityGroupEgressArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class SecurityGroupIngressArgsDict(TypedDict):
-        ip_protocol: pulumi.Input[_builtins.str]
-        """
-        The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
+class SecurityGroupIngressArgsDict(TypedDict):
+    ip_protocol: pulumi.Input[_builtins.str]
+    """
+    The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 
-        Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
-        """
-        cidr_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address range, in CIDR format.
+    Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+    """
+    cidr_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address range, in CIDR format.
 
-        You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+    You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
 
-        For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-        """
-        cidr_ipv6: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 address range, in CIDR format.
+    For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+    """
+    cidr_ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 address range, in CIDR format.
 
-        You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
+    You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , or `SourceSecurityGroupId` .
 
-        For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
+    For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Updates the description of an ingress (inbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
 
-        Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-        """
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
-        """
-        source_prefix_list_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a prefix list.
-        """
-        source_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the security group.
-        """
-        source_security_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        [Default VPC] The name of the source security group. You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+    Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+    """
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
+    """
+    source_prefix_list_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a prefix list.
+    """
+    source_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the security group.
+    """
+    source_security_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    [Default VPC] The name of the source security group. You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 
-        For security groups in a nondefault VPC, you must specify the group ID.
-        """
-        source_security_group_owner_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
+    For security groups in a nondefault VPC, you must specify the group ID.
+    """
+    source_security_group_owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 
-        If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
-        """
-elif False:
-    SecurityGroupIngressArgsDict: TypeAlias = Mapping[str, Any]
+    If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
+    """
 
 @pulumi.input_type
 class SecurityGroupIngressArgs:
@@ -12313,18 +11939,15 @@ class SecurityGroupIngressArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class SpotFleetAcceleratorCountRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of accelerators. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetAcceleratorCountRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetAcceleratorCountRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of accelerators. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetAcceleratorCountRequestArgs:
@@ -12365,18 +11988,15 @@ class SpotFleetAcceleratorCountRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetAcceleratorTotalMemoryMiBRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetAcceleratorTotalMemoryMiBRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetAcceleratorTotalMemoryMiBRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetAcceleratorTotalMemoryMiBRequestArgs:
@@ -12417,18 +12037,15 @@ class SpotFleetAcceleratorTotalMemoryMiBRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetBaselineEbsBandwidthMbpsRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetBaselineEbsBandwidthMbpsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetBaselineEbsBandwidthMbpsRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetBaselineEbsBandwidthMbpsRequestArgs:
@@ -12469,14 +12086,11 @@ class SpotFleetBaselineEbsBandwidthMbpsRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetBaselinePerformanceFactorsRequestArgsDict(TypedDict):
-        cpu: NotRequired[pulumi.Input['SpotFleetCpuPerformanceFactorRequestArgsDict']]
-        """
-        The CPU performance to consider, using an instance family as the baseline reference.
-        """
-elif False:
-    SpotFleetBaselinePerformanceFactorsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetBaselinePerformanceFactorsRequestArgsDict(TypedDict):
+    cpu: NotRequired[pulumi.Input['SpotFleetCpuPerformanceFactorRequestArgsDict']]
+    """
+    The CPU performance to consider, using an instance family as the baseline reference.
+    """
 
 @pulumi.input_type
 class SpotFleetBaselinePerformanceFactorsRequestArgs:
@@ -12501,30 +12115,27 @@ class SpotFleetBaselinePerformanceFactorsRequestArgs:
         pulumi.set(self, "cpu", value)
 
 
-if not MYPY:
-    class SpotFleetBlockDeviceMappingArgsDict(TypedDict):
-        device_name: pulumi.Input[_builtins.str]
-        """
-        The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
-        """
-        ebs: NotRequired[pulumi.Input['SpotFleetEbsBlockDeviceArgsDict']]
-        """
-        Parameters used to automatically set up EBS volumes when the instance is launched.
-        """
-        no_device: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
-        """
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+class SpotFleetBlockDeviceMappingArgsDict(TypedDict):
+    device_name: pulumi.Input[_builtins.str]
+    """
+    The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
+    """
+    ebs: NotRequired[pulumi.Input['SpotFleetEbsBlockDeviceArgsDict']]
+    """
+    Parameters used to automatically set up EBS volumes when the instance is launched.
+    """
+    no_device: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+    """
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 
-        NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+    NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
 
-        Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
-        """
-elif False:
-    SpotFleetBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+    Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+    """
 
 @pulumi.input_type
 class SpotFleetBlockDeviceMappingArgs:
@@ -12604,14 +12215,11 @@ class SpotFleetBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class SpotFleetClassicLoadBalancersConfigArgsDict(TypedDict):
-        classic_load_balancers: pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgsDict']]]
-        """
-        One or more Classic Load Balancers.
-        """
-elif False:
-    SpotFleetClassicLoadBalancersConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetClassicLoadBalancersConfigArgsDict(TypedDict):
+    classic_load_balancers: pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgsDict']]]
+    """
+    One or more Classic Load Balancers.
+    """
 
 @pulumi.input_type
 class SpotFleetClassicLoadBalancersConfigArgs:
@@ -12635,14 +12243,11 @@ class SpotFleetClassicLoadBalancersConfigArgs:
         pulumi.set(self, "classic_load_balancers", value)
 
 
-if not MYPY:
-    class SpotFleetClassicLoadBalancerArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the load balancer.
-        """
-elif False:
-    SpotFleetClassicLoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetClassicLoadBalancerArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the load balancer.
+    """
 
 @pulumi.input_type
 class SpotFleetClassicLoadBalancerArgs:
@@ -12666,16 +12271,13 @@ class SpotFleetClassicLoadBalancerArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SpotFleetCpuPerformanceFactorRequestArgsDict(TypedDict):
-        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetPerformanceFactorReferenceRequestArgsDict']]]]
-        """
-        Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+class SpotFleetCpuPerformanceFactorRequestArgsDict(TypedDict):
+    references: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetPerformanceFactorReferenceRequestArgsDict']]]]
+    """
+    Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 
-        > Currently, only one instance family can be specified in the list.
-        """
-elif False:
-    SpotFleetCpuPerformanceFactorRequestArgsDict: TypeAlias = Mapping[str, Any]
+    > Currently, only one instance family can be specified in the list.
+    """
 
 @pulumi.input_type
 class SpotFleetCpuPerformanceFactorRequestArgs:
@@ -12704,59 +12306,56 @@ class SpotFleetCpuPerformanceFactorRequestArgs:
         pulumi.set(self, "references", value)
 
 
-if not MYPY:
-    class SpotFleetEbsBlockDeviceArgsDict(TypedDict):
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
-        """
-        encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
+class SpotFleetEbsBlockDeviceArgsDict(TypedDict):
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+    """
+    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
 
-        In no case can you remove encryption from an encrypted volume.
+    In no case can you remove encryption from an encrypted volume.
 
-        Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
+    Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
 
-        This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+    This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 
-        The following are the supported values for each volume type:
+    The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 80,000 IOPS
-        - `io1` : 100 - 64,000 IOPS
-        - `io2` : 100 - 256,000 IOPS
+    - `gp3` : 3,000 - 80,000 IOPS
+    - `io1` : 100 - 64,000 IOPS
+    - `io2` : 100 - 256,000 IOPS
 
-        For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+    For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
 
-        This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the snapshot.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+    This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the snapshot.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 
-        The following are the supported sizes for each volume type:
+    The following are the supported sizes for each volume type:
 
-        - `gp2` : 1 - 16,384 GiB
-        - `gp3` : 1 - 65,536 GiB
-        - `io1` : 4 - 16,384 GiB
-        - `io2` : 4 - 65,536 GiB
-        - `st1` and `sc1` : 125 - 16,384 GiB
-        - `standard` : 1 - 1024 GiB
-        """
-        volume_type: NotRequired[pulumi.Input['SpotFleetEbsBlockDeviceVolumeType']]
-        """
-        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-        """
-elif False:
-    SpotFleetEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+    - `gp2` : 1 - 16,384 GiB
+    - `gp3` : 1 - 65,536 GiB
+    - `io1` : 4 - 16,384 GiB
+    - `io2` : 4 - 65,536 GiB
+    - `st1` and `sc1` : 125 - 16,384 GiB
+    - `standard` : 1 - 1024 GiB
+    """
+    volume_type: NotRequired[pulumi.Input['SpotFleetEbsBlockDeviceVolumeType']]
+    """
+    The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+    """
 
 @pulumi.input_type
 class SpotFleetEbsBlockDeviceArgs:
@@ -12911,28 +12510,25 @@ class SpotFleetEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class SpotFleetFleetLaunchTemplateSpecificationArgsDict(TypedDict):
-        version: pulumi.Input[_builtins.str]
-        """
-        The version number of the launch template.
+class SpotFleetFleetLaunchTemplateSpecificationArgsDict(TypedDict):
+    version: pulumi.Input[_builtins.str]
+    """
+    The version number of the launch template.
 
-        Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
-        """
-        launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the launch template.
+    Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
+    """
+    launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the launch template.
 
-        You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
-        """
-        launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the launch template.
+    You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+    """
+    launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the launch template.
 
-        You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
-        """
-elif False:
-    SpotFleetFleetLaunchTemplateSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
+    """
 
 @pulumi.input_type
 class SpotFleetFleetLaunchTemplateSpecificationArgs:
@@ -13000,14 +12596,11 @@ class SpotFleetFleetLaunchTemplateSpecificationArgs:
         pulumi.set(self, "launch_template_name", value)
 
 
-if not MYPY:
-    class SpotFleetGroupIdentifierArgsDict(TypedDict):
-        group_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the security group.
-        """
-elif False:
-    SpotFleetGroupIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetGroupIdentifierArgsDict(TypedDict):
+    group_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the security group.
+    """
 
 @pulumi.input_type
 class SpotFleetGroupIdentifierArgs:
@@ -13031,14 +12624,11 @@ class SpotFleetGroupIdentifierArgs:
         pulumi.set(self, "group_id", value)
 
 
-if not MYPY:
-    class SpotFleetIamInstanceProfileSpecificationArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the instance profile.
-        """
-elif False:
-    SpotFleetIamInstanceProfileSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetIamInstanceProfileSpecificationArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the instance profile.
+    """
 
 @pulumi.input_type
 class SpotFleetIamInstanceProfileSpecificationArgs:
@@ -13063,14 +12653,11 @@ class SpotFleetIamInstanceProfileSpecificationArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class SpotFleetInstanceIpv6AddressArgsDict(TypedDict):
-        ipv6_address: pulumi.Input[_builtins.str]
-        """
-        The IPv6 address.
-        """
-elif False:
-    SpotFleetInstanceIpv6AddressArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetInstanceIpv6AddressArgsDict(TypedDict):
+    ipv6_address: pulumi.Input[_builtins.str]
+    """
+    The IPv6 address.
+    """
 
 @pulumi.input_type
 class SpotFleetInstanceIpv6AddressArgs:
@@ -13094,60 +12681,57 @@ class SpotFleetInstanceIpv6AddressArgs:
         pulumi.set(self, "ipv6_address", value)
 
 
-if not MYPY:
-    class SpotFleetInstanceNetworkInterfaceSpecificationArgsDict(TypedDict):
-        associate_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is `true` .
+class SpotFleetInstanceNetworkInterfaceSpecificationArgsDict(TypedDict):
+    associate_public_ip_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is `true` .
 
-        AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/) .
-        """
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the network interface is deleted when the instance is terminated.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the network interface. Applies only if creating a network interface when launching an instance.
-        """
-        device_index: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+    AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/) .
+    """
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the network interface is deleted when the instance is terminated.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the network interface. Applies only if creating a network interface when launching an instance.
+    """
+    device_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The position of the network interface in the attachment order. A primary network interface has a device index of 0.
 
-        If you specify a network interface when launching an instance, you must specify the device index.
-        """
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
-        """
-        ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-        """
-        ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceIpv6AddressArgsDict']]]]
-        """
-        The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the network interface.
+    If you specify a network interface when launching an instance, you must specify the device index.
+    """
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+    """
+    ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+    """
+    ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceIpv6AddressArgsDict']]]]
+    """
+    The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the network interface.
 
-        If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
-        """
-        private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetPrivateIpAddressSpecificationArgsDict']]]]
-        """
-        The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
-        """
-        secondary_private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of secondary private IPv4 addresses. You can’t specify this parameter and also specify a secondary private IP address using the `PrivateIpAddress` parameter.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the subnet associated with the network interface.
-        """
-elif False:
-    SpotFleetInstanceNetworkInterfaceSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
+    """
+    private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetPrivateIpAddressSpecificationArgsDict']]]]
+    """
+    The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+    """
+    secondary_private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of secondary private IPv4 addresses. You can’t specify this parameter and also specify a secondary private IP address using the `PrivateIpAddress` parameter.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the subnet associated with the network interface.
+    """
 
 @pulumi.input_type
 class SpotFleetInstanceNetworkInterfaceSpecificationArgs:
@@ -13344,253 +12928,250 @@ class SpotFleetInstanceNetworkInterfaceSpecificationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class SpotFleetInstanceRequirementsRequestArgsDict(TypedDict):
-        accelerator_count: NotRequired[pulumi.Input['SpotFleetAcceleratorCountRequestArgsDict']]
-        """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+class SpotFleetInstanceRequirementsRequestArgsDict(TypedDict):
+    accelerator_count: NotRequired[pulumi.Input['SpotFleetAcceleratorCountRequestArgsDict']]
+    """
+    The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 
-        To exclude accelerator-enabled instance types, set `Max` to `0` .
+    To exclude accelerator-enabled instance types, set `Max` to `0` .
 
-        Default: No minimum or maximum limits
-        """
-        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem']]]]
-        """
-        Indicates whether instance types must have accelerators by specific manufacturers.
+    Default: No minimum or maximum limits
+    """
+    accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem']]]]
+    """
+    Indicates whether instance types must have accelerators by specific manufacturers.
 
-        - For instance types with AWS devices, specify `amazon-web-services` .
-        - For instance types with AMD devices, specify `amd` .
-        - For instance types with Habana devices, specify `habana` .
-        - For instance types with NVIDIA devices, specify `nvidia` .
-        - For instance types with Xilinx devices, specify `xilinx` .
+    - For instance types with AWS devices, specify `amazon-web-services` .
+    - For instance types with AMD devices, specify `amd` .
+    - For instance types with Habana devices, specify `habana` .
+    - For instance types with NVIDIA devices, specify `nvidia` .
+    - For instance types with Xilinx devices, specify `xilinx` .
 
-        Default: Any manufacturer
-        """
-        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorNamesItem']]]]
-        """
-        The accelerators that must be on the instance type.
+    Default: Any manufacturer
+    """
+    accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorNamesItem']]]]
+    """
+    The accelerators that must be on the instance type.
 
-        - For instance types with NVIDIA A10G GPUs, specify `a10g` .
-        - For instance types with NVIDIA A100 GPUs, specify `a100` .
-        - For instance types with NVIDIA H100 GPUs, specify `h100` .
-        - For instance types with AWS Inferentia chips, specify `inferentia` .
-        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
-        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
-        - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
-        - For instance types with NVIDIA K80 GPUs, specify `k80` .
-        - For instance types with NVIDIA L4 GPUs, specify `l4` .
-        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
-        - For instance types with NVIDIA M60 GPUs, specify `m60` .
-        - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
-        - For instance types with AWS Trainium chips, specify `trainium` .
-        - For instance types with AWS Trainium2 chips, specify `trainium2` .
-        - For instance types with NVIDIA T4 GPUs, specify `t4` .
-        - For instance types with NVIDIA T4G GPUs, specify `t4g` .
-        - For instance types with Xilinx U30 cards, specify `u30` .
-        - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
-        - For instance types with NVIDIA V100 GPUs, specify `v100` .
+    - For instance types with NVIDIA A10G GPUs, specify `a10g` .
+    - For instance types with NVIDIA A100 GPUs, specify `a100` .
+    - For instance types with NVIDIA H100 GPUs, specify `h100` .
+    - For instance types with AWS Inferentia chips, specify `inferentia` .
+    - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+    - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
+    - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+    - For instance types with NVIDIA K80 GPUs, specify `k80` .
+    - For instance types with NVIDIA L4 GPUs, specify `l4` .
+    - For instance types with NVIDIA L40S GPUs, specify `l40s` .
+    - For instance types with NVIDIA M60 GPUs, specify `m60` .
+    - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+    - For instance types with AWS Trainium chips, specify `trainium` .
+    - For instance types with AWS Trainium2 chips, specify `trainium2` .
+    - For instance types with NVIDIA T4 GPUs, specify `t4` .
+    - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+    - For instance types with Xilinx U30 cards, specify `u30` .
+    - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+    - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
-        Default: Any accelerator
-        """
-        accelerator_total_memory_mi_b: NotRequired[pulumi.Input['SpotFleetAcceleratorTotalMemoryMiBRequestArgsDict']]
-        """
-        The minimum and maximum amount of total accelerator memory, in MiB.
+    Default: Any accelerator
+    """
+    accelerator_total_memory_mi_b: NotRequired[pulumi.Input['SpotFleetAcceleratorTotalMemoryMiBRequestArgsDict']]
+    """
+    The minimum and maximum amount of total accelerator memory, in MiB.
 
-        Default: No minimum or maximum limits
-        """
-        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem']]]]
-        """
-        The accelerator types that must be on the instance type.
+    Default: No minimum or maximum limits
+    """
+    accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem']]]]
+    """
+    The accelerator types that must be on the instance type.
 
-        - For instance types with FPGA accelerators, specify `fpga` .
-        - For instance types with GPU accelerators, specify `gpu` .
-        - For instance types with Inference accelerators, specify `inference` .
-        - For instance types with Media accelerators, specify `media` .
+    - For instance types with FPGA accelerators, specify `fpga` .
+    - For instance types with GPU accelerators, specify `gpu` .
+    - For instance types with Inference accelerators, specify `inference` .
+    - For instance types with Media accelerators, specify `media` .
 
-        Default: Any accelerator type
-        """
-        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+    Default: Any accelerator type
+    """
+    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
 
-        You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+    You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
 
-        For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+    For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+    > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
 
-        Default: All instance types
-        """
-        bare_metal: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestBareMetal']]
-        """
-        Indicates whether bare metal instance types must be included, excluded, or required.
+    Default: All instance types
+    """
+    bare_metal: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestBareMetal']]
+    """
+    Indicates whether bare metal instance types must be included, excluded, or required.
 
-        - To include bare metal instance types, specify `included` .
-        - To require only bare metal instance types, specify `required` .
-        - To exclude bare metal instance types, specify `excluded` .
+    - To include bare metal instance types, specify `included` .
+    - To require only bare metal instance types, specify `required` .
+    - To exclude bare metal instance types, specify `excluded` .
 
-        Default: `excluded`
-        """
-        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgsDict']]
-        """
-        The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+    Default: `excluded`
+    """
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgsDict']]
+    """
+    The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 
-        Default: No minimum or maximum limits
-        """
-        baseline_performance_factors: NotRequired[pulumi.Input['SpotFleetBaselinePerformanceFactorsRequestArgsDict']]
-        """
-        The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
-        """
-        burstable_performance: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestBurstablePerformance']]
-        """
-        Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+    Default: No minimum or maximum limits
+    """
+    baseline_performance_factors: NotRequired[pulumi.Input['SpotFleetBaselinePerformanceFactorsRequestArgsDict']]
+    """
+    The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
+    """
+    burstable_performance: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestBurstablePerformance']]
+    """
+    Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
 
-        - To include burstable performance instance types, specify `included` .
-        - To require only burstable performance instance types, specify `required` .
-        - To exclude burstable performance instance types, specify `excluded` .
+    - To include burstable performance instance types, specify `included` .
+    - To require only burstable performance instance types, specify `required` .
+    - To exclude burstable performance instance types, specify `excluded` .
 
-        Default: `excluded`
-        """
-        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestCpuManufacturersItem']]]]
-        """
-        The CPU manufacturers to include.
+    Default: `excluded`
+    """
+    cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestCpuManufacturersItem']]]]
+    """
+    The CPU manufacturers to include.
 
-        - For instance types with Intel CPUs, specify `intel` .
-        - For instance types with AMD CPUs, specify `amd` .
-        - For instance types with AWS CPUs, specify `amazon-web-services` .
-        - For instance types with Apple CPUs, specify `apple` .
+    - For instance types with Intel CPUs, specify `intel` .
+    - For instance types with AMD CPUs, specify `amd` .
+    - For instance types with AWS CPUs, specify `amazon-web-services` .
+    - For instance types with Apple CPUs, specify `apple` .
 
-        > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+    > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
 
-        Default: Any manufacturer
-        """
-        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The instance types to exclude.
+    Default: Any manufacturer
+    """
+    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The instance types to exclude.
 
-        You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
+    You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
 
-        For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+    For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+    > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
 
-        Default: No excluded instance types
-        """
-        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestInstanceGenerationsItem']]]]
-        """
-        Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+    Default: No excluded instance types
+    """
+    instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestInstanceGenerationsItem']]]]
+    """
+    Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 
-        For current generation instance types, specify `current` .
+    For current generation instance types, specify `current` .
 
-        For previous generation instance types, specify `previous` .
+    For previous generation instance types, specify `previous` .
 
-        Default: Current and previous generation instance types
-        """
-        local_storage: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestLocalStorage']]
-        """
-        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+    Default: Current and previous generation instance types
+    """
+    local_storage: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestLocalStorage']]
+    """
+    Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
 
-        - To include instance types with instance store volumes, specify `included` .
-        - To require only instance types with instance store volumes, specify `required` .
-        - To exclude instance types with instance store volumes, specify `excluded` .
+    - To include instance types with instance store volumes, specify `included` .
+    - To require only instance types with instance store volumes, specify `required` .
+    - To exclude instance types with instance store volumes, specify `excluded` .
 
-        Default: `included`
-        """
-        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestLocalStorageTypesItem']]]]
-        """
-        The type of local storage that is required.
+    Default: `included`
+    """
+    local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestLocalStorageTypesItem']]]]
+    """
+    The type of local storage that is required.
 
-        - For instance types with hard disk drive (HDD) storage, specify `hdd` .
-        - For instance types with solid state drive (SSD) storage, specify `ssd` .
+    - For instance types with hard disk drive (HDD) storage, specify `hdd` .
+    - For instance types with solid state drive (SSD) storage, specify `ssd` .
 
-        Default: `hdd` and `ssd`
-        """
-        max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+    Default: `hdd` and `ssd`
+    """
+    max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 
-        The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+    The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 
-        If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+    If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
 
-        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
-        """
-        memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['SpotFleetMemoryGiBPerVCpuRequestArgsDict']]
-        """
-        The minimum and maximum amount of memory per vCPU, in GiB.
+    > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
+    """
+    memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['SpotFleetMemoryGiBPerVCpuRequestArgsDict']]
+    """
+    The minimum and maximum amount of memory per vCPU, in GiB.
 
-        Default: No minimum or maximum limits
-        """
-        memory_mi_b: NotRequired[pulumi.Input['SpotFleetMemoryMiBRequestArgsDict']]
-        """
-        The minimum and maximum amount of memory, in MiB.
-        """
-        network_bandwidth_gbps: NotRequired[pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgsDict']]
-        """
-        The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+    Default: No minimum or maximum limits
+    """
+    memory_mi_b: NotRequired[pulumi.Input['SpotFleetMemoryMiBRequestArgsDict']]
+    """
+    The minimum and maximum amount of memory, in MiB.
+    """
+    network_bandwidth_gbps: NotRequired[pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgsDict']]
+    """
+    The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
 
-        Default: No minimum or maximum limits
-        """
-        network_interface_count: NotRequired[pulumi.Input['SpotFleetNetworkInterfaceCountRequestArgsDict']]
-        """
-        The minimum and maximum number of network interfaces.
+    Default: No minimum or maximum limits
+    """
+    network_interface_count: NotRequired[pulumi.Input['SpotFleetNetworkInterfaceCountRequestArgsDict']]
+    """
+    The minimum and maximum number of network interfaces.
 
-        Default: No minimum or maximum limits
-        """
-        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+    Default: No minimum or maximum limits
+    """
+    on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 
-        The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+    The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 
-        To indicate no price protection threshold, specify a high value, such as `999999` .
+    To indicate no price protection threshold, specify a high value, such as `999999` .
 
-        This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+    This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+    > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
 
-        Default: `20`
-        """
-        require_encryption_in_transit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+    Default: `20`
+    """
+    require_encryption_in_transit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
 
-        Default: `false`
-        """
-        require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether instance types must support hibernation for On-Demand Instances.
+    Default: `false`
+    """
+    require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether instance types must support hibernation for On-Demand Instances.
 
-        This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
+    This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
 
-        Default: `false`
-        """
-        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+    Default: `false`
+    """
+    spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
 
-        The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+    The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 
-        If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+    If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 
-        This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
+    This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+    > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
 
-        Default: `100`
-        """
-        total_local_storage_gb: NotRequired[pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgsDict']]
-        """
-        The minimum and maximum amount of total local storage, in GB.
+    Default: `100`
+    """
+    total_local_storage_gb: NotRequired[pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgsDict']]
+    """
+    The minimum and maximum amount of total local storage, in GB.
 
-        Default: No minimum or maximum limits
-        """
-        v_cpu_count: NotRequired[pulumi.Input['SpotFleetVCpuCountRangeRequestArgsDict']]
-        """
-        The minimum and maximum number of vCPUs.
-        """
-elif False:
-    SpotFleetInstanceRequirementsRequestArgsDict: TypeAlias = Mapping[str, Any]
+    Default: No minimum or maximum limits
+    """
+    v_cpu_count: NotRequired[pulumi.Input['SpotFleetVCpuCountRangeRequestArgsDict']]
+    """
+    The minimum and maximum number of vCPUs.
+    """
 
 @pulumi.input_type
 class SpotFleetInstanceRequirementsRequestArgs:
@@ -14293,96 +13874,93 @@ class SpotFleetInstanceRequirementsRequestArgs:
         pulumi.set(self, "v_cpu_count", value)
 
 
-if not MYPY:
-    class SpotFleetLaunchSpecificationArgsDict(TypedDict):
-        image_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the AMI.
-        """
-        block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetBlockDeviceMappingArgsDict']]]]
-        """
-        One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
-        """
-        ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+class SpotFleetLaunchSpecificationArgsDict(TypedDict):
+    image_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the AMI.
+    """
+    block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetBlockDeviceMappingArgsDict']]]]
+    """
+    One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+    """
+    ebs_optimized: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 
-        Default: `false`
-        """
-        iam_instance_profile: NotRequired[pulumi.Input['SpotFleetIamInstanceProfileSpecificationArgsDict']]
-        """
-        The IAM instance profile.
-        """
-        instance_requirements: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestArgsDict']]
-        """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
+    Default: `false`
+    """
+    iam_instance_profile: NotRequired[pulumi.Input['SpotFleetIamInstanceProfileSpecificationArgsDict']]
+    """
+    The IAM instance profile.
+    """
+    instance_requirements: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestArgsDict']]
+    """
+    The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 
-        > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type.
-        """
-        kernel_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the kernel.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the key pair.
-        """
-        monitoring: NotRequired[pulumi.Input['SpotFleetMonitoringArgsDict']]
-        """
-        Enable or disable monitoring for the instances.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceNetworkInterfaceSpecificationArgsDict']]]]
-        """
-        The network interfaces.
-        """
-        placement: NotRequired[pulumi.Input['SpotFleetSpotPlacementArgsDict']]
-        """
-        The placement information.
-        """
-        ramdisk_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetGroupIdentifierArgsDict']]]]
-        """
-        The security groups.
+    > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type.
+    """
+    kernel_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the kernel.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the key pair.
+    """
+    monitoring: NotRequired[pulumi.Input['SpotFleetMonitoringArgsDict']]
+    """
+    Enable or disable monitoring for the instances.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceNetworkInterfaceSpecificationArgsDict']]]]
+    """
+    The network interfaces.
+    """
+    placement: NotRequired[pulumi.Input['SpotFleetSpotPlacementArgsDict']]
+    """
+    The placement information.
+    """
+    ramdisk_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetGroupIdentifierArgsDict']]]]
+    """
+    The security groups.
 
-        If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
-        """
-        spot_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+    If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
+    """
+    spot_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
-        > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+    > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
 
-        If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
-        """
-        tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgsDict']]]]
-        """
-        The tags to apply during creation.
-        """
-        user_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
-        """
-        weighted_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+    If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
+    """
+    tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgsDict']]]]
+    """
+    The tags to apply during creation.
+    """
+    user_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
+    """
+    weighted_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 
-        If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+    If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 
-        > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
-        """
-elif False:
-    SpotFleetLaunchSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+    """
 
 @pulumi.input_type
 class SpotFleetLaunchSpecificationArgs:
@@ -14706,18 +14284,15 @@ class SpotFleetLaunchSpecificationArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
-if not MYPY:
-    class SpotFleetLaunchTemplateConfigArgsDict(TypedDict):
-        launch_template_specification: NotRequired[pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgsDict']]
-        """
-        The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
-        """
-        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgsDict']]]]
-        """
-        Any parameters that you specify override the same parameters in the launch template.
-        """
-elif False:
-    SpotFleetLaunchTemplateConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetLaunchTemplateConfigArgsDict(TypedDict):
+    launch_template_specification: NotRequired[pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgsDict']]
+    """
+    The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
+    """
+    overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgsDict']]]]
+    """
+    Any parameters that you specify override the same parameters in the launch template.
+    """
 
 @pulumi.input_type
 class SpotFleetLaunchTemplateConfigArgs:
@@ -14758,60 +14333,57 @@ class SpotFleetLaunchTemplateConfigArgs:
         pulumi.set(self, "overrides", value)
 
 
-if not MYPY:
-    class SpotFleetLaunchTemplateOverridesArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+class SpotFleetLaunchTemplateOverridesArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which to launch the instances. For example, `us-east-2a` .
 
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
-        """
-        availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+    Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+    """
+    availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
 
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
-        """
-        instance_requirements: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestArgsDict']]
-        """
-        The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
+    Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+    """
+    instance_requirements: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestArgsDict']]
+    """
+    The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 
-        > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance type.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The priority for the launch template override. The highest priority is launched first.
+    > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance type.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The priority for the launch template override. The highest priority is launched first.
 
-        If `OnDemandAllocationStrategy` is set to `prioritized` , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
+    If `OnDemandAllocationStrategy` is set to `prioritized` , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
 
-        If the Spot `AllocationStrategy` is set to `capacityOptimizedPrioritized` , Spot Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
+    If the Spot `AllocationStrategy` is set to `capacityOptimizedPrioritized` , Spot Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
 
-        Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
-        """
-        spot_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+    Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
+    """
+    spot_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
-        > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the subnet in which to launch the instances.
-        """
-        weighted_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+    > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the subnet in which to launch the instances.
+    """
+    weighted_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 
-        If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+    If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
 
-        > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
-        """
-elif False:
-    SpotFleetLaunchTemplateOverridesArgsDict: TypeAlias = Mapping[str, Any]
+    > When specifying weights, the price used in the `lowestPrice` and `priceCapacityOptimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
+    """
 
 @pulumi.input_type
 class SpotFleetLaunchTemplateOverridesArgs:
@@ -14984,18 +14556,15 @@ class SpotFleetLaunchTemplateOverridesArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
-if not MYPY:
-    class SpotFleetLoadBalancersConfigArgsDict(TypedDict):
-        classic_load_balancers_config: NotRequired[pulumi.Input['SpotFleetClassicLoadBalancersConfigArgsDict']]
-        """
-        The Classic Load Balancers.
-        """
-        target_groups_config: NotRequired[pulumi.Input['SpotFleetTargetGroupsConfigArgsDict']]
-        """
-        The target groups.
-        """
-elif False:
-    SpotFleetLoadBalancersConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetLoadBalancersConfigArgsDict(TypedDict):
+    classic_load_balancers_config: NotRequired[pulumi.Input['SpotFleetClassicLoadBalancersConfigArgsDict']]
+    """
+    The Classic Load Balancers.
+    """
+    target_groups_config: NotRequired[pulumi.Input['SpotFleetTargetGroupsConfigArgsDict']]
+    """
+    The target groups.
+    """
 
 @pulumi.input_type
 class SpotFleetLoadBalancersConfigArgs:
@@ -15036,18 +14605,15 @@ class SpotFleetLoadBalancersConfigArgs:
         pulumi.set(self, "target_groups_config", value)
 
 
-if not MYPY:
-    class SpotFleetMemoryGiBPerVCpuRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetMemoryGiBPerVCpuRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetMemoryGiBPerVCpuRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetMemoryGiBPerVCpuRequestArgs:
@@ -15088,18 +14654,15 @@ class SpotFleetMemoryGiBPerVCpuRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetMemoryMiBRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
-        """
-elif False:
-    SpotFleetMemoryMiBRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetMemoryMiBRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
+    """
 
 @pulumi.input_type
 class SpotFleetMemoryMiBRequestArgs:
@@ -15140,16 +14703,13 @@ class SpotFleetMemoryMiBRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetMonitoringArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables monitoring for the instance.
+class SpotFleetMonitoringArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables monitoring for the instance.
 
-        Default: `false`
-        """
-elif False:
-    SpotFleetMonitoringArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `false`
+    """
 
 @pulumi.input_type
 class SpotFleetMonitoringArgs:
@@ -15178,18 +14738,15 @@ class SpotFleetMonitoringArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class SpotFleetNetworkBandwidthGbpsRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetNetworkBandwidthGbpsRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetNetworkBandwidthGbpsRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetNetworkBandwidthGbpsRequestArgs:
@@ -15230,18 +14787,15 @@ class SpotFleetNetworkBandwidthGbpsRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetNetworkInterfaceCountRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetNetworkInterfaceCountRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetNetworkInterfaceCountRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetNetworkInterfaceCountRequestArgs:
@@ -15282,31 +14836,28 @@ class SpotFleetNetworkInterfaceCountRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetPerformanceFactorReferenceRequestArgsDict(TypedDict):
-        instance_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance family to use as a baseline reference.
+class SpotFleetPerformanceFactorReferenceRequestArgsDict(TypedDict):
+    instance_family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance family to use as a baseline reference.
 
-        > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
+    > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
 
-        The following instance families are *not supported* for performance protection:
+    The following instance families are *not supported* for performance protection:
 
-        - `c1`
-        - `g3` | `g3s`
-        - `hpc7g`
-        - `m1` | `m2`
-        - `mac1` | `mac2` | `mac2-m1ultra` | `mac2-m2` | `mac2-m2pro`
-        - `p3dn` | `p4d` | `p5`
-        - `t1`
-        - `u-12tb1` | `u-18tb1` | `u-24tb1` | `u-3tb1` | `u-6tb1` | `u-9tb1` | `u7i-12tb` | `u7in-16tb` | `u7in-24tb` | `u7in-32tb`
+    - `c1`
+    - `g3` | `g3s`
+    - `hpc7g`
+    - `m1` | `m2`
+    - `mac1` | `mac2` | `mac2-m1ultra` | `mac2-m2` | `mac2-m2pro`
+    - `p3dn` | `p4d` | `p5`
+    - `t1`
+    - `u-12tb1` | `u-18tb1` | `u-24tb1` | `u-3tb1` | `u-6tb1` | `u-9tb1` | `u7i-12tb` | `u7in-16tb` | `u7in-24tb` | `u7in-32tb`
 
-        If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
+    If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
 
-        If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response for [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) and an exception for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , [ModifyFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet.html) , and [ModifySpotFleetRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest.html) .
-        """
-elif False:
-    SpotFleetPerformanceFactorReferenceRequestArgsDict: TypeAlias = Mapping[str, Any]
+    If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response for [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) and an exception for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , [ModifyFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyFleet.html) , and [ModifySpotFleetRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySpotFleetRequest.html) .
+    """
 
 @pulumi.input_type
 class SpotFleetPerformanceFactorReferenceRequestArgs:
@@ -15365,18 +14916,15 @@ class SpotFleetPerformanceFactorReferenceRequestArgs:
         pulumi.set(self, "instance_family", value)
 
 
-if not MYPY:
-    class SpotFleetPrivateIpAddressSpecificationArgsDict(TypedDict):
-        private_ip_address: pulumi.Input[_builtins.str]
-        """
-        The private IPv4 address.
-        """
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
-        """
-elif False:
-    SpotFleetPrivateIpAddressSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetPrivateIpAddressSpecificationArgsDict(TypedDict):
+    private_ip_address: pulumi.Input[_builtins.str]
+    """
+    The private IPv4 address.
+    """
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+    """
 
 @pulumi.input_type
 class SpotFleetPrivateIpAddressSpecificationArgs:
@@ -15416,125 +14964,122 @@ class SpotFleetPrivateIpAddressSpecificationArgs:
         pulumi.set(self, "primary", value)
 
 
-if not MYPY:
-    class SpotFleetRequestConfigDataArgsDict(TypedDict):
-        iam_fleet_role: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
-        """
-        target_capacity: pulumi.Input[_builtins.int]
-        """
-        The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
-        """
-        allocation_strategy: NotRequired[pulumi.Input['SpotFleetRequestConfigDataAllocationStrategy']]
-        """
-        The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
+class SpotFleetRequestConfigDataArgsDict(TypedDict):
+    iam_fleet_role: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
+    """
+    target_capacity: pulumi.Input[_builtins.int]
+    """
+    The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
+    """
+    allocation_strategy: NotRequired[pulumi.Input['SpotFleetRequestConfigDataAllocationStrategy']]
+    """
+    The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
 
-        - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
-        - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
-        - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
-        - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances. 
+    - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+    - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+    - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+    - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances. 
 
-        Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+    Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
 
-        Default: `lowestPrice`
-        """
-        context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reserved.
-        """
-        excess_capacity_termination_policy: NotRequired[pulumi.Input['SpotFleetRequestConfigDataExcessCapacityTerminationPolicy']]
-        """
-        Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+    Default: `lowestPrice`
+    """
+    context: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reserved.
+    """
+    excess_capacity_termination_policy: NotRequired[pulumi.Input['SpotFleetRequestConfigDataExcessCapacityTerminationPolicy']]
+    """
+    Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
 
-        Supported only for fleets of type `maintain` .
-        """
-        instance_interruption_behavior: NotRequired[pulumi.Input['SpotFleetRequestConfigDataInstanceInterruptionBehavior']]
-        """
-        The behavior when a Spot Instance is interrupted. The default is `terminate` .
-        """
-        instance_pools_to_use_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+    Supported only for fleets of type `maintain` .
+    """
+    instance_interruption_behavior: NotRequired[pulumi.Input['SpotFleetRequestConfigDataInstanceInterruptionBehavior']]
+    """
+    The behavior when a Spot Instance is interrupted. The default is `terminate` .
+    """
+    instance_pools_to_use_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
 
-        Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
-        """
-        launch_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchSpecificationArgsDict']]]]
-        """
-        The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
-        """
-        launch_template_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateConfigArgsDict']]]]
-        """
-        The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
-        """
-        load_balancers_config: NotRequired[pulumi.Input['SpotFleetLoadBalancersConfigArgsDict']]
-        """
-        One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+    Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
+    """
+    launch_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchSpecificationArgsDict']]]]
+    """
+    The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
+    """
+    launch_template_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateConfigArgsDict']]]]
+    """
+    The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
+    """
+    load_balancers_config: NotRequired[pulumi.Input['SpotFleetLoadBalancersConfigArgsDict']]
+    """
+    One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
 
-        With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
-        """
-        on_demand_allocation_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
-        """
-        on_demand_max_total_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+    With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
+    """
+    on_demand_allocation_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
+    """
+    on_demand_max_total_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 
-        > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
-        """
-        on_demand_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
-        """
-        replace_unhealthy_instances: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Spot Fleet should replace unhealthy instances.
-        """
-        spot_maintenance_strategies: NotRequired[pulumi.Input['SpotFleetSpotMaintenanceStrategiesArgsDict']]
-        """
-        The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
-        """
-        spot_max_total_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+    > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `onDemandMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `onDemandMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
+    """
+    on_demand_target_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
+    """
+    replace_unhealthy_instances: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Spot Fleet should replace unhealthy instances.
+    """
+    spot_maintenance_strategies: NotRequired[pulumi.Input['SpotFleetSpotMaintenanceStrategiesArgsDict']]
+    """
+    The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+    """
+    spot_max_total_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum amount per hour for Spot Instances that you're willing to pay. You can use the `spotMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
 
-        > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
-        """
-        spot_price: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+    > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `spotMaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `spotMaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *Amazon EC2 User Guide* .
+    """
+    spot_price: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
 
-        > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
-        """
-        tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgsDict']]]]
-        """
-        The key-value pair for tagging the Spot Fleet request on creation. The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
-        """
-        target_capacity_unit_type: NotRequired[pulumi.Input['SpotFleetRequestConfigDataTargetCapacityUnitType']]
-        """
-        The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
+    > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
+    """
+    tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgsDict']]]]
+    """
+    The key-value pair for tagging the Spot Fleet request on creation. The value for `ResourceType` must be `spot-fleet-request` , otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) (valid only if you use `LaunchTemplateConfigs` ) or in the `[SpotFleetTagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html)` (valid only if you use `LaunchSpecifications` ). For information about tagging after launch, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+    """
+    target_capacity_unit_type: NotRequired[pulumi.Input['SpotFleetRequestConfigDataTargetCapacityUnitType']]
+    """
+    The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
 
-        Default: `units` (the number of instances)
-        """
-        terminate_instances_with_expiration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
-        """
-        type: NotRequired[pulumi.Input['SpotFleetRequestConfigDataType']]
-        """
-        The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
-        """
-        valid_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). By default, Amazon EC2 starts fulfilling the request immediately.
-        """
-        valid_until: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
-        """
-elif False:
-    SpotFleetRequestConfigDataArgsDict: TypeAlias = Mapping[str, Any]
+    Default: `units` (the number of instances)
+    """
+    terminate_instances_with_expiration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
+    """
+    type: NotRequired[pulumi.Input['SpotFleetRequestConfigDataType']]
+    """
+    The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
+    """
+    valid_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). By default, Amazon EC2 starts fulfilling the request immediately.
+    """
+    valid_until: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
+    """
 
 @pulumi.input_type
 class SpotFleetRequestConfigDataArgs:
@@ -15955,28 +15500,25 @@ class SpotFleetRequestConfigDataArgs:
         pulumi.set(self, "valid_until", value)
 
 
-if not MYPY:
-    class SpotFleetSpotCapacityRebalanceArgsDict(TypedDict):
-        replacement_strategy: NotRequired[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']]
-        """
-        The replacement strategy to use. Only available for fleets of type `maintain` .
+class SpotFleetSpotCapacityRebalanceArgsDict(TypedDict):
+    replacement_strategy: NotRequired[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']]
+    """
+    The replacement strategy to use. Only available for fleets of type `maintain` .
 
-        `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+    `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
 
-        `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
-        """
-        termination_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
+    `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
+    """
+    termination_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
 
-        Required when `ReplacementStrategy` is set to `launch-before-terminate` .
+    Required when `ReplacementStrategy` is set to `launch-before-terminate` .
 
-        Not valid when `ReplacementStrategy` is set to `launch` .
+    Not valid when `ReplacementStrategy` is set to `launch` .
 
-        Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
-        """
-elif False:
-    SpotFleetSpotCapacityRebalanceArgsDict: TypeAlias = Mapping[str, Any]
+    Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
+    """
 
 @pulumi.input_type
 class SpotFleetSpotCapacityRebalanceArgs:
@@ -16037,14 +15579,11 @@ class SpotFleetSpotCapacityRebalanceArgs:
         pulumi.set(self, "termination_delay", value)
 
 
-if not MYPY:
-    class SpotFleetSpotMaintenanceStrategiesArgsDict(TypedDict):
-        capacity_rebalance: NotRequired[pulumi.Input['SpotFleetSpotCapacityRebalanceArgsDict']]
-        """
-        The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
-        """
-elif False:
-    SpotFleetSpotMaintenanceStrategiesArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetSpotMaintenanceStrategiesArgsDict(TypedDict):
+    capacity_rebalance: NotRequired[pulumi.Input['SpotFleetSpotCapacityRebalanceArgsDict']]
+    """
+    The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
+    """
 
 @pulumi.input_type
 class SpotFleetSpotMaintenanceStrategiesArgs:
@@ -16069,32 +15608,29 @@ class SpotFleetSpotMaintenanceStrategiesArgs:
         pulumi.set(self, "capacity_rebalance", value)
 
 
-if not MYPY:
-    class SpotFleetSpotPlacementArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone.
+class SpotFleetSpotPlacementArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone.
 
-        To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
-        """
-        availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Availability Zone. For example, `use2-az1` .
+    To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+    """
+    availability_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Availability Zone. For example, `use2-az1` .
 
-        [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+    [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
 
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
-        """
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the placement group.
-        """
-        tenancy: NotRequired[pulumi.Input['SpotFleetSpotPlacementTenancy']]
-        """
-        The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
-        """
-elif False:
-    SpotFleetSpotPlacementArgsDict: TypeAlias = Mapping[str, Any]
+    Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+    """
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the placement group.
+    """
+    tenancy: NotRequired[pulumi.Input['SpotFleetSpotPlacementTenancy']]
+    """
+    The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
+    """
 
 @pulumi.input_type
 class SpotFleetSpotPlacementArgs:
@@ -16179,18 +15715,15 @@ class SpotFleetSpotPlacementArgs:
         pulumi.set(self, "tenancy", value)
 
 
-if not MYPY:
-    class SpotFleetTagSpecificationArgsDict(TypedDict):
-        resource_type: NotRequired[pulumi.Input['SpotFleetTagSpecificationResourceType']]
-        """
-        The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgsDict']]]]
-        """
-        The tags.
-        """
-elif False:
-    SpotFleetTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetTagSpecificationArgsDict(TypedDict):
+    resource_type: NotRequired[pulumi.Input['SpotFleetTagSpecificationResourceType']]
+    """
+    The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgsDict']]]]
+    """
+    The tags.
+    """
 
 @pulumi.input_type
 class SpotFleetTagSpecificationArgs:
@@ -16231,18 +15764,15 @@ class SpotFleetTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class SpotFleetTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The tag value.
-        """
-elif False:
-    SpotFleetTagArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The tag key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class SpotFleetTagArgs:
@@ -16281,14 +15811,11 @@ class SpotFleetTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SpotFleetTargetGroupsConfigArgsDict(TypedDict):
-        target_groups: pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgsDict']]]
-        """
-        One or more target groups.
-        """
-elif False:
-    SpotFleetTargetGroupsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetTargetGroupsConfigArgsDict(TypedDict):
+    target_groups: pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgsDict']]]
+    """
+    One or more target groups.
+    """
 
 @pulumi.input_type
 class SpotFleetTargetGroupsConfigArgs:
@@ -16312,14 +15839,11 @@ class SpotFleetTargetGroupsConfigArgs:
         pulumi.set(self, "target_groups", value)
 
 
-if not MYPY:
-    class SpotFleetTargetGroupArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the target group.
-        """
-elif False:
-    SpotFleetTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetTargetGroupArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the target group.
+    """
 
 @pulumi.input_type
 class SpotFleetTargetGroupArgs:
@@ -16343,18 +15867,15 @@ class SpotFleetTargetGroupArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class SpotFleetTotalLocalStorageGbRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-        """
-elif False:
-    SpotFleetTotalLocalStorageGbRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetTotalLocalStorageGbRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
+    """
 
 @pulumi.input_type
 class SpotFleetTotalLocalStorageGbRequestArgs:
@@ -16395,18 +15916,15 @@ class SpotFleetTotalLocalStorageGbRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SpotFleetVCpuCountRangeRequestArgsDict(TypedDict):
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0` .
-        """
-elif False:
-    SpotFleetVCpuCountRangeRequestArgsDict: TypeAlias = Mapping[str, Any]
+class SpotFleetVCpuCountRangeRequestArgsDict(TypedDict):
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of vCPUs. To specify no minimum limit, specify `0` .
+    """
 
 @pulumi.input_type
 class SpotFleetVCpuCountRangeRequestArgs:
@@ -16447,21 +15965,18 @@ class SpotFleetVCpuCountRangeRequestArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class SseSpecificationPropertiesArgsDict(TypedDict):
-        """
-        The configuration options for customer provided KMS encryption.
-        """
-        customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to encrypt the policy with the provided key or disable encryption
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Key Arn used to encrypt the group policy
-        """
-elif False:
-    SseSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SseSpecificationPropertiesArgsDict(TypedDict):
+    """
+    The configuration options for customer provided KMS encryption.
+    """
+    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to encrypt the policy with the provided key or disable encryption
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Key Arn used to encrypt the group policy
+    """
 
 @pulumi.input_type
 class SseSpecificationPropertiesArgs:
@@ -16503,23 +16018,20 @@ class SseSpecificationPropertiesArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class TagSpecificationArgsDict(TypedDict):
-        """
-        Specifies the tags to apply to resources that are created during instance launch.
-         ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of resource to tag. You can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
-         To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgsDict']]]]
-        """
-        The tags to apply to the resource.
-        """
-elif False:
-    TagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class TagSpecificationArgsDict(TypedDict):
+    """
+    Specifies the tags to apply to resources that are created during instance launch.
+     ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of resource to tag. You can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+     To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgsDict']]]]
+    """
+    The tags to apply to the resource.
+    """
 
 @pulumi.input_type
 class TagSpecificationArgs:
@@ -16564,18 +16076,15 @@ class TagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict(TypedDict):
-        from_port: pulumi.Input[_builtins.int]
-        """
-        The first port in the Traffic Mirror port range.
-        """
-        to_port: pulumi.Input[_builtins.int]
-        """
-        The last port in the Traffic Mirror port range.
-        """
-elif False:
-    TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict(TypedDict):
+    from_port: pulumi.Input[_builtins.int]
+    """
+    The first port in the Traffic Mirror port range.
+    """
+    to_port: pulumi.Input[_builtins.int]
+    """
+    The last port in the Traffic Mirror port range.
+    """
 
 @pulumi.input_type
 class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs:
@@ -16614,14 +16123,11 @@ class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class TransitGatewayConnectOptionsArgsDict(TypedDict):
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tunnel protocol.
-        """
-elif False:
-    TransitGatewayConnectOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayConnectOptionsArgsDict(TypedDict):
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tunnel protocol.
+    """
 
 @pulumi.input_type
 class TransitGatewayConnectOptionsArgs:
@@ -16646,30 +16152,27 @@ class TransitGatewayConnectOptionsArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class TransitGatewayConnectPeerConfigurationArgsDict(TypedDict):
-        inside_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The range of interior BGP peer IP addresses.
-        """
-        peer_address: pulumi.Input[_builtins.str]
-        """
-        The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
-        """
-        bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict']]]]
-        """
-        The BGP configuration details.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tunnel protocol.
-        """
-        transit_gateway_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Connect peer IP address on the transit gateway side of the tunnel.
-        """
-elif False:
-    TransitGatewayConnectPeerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayConnectPeerConfigurationArgsDict(TypedDict):
+    inside_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The range of interior BGP peer IP addresses.
+    """
+    peer_address: pulumi.Input[_builtins.str]
+    """
+    The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+    """
+    bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict']]]]
+    """
+    The BGP configuration details.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tunnel protocol.
+    """
+    transit_gateway_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Connect peer IP address on the transit gateway side of the tunnel.
+    """
 
 @pulumi.input_type
 class TransitGatewayConnectPeerConfigurationArgs:
@@ -16756,30 +16259,27 @@ class TransitGatewayConnectPeerConfigurationArgs:
         pulumi.set(self, "transit_gateway_address", value)
 
 
-if not MYPY:
-    class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict(TypedDict):
-        bgp_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The BGP status.
-        """
-        peer_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interior BGP peer IP address for the appliance.
-        """
-        peer_asn: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The peer Autonomous System Number (ASN).
-        """
-        transit_gateway_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interior BGP peer IP address for the transit gateway.
-        """
-        transit_gateway_asn: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The transit gateway Autonomous System Number (ASN).
-        """
-elif False:
-    TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict(TypedDict):
+    bgp_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The BGP status.
+    """
+    peer_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interior BGP peer IP address for the appliance.
+    """
+    peer_asn: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The peer Autonomous System Number (ASN).
+    """
+    transit_gateway_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interior BGP peer IP address for the transit gateway.
+    """
+    transit_gateway_asn: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The transit gateway Autonomous System Number (ASN).
+    """
 
 @pulumi.input_type
 class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs:
@@ -16868,29 +16368,26 @@ class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs:
         pulumi.set(self, "transit_gateway_asn", value)
 
 
-if not MYPY:
-    class VerifiedAccessEndpointCidrOptionsArgsDict(TypedDict):
-        """
-        The options for cidr type endpoint.
-        """
-        cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address range, in CIDR notation.
-        """
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
-        """
-        The list of port range.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP protocol.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the subnets.
-        """
-elif False:
-    VerifiedAccessEndpointCidrOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessEndpointCidrOptionsArgsDict(TypedDict):
+    """
+    The options for cidr type endpoint.
+    """
+    cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address range, in CIDR notation.
+    """
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
+    """
+    The list of port range.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP protocol.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the subnets.
+    """
 
 @pulumi.input_type
 class VerifiedAccessEndpointCidrOptionsArgs:
@@ -16964,33 +16461,30 @@ class VerifiedAccessEndpointCidrOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class VerifiedAccessEndpointLoadBalancerOptionsArgsDict(TypedDict):
-        """
-        The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
-        """
-        load_balancer_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the load balancer.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The IP port number.
-        """
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
-        """
-        The list of port range.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP protocol.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the subnets.
-        """
-elif False:
-    VerifiedAccessEndpointLoadBalancerOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessEndpointLoadBalancerOptionsArgsDict(TypedDict):
+    """
+    The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+    """
+    load_balancer_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the load balancer.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The IP port number.
+    """
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
+    """
+    The list of port range.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP protocol.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the subnets.
+    """
 
 @pulumi.input_type
 class VerifiedAccessEndpointLoadBalancerOptionsArgs:
@@ -17080,29 +16574,26 @@ class VerifiedAccessEndpointLoadBalancerOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict(TypedDict):
-        """
-        The options for network-interface type endpoint.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the network interface.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The IP port number.
-        """
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
-        """
-        The list of port ranges.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP protocol.
-        """
-elif False:
-    VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict(TypedDict):
+    """
+    The options for network-interface type endpoint.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the network interface.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The IP port number.
+    """
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointPortRangeArgsDict']]]]
+    """
+    The list of port ranges.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP protocol.
+    """
 
 @pulumi.input_type
 class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
@@ -17176,21 +16667,18 @@ class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class VerifiedAccessEndpointPortRangeArgsDict(TypedDict):
-        """
-        The IP port range.
-        """
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The first port in the range.
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The last port in the range.
-        """
-elif False:
-    VerifiedAccessEndpointPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessEndpointPortRangeArgsDict(TypedDict):
+    """
+    The IP port range.
+    """
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The first port in the range.
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The last port in the range.
+    """
 
 @pulumi.input_type
 class VerifiedAccessEndpointPortRangeArgs:
@@ -17232,41 +16720,38 @@ class VerifiedAccessEndpointPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class VerifiedAccessEndpointRdsOptionsArgsDict(TypedDict):
-        """
-        The options for rds type endpoint.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The IP port number.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP protocol.
-        """
-        rds_db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the RDS DB cluster.
-        """
-        rds_db_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the RDS DB instance.
-        """
-        rds_db_proxy_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the RDS DB proxy.
-        """
-        rds_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The RDS endpoint.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IDs of the subnets.
-        """
-elif False:
-    VerifiedAccessEndpointRdsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessEndpointRdsOptionsArgsDict(TypedDict):
+    """
+    The options for rds type endpoint.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The IP port number.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP protocol.
+    """
+    rds_db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the RDS DB cluster.
+    """
+    rds_db_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the RDS DB instance.
+    """
+    rds_db_proxy_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the RDS DB proxy.
+    """
+    rds_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The RDS endpoint.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the subnets.
+    """
 
 @pulumi.input_type
 class VerifiedAccessEndpointRdsOptionsArgs:
@@ -17388,21 +16873,18 @@ class VerifiedAccessEndpointRdsOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class VerifiedAccessEndpointSseSpecificationArgsDict(TypedDict):
-        """
-        The configuration options for customer provided KMS encryption.
-        """
-        customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to encrypt the policy with the provided key or disable encryption
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Key Arn used to encrypt the group policy
-        """
-elif False:
-    VerifiedAccessEndpointSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessEndpointSseSpecificationArgsDict(TypedDict):
+    """
+    The configuration options for customer provided KMS encryption.
+    """
+    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to encrypt the policy with the provided key or disable encryption
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Key Arn used to encrypt the group policy
+    """
 
 @pulumi.input_type
 class VerifiedAccessEndpointSseSpecificationArgs:
@@ -17444,21 +16926,18 @@ class VerifiedAccessEndpointSseSpecificationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class VerifiedAccessGroupSseSpecificationArgsDict(TypedDict):
-        """
-        The configuration options for customer provided KMS encryption.
-        """
-        customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to encrypt the policy with the provided key or disable encryption
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Key Arn used to encrypt the group policy
-        """
-elif False:
-    VerifiedAccessGroupSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessGroupSseSpecificationArgsDict(TypedDict):
+    """
+    The configuration options for customer provided KMS encryption.
+    """
+    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to encrypt the policy with the provided key or disable encryption
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Key Arn used to encrypt the group policy
+    """
 
 @pulumi.input_type
 class VerifiedAccessGroupSseSpecificationArgs:
@@ -17500,21 +16979,18 @@ class VerifiedAccessGroupSseSpecificationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgsDict(TypedDict):
-        """
-        Sends Verified Access logs to CloudWatch Logs.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether logging is enabled.
-        """
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the CloudWatch Logs log group.
-        """
-elif False:
-    VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgsDict(TypedDict):
+    """
+    Sends Verified Access logs to CloudWatch Logs.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether logging is enabled.
+    """
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the CloudWatch Logs log group.
+    """
 
 @pulumi.input_type
 class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs:
@@ -17556,21 +17032,18 @@ class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs:
         pulumi.set(self, "log_group", value)
 
 
-if not MYPY:
-    class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgsDict(TypedDict):
-        """
-        Sends Verified Access logs to Kinesis.
-        """
-        delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the delivery stream.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether logging is enabled.
-        """
-elif False:
-    VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgsDict(TypedDict):
+    """
+    Sends Verified Access logs to Kinesis.
+    """
+    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the delivery stream.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether logging is enabled.
+    """
 
 @pulumi.input_type
 class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs:
@@ -17612,29 +17085,26 @@ class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgsDict(TypedDict):
-        """
-        Sends Verified Access logs to Amazon S3.
-        """
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket name.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the AWS account that owns the Amazon S3 bucket.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether logging is enabled.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket prefix.
-        """
-elif False:
-    VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgsDict(TypedDict):
+    """
+    Sends Verified Access logs to Amazon S3.
+    """
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bucket name.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the AWS account that owns the Amazon S3 bucket.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether logging is enabled.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bucket prefix.
+    """
 
 @pulumi.input_type
 class VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs:
@@ -17708,33 +17178,30 @@ class VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class VerifiedAccessInstanceVerifiedAccessLogsArgsDict(TypedDict):
-        """
-        The configuration options for AWS Verified Access instances.
-        """
-        cloud_watch_logs: NotRequired[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgsDict']]
-        """
-        Sends Verified Access logs to CloudWatch Logs.
-        """
-        include_trust_context: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include claims from trust providers in Verified Access logs.
-        """
-        kinesis_data_firehose: NotRequired[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgsDict']]
-        """
-        Sends Verified Access logs to Kinesis.
-        """
-        log_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Select log version for Verified Access logs.
-        """
-        s3: NotRequired[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgsDict']]
-        """
-        Sends Verified Access logs to Amazon S3.
-        """
-elif False:
-    VerifiedAccessInstanceVerifiedAccessLogsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessInstanceVerifiedAccessLogsArgsDict(TypedDict):
+    """
+    The configuration options for AWS Verified Access instances.
+    """
+    cloud_watch_logs: NotRequired[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgsDict']]
+    """
+    Sends Verified Access logs to CloudWatch Logs.
+    """
+    include_trust_context: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include claims from trust providers in Verified Access logs.
+    """
+    kinesis_data_firehose: NotRequired[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgsDict']]
+    """
+    Sends Verified Access logs to Kinesis.
+    """
+    log_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Select log version for Verified Access logs.
+    """
+    s3: NotRequired[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgsDict']]
+    """
+    Sends Verified Access logs to Amazon S3.
+    """
 
 @pulumi.input_type
 class VerifiedAccessInstanceVerifiedAccessLogsArgs:
@@ -17824,33 +17291,30 @@ class VerifiedAccessInstanceVerifiedAccessLogsArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict(TypedDict):
-        """
-        A Verified Access Trust Provider.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of trust provider.
-        """
-        device_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of device-based trust provider.
-        """
-        trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of trust provider (user- or device-based).
-        """
-        user_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of user-based trust provider.
-        """
-        verified_access_trust_provider_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the trust provider.
-        """
-elif False:
-    VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict(TypedDict):
+    """
+    A Verified Access Trust Provider.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of trust provider.
+    """
+    device_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of device-based trust provider.
+    """
+    trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of trust provider (user- or device-based).
+    """
+    user_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of user-based trust provider.
+    """
+    verified_access_trust_provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the trust provider.
+    """
 
 @pulumi.input_type
 class VerifiedAccessInstanceVerifiedAccessTrustProviderArgs:
@@ -17940,21 +17404,18 @@ class VerifiedAccessInstanceVerifiedAccessTrustProviderArgs:
         pulumi.set(self, "verified_access_trust_provider_id", value)
 
 
-if not MYPY:
-    class VerifiedAccessTrustProviderDeviceOptionsArgsDict(TypedDict):
-        """
-        The options for device identity based trust providers.
-        """
-        public_signing_key_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL Verified Access will use to verify authenticity of the device tokens.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the tenant application with the device-identity provider.
-        """
-elif False:
-    VerifiedAccessTrustProviderDeviceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessTrustProviderDeviceOptionsArgsDict(TypedDict):
+    """
+    The options for device identity based trust providers.
+    """
+    public_signing_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL Verified Access will use to verify authenticity of the device tokens.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the tenant application with the device-identity provider.
+    """
 
 @pulumi.input_type
 class VerifiedAccessTrustProviderDeviceOptionsArgs:
@@ -17996,45 +17457,42 @@ class VerifiedAccessTrustProviderDeviceOptionsArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
-        """
-        The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
-        """
-        authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC authorization endpoint.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client identifier.
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client secret.
-        """
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC issuer.
-        """
-        public_signing_key_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public signing key for endpoint
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
-        """
-        token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC token endpoint.
-        """
-        user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC user info endpoint.
-        """
-elif False:
-    VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
+    """
+    The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+    """
+    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC authorization endpoint.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client identifier.
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client secret.
+    """
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC issuer.
+    """
+    public_signing_key_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public signing key for endpoint
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+    """
+    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC token endpoint.
+    """
+    user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC user info endpoint.
+    """
 
 @pulumi.input_type
 class VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs:
@@ -18172,41 +17630,38 @@ class VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs:
         pulumi.set(self, "user_info_endpoint", value)
 
 
-if not MYPY:
-    class VerifiedAccessTrustProviderOidcOptionsArgsDict(TypedDict):
-        """
-        The OpenID Connect details for an oidc -type, user-identity based trust provider.
-        """
-        authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC authorization endpoint.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client identifier.
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client secret.
-        """
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC issuer.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
-        """
-        token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC token endpoint.
-        """
-        user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The OIDC user info endpoint.
-        """
-elif False:
-    VerifiedAccessTrustProviderOidcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VerifiedAccessTrustProviderOidcOptionsArgsDict(TypedDict):
+    """
+    The OpenID Connect details for an oidc -type, user-identity based trust provider.
+    """
+    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC authorization endpoint.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client identifier.
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client secret.
+    """
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC issuer.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+    """
+    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC token endpoint.
+    """
+    user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The OIDC user info endpoint.
+    """
 
 @pulumi.input_type
 class VerifiedAccessTrustProviderOidcOptionsArgs:
@@ -18328,29 +17783,26 @@ class VerifiedAccessTrustProviderOidcOptionsArgs:
         pulumi.set(self, "user_info_endpoint", value)
 
 
-if not MYPY:
-    class VpcEndpointDnsOptionsSpecificationArgsDict(TypedDict):
-        """
-        Describes the DNS options for an endpoint.
-        """
-        dns_record_ip_type: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']]
-        """
-        The DNS records created for the endpoint.
-        """
-        private_dns_only_for_inbound_resolver_endpoint: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']]
-        """
-        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
-        """
-        private_dns_preference: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']]
-        """
-        The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
-        """
-        private_dns_specified_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
-        """
-elif False:
-    VpcEndpointDnsOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VpcEndpointDnsOptionsSpecificationArgsDict(TypedDict):
+    """
+    Describes the DNS options for an endpoint.
+    """
+    dns_record_ip_type: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']]
+    """
+    The DNS records created for the endpoint.
+    """
+    private_dns_only_for_inbound_resolver_endpoint: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']]
+    """
+    Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+    """
+    private_dns_preference: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']]
+    """
+    The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+    """
+    private_dns_specified_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
+    """
 
 @pulumi.input_type
 class VpcEndpointDnsOptionsSpecificationArgs:
@@ -18424,41 +17876,38 @@ class VpcEndpointDnsOptionsSpecificationArgs:
         pulumi.set(self, "private_dns_specified_domains", value)
 
 
-if not MYPY:
-    class VpnConnectionCloudwatchLogOptionsSpecificationArgsDict(TypedDict):
-        """
-        Options for sending VPN tunnel logs to CloudWatch.
-        """
-        bgp_log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
-         Valid values: ``True`` | ``False``
-        """
-        bgp_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
-        """
-        bgp_log_output_format: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']]
-        """
-        The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
-         Valid values: ``json`` | ``text``
-        """
-        log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable VPN tunnel logging feature. Default value is ``False``.
-         Valid values: ``True`` | ``False``
-        """
-        log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
-        """
-        log_output_format: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']]
-        """
-        Set log format. Default format is ``json``.
-         Valid values: ``json`` | ``text``
-        """
-elif False:
-    VpnConnectionCloudwatchLogOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionCloudwatchLogOptionsSpecificationArgsDict(TypedDict):
+    """
+    Options for sending VPN tunnel logs to CloudWatch.
+    """
+    bgp_log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+     Valid values: ``True`` | ``False``
+    """
+    bgp_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+    """
+    bgp_log_output_format: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']]
+    """
+    The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+     Valid values: ``json`` | ``text``
+    """
+    log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable VPN tunnel logging feature. Default value is ``False``.
+     Valid values: ``True`` | ``False``
+    """
+    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+    """
+    log_output_format: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']]
+    """
+    Set log format. Default format is ``json``.
+     Valid values: ``json`` | ``text``
+    """
 
 @pulumi.input_type
 class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
@@ -18572,17 +18021,14 @@ class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
         pulumi.set(self, "log_output_format", value)
 
 
-if not MYPY:
-    class VpnConnectionIkeVersionsRequestListValueArgsDict(TypedDict):
-        """
-        The IKE version that is permitted for the VPN tunnel.
-        """
-        value: NotRequired[pulumi.Input['VpnConnectionIkeVersionsRequestListValueValue']]
-        """
-        The IKE version.
-        """
-elif False:
-    VpnConnectionIkeVersionsRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionIkeVersionsRequestListValueArgsDict(TypedDict):
+    """
+    The IKE version that is permitted for the VPN tunnel.
+    """
+    value: NotRequired[pulumi.Input['VpnConnectionIkeVersionsRequestListValueValue']]
+    """
+    The IKE version.
+    """
 
 @pulumi.input_type
 class VpnConnectionIkeVersionsRequestListValueArgs:
@@ -18608,17 +18054,14 @@ class VpnConnectionIkeVersionsRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict(TypedDict):
-        """
-        Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
-        """
-        value: NotRequired[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue']]
-        """
-        The value for the encryption algorithm.
-        """
-elif False:
-    VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict(TypedDict):
+    """
+    Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
+    """
+    value: NotRequired[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue']]
+    """
+    The value for the encryption algorithm.
+    """
 
 @pulumi.input_type
 class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs:
@@ -18644,17 +18087,14 @@ class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict(TypedDict):
-        """
-        Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
-        """
-        value: NotRequired[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue']]
-        """
-        The value for the integrity algorithm.
-        """
-elif False:
-    VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict(TypedDict):
+    """
+    Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
+    """
+    value: NotRequired[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue']]
+    """
+    The value for the integrity algorithm.
+    """
 
 @pulumi.input_type
 class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs:
@@ -18680,17 +18120,14 @@ class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict(TypedDict):
-        """
-        Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Diffie-Hellmann group number.
-        """
-elif False:
-    VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict(TypedDict):
+    """
+    Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Diffie-Hellmann group number.
+    """
 
 @pulumi.input_type
 class VpnConnectionPhase1dhGroupNumbersRequestListValueArgs:
@@ -18716,17 +18153,14 @@ class VpnConnectionPhase1dhGroupNumbersRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict(TypedDict):
-        """
-        Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
-        """
-        value: NotRequired[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue']]
-        """
-        The encryption algorithm.
-        """
-elif False:
-    VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict(TypedDict):
+    """
+    Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
+    """
+    value: NotRequired[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue']]
+    """
+    The encryption algorithm.
+    """
 
 @pulumi.input_type
 class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs:
@@ -18752,17 +18186,14 @@ class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict(TypedDict):
-        """
-        Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
-        """
-        value: NotRequired[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue']]
-        """
-        The integrity algorithm.
-        """
-elif False:
-    VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict(TypedDict):
+    """
+    Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
+    """
+    value: NotRequired[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue']]
+    """
+    The integrity algorithm.
+    """
 
 @pulumi.input_type
 class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs:
@@ -18788,17 +18219,14 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict(TypedDict):
-        """
-        Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Diffie-Hellmann group number.
-        """
-elif False:
-    VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict(TypedDict):
+    """
+    Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Diffie-Hellmann group number.
+    """
 
 @pulumi.input_type
 class VpnConnectionPhase2dhGroupNumbersRequestListValueArgs:
@@ -18824,17 +18252,14 @@ class VpnConnectionPhase2dhGroupNumbersRequestListValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict(TypedDict):
-        """
-        Options for logging VPN tunnel activity.
-        """
-        cloudwatch_log_options: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationArgsDict']]
-        """
-        Options for sending VPN tunnel logs to CloudWatch.
-        """
-elif False:
-    VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict(TypedDict):
+    """
+    Options for logging VPN tunnel activity.
+    """
+    cloudwatch_log_options: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationArgsDict']]
+    """
+    Options for sending VPN tunnel logs to CloudWatch.
+    """
 
 @pulumi.input_type
 class VpnConnectionVpnTunnelLogOptionsSpecificationArgs:
@@ -18860,126 +18285,123 @@ class VpnConnectionVpnTunnelLogOptionsSpecificationArgs:
         pulumi.set(self, "cloudwatch_log_options", value)
 
 
-if not MYPY:
-    class VpnConnectionVpnTunnelOptionsSpecificationArgsDict(TypedDict):
-        """
-        The tunnel options for a single VPN tunnel.
-        """
-        dpd_timeout_action: NotRequired[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction']]
-        """
-        The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
-         Valid Values: ``clear`` | ``none`` | ``restart``
-         Default: ``clear``
-        """
-        dpd_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds after which a DPD timeout occurs.
-         Constraints: A value greater than or equal to 30.
-         Default: ``30``
-        """
-        enable_tunnel_lifecycle_control: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Turn on or off tunnel endpoint lifecycle control feature.
-        """
-        ike_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionIkeVersionsRequestListValueArgsDict']]]]
-        """
-        The IKE versions that are permitted for the VPN tunnel.
-         Valid values: ``ikev1`` | ``ikev2``
-        """
-        log_options: NotRequired[pulumi.Input['VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict']]
-        """
-        Options for logging VPN tunnel activity.
-        """
-        phase1_encryption_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict']]]]
-        """
-        One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-         Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
-        """
-        phase1_integrity_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict']]]]
-        """
-        One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-         Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
-        """
-        phase1_lifetime_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The lifetime for phase 1 of the IKE negotiation, in seconds.
-         Constraints: A value between 900 and 28,800.
-         Default: ``28800``
-        """
-        phase1dh_group_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict']]]]
-        """
-        One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-         Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
-        """
-        phase2_encryption_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict']]]]
-        """
-        One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-         Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
-        """
-        phase2_integrity_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict']]]]
-        """
-        One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-         Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
-        """
-        phase2_lifetime_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The lifetime for phase 2 of the IKE negotiation, in seconds.
-         Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
-         Default: ``3600``
-        """
-        phase2dh_group_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict']]]]
-        """
-        One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-         Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
-        """
-        pre_shared_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
-         Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
-        """
-        rekey_fuzz_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
-         Constraints: A value between 0 and 100.
-         Default: ``100``
-        """
-        rekey_margin_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
-         Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
-         Default: ``270``
-        """
-        replay_window_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of packets in an IKE replay window.
-         Constraints: A value between 64 and 2048.
-         Default: ``1024``
-        """
-        startup_action: NotRequired[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationStartupAction']]
-        """
-        The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
-         Valid Values: ``add`` | ``start``
-         Default: ``add``
-        """
-        tunnel_inside_cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. 
-         Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
-          +   ``169.254.0.0/30`` 
-          +   ``169.254.1.0/30`` 
-          +   ``169.254.2.0/30`` 
-          +   ``169.254.3.0/30`` 
-          +   ``169.254.4.0/30`` 
-          +   ``169.254.5.0/30`` 
-          +   ``169.254.169.252/30``
-        """
-        tunnel_inside_ipv6_cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
-         Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
-        """
-elif False:
-    VpnConnectionVpnTunnelOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConnectionVpnTunnelOptionsSpecificationArgsDict(TypedDict):
+    """
+    The tunnel options for a single VPN tunnel.
+    """
+    dpd_timeout_action: NotRequired[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction']]
+    """
+    The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
+     Valid Values: ``clear`` | ``none`` | ``restart``
+     Default: ``clear``
+    """
+    dpd_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds after which a DPD timeout occurs.
+     Constraints: A value greater than or equal to 30.
+     Default: ``30``
+    """
+    enable_tunnel_lifecycle_control: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Turn on or off tunnel endpoint lifecycle control feature.
+    """
+    ike_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionIkeVersionsRequestListValueArgsDict']]]]
+    """
+    The IKE versions that are permitted for the VPN tunnel.
+     Valid values: ``ikev1`` | ``ikev2``
+    """
+    log_options: NotRequired[pulumi.Input['VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict']]
+    """
+    Options for logging VPN tunnel activity.
+    """
+    phase1_encryption_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict']]]]
+    """
+    One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+     Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
+    """
+    phase1_integrity_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict']]]]
+    """
+    One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+     Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
+    """
+    phase1_lifetime_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The lifetime for phase 1 of the IKE negotiation, in seconds.
+     Constraints: A value between 900 and 28,800.
+     Default: ``28800``
+    """
+    phase1dh_group_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict']]]]
+    """
+    One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+     Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
+    """
+    phase2_encryption_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict']]]]
+    """
+    One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+     Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
+    """
+    phase2_integrity_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict']]]]
+    """
+    One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+     Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
+    """
+    phase2_lifetime_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The lifetime for phase 2 of the IKE negotiation, in seconds.
+     Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
+     Default: ``3600``
+    """
+    phase2dh_group_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict']]]]
+    """
+    One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+     Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
+    """
+    pre_shared_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
+     Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
+    """
+    rekey_fuzz_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
+     Constraints: A value between 0 and 100.
+     Default: ``100``
+    """
+    rekey_margin_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
+     Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
+     Default: ``270``
+    """
+    replay_window_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of packets in an IKE replay window.
+     Constraints: A value between 64 and 2048.
+     Default: ``1024``
+    """
+    startup_action: NotRequired[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationStartupAction']]
+    """
+    The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
+     Valid Values: ``add`` | ``start``
+     Default: ``add``
+    """
+    tunnel_inside_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. 
+     Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
+      +   ``169.254.0.0/30`` 
+      +   ``169.254.1.0/30`` 
+      +   ``169.254.2.0/30`` 
+      +   ``169.254.3.0/30`` 
+      +   ``169.254.4.0/30`` 
+      +   ``169.254.5.0/30`` 
+      +   ``169.254.169.252/30``
+    """
+    tunnel_inside_ipv6_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+     Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
+    """
 
 @pulumi.input_type
 class VpnConnectionVpnTunnelOptionsSpecificationArgs:

@@ -160,24 +160,19 @@ __all__ = [
     'PrivacyBudgetTemplateBudgetParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AnalysisTemplateAnalysisParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
-        """
-        type: pulumi.Input['AnalysisTemplateAnalysisParameterType']
-        """
-        The type of parameter.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
-        """
-elif False:
-    AnalysisTemplateAnalysisParameterArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateAnalysisParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+    """
+    type: pulumi.Input['AnalysisTemplateAnalysisParameterType']
+    """
+    The type of parameter.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+    """
 
 @pulumi.input_type
 class AnalysisTemplateAnalysisParameterArgs:
@@ -232,14 +227,11 @@ class AnalysisTemplateAnalysisParameterArgs:
         pulumi.set(self, "default_value", value)
 
 
-if not MYPY:
-    class AnalysisTemplateAnalysisSchemaArgsDict(TypedDict):
-        referenced_tables: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The tables referenced in the analysis schema.
-        """
-elif False:
-    AnalysisTemplateAnalysisSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateAnalysisSchemaArgsDict(TypedDict):
+    referenced_tables: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The tables referenced in the analysis schema.
+    """
 
 @pulumi.input_type
 class AnalysisTemplateAnalysisSchemaArgs:
@@ -263,11 +255,8 @@ class AnalysisTemplateAnalysisSchemaArgs:
         pulumi.set(self, "referenced_tables", value)
 
 
-if not MYPY:
-    class AnalysisTemplateAnalysisSource0PropertiesArgsDict(TypedDict):
-        text: pulumi.Input[_builtins.str]
-elif False:
-    AnalysisTemplateAnalysisSource0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateAnalysisSource0PropertiesArgsDict(TypedDict):
+    text: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class AnalysisTemplateAnalysisSource0PropertiesArgs:
@@ -285,11 +274,8 @@ class AnalysisTemplateAnalysisSource0PropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class AnalysisTemplateAnalysisSource1PropertiesArgsDict(TypedDict):
-        artifacts: pulumi.Input['AnalysisTemplateArtifactsArgsDict']
-elif False:
-    AnalysisTemplateAnalysisSource1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateAnalysisSource1PropertiesArgsDict(TypedDict):
+    artifacts: pulumi.Input['AnalysisTemplateArtifactsArgsDict']
 
 @pulumi.input_type
 class AnalysisTemplateAnalysisSource1PropertiesArgs:
@@ -307,11 +293,8 @@ class AnalysisTemplateAnalysisSource1PropertiesArgs:
         pulumi.set(self, "artifacts", value)
 
 
-if not MYPY:
-    class AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict(TypedDict):
-        artifacts: pulumi.Input['AnalysisTemplateArtifactMetadataArgsDict']
-elif False:
-    AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict(TypedDict):
+    artifacts: pulumi.Input['AnalysisTemplateArtifactMetadataArgsDict']
 
 @pulumi.input_type
 class AnalysisTemplateAnalysisSourceMetadataPropertiesArgs:
@@ -329,12 +312,9 @@ class AnalysisTemplateAnalysisSourceMetadataPropertiesArgs:
         pulumi.set(self, "artifacts", value)
 
 
-if not MYPY:
-    class AnalysisTemplateArtifactMetadataArgsDict(TypedDict):
-        entry_point_hash: pulumi.Input['AnalysisTemplateHashArgsDict']
-        additional_artifact_hashes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgsDict']]]]
-elif False:
-    AnalysisTemplateArtifactMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateArtifactMetadataArgsDict(TypedDict):
+    entry_point_hash: pulumi.Input['AnalysisTemplateHashArgsDict']
+    additional_artifact_hashes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgsDict']]]]
 
 @pulumi.input_type
 class AnalysisTemplateArtifactMetadataArgs:
@@ -364,13 +344,10 @@ class AnalysisTemplateArtifactMetadataArgs:
         pulumi.set(self, "additional_artifact_hashes", value)
 
 
-if not MYPY:
-    class AnalysisTemplateArtifactsArgsDict(TypedDict):
-        entry_point: pulumi.Input['AnalysisTemplateArtifactArgsDict']
-        role_arn: pulumi.Input[_builtins.str]
-        additional_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgsDict']]]]
-elif False:
-    AnalysisTemplateArtifactsArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateArtifactsArgsDict(TypedDict):
+    entry_point: pulumi.Input['AnalysisTemplateArtifactArgsDict']
+    role_arn: pulumi.Input[_builtins.str]
+    additional_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgsDict']]]]
 
 @pulumi.input_type
 class AnalysisTemplateArtifactsArgs:
@@ -411,11 +388,8 @@ class AnalysisTemplateArtifactsArgs:
         pulumi.set(self, "additional_artifacts", value)
 
 
-if not MYPY:
-    class AnalysisTemplateArtifactArgsDict(TypedDict):
-        location: pulumi.Input['AnalysisTemplateS3LocationArgsDict']
-elif False:
-    AnalysisTemplateArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateArtifactArgsDict(TypedDict):
+    location: pulumi.Input['AnalysisTemplateS3LocationArgsDict']
 
 @pulumi.input_type
 class AnalysisTemplateArtifactArgs:
@@ -433,11 +407,8 @@ class AnalysisTemplateArtifactArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class AnalysisTemplateColumnClassificationDetailsArgsDict(TypedDict):
-        column_mapping: pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesArgsDict']]]
-elif False:
-    AnalysisTemplateColumnClassificationDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateColumnClassificationDetailsArgsDict(TypedDict):
+    column_mapping: pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesArgsDict']]]
 
 @pulumi.input_type
 class AnalysisTemplateColumnClassificationDetailsArgs:
@@ -455,16 +426,13 @@ class AnalysisTemplateColumnClassificationDetailsArgs:
         pulumi.set(self, "column_mapping", value)
 
 
-if not MYPY:
-    class AnalysisTemplateErrorMessageConfigurationArgsDict(TypedDict):
-        type: pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']
-        """
-        The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+class AnalysisTemplateErrorMessageConfigurationArgsDict(TypedDict):
+    type: pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']
+    """
+    The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
 
-        Because this setting may expose sensitive data, it is recommended for development and testing environments.
-        """
-elif False:
-    AnalysisTemplateErrorMessageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    Because this setting may expose sensitive data, it is recommended for development and testing environments.
+    """
 
 @pulumi.input_type
 class AnalysisTemplateErrorMessageConfigurationArgs:
@@ -492,11 +460,8 @@ class AnalysisTemplateErrorMessageConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AnalysisTemplateHashArgsDict(TypedDict):
-        sha256: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AnalysisTemplateHashArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateHashArgsDict(TypedDict):
+    sha256: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AnalysisTemplateHashArgs:
@@ -515,13 +480,10 @@ class AnalysisTemplateHashArgs:
         pulumi.set(self, "sha256", value)
 
 
-if not MYPY:
-    class AnalysisTemplateMlSyntheticDataParametersArgsDict(TypedDict):
-        column_classification: pulumi.Input['AnalysisTemplateColumnClassificationDetailsArgsDict']
-        epsilon: pulumi.Input[_builtins.float]
-        max_membership_inference_attack_score: pulumi.Input[_builtins.float]
-elif False:
-    AnalysisTemplateMlSyntheticDataParametersArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateMlSyntheticDataParametersArgsDict(TypedDict):
+    column_classification: pulumi.Input['AnalysisTemplateColumnClassificationDetailsArgsDict']
+    epsilon: pulumi.Input[_builtins.float]
+    max_membership_inference_attack_score: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class AnalysisTemplateMlSyntheticDataParametersArgs:
@@ -561,12 +523,9 @@ class AnalysisTemplateMlSyntheticDataParametersArgs:
         pulumi.set(self, "max_membership_inference_attack_score", value)
 
 
-if not MYPY:
-    class AnalysisTemplateS3LocationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        key: pulumi.Input[_builtins.str]
-elif False:
-    AnalysisTemplateS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateS3LocationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    key: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class AnalysisTemplateS3LocationArgs:
@@ -595,13 +554,10 @@ class AnalysisTemplateS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class AnalysisTemplateSyntheticDataColumnPropertiesArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        column_type: pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesColumnType']
-        is_predictive_value: pulumi.Input[_builtins.bool]
-elif False:
-    AnalysisTemplateSyntheticDataColumnPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateSyntheticDataColumnPropertiesArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    column_type: pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesColumnType']
+    is_predictive_value: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class AnalysisTemplateSyntheticDataColumnPropertiesArgs:
@@ -641,11 +597,8 @@ class AnalysisTemplateSyntheticDataColumnPropertiesArgs:
         pulumi.set(self, "is_predictive_value", value)
 
 
-if not MYPY:
-    class AnalysisTemplateSyntheticDataParametersPropertiesArgsDict(TypedDict):
-        ml_synthetic_data_parameters: pulumi.Input['AnalysisTemplateMlSyntheticDataParametersArgsDict']
-elif False:
-    AnalysisTemplateSyntheticDataParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AnalysisTemplateSyntheticDataParametersPropertiesArgsDict(TypedDict):
+    ml_synthetic_data_parameters: pulumi.Input['AnalysisTemplateMlSyntheticDataParametersArgsDict']
 
 @pulumi.input_type
 class AnalysisTemplateSyntheticDataParametersPropertiesArgs:
@@ -663,26 +616,23 @@ class AnalysisTemplateSyntheticDataParametersPropertiesArgs:
         pulumi.set(self, "ml_synthetic_data_parameters", value)
 
 
-if not MYPY:
-    class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
-        allow_cleartext: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
-        """
-        allow_duplicates: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
-        """
-        allow_joins_on_columns_with_different_names: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
-        """
-        preserve_nulls: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
-        """
-elif False:
-    CollaborationDataEncryptionMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
+    allow_cleartext: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
+    """
+    allow_duplicates: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
+    """
+    allow_joins_on_columns_with_different_names: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
+    """
+    preserve_nulls: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
+    """
 
 @pulumi.input_type
 class CollaborationDataEncryptionMetadataArgs:
@@ -751,18 +701,15 @@ class CollaborationDataEncryptionMetadataArgs:
         pulumi.set(self, "preserve_nulls", value)
 
 
-if not MYPY:
-    class CollaborationJobComputePaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
+class CollaborationJobComputePaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query and job compute costs ( `FALSE` ).
 
-        Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+    Exactly one member can be configured to pay for query and job compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
 
-        An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
-        """
-elif False:
-    CollaborationJobComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+    """
 
 @pulumi.input_type
 class CollaborationJobComputePaymentConfigArgs:
@@ -794,34 +741,31 @@ class CollaborationJobComputePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class CollaborationMemberSpecificationArgsDict(TypedDict):
-        account_id: pulumi.Input[_builtins.str]
-        """
-        The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        The member's display name.
-        """
-        member_abilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]
-        """
-        The abilities granted to the collaboration member.
+class CollaborationMemberSpecificationArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    The member's display name.
+    """
+    member_abilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]
+    """
+    The abilities granted to the collaboration member.
 
-        *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
-        """
-        ml_member_abilities: NotRequired[pulumi.Input['CollaborationMlMemberAbilitiesArgsDict']]
-        """
-        The ML abilities granted to the collaboration member.
-        """
-        payment_configuration: NotRequired[pulumi.Input['CollaborationPaymentConfigurationArgsDict']]
-        """
-        The collaboration member's payment responsibilities set by the collaboration creator.
+    *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+    """
+    ml_member_abilities: NotRequired[pulumi.Input['CollaborationMlMemberAbilitiesArgsDict']]
+    """
+    The ML abilities granted to the collaboration member.
+    """
+    payment_configuration: NotRequired[pulumi.Input['CollaborationPaymentConfigurationArgsDict']]
+    """
+    The collaboration member's payment responsibilities set by the collaboration creator.
 
-        If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
-        """
-elif False:
-    CollaborationMemberSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
+    """
 
 @pulumi.input_type
 class CollaborationMemberSpecificationArgs:
@@ -916,14 +860,11 @@ class CollaborationMemberSpecificationArgs:
         pulumi.set(self, "payment_configuration", value)
 
 
-if not MYPY:
-    class CollaborationMlMemberAbilitiesArgsDict(TypedDict):
-        custom_ml_member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationCustomMlMemberAbility']]]
-        """
-        The custom ML member abilities for a collaboration member.
-        """
-elif False:
-    CollaborationMlMemberAbilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationMlMemberAbilitiesArgsDict(TypedDict):
+    custom_ml_member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationCustomMlMemberAbility']]]
+    """
+    The custom ML member abilities for a collaboration member.
+    """
 
 @pulumi.input_type
 class CollaborationMlMemberAbilitiesArgs:
@@ -947,22 +888,19 @@ class CollaborationMlMemberAbilitiesArgs:
         pulumi.set(self, "custom_ml_member_abilities", value)
 
 
-if not MYPY:
-    class CollaborationMlPaymentConfigArgsDict(TypedDict):
-        model_inference: NotRequired[pulumi.Input['CollaborationModelInferencePaymentConfigArgsDict']]
-        """
-        The payment responsibilities accepted by the member for model inference.
-        """
-        model_training: NotRequired[pulumi.Input['CollaborationModelTrainingPaymentConfigArgsDict']]
-        """
-        The payment responsibilities accepted by the member for model training.
-        """
-        synthetic_data_generation: NotRequired[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgsDict']]
-        """
-        The payment configuration for machine learning synthetic data generation.
-        """
-elif False:
-    CollaborationMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationMlPaymentConfigArgsDict(TypedDict):
+    model_inference: NotRequired[pulumi.Input['CollaborationModelInferencePaymentConfigArgsDict']]
+    """
+    The payment responsibilities accepted by the member for model inference.
+    """
+    model_training: NotRequired[pulumi.Input['CollaborationModelTrainingPaymentConfigArgsDict']]
+    """
+    The payment responsibilities accepted by the member for model training.
+    """
+    synthetic_data_generation: NotRequired[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgsDict']]
+    """
+    The payment configuration for machine learning synthetic data generation.
+    """
 
 @pulumi.input_type
 class CollaborationMlPaymentConfigArgs:
@@ -1019,18 +957,15 @@ class CollaborationMlPaymentConfigArgs:
         pulumi.set(self, "synthetic_data_generation", value)
 
 
-if not MYPY:
-    class CollaborationModelInferencePaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+class CollaborationModelInferencePaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
 
-        Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+    Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
 
-        If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
-        """
-elif False:
-    CollaborationModelInferencePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+    """
 
 @pulumi.input_type
 class CollaborationModelInferencePaymentConfigArgs:
@@ -1062,18 +997,15 @@ class CollaborationModelInferencePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class CollaborationModelTrainingPaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+class CollaborationModelTrainingPaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
 
-        Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+    Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
 
-        If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
-        """
-elif False:
-    CollaborationModelTrainingPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+    """
 
 @pulumi.input_type
 class CollaborationModelTrainingPaymentConfigArgs:
@@ -1105,22 +1037,19 @@ class CollaborationModelTrainingPaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class CollaborationPaymentConfigurationArgsDict(TypedDict):
-        query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgsDict']
-        """
-        The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
-        """
-        job_compute: NotRequired[pulumi.Input['CollaborationJobComputePaymentConfigArgsDict']]
-        """
-        The compute configuration for the job.
-        """
-        machine_learning: NotRequired[pulumi.Input['CollaborationMlPaymentConfigArgsDict']]
-        """
-        An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
-        """
-elif False:
-    CollaborationPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationPaymentConfigurationArgsDict(TypedDict):
+    query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgsDict']
+    """
+    The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+    """
+    job_compute: NotRequired[pulumi.Input['CollaborationJobComputePaymentConfigArgsDict']]
+    """
+    The compute configuration for the job.
+    """
+    machine_learning: NotRequired[pulumi.Input['CollaborationMlPaymentConfigArgsDict']]
+    """
+    An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+    """
 
 @pulumi.input_type
 class CollaborationPaymentConfigurationArgs:
@@ -1176,18 +1105,15 @@ class CollaborationPaymentConfigurationArgs:
         pulumi.set(self, "machine_learning", value)
 
 
-if not MYPY:
-    class CollaborationQueryComputePaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+class CollaborationQueryComputePaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
 
-        Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+    Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
 
-        If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
-        """
-elif False:
-    CollaborationQueryComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+    """
 
 @pulumi.input_type
 class CollaborationQueryComputePaymentConfigArgs:
@@ -1219,14 +1145,11 @@ class CollaborationQueryComputePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class CollaborationSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates who is responsible for paying for synthetic data generation.
-        """
-elif False:
-    CollaborationSyntheticDataGenerationPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates who is responsible for paying for synthetic data generation.
+    """
 
 @pulumi.input_type
 class CollaborationSyntheticDataGenerationPaymentConfigArgs:
@@ -1250,12 +1173,9 @@ class CollaborationSyntheticDataGenerationPaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class ConfiguredTableAggregateColumnArgsDict(TypedDict):
-        column_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        function: pulumi.Input['ConfiguredTableAggregateFunctionName']
-elif False:
-    ConfiguredTableAggregateColumnArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAggregateColumnArgsDict(TypedDict):
+    column_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    function: pulumi.Input['ConfiguredTableAggregateFunctionName']
 
 @pulumi.input_type
 class ConfiguredTableAggregateColumnArgs:
@@ -1284,13 +1204,10 @@ class ConfiguredTableAggregateColumnArgs:
         pulumi.set(self, "function", value)
 
 
-if not MYPY:
-    class ConfiguredTableAggregationConstraintArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        minimum: pulumi.Input[_builtins.float]
-        type: pulumi.Input['ConfiguredTableAggregationType']
-elif False:
-    ConfiguredTableAggregationConstraintArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAggregationConstraintArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    minimum: pulumi.Input[_builtins.float]
+    type: pulumi.Input['ConfiguredTableAggregationType']
 
 @pulumi.input_type
 class ConfiguredTableAggregationConstraintArgs:
@@ -1330,18 +1247,15 @@ class ConfiguredTableAggregationConstraintArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRuleAggregationArgsDict(TypedDict):
-        aggregate_columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregateColumnArgsDict']]]
-        dimension_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        output_constraints: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregationConstraintArgsDict']]]
-        scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]]
-        additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
-        allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
-        join_required: NotRequired[pulumi.Input['ConfiguredTableJoinRequiredOption']]
-elif False:
-    ConfiguredTableAnalysisRuleAggregationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRuleAggregationArgsDict(TypedDict):
+    aggregate_columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregateColumnArgsDict']]]
+    dimension_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    output_constraints: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregationConstraintArgsDict']]]
+    scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]]
+    additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
+    allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
+    join_required: NotRequired[pulumi.Input['ConfiguredTableJoinRequiredOption']]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleAggregationArgs:
@@ -1439,15 +1353,12 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
         pulumi.set(self, "join_required", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRuleCustomArgsDict(TypedDict):
-        allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
-        allowed_analysis_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        differential_privacy: NotRequired[pulumi.Input['ConfiguredTableDifferentialPrivacyArgsDict']]
-        disallowed_output_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ConfiguredTableAnalysisRuleCustomArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRuleCustomArgsDict(TypedDict):
+    allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
+    allowed_analysis_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    differential_privacy: NotRequired[pulumi.Input['ConfiguredTableDifferentialPrivacyArgsDict']]
+    disallowed_output_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleCustomArgs:
@@ -1513,14 +1424,11 @@ class ConfiguredTableAnalysisRuleCustomArgs:
         pulumi.set(self, "disallowed_output_columns", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRuleListArgsDict(TypedDict):
-        join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        list_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
-        allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
-elif False:
-    ConfiguredTableAnalysisRuleListArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRuleListArgsDict(TypedDict):
+    join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    list_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
+    allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleListArgs:
@@ -1573,11 +1481,8 @@ class ConfiguredTableAnalysisRuleListArgs:
         pulumi.set(self, "allowed_join_operators", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
-        list: pulumi.Input['ConfiguredTableAnalysisRuleListArgsDict']
-elif False:
-    ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
+    list: pulumi.Input['ConfiguredTableAnalysisRuleListArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyV10PropertiesArgs:
@@ -1595,11 +1500,8 @@ class ConfiguredTableAnalysisRulePolicyV10PropertiesArgs:
         pulumi.set(self, "list", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict(TypedDict):
-        aggregation: pulumi.Input['ConfiguredTableAnalysisRuleAggregationArgsDict']
-elif False:
-    ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict(TypedDict):
+    aggregation: pulumi.Input['ConfiguredTableAnalysisRuleAggregationArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
@@ -1617,11 +1519,8 @@ class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
         pulumi.set(self, "aggregation", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict(TypedDict):
-        custom: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgsDict']
-elif False:
-    ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict(TypedDict):
+    custom: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
@@ -1639,14 +1538,11 @@ class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
         pulumi.set(self, "custom", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRulePolicyArgsDict(TypedDict):
-        v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict']]
-        """
-        Controls on the query specifications that can be run on a configured table.
-        """
-elif False:
-    ConfiguredTableAnalysisRulePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRulePolicyArgsDict(TypedDict):
+    v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict']]
+    """
+    Controls on the query specifications that can be run on a configured table.
+    """
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyArgs:
@@ -1670,18 +1566,15 @@ class ConfiguredTableAnalysisRulePolicyArgs:
         pulumi.set(self, "v1", value)
 
 
-if not MYPY:
-    class ConfiguredTableAnalysisRuleArgsDict(TypedDict):
-        policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgsDict']
-        """
-        A policy that describes the associated data usage limitations.
-        """
-        type: pulumi.Input['ConfiguredTableAnalysisRuleType']
-        """
-        The type of analysis rule.
-        """
-elif False:
-    ConfiguredTableAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAnalysisRuleArgsDict(TypedDict):
+    policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgsDict']
+    """
+    A policy that describes the associated data usage limitations.
+    """
+    type: pulumi.Input['ConfiguredTableAnalysisRuleType']
+    """
+    The type of analysis rule.
+    """
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleArgs:
@@ -1720,12 +1613,9 @@ class ConfiguredTableAnalysisRuleArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRuleAggregationArgsDict(TypedDict):
-        allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ConfiguredTableAssociationAnalysisRuleAggregationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRuleAggregationArgsDict(TypedDict):
+    allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleAggregationArgs:
@@ -1756,12 +1646,9 @@ class ConfiguredTableAssociationAnalysisRuleAggregationArgs:
         pulumi.set(self, "allowed_result_receivers", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRuleCustomArgsDict(TypedDict):
-        allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ConfiguredTableAssociationAnalysisRuleCustomArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRuleCustomArgsDict(TypedDict):
+    allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleCustomArgs:
@@ -1792,12 +1679,9 @@ class ConfiguredTableAssociationAnalysisRuleCustomArgs:
         pulumi.set(self, "allowed_result_receivers", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRuleListArgsDict(TypedDict):
-        allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ConfiguredTableAssociationAnalysisRuleListArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRuleListArgsDict(TypedDict):
+    allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleListArgs:
@@ -1828,11 +1712,8 @@ class ConfiguredTableAssociationAnalysisRuleListArgs:
         pulumi.set(self, "allowed_result_receivers", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
-        list: pulumi.Input['ConfiguredTableAssociationAnalysisRuleListArgsDict']
-elif False:
-    ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
+    list: pulumi.Input['ConfiguredTableAssociationAnalysisRuleListArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs:
@@ -1850,11 +1731,8 @@ class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs:
         pulumi.set(self, "list", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict(TypedDict):
-        aggregation: pulumi.Input['ConfiguredTableAssociationAnalysisRuleAggregationArgsDict']
-elif False:
-    ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict(TypedDict):
+    aggregation: pulumi.Input['ConfiguredTableAssociationAnalysisRuleAggregationArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs:
@@ -1872,11 +1750,8 @@ class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs:
         pulumi.set(self, "aggregation", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict(TypedDict):
-        custom: pulumi.Input['ConfiguredTableAssociationAnalysisRuleCustomArgsDict']
-elif False:
-    ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict(TypedDict):
+    custom: pulumi.Input['ConfiguredTableAssociationAnalysisRuleCustomArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs:
@@ -1894,14 +1769,11 @@ class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs:
         pulumi.set(self, "custom", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRulePolicyArgsDict(TypedDict):
-        v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict']]
-        """
-        The policy for the configured table association analysis rule.
-        """
-elif False:
-    ConfiguredTableAssociationAnalysisRulePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRulePolicyArgsDict(TypedDict):
+    v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict']]
+    """
+    The policy for the configured table association analysis rule.
+    """
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyArgs:
@@ -1925,18 +1797,15 @@ class ConfiguredTableAssociationAnalysisRulePolicyArgs:
         pulumi.set(self, "v1", value)
 
 
-if not MYPY:
-    class ConfiguredTableAssociationAnalysisRuleArgsDict(TypedDict):
-        policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgsDict']
-        """
-        The policy of the configured table association analysis rule.
-        """
-        type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']
-        """
-        The type of the configured table association analysis rule.
-        """
-elif False:
-    ConfiguredTableAssociationAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAssociationAnalysisRuleArgsDict(TypedDict):
+    policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgsDict']
+    """
+    The policy of the configured table association analysis rule.
+    """
+    type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']
+    """
+    The type of the configured table association analysis rule.
+    """
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleArgs:
@@ -1975,15 +1844,12 @@ class ConfiguredTableAssociationAnalysisRuleArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ConfiguredTableAthenaTableReferenceArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        table_name: pulumi.Input[_builtins.str]
-        work_group: pulumi.Input[_builtins.str]
-        output_location: NotRequired[pulumi.Input[_builtins.str]]
-        region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
-elif False:
-    ConfiguredTableAthenaTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableAthenaTableReferenceArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    table_name: pulumi.Input[_builtins.str]
+    work_group: pulumi.Input[_builtins.str]
+    output_location: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
 
 @pulumi.input_type
 class ConfiguredTableAthenaTableReferenceArgs:
@@ -2047,11 +1913,8 @@ class ConfiguredTableAthenaTableReferenceArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class ConfiguredTableDifferentialPrivacyColumnArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-elif False:
-    ConfiguredTableDifferentialPrivacyColumnArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableDifferentialPrivacyColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConfiguredTableDifferentialPrivacyColumnArgs:
@@ -2069,11 +1932,8 @@ class ConfiguredTableDifferentialPrivacyColumnArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ConfiguredTableDifferentialPrivacyArgsDict(TypedDict):
-        columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgsDict']]]
-elif False:
-    ConfiguredTableDifferentialPrivacyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableDifferentialPrivacyArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgsDict']]]
 
 @pulumi.input_type
 class ConfiguredTableDifferentialPrivacyArgs:
@@ -2091,13 +1951,10 @@ class ConfiguredTableDifferentialPrivacyArgs:
         pulumi.set(self, "columns", value)
 
 
-if not MYPY:
-    class ConfiguredTableGlueTableReferenceArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        table_name: pulumi.Input[_builtins.str]
-        region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
-elif False:
-    ConfiguredTableGlueTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableGlueTableReferenceArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    table_name: pulumi.Input[_builtins.str]
+    region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
 
 @pulumi.input_type
 class ConfiguredTableGlueTableReferenceArgs:
@@ -2138,16 +1995,13 @@ class ConfiguredTableGlueTableReferenceArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class ConfiguredTableSnowflakeTableReferenceArgsDict(TypedDict):
-        account_identifier: pulumi.Input[_builtins.str]
-        database_name: pulumi.Input[_builtins.str]
-        schema_name: pulumi.Input[_builtins.str]
-        secret_arn: pulumi.Input[_builtins.str]
-        table_name: pulumi.Input[_builtins.str]
-        table_schema: pulumi.Input['ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict']
-elif False:
-    ConfiguredTableSnowflakeTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableSnowflakeTableReferenceArgsDict(TypedDict):
+    account_identifier: pulumi.Input[_builtins.str]
+    database_name: pulumi.Input[_builtins.str]
+    schema_name: pulumi.Input[_builtins.str]
+    secret_arn: pulumi.Input[_builtins.str]
+    table_name: pulumi.Input[_builtins.str]
+    table_schema: pulumi.Input['ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableSnowflakeTableReferenceArgs:
@@ -2220,11 +2074,8 @@ class ConfiguredTableSnowflakeTableReferenceArgs:
         pulumi.set(self, "table_schema", value)
 
 
-if not MYPY:
-    class ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict(TypedDict):
-        v1: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSnowflakeTableSchemaV1ArgsDict']]]
-elif False:
-    ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict(TypedDict):
+    v1: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSnowflakeTableSchemaV1ArgsDict']]]
 
 @pulumi.input_type
 class ConfiguredTableSnowflakeTableSchemaPropertiesArgs:
@@ -2242,12 +2093,9 @@ class ConfiguredTableSnowflakeTableSchemaPropertiesArgs:
         pulumi.set(self, "v1", value)
 
 
-if not MYPY:
-    class ConfiguredTableSnowflakeTableSchemaV1ArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        column_type: pulumi.Input[_builtins.str]
-elif False:
-    ConfiguredTableSnowflakeTableSchemaV1ArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableSnowflakeTableSchemaV1ArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    column_type: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConfiguredTableSnowflakeTableSchemaV1Args:
@@ -2276,11 +2124,8 @@ class ConfiguredTableSnowflakeTableSchemaV1Args:
         pulumi.set(self, "column_type", value)
 
 
-if not MYPY:
-    class ConfiguredTableTableReference0PropertiesArgsDict(TypedDict):
-        glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgsDict']
-elif False:
-    ConfiguredTableTableReference0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableTableReference0PropertiesArgsDict(TypedDict):
+    glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableTableReference0PropertiesArgs:
@@ -2298,11 +2143,8 @@ class ConfiguredTableTableReference0PropertiesArgs:
         pulumi.set(self, "glue", value)
 
 
-if not MYPY:
-    class ConfiguredTableTableReference1PropertiesArgsDict(TypedDict):
-        snowflake: pulumi.Input['ConfiguredTableSnowflakeTableReferenceArgsDict']
-elif False:
-    ConfiguredTableTableReference1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableTableReference1PropertiesArgsDict(TypedDict):
+    snowflake: pulumi.Input['ConfiguredTableSnowflakeTableReferenceArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableTableReference1PropertiesArgs:
@@ -2320,11 +2162,8 @@ class ConfiguredTableTableReference1PropertiesArgs:
         pulumi.set(self, "snowflake", value)
 
 
-if not MYPY:
-    class ConfiguredTableTableReference2PropertiesArgsDict(TypedDict):
-        athena: pulumi.Input['ConfiguredTableAthenaTableReferenceArgsDict']
-elif False:
-    ConfiguredTableTableReference2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableTableReference2PropertiesArgsDict(TypedDict):
+    athena: pulumi.Input['ConfiguredTableAthenaTableReferenceArgsDict']
 
 @pulumi.input_type
 class ConfiguredTableTableReference2PropertiesArgs:
@@ -2342,20 +2181,17 @@ class ConfiguredTableTableReference2PropertiesArgs:
         pulumi.set(self, "athena", value)
 
 
-if not MYPY:
-    class IdMappingTableInputReferenceConfigArgsDict(TypedDict):
-        input_reference_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
-        """
-        manage_resource_policies: pulumi.Input[_builtins.bool]
-        """
-        When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+class IdMappingTableInputReferenceConfigArgsDict(TypedDict):
+    input_reference_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+    """
+    manage_resource_policies: pulumi.Input[_builtins.bool]
+    """
+    When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
 
-        When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
-        """
-elif False:
-    IdMappingTableInputReferenceConfigArgsDict: TypeAlias = Mapping[str, Any]
+    When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+    """
 
 @pulumi.input_type
 class IdMappingTableInputReferenceConfigArgs:
@@ -2398,16 +2234,13 @@ class IdMappingTableInputReferenceConfigArgs:
         pulumi.set(self, "manage_resource_policies", value)
 
 
-if not MYPY:
-    class IdNamespaceAssociationIdMappingConfigArgsDict(TypedDict):
-        allow_use_as_dimension_column: pulumi.Input[_builtins.bool]
-        """
-        An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+class IdNamespaceAssociationIdMappingConfigArgsDict(TypedDict):
+    allow_use_as_dimension_column: pulumi.Input[_builtins.bool]
+    """
+    An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
 
-        Default is `FALSE` .
-        """
-elif False:
-    IdNamespaceAssociationIdMappingConfigArgsDict: TypeAlias = Mapping[str, Any]
+    Default is `FALSE` .
+    """
 
 @pulumi.input_type
 class IdNamespaceAssociationIdMappingConfigArgs:
@@ -2435,20 +2268,17 @@ class IdNamespaceAssociationIdMappingConfigArgs:
         pulumi.set(self, "allow_use_as_dimension_column", value)
 
 
-if not MYPY:
-    class IdNamespaceAssociationInputReferenceConfigArgsDict(TypedDict):
-        input_reference_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
-        """
-        manage_resource_policies: pulumi.Input[_builtins.bool]
-        """
-        When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+class IdNamespaceAssociationInputReferenceConfigArgsDict(TypedDict):
+    input_reference_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+    """
+    manage_resource_policies: pulumi.Input[_builtins.bool]
+    """
+    When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
 
-        When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
-        """
-elif False:
-    IdNamespaceAssociationInputReferenceConfigArgsDict: TypeAlias = Mapping[str, Any]
+    When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+    """
 
 @pulumi.input_type
 class IdNamespaceAssociationInputReferenceConfigArgs:
@@ -2491,21 +2321,18 @@ class IdNamespaceAssociationInputReferenceConfigArgs:
         pulumi.set(self, "manage_resource_policies", value)
 
 
-if not MYPY:
-    class MembershipJobComputePaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
+class MembershipJobComputePaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
 
-        There is only one member who pays for queries and jobs.
+    There is only one member who pays for queries and jobs.
 
-        An error message is returned for the following reasons:
+    An error message is returned for the following reasons:
 
-        - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
-        - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
-        """
-elif False:
-    MembershipJobComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - If you set the value to `FALSE` but you are responsible to pay for query and job compute costs.
+    - If you set the value to `TRUE` but you are not responsible to pay for query and job compute costs.
+    """
 
 @pulumi.input_type
 class MembershipJobComputePaymentConfigArgs:
@@ -2543,22 +2370,19 @@ class MembershipJobComputePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class MembershipMlPaymentConfigArgsDict(TypedDict):
-        model_inference: NotRequired[pulumi.Input['MembershipModelInferencePaymentConfigArgsDict']]
-        """
-        The payment responsibilities accepted by the member for model inference.
-        """
-        model_training: NotRequired[pulumi.Input['MembershipModelTrainingPaymentConfigArgsDict']]
-        """
-        The payment responsibilities accepted by the member for model training.
-        """
-        synthetic_data_generation: NotRequired[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgsDict']]
-        """
-        The payment configuration for synthetic data generation for this machine learning membership.
-        """
-elif False:
-    MembershipMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipMlPaymentConfigArgsDict(TypedDict):
+    model_inference: NotRequired[pulumi.Input['MembershipModelInferencePaymentConfigArgsDict']]
+    """
+    The payment responsibilities accepted by the member for model inference.
+    """
+    model_training: NotRequired[pulumi.Input['MembershipModelTrainingPaymentConfigArgsDict']]
+    """
+    The payment responsibilities accepted by the member for model training.
+    """
+    synthetic_data_generation: NotRequired[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgsDict']]
+    """
+    The payment configuration for synthetic data generation for this machine learning membership.
+    """
 
 @pulumi.input_type
 class MembershipMlPaymentConfigArgs:
@@ -2615,21 +2439,18 @@ class MembershipMlPaymentConfigArgs:
         pulumi.set(self, "synthetic_data_generation", value)
 
 
-if not MYPY:
-    class MembershipModelInferencePaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+class MembershipModelInferencePaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
 
-        If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+    If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
 
-        An error message is returned for the following reasons:
+    An error message is returned for the following reasons:
 
-        - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
-        - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
-        """
-elif False:
-    MembershipModelInferencePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+    - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
+    """
 
 @pulumi.input_type
 class MembershipModelInferencePaymentConfigArgs:
@@ -2667,21 +2488,18 @@ class MembershipModelInferencePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class MembershipModelTrainingPaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+class MembershipModelTrainingPaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
 
-        If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+    If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
 
-        An error message is returned for the following reasons:
+    An error message is returned for the following reasons:
 
-        - If you set the value to `FALSE` but you are responsible to pay for model training costs.
-        - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
-        """
-elif False:
-    MembershipModelTrainingPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+    - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
+    """
 
 @pulumi.input_type
 class MembershipModelTrainingPaymentConfigArgs:
@@ -2719,22 +2537,19 @@ class MembershipModelTrainingPaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class MembershipPaymentConfigurationArgsDict(TypedDict):
-        query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgsDict']
-        """
-        The payment responsibilities accepted by the collaboration member for query compute costs.
-        """
-        job_compute: NotRequired[pulumi.Input['MembershipJobComputePaymentConfigArgsDict']]
-        """
-        The payment responsibilities accepted by the collaboration member for job compute costs.
-        """
-        machine_learning: NotRequired[pulumi.Input['MembershipMlPaymentConfigArgsDict']]
-        """
-        The payment responsibilities accepted by the collaboration member for machine learning costs.
-        """
-elif False:
-    MembershipPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipPaymentConfigurationArgsDict(TypedDict):
+    query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgsDict']
+    """
+    The payment responsibilities accepted by the collaboration member for query compute costs.
+    """
+    job_compute: NotRequired[pulumi.Input['MembershipJobComputePaymentConfigArgsDict']]
+    """
+    The payment responsibilities accepted by the collaboration member for job compute costs.
+    """
+    machine_learning: NotRequired[pulumi.Input['MembershipMlPaymentConfigArgsDict']]
+    """
+    The payment responsibilities accepted by the collaboration member for machine learning costs.
+    """
 
 @pulumi.input_type
 class MembershipPaymentConfigurationArgs:
@@ -2790,14 +2605,11 @@ class MembershipPaymentConfigurationArgs:
         pulumi.set(self, "machine_learning", value)
 
 
-if not MYPY:
-    class MembershipProtectedJobOutputConfigurationArgsDict(TypedDict):
-        s3: pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgsDict']
-        """
-        Contains the configuration to write the job results to S3.
-        """
-elif False:
-    MembershipProtectedJobOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipProtectedJobOutputConfigurationArgsDict(TypedDict):
+    s3: pulumi.Input['MembershipProtectedJobS3OutputConfigurationInputArgsDict']
+    """
+    Contains the configuration to write the job results to S3.
+    """
 
 @pulumi.input_type
 class MembershipProtectedJobOutputConfigurationArgs:
@@ -2821,18 +2633,15 @@ class MembershipProtectedJobOutputConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class MembershipProtectedJobResultConfigurationArgsDict(TypedDict):
-        output_configuration: pulumi.Input['MembershipProtectedJobOutputConfigurationArgsDict']
-        """
-        The output configuration for a protected job result.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
-        """
-elif False:
-    MembershipProtectedJobResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipProtectedJobResultConfigurationArgsDict(TypedDict):
+    output_configuration: pulumi.Input['MembershipProtectedJobOutputConfigurationArgsDict']
+    """
+    The output configuration for a protected job result.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected job results to the result location, given by the member who can receive results.
+    """
 
 @pulumi.input_type
 class MembershipProtectedJobResultConfigurationArgs:
@@ -2871,18 +2680,15 @@ class MembershipProtectedJobResultConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class MembershipProtectedJobS3OutputConfigurationInputArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket for job output.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 prefix to unload the protected job results.
-        """
-elif False:
-    MembershipProtectedJobS3OutputConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipProtectedJobS3OutputConfigurationInputArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket for job output.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 prefix to unload the protected job results.
+    """
 
 @pulumi.input_type
 class MembershipProtectedJobS3OutputConfigurationInputArgs:
@@ -2922,14 +2728,11 @@ class MembershipProtectedJobS3OutputConfigurationInputArgs:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class MembershipProtectedQueryOutputConfigurationArgsDict(TypedDict):
-        s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgsDict']
-        """
-        Required configuration for a protected query with an `s3` output type.
-        """
-elif False:
-    MembershipProtectedQueryOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipProtectedQueryOutputConfigurationArgsDict(TypedDict):
+    s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgsDict']
+    """
+    Required configuration for a protected query with an `s3` output type.
+    """
 
 @pulumi.input_type
 class MembershipProtectedQueryOutputConfigurationArgs:
@@ -2953,18 +2756,15 @@ class MembershipProtectedQueryOutputConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class MembershipProtectedQueryResultConfigurationArgsDict(TypedDict):
-        output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgsDict']
-        """
-        Configuration for protected query results.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
-        """
-elif False:
-    MembershipProtectedQueryResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipProtectedQueryResultConfigurationArgsDict(TypedDict):
+    output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgsDict']
+    """
+    Configuration for protected query results.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+    """
 
 @pulumi.input_type
 class MembershipProtectedQueryResultConfigurationArgs:
@@ -3004,26 +2804,23 @@ class MembershipProtectedQueryResultConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class MembershipProtectedQueryS3OutputConfigurationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket to unload the protected query results.
-        """
-        result_format: pulumi.Input['MembershipResultFormat']
-        """
-        Intended file format of the result.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 prefix to unload the protected query results.
-        """
-        single_file_output: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
-        """
-elif False:
-    MembershipProtectedQueryS3OutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipProtectedQueryS3OutputConfigurationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket to unload the protected query results.
+    """
+    result_format: pulumi.Input['MembershipResultFormat']
+    """
+    Intended file format of the result.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 prefix to unload the protected query results.
+    """
+    single_file_output: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+    """
 
 @pulumi.input_type
 class MembershipProtectedQueryS3OutputConfigurationArgs:
@@ -3094,21 +2891,18 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
         pulumi.set(self, "single_file_output", value)
 
 
-if not MYPY:
-    class MembershipQueryComputePaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+class MembershipQueryComputePaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
 
-        If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+    If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
 
-        An error message is returned for the following reasons:
+    An error message is returned for the following reasons:
 
-        - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
-        - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
-        """
-elif False:
-    MembershipQueryComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+    - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
+    """
 
 @pulumi.input_type
 class MembershipQueryComputePaymentConfigArgs:
@@ -3146,14 +2940,11 @@ class MembershipQueryComputePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class MembershipSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates if this membership is responsible for paying for synthetic data generation.
-        """
-elif False:
-    MembershipSyntheticDataGenerationPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates if this membership is responsible for paying for synthetic data generation.
+    """
 
 @pulumi.input_type
 class MembershipSyntheticDataGenerationPaymentConfigArgs:
@@ -3177,23 +2968,20 @@ class MembershipSyntheticDataGenerationPaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
-if not MYPY:
-    class ParametersPropertiesArgsDict(TypedDict):
-        """
-        Specifies the epsilon and noise parameters for the privacy budget template.
-        """
-        budget_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgsDict']]]]
-        epsilon: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The epsilon value that you want to use.
-        """
-        resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-        users_noise_per_query: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
-        """
-elif False:
-    ParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ParametersPropertiesArgsDict(TypedDict):
+    """
+    Specifies the epsilon and noise parameters for the privacy budget template.
+    """
+    budget_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgsDict']]]]
+    epsilon: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The epsilon value that you want to use.
+    """
+    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    users_noise_per_query: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
+    """
 
 @pulumi.input_type
 class ParametersPropertiesArgs:
@@ -3259,22 +3047,19 @@ class ParametersPropertiesArgs:
         pulumi.set(self, "users_noise_per_query", value)
 
 
-if not MYPY:
-    class PrivacyBudgetTemplateBudgetParameterArgsDict(TypedDict):
-        budget: pulumi.Input[_builtins.int]
-        """
-        The budget allocation amount for this specific parameter.
-        """
-        type: pulumi.Input['PrivacyBudgetTemplateBudgetParameterType']
-        """
-        The type of budget parameter being configured.
-        """
-        auto_refresh: NotRequired[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]
-        """
-        Whether this individual budget parameter automatically refreshes when the budget period resets.
-        """
-elif False:
-    PrivacyBudgetTemplateBudgetParameterArgsDict: TypeAlias = Mapping[str, Any]
+class PrivacyBudgetTemplateBudgetParameterArgsDict(TypedDict):
+    budget: pulumi.Input[_builtins.int]
+    """
+    The budget allocation amount for this specific parameter.
+    """
+    type: pulumi.Input['PrivacyBudgetTemplateBudgetParameterType']
+    """
+    The type of budget parameter being configured.
+    """
+    auto_refresh: NotRequired[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]
+    """
+    Whether this individual budget parameter automatically refreshes when the budget period resets.
+    """
 
 @pulumi.input_type
 class PrivacyBudgetTemplateBudgetParameterArgs:

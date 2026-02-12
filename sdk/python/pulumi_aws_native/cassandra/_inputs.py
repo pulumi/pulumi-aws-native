@@ -48,27 +48,22 @@ __all__ = [
     'TypeFieldArgsDict',
 ]
 
-MYPY = False
+class KeyspaceReplicationSpecificationArgsDict(TypedDict):
+    region_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]
+    """
+    Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 
-if not MYPY:
-    class KeyspaceReplicationSpecificationArgsDict(TypedDict):
-        region_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]
-        """
-        Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
+    To specify a Region [that's disabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable) , you must first enable the Region. For more information, see [Multi-Region replication in AWS Regions disabled by default](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication_how-it-works.html#howitworks_mrr_opt_in) in the *Amazon Keyspaces Developer Guide* .
+    """
+    replication_strategy: NotRequired[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]
+    """
+    The options are:
 
-        To specify a Region [that's disabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable) , you must first enable the Region. For more information, see [Multi-Region replication in AWS Regions disabled by default](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication_how-it-works.html#howitworks_mrr_opt_in) in the *Amazon Keyspaces Developer Guide* .
-        """
-        replication_strategy: NotRequired[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]
-        """
-        The options are:
+    - `SINGLE_REGION` (optional)
+    - `MULTI_REGION`
 
-        - `SINGLE_REGION` (optional)
-        - `MULTI_REGION`
-
-        If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
-        """
-elif False:
-    KeyspaceReplicationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
+    """
 
 @pulumi.input_type
 class KeyspaceReplicationSpecificationArgs:
@@ -123,29 +118,26 @@ class KeyspaceReplicationSpecificationArgs:
         pulumi.set(self, "replication_strategy", value)
 
 
-if not MYPY:
-    class TableAutoScalingSettingArgsDict(TypedDict):
-        """
-        Represents configuration for auto scaling.
-        """
-        auto_scaling_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This optional parameter enables auto scaling for the table if set to `false` .
-        """
-        maximum_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-        """
-        minimum_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-        """
-        scaling_policy: NotRequired[pulumi.Input['TableScalingPolicyArgsDict']]
-        """
-        Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
-        """
-elif False:
-    TableAutoScalingSettingArgsDict: TypeAlias = Mapping[str, Any]
+class TableAutoScalingSettingArgsDict(TypedDict):
+    """
+    Represents configuration for auto scaling.
+    """
+    auto_scaling_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This optional parameter enables auto scaling for the table if set to `false` .
+    """
+    maximum_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+    """
+    minimum_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+    """
+    scaling_policy: NotRequired[pulumi.Input['TableScalingPolicyArgsDict']]
+    """
+    Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
+    """
 
 @pulumi.input_type
 class TableAutoScalingSettingArgs:
@@ -219,21 +211,18 @@ class TableAutoScalingSettingArgs:
         pulumi.set(self, "scaling_policy", value)
 
 
-if not MYPY:
-    class TableAutoScalingSpecificationArgsDict(TypedDict):
-        """
-        Represents the read and write settings used for AutoScaling.
-        """
-        read_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
-        """
-        The auto scaling settings for the table's read capacity.
-        """
-        write_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
-        """
-        The auto scaling settings for the table's write capacity.
-        """
-elif False:
-    TableAutoScalingSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class TableAutoScalingSpecificationArgsDict(TypedDict):
+    """
+    Represents the read and write settings used for AutoScaling.
+    """
+    read_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
+    """
+    The auto scaling settings for the table's read capacity.
+    """
+    write_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
+    """
+    The auto scaling settings for the table's write capacity.
+    """
 
 @pulumi.input_type
 class TableAutoScalingSpecificationArgs:
@@ -275,25 +264,22 @@ class TableAutoScalingSpecificationArgs:
         pulumi.set(self, "write_capacity_auto_scaling", value)
 
 
-if not MYPY:
-    class TableBillingModeArgsDict(TypedDict):
-        mode: pulumi.Input['TableMode']
-        """
-        The billing mode for the table:
+class TableBillingModeArgsDict(TypedDict):
+    mode: pulumi.Input['TableMode']
+    """
+    The billing mode for the table:
 
-        - On-demand mode - `ON_DEMAND`
-        - Provisioned mode - `PROVISIONED`
+    - On-demand mode - `ON_DEMAND`
+    - Provisioned mode - `PROVISIONED`
 
-        > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
+    > If you choose `PROVISIONED` mode, then you also need to specify provisioned throughput (read and write capacity) for the table.
 
-        Valid values: `ON_DEMAND` | `PROVISIONED`
-        """
-        provisioned_throughput: NotRequired[pulumi.Input['TableProvisionedThroughputArgsDict']]
-        """
-        The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
-        """
-elif False:
-    TableBillingModeArgsDict: TypeAlias = Mapping[str, Any]
+    Valid values: `ON_DEMAND` | `PROVISIONED`
+    """
+    provisioned_throughput: NotRequired[pulumi.Input['TableProvisionedThroughputArgsDict']]
+    """
+    The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
+    """
 
 @pulumi.input_type
 class TableBillingModeArgs:
@@ -347,32 +333,29 @@ class TableBillingModeArgs:
         pulumi.set(self, "provisioned_throughput", value)
 
 
-if not MYPY:
-    class TableCdcSpecificationArgsDict(TypedDict):
-        """
-        Represents the CDC configuration for the table
-        """
-        status: pulumi.Input['TableCdcStatus']
-        """
-        The status of the CDC stream. You can enable or disable a stream for a table.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableTagArgsDict']]]]
-        """
-        An array of key-value pairs to apply to the CDC stream resource
-        """
-        view_type: NotRequired[pulumi.Input['TableCdcViewType']]
-        """
-        The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+class TableCdcSpecificationArgsDict(TypedDict):
+    """
+    Represents the CDC configuration for the table
+    """
+    status: pulumi.Input['TableCdcStatus']
+    """
+    The status of the CDC stream. You can enable or disable a stream for a table.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableTagArgsDict']]]]
+    """
+    An array of key-value pairs to apply to the CDC stream resource
+    """
+    view_type: NotRequired[pulumi.Input['TableCdcViewType']]
+    """
+    The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
 
-        The options are:
+    The options are:
 
-        - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
-        - `NEW_IMAGE` - the version of the row after the change.
-        - `OLD_IMAGE` - the version of the row before the change.
-        - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
-        """
-elif False:
-    TableCdcSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+    - `NEW_IMAGE` - the version of the row after the change.
+    - `OLD_IMAGE` - the version of the row before the change.
+    - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+    """
 
 @pulumi.input_type
 class TableCdcSpecificationArgs:
@@ -443,21 +426,18 @@ class TableCdcSpecificationArgs:
         pulumi.set(self, "view_type", value)
 
 
-if not MYPY:
-    class TableClusteringKeyColumnArgsDict(TypedDict):
-        column: pulumi.Input['TableColumnArgsDict']
-        """
-        The name and data type of this clustering key column.
-        """
-        order_by: NotRequired[pulumi.Input['TableClusteringKeyColumnOrderBy']]
-        """
-        The order in which this column's data is stored:
+class TableClusteringKeyColumnArgsDict(TypedDict):
+    column: pulumi.Input['TableColumnArgsDict']
+    """
+    The name and data type of this clustering key column.
+    """
+    order_by: NotRequired[pulumi.Input['TableClusteringKeyColumnOrderBy']]
+    """
+    The order in which this column's data is stored:
 
-        - `ASC` (default) - The column's data is stored in ascending order.
-        - `DESC` - The column's data is stored in descending order.
-        """
-elif False:
-    TableClusteringKeyColumnArgsDict: TypeAlias = Mapping[str, Any]
+    - `ASC` (default) - The column's data is stored in ascending order.
+    - `DESC` - The column's data is stored in descending order.
+    """
 
 @pulumi.input_type
 class TableClusteringKeyColumnArgs:
@@ -503,18 +483,15 @@ class TableClusteringKeyColumnArgs:
         pulumi.set(self, "order_by", value)
 
 
-if not MYPY:
-    class TableColumnArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
-        """
-        column_type: pulumi.Input[_builtins.str]
-        """
-        The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
-        """
-elif False:
-    TableColumnArgsDict: TypeAlias = Mapping[str, Any]
+class TableColumnArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
+    """
+    column_type: pulumi.Input[_builtins.str]
+    """
+    The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
+    """
 
 @pulumi.input_type
 class TableColumnArgs:
@@ -553,28 +530,25 @@ class TableColumnArgs:
         pulumi.set(self, "column_type", value)
 
 
-if not MYPY:
-    class TableEncryptionSpecificationArgsDict(TypedDict):
-        """
-        Represents the settings used to enable server-side encryption
-        """
-        encryption_type: pulumi.Input['TableEncryptionType']
-        """
-        The encryption at rest options for the table.
+class TableEncryptionSpecificationArgsDict(TypedDict):
+    """
+    Represents the settings used to enable server-side encryption
+    """
+    encryption_type: pulumi.Input['TableEncryptionType']
+    """
+    The encryption at rest options for the table.
 
-        - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
-        - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+    - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+    - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
 
-        > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+    > If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
 
-        Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
-        """
-        kms_key_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Requires a `kms_key_identifier` in the format of a key ARN.
-        """
-elif False:
-    TableEncryptionSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
+    """
+    kms_key_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Requires a `kms_key_identifier` in the format of a key ARN.
+    """
 
 @pulumi.input_type
 class TableEncryptionSpecificationArgs:
@@ -629,21 +603,18 @@ class TableEncryptionSpecificationArgs:
         pulumi.set(self, "kms_key_identifier", value)
 
 
-if not MYPY:
-    class TableProvisionedThroughputArgsDict(TypedDict):
-        """
-        Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
-        """
-        read_capacity_units: pulumi.Input[_builtins.int]
-        """
-        The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
-        """
-        write_capacity_units: pulumi.Input[_builtins.int]
-        """
-        The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
-        """
-elif False:
-    TableProvisionedThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class TableProvisionedThroughputArgsDict(TypedDict):
+    """
+    Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
+    """
+    read_capacity_units: pulumi.Input[_builtins.int]
+    """
+    The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
+    """
+    write_capacity_units: pulumi.Input[_builtins.int]
+    """
+    The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
+    """
 
 @pulumi.input_type
 class TableProvisionedThroughputArgs:
@@ -683,25 +654,22 @@ class TableProvisionedThroughputArgs:
         pulumi.set(self, "write_capacity_units", value)
 
 
-if not MYPY:
-    class TableReplicaSpecificationArgsDict(TypedDict):
-        """
-        Represents replica specifications.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        The AWS Region.
-        """
-        read_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
-        """
-        The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
-        """
-        read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The provisioned read capacity units for the multi-Region table in the specified AWS Region.
-        """
-elif False:
-    TableReplicaSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class TableReplicaSpecificationArgsDict(TypedDict):
+    """
+    Represents replica specifications.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region.
+    """
+    read_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
+    """
+    The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
+    """
+    read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The provisioned read capacity units for the multi-Region table in the specified AWS Region.
+    """
 
 @pulumi.input_type
 class TableReplicaSpecificationArgs:
@@ -758,17 +726,14 @@ class TableReplicaSpecificationArgs:
         pulumi.set(self, "read_capacity_units", value)
 
 
-if not MYPY:
-    class TableScalingPolicyArgsDict(TypedDict):
-        """
-        Represents scaling policy.
-        """
-        target_tracking_scaling_policy_configuration: NotRequired[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgsDict']]
-        """
-        The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
-        """
-elif False:
-    TableScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class TableScalingPolicyArgsDict(TypedDict):
+    """
+    Represents scaling policy.
+    """
+    target_tracking_scaling_policy_configuration: NotRequired[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgsDict']]
+    """
+    The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
+    """
 
 @pulumi.input_type
 class TableScalingPolicyArgs:
@@ -794,21 +759,18 @@ class TableScalingPolicyArgs:
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
-if not MYPY:
-    class TableTagArgsDict(TypedDict):
-        """
-        A key-value pair to apply to the resource
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the tag. Tag values are case-sensitive and can be null.
-        """
-elif False:
-    TableTagArgsDict: TypeAlias = Mapping[str, Any]
+class TableTagArgsDict(TypedDict):
+    """
+    A key-value pair to apply to the resource
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the tag. Tag values are case-sensitive and can be null.
+    """
 
 @pulumi.input_type
 class TableTagArgs:
@@ -848,37 +810,34 @@ class TableTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TableTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
-        """
-        Represents configuration for target tracking scaling policy.
-        """
-        target_value: pulumi.Input[_builtins.int]
-        """
-        Specifies the target value for the target tracking auto scaling policy.
+class TableTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
+    """
+    Represents configuration for target tracking scaling policy.
+    """
+    target_value: pulumi.Input[_builtins.int]
+    """
+    Specifies the target value for the target tracking auto scaling policy.
 
-        Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
-        """
-        disable_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if `scale-in` is enabled.
+    Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
+    """
+    disable_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if `scale-in` is enabled.
 
-        When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
-        """
-        scale_in_cooldown: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies a `scale-in` cool down period.
+    When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
+    """
+    scale_in_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies a `scale-in` cool down period.
 
-        A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
-        """
-        scale_out_cooldown: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies a scale out cool down period.
+    A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+    """
+    scale_out_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies a scale out cool down period.
 
-        A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
-        """
-elif False:
-    TableTargetTrackingScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
+    """
 
 @pulumi.input_type
 class TableTargetTrackingScalingPolicyConfigurationArgs:
@@ -967,15 +926,12 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
         pulumi.set(self, "scale_out_cooldown", value)
 
 
-if not MYPY:
-    class TableWarmThroughputArgsDict(TypedDict):
-        """
-        Warm throughput configuration for the table
-        """
-        read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    TableWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class TableWarmThroughputArgsDict(TypedDict):
+    """
+    Warm throughput configuration for the table
+    """
+    read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class TableWarmThroughputArgs:
@@ -1009,18 +965,15 @@ class TableWarmThroughputArgs:
         pulumi.set(self, "write_units_per_second", value)
 
 
-if not MYPY:
-    class TypeFieldArgsDict(TypedDict):
-        field_name: pulumi.Input[_builtins.str]
-        """
-        The name of the field.
-        """
-        field_type: pulumi.Input[_builtins.str]
-        """
-        The data type of the field. This can be any Cassandra data type or another user-defined type.
-        """
-elif False:
-    TypeFieldArgsDict: TypeAlias = Mapping[str, Any]
+class TypeFieldArgsDict(TypedDict):
+    field_name: pulumi.Input[_builtins.str]
+    """
+    The name of the field.
+    """
+    field_type: pulumi.Input[_builtins.str]
+    """
+    The data type of the field. This can be any Cassandra data type or another user-defined type.
+    """
 
 @pulumi.input_type
 class TypeFieldArgs:

@@ -19,18 +19,13 @@ __all__ = [
     'ExecutionPlanCapacityUnitsConfigurationArgsDict',
 ]
 
-MYPY = False
+class ExecutionPlanCapacityUnitsConfigurationArgsDict(TypedDict):
+    rescore_capacity_units: pulumi.Input[_builtins.int]
+    """
+    The amount of extra capacity for your rescore execution plan.
 
-if not MYPY:
-    class ExecutionPlanCapacityUnitsConfigurationArgsDict(TypedDict):
-        rescore_capacity_units: pulumi.Input[_builtins.int]
-        """
-        The amount of extra capacity for your rescore execution plan.
-
-        A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
-        """
-elif False:
-    ExecutionPlanCapacityUnitsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
+    """
 
 @pulumi.input_type
 class ExecutionPlanCapacityUnitsConfigurationArgs:
