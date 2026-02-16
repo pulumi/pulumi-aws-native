@@ -8,6 +8,6 @@
     "@pulumi/pulumi": "3.220.0"
   },
   "peerDependencies": {
-    "@pulumi/aws-native": "1.53.0"
+    "@pulumi/aws-native": "1.54.0"
   }
 }
