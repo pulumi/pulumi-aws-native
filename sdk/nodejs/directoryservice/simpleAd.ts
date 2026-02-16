@@ -77,6 +77,7 @@ export class SimpleAd extends pulumi.CustomResource {
      * The size of the directory.
      */
     declare public readonly size: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * VPC settings of the Simple AD directory server in AWS.
      */
@@ -106,6 +107,7 @@ export class SimpleAd extends pulumi.CustomResource {
             resourceInputs["password"] = args?.password;
             resourceInputs["shortName"] = args?.shortName;
             resourceInputs["size"] = args?.size;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcSettings"] = args?.vpcSettings;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["directoryId"] = undefined /*out*/;
@@ -121,6 +123,7 @@ export class SimpleAd extends pulumi.CustomResource {
             resourceInputs["password"] = undefined /*out*/;
             resourceInputs["shortName"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,6 +165,7 @@ export interface SimpleAdArgs {
      * The size of the directory.
      */
     size: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * VPC settings of the Simple AD directory server in AWS.
      */

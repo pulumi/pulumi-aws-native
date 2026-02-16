@@ -1547,7 +1547,7 @@ func (o ContainerFleetLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration options for GameLift-managed capacity behavior.
+// Configuration options for Amazon GameLift Servers managed capacity behavior.
 type ContainerFleetManagedCapacityConfiguration struct {
 	// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
 	ScaleInAfterInactivityMinutes *int `pulumi:"scaleInAfterInactivityMinutes"`
@@ -1566,7 +1566,7 @@ type ContainerFleetManagedCapacityConfigurationInput interface {
 	ToContainerFleetManagedCapacityConfigurationOutputWithContext(context.Context) ContainerFleetManagedCapacityConfigurationOutput
 }
 
-// Configuration options for GameLift-managed capacity behavior.
+// Configuration options for Amazon GameLift Servers managed capacity behavior.
 type ContainerFleetManagedCapacityConfigurationArgs struct {
 	// Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
 	ScaleInAfterInactivityMinutes pulumi.IntPtrInput `pulumi:"scaleInAfterInactivityMinutes"`
@@ -1627,7 +1627,7 @@ func (i *containerFleetManagedCapacityConfigurationPtrType) ToContainerFleetMana
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetManagedCapacityConfigurationPtrOutput)
 }
 
-// Configuration options for GameLift-managed capacity behavior.
+// Configuration options for Amazon GameLift Servers managed capacity behavior.
 type ContainerFleetManagedCapacityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerFleetManagedCapacityConfigurationOutput) ElementType() reflect.Type {

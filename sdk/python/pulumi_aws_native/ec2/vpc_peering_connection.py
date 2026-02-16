@@ -23,6 +23,7 @@ class VpcPeeringConnectionArgs:
     def __init__(__self__, *,
                  peer_vpc_id: pulumi.Input[_builtins.str],
                  vpc_id: pulumi.Input[_builtins.str],
+                 assume_role_region: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_region: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,6 +32,7 @@ class VpcPeeringConnectionArgs:
         The set of arguments for constructing a VpcPeeringConnection resource.
         :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[_builtins.str] assume_role_region: The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
         :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the owner of the accepter VPC.
         :param pulumi.Input[_builtins.str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[_builtins.str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
@@ -38,6 +40,8 @@ class VpcPeeringConnectionArgs:
         """
         pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if assume_role_region is not None:
+            pulumi.set(__self__, "assume_role_region", assume_role_region)
         if peer_owner_id is not None:
             pulumi.set(__self__, "peer_owner_id", peer_owner_id)
         if peer_region is not None:
@@ -70,6 +74,18 @@ class VpcPeeringConnectionArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vpc_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assumeRoleRegion")
+    def assume_role_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+        """
+        return pulumi.get(self, "assume_role_region")
+
+    @assume_role_region.setter
+    def assume_role_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "assume_role_region", value)
 
     @_builtins.property
     @pulumi.getter(name="peerOwnerId")
@@ -126,6 +142,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assume_role_region: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_region: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -138,6 +155,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] assume_role_region: The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
         :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the owner of the accepter VPC.
         :param pulumi.Input[_builtins.str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[_builtins.str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
@@ -169,6 +187,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assume_role_region: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_region: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -184,6 +203,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcPeeringConnectionArgs.__new__(VpcPeeringConnectionArgs)
 
+            __props__.__dict__["assume_role_region"] = assume_role_region
             __props__.__dict__["peer_owner_id"] = peer_owner_id
             __props__.__dict__["peer_region"] = peer_region
             __props__.__dict__["peer_role_arn"] = peer_role_arn
@@ -195,7 +215,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peerOwnerId", "peerRegion", "peerRoleArn", "peerVpcId", "vpcId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assumeRoleRegion", "peerOwnerId", "peerRegion", "peerRoleArn", "peerVpcId", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcPeeringConnection, __self__).__init__(
             'aws-native:ec2:VpcPeeringConnection',
@@ -219,6 +239,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         __props__ = VpcPeeringConnectionArgs.__new__(VpcPeeringConnectionArgs)
 
+        __props__.__dict__["assume_role_region"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["peer_owner_id"] = None
         __props__.__dict__["peer_region"] = None
@@ -227,6 +248,14 @@ class VpcPeeringConnection(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return VpcPeeringConnection(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="assumeRoleRegion")
+    def assume_role_region(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+        """
+        return pulumi.get(self, "assume_role_region")
 
     @_builtins.property
     @pulumi.getter(name="awsId")

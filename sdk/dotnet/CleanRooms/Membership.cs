@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("defaultResultConfiguration")]
         public Output<Outputs.MembershipProtectedQueryResultConfiguration?> DefaultResultConfiguration { get; private set; } = null!;
 
+        [Output("isMetricsEnabled")]
+        public Output<bool?> IsMetricsEnabled { get; private set; } = null!;
+
         /// <summary>
         /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
         /// 
@@ -159,6 +162,9 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipProtectedQueryResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
+
+        [Input("isMetricsEnabled")]
+        public Input<bool>? IsMetricsEnabled { get; set; }
 
         /// <summary>
         /// An indicator as to whether job logging has been enabled or disabled for the collaboration.

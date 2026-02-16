@@ -55,9 +55,12 @@ export const InfluxDbInstanceStatus = {
     Available: "AVAILABLE",
     Deleting: "DELETING",
     Modifying: "MODIFYING",
+    Maintenance: "MAINTENANCE",
     Updating: "UPDATING",
     UpdatingDeploymentType: "UPDATING_DEPLOYMENT_TYPE",
     UpdatingInstanceType: "UPDATING_INSTANCE_TYPE",
+    Rebooting: "REBOOTING",
+    RebootFailed: "REBOOT_FAILED",
     Deleted: "DELETED",
     Failed: "FAILED",
 } as const;

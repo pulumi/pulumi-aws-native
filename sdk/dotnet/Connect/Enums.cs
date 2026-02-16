@@ -1183,6 +1183,37 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationPriority : IEquatable<NotificationPriority>
+    {
+        private readonly string _value;
+
+        private NotificationPriority(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationPriority High { get; } = new NotificationPriority("HIGH");
+        public static NotificationPriority Low { get; } = new NotificationPriority("LOW");
+
+        public static bool operator ==(NotificationPriority left, NotificationPriority right) => left.Equals(right);
+        public static bool operator !=(NotificationPriority left, NotificationPriority right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationPriority value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationPriority other && Equals(other);
+        public bool Equals(NotificationPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the queue.
     /// </summary>
     [EnumType]

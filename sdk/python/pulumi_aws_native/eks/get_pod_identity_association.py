@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPodIdentityAssociationResult:
-    def __init__(__self__, association_arn=None, association_id=None, disable_session_tags=None, external_id=None, role_arn=None, tags=None, target_role_arn=None):
+    def __init__(__self__, association_arn=None, association_id=None, disable_session_tags=None, external_id=None, policy=None, role_arn=None, tags=None, target_role_arn=None):
         if association_arn and not isinstance(association_arn, str):
             raise TypeError("Expected argument 'association_arn' to be a str")
         pulumi.set(__self__, "association_arn", association_arn)
@@ -37,6 +37,9 @@ class GetPodIdentityAssociationResult:
         if external_id and not isinstance(external_id, str):
             raise TypeError("Expected argument 'external_id' to be a str")
         pulumi.set(__self__, "external_id", external_id)
+        if policy and not isinstance(policy, str):
+            raise TypeError("Expected argument 'policy' to be a str")
+        pulumi.set(__self__, "policy", policy)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -80,6 +83,14 @@ class GetPodIdentityAssociationResult:
         return pulumi.get(self, "external_id")
 
     @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional[_builtins.str]:
+        """
+        The policy of the pod identity association.
+        """
+        return pulumi.get(self, "policy")
+
+    @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         """
@@ -114,6 +125,7 @@ class AwaitableGetPodIdentityAssociationResult(GetPodIdentityAssociationResult):
             association_id=self.association_id,
             disable_session_tags=self.disable_session_tags,
             external_id=self.external_id,
+            policy=self.policy,
             role_arn=self.role_arn,
             tags=self.tags,
             target_role_arn=self.target_role_arn)
@@ -137,6 +149,7 @@ def get_pod_identity_association(association_arn: Optional[_builtins.str] = None
         association_id=pulumi.get(__ret__, 'association_id'),
         disable_session_tags=pulumi.get(__ret__, 'disable_session_tags'),
         external_id=pulumi.get(__ret__, 'external_id'),
+        policy=pulumi.get(__ret__, 'policy'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         target_role_arn=pulumi.get(__ret__, 'target_role_arn'))
@@ -157,6 +170,7 @@ def get_pod_identity_association_output(association_arn: Optional[pulumi.Input[_
         association_id=pulumi.get(__response__, 'association_id'),
         disable_session_tags=pulumi.get(__response__, 'disable_session_tags'),
         external_id=pulumi.get(__response__, 'external_id'),
+        policy=pulumi.get(__response__, 'policy'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         tags=pulumi.get(__response__, 'tags'),
         target_role_arn=pulumi.get(__response__, 'target_role_arn')))

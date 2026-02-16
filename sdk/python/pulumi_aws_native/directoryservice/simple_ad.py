@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SimpleAdArgs', 'SimpleAd']
@@ -28,7 +30,8 @@ class SimpleAdArgs:
                  enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 short_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SimpleAd resource.
         :param pulumi.Input[_builtins.str] size: The size of the directory.
@@ -54,6 +57,8 @@ class SimpleAdArgs:
             pulumi.set(__self__, "password", password)
         if short_name is not None:
             pulumi.set(__self__, "short_name", short_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -151,6 +156,15 @@ class SimpleAdArgs:
     def short_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "short_name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:directoryservice:SimpleAd")
 class SimpleAd(pulumi.CustomResource):
@@ -165,6 +179,7 @@ class SimpleAd(pulumi.CustomResource):
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  short_name: Optional[pulumi.Input[_builtins.str]] = None,
                  size: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_settings: Optional[pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']]] = None,
                  __props__=None):
         """
@@ -212,6 +227,7 @@ class SimpleAd(pulumi.CustomResource):
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  short_name: Optional[pulumi.Input[_builtins.str]] = None,
                  size: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_settings: Optional[pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -231,6 +247,7 @@ class SimpleAd(pulumi.CustomResource):
             if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
+            __props__.__dict__["tags"] = tags
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings
@@ -271,6 +288,7 @@ class SimpleAd(pulumi.CustomResource):
         __props__.__dict__["password"] = None
         __props__.__dict__["short_name"] = None
         __props__.__dict__["size"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_settings"] = None
         return SimpleAd(resource_name, opts=opts, __props__=__props__)
 
@@ -353,6 +371,11 @@ class SimpleAd(pulumi.CustomResource):
         The size of the directory.
         """
         return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcSettings")

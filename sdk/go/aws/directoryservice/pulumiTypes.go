@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type SimpleAdTag struct {
+	// The key name of the tag
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type SimpleAdVpcSettings struct {
 	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
 	SubnetIds []string `pulumi:"subnetIds"`

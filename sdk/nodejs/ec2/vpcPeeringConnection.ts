@@ -38,6 +38,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+     */
+    declare public readonly assumeRoleRegion: pulumi.Output<string | undefined>;
+    /**
      * The ID of the peering connection.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["assumeRoleRegion"] = args?.assumeRoleRegion;
             resourceInputs["peerOwnerId"] = args?.peerOwnerId;
             resourceInputs["peerRegion"] = args?.peerRegion;
             resourceInputs["peerRoleArn"] = args?.peerRoleArn;
@@ -91,6 +96,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["assumeRoleRegion"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["peerOwnerId"] = undefined /*out*/;
             resourceInputs["peerRegion"] = undefined /*out*/;
@@ -100,7 +106,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["peerOwnerId", "peerRegion", "peerRoleArn", "peerVpcId", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["assumeRoleRegion", "peerOwnerId", "peerRegion", "peerRoleArn", "peerVpcId", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,6 +116,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcPeeringConnection resource.
  */
 export interface VpcPeeringConnectionArgs {
+    /**
+     * The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+     */
+    assumeRoleRegion?: pulumi.Input<string>;
     /**
      * The AWS account ID of the owner of the accepter VPC.
      */

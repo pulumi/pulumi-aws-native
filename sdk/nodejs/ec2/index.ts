@@ -180,6 +180,11 @@ export const getIpamPoolCidr: typeof import("./getIpamPoolCidr").getIpamPoolCidr
 export const getIpamPoolCidrOutput: typeof import("./getIpamPoolCidr").getIpamPoolCidrOutput = null as any;
 utilities.lazyLoad(exports, ["getIpamPoolCidr","getIpamPoolCidrOutput"], () => require("./getIpamPoolCidr"));
 
+export { GetIpamPrefixListResolverArgs, GetIpamPrefixListResolverResult, GetIpamPrefixListResolverOutputArgs } from "./getIpamPrefixListResolver";
+export const getIpamPrefixListResolver: typeof import("./getIpamPrefixListResolver").getIpamPrefixListResolver = null as any;
+export const getIpamPrefixListResolverOutput: typeof import("./getIpamPrefixListResolver").getIpamPrefixListResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamPrefixListResolver","getIpamPrefixListResolverOutput"], () => require("./getIpamPrefixListResolver"));
+
 export { GetIpamResourceDiscoveryArgs, GetIpamResourceDiscoveryResult, GetIpamResourceDiscoveryOutputArgs } from "./getIpamResourceDiscovery";
 export const getIpamResourceDiscovery: typeof import("./getIpamResourceDiscovery").getIpamResourceDiscovery = null as any;
 export const getIpamResourceDiscoveryOutput: typeof import("./getIpamResourceDiscovery").getIpamResourceDiscoveryOutput = null as any;
@@ -584,6 +589,11 @@ export { IpamPoolCidrArgs } from "./ipamPoolCidr";
 export type IpamPoolCidr = import("./ipamPoolCidr").IpamPoolCidr;
 export const IpamPoolCidr: typeof import("./ipamPoolCidr").IpamPoolCidr = null as any;
 utilities.lazyLoad(exports, ["IpamPoolCidr"], () => require("./ipamPoolCidr"));
+
+export { IpamPrefixListResolverArgs } from "./ipamPrefixListResolver";
+export type IpamPrefixListResolver = import("./ipamPrefixListResolver").IpamPrefixListResolver;
+export const IpamPrefixListResolver: typeof import("./ipamPrefixListResolver").IpamPrefixListResolver = null as any;
+utilities.lazyLoad(exports, ["IpamPrefixListResolver"], () => require("./ipamPrefixListResolver"));
 
 export { IpamResourceDiscoveryArgs } from "./ipamResourceDiscovery";
 export type IpamResourceDiscovery = import("./ipamResourceDiscovery").IpamResourceDiscovery;
@@ -1042,6 +1052,8 @@ const _module = {
                 return new IpamPool(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamPoolCidr":
                 return new IpamPoolCidr(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamPrefixListResolver":
+                return new IpamPrefixListResolver(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamResourceDiscovery":
                 return new IpamResourceDiscovery(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamResourceDiscoveryAssociation":

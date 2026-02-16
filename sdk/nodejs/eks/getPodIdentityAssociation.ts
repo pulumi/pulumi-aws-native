@@ -42,6 +42,10 @@ export interface GetPodIdentityAssociationResult {
      */
     readonly externalId?: string;
     /**
+     * The policy of the pod identity association.
+     */
+    readonly policy?: string;
+    /**
      * The IAM role ARN that the pod identity association is created for.
      */
     readonly roleArn?: string;

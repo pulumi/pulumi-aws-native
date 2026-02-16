@@ -83,7 +83,7 @@
       "permissions" : [ "notifications:CreateNotificationConfiguration", "notifications:GetNotificationConfiguration", "notifications:UpdateNotificationConfiguration", "notifications:TagResource", "notifications:UntagResource", "notifications:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "notifications:DeleteNotificationConfiguration" ]
+      "permissions" : [ "notifications:DeleteNotificationConfiguration", "notifications:GetNotificationConfiguration" ]
     },
     "list" : {
       "permissions" : [ "notifications:ListNotificationConfigurations", "notifications:ListTagsForResource" ]

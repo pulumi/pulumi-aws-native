@@ -36,7 +36,8 @@ type LookupPolicyStoreResult struct {
 	// The default state is `DISABLED` .
 	DeletionProtection *PolicyStoreDeletionProtection `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
-	Description *string `pulumi:"description"`
+	Description     *string     `pulumi:"description"`
+	EncryptionState interface{} `pulumi:"encryptionState"`
 	// The unique ID of the new or updated policy store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
@@ -98,6 +99,10 @@ func (o LookupPolicyStoreResultOutput) DeletionProtection() PolicyStoreDeletionP
 // Descriptive text that you can provide to help with identification of the current policy store.
 func (o LookupPolicyStoreResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPolicyStoreResultOutput) EncryptionState() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) interface{} { return v.EncryptionState }).(pulumi.AnyOutput)
 }
 
 // The unique ID of the new or updated policy store.

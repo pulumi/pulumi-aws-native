@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InstanceStorageConfig{}
 	case "aws-native:connect:IntegrationAssociation":
 		r = &IntegrationAssociation{}
+	case "aws-native:connect:Notification":
+		r = &Notification{}
 	case "aws-native:connect:PhoneNumber":
 		r = &PhoneNumber{}
 	case "aws-native:connect:PredefinedAttribute":

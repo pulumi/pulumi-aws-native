@@ -76,6 +76,7 @@ __all__ = [
     'InstanceStorageConfigKinesisVideoStreamConfig',
     'InstanceStorageConfigS3Config',
     'LockVersionProperties',
+    'NotificationContent',
     'QueueOutboundCallerConfig',
     'QueueOutboundEmailConfig',
     'QuickConnectConfig',
@@ -3242,6 +3243,142 @@ class LockVersionProperties(dict):
     @pulumi.getter(name="dataTable")
     def data_table(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "data_table")
+
+
+@pulumi.output_type
+class NotificationContent(dict):
+    """
+    The content of a notification
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deDe":
+            suggest = "de_de"
+        elif key == "enUs":
+            suggest = "en_us"
+        elif key == "esEs":
+            suggest = "es_es"
+        elif key == "frFr":
+            suggest = "fr_fr"
+        elif key == "idId":
+            suggest = "id_id"
+        elif key == "itIt":
+            suggest = "it_it"
+        elif key == "jaJp":
+            suggest = "ja_jp"
+        elif key == "koKr":
+            suggest = "ko_kr"
+        elif key == "ptBr":
+            suggest = "pt_br"
+        elif key == "zhCn":
+            suggest = "zh_cn"
+        elif key == "zhTw":
+            suggest = "zh_tw"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 de_de: Optional[_builtins.str] = None,
+                 en_us: Optional[_builtins.str] = None,
+                 es_es: Optional[_builtins.str] = None,
+                 fr_fr: Optional[_builtins.str] = None,
+                 id_id: Optional[_builtins.str] = None,
+                 it_it: Optional[_builtins.str] = None,
+                 ja_jp: Optional[_builtins.str] = None,
+                 ko_kr: Optional[_builtins.str] = None,
+                 pt_br: Optional[_builtins.str] = None,
+                 zh_cn: Optional[_builtins.str] = None,
+                 zh_tw: Optional[_builtins.str] = None):
+        """
+        The content of a notification
+        """
+        if de_de is not None:
+            pulumi.set(__self__, "de_de", de_de)
+        if en_us is not None:
+            pulumi.set(__self__, "en_us", en_us)
+        if es_es is not None:
+            pulumi.set(__self__, "es_es", es_es)
+        if fr_fr is not None:
+            pulumi.set(__self__, "fr_fr", fr_fr)
+        if id_id is not None:
+            pulumi.set(__self__, "id_id", id_id)
+        if it_it is not None:
+            pulumi.set(__self__, "it_it", it_it)
+        if ja_jp is not None:
+            pulumi.set(__self__, "ja_jp", ja_jp)
+        if ko_kr is not None:
+            pulumi.set(__self__, "ko_kr", ko_kr)
+        if pt_br is not None:
+            pulumi.set(__self__, "pt_br", pt_br)
+        if zh_cn is not None:
+            pulumi.set(__self__, "zh_cn", zh_cn)
+        if zh_tw is not None:
+            pulumi.set(__self__, "zh_tw", zh_tw)
+
+    @_builtins.property
+    @pulumi.getter(name="deDe")
+    def de_de(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "de_de")
+
+    @_builtins.property
+    @pulumi.getter(name="enUs")
+    def en_us(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "en_us")
+
+    @_builtins.property
+    @pulumi.getter(name="esEs")
+    def es_es(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "es_es")
+
+    @_builtins.property
+    @pulumi.getter(name="frFr")
+    def fr_fr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "fr_fr")
+
+    @_builtins.property
+    @pulumi.getter(name="idId")
+    def id_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id_id")
+
+    @_builtins.property
+    @pulumi.getter(name="itIt")
+    def it_it(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "it_it")
+
+    @_builtins.property
+    @pulumi.getter(name="jaJp")
+    def ja_jp(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ja_jp")
+
+    @_builtins.property
+    @pulumi.getter(name="koKr")
+    def ko_kr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ko_kr")
+
+    @_builtins.property
+    @pulumi.getter(name="ptBr")
+    def pt_br(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pt_br")
+
+    @_builtins.property
+    @pulumi.getter(name="zhCn")
+    def zh_cn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zh_cn")
+
+    @_builtins.property
+    @pulumi.getter(name="zhTw")
+    def zh_tw(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zh_tw")
 
 
 @pulumi.output_type

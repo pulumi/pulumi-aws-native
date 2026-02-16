@@ -1403,6 +1403,7 @@ _utilities.register(
    "aws-native:connect:Instance": "Instance",
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
    "aws-native:connect:IntegrationAssociation": "IntegrationAssociation",
+   "aws-native:connect:Notification": "Notification",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:PredefinedAttribute": "PredefinedAttribute",
    "aws-native:connect:Prompt": "Prompt",
@@ -1667,6 +1668,7 @@ _utilities.register(
    "aws-native:ec2:IpamAllocation": "IpamAllocation",
    "aws-native:ec2:IpamPool": "IpamPool",
    "aws-native:ec2:IpamPoolCidr": "IpamPoolCidr",
+   "aws-native:ec2:IpamPrefixListResolver": "IpamPrefixListResolver",
    "aws-native:ec2:IpamResourceDiscovery": "IpamResourceDiscovery",
    "aws-native:ec2:IpamResourceDiscoveryAssociation": "IpamResourceDiscoveryAssociation",
    "aws-native:ec2:IpamScope": "IpamScope",
@@ -3365,6 +3367,7 @@ _utilities.register(
    "aws-native:ses:ConfigurationSet": "ConfigurationSet",
    "aws-native:ses:ConfigurationSetEventDestination": "ConfigurationSetEventDestination",
    "aws-native:ses:ContactList": "ContactList",
+   "aws-native:ses:CustomVerificationEmailTemplate": "CustomVerificationEmailTemplate",
    "aws-native:ses:DedicatedIpPool": "DedicatedIpPool",
    "aws-native:ses:EmailIdentity": "EmailIdentity",
    "aws-native:ses:MailManagerAddonInstance": "MailManagerAddonInstance",
@@ -3650,6 +3653,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.workspaces",
   "classes": {
    "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
+   "aws-native:workspaces:Workspace": "Workspace",
    "aws-native:workspaces:WorkspacesPool": "WorkspacesPool"
   }
  },

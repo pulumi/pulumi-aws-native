@@ -80,7 +80,7 @@ export class ModelPackage extends pulumi.CustomResource {
     /**
      * The last time the model package was modified.
      */
-    declare public readonly lastModifiedTime: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Metadata properties of the tracking entity, trial, or trial component.
      */
@@ -188,7 +188,6 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["domain"] = args?.domain;
             resourceInputs["driftCheckBaselines"] = args?.driftCheckBaselines;
             resourceInputs["inferenceSpecification"] = args?.inferenceSpecification;
-            resourceInputs["lastModifiedTime"] = args?.lastModifiedTime;
             resourceInputs["metadataProperties"] = args?.metadataProperties;
             resourceInputs["modelApprovalStatus"] = args?.modelApprovalStatus;
             resourceInputs["modelCard"] = args?.modelCard;
@@ -207,6 +206,7 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["task"] = args?.task;
             resourceInputs["validationSpecification"] = args?.validationSpecification;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["modelPackageArn"] = undefined /*out*/;
             resourceInputs["modelPackageStatus"] = undefined /*out*/;
         } else {
@@ -288,10 +288,6 @@ export interface ModelPackageArgs {
      * Defines how to perform inference generation after a training job is run.
      */
     inferenceSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageInferenceSpecificationArgs>;
-    /**
-     * The last time the model package was modified.
-     */
-    lastModifiedTime?: pulumi.Input<string>;
     /**
      * Metadata properties of the tracking entity, trial, or trial component.
      */

@@ -16,15 +16,28 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
     [OutputType]
     public sealed class TableIcebergMetadata
     {
+        public readonly Outputs.TableIcebergPartitionSpec? IcebergPartitionSpec;
         /// <summary>
         /// The schema for an Iceberg table.
         /// </summary>
         public readonly Outputs.TableIcebergSchema IcebergSchema;
+        public readonly Outputs.TableIcebergSortOrder? IcebergSortOrder;
+        public readonly ImmutableDictionary<string, string>? TableProperties;
 
         [OutputConstructor]
-        private TableIcebergMetadata(Outputs.TableIcebergSchema icebergSchema)
+        private TableIcebergMetadata(
+            Outputs.TableIcebergPartitionSpec? icebergPartitionSpec,
+
+            Outputs.TableIcebergSchema icebergSchema,
+
+            Outputs.TableIcebergSortOrder? icebergSortOrder,
+
+            ImmutableDictionary<string, string>? tableProperties)
         {
+            IcebergPartitionSpec = icebergPartitionSpec;
             IcebergSchema = icebergSchema;
+            IcebergSortOrder = icebergSortOrder;
+            TableProperties = tableProperties;
         }
     }
 }

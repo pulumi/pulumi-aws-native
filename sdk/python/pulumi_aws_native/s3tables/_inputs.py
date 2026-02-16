@@ -30,8 +30,16 @@ __all__ = [
     'TableCompactionArgsDict',
     'TableIcebergMetadataArgs',
     'TableIcebergMetadataArgsDict',
+    'TableIcebergPartitionFieldArgs',
+    'TableIcebergPartitionFieldArgsDict',
+    'TableIcebergPartitionSpecArgs',
+    'TableIcebergPartitionSpecArgsDict',
     'TableIcebergSchemaArgs',
     'TableIcebergSchemaArgsDict',
+    'TableIcebergSortFieldArgs',
+    'TableIcebergSortFieldArgsDict',
+    'TableIcebergSortOrderArgs',
+    'TableIcebergSortOrderArgsDict',
     'TablePolicyResourcePolicyArgs',
     'TablePolicyResourcePolicyArgsDict',
     'TableSchemaFieldArgs',
@@ -310,16 +318,28 @@ class TableIcebergMetadataArgsDict(TypedDict):
     """
     The schema for an Iceberg table.
     """
+    iceberg_partition_spec: NotRequired[pulumi.Input['TableIcebergPartitionSpecArgsDict']]
+    iceberg_sort_order: NotRequired[pulumi.Input['TableIcebergSortOrderArgsDict']]
+    table_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TableIcebergMetadataArgs:
     def __init__(__self__, *,
-                 iceberg_schema: pulumi.Input['TableIcebergSchemaArgs']):
+                 iceberg_schema: pulumi.Input['TableIcebergSchemaArgs'],
+                 iceberg_partition_spec: Optional[pulumi.Input['TableIcebergPartitionSpecArgs']] = None,
+                 iceberg_sort_order: Optional[pulumi.Input['TableIcebergSortOrderArgs']] = None,
+                 table_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Contains details about the metadata for an Iceberg table.
         :param pulumi.Input['TableIcebergSchemaArgs'] iceberg_schema: The schema for an Iceberg table.
         """
         pulumi.set(__self__, "iceberg_schema", iceberg_schema)
+        if iceberg_partition_spec is not None:
+            pulumi.set(__self__, "iceberg_partition_spec", iceberg_partition_spec)
+        if iceberg_sort_order is not None:
+            pulumi.set(__self__, "iceberg_sort_order", iceberg_sort_order)
+        if table_properties is not None:
+            pulumi.set(__self__, "table_properties", table_properties)
 
     @_builtins.property
     @pulumi.getter(name="icebergSchema")
@@ -332,6 +352,175 @@ class TableIcebergMetadataArgs:
     @iceberg_schema.setter
     def iceberg_schema(self, value: pulumi.Input['TableIcebergSchemaArgs']):
         pulumi.set(self, "iceberg_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergPartitionSpec")
+    def iceberg_partition_spec(self) -> Optional[pulumi.Input['TableIcebergPartitionSpecArgs']]:
+        return pulumi.get(self, "iceberg_partition_spec")
+
+    @iceberg_partition_spec.setter
+    def iceberg_partition_spec(self, value: Optional[pulumi.Input['TableIcebergPartitionSpecArgs']]):
+        pulumi.set(self, "iceberg_partition_spec", value)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergSortOrder")
+    def iceberg_sort_order(self) -> Optional[pulumi.Input['TableIcebergSortOrderArgs']]:
+        return pulumi.get(self, "iceberg_sort_order")
+
+    @iceberg_sort_order.setter
+    def iceberg_sort_order(self, value: Optional[pulumi.Input['TableIcebergSortOrderArgs']]):
+        pulumi.set(self, "iceberg_sort_order", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableProperties")
+    def table_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "table_properties")
+
+    @table_properties.setter
+    def table_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "table_properties", value)
+
+
+class TableIcebergPartitionFieldArgsDict(TypedDict):
+    """
+    A partition field specification for an Iceberg table
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the partition field
+    """
+    source_id: pulumi.Input[_builtins.int]
+    """
+    The source column ID to partition on
+    """
+    transform: pulumi.Input[_builtins.str]
+    """
+    The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+    """
+    field_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The partition field ID (auto-assigned starting from 1000 if not specified)
+    """
+
+@pulumi.input_type
+class TableIcebergPartitionFieldArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 source_id: pulumi.Input[_builtins.int],
+                 transform: pulumi.Input[_builtins.str],
+                 field_id: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        A partition field specification for an Iceberg table
+        :param pulumi.Input[_builtins.str] name: The name of the partition field
+        :param pulumi.Input[_builtins.int] source_id: The source column ID to partition on
+        :param pulumi.Input[_builtins.str] transform: The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+        :param pulumi.Input[_builtins.int] field_id: The partition field ID (auto-assigned starting from 1000 if not specified)
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the partition field
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The source column ID to partition on
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "source_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> pulumi.Input[_builtins.str]:
+        """
+        The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+        """
+        return pulumi.get(self, "transform")
+
+    @transform.setter
+    def transform(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transform", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The partition field ID (auto-assigned starting from 1000 if not specified)
+        """
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "field_id", value)
+
+
+class TableIcebergPartitionSpecArgsDict(TypedDict):
+    """
+    Partition specification for an Iceberg table
+    """
+    fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgsDict']]]
+    """
+    List of partition fields
+    """
+    spec_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The partition spec ID (defaults to 0 if not specified)
+    """
+
+@pulumi.input_type
+class TableIcebergPartitionSpecArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]],
+                 spec_id: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Partition specification for an Iceberg table
+        :param pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]] fields: List of partition fields
+        :param pulumi.Input[_builtins.int] spec_id: The partition spec ID (defaults to 0 if not specified)
+        """
+        pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]]:
+        """
+        List of partition fields
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The partition spec ID (defaults to 0 if not specified)
+        """
+        return pulumi.get(self, "spec_id")
+
+    @spec_id.setter
+    def spec_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "spec_id", value)
 
 
 class TableIcebergSchemaArgsDict(TypedDict):
@@ -366,6 +555,147 @@ class TableIcebergSchemaArgs:
         pulumi.set(self, "schema_field_list", value)
 
 
+class TableIcebergSortFieldArgsDict(TypedDict):
+    """
+    A sort field specification for an Iceberg table
+    """
+    direction: pulumi.Input['TableIcebergSortFieldDirection']
+    """
+    Sort direction (asc or desc)
+    """
+    null_order: pulumi.Input['TableIcebergSortFieldNullOrder']
+    """
+    Null value ordering (nulls-first or nulls-last)
+    """
+    source_id: pulumi.Input[_builtins.int]
+    """
+    The source column ID to sort on
+    """
+    transform: pulumi.Input[_builtins.str]
+    """
+    The sort transform function
+    """
+
+@pulumi.input_type
+class TableIcebergSortFieldArgs:
+    def __init__(__self__, *,
+                 direction: pulumi.Input['TableIcebergSortFieldDirection'],
+                 null_order: pulumi.Input['TableIcebergSortFieldNullOrder'],
+                 source_id: pulumi.Input[_builtins.int],
+                 transform: pulumi.Input[_builtins.str]):
+        """
+        A sort field specification for an Iceberg table
+        :param pulumi.Input['TableIcebergSortFieldDirection'] direction: Sort direction (asc or desc)
+        :param pulumi.Input['TableIcebergSortFieldNullOrder'] null_order: Null value ordering (nulls-first or nulls-last)
+        :param pulumi.Input[_builtins.int] source_id: The source column ID to sort on
+        :param pulumi.Input[_builtins.str] transform: The sort transform function
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "null_order", null_order)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input['TableIcebergSortFieldDirection']:
+        """
+        Sort direction (asc or desc)
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input['TableIcebergSortFieldDirection']):
+        pulumi.set(self, "direction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nullOrder")
+    def null_order(self) -> pulumi.Input['TableIcebergSortFieldNullOrder']:
+        """
+        Null value ordering (nulls-first or nulls-last)
+        """
+        return pulumi.get(self, "null_order")
+
+    @null_order.setter
+    def null_order(self, value: pulumi.Input['TableIcebergSortFieldNullOrder']):
+        pulumi.set(self, "null_order", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The source column ID to sort on
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "source_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> pulumi.Input[_builtins.str]:
+        """
+        The sort transform function
+        """
+        return pulumi.get(self, "transform")
+
+    @transform.setter
+    def transform(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transform", value)
+
+
+class TableIcebergSortOrderArgsDict(TypedDict):
+    """
+    Sort order specification for an Iceberg table
+    """
+    fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgsDict']]]
+    """
+    List of sort fields
+    """
+    order_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+    """
+
+@pulumi.input_type
+class TableIcebergSortOrderArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]],
+                 order_id: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Sort order specification for an Iceberg table
+        :param pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]] fields: List of sort fields
+        :param pulumi.Input[_builtins.int] order_id: The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+        """
+        pulumi.set(__self__, "fields", fields)
+        if order_id is not None:
+            pulumi.set(__self__, "order_id", order_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]]:
+        """
+        List of sort fields
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+        """
+        return pulumi.get(self, "order_id")
+
+    @order_id.setter
+    def order_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "order_id", value)
+
+
 class TablePolicyResourcePolicyArgsDict(TypedDict):
     """
     A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
@@ -393,6 +723,10 @@ class TableSchemaFieldArgsDict(TypedDict):
     """
     The field type
     """
+    id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The unique identifier for the field
+    """
     required: NotRequired[pulumi.Input[_builtins.bool]]
     """
     A Boolean value that specifies whether values are required for each row in this field
@@ -403,15 +737,19 @@ class TableSchemaFieldArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
+                 id: Optional[pulumi.Input[_builtins.int]] = None,
                  required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Contains details about the schema for an Iceberg table
         :param pulumi.Input[_builtins.str] name: The name of the field
         :param pulumi.Input[_builtins.str] type: The field type
+        :param pulumi.Input[_builtins.int] id: The unique identifier for the field
         :param pulumi.Input[_builtins.bool] required: A Boolean value that specifies whether values are required for each row in this field
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if required is not None:
             pulumi.set(__self__, "required", required)
 
@@ -438,6 +776,18 @@ class TableSchemaFieldArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The unique identifier for the field
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter

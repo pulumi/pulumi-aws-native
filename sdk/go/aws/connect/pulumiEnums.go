@@ -6027,6 +6027,172 @@ func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationInte
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationIntegrationTypePtrOutput)
 }
 
+// The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+type NotificationPriority string
+
+const (
+	NotificationPriorityHigh = NotificationPriority("HIGH")
+	NotificationPriorityLow  = NotificationPriority("LOW")
+)
+
+func (NotificationPriority) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPriority)(nil)).Elem()
+}
+
+func (e NotificationPriority) ToNotificationPriorityOutput() NotificationPriorityOutput {
+	return pulumi.ToOutput(e).(NotificationPriorityOutput)
+}
+
+func (e NotificationPriority) ToNotificationPriorityOutputWithContext(ctx context.Context) NotificationPriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NotificationPriorityOutput)
+}
+
+func (e NotificationPriority) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return e.ToNotificationPriorityPtrOutputWithContext(context.Background())
+}
+
+func (e NotificationPriority) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return NotificationPriority(e).ToNotificationPriorityOutputWithContext(ctx).ToNotificationPriorityPtrOutputWithContext(ctx)
+}
+
+func (e NotificationPriority) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationPriority) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationPriority) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NotificationPriority) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NotificationPriorityOutput struct{ *pulumi.OutputState }
+
+func (NotificationPriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPriority)(nil)).Elem()
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityOutput() NotificationPriorityOutput {
+	return o
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityOutputWithContext(ctx context.Context) NotificationPriorityOutput {
+	return o
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return o.ToNotificationPriorityPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationPriority) *NotificationPriority {
+		return &v
+	}).(NotificationPriorityPtrOutput)
+}
+
+func (o NotificationPriorityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotificationPriority) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotificationPriorityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotificationPriority) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotificationPriorityPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationPriorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationPriority)(nil)).Elem()
+}
+
+func (o NotificationPriorityPtrOutput) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return o
+}
+
+func (o NotificationPriorityPtrOutput) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return o
+}
+
+func (o NotificationPriorityPtrOutput) Elem() NotificationPriorityOutput {
+	return o.ApplyT(func(v *NotificationPriority) NotificationPriority {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationPriority
+		return ret
+	}).(NotificationPriorityOutput)
+}
+
+func (o NotificationPriorityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotificationPriority) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NotificationPriorityInput is an input type that accepts values of the NotificationPriority enum
+// A concrete instance of `NotificationPriorityInput` can be one of the following:
+//
+//	NotificationPriorityHigh
+//	NotificationPriorityLow
+type NotificationPriorityInput interface {
+	pulumi.Input
+
+	ToNotificationPriorityOutput() NotificationPriorityOutput
+	ToNotificationPriorityOutputWithContext(context.Context) NotificationPriorityOutput
+}
+
+var notificationPriorityPtrType = reflect.TypeOf((**NotificationPriority)(nil)).Elem()
+
+type NotificationPriorityPtrInput interface {
+	pulumi.Input
+
+	ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput
+	ToNotificationPriorityPtrOutputWithContext(context.Context) NotificationPriorityPtrOutput
+}
+
+type notificationPriorityPtr string
+
+func NotificationPriorityPtr(v string) NotificationPriorityPtrInput {
+	return (*notificationPriorityPtr)(&v)
+}
+
+func (*notificationPriorityPtr) ElementType() reflect.Type {
+	return notificationPriorityPtrType
+}
+
+func (in *notificationPriorityPtr) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return pulumi.ToOutput(in).(NotificationPriorityPtrOutput)
+}
+
+func (in *notificationPriorityPtr) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NotificationPriorityPtrOutput)
+}
+
 // The status of the queue.
 type QueueStatus string
 
@@ -9515,6 +9681,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypeInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypePtrInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPriorityInput)(nil)).Elem(), NotificationPriority("HIGH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPriorityPtrInput)(nil)).Elem(), NotificationPriority("HIGH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusInput)(nil)).Elem(), QueueStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusPtrInput)(nil)).Elem(), QueueStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
@@ -9625,6 +9793,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(NotificationPriorityOutput{})
+	pulumi.RegisterOutputType(NotificationPriorityPtrOutput{})
 	pulumi.RegisterOutputType(QueueStatusOutput{})
 	pulumi.RegisterOutputType(QueueStatusPtrOutput{})
 	pulumi.RegisterOutputType(QueueTypeOutput{})

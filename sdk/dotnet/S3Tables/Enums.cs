@@ -163,6 +163,68 @@ namespace Pulumi.AwsNative.S3Tables
     }
 
     /// <summary>
+    /// Sort direction (asc or desc)
+    /// </summary>
+    [EnumType]
+    public readonly struct TableIcebergSortFieldDirection : IEquatable<TableIcebergSortFieldDirection>
+    {
+        private readonly string _value;
+
+        private TableIcebergSortFieldDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableIcebergSortFieldDirection Asc { get; } = new TableIcebergSortFieldDirection("asc");
+        public static TableIcebergSortFieldDirection Desc { get; } = new TableIcebergSortFieldDirection("desc");
+
+        public static bool operator ==(TableIcebergSortFieldDirection left, TableIcebergSortFieldDirection right) => left.Equals(right);
+        public static bool operator !=(TableIcebergSortFieldDirection left, TableIcebergSortFieldDirection right) => !left.Equals(right);
+
+        public static explicit operator string(TableIcebergSortFieldDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableIcebergSortFieldDirection other && Equals(other);
+        public bool Equals(TableIcebergSortFieldDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Null value ordering (nulls-first or nulls-last)
+    /// </summary>
+    [EnumType]
+    public readonly struct TableIcebergSortFieldNullOrder : IEquatable<TableIcebergSortFieldNullOrder>
+    {
+        private readonly string _value;
+
+        private TableIcebergSortFieldNullOrder(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableIcebergSortFieldNullOrder NullsFirst { get; } = new TableIcebergSortFieldNullOrder("nulls-first");
+        public static TableIcebergSortFieldNullOrder NullsLast { get; } = new TableIcebergSortFieldNullOrder("nulls-last");
+
+        public static bool operator ==(TableIcebergSortFieldNullOrder left, TableIcebergSortFieldNullOrder right) => left.Equals(right);
+        public static bool operator !=(TableIcebergSortFieldNullOrder left, TableIcebergSortFieldNullOrder right) => !left.Equals(right);
+
+        public static explicit operator string(TableIcebergSortFieldNullOrder value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableIcebergSortFieldNullOrder other && Equals(other);
+        public bool Equals(TableIcebergSortFieldNullOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Format of the table.
     /// </summary>
     [EnumType]

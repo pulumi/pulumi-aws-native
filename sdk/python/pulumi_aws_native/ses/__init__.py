@@ -10,11 +10,13 @@ from ._enums import *
 from .configuration_set import *
 from .configuration_set_event_destination import *
 from .contact_list import *
+from .custom_verification_email_template import *
 from .dedicated_ip_pool import *
 from .email_identity import *
 from .get_configuration_set import *
 from .get_configuration_set_event_destination import *
 from .get_contact_list import *
+from .get_custom_verification_email_template import *
 from .get_dedicated_ip_pool import *
 from .get_email_identity import *
 from .get_mail_manager_addon_instance import *

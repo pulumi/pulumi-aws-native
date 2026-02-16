@@ -46,6 +46,8 @@ __all__ = [
     'PolicyStaticPolicyDefinitionArgsDict',
     'PolicyStoreDeletionProtectionArgs',
     'PolicyStoreDeletionProtectionArgsDict',
+    'PolicyStoreEncryptionSettingsArgs',
+    'PolicyStoreEncryptionSettingsArgsDict',
     'PolicyStoreSchemaDefinition0PropertiesArgs',
     'PolicyStoreSchemaDefinition0PropertiesArgsDict',
     'PolicyStoreSchemaDefinition1PropertiesArgs',
@@ -483,6 +485,15 @@ class PolicyStoreDeletionProtectionArgs:
     @mode.setter
     def mode(self, value: pulumi.Input['PolicyStoreDeletionMode']):
         pulumi.set(self, "mode", value)
+
+
+class PolicyStoreEncryptionSettingsArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyStoreEncryptionSettingsArgs:
+    def __init__(__self__):
+        pass
 
 
 class PolicyStoreSchemaDefinition0PropertiesArgsDict(TypedDict):

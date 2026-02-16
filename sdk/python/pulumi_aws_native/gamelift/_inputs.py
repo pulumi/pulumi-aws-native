@@ -761,7 +761,7 @@ class ContainerFleetLogConfigurationArgs:
 
 class ContainerFleetManagedCapacityConfigurationArgsDict(TypedDict):
     """
-    Configuration options for GameLift-managed capacity behavior.
+    Configuration options for Amazon GameLift Servers managed capacity behavior.
     """
     zero_capacity_strategy: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']
     """
@@ -778,7 +778,7 @@ class ContainerFleetManagedCapacityConfigurationArgs:
                  zero_capacity_strategy: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy'],
                  scale_in_after_inactivity_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        Configuration options for GameLift-managed capacity behavior.
+        Configuration options for Amazon GameLift Servers managed capacity behavior.
         :param pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy'] zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
         :param pulumi.Input[_builtins.int] scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
         """

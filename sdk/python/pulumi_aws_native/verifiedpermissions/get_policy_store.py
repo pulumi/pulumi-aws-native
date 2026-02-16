@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyStoreResult:
-    def __init__(__self__, arn=None, deletion_protection=None, description=None, policy_store_id=None, schema=None, tags=None, validation_settings=None):
+    def __init__(__self__, arn=None, deletion_protection=None, description=None, encryption_state=None, policy_store_id=None, schema=None, tags=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetPolicyStoreResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if encryption_state and not isinstance(encryption_state, dict):
+            raise TypeError("Expected argument 'encryption_state' to be a dict")
+        pulumi.set(__self__, "encryption_state", encryption_state)
         if policy_store_id and not isinstance(policy_store_id, str):
             raise TypeError("Expected argument 'policy_store_id' to be a str")
         pulumi.set(__self__, "policy_store_id", policy_store_id)
@@ -74,6 +77,11 @@ class GetPolicyStoreResult:
         Descriptive text that you can provide to help with identification of the current policy store.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionState")
+    def encryption_state(self) -> Optional[Any]:
+        return pulumi.get(self, "encryption_state")
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
@@ -121,6 +129,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             arn=self.arn,
             deletion_protection=self.deletion_protection,
             description=self.description,
+            encryption_state=self.encryption_state,
             policy_store_id=self.policy_store_id,
             schema=self.schema,
             tags=self.tags,
@@ -144,6 +153,7 @@ def get_policy_store(policy_store_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         description=pulumi.get(__ret__, 'description'),
+        encryption_state=pulumi.get(__ret__, 'encryption_state'),
         policy_store_id=pulumi.get(__ret__, 'policy_store_id'),
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -164,6 +174,7 @@ def get_policy_store_output(policy_store_id: Optional[pulumi.Input[_builtins.str
         arn=pulumi.get(__response__, 'arn'),
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         description=pulumi.get(__response__, 'description'),
+        encryption_state=pulumi.get(__response__, 'encryption_state'),
         policy_store_id=pulumi.get(__response__, 'policy_store_id'),
         schema=pulumi.get(__response__, 'schema'),
         tags=pulumi.get(__response__, 'tags'),

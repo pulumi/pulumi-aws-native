@@ -29,6 +29,8 @@ type PodIdentityAssociation struct {
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// The Kubernetes namespace that the pod identity association is created for.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// The policy of the pod identity association.
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The IAM role ARN that the pod identity association is created for.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The Kubernetes service account that the pod identity association is created for.
@@ -103,6 +105,8 @@ type podIdentityAssociationArgs struct {
 	DisableSessionTags *bool `pulumi:"disableSessionTags"`
 	// The Kubernetes namespace that the pod identity association is created for.
 	Namespace string `pulumi:"namespace"`
+	// The policy of the pod identity association.
+	Policy *string `pulumi:"policy"`
 	// The IAM role ARN that the pod identity association is created for.
 	RoleArn string `pulumi:"roleArn"`
 	// The Kubernetes service account that the pod identity association is created for.
@@ -121,6 +125,8 @@ type PodIdentityAssociationArgs struct {
 	DisableSessionTags pulumi.BoolPtrInput
 	// The Kubernetes namespace that the pod identity association is created for.
 	Namespace pulumi.StringInput
+	// The policy of the pod identity association.
+	Policy pulumi.StringPtrInput
 	// The IAM role ARN that the pod identity association is created for.
 	RoleArn pulumi.StringInput
 	// The Kubernetes service account that the pod identity association is created for.
@@ -196,6 +202,11 @@ func (o PodIdentityAssociationOutput) ExternalId() pulumi.StringOutput {
 // The Kubernetes namespace that the pod identity association is created for.
 func (o PodIdentityAssociationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// The policy of the pod identity association.
+func (o PodIdentityAssociationOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that the pod identity association is created for.

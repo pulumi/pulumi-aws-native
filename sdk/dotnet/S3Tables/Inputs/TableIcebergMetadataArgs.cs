@@ -15,11 +15,25 @@ namespace Pulumi.AwsNative.S3Tables.Inputs
     /// </summary>
     public sealed class TableIcebergMetadataArgs : global::Pulumi.ResourceArgs
     {
+        [Input("icebergPartitionSpec")]
+        public Input<Inputs.TableIcebergPartitionSpecArgs>? IcebergPartitionSpec { get; set; }
+
         /// <summary>
         /// The schema for an Iceberg table.
         /// </summary>
         [Input("icebergSchema", required: true)]
         public Input<Inputs.TableIcebergSchemaArgs> IcebergSchema { get; set; } = null!;
+
+        [Input("icebergSortOrder")]
+        public Input<Inputs.TableIcebergSortOrderArgs>? IcebergSortOrder { get; set; }
+
+        [Input("tableProperties")]
+        private InputMap<string>? _tableProperties;
+        public InputMap<string> TableProperties
+        {
+            get => _tableProperties ?? (_tableProperties = new InputMap<string>());
+            set => _tableProperties = value;
+        }
 
         public TableIcebergMetadataArgs()
         {

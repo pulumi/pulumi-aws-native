@@ -52,6 +52,26 @@ export const TableCompactionStatus = {
  */
 export type TableCompactionStatus = (typeof TableCompactionStatus)[keyof typeof TableCompactionStatus];
 
+export const TableIcebergSortFieldDirection = {
+    Asc: "asc",
+    Desc: "desc",
+} as const;
+
+/**
+ * Sort direction (asc or desc)
+ */
+export type TableIcebergSortFieldDirection = (typeof TableIcebergSortFieldDirection)[keyof typeof TableIcebergSortFieldDirection];
+
+export const TableIcebergSortFieldNullOrder = {
+    NullsFirst: "nulls-first",
+    NullsLast: "nulls-last",
+} as const;
+
+/**
+ * Null value ordering (nulls-first or nulls-last)
+ */
+export type TableIcebergSortFieldNullOrder = (typeof TableIcebergSortFieldNullOrder)[keyof typeof TableIcebergSortFieldNullOrder];
+
 export const TableOpenTableFormat = {
     Iceberg: "ICEBERG",
 } as const;

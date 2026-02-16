@@ -37,6 +37,8 @@ type LookupPodIdentityAssociationResult struct {
 	DisableSessionTags *bool `pulumi:"disableSessionTags"`
 	// The External Id of the pod identity association.
 	ExternalId *string `pulumi:"externalId"`
+	// The policy of the pod identity association.
+	Policy *string `pulumi:"policy"`
 	// The IAM role ARN that the pod identity association is created for.
 	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
@@ -95,6 +97,11 @@ func (o LookupPodIdentityAssociationResultOutput) DisableSessionTags() pulumi.Bo
 // The External Id of the pod identity association.
 func (o LookupPodIdentityAssociationResultOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The policy of the pod identity association.
+func (o LookupPodIdentityAssociationResultOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that the pod identity association is created for.

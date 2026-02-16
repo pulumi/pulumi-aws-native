@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>
+        /// The policy of the pod identity association.
+        /// </summary>
+        public readonly string? Policy;
+        /// <summary>
         /// The IAM role ARN that the pod identity association is created for.
         /// </summary>
         public readonly string? RoleArn;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.Eks
 
             string? externalId,
 
+            string? policy,
+
             string? roleArn,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.Eks
             AssociationId = associationId;
             DisableSessionTags = disableSessionTags;
             ExternalId = externalId;
+            Policy = policy;
             RoleArn = roleArn;
             Tags = tags;
             TargetRoleArn = targetRoleArn;
