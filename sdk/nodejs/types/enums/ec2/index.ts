@@ -504,6 +504,40 @@ export const IpamPoolState = {
  */
 export type IpamPoolState = (typeof IpamPoolState)[keyof typeof IpamPoolState];
 
+export const IpamPrefixListResolverRuleConditionOperation = {
+    Equals: "equals",
+    NotEquals: "not-equals",
+    SubnetOf: "subnet-of",
+} as const;
+
+/**
+ * Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+ */
+export type IpamPrefixListResolverRuleConditionOperation = (typeof IpamPrefixListResolverRuleConditionOperation)[keyof typeof IpamPrefixListResolverRuleConditionOperation];
+
+export const IpamPrefixListResolverRuleResourceType = {
+    Vpc: "vpc",
+    Subnet: "subnet",
+    Eip: "eip",
+    PublicIpv4Pool: "public-ipv4-pool",
+} as const;
+
+/**
+ * The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+ */
+export type IpamPrefixListResolverRuleResourceType = (typeof IpamPrefixListResolverRuleResourceType)[keyof typeof IpamPrefixListResolverRuleResourceType];
+
+export const IpamPrefixListResolverRuleRuleType = {
+    StaticCidr: "static-cidr",
+    IpamResourceCidr: "ipam-resource-cidr",
+    IpamPoolCidr: "ipam-pool-cidr",
+} as const;
+
+/**
+ * There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+ */
+export type IpamPrefixListResolverRuleRuleType = (typeof IpamPrefixListResolverRuleRuleType)[keyof typeof IpamPrefixListResolverRuleRuleType];
+
 export const IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType = {
     Infoblox: "infoblox",
 } as const;

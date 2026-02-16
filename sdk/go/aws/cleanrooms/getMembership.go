@@ -47,6 +47,7 @@ type LookupMembershipResult struct {
 	DefaultJobResultConfiguration *MembershipProtectedJobResultConfiguration `pulumi:"defaultJobResultConfiguration"`
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
+	IsMetricsEnabled           *bool                                        `pulumi:"isMetricsEnabled"`
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -132,6 +133,10 @@ func (o LookupMembershipResultOutput) DefaultResultConfiguration() MembershipPro
 	return o.ApplyT(func(v LookupMembershipResult) *MembershipProtectedQueryResultConfiguration {
 		return v.DefaultResultConfiguration
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
+}
+
+func (o LookupMembershipResultOutput) IsMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupMembershipResult) *bool { return v.IsMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An indicator as to whether job logging has been enabled or disabled for the collaboration.

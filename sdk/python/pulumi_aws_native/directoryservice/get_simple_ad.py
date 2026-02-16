@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetSimpleAdResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSimpleAdResult:
-    def __init__(__self__, alias=None, directory_id=None, dns_ip_addresses=None, enable_sso=None):
+    def __init__(__self__, alias=None, directory_id=None, dns_ip_addresses=None, enable_sso=None, tags=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -36,6 +37,9 @@ class GetSimpleAdResult:
         if enable_sso and not isinstance(enable_sso, bool):
             raise TypeError("Expected argument 'enable_sso' to be a bool")
         pulumi.set(__self__, "enable_sso", enable_sso)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -69,6 +73,11 @@ class GetSimpleAdResult:
         """
         return pulumi.get(self, "enable_sso")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetSimpleAdResult(GetSimpleAdResult):
     # pylint: disable=using-constant-test
@@ -79,7 +88,8 @@ class AwaitableGetSimpleAdResult(GetSimpleAdResult):
             alias=self.alias,
             directory_id=self.directory_id,
             dns_ip_addresses=self.dns_ip_addresses,
-            enable_sso=self.enable_sso)
+            enable_sso=self.enable_sso,
+            tags=self.tags)
 
 
 def get_simple_ad(directory_id: Optional[_builtins.str] = None,
@@ -99,7 +109,8 @@ def get_simple_ad(directory_id: Optional[_builtins.str] = None,
         alias=pulumi.get(__ret__, 'alias'),
         directory_id=pulumi.get(__ret__, 'directory_id'),
         dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
-        enable_sso=pulumi.get(__ret__, 'enable_sso'))
+        enable_sso=pulumi.get(__ret__, 'enable_sso'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_simple_ad_output(directory_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimpleAdResult]:
     """
@@ -116,4 +127,5 @@ def get_simple_ad_output(directory_id: Optional[pulumi.Input[_builtins.str]] = N
         alias=pulumi.get(__response__, 'alias'),
         directory_id=pulumi.get(__response__, 'directory_id'),
         dns_ip_addresses=pulumi.get(__response__, 'dns_ip_addresses'),
-        enable_sso=pulumi.get(__response__, 'enable_sso')))
+        enable_sso=pulumi.get(__response__, 'enable_sso'),
+        tags=pulumi.get(__response__, 'tags')))

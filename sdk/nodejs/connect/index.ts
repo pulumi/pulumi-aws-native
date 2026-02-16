@@ -120,6 +120,11 @@ export const getIntegrationAssociation: typeof import("./getIntegrationAssociati
 export const getIntegrationAssociationOutput: typeof import("./getIntegrationAssociation").getIntegrationAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationAssociation","getIntegrationAssociationOutput"], () => require("./getIntegrationAssociation"));
 
+export { GetNotificationArgs, GetNotificationResult, GetNotificationOutputArgs } from "./getNotification";
+export const getNotification: typeof import("./getNotification").getNotification = null as any;
+export const getNotificationOutput: typeof import("./getNotification").getNotificationOutput = null as any;
+utilities.lazyLoad(exports, ["getNotification","getNotificationOutput"], () => require("./getNotification"));
+
 export { GetPhoneNumberArgs, GetPhoneNumberResult, GetPhoneNumberOutputArgs } from "./getPhoneNumber";
 export const getPhoneNumber: typeof import("./getPhoneNumber").getPhoneNumber = null as any;
 export const getPhoneNumberOutput: typeof import("./getPhoneNumber").getPhoneNumberOutput = null as any;
@@ -224,6 +229,11 @@ export { IntegrationAssociationArgs } from "./integrationAssociation";
 export type IntegrationAssociation = import("./integrationAssociation").IntegrationAssociation;
 export const IntegrationAssociation: typeof import("./integrationAssociation").IntegrationAssociation = null as any;
 utilities.lazyLoad(exports, ["IntegrationAssociation"], () => require("./integrationAssociation"));
+
+export { NotificationArgs } from "./notification";
+export type Notification = import("./notification").Notification;
+export const Notification: typeof import("./notification").Notification = null as any;
+utilities.lazyLoad(exports, ["Notification"], () => require("./notification"));
 
 export { PhoneNumberArgs } from "./phoneNumber";
 export type PhoneNumber = import("./phoneNumber").PhoneNumber;
@@ -346,6 +356,8 @@ const _module = {
                 return new InstanceStorageConfig(name, <any>undefined, { urn })
             case "aws-native:connect:IntegrationAssociation":
                 return new IntegrationAssociation(name, <any>undefined, { urn })
+            case "aws-native:connect:Notification":
+                return new Notification(name, <any>undefined, { urn })
             case "aws-native:connect:PhoneNumber":
                 return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:PredefinedAttribute":

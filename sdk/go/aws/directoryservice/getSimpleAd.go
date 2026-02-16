@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +36,8 @@ type LookupSimpleAdResult struct {
 	// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
 	// Whether to enable single sign-on for a Simple Active Directory in AWS.
-	EnableSso *bool `pulumi:"enableSso"`
+	EnableSso *bool     `pulumi:"enableSso"`
+	Tags      []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSimpleAdOutput(ctx *pulumi.Context, args LookupSimpleAdOutputArgs, opts ...pulumi.InvokeOption) LookupSimpleAdResultOutput {
@@ -88,6 +90,10 @@ func (o LookupSimpleAdResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 // Whether to enable single sign-on for a Simple Active Directory in AWS.
 func (o LookupSimpleAdResultOutput) EnableSso() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSimpleAdResult) *bool { return v.EnableSso }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupSimpleAdResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSimpleAdResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

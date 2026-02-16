@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMembershipResult:
-    def __init__(__self__, arn=None, collaboration_arn=None, collaboration_creator_account_id=None, default_job_result_configuration=None, default_result_configuration=None, job_log_status=None, membership_identifier=None, payment_configuration=None, query_log_status=None, tags=None):
+    def __init__(__self__, arn=None, collaboration_arn=None, collaboration_creator_account_id=None, default_job_result_configuration=None, default_result_configuration=None, is_metrics_enabled=None, job_log_status=None, membership_identifier=None, payment_configuration=None, query_log_status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetMembershipResult:
         if default_result_configuration and not isinstance(default_result_configuration, dict):
             raise TypeError("Expected argument 'default_result_configuration' to be a dict")
         pulumi.set(__self__, "default_result_configuration", default_result_configuration)
+        if is_metrics_enabled and not isinstance(is_metrics_enabled, bool):
+            raise TypeError("Expected argument 'is_metrics_enabled' to be a bool")
+        pulumi.set(__self__, "is_metrics_enabled", is_metrics_enabled)
         if job_log_status and not isinstance(job_log_status, str):
             raise TypeError("Expected argument 'job_log_status' to be a str")
         pulumi.set(__self__, "job_log_status", job_log_status)
@@ -105,6 +108,11 @@ class GetMembershipResult:
         return pulumi.get(self, "default_result_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="isMetricsEnabled")
+    def is_metrics_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_metrics_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="jobLogStatus")
     def job_log_status(self) -> Optional['MembershipJobLogStatus']:
         """
@@ -162,6 +170,7 @@ class AwaitableGetMembershipResult(GetMembershipResult):
             collaboration_creator_account_id=self.collaboration_creator_account_id,
             default_job_result_configuration=self.default_job_result_configuration,
             default_result_configuration=self.default_result_configuration,
+            is_metrics_enabled=self.is_metrics_enabled,
             job_log_status=self.job_log_status,
             membership_identifier=self.membership_identifier,
             payment_configuration=self.payment_configuration,
@@ -190,6 +199,7 @@ def get_membership(membership_identifier: Optional[_builtins.str] = None,
         collaboration_creator_account_id=pulumi.get(__ret__, 'collaboration_creator_account_id'),
         default_job_result_configuration=pulumi.get(__ret__, 'default_job_result_configuration'),
         default_result_configuration=pulumi.get(__ret__, 'default_result_configuration'),
+        is_metrics_enabled=pulumi.get(__ret__, 'is_metrics_enabled'),
         job_log_status=pulumi.get(__ret__, 'job_log_status'),
         membership_identifier=pulumi.get(__ret__, 'membership_identifier'),
         payment_configuration=pulumi.get(__ret__, 'payment_configuration'),
@@ -215,6 +225,7 @@ def get_membership_output(membership_identifier: Optional[pulumi.Input[_builtins
         collaboration_creator_account_id=pulumi.get(__response__, 'collaboration_creator_account_id'),
         default_job_result_configuration=pulumi.get(__response__, 'default_job_result_configuration'),
         default_result_configuration=pulumi.get(__response__, 'default_result_configuration'),
+        is_metrics_enabled=pulumi.get(__response__, 'is_metrics_enabled'),
         job_log_status=pulumi.get(__response__, 'job_log_status'),
         membership_identifier=pulumi.get(__response__, 'membership_identifier'),
         payment_configuration=pulumi.get(__response__, 'payment_configuration'),

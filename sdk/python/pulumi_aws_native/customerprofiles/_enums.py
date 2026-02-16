@@ -388,6 +388,8 @@ class ObjectTypeKeyStandardIdentifiersItem(_builtins.str, Enum):
     LOYALTY = "LOYALTY"
     LOYALTY_TRANSACTION = "LOYALTY_TRANSACTION"
     LOYALTY_PROMOTION = "LOYALTY_PROMOTION"
+    WEB_ANALYTICS = "WEB_ANALYTICS"
+    DEVICE = "DEVICE"
 
 
 @pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionAttributeDimensionType")

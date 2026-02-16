@@ -79,6 +79,9 @@ __all__ = [
     'IpamPoolProvisionedCidr',
     'IpamPoolSourceResource',
     'IpamPoolTag',
+    'IpamPrefixListResolverRule',
+    'IpamPrefixListResolverRuleCondition',
+    'IpamPrefixListResolverTag',
     'IpamResourceDiscoveryIpamOperatingRegion',
     'IpamResourceDiscoveryOrganizationalUnitExclusion',
     'IpamScopeExternalAuthorityConfiguration',
@@ -4560,6 +4563,252 @@ class IpamPoolSourceResource(dict):
 
 @pulumi.output_type
 class IpamPoolTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        A key-value pair to associate with a resource.
+        :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IpamPrefixListResolverRule(dict):
+    """
+    CIDR selection rules define the business logic for selecting CIDRs from IPAM.  If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without rules, but you'll need to add at least one rule before it can actually automate your prefix list updates.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleType":
+            suggest = "rule_type"
+        elif key == "ipamScopeId":
+            suggest = "ipam_scope_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "staticCidr":
+            suggest = "static_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamPrefixListResolverRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamPrefixListResolverRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamPrefixListResolverRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_type: 'IpamPrefixListResolverRuleRuleType',
+                 conditions: Optional[Sequence['outputs.IpamPrefixListResolverRuleCondition']] = None,
+                 ipam_scope_id: Optional[_builtins.str] = None,
+                 resource_type: Optional['IpamPrefixListResolverRuleResourceType'] = None,
+                 static_cidr: Optional[_builtins.str] = None):
+        """
+        CIDR selection rules define the business logic for selecting CIDRs from IPAM.  If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without rules, but you'll need to add at least one rule before it can actually automate your prefix list updates.
+        :param 'IpamPrefixListResolverRuleRuleType' rule_type: There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+        :param Sequence['IpamPrefixListResolverRuleCondition'] conditions: Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+        :param _builtins.str ipam_scope_id: This rule will only match resources that are in this IPAM Scope.
+        :param 'IpamPrefixListResolverRuleResourceType' resource_type: The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+        :param _builtins.str static_cidr: A fixed CIDR that doesn't change
+        """
+        pulumi.set(__self__, "rule_type", rule_type)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if ipam_scope_id is not None:
+            pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if static_cidr is not None:
+            pulumi.set(__self__, "static_cidr", static_cidr)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> 'IpamPrefixListResolverRuleRuleType':
+        """
+        There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.IpamPrefixListResolverRuleCondition']]:
+        """
+        Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+        """
+        return pulumi.get(self, "conditions")
+
+    @_builtins.property
+    @pulumi.getter(name="ipamScopeId")
+    def ipam_scope_id(self) -> Optional[_builtins.str]:
+        """
+        This rule will only match resources that are in this IPAM Scope.
+        """
+        return pulumi.get(self, "ipam_scope_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional['IpamPrefixListResolverRuleResourceType']:
+        """
+        The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter(name="staticCidr")
+    def static_cidr(self) -> Optional[_builtins.str]:
+        """
+        A fixed CIDR that doesn't change
+        """
+        return pulumi.get(self, "static_cidr")
+
+
+@pulumi.output_type
+class IpamPrefixListResolverRuleCondition(dict):
+    """
+    Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipamPoolId":
+            suggest = "ipam_pool_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceOwner":
+            suggest = "resource_owner"
+        elif key == "resourceRegion":
+            suggest = "resource_region"
+        elif key == "resourceTag":
+            suggest = "resource_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamPrefixListResolverRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamPrefixListResolverRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamPrefixListResolverRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr: Optional[_builtins.str] = None,
+                 ipam_pool_id: Optional[_builtins.str] = None,
+                 operation: Optional['IpamPrefixListResolverRuleConditionOperation'] = None,
+                 resource_id: Optional[_builtins.str] = None,
+                 resource_owner: Optional[_builtins.str] = None,
+                 resource_region: Optional[_builtins.str] = None,
+                 resource_tag: Optional['outputs.IpamPrefixListResolverTag'] = None):
+        """
+        Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+        :param _builtins.str cidr: Condition for the IPAM Resource CIDR rule type.  CIDR (like 10.24.34.0/23).
+        :param _builtins.str ipam_pool_id: Condition for the IPAM Pool CIDR rule type.  If not chosen, the resolver applies to all IPAM Pool CIDRs in the scope.
+        :param 'IpamPrefixListResolverRuleConditionOperation' operation: Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+        :param _builtins.str resource_id: Condition for the IPAM Resource CIDR rule type.  The unique ID of a resource (like vpc-1234567890abcdef0).
+        :param _builtins.str resource_owner: Condition for the IPAM Resource CIDR rule type.  Resource owner (like 111122223333).
+        :param _builtins.str resource_region: Condition for the IPAM Resource CIDR rule type.  Resource region (like us-east-1).
+        :param 'IpamPrefixListResolverTag' resource_tag: Condition for the IPAM Resource CIDR rule type.  Resource Tag (like dev-vpc-1).
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if ipam_pool_id is not None:
+            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_owner is not None:
+            pulumi.set(__self__, "resource_owner", resource_owner)
+        if resource_region is not None:
+            pulumi.set(__self__, "resource_region", resource_region)
+        if resource_tag is not None:
+            pulumi.set(__self__, "resource_tag", resource_tag)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> Optional[_builtins.str]:
+        """
+        Condition for the IPAM Resource CIDR rule type.  CIDR (like 10.24.34.0/23).
+        """
+        return pulumi.get(self, "cidr")
+
+    @_builtins.property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> Optional[_builtins.str]:
+        """
+        Condition for the IPAM Pool CIDR rule type.  If not chosen, the resolver applies to all IPAM Pool CIDRs in the scope.
+        """
+        return pulumi.get(self, "ipam_pool_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> Optional['IpamPrefixListResolverRuleConditionOperation']:
+        """
+        Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        Condition for the IPAM Resource CIDR rule type.  The unique ID of a resource (like vpc-1234567890abcdef0).
+        """
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> Optional[_builtins.str]:
+        """
+        Condition for the IPAM Resource CIDR rule type.  Resource owner (like 111122223333).
+        """
+        return pulumi.get(self, "resource_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceRegion")
+    def resource_region(self) -> Optional[_builtins.str]:
+        """
+        Condition for the IPAM Resource CIDR rule type.  Resource region (like us-east-1).
+        """
+        return pulumi.get(self, "resource_region")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTag")
+    def resource_tag(self) -> Optional['outputs.IpamPrefixListResolverTag']:
+        """
+        Condition for the IPAM Resource CIDR rule type.  Resource Tag (like dev-vpc-1).
+        """
+        return pulumi.get(self, "resource_tag")
+
+
+@pulumi.output_type
+class IpamPrefixListResolverTag(dict):
     """
     A key-value pair to associate with a resource.
     """

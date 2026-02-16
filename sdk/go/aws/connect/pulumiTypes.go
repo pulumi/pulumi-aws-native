@@ -8667,6 +8667,249 @@ func (o LockVersionPropertiesPtrOutput) DataTable() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The content of a notification
+type NotificationContent struct {
+	DeDe *string `pulumi:"deDe"`
+	EnUs *string `pulumi:"enUs"`
+	EsEs *string `pulumi:"esEs"`
+	FrFr *string `pulumi:"frFr"`
+	IdId *string `pulumi:"idId"`
+	ItIt *string `pulumi:"itIt"`
+	JaJp *string `pulumi:"jaJp"`
+	KoKr *string `pulumi:"koKr"`
+	PtBr *string `pulumi:"ptBr"`
+	ZhCn *string `pulumi:"zhCn"`
+	ZhTw *string `pulumi:"zhTw"`
+}
+
+// NotificationContentInput is an input type that accepts NotificationContentArgs and NotificationContentOutput values.
+// You can construct a concrete instance of `NotificationContentInput` via:
+//
+//	NotificationContentArgs{...}
+type NotificationContentInput interface {
+	pulumi.Input
+
+	ToNotificationContentOutput() NotificationContentOutput
+	ToNotificationContentOutputWithContext(context.Context) NotificationContentOutput
+}
+
+// The content of a notification
+type NotificationContentArgs struct {
+	DeDe pulumi.StringPtrInput `pulumi:"deDe"`
+	EnUs pulumi.StringPtrInput `pulumi:"enUs"`
+	EsEs pulumi.StringPtrInput `pulumi:"esEs"`
+	FrFr pulumi.StringPtrInput `pulumi:"frFr"`
+	IdId pulumi.StringPtrInput `pulumi:"idId"`
+	ItIt pulumi.StringPtrInput `pulumi:"itIt"`
+	JaJp pulumi.StringPtrInput `pulumi:"jaJp"`
+	KoKr pulumi.StringPtrInput `pulumi:"koKr"`
+	PtBr pulumi.StringPtrInput `pulumi:"ptBr"`
+	ZhCn pulumi.StringPtrInput `pulumi:"zhCn"`
+	ZhTw pulumi.StringPtrInput `pulumi:"zhTw"`
+}
+
+func (NotificationContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationContent)(nil)).Elem()
+}
+
+func (i NotificationContentArgs) ToNotificationContentOutput() NotificationContentOutput {
+	return i.ToNotificationContentOutputWithContext(context.Background())
+}
+
+func (i NotificationContentArgs) ToNotificationContentOutputWithContext(ctx context.Context) NotificationContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationContentOutput)
+}
+
+// The content of a notification
+type NotificationContentOutput struct{ *pulumi.OutputState }
+
+func (NotificationContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationContent)(nil)).Elem()
+}
+
+func (o NotificationContentOutput) ToNotificationContentOutput() NotificationContentOutput {
+	return o
+}
+
+func (o NotificationContentOutput) ToNotificationContentOutputWithContext(ctx context.Context) NotificationContentOutput {
+	return o
+}
+
+func (o NotificationContentOutput) DeDe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.DeDe }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) EnUs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.EnUs }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) EsEs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.EsEs }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) FrFr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.FrFr }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) IdId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.IdId }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) ItIt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.ItIt }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) JaJp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.JaJp }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) KoKr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.KoKr }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) PtBr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.PtBr }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) ZhCn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.ZhCn }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) ZhTw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.ZhTw }).(pulumi.StringPtrOutput)
+}
+
+type NotificationContentPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationContent)(nil)).Elem()
+}
+
+func (o NotificationContentPtrOutput) ToNotificationContentPtrOutput() NotificationContentPtrOutput {
+	return o
+}
+
+func (o NotificationContentPtrOutput) ToNotificationContentPtrOutputWithContext(ctx context.Context) NotificationContentPtrOutput {
+	return o
+}
+
+func (o NotificationContentPtrOutput) Elem() NotificationContentOutput {
+	return o.ApplyT(func(v *NotificationContent) NotificationContent {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationContent
+		return ret
+	}).(NotificationContentOutput)
+}
+
+func (o NotificationContentPtrOutput) DeDe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeDe
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) EnUs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnUs
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) EsEs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EsEs
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) FrFr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FrFr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) IdId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) ItIt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ItIt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) JaJp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JaJp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) KoKr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KoKr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) PtBr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PtBr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) ZhCn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZhCn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) ZhTw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZhTw
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type NotificationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type PhoneNumberTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -17638,6 +17881,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisVideoStreamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationContentInput)(nil)).Elem(), NotificationContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigPtrInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
@@ -17872,6 +18116,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LockVersionPropertiesOutput{})
 	pulumi.RegisterOutputType(LockVersionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NotificationContentOutput{})
+	pulumi.RegisterOutputType(NotificationContentPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundEmailConfigOutput{})

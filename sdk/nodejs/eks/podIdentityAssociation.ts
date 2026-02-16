@@ -62,6 +62,10 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     declare public readonly namespace: pulumi.Output<string>;
     /**
+     * The policy of the pod identity association.
+     */
+    declare public readonly policy: pulumi.Output<string | undefined>;
+    /**
      * The IAM role ARN that the pod identity association is created for.
      */
     declare public readonly roleArn: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["disableSessionTags"] = args?.disableSessionTags;
             resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["serviceAccount"] = args?.serviceAccount;
             resourceInputs["tags"] = args?.tags;
@@ -118,6 +123,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["disableSessionTags"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["serviceAccount"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -146,6 +152,10 @@ export interface PodIdentityAssociationArgs {
      * The Kubernetes namespace that the pod identity association is created for.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * The policy of the pod identity association.
+     */
+    policy?: pulumi.Input<string>;
     /**
      * The IAM role ARN that the pod identity association is created for.
      */

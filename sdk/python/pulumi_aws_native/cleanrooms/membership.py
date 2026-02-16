@@ -28,6 +28,7 @@ class MembershipArgs:
                  query_log_status: pulumi.Input['MembershipQueryLogStatus'],
                  default_job_result_configuration: Optional[pulumi.Input['MembershipProtectedJobResultConfigurationArgs']] = None,
                  default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
+                 is_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  job_log_status: Optional[pulumi.Input['MembershipJobLogStatus']] = None,
                  payment_configuration: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -51,6 +52,8 @@ class MembershipArgs:
             pulumi.set(__self__, "default_job_result_configuration", default_job_result_configuration)
         if default_result_configuration is not None:
             pulumi.set(__self__, "default_result_configuration", default_result_configuration)
+        if is_metrics_enabled is not None:
+            pulumi.set(__self__, "is_metrics_enabled", is_metrics_enabled)
         if job_log_status is not None:
             pulumi.set(__self__, "job_log_status", job_log_status)
         if payment_configuration is not None:
@@ -109,6 +112,15 @@ class MembershipArgs:
         pulumi.set(self, "default_result_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="isMetricsEnabled")
+    def is_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_metrics_enabled")
+
+    @is_metrics_enabled.setter
+    def is_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="jobLogStatus")
     def job_log_status(self) -> Optional[pulumi.Input['MembershipJobLogStatus']]:
         """
@@ -156,6 +168,7 @@ class Membership(pulumi.CustomResource):
                  collaboration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  default_job_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedJobResultConfigurationArgs', 'MembershipProtectedJobResultConfigurationArgsDict']]] = None,
                  default_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']]] = None,
+                 is_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  job_log_status: Optional[pulumi.Input['MembershipJobLogStatus']] = None,
                  payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
@@ -205,6 +218,7 @@ class Membership(pulumi.CustomResource):
                  collaboration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  default_job_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedJobResultConfigurationArgs', 'MembershipProtectedJobResultConfigurationArgsDict']]] = None,
                  default_result_configuration: Optional[pulumi.Input[Union['MembershipProtectedQueryResultConfigurationArgs', 'MembershipProtectedQueryResultConfigurationArgsDict']]] = None,
+                 is_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  job_log_status: Optional[pulumi.Input['MembershipJobLogStatus']] = None,
                  payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
@@ -223,6 +237,7 @@ class Membership(pulumi.CustomResource):
             __props__.__dict__["collaboration_identifier"] = collaboration_identifier
             __props__.__dict__["default_job_result_configuration"] = default_job_result_configuration
             __props__.__dict__["default_result_configuration"] = default_result_configuration
+            __props__.__dict__["is_metrics_enabled"] = is_metrics_enabled
             __props__.__dict__["job_log_status"] = job_log_status
             __props__.__dict__["payment_configuration"] = payment_configuration
             if query_log_status is None and not opts.urn:
@@ -263,6 +278,7 @@ class Membership(pulumi.CustomResource):
         __props__.__dict__["collaboration_identifier"] = None
         __props__.__dict__["default_job_result_configuration"] = None
         __props__.__dict__["default_result_configuration"] = None
+        __props__.__dict__["is_metrics_enabled"] = None
         __props__.__dict__["job_log_status"] = None
         __props__.__dict__["membership_identifier"] = None
         __props__.__dict__["payment_configuration"] = None
@@ -323,6 +339,11 @@ class Membership(pulumi.CustomResource):
         The default protected query result configuration as specified by the member who can receive results.
         """
         return pulumi.get(self, "default_result_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="isMetricsEnabled")
+    def is_metrics_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_metrics_enabled")
 
     @_builtins.property
     @pulumi.getter(name="jobLogStatus")

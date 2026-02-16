@@ -87,6 +87,226 @@ type ConnectionAliasTag struct {
 	Value string `pulumi:"value"`
 }
 
+type WorkspaceProperties struct {
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+	ComputeTypeName *string `pulumi:"computeTypeName"`
+	// The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+	RootVolumeSizeGib *int `pulumi:"rootVolumeSizeGib"`
+	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+	RunningMode *string `pulumi:"runningMode"`
+	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+	RunningModeAutoStopTimeoutInMinutes *int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	// The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+	UserVolumeSizeGib *int `pulumi:"userVolumeSizeGib"`
+}
+
+// WorkspacePropertiesInput is an input type that accepts WorkspacePropertiesArgs and WorkspacePropertiesOutput values.
+// You can construct a concrete instance of `WorkspacePropertiesInput` via:
+//
+//	WorkspacePropertiesArgs{...}
+type WorkspacePropertiesInput interface {
+	pulumi.Input
+
+	ToWorkspacePropertiesOutput() WorkspacePropertiesOutput
+	ToWorkspacePropertiesOutputWithContext(context.Context) WorkspacePropertiesOutput
+}
+
+type WorkspacePropertiesArgs struct {
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+	ComputeTypeName pulumi.StringPtrInput `pulumi:"computeTypeName"`
+	// The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+	RootVolumeSizeGib pulumi.IntPtrInput `pulumi:"rootVolumeSizeGib"`
+	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+	RunningMode pulumi.StringPtrInput `pulumi:"runningMode"`
+	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	// The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+	UserVolumeSizeGib pulumi.IntPtrInput `pulumi:"userVolumeSizeGib"`
+}
+
+func (WorkspacePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProperties)(nil)).Elem()
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutput() WorkspacePropertiesOutput {
+	return i.ToWorkspacePropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspacePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput)
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput).ToWorkspacePropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkspacePropertiesPtrInput is an input type that accepts WorkspacePropertiesArgs, WorkspacePropertiesPtr and WorkspacePropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkspacePropertiesPtrInput` via:
+//
+//	        WorkspacePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspacePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput
+	ToWorkspacePropertiesPtrOutputWithContext(context.Context) WorkspacePropertiesPtrOutput
+}
+
+type workspacePropertiesPtrType WorkspacePropertiesArgs
+
+func WorkspacePropertiesPtr(v *WorkspacePropertiesArgs) WorkspacePropertiesPtrInput {
+	return (*workspacePropertiesPtrType)(v)
+}
+
+func (*workspacePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceProperties)(nil)).Elem()
+}
+
+func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesPtrOutput)
+}
+
+type WorkspacePropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesOutput() WorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return o.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceProperties) *WorkspaceProperties {
+		return &v
+	}).(WorkspacePropertiesPtrOutput)
+}
+
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+func (o WorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
+}
+
+// The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+func (o WorkspacePropertiesOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+func (o WorkspacePropertiesOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
+}
+
+// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+func (o WorkspacePropertiesOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+func (o WorkspacePropertiesOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *int { return v.UserVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+type WorkspacePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesPtrOutput) Elem() WorkspacePropertiesOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) WorkspaceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceProperties
+		return ret
+	}).(WorkspacePropertiesOutput)
+}
+
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+func (o WorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypeName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+func (o WorkspacePropertiesPtrOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RootVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
+// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+func (o WorkspacePropertiesPtrOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunningMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+func (o WorkspacePropertiesPtrOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunningModeAutoStopTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+func (o WorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UserVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkspaceTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type WorkspacesPoolApplicationSettings struct {
 	// The path prefix for the S3 bucket where users’ persistent application settings are stored.
 	SettingsGroup *string `pulumi:"settingsGroup"`
@@ -510,6 +730,8 @@ func (o WorkspacesPoolTimeoutSettingsPtrOutput) MaxUserDurationInSeconds() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesPtrInput)(nil)).Elem(), WorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsPtrInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolCapacityInput)(nil)).Elem(), WorkspacesPoolCapacityArgs{})
@@ -517,6 +739,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolTimeoutSettingsPtrInput)(nil)).Elem(), WorkspacesPoolTimeoutSettingsArgs{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolCapacityOutput{})

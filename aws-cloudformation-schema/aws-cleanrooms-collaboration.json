@@ -296,6 +296,9 @@
     },
     "AllowedResultRegions" : {
       "$ref" : "#/definitions/AllowedResultRegions"
+    },
+    "IsMetricsEnabled" : {
+      "type" : "boolean"
     }
   },
   "required" : [ "CreatorDisplayName", "Name", "Description", "QueryLogStatus" ],

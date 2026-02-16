@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'WorkspacePropertiesArgs',
+    'WorkspacePropertiesArgsDict',
     'WorkspacesPoolApplicationSettingsArgs',
     'WorkspacesPoolApplicationSettingsArgsDict',
     'WorkspacesPoolCapacityArgs',
@@ -23,6 +25,115 @@ __all__ = [
     'WorkspacesPoolTimeoutSettingsArgs',
     'WorkspacesPoolTimeoutSettingsArgsDict',
 ]
+
+class WorkspacePropertiesArgsDict(TypedDict):
+    compute_type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+    """
+    root_volume_size_gib: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+    """
+    running_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+    """
+    running_mode_auto_stop_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+    """
+    user_volume_size_gib: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+    """
+
+@pulumi.input_type
+class WorkspacePropertiesArgs:
+    def __init__(__self__, *,
+                 compute_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_volume_size_gib: Optional[pulumi.Input[_builtins.int]] = None,
+                 running_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 user_volume_size_gib: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+        :param pulumi.Input[_builtins.int] root_volume_size_gib: The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        :param pulumi.Input[_builtins.str] running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+        :param pulumi.Input[_builtins.int] running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param pulumi.Input[_builtins.int] user_volume_size_gib: The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        """
+        if compute_type_name is not None:
+            pulumi.set(__self__, "compute_type_name", compute_type_name)
+        if root_volume_size_gib is not None:
+            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+        if running_mode is not None:
+            pulumi.set(__self__, "running_mode", running_mode)
+        if running_mode_auto_stop_timeout_in_minutes is not None:
+            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+        if user_volume_size_gib is not None:
+            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+
+    @_builtins.property
+    @pulumi.getter(name="computeTypeName")
+    def compute_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+        """
+        return pulumi.get(self, "compute_type_name")
+
+    @compute_type_name.setter
+    def compute_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "compute_type_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rootVolumeSizeGib")
+    def root_volume_size_gib(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        """
+        return pulumi.get(self, "root_volume_size_gib")
+
+    @root_volume_size_gib.setter
+    def root_volume_size_gib(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "root_volume_size_gib", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+        """
+        return pulumi.get(self, "running_mode")
+
+    @running_mode.setter
+    def running_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "running_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
+    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        """
+        return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
+
+    @running_mode_auto_stop_timeout_in_minutes.setter
+    def running_mode_auto_stop_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "running_mode_auto_stop_timeout_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userVolumeSizeGib")
+    def user_volume_size_gib(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        """
+        return pulumi.get(self, "user_volume_size_gib")
+
+    @user_volume_size_gib.setter
+    def user_volume_size_gib(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "user_volume_size_gib", value)
+
 
 class WorkspacesPoolApplicationSettingsArgsDict(TypedDict):
     status: pulumi.Input['WorkspacesPoolApplicationSettingsStatus']

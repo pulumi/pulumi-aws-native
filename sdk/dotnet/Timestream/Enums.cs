@@ -156,9 +156,12 @@ namespace Pulumi.AwsNative.Timestream
         public static InfluxDbInstanceStatus Available { get; } = new InfluxDbInstanceStatus("AVAILABLE");
         public static InfluxDbInstanceStatus Deleting { get; } = new InfluxDbInstanceStatus("DELETING");
         public static InfluxDbInstanceStatus Modifying { get; } = new InfluxDbInstanceStatus("MODIFYING");
+        public static InfluxDbInstanceStatus Maintenance { get; } = new InfluxDbInstanceStatus("MAINTENANCE");
         public static InfluxDbInstanceStatus Updating { get; } = new InfluxDbInstanceStatus("UPDATING");
         public static InfluxDbInstanceStatus UpdatingDeploymentType { get; } = new InfluxDbInstanceStatus("UPDATING_DEPLOYMENT_TYPE");
         public static InfluxDbInstanceStatus UpdatingInstanceType { get; } = new InfluxDbInstanceStatus("UPDATING_INSTANCE_TYPE");
+        public static InfluxDbInstanceStatus Rebooting { get; } = new InfluxDbInstanceStatus("REBOOTING");
+        public static InfluxDbInstanceStatus RebootFailed { get; } = new InfluxDbInstanceStatus("REBOOT_FAILED");
         public static InfluxDbInstanceStatus Deleted { get; } = new InfluxDbInstanceStatus("DELETED");
         public static InfluxDbInstanceStatus Failed { get; } = new InfluxDbInstanceStatus("FAILED");
 

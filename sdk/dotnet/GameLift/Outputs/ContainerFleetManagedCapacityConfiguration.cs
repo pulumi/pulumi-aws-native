@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
     /// <summary>
-    /// Configuration options for GameLift-managed capacity behavior.
+    /// Configuration options for Amazon GameLift Servers managed capacity behavior.
     /// </summary>
     [OutputType]
     public sealed class ContainerFleetManagedCapacityConfiguration

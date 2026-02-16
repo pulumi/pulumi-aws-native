@@ -132,6 +132,8 @@ __all__ = [
     'InstanceStorageConfigKinesisVideoStreamConfigArgsDict',
     'InstanceStorageConfigS3ConfigArgs',
     'InstanceStorageConfigS3ConfigArgsDict',
+    'NotificationContentArgs',
+    'NotificationContentArgsDict',
     'QueueOutboundCallerConfigArgs',
     'QueueOutboundCallerConfigArgsDict',
     'QueueOutboundEmailConfigArgs',
@@ -3749,6 +3751,162 @@ class InstanceStorageConfigS3ConfigArgs:
     @encryption_config.setter
     def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
+
+
+class NotificationContentArgsDict(TypedDict):
+    """
+    The content of a notification
+    """
+    de_de: NotRequired[pulumi.Input[_builtins.str]]
+    en_us: NotRequired[pulumi.Input[_builtins.str]]
+    es_es: NotRequired[pulumi.Input[_builtins.str]]
+    fr_fr: NotRequired[pulumi.Input[_builtins.str]]
+    id_id: NotRequired[pulumi.Input[_builtins.str]]
+    it_it: NotRequired[pulumi.Input[_builtins.str]]
+    ja_jp: NotRequired[pulumi.Input[_builtins.str]]
+    ko_kr: NotRequired[pulumi.Input[_builtins.str]]
+    pt_br: NotRequired[pulumi.Input[_builtins.str]]
+    zh_cn: NotRequired[pulumi.Input[_builtins.str]]
+    zh_tw: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class NotificationContentArgs:
+    def __init__(__self__, *,
+                 de_de: Optional[pulumi.Input[_builtins.str]] = None,
+                 en_us: Optional[pulumi.Input[_builtins.str]] = None,
+                 es_es: Optional[pulumi.Input[_builtins.str]] = None,
+                 fr_fr: Optional[pulumi.Input[_builtins.str]] = None,
+                 id_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 it_it: Optional[pulumi.Input[_builtins.str]] = None,
+                 ja_jp: Optional[pulumi.Input[_builtins.str]] = None,
+                 ko_kr: Optional[pulumi.Input[_builtins.str]] = None,
+                 pt_br: Optional[pulumi.Input[_builtins.str]] = None,
+                 zh_cn: Optional[pulumi.Input[_builtins.str]] = None,
+                 zh_tw: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The content of a notification
+        """
+        if de_de is not None:
+            pulumi.set(__self__, "de_de", de_de)
+        if en_us is not None:
+            pulumi.set(__self__, "en_us", en_us)
+        if es_es is not None:
+            pulumi.set(__self__, "es_es", es_es)
+        if fr_fr is not None:
+            pulumi.set(__self__, "fr_fr", fr_fr)
+        if id_id is not None:
+            pulumi.set(__self__, "id_id", id_id)
+        if it_it is not None:
+            pulumi.set(__self__, "it_it", it_it)
+        if ja_jp is not None:
+            pulumi.set(__self__, "ja_jp", ja_jp)
+        if ko_kr is not None:
+            pulumi.set(__self__, "ko_kr", ko_kr)
+        if pt_br is not None:
+            pulumi.set(__self__, "pt_br", pt_br)
+        if zh_cn is not None:
+            pulumi.set(__self__, "zh_cn", zh_cn)
+        if zh_tw is not None:
+            pulumi.set(__self__, "zh_tw", zh_tw)
+
+    @_builtins.property
+    @pulumi.getter(name="deDe")
+    def de_de(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "de_de")
+
+    @de_de.setter
+    def de_de(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "de_de", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enUs")
+    def en_us(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "en_us")
+
+    @en_us.setter
+    def en_us(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "en_us", value)
+
+    @_builtins.property
+    @pulumi.getter(name="esEs")
+    def es_es(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "es_es")
+
+    @es_es.setter
+    def es_es(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "es_es", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frFr")
+    def fr_fr(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "fr_fr")
+
+    @fr_fr.setter
+    def fr_fr(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "fr_fr", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idId")
+    def id_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "id_id")
+
+    @id_id.setter
+    def id_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itIt")
+    def it_it(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "it_it")
+
+    @it_it.setter
+    def it_it(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "it_it", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jaJp")
+    def ja_jp(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "ja_jp")
+
+    @ja_jp.setter
+    def ja_jp(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ja_jp", value)
+
+    @_builtins.property
+    @pulumi.getter(name="koKr")
+    def ko_kr(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "ko_kr")
+
+    @ko_kr.setter
+    def ko_kr(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ko_kr", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ptBr")
+    def pt_br(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pt_br")
+
+    @pt_br.setter
+    def pt_br(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pt_br", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zhCn")
+    def zh_cn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "zh_cn")
+
+    @zh_cn.setter
+    def zh_cn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "zh_cn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zhTw")
+    def zh_tw(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "zh_tw")
+
+    @zh_tw.setter
+    def zh_tw(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "zh_tw", value)
 
 
 class QueueOutboundCallerConfigArgsDict(TypedDict):

@@ -12,6 +12,8 @@ __all__ = [
     'TableBucketStorageClassConfigurationStorageClass',
     'TableBucketUnreferencedFileRemovalStatus',
     'TableCompactionStatus',
+    'TableIcebergSortFieldDirection',
+    'TableIcebergSortFieldNullOrder',
     'TableOpenTableFormat',
     'TableSnapshotManagementStatus',
     'TableStorageClassConfigurationStorageClass',
@@ -62,6 +64,24 @@ class TableCompactionStatus(_builtins.str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableIcebergSortFieldDirection")
+class TableIcebergSortFieldDirection(_builtins.str, Enum):
+    """
+    Sort direction (asc or desc)
+    """
+    ASC = "asc"
+    DESC = "desc"
+
+
+@pulumi.type_token("aws-native:s3tables:TableIcebergSortFieldNullOrder")
+class TableIcebergSortFieldNullOrder(_builtins.str, Enum):
+    """
+    Null value ordering (nulls-first or nulls-last)
+    """
+    NULLS_FIRST = "nulls-first"
+    NULLS_LAST = "nulls-last"
 
 
 @pulumi.type_token("aws-native:s3tables:TableOpenTableFormat")

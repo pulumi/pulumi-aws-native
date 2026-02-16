@@ -275,6 +275,7 @@ AWS::Connect::HoursOfOperation
 AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
 AWS::Connect::IntegrationAssociation
+AWS::Connect::Notification
 AWS::Connect::PhoneNumber
 AWS::Connect::PredefinedAttribute
 AWS::Connect::Prompt
@@ -395,6 +396,7 @@ AWS::EC2::IPAM
 AWS::EC2::IPAMAllocation
 AWS::EC2::IPAMPool
 AWS::EC2::IPAMPoolCidr
+AWS::EC2::IPAMPrefixListResolver
 AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
@@ -1093,6 +1095,7 @@ AWS::S3Vectors::VectorBucketPolicy
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
+AWS::SES::CustomVerificationEmailTemplate
 AWS::SES::DedicatedIpPool
 AWS::SES::EmailIdentity
 AWS::SES::MailManagerAddonInstance
@@ -1279,6 +1282,7 @@ AWS::Wisdom::MessageTemplate
 AWS::Wisdom::MessageTemplateVersion
 AWS::Wisdom::QuickResponse
 AWS::WorkSpaces::ConnectionAlias
+AWS::WorkSpaces::Workspace
 AWS::WorkSpaces::WorkspacesPool
 AWS::WorkSpacesThinClient::Environment
 AWS::WorkSpacesWeb::BrowserSettings
@@ -1379,6 +1383,7 @@ MongoDB::Atlas::APIKey
 MongoDB::Atlas::AccessListAPIKey
 MongoDB::Atlas::AlertConfiguration
 MongoDB::Atlas::Auditing
+MongoDB::Atlas::BackupCompliancePolicy
 MongoDB::Atlas::CloudBackUpRestoreJobs
 MongoDB::Atlas::CloudBackupSchedule
 MongoDB::Atlas::CloudBackupSnapshot

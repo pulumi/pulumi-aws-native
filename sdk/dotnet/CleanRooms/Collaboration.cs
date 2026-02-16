@@ -89,6 +89,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        [Output("isMetricsEnabled")]
+        public Output<bool?> IsMetricsEnabled { get; private set; } = null!;
+
         /// <summary>
         /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
         /// 
@@ -256,6 +259,9 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
+
+        [Input("isMetricsEnabled")]
+        public Input<bool>? IsMetricsEnabled { get; set; }
 
         /// <summary>
         /// An indicator as to whether job logging has been enabled or disabled for the collaboration.

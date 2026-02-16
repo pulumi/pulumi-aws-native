@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpamPool{}
 	case "aws-native:ec2:IpamPoolCidr":
 		r = &IpamPoolCidr{}
+	case "aws-native:ec2:IpamPrefixListResolver":
+		r = &IpamPrefixListResolver{}
 	case "aws-native:ec2:IpamResourceDiscovery":
 		r = &IpamResourceDiscovery{}
 	case "aws-native:ec2:IpamResourceDiscoveryAssociation":

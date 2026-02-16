@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> Namespace { get; private set; } = null!;
 
         /// <summary>
+        /// The policy of the pod identity association.
+        /// </summary>
+        [Output("policy")]
+        public Output<string?> Policy { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM role ARN that the pod identity association is created for.
         /// </summary>
         [Output("roleArn")]
@@ -143,6 +149,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
+
+        /// <summary>
+        /// The policy of the pod identity association.
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
 
         /// <summary>
         /// The IAM role ARN that the pod identity association is created for.

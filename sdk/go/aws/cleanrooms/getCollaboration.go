@@ -44,7 +44,8 @@ type LookupCollaborationResult struct {
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	CollaborationIdentifier *string `pulumi:"collaborationIdentifier"`
 	// A description of the collaboration provided by the collaboration owner.
-	Description *string `pulumi:"description"`
+	Description      *string `pulumi:"description"`
+	IsMetricsEnabled *bool   `pulumi:"isMetricsEnabled"`
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name *string `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -109,6 +110,10 @@ func (o LookupCollaborationResultOutput) CollaborationIdentifier() pulumi.String
 // A description of the collaboration provided by the collaboration owner.
 func (o LookupCollaborationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollaborationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCollaborationResultOutput) IsMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCollaborationResult) *bool { return v.IsMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A human-readable identifier provided by the collaboration owner. Display names are not unique.

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollaborationResult:
-    def __init__(__self__, analytics_engine=None, arn=None, collaboration_identifier=None, description=None, name=None, tags=None):
+    def __init__(__self__, analytics_engine=None, arn=None, collaboration_identifier=None, description=None, is_metrics_enabled=None, name=None, tags=None):
         if analytics_engine and not isinstance(analytics_engine, str):
             raise TypeError("Expected argument 'analytics_engine' to be a str")
         pulumi.set(__self__, "analytics_engine", analytics_engine)
@@ -38,6 +38,9 @@ class GetCollaborationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if is_metrics_enabled and not isinstance(is_metrics_enabled, bool):
+            raise TypeError("Expected argument 'is_metrics_enabled' to be a bool")
+        pulumi.set(__self__, "is_metrics_enabled", is_metrics_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -84,6 +87,11 @@ class GetCollaborationResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="isMetricsEnabled")
+    def is_metrics_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_metrics_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
@@ -110,6 +118,7 @@ class AwaitableGetCollaborationResult(GetCollaborationResult):
             arn=self.arn,
             collaboration_identifier=self.collaboration_identifier,
             description=self.description,
+            is_metrics_enabled=self.is_metrics_enabled,
             name=self.name,
             tags=self.tags)
 
@@ -134,6 +143,7 @@ def get_collaboration(collaboration_identifier: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         collaboration_identifier=pulumi.get(__ret__, 'collaboration_identifier'),
         description=pulumi.get(__ret__, 'description'),
+        is_metrics_enabled=pulumi.get(__ret__, 'is_metrics_enabled'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -155,5 +165,6 @@ def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[_bu
         arn=pulumi.get(__response__, 'arn'),
         collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
         description=pulumi.get(__response__, 'description'),
+        is_metrics_enabled=pulumi.get(__response__, 'is_metrics_enabled'),
         name=pulumi.get(__response__, 'name'),
         tags=pulumi.get(__response__, 'tags')))

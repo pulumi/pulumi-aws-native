@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
     /// <summary>
-    /// Configuration options for GameLift-managed capacity behavior.
+    /// Configuration options for Amazon GameLift Servers managed capacity behavior.
     /// </summary>
     public sealed class ContainerFleetManagedCapacityConfigurationArgs : global::Pulumi.ResourceArgs
     {

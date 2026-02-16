@@ -43,6 +43,7 @@ __all__ = [
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
     'IntegrationAssociationIntegrationType',
+    'NotificationPriority',
     'QueueStatus',
     'QueueType',
     'QuickConnectType',
@@ -448,6 +449,15 @@ class IntegrationAssociationIntegrationType(_builtins.str, Enum):
     LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
     APPLICATION = "APPLICATION"
     CASES_DOMAIN = "CASES_DOMAIN"
+
+
+@pulumi.type_token("aws-native:connect:NotificationPriority")
+class NotificationPriority(_builtins.str, Enum):
+    """
+    The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+    """
+    HIGH = "HIGH"
+    LOW = "LOW"
 
 
 @pulumi.type_token("aws-native:connect:QueueStatus")

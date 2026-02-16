@@ -29,7 +29,7 @@ type ImageBuilder struct {
 	DomainJoinInfo ImageBuilderDomainJoinInfoPtrOutput `pulumi:"domainJoinInfo"`
 	// Enables or disables default internet access for the image builder.
 	EnableDefaultInternetAccess pulumi.BoolPtrOutput `pulumi:"enableDefaultInternetAccess"`
-	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 	//
 	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
@@ -155,7 +155,7 @@ type imageBuilderArgs struct {
 	DomainJoinInfo *ImageBuilderDomainJoinInfo `pulumi:"domainJoinInfo"`
 	// Enables or disables default internet access for the image builder.
 	EnableDefaultInternetAccess *bool `pulumi:"enableDefaultInternetAccess"`
-	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 	//
 	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
 	IamRoleArn *string `pulumi:"iamRoleArn"`
@@ -238,7 +238,7 @@ type ImageBuilderArgs struct {
 	DomainJoinInfo ImageBuilderDomainJoinInfoPtrInput
 	// Enables or disables default internet access for the image builder.
 	EnableDefaultInternetAccess pulumi.BoolPtrInput
-	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 	//
 	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
 	IamRoleArn pulumi.StringPtrInput
@@ -374,7 +374,7 @@ func (o ImageBuilderOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.BoolPtrOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 //
 // For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
 func (o ImageBuilderOutput) IamRoleArn() pulumi.StringPtrOutput {

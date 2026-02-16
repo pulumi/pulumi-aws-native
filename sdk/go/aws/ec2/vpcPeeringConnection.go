@@ -17,6 +17,8 @@ import (
 type VpcPeeringConnection struct {
 	pulumi.CustomResourceState
 
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	AssumeRoleRegion pulumi.StringPtrOutput `pulumi:"assumeRoleRegion"`
 	// The ID of the peering connection.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The AWS account ID of the owner of the accepter VPC.
@@ -47,6 +49,7 @@ func NewVpcPeeringConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"assumeRoleRegion",
 		"peerOwnerId",
 		"peerRegion",
 		"peerRoleArn",
@@ -87,6 +90,8 @@ func (VpcPeeringConnectionState) ElementType() reflect.Type {
 }
 
 type vpcPeeringConnectionArgs struct {
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	AssumeRoleRegion *string `pulumi:"assumeRoleRegion"`
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
@@ -103,6 +108,8 @@ type vpcPeeringConnectionArgs struct {
 
 // The set of arguments for constructing a VpcPeeringConnection resource.
 type VpcPeeringConnectionArgs struct {
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	AssumeRoleRegion pulumi.StringPtrInput
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId pulumi.StringPtrInput
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
@@ -152,6 +159,11 @@ func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutput() VpcPeeringCon
 
 func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutputWithContext(ctx context.Context) VpcPeeringConnectionOutput {
 	return o
+}
+
+// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+func (o VpcPeeringConnectionOutput) AssumeRoleRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringPtrOutput { return v.AssumeRoleRegion }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the peering connection.

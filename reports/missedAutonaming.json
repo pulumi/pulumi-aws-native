@@ -1758,6 +1758,9 @@
         "$ref": "#/types/aws-native:cleanrooms:MembershipProtectedQueryResultConfiguration",
         "description": "The default protected query result configuration as specified by the member who can receive results."
       },
+      "isMetricsEnabled": {
+        "type": "boolean"
+      },
       "jobLogStatus": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipJobLogStatus",
         "description": "An indicator as to whether job logging has been enabled or disabled for the collaboration.\n\nWhen `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` ."
@@ -2811,6 +2814,41 @@
       "integrationType": {
         "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType",
         "description": "Specifies the integration type to be associated with the instance.\n\n*Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`"
+      }
+    }
+  },
+  "aws-native:connect:Notification": {
+    "cfTypeName": "AWS::Connect::Notification",
+    "properties": {
+      "content": {
+        "$ref": "#/types/aws-native:connect:NotificationContent",
+        "description": "The content of the notification."
+      },
+      "expiresAt": {
+        "type": "string",
+        "description": "The time a notification will expire"
+      },
+      "instanceArn": {
+        "type": "string",
+        "description": "The identifier of the Amazon Connect instance."
+      },
+      "priority": {
+        "$ref": "#/types/aws-native:connect:NotificationPriority",
+        "description": "The priority of the notification."
+      },
+      "recipients": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The recipients of the notification."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags."
       }
     }
   },
@@ -5178,6 +5216,36 @@
       }
     }
   },
+  "aws-native:ec2:IpamPrefixListResolver": {
+    "cfTypeName": "AWS::EC2::IPAMPrefixListResolver",
+    "properties": {
+      "addressFamily": {
+        "type": "string",
+        "description": "The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6."
+      },
+      "description": {
+        "type": "string"
+      },
+      "ipamId": {
+        "type": "string",
+        "description": "The Id of the IPAM this Prefix List Resolver is a part of."
+      },
+      "rules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:IpamPrefixListResolverRule"
+        },
+        "description": "Rules define the business logic for selecting CIDRs from IPAM."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
   "aws-native:ec2:IpamResourceDiscovery": {
     "cfTypeName": "AWS::EC2::IPAMResourceDiscovery",
     "properties": {
@@ -7436,6 +7504,10 @@
   "aws-native:ec2:VpcPeeringConnection": {
     "cfTypeName": "AWS::EC2::VPCPeeringConnection",
     "properties": {
+      "assumeRoleRegion": {
+        "type": "string",
+        "description": "The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided."
+      },
       "peerOwnerId": {
         "type": "string",
         "description": "The AWS account ID of the owner of the accepter VPC."
@@ -8142,6 +8214,10 @@
       "namespace": {
         "type": "string",
         "description": "The Kubernetes namespace that the pod identity association is created for."
+      },
+      "policy": {
+        "type": "string",
+        "description": "The policy of the pod identity association."
       },
       "roleArn": {
         "type": "string",
@@ -16313,6 +16389,9 @@
         "type": "string",
         "description": "Descriptive text that you can provide to help with identification of the current policy store."
       },
+      "encryptionSettings": {
+        "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreEncryptionSettings"
+      },
       "schema": {
         "oneOf": [
           {
@@ -16650,6 +16729,46 @@
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
         "description": "The tags to associate with the connection alias."
+      }
+    }
+  },
+  "aws-native:workspaces:Workspace": {
+    "cfTypeName": "AWS::WorkSpaces::Workspace",
+    "properties": {
+      "bundleId": {
+        "type": "string",
+        "description": "The identifier of the bundle for the WorkSpace."
+      },
+      "directoryId": {
+        "type": "string",
+        "description": "The identifier of the Directory Service directory for the WorkSpace."
+      },
+      "rootVolumeEncryptionEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether the data stored on the root volume is encrypted."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the WorkSpace."
+      },
+      "userName": {
+        "type": "string",
+        "description": "The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace."
+      },
+      "userVolumeEncryptionEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether the data stored on the user volume is encrypted."
+      },
+      "volumeEncryptionKey": {
+        "type": "string",
+        "description": "The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys."
+      },
+      "workspaceProperties": {
+        "$ref": "#/types/aws-native:workspaces:WorkspaceProperties",
+        "description": "The WorkSpace properties."
       }
     }
   },

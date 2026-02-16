@@ -33,7 +33,6 @@ class ModelPackageArgs:
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  drift_check_baselines: Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']] = None,
                  inference_specification: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_properties: Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
                  model_card: Optional[pulumi.Input['ModelPackageModelCardArgs']] = None,
@@ -62,7 +61,6 @@ class ModelPackageArgs:
         :param pulumi.Input[_builtins.str] domain: The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
         :param pulumi.Input['ModelPackageDriftCheckBaselinesArgs'] drift_check_baselines: Represents the drift check baselines that can be used when the model monitor is set using the model package.
         :param pulumi.Input['ModelPackageInferenceSpecificationArgs'] inference_specification: Defines how to perform inference generation after a training job is run.
-        :param pulumi.Input[_builtins.str] last_modified_time: The last time the model package was modified.
         :param pulumi.Input['ModelPackageMetadataPropertiesArgs'] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
         :param pulumi.Input['ModelPackageModelApprovalStatus'] model_approval_status: The approval status of the model. This can be one of the following values.
                
@@ -105,8 +103,6 @@ class ModelPackageArgs:
             pulumi.set(__self__, "drift_check_baselines", drift_check_baselines)
         if inference_specification is not None:
             pulumi.set(__self__, "inference_specification", inference_specification)
-        if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
         if metadata_properties is not None:
             pulumi.set(__self__, "metadata_properties", metadata_properties)
         if model_approval_status is not None:
@@ -249,18 +245,6 @@ class ModelPackageArgs:
     @inference_specification.setter
     def inference_specification(self, value: Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']]):
         pulumi.set(self, "inference_specification", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The last time the model package was modified.
-        """
-        return pulumi.get(self, "last_modified_time")
-
-    @last_modified_time.setter
-    def last_modified_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_modified_time", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataProperties")
@@ -486,7 +470,6 @@ class ModelPackage(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  drift_check_baselines: Optional[pulumi.Input[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']]] = None,
                  inference_specification: Optional[pulumi.Input[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_properties: Optional[pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
                  model_card: Optional[pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
@@ -519,7 +502,6 @@ class ModelPackage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain: The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
         :param pulumi.Input[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']] drift_check_baselines: Represents the drift check baselines that can be used when the model monitor is set using the model package.
         :param pulumi.Input[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']] inference_specification: Defines how to perform inference generation after a training job is run.
-        :param pulumi.Input[_builtins.str] last_modified_time: The last time the model package was modified.
         :param pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
         :param pulumi.Input['ModelPackageModelApprovalStatus'] model_approval_status: The approval status of the model. This can be one of the following values.
                
@@ -577,7 +559,6 @@ class ModelPackage(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  drift_check_baselines: Optional[pulumi.Input[Union['ModelPackageDriftCheckBaselinesArgs', 'ModelPackageDriftCheckBaselinesArgsDict']]] = None,
                  inference_specification: Optional[pulumi.Input[Union['ModelPackageInferenceSpecificationArgs', 'ModelPackageInferenceSpecificationArgsDict']]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_properties: Optional[pulumi.Input[Union['ModelPackageMetadataPropertiesArgs', 'ModelPackageMetadataPropertiesArgsDict']]] = None,
                  model_approval_status: Optional[pulumi.Input['ModelPackageModelApprovalStatus']] = None,
                  model_card: Optional[pulumi.Input[Union['ModelPackageModelCardArgs', 'ModelPackageModelCardArgsDict']]] = None,
@@ -613,7 +594,6 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["drift_check_baselines"] = drift_check_baselines
             __props__.__dict__["inference_specification"] = inference_specification
-            __props__.__dict__["last_modified_time"] = last_modified_time
             __props__.__dict__["metadata_properties"] = metadata_properties
             __props__.__dict__["model_approval_status"] = model_approval_status
             __props__.__dict__["model_card"] = model_card
@@ -632,6 +612,7 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["task"] = task
             __props__.__dict__["validation_specification"] = validation_specification
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["model_package_arn"] = None
             __props__.__dict__["model_package_status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "securityConfig", "sourceAlgorithmSpecification", "task", "validationSpecification"])
@@ -772,7 +753,7 @@ class ModelPackage(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def last_modified_time(self) -> pulumi.Output[_builtins.str]:
         """
         The last time the model package was modified.
         """

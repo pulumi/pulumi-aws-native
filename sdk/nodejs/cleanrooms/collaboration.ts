@@ -89,6 +89,7 @@ export class Collaboration extends pulumi.CustomResource {
      * A description of the collaboration provided by the collaboration owner.
      */
     declare public readonly description: pulumi.Output<string>;
+    declare public readonly isMetricsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *
@@ -143,6 +144,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["creatorPaymentConfiguration"] = args?.creatorPaymentConfiguration;
             resourceInputs["dataEncryptionMetadata"] = args?.dataEncryptionMetadata;
             resourceInputs["description"] = args?.description;
+            resourceInputs["isMetricsEnabled"] = args?.isMetricsEnabled;
             resourceInputs["jobLogStatus"] = args?.jobLogStatus;
             resourceInputs["members"] = args?.members;
             resourceInputs["name"] = args?.name;
@@ -162,6 +164,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["creatorPaymentConfiguration"] = undefined /*out*/;
             resourceInputs["dataEncryptionMetadata"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isMetricsEnabled"] = undefined /*out*/;
             resourceInputs["jobLogStatus"] = undefined /*out*/;
             resourceInputs["members"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -219,6 +222,7 @@ export interface CollaborationArgs {
      * A description of the collaboration provided by the collaboration owner.
      */
     description: pulumi.Input<string>;
+    isMetricsEnabled?: pulumi.Input<boolean>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *

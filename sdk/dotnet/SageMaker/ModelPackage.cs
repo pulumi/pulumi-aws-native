@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The last time the model package was modified.
         /// </summary>
         [Output("lastModifiedTime")]
-        public Output<string?> LastModifiedTime { get; private set; } = null!;
+        public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// Metadata properties of the tracking entity, trial, or trial component.
@@ -331,12 +331,6 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("inferenceSpecification")]
         public Input<Inputs.ModelPackageInferenceSpecificationArgs>? InferenceSpecification { get; set; }
-
-        /// <summary>
-        /// The last time the model package was modified.
-        /// </summary>
-        [Input("lastModifiedTime")]
-        public Input<string>? LastModifiedTime { get; set; }
 
         /// <summary>
         /// Metadata properties of the tracking entity, trial, or trial component.

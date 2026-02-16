@@ -93,6 +93,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         public readonly Outputs.MembershipProtectedQueryResultConfiguration? DefaultResultConfiguration;
+        public readonly bool? IsMetricsEnabled;
         /// <summary>
         /// An indicator as to whether job logging has been enabled or disabled for the collaboration.
         /// 
@@ -132,6 +133,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
             Outputs.MembershipProtectedQueryResultConfiguration? defaultResultConfiguration,
 
+            bool? isMetricsEnabled,
+
             Pulumi.AwsNative.CleanRooms.MembershipJobLogStatus? jobLogStatus,
 
             string? membershipIdentifier,
@@ -147,6 +150,7 @@ namespace Pulumi.AwsNative.CleanRooms
             CollaborationCreatorAccountId = collaborationCreatorAccountId;
             DefaultJobResultConfiguration = defaultJobResultConfiguration;
             DefaultResultConfiguration = defaultResultConfiguration;
+            IsMetricsEnabled = isMetricsEnabled;
             JobLogStatus = jobLogStatus;
             MembershipIdentifier = membershipIdentifier;
             PaymentConfiguration = paymentConfiguration;

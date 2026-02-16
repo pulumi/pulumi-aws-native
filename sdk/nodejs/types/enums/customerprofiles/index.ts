@@ -370,6 +370,8 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
     Loyalty: "LOYALTY",
     LoyaltyTransaction: "LOYALTY_TRANSACTION",
     LoyaltyPromotion: "LOYALTY_PROMOTION",
+    WebAnalytics: "WEB_ANALYTICS",
+    Device: "DEVICE",
 } as const;
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];

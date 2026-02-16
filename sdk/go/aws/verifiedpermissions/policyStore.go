@@ -56,7 +56,9 @@ type PolicyStore struct {
 	// The default state is `DISABLED` .
 	DeletionProtection PolicyStoreDeletionProtectionPtrOutput `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description        pulumi.StringPtrOutput                 `pulumi:"description"`
+	EncryptionSettings PolicyStoreEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
+	EncryptionState    pulumi.AnyOutput                       `pulumi:"encryptionState"`
 	// The unique ID of the new or updated policy store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
@@ -119,7 +121,8 @@ type policyStoreArgs struct {
 	// The default state is `DISABLED` .
 	DeletionProtection *PolicyStoreDeletionProtection `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
-	Description *string `pulumi:"description"`
+	Description        *string                        `pulumi:"description"`
+	EncryptionSettings *PolicyStoreEncryptionSettings `pulumi:"encryptionSettings"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema interface{} `pulumi:"schema"`
 	// The tags to add to the policy store
@@ -139,7 +142,8 @@ type PolicyStoreArgs struct {
 	// The default state is `DISABLED` .
 	DeletionProtection PolicyStoreDeletionProtectionPtrInput
 	// Descriptive text that you can provide to help with identification of the current policy store.
-	Description pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	EncryptionSettings PolicyStoreEncryptionSettingsPtrInput
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema pulumi.Input
 	// The tags to add to the policy store
@@ -204,6 +208,14 @@ func (o PolicyStoreOutput) DeletionProtection() PolicyStoreDeletionProtectionPtr
 // Descriptive text that you can provide to help with identification of the current policy store.
 func (o PolicyStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyStoreOutput) EncryptionSettings() PolicyStoreEncryptionSettingsPtrOutput {
+	return o.ApplyT(func(v *PolicyStore) PolicyStoreEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(PolicyStoreEncryptionSettingsPtrOutput)
+}
+
+func (o PolicyStoreOutput) EncryptionState() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyStore) pulumi.AnyOutput { return v.EncryptionState }).(pulumi.AnyOutput)
 }
 
 // The unique ID of the new or updated policy store.

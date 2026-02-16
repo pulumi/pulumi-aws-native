@@ -1308,6 +1308,103 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamPrefixListResolverRuleConditionOperation : IEquatable<IpamPrefixListResolverRuleConditionOperation>
+    {
+        private readonly string _value;
+
+        private IpamPrefixListResolverRuleConditionOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamPrefixListResolverRuleConditionOperation EqualsValue { get; } = new IpamPrefixListResolverRuleConditionOperation("equals");
+        public static IpamPrefixListResolverRuleConditionOperation NotEquals { get; } = new IpamPrefixListResolverRuleConditionOperation("not-equals");
+        public static IpamPrefixListResolverRuleConditionOperation SubnetOf { get; } = new IpamPrefixListResolverRuleConditionOperation("subnet-of");
+
+        public static bool operator ==(IpamPrefixListResolverRuleConditionOperation left, IpamPrefixListResolverRuleConditionOperation right) => left.Equals(right);
+        public static bool operator !=(IpamPrefixListResolverRuleConditionOperation left, IpamPrefixListResolverRuleConditionOperation right) => !left.Equals(right);
+
+        public static explicit operator string(IpamPrefixListResolverRuleConditionOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamPrefixListResolverRuleConditionOperation other && Equals(other);
+        public bool Equals(IpamPrefixListResolverRuleConditionOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamPrefixListResolverRuleResourceType : IEquatable<IpamPrefixListResolverRuleResourceType>
+    {
+        private readonly string _value;
+
+        private IpamPrefixListResolverRuleResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamPrefixListResolverRuleResourceType Vpc { get; } = new IpamPrefixListResolverRuleResourceType("vpc");
+        public static IpamPrefixListResolverRuleResourceType Subnet { get; } = new IpamPrefixListResolverRuleResourceType("subnet");
+        public static IpamPrefixListResolverRuleResourceType Eip { get; } = new IpamPrefixListResolverRuleResourceType("eip");
+        public static IpamPrefixListResolverRuleResourceType PublicIpv4Pool { get; } = new IpamPrefixListResolverRuleResourceType("public-ipv4-pool");
+
+        public static bool operator ==(IpamPrefixListResolverRuleResourceType left, IpamPrefixListResolverRuleResourceType right) => left.Equals(right);
+        public static bool operator !=(IpamPrefixListResolverRuleResourceType left, IpamPrefixListResolverRuleResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(IpamPrefixListResolverRuleResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamPrefixListResolverRuleResourceType other && Equals(other);
+        public bool Equals(IpamPrefixListResolverRuleResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamPrefixListResolverRuleRuleType : IEquatable<IpamPrefixListResolverRuleRuleType>
+    {
+        private readonly string _value;
+
+        private IpamPrefixListResolverRuleRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamPrefixListResolverRuleRuleType StaticCidr { get; } = new IpamPrefixListResolverRuleRuleType("static-cidr");
+        public static IpamPrefixListResolverRuleRuleType IpamResourceCidr { get; } = new IpamPrefixListResolverRuleRuleType("ipam-resource-cidr");
+        public static IpamPrefixListResolverRuleRuleType IpamPoolCidr { get; } = new IpamPrefixListResolverRuleRuleType("ipam-pool-cidr");
+
+        public static bool operator ==(IpamPrefixListResolverRuleRuleType left, IpamPrefixListResolverRuleRuleType right) => left.Equals(right);
+        public static bool operator !=(IpamPrefixListResolverRuleRuleType left, IpamPrefixListResolverRuleRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(IpamPrefixListResolverRuleRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamPrefixListResolverRuleRuleType other && Equals(other);
+        public bool Equals(IpamPrefixListResolverRuleRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An external service connecting to your AWS IPAM scope.
     /// </summary>
     [EnumType]

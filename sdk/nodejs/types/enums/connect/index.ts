@@ -421,6 +421,16 @@ export const IntegrationAssociationIntegrationType = {
  */
 export type IntegrationAssociationIntegrationType = (typeof IntegrationAssociationIntegrationType)[keyof typeof IntegrationAssociationIntegrationType];
 
+export const NotificationPriority = {
+    High: "HIGH",
+    Low: "LOW",
+} as const;
+
+/**
+ * The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+ */
+export type NotificationPriority = (typeof NotificationPriority)[keyof typeof NotificationPriority];
+
 export const QueueStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

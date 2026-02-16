@@ -69,6 +69,8 @@ export class PolicyStore extends pulumi.CustomResource {
      * Descriptive text that you can provide to help with identification of the current policy store.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly encryptionSettings: pulumi.Output<outputs.verifiedpermissions.PolicyStoreEncryptionSettings | undefined>;
+    declare public /*out*/ readonly encryptionState: pulumi.Output<outputs.verifiedpermissions.EncryptionState0Properties | outputs.verifiedpermissions.EncryptionState1Properties>;
     /**
      * The unique ID of the new or updated policy store.
      */
@@ -106,15 +108,19 @@ export class PolicyStore extends pulumi.CustomResource {
             }
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
             resourceInputs["schema"] = args?.schema;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["validationSettings"] = args?.validationSettings;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["encryptionState"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encryptionSettings"] = undefined /*out*/;
+            resourceInputs["encryptionState"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -139,6 +145,7 @@ export interface PolicyStoreArgs {
      * Descriptive text that you can provide to help with identification of the current policy store.
      */
     description?: pulumi.Input<string>;
+    encryptionSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreEncryptionSettingsArgs>;
     /**
      * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
      */
