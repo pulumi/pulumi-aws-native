@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,7 @@ type SimpleAd struct {
 	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
 	// The size of the directory.
 	Size pulumi.StringOutput `pulumi:"size"`
+	Tags aws.TagArrayOutput  `pulumi:"tags"`
 	// VPC settings of the Simple AD directory server in AWS.
 	VpcSettings SimpleAdVpcSettingsOutput `pulumi:"vpcSettings"`
 }
@@ -109,7 +111,8 @@ type simpleAdArgs struct {
 	// The NetBIOS name for your domain.
 	ShortName *string `pulumi:"shortName"`
 	// The size of the directory.
-	Size string `pulumi:"size"`
+	Size string    `pulumi:"size"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// VPC settings of the Simple AD directory server in AWS.
 	VpcSettings SimpleAdVpcSettings `pulumi:"vpcSettings"`
 }
@@ -130,6 +133,7 @@ type SimpleAdArgs struct {
 	ShortName pulumi.StringPtrInput
 	// The size of the directory.
 	Size pulumi.StringInput
+	Tags aws.TagArrayInput
 	// VPC settings of the Simple AD directory server in AWS.
 	VpcSettings SimpleAdVpcSettingsInput
 }
@@ -219,6 +223,10 @@ func (o SimpleAdOutput) ShortName() pulumi.StringPtrOutput {
 // The size of the directory.
 func (o SimpleAdOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimpleAd) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
+}
+
+func (o SimpleAdOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SimpleAd) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // VPC settings of the Simple AD directory server in AWS.

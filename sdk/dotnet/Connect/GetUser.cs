@@ -64,6 +64,14 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetUserResult
     {
         /// <summary>
+        /// After Contact Work configurations of a user.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserAfterContactWorkConfigPerChannel> AfterContactWorkConfigs;
+        /// <summary>
+        /// Auto-accept configurations of a user.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserAutoAcceptConfig> AutoAcceptConfigs;
+        /// <summary>
         /// The identifier of the user account in the directory used for identity management.
         /// </summary>
         public readonly string? DirectoryUserId;
@@ -80,9 +88,17 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? InstanceArn;
         /// <summary>
+        /// Persistent Connection configurations of a user.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserPersistentConnectionConfig> PersistentConnectionConfigs;
+        /// <summary>
         /// The phone settings for the user.
         /// </summary>
         public readonly Outputs.UserPhoneConfig? PhoneConfig;
+        /// <summary>
+        /// Phone Number configurations of a user.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserPhoneNumberConfig> PhoneNumberConfigs;
         /// <summary>
         /// The identifier of the routing profile for the user.
         /// </summary>
@@ -107,9 +123,17 @@ namespace Pulumi.AwsNative.Connect
         /// The user name for the account.
         /// </summary>
         public readonly string? Username;
+        /// <summary>
+        /// Voice Enhancement configurations of a user.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserVoiceEnhancementConfig> VoiceEnhancementConfigs;
 
         [OutputConstructor]
         private GetUserResult(
+            ImmutableArray<Outputs.UserAfterContactWorkConfigPerChannel> afterContactWorkConfigs,
+
+            ImmutableArray<Outputs.UserAutoAcceptConfig> autoAcceptConfigs,
+
             string? directoryUserId,
 
             string? hierarchyGroupArn,
@@ -118,7 +142,11 @@ namespace Pulumi.AwsNative.Connect
 
             string? instanceArn,
 
+            ImmutableArray<Outputs.UserPersistentConnectionConfig> persistentConnectionConfigs,
+
             Outputs.UserPhoneConfig? phoneConfig,
+
+            ImmutableArray<Outputs.UserPhoneNumberConfig> phoneNumberConfigs,
 
             string? routingProfileArn,
 
@@ -130,19 +158,26 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<Outputs.UserProficiency> userProficiencies,
 
-            string? username)
+            string? username,
+
+            ImmutableArray<Outputs.UserVoiceEnhancementConfig> voiceEnhancementConfigs)
         {
+            AfterContactWorkConfigs = afterContactWorkConfigs;
+            AutoAcceptConfigs = autoAcceptConfigs;
             DirectoryUserId = directoryUserId;
             HierarchyGroupArn = hierarchyGroupArn;
             IdentityInfo = identityInfo;
             InstanceArn = instanceArn;
+            PersistentConnectionConfigs = persistentConnectionConfigs;
             PhoneConfig = phoneConfig;
+            PhoneNumberConfigs = phoneNumberConfigs;
             RoutingProfileArn = routingProfileArn;
             SecurityProfileArns = securityProfileArns;
             Tags = tags;
             UserArn = userArn;
             UserProficiencies = userProficiencies;
             Username = username;
+            VoiceEnhancementConfigs = voiceEnhancementConfigs;
         }
     }
 }

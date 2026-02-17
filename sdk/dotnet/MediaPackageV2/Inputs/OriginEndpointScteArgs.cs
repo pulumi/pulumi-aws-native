@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _scteFilter = value;
         }
 
+        /// <summary>
+        /// Controls whether SCTE-35 messages are included in segment files.
+        /// 
+        /// - None – SCTE-35 messages are not included in segments (default)
+        /// - All – SCTE-35 messages are embedded in segment data
+        /// 
+        /// For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
+        /// </summary>
         [Input("scteInSegments")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInSegments>? ScteInSegments { get; set; }
 

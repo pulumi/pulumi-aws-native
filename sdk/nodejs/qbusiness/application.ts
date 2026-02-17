@@ -78,7 +78,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly iamIdentityProviderArn: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+     * The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
      */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**

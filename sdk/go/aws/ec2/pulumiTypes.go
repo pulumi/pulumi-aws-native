@@ -10652,6 +10652,457 @@ func (o IpamPoolTagArrayOutput) Index(i pulumi.IntInput) IpamPoolTagOutput {
 	}).(IpamPoolTagOutput)
 }
 
+// CIDR selection rules define the business logic for selecting CIDRs from IPAM.  If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without rules, but you'll need to add at least one rule before it can actually automate your prefix list updates.
+type IpamPrefixListResolverRule struct {
+	// Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+	Conditions []IpamPrefixListResolverRuleCondition `pulumi:"conditions"`
+	// This rule will only match resources that are in this IPAM Scope.
+	IpamScopeId *string `pulumi:"ipamScopeId"`
+	// The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+	ResourceType *IpamPrefixListResolverRuleResourceType `pulumi:"resourceType"`
+	// There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+	RuleType IpamPrefixListResolverRuleRuleType `pulumi:"ruleType"`
+	// A fixed CIDR that doesn't change
+	StaticCidr *string `pulumi:"staticCidr"`
+}
+
+// IpamPrefixListResolverRuleInput is an input type that accepts IpamPrefixListResolverRuleArgs and IpamPrefixListResolverRuleOutput values.
+// You can construct a concrete instance of `IpamPrefixListResolverRuleInput` via:
+//
+//	IpamPrefixListResolverRuleArgs{...}
+type IpamPrefixListResolverRuleInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleOutput() IpamPrefixListResolverRuleOutput
+	ToIpamPrefixListResolverRuleOutputWithContext(context.Context) IpamPrefixListResolverRuleOutput
+}
+
+// CIDR selection rules define the business logic for selecting CIDRs from IPAM.  If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without rules, but you'll need to add at least one rule before it can actually automate your prefix list updates.
+type IpamPrefixListResolverRuleArgs struct {
+	// Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+	Conditions IpamPrefixListResolverRuleConditionArrayInput `pulumi:"conditions"`
+	// This rule will only match resources that are in this IPAM Scope.
+	IpamScopeId pulumi.StringPtrInput `pulumi:"ipamScopeId"`
+	// The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+	ResourceType IpamPrefixListResolverRuleResourceTypePtrInput `pulumi:"resourceType"`
+	// There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+	RuleType IpamPrefixListResolverRuleRuleTypeInput `pulumi:"ruleType"`
+	// A fixed CIDR that doesn't change
+	StaticCidr pulumi.StringPtrInput `pulumi:"staticCidr"`
+}
+
+func (IpamPrefixListResolverRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRule)(nil)).Elem()
+}
+
+func (i IpamPrefixListResolverRuleArgs) ToIpamPrefixListResolverRuleOutput() IpamPrefixListResolverRuleOutput {
+	return i.ToIpamPrefixListResolverRuleOutputWithContext(context.Background())
+}
+
+func (i IpamPrefixListResolverRuleArgs) ToIpamPrefixListResolverRuleOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverRuleOutput)
+}
+
+// IpamPrefixListResolverRuleArrayInput is an input type that accepts IpamPrefixListResolverRuleArray and IpamPrefixListResolverRuleArrayOutput values.
+// You can construct a concrete instance of `IpamPrefixListResolverRuleArrayInput` via:
+//
+//	IpamPrefixListResolverRuleArray{ IpamPrefixListResolverRuleArgs{...} }
+type IpamPrefixListResolverRuleArrayInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleArrayOutput() IpamPrefixListResolverRuleArrayOutput
+	ToIpamPrefixListResolverRuleArrayOutputWithContext(context.Context) IpamPrefixListResolverRuleArrayOutput
+}
+
+type IpamPrefixListResolverRuleArray []IpamPrefixListResolverRuleInput
+
+func (IpamPrefixListResolverRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPrefixListResolverRule)(nil)).Elem()
+}
+
+func (i IpamPrefixListResolverRuleArray) ToIpamPrefixListResolverRuleArrayOutput() IpamPrefixListResolverRuleArrayOutput {
+	return i.ToIpamPrefixListResolverRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IpamPrefixListResolverRuleArray) ToIpamPrefixListResolverRuleArrayOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverRuleArrayOutput)
+}
+
+// CIDR selection rules define the business logic for selecting CIDRs from IPAM.  If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without rules, but you'll need to add at least one rule before it can actually automate your prefix list updates.
+type IpamPrefixListResolverRuleOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRule)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleOutput) ToIpamPrefixListResolverRuleOutput() IpamPrefixListResolverRuleOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleOutput) ToIpamPrefixListResolverRuleOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleOutput {
+	return o
+}
+
+// Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+func (o IpamPrefixListResolverRuleOutput) Conditions() IpamPrefixListResolverRuleConditionArrayOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRule) []IpamPrefixListResolverRuleCondition { return v.Conditions }).(IpamPrefixListResolverRuleConditionArrayOutput)
+}
+
+// This rule will only match resources that are in this IPAM Scope.
+func (o IpamPrefixListResolverRuleOutput) IpamScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRule) *string { return v.IpamScopeId }).(pulumi.StringPtrOutput)
+}
+
+// The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+func (o IpamPrefixListResolverRuleOutput) ResourceType() IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRule) *IpamPrefixListResolverRuleResourceType { return v.ResourceType }).(IpamPrefixListResolverRuleResourceTypePtrOutput)
+}
+
+// There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+func (o IpamPrefixListResolverRuleOutput) RuleType() IpamPrefixListResolverRuleRuleTypeOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRule) IpamPrefixListResolverRuleRuleType { return v.RuleType }).(IpamPrefixListResolverRuleRuleTypeOutput)
+}
+
+// A fixed CIDR that doesn't change
+func (o IpamPrefixListResolverRuleOutput) StaticCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRule) *string { return v.StaticCidr }).(pulumi.StringPtrOutput)
+}
+
+type IpamPrefixListResolverRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPrefixListResolverRule)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleArrayOutput) ToIpamPrefixListResolverRuleArrayOutput() IpamPrefixListResolverRuleArrayOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleArrayOutput) ToIpamPrefixListResolverRuleArrayOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleArrayOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleArrayOutput) Index(i pulumi.IntInput) IpamPrefixListResolverRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamPrefixListResolverRule {
+		return vs[0].([]IpamPrefixListResolverRule)[vs[1].(int)]
+	}).(IpamPrefixListResolverRuleOutput)
+}
+
+// Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+type IpamPrefixListResolverRuleCondition struct {
+	// Condition for the IPAM Resource CIDR rule type.  CIDR (like 10.24.34.0/23).
+	Cidr *string `pulumi:"cidr"`
+	// Condition for the IPAM Pool CIDR rule type.  If not chosen, the resolver applies to all IPAM Pool CIDRs in the scope.
+	IpamPoolId *string `pulumi:"ipamPoolId"`
+	// Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+	Operation *IpamPrefixListResolverRuleConditionOperation `pulumi:"operation"`
+	// Condition for the IPAM Resource CIDR rule type.  The unique ID of a resource (like vpc-1234567890abcdef0).
+	ResourceId *string `pulumi:"resourceId"`
+	// Condition for the IPAM Resource CIDR rule type.  Resource owner (like 111122223333).
+	ResourceOwner *string `pulumi:"resourceOwner"`
+	// Condition for the IPAM Resource CIDR rule type.  Resource region (like us-east-1).
+	ResourceRegion *string `pulumi:"resourceRegion"`
+	// Condition for the IPAM Resource CIDR rule type.  Resource Tag (like dev-vpc-1).
+	ResourceTag *IpamPrefixListResolverTag `pulumi:"resourceTag"`
+}
+
+// IpamPrefixListResolverRuleConditionInput is an input type that accepts IpamPrefixListResolverRuleConditionArgs and IpamPrefixListResolverRuleConditionOutput values.
+// You can construct a concrete instance of `IpamPrefixListResolverRuleConditionInput` via:
+//
+//	IpamPrefixListResolverRuleConditionArgs{...}
+type IpamPrefixListResolverRuleConditionInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleConditionOutput() IpamPrefixListResolverRuleConditionOutput
+	ToIpamPrefixListResolverRuleConditionOutputWithContext(context.Context) IpamPrefixListResolverRuleConditionOutput
+}
+
+// Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+type IpamPrefixListResolverRuleConditionArgs struct {
+	// Condition for the IPAM Resource CIDR rule type.  CIDR (like 10.24.34.0/23).
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// Condition for the IPAM Pool CIDR rule type.  If not chosen, the resolver applies to all IPAM Pool CIDRs in the scope.
+	IpamPoolId pulumi.StringPtrInput `pulumi:"ipamPoolId"`
+	// Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+	Operation IpamPrefixListResolverRuleConditionOperationPtrInput `pulumi:"operation"`
+	// Condition for the IPAM Resource CIDR rule type.  The unique ID of a resource (like vpc-1234567890abcdef0).
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Condition for the IPAM Resource CIDR rule type.  Resource owner (like 111122223333).
+	ResourceOwner pulumi.StringPtrInput `pulumi:"resourceOwner"`
+	// Condition for the IPAM Resource CIDR rule type.  Resource region (like us-east-1).
+	ResourceRegion pulumi.StringPtrInput `pulumi:"resourceRegion"`
+	// Condition for the IPAM Resource CIDR rule type.  Resource Tag (like dev-vpc-1).
+	ResourceTag IpamPrefixListResolverTagPtrInput `pulumi:"resourceTag"`
+}
+
+func (IpamPrefixListResolverRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleCondition)(nil)).Elem()
+}
+
+func (i IpamPrefixListResolverRuleConditionArgs) ToIpamPrefixListResolverRuleConditionOutput() IpamPrefixListResolverRuleConditionOutput {
+	return i.ToIpamPrefixListResolverRuleConditionOutputWithContext(context.Background())
+}
+
+func (i IpamPrefixListResolverRuleConditionArgs) ToIpamPrefixListResolverRuleConditionOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverRuleConditionOutput)
+}
+
+// IpamPrefixListResolverRuleConditionArrayInput is an input type that accepts IpamPrefixListResolverRuleConditionArray and IpamPrefixListResolverRuleConditionArrayOutput values.
+// You can construct a concrete instance of `IpamPrefixListResolverRuleConditionArrayInput` via:
+//
+//	IpamPrefixListResolverRuleConditionArray{ IpamPrefixListResolverRuleConditionArgs{...} }
+type IpamPrefixListResolverRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleConditionArrayOutput() IpamPrefixListResolverRuleConditionArrayOutput
+	ToIpamPrefixListResolverRuleConditionArrayOutputWithContext(context.Context) IpamPrefixListResolverRuleConditionArrayOutput
+}
+
+type IpamPrefixListResolverRuleConditionArray []IpamPrefixListResolverRuleConditionInput
+
+func (IpamPrefixListResolverRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPrefixListResolverRuleCondition)(nil)).Elem()
+}
+
+func (i IpamPrefixListResolverRuleConditionArray) ToIpamPrefixListResolverRuleConditionArrayOutput() IpamPrefixListResolverRuleConditionArrayOutput {
+	return i.ToIpamPrefixListResolverRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i IpamPrefixListResolverRuleConditionArray) ToIpamPrefixListResolverRuleConditionArrayOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverRuleConditionArrayOutput)
+}
+
+// Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+type IpamPrefixListResolverRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleCondition)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleConditionOutput) ToIpamPrefixListResolverRuleConditionOutput() IpamPrefixListResolverRuleConditionOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionOutput) ToIpamPrefixListResolverRuleConditionOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOutput {
+	return o
+}
+
+// Condition for the IPAM Resource CIDR rule type.  CIDR (like 10.24.34.0/23).
+func (o IpamPrefixListResolverRuleConditionOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// Condition for the IPAM Pool CIDR rule type.  If not chosen, the resolver applies to all IPAM Pool CIDRs in the scope.
+func (o IpamPrefixListResolverRuleConditionOutput) IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *string { return v.IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+// Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+func (o IpamPrefixListResolverRuleConditionOutput) Operation() IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *IpamPrefixListResolverRuleConditionOperation {
+		return v.Operation
+	}).(IpamPrefixListResolverRuleConditionOperationPtrOutput)
+}
+
+// Condition for the IPAM Resource CIDR rule type.  The unique ID of a resource (like vpc-1234567890abcdef0).
+func (o IpamPrefixListResolverRuleConditionOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Condition for the IPAM Resource CIDR rule type.  Resource owner (like 111122223333).
+func (o IpamPrefixListResolverRuleConditionOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *string { return v.ResourceOwner }).(pulumi.StringPtrOutput)
+}
+
+// Condition for the IPAM Resource CIDR rule type.  Resource region (like us-east-1).
+func (o IpamPrefixListResolverRuleConditionOutput) ResourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *string { return v.ResourceRegion }).(pulumi.StringPtrOutput)
+}
+
+// Condition for the IPAM Resource CIDR rule type.  Resource Tag (like dev-vpc-1).
+func (o IpamPrefixListResolverRuleConditionOutput) ResourceTag() IpamPrefixListResolverTagPtrOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverRuleCondition) *IpamPrefixListResolverTag { return v.ResourceTag }).(IpamPrefixListResolverTagPtrOutput)
+}
+
+type IpamPrefixListResolverRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpamPrefixListResolverRuleCondition)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleConditionArrayOutput) ToIpamPrefixListResolverRuleConditionArrayOutput() IpamPrefixListResolverRuleConditionArrayOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionArrayOutput) ToIpamPrefixListResolverRuleConditionArrayOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionArrayOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionArrayOutput) Index(i pulumi.IntInput) IpamPrefixListResolverRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpamPrefixListResolverRuleCondition {
+		return vs[0].([]IpamPrefixListResolverRuleCondition)[vs[1].(int)]
+	}).(IpamPrefixListResolverRuleConditionOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamPrefixListResolverTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// IpamPrefixListResolverTagInput is an input type that accepts IpamPrefixListResolverTagArgs and IpamPrefixListResolverTagOutput values.
+// You can construct a concrete instance of `IpamPrefixListResolverTagInput` via:
+//
+//	IpamPrefixListResolverTagArgs{...}
+type IpamPrefixListResolverTagInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverTagOutput() IpamPrefixListResolverTagOutput
+	ToIpamPrefixListResolverTagOutputWithContext(context.Context) IpamPrefixListResolverTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type IpamPrefixListResolverTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpamPrefixListResolverTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverTag)(nil)).Elem()
+}
+
+func (i IpamPrefixListResolverTagArgs) ToIpamPrefixListResolverTagOutput() IpamPrefixListResolverTagOutput {
+	return i.ToIpamPrefixListResolverTagOutputWithContext(context.Background())
+}
+
+func (i IpamPrefixListResolverTagArgs) ToIpamPrefixListResolverTagOutputWithContext(ctx context.Context) IpamPrefixListResolverTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverTagOutput)
+}
+
+func (i IpamPrefixListResolverTagArgs) ToIpamPrefixListResolverTagPtrOutput() IpamPrefixListResolverTagPtrOutput {
+	return i.ToIpamPrefixListResolverTagPtrOutputWithContext(context.Background())
+}
+
+func (i IpamPrefixListResolverTagArgs) ToIpamPrefixListResolverTagPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverTagOutput).ToIpamPrefixListResolverTagPtrOutputWithContext(ctx)
+}
+
+// IpamPrefixListResolverTagPtrInput is an input type that accepts IpamPrefixListResolverTagArgs, IpamPrefixListResolverTagPtr and IpamPrefixListResolverTagPtrOutput values.
+// You can construct a concrete instance of `IpamPrefixListResolverTagPtrInput` via:
+//
+//	        IpamPrefixListResolverTagArgs{...}
+//
+//	or:
+//
+//	        nil
+type IpamPrefixListResolverTagPtrInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverTagPtrOutput() IpamPrefixListResolverTagPtrOutput
+	ToIpamPrefixListResolverTagPtrOutputWithContext(context.Context) IpamPrefixListResolverTagPtrOutput
+}
+
+type ipamPrefixListResolverTagPtrType IpamPrefixListResolverTagArgs
+
+func IpamPrefixListResolverTagPtr(v *IpamPrefixListResolverTagArgs) IpamPrefixListResolverTagPtrInput {
+	return (*ipamPrefixListResolverTagPtrType)(v)
+}
+
+func (*ipamPrefixListResolverTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPrefixListResolverTag)(nil)).Elem()
+}
+
+func (i *ipamPrefixListResolverTagPtrType) ToIpamPrefixListResolverTagPtrOutput() IpamPrefixListResolverTagPtrOutput {
+	return i.ToIpamPrefixListResolverTagPtrOutputWithContext(context.Background())
+}
+
+func (i *ipamPrefixListResolverTagPtrType) ToIpamPrefixListResolverTagPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamPrefixListResolverTagPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamPrefixListResolverTagOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverTag)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverTagOutput) ToIpamPrefixListResolverTagOutput() IpamPrefixListResolverTagOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverTagOutput) ToIpamPrefixListResolverTagOutputWithContext(ctx context.Context) IpamPrefixListResolverTagOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverTagOutput) ToIpamPrefixListResolverTagPtrOutput() IpamPrefixListResolverTagPtrOutput {
+	return o.ToIpamPrefixListResolverTagPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverTagOutput) ToIpamPrefixListResolverTagPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamPrefixListResolverTag) *IpamPrefixListResolverTag {
+		return &v
+	}).(IpamPrefixListResolverTagPtrOutput)
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamPrefixListResolverTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamPrefixListResolverTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamPrefixListResolverTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IpamPrefixListResolverTagPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPrefixListResolverTag)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverTagPtrOutput) ToIpamPrefixListResolverTagPtrOutput() IpamPrefixListResolverTagPtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverTagPtrOutput) ToIpamPrefixListResolverTagPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverTagPtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverTagPtrOutput) Elem() IpamPrefixListResolverTagOutput {
+	return o.ApplyT(func(v *IpamPrefixListResolverTag) IpamPrefixListResolverTag {
+		if v != nil {
+			return *v
+		}
+		var ret IpamPrefixListResolverTag
+		return ret
+	}).(IpamPrefixListResolverTagOutput)
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamPrefixListResolverTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamPrefixListResolverTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o IpamPrefixListResolverTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamPrefixListResolverTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type IpamResourceDiscoveryAssociationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -13229,6 +13680,7 @@ func (o LaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
 type LaunchTemplateEbs struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	EbsCardIndex        *int  `pulumi:"ebsCardIndex"`
 	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -13285,6 +13737,7 @@ type LaunchTemplateEbsInput interface {
 type LaunchTemplateEbsArgs struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	EbsCardIndex        pulumi.IntPtrInput  `pulumi:"ebsCardIndex"`
 	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -13409,6 +13862,10 @@ func (o LaunchTemplateEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+func (o LaunchTemplateEbsOutput) EbsCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.EbsCardIndex }).(pulumi.IntPtrOutput)
+}
+
 // Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
@@ -13505,6 +13962,15 @@ func (o LaunchTemplateEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 		}
 		return v.DeleteOnTermination
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) EbsCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EbsCardIndex
+	}).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
@@ -19285,16 +19751,18 @@ type LocalGatewayVirtualInterfaceTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
+//
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 type NatGatewayAvailabilityZoneAddress struct {
 	// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
 	AllocationIds []string `pulumi:"allocationIds"`
 	// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 }
 
@@ -19309,16 +19777,18 @@ type NatGatewayAvailabilityZoneAddressInput interface {
 	ToNatGatewayAvailabilityZoneAddressOutputWithContext(context.Context) NatGatewayAvailabilityZoneAddressOutput
 }
 
+// For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
+//
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 type NatGatewayAvailabilityZoneAddressArgs struct {
 	// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
 	AllocationIds pulumi.StringArrayInput `pulumi:"allocationIds"`
 	// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
-	//
-	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//  A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 }
 
@@ -19359,6 +19829,10 @@ func (i NatGatewayAvailabilityZoneAddressArray) ToNatGatewayAvailabilityZoneAddr
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayAvailabilityZoneAddressArrayOutput)
 }
 
+// For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
+//
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 type NatGatewayAvailabilityZoneAddressOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayAvailabilityZoneAddressOutput) ElementType() reflect.Type {
@@ -19380,14 +19854,14 @@ func (o NatGatewayAvailabilityZoneAddressOutput) AllocationIds() pulumi.StringAr
 
 // For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
 //
-// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
 //
-// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//	A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
 func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
@@ -35832,7 +36306,7 @@ type VpcEndpointDnsOptionsSpecification struct {
 	PrivateDnsOnlyForInboundResolverEndpoint *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 	// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
 	PrivateDnsPreference *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference `pulumi:"privateDnsPreference"`
-	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
 	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
 }
 
@@ -35855,7 +36329,7 @@ type VpcEndpointDnsOptionsSpecificationArgs struct {
 	PrivateDnsOnlyForInboundResolverEndpoint VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 	// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
 	PrivateDnsPreference VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrInput `pulumi:"privateDnsPreference"`
-	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
 	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
 }
 
@@ -35958,7 +36432,7 @@ func (o VpcEndpointDnsOptionsSpecificationOutput) PrivateDnsPreference() VpcEndp
 	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
 }
 
-// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is “VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS“ or “SPECIFIED_DOMAINS_ONLY“.
 func (o VpcEndpointDnsOptionsSpecificationOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptionsSpecification) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
 }
@@ -36017,7 +36491,7 @@ func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsPreference() VpcE
 	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
 }
 
-// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is “VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS“ or “SPECIFIED_DOMAINS_ONLY“.
 func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecification) []string {
 		if v == nil {
@@ -36064,28 +36538,25 @@ type VpcTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes a tag.
 type VpnConcentratorTag struct {
 	// The key of the tag.
-	//
-	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	//  Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:``.
 	Key string `pulumi:"key"`
 	// The value of the tag.
-	//
-	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	//  Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 	Value string `pulumi:"value"`
 }
 
 // Options for sending VPN tunnel logs to CloudWatch.
 type VpnConnectionCloudwatchLogOptionsSpecification struct {
-	// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-	//
-	// Valid values: `True` | `False`
+	// Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+	//  Valid values: ``True`` | ``False``
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
-	// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-	//
-	// Valid values: `json` | `text`
+	// The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+	//  Valid values: ``json`` | ``text``
 	BgpLogOutputFormat *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is ``False``.
 	//  Valid values: ``True`` | ``False``
@@ -36110,15 +36581,13 @@ type VpnConnectionCloudwatchLogOptionsSpecificationInput interface {
 
 // Options for sending VPN tunnel logs to CloudWatch.
 type VpnConnectionCloudwatchLogOptionsSpecificationArgs struct {
-	// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-	//
-	// Valid values: `True` | `False`
+	// Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+	//  Valid values: ``True`` | ``False``
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
 	// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
-	// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-	//
-	// Valid values: `json` | `text`
+	// The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+	//  Valid values: ``json`` | ``text``
 	BgpLogOutputFormat VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is ``False``.
 	//  Valid values: ``True`` | ``False``
@@ -36208,9 +36677,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) ToVpnConnectionClo
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput)
 }
 
-// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+// Specifies whether to enable BGP logging for the VPN connection. Default value is “False“.
 //
-// Valid values: `True` | `False`
+//	Valid values: ``True`` | ``False``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -36220,9 +36689,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogGroupArn() p
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
 		return v.BgpLogOutputFormat
@@ -36274,9 +36743,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) Elem() VpnConne
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationOutput)
 }
 
-// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+// Specifies whether to enable BGP logging for the VPN connection. Default value is “False“.
 //
-// Valid values: `True` | `False`
+//	Valid values: ``True`` | ``False``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *bool {
 		if v == nil {
@@ -36296,9 +36765,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogGroupArn(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
 		if v == nil {
@@ -37734,6 +38203,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolSourceResourcePtrInput)(nil)).Elem(), IpamPoolSourceResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagInput)(nil)).Elem(), IpamPoolTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolTagArrayInput)(nil)).Elem(), IpamPoolTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleInput)(nil)).Elem(), IpamPrefixListResolverRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleArrayInput)(nil)).Elem(), IpamPrefixListResolverRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleConditionInput)(nil)).Elem(), IpamPrefixListResolverRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleConditionArrayInput)(nil)).Elem(), IpamPrefixListResolverRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverTagInput)(nil)).Elem(), IpamPrefixListResolverTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverTagPtrInput)(nil)).Elem(), IpamPrefixListResolverTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusionInput)(nil)).Elem(), IpamResourceDiscoveryOrganizationalUnitExclusionArgs{})
@@ -38121,6 +38596,12 @@ func init() {
 	pulumi.RegisterOutputType(IpamPoolSourceResourcePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolTagOutput{})
 	pulumi.RegisterOutputType(IpamPoolTagArrayOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleArrayOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleConditionOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverTagOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverTagPtrOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryOrganizationalUnitExclusionOutput{})

@@ -120,6 +120,7 @@ AWS::Backup::LogicallyAirGappedBackupVault
 AWS::Backup::ReportPlan
 AWS::Backup::RestoreTestingPlan
 AWS::Backup::RestoreTestingSelection
+AWS::Backup::TieringConfiguration
 AWS::BackupGateway::Hypervisor
 AWS::Batch::ComputeEnvironment
 AWS::Batch::ConsumableResource
@@ -226,6 +227,7 @@ AWS::CodeBuild::Fleet
 AWS::CodeConnections::Connection
 AWS::CodeDeploy::Application
 AWS::CodeDeploy::DeploymentConfig
+AWS::CodeDeploy::DeploymentGroup
 AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodePipeline::CustomActionType
@@ -273,6 +275,7 @@ AWS::Connect::HoursOfOperation
 AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
 AWS::Connect::IntegrationAssociation
+AWS::Connect::Notification
 AWS::Connect::PhoneNumber
 AWS::Connect::PredefinedAttribute
 AWS::Connect::Prompt
@@ -371,6 +374,7 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DirectoryService::SimpleAD
+AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
@@ -392,6 +396,7 @@ AWS::EC2::IPAM
 AWS::EC2::IPAMAllocation
 AWS::EC2::IPAMPool
 AWS::EC2::IPAMPoolCidr
+AWS::EC2::IPAMPrefixListResolver
 AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
@@ -509,6 +514,8 @@ AWS::EMR::Step
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
 AWS::EMR::WALWorkspace
+AWS::EMRContainers::Endpoint
+AWS::EMRContainers::SecurityConfiguration
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::EVS::Environment
@@ -764,6 +771,7 @@ AWS::Lightsail::Bucket
 AWS::Lightsail::Certificate
 AWS::Lightsail::Container
 AWS::Lightsail::Database
+AWS::Lightsail::DatabaseSnapshot
 AWS::Lightsail::Disk
 AWS::Lightsail::DiskSnapshot
 AWS::Lightsail::Instance
@@ -790,6 +798,7 @@ AWS::Logs::LogStream
 AWS::Logs::MetricFilter
 AWS::Logs::QueryDefinition
 AWS::Logs::ResourcePolicy
+AWS::Logs::ScheduledQuery
 AWS::Logs::SubscriptionFilter
 AWS::Logs::Transformer
 AWS::LookoutMetrics::Alert
@@ -804,8 +813,10 @@ AWS::MSK::ClusterPolicy
 AWS::MSK::Configuration
 AWS::MSK::Replicator
 AWS::MSK::ServerlessCluster
+AWS::MSK::Topic
 AWS::MSK::VpcConnection
 AWS::MWAA::Environment
+AWS::MWAAServerless::Workflow
 AWS::Macie::AllowList
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
@@ -958,6 +969,7 @@ AWS::QBusiness::Plugin
 AWS::QBusiness::Retriever
 AWS::QBusiness::WebExperience
 AWS::QLDB::Stream
+AWS::QuickSight::ActionConnector
 AWS::QuickSight::Analysis
 AWS::QuickSight::CustomPermissions
 AWS::QuickSight::Dashboard
@@ -1083,6 +1095,7 @@ AWS::S3Vectors::VectorBucketPolicy
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
+AWS::SES::CustomVerificationEmailTemplate
 AWS::SES::DedicatedIpPool
 AWS::SES::EmailIdentity
 AWS::SES::MailManagerAddonInstance
@@ -1269,6 +1282,7 @@ AWS::Wisdom::MessageTemplate
 AWS::Wisdom::MessageTemplateVersion
 AWS::Wisdom::QuickResponse
 AWS::WorkSpaces::ConnectionAlias
+AWS::WorkSpaces::Workspace
 AWS::WorkSpaces::WorkspacesPool
 AWS::WorkSpacesThinClient::Environment
 AWS::WorkSpacesWeb::BrowserSettings
@@ -1369,6 +1383,7 @@ MongoDB::Atlas::APIKey
 MongoDB::Atlas::AccessListAPIKey
 MongoDB::Atlas::AlertConfiguration
 MongoDB::Atlas::Auditing
+MongoDB::Atlas::BackupCompliancePolicy
 MongoDB::Atlas::CloudBackUpRestoreJobs
 MongoDB::Atlas::CloudBackupSchedule
 MongoDB::Atlas::CloudBackupSnapshot

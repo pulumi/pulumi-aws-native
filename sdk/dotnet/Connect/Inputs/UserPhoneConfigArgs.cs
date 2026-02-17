@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
         /// <summary>
         /// The phone type.
         /// </summary>
-        [Input("phoneType", required: true)]
-        public Input<Pulumi.AwsNative.Connect.UserPhoneType> PhoneType { get; set; } = null!;
+        [Input("phoneType")]
+        public Input<Pulumi.AwsNative.Connect.UserPhoneType>? PhoneType { get; set; }
 
         public UserPhoneConfigArgs()
         {

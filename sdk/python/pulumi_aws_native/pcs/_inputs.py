@@ -36,19 +36,14 @@ __all__ = [
     'SpotOptionsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ComputeNodeGroupInstanceConfigArgsDict(TypedDict):
-        """
-        An EC2 instance configuration AWS PCS uses to launch compute nodes.
-        """
-        instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The EC2 instance type that AWS PCS can provision in the compute node group.
-        """
-elif False:
-    ComputeNodeGroupInstanceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ComputeNodeGroupInstanceConfigArgsDict(TypedDict):
+    """
+    An EC2 instance configuration AWS PCS uses to launch compute nodes.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EC2 instance type that AWS PCS can provision in the compute node group.
+    """
 
 @pulumi.input_type
 class ComputeNodeGroupInstanceConfigArgs:
@@ -74,21 +69,18 @@ class ComputeNodeGroupInstanceConfigArgs:
         pulumi.set(self, "instance_type", value)
 
 
-if not MYPY:
-    class CustomLaunchTemplatePropertiesArgsDict(TypedDict):
-        """
-        An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The version of the EC2 launch template to use to provision instances.
-        """
-        template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the EC2 launch template to use to provision instances.
-        """
-elif False:
-    CustomLaunchTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomLaunchTemplatePropertiesArgsDict(TypedDict):
+    """
+    An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The version of the EC2 launch template to use to provision instances.
+    """
+    template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the EC2 launch template to use to provision instances.
+    """
 
 @pulumi.input_type
 class CustomLaunchTemplatePropertiesArgs:
@@ -129,25 +121,22 @@ class CustomLaunchTemplatePropertiesArgs:
         pulumi.set(self, "template_id", value)
 
 
-if not MYPY:
-    class NetworkingPropertiesArgsDict(TypedDict):
-        """
-        The networking configuration for the cluster's control plane.
-        """
-        network_type: NotRequired[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]
-        """
-        The IP of the cluster (IPV4 or IPV6)
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
-        """
-elif False:
-    NetworkingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkingPropertiesArgsDict(TypedDict):
+    """
+    The networking configuration for the cluster's control plane.
+    """
+    network_type: NotRequired[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]
+    """
+    The IP of the cluster (IPV4 or IPV6)
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
+    """
 
 @pulumi.input_type
 class NetworkingPropertiesArgs:
@@ -205,17 +194,14 @@ class NetworkingPropertiesArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class QueueComputeNodeGroupConfigurationArgsDict(TypedDict):
-        """
-        The compute node group configuration for a queue.
-        """
-        compute_node_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The compute node group ID for the compute node group configuration.
-        """
-elif False:
-    QueueComputeNodeGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class QueueComputeNodeGroupConfigurationArgsDict(TypedDict):
+    """
+    The compute node group configuration for a queue.
+    """
+    compute_node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The compute node group ID for the compute node group configuration.
+    """
 
 @pulumi.input_type
 class QueueComputeNodeGroupConfigurationArgs:
@@ -241,21 +227,18 @@ class QueueComputeNodeGroupConfigurationArgs:
         pulumi.set(self, "compute_node_group_id", value)
 
 
-if not MYPY:
-    class QueueSlurmCustomSettingArgsDict(TypedDict):
-        """
-        Additional settings that directly map to Slurm settings.
-        """
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        AWS PCS supports configuration of the Slurm parameters for queues:.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        The value for the configured Slurm setting.
-        """
-elif False:
-    QueueSlurmCustomSettingArgsDict: TypeAlias = Mapping[str, Any]
+class QueueSlurmCustomSettingArgsDict(TypedDict):
+    """
+    Additional settings that directly map to Slurm settings.
+    """
+    parameter_name: pulumi.Input[_builtins.str]
+    """
+    AWS PCS supports configuration of the Slurm parameters for queues:.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    The value for the configured Slurm setting.
+    """
 
 @pulumi.input_type
 class QueueSlurmCustomSettingArgs:
@@ -295,21 +278,18 @@ class QueueSlurmCustomSettingArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class ScalingConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Specifies the boundaries of the compute node group auto scaling.
-        """
-        max_instance_count: pulumi.Input[_builtins.int]
-        """
-        The upper bound of the number of instances allowed in the compute fleet.
-        """
-        min_instance_count: pulumi.Input[_builtins.int]
-        """
-        The lower bound of the number of instances allowed in the compute fleet.
-        """
-elif False:
-    ScalingConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ScalingConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Specifies the boundaries of the compute node group auto scaling.
+    """
+    max_instance_count: pulumi.Input[_builtins.int]
+    """
+    The upper bound of the number of instances allowed in the compute fleet.
+    """
+    min_instance_count: pulumi.Input[_builtins.int]
+    """
+    The lower bound of the number of instances allowed in the compute fleet.
+    """
 
 @pulumi.input_type
 class ScalingConfigurationPropertiesArgs:
@@ -349,21 +329,18 @@ class ScalingConfigurationPropertiesArgs:
         pulumi.set(self, "min_instance_count", value)
 
 
-if not MYPY:
-    class SchedulerPropertiesArgsDict(TypedDict):
-        """
-        The cluster management and job scheduling software associated with the cluster.
-        """
-        type: pulumi.Input['ClusterSchedulerPropertiesType']
-        """
-        The software AWS PCS uses to manage cluster scaling and job scheduling.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The version of the specified scheduling software that AWS PCS uses to manage cluster scaling and job scheduling.
-        """
-elif False:
-    SchedulerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SchedulerPropertiesArgsDict(TypedDict):
+    """
+    The cluster management and job scheduling software associated with the cluster.
+    """
+    type: pulumi.Input['ClusterSchedulerPropertiesType']
+    """
+    The software AWS PCS uses to manage cluster scaling and job scheduling.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The version of the specified scheduling software that AWS PCS uses to manage cluster scaling and job scheduling.
+    """
 
 @pulumi.input_type
 class SchedulerPropertiesArgs:
@@ -403,17 +380,14 @@ class SchedulerPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SlurmConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The Slurm configuration for the queue.
-        """
-        slurm_custom_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgsDict']]]]
-        """
-        Custom Slurm parameters that directly map to Slurm configuration settings.
-        """
-elif False:
-    SlurmConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SlurmConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The Slurm configuration for the queue.
+    """
+    slurm_custom_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgsDict']]]]
+    """
+    Custom Slurm parameters that directly map to Slurm configuration settings.
+    """
 
 @pulumi.input_type
 class SlurmConfigurationPropertiesArgs:
@@ -439,17 +413,14 @@ class SlurmConfigurationPropertiesArgs:
         pulumi.set(self, "slurm_custom_settings", value)
 
 
-if not MYPY:
-    class SpotOptionsPropertiesArgsDict(TypedDict):
-        """
-        Additional configuration when you specify SPOT as the purchase option.
-        """
-        allocation_strategy: NotRequired[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]
-        """
-        The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
-        """
-elif False:
-    SpotOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SpotOptionsPropertiesArgsDict(TypedDict):
+    """
+    Additional configuration when you specify SPOT as the purchase option.
+    """
+    allocation_strategy: NotRequired[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']]
+    """
+    The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
+    """
 
 @pulumi.input_type
 class SpotOptionsPropertiesArgs:

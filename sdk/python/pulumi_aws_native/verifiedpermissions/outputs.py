@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EncryptionState0Properties',
+    'EncryptionState1Properties',
     'IdentitySourceCognitoGroupConfiguration',
     'IdentitySourceCognitoUserPoolConfiguration',
     'IdentitySourceConfiguration0Properties',
@@ -32,12 +34,56 @@ __all__ = [
     'PolicyDefinition1Properties',
     'PolicyEntityIdentifier',
     'PolicyStaticPolicyDefinition',
+    'PolicyStoreDefault',
     'PolicyStoreDeletionProtection',
+    'PolicyStoreEncryptionSettings',
+    'PolicyStoreKmsEncryptionState',
     'PolicyStoreSchemaDefinition0Properties',
     'PolicyStoreSchemaDefinition1Properties',
     'PolicyStoreValidationSettings',
     'PolicyTemplateLinkedPolicyDefinition',
 ]
+
+@pulumi.output_type
+class EncryptionState0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsEncryptionState":
+            suggest = "kms_encryption_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionState0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionState0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionState0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_encryption_state: 'outputs.PolicyStoreKmsEncryptionState'):
+        pulumi.set(__self__, "kms_encryption_state", kms_encryption_state)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsEncryptionState")
+    def kms_encryption_state(self) -> 'outputs.PolicyStoreKmsEncryptionState':
+        return pulumi.get(self, "kms_encryption_state")
+
+
+@pulumi.output_type
+class EncryptionState1Properties(dict):
+    def __init__(__self__, *,
+                 default: 'outputs.PolicyStoreDefault'):
+        pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> 'outputs.PolicyStoreDefault':
+        return pulumi.get(self, "default")
+
 
 @pulumi.output_type
 class IdentitySourceCognitoGroupConfiguration(dict):
@@ -565,6 +611,12 @@ class PolicyStaticPolicyDefinition(dict):
 
 
 @pulumi.output_type
+class PolicyStoreDefault(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class PolicyStoreDeletionProtection(dict):
     def __init__(__self__, *,
                  mode: 'PolicyStoreDeletionMode'):
@@ -584,6 +636,48 @@ class PolicyStoreDeletionProtection(dict):
         The default state is `DISABLED` .
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class PolicyStoreEncryptionSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class PolicyStoreKmsEncryptionState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionContext":
+            suggest = "encryption_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStoreKmsEncryptionState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStoreKmsEncryptionState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStoreKmsEncryptionState.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_context: Mapping[str, _builtins.str],
+                 key: _builtins.str):
+        pulumi.set(__self__, "encryption_context", encryption_context)
+        pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionContext")
+    def encryption_context(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "encryption_context")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type

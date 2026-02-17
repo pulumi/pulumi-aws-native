@@ -76,7 +76,7 @@ class GetSubscriptionFilterResult:
     @pulumi.getter(name="emitSystemFields")
     def emit_system_fields(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
         """
         return pulumi.get(self, "emit_system_fields")
 
@@ -84,7 +84,7 @@ class GetSubscriptionFilterResult:
     @pulumi.getter(name="fieldSelectionCriteria")
     def field_selection_criteria(self) -> Optional[_builtins.str]:
         """
-        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
         """
         return pulumi.get(self, "field_selection_criteria")
 

@@ -33,7 +33,7 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus(_
 @pulumi.type_token("aws-native:rum:AppMonitorMetricDestinationDestination")
 class AppMonitorMetricDestinationDestination(_builtins.str, Enum):
     """
-    Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+    Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
     """
     CLOUD_WATCH = "CloudWatch"
     EVIDENTLY = "Evidently"

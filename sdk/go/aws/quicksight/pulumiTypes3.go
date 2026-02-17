@@ -13,6 +13,3741 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateGaugeChartConfiguration struct {
+	// The color configuration of a `GaugeChartVisual` .
+	ColorConfiguration *TemplateGaugeChartColorConfiguration `pulumi:"colorConfiguration"`
+	// The data label configuration of a `GaugeChartVisual` .
+	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
+	// The field well configuration of a `GaugeChartVisual` .
+	FieldWells *TemplateGaugeChartFieldWells `pulumi:"fieldWells"`
+	// The options that determine the presentation of the `GaugeChartVisual` .
+	GaugeChartOptions *TemplateGaugeChartOptions `pulumi:"gaugeChartOptions"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
+	// The tooltip configuration of a `GaugeChartVisual` .
+	TooltipOptions *TemplateTooltipOptions `pulumi:"tooltipOptions"`
+	// The visual palette configuration of a `GaugeChartVisual` .
+	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
+}
+
+// TemplateGaugeChartConfigurationInput is an input type that accepts TemplateGaugeChartConfigurationArgs and TemplateGaugeChartConfigurationOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartConfigurationInput` via:
+//
+//	TemplateGaugeChartConfigurationArgs{...}
+type TemplateGaugeChartConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartConfigurationOutput() TemplateGaugeChartConfigurationOutput
+	ToTemplateGaugeChartConfigurationOutputWithContext(context.Context) TemplateGaugeChartConfigurationOutput
+}
+
+type TemplateGaugeChartConfigurationArgs struct {
+	// The color configuration of a `GaugeChartVisual` .
+	ColorConfiguration TemplateGaugeChartColorConfigurationPtrInput `pulumi:"colorConfiguration"`
+	// The data label configuration of a `GaugeChartVisual` .
+	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
+	// The field well configuration of a `GaugeChartVisual` .
+	FieldWells TemplateGaugeChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The options that determine the presentation of the `GaugeChartVisual` .
+	GaugeChartOptions TemplateGaugeChartOptionsPtrInput `pulumi:"gaugeChartOptions"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
+	// The tooltip configuration of a `GaugeChartVisual` .
+	TooltipOptions TemplateTooltipOptionsPtrInput `pulumi:"tooltipOptions"`
+	// The visual palette configuration of a `GaugeChartVisual` .
+	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
+}
+
+func (TemplateGaugeChartConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartConfiguration)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartConfigurationArgs) ToTemplateGaugeChartConfigurationOutput() TemplateGaugeChartConfigurationOutput {
+	return i.ToTemplateGaugeChartConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartConfigurationArgs) ToTemplateGaugeChartConfigurationOutputWithContext(ctx context.Context) TemplateGaugeChartConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConfigurationOutput)
+}
+
+func (i TemplateGaugeChartConfigurationArgs) ToTemplateGaugeChartConfigurationPtrOutput() TemplateGaugeChartConfigurationPtrOutput {
+	return i.ToTemplateGaugeChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartConfigurationArgs) ToTemplateGaugeChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConfigurationOutput).ToTemplateGaugeChartConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartConfigurationPtrInput is an input type that accepts TemplateGaugeChartConfigurationArgs, TemplateGaugeChartConfigurationPtr and TemplateGaugeChartConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartConfigurationPtrInput` via:
+//
+//	        TemplateGaugeChartConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartConfigurationPtrOutput() TemplateGaugeChartConfigurationPtrOutput
+	ToTemplateGaugeChartConfigurationPtrOutputWithContext(context.Context) TemplateGaugeChartConfigurationPtrOutput
+}
+
+type templateGaugeChartConfigurationPtrType TemplateGaugeChartConfigurationArgs
+
+func TemplateGaugeChartConfigurationPtr(v *TemplateGaugeChartConfigurationArgs) TemplateGaugeChartConfigurationPtrInput {
+	return (*templateGaugeChartConfigurationPtrType)(v)
+}
+
+func (*templateGaugeChartConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartConfiguration)(nil)).Elem()
+}
+
+func (i *templateGaugeChartConfigurationPtrType) ToTemplateGaugeChartConfigurationPtrOutput() TemplateGaugeChartConfigurationPtrOutput {
+	return i.ToTemplateGaugeChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartConfigurationPtrType) ToTemplateGaugeChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConfigurationPtrOutput)
+}
+
+type TemplateGaugeChartConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartConfigurationOutput) ToTemplateGaugeChartConfigurationOutput() TemplateGaugeChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConfigurationOutput) ToTemplateGaugeChartConfigurationOutputWithContext(ctx context.Context) TemplateGaugeChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConfigurationOutput) ToTemplateGaugeChartConfigurationPtrOutput() TemplateGaugeChartConfigurationPtrOutput {
+	return o.ToTemplateGaugeChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartConfigurationOutput) ToTemplateGaugeChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartConfiguration) *TemplateGaugeChartConfiguration {
+		return &v
+	}).(TemplateGaugeChartConfigurationPtrOutput)
+}
+
+// The color configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationOutput) ColorConfiguration() TemplateGaugeChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateGaugeChartColorConfiguration {
+		return v.ColorConfiguration
+	}).(TemplateGaugeChartColorConfigurationPtrOutput)
+}
+
+// The data label configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
+}
+
+// The field well configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationOutput) FieldWells() TemplateGaugeChartFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateGaugeChartFieldWells { return v.FieldWells }).(TemplateGaugeChartFieldWellsPtrOutput)
+}
+
+// The options that determine the presentation of the `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationOutput) GaugeChartOptions() TemplateGaugeChartOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateGaugeChartOptions { return v.GaugeChartOptions }).(TemplateGaugeChartOptionsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateGaugeChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
+// The tooltip configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationOutput) TooltipOptions() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateTooltipOptions { return v.TooltipOptions }).(TemplateTooltipOptionsPtrOutput)
+}
+
+// The visual palette configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateGaugeChartConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartConfigurationPtrOutput) ToTemplateGaugeChartConfigurationPtrOutput() TemplateGaugeChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConfigurationPtrOutput) ToTemplateGaugeChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConfigurationPtrOutput) Elem() TemplateGaugeChartConfigurationOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) TemplateGaugeChartConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartConfiguration
+		return ret
+	}).(TemplateGaugeChartConfigurationOutput)
+}
+
+// The color configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationPtrOutput) ColorConfiguration() TemplateGaugeChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateGaugeChartColorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ColorConfiguration
+	}).(TemplateGaugeChartColorConfigurationPtrOutput)
+}
+
+// The data label configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateDataLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DataLabels
+	}).(TemplateDataLabelOptionsPtrOutput)
+}
+
+// The field well configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationPtrOutput) FieldWells() TemplateGaugeChartFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateGaugeChartFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateGaugeChartFieldWellsPtrOutput)
+}
+
+// The options that determine the presentation of the `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationPtrOutput) GaugeChartOptions() TemplateGaugeChartOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateGaugeChartOptions {
+		if v == nil {
+			return nil
+		}
+		return v.GaugeChartOptions
+	}).(TemplateGaugeChartOptionsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateGaugeChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
+// The tooltip configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationPtrOutput) TooltipOptions() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateTooltipOptions {
+		if v == nil {
+			return nil
+		}
+		return v.TooltipOptions
+	}).(TemplateTooltipOptionsPtrOutput)
+}
+
+// The visual palette configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateVisualPalette {
+		if v == nil {
+			return nil
+		}
+		return v.VisualPalette
+	}).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateGaugeChartFieldWells struct {
+	// The target value field wells of a `GaugeChartVisual` .
+	TargetValues []TemplateMeasureField `pulumi:"targetValues"`
+	// The value field wells of a `GaugeChartVisual` .
+	Values []TemplateMeasureField `pulumi:"values"`
+}
+
+// TemplateGaugeChartFieldWellsInput is an input type that accepts TemplateGaugeChartFieldWellsArgs and TemplateGaugeChartFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartFieldWellsInput` via:
+//
+//	TemplateGaugeChartFieldWellsArgs{...}
+type TemplateGaugeChartFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartFieldWellsOutput() TemplateGaugeChartFieldWellsOutput
+	ToTemplateGaugeChartFieldWellsOutputWithContext(context.Context) TemplateGaugeChartFieldWellsOutput
+}
+
+type TemplateGaugeChartFieldWellsArgs struct {
+	// The target value field wells of a `GaugeChartVisual` .
+	TargetValues TemplateMeasureFieldArrayInput `pulumi:"targetValues"`
+	// The value field wells of a `GaugeChartVisual` .
+	Values TemplateMeasureFieldArrayInput `pulumi:"values"`
+}
+
+func (TemplateGaugeChartFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartFieldWells)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartFieldWellsArgs) ToTemplateGaugeChartFieldWellsOutput() TemplateGaugeChartFieldWellsOutput {
+	return i.ToTemplateGaugeChartFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartFieldWellsArgs) ToTemplateGaugeChartFieldWellsOutputWithContext(ctx context.Context) TemplateGaugeChartFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartFieldWellsOutput)
+}
+
+func (i TemplateGaugeChartFieldWellsArgs) ToTemplateGaugeChartFieldWellsPtrOutput() TemplateGaugeChartFieldWellsPtrOutput {
+	return i.ToTemplateGaugeChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartFieldWellsArgs) ToTemplateGaugeChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartFieldWellsOutput).ToTemplateGaugeChartFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartFieldWellsPtrInput is an input type that accepts TemplateGaugeChartFieldWellsArgs, TemplateGaugeChartFieldWellsPtr and TemplateGaugeChartFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartFieldWellsPtrInput` via:
+//
+//	        TemplateGaugeChartFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartFieldWellsPtrOutput() TemplateGaugeChartFieldWellsPtrOutput
+	ToTemplateGaugeChartFieldWellsPtrOutputWithContext(context.Context) TemplateGaugeChartFieldWellsPtrOutput
+}
+
+type templateGaugeChartFieldWellsPtrType TemplateGaugeChartFieldWellsArgs
+
+func TemplateGaugeChartFieldWellsPtr(v *TemplateGaugeChartFieldWellsArgs) TemplateGaugeChartFieldWellsPtrInput {
+	return (*templateGaugeChartFieldWellsPtrType)(v)
+}
+
+func (*templateGaugeChartFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartFieldWells)(nil)).Elem()
+}
+
+func (i *templateGaugeChartFieldWellsPtrType) ToTemplateGaugeChartFieldWellsPtrOutput() TemplateGaugeChartFieldWellsPtrOutput {
+	return i.ToTemplateGaugeChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartFieldWellsPtrType) ToTemplateGaugeChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartFieldWellsPtrOutput)
+}
+
+type TemplateGaugeChartFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartFieldWells)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartFieldWellsOutput) ToTemplateGaugeChartFieldWellsOutput() TemplateGaugeChartFieldWellsOutput {
+	return o
+}
+
+func (o TemplateGaugeChartFieldWellsOutput) ToTemplateGaugeChartFieldWellsOutputWithContext(ctx context.Context) TemplateGaugeChartFieldWellsOutput {
+	return o
+}
+
+func (o TemplateGaugeChartFieldWellsOutput) ToTemplateGaugeChartFieldWellsPtrOutput() TemplateGaugeChartFieldWellsPtrOutput {
+	return o.ToTemplateGaugeChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartFieldWellsOutput) ToTemplateGaugeChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartFieldWells) *TemplateGaugeChartFieldWells {
+		return &v
+	}).(TemplateGaugeChartFieldWellsPtrOutput)
+}
+
+// The target value field wells of a `GaugeChartVisual` .
+func (o TemplateGaugeChartFieldWellsOutput) TargetValues() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateGaugeChartFieldWells) []TemplateMeasureField { return v.TargetValues }).(TemplateMeasureFieldArrayOutput)
+}
+
+// The value field wells of a `GaugeChartVisual` .
+func (o TemplateGaugeChartFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateGaugeChartFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateGaugeChartFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartFieldWells)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartFieldWellsPtrOutput) ToTemplateGaugeChartFieldWellsPtrOutput() TemplateGaugeChartFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartFieldWellsPtrOutput) ToTemplateGaugeChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartFieldWellsPtrOutput) Elem() TemplateGaugeChartFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartFieldWells) TemplateGaugeChartFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartFieldWells
+		return ret
+	}).(TemplateGaugeChartFieldWellsOutput)
+}
+
+// The target value field wells of a `GaugeChartVisual` .
+func (o TemplateGaugeChartFieldWellsPtrOutput) TargetValues() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.TargetValues
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+// The value field wells of a `GaugeChartVisual` .
+func (o TemplateGaugeChartFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateGaugeChartOptions struct {
+	// The arc configuration of a `GaugeChartVisual` .
+	Arc *TemplateArcConfiguration `pulumi:"arc"`
+	// The arc axis configuration of a `GaugeChartVisual` .
+	ArcAxis *TemplateArcAxisConfiguration `pulumi:"arcAxis"`
+	// The comparison configuration of a `GaugeChartVisual` .
+	Comparison *TemplateComparisonConfiguration `pulumi:"comparison"`
+	// The options that determine the primary value display type.
+	PrimaryValueDisplayType *TemplatePrimaryValueDisplayType `pulumi:"primaryValueDisplayType"`
+	// The options that determine the primary value font configuration.
+	PrimaryValueFontConfiguration *TemplateFontConfiguration `pulumi:"primaryValueFontConfiguration"`
+}
+
+// TemplateGaugeChartOptionsInput is an input type that accepts TemplateGaugeChartOptionsArgs and TemplateGaugeChartOptionsOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartOptionsInput` via:
+//
+//	TemplateGaugeChartOptionsArgs{...}
+type TemplateGaugeChartOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartOptionsOutput() TemplateGaugeChartOptionsOutput
+	ToTemplateGaugeChartOptionsOutputWithContext(context.Context) TemplateGaugeChartOptionsOutput
+}
+
+type TemplateGaugeChartOptionsArgs struct {
+	// The arc configuration of a `GaugeChartVisual` .
+	Arc TemplateArcConfigurationPtrInput `pulumi:"arc"`
+	// The arc axis configuration of a `GaugeChartVisual` .
+	ArcAxis TemplateArcAxisConfigurationPtrInput `pulumi:"arcAxis"`
+	// The comparison configuration of a `GaugeChartVisual` .
+	Comparison TemplateComparisonConfigurationPtrInput `pulumi:"comparison"`
+	// The options that determine the primary value display type.
+	PrimaryValueDisplayType TemplatePrimaryValueDisplayTypePtrInput `pulumi:"primaryValueDisplayType"`
+	// The options that determine the primary value font configuration.
+	PrimaryValueFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"primaryValueFontConfiguration"`
+}
+
+func (TemplateGaugeChartOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartOptions)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartOptionsArgs) ToTemplateGaugeChartOptionsOutput() TemplateGaugeChartOptionsOutput {
+	return i.ToTemplateGaugeChartOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartOptionsArgs) ToTemplateGaugeChartOptionsOutputWithContext(ctx context.Context) TemplateGaugeChartOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartOptionsOutput)
+}
+
+func (i TemplateGaugeChartOptionsArgs) ToTemplateGaugeChartOptionsPtrOutput() TemplateGaugeChartOptionsPtrOutput {
+	return i.ToTemplateGaugeChartOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartOptionsArgs) ToTemplateGaugeChartOptionsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartOptionsOutput).ToTemplateGaugeChartOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartOptionsPtrInput is an input type that accepts TemplateGaugeChartOptionsArgs, TemplateGaugeChartOptionsPtr and TemplateGaugeChartOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartOptionsPtrInput` via:
+//
+//	        TemplateGaugeChartOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartOptionsPtrOutput() TemplateGaugeChartOptionsPtrOutput
+	ToTemplateGaugeChartOptionsPtrOutputWithContext(context.Context) TemplateGaugeChartOptionsPtrOutput
+}
+
+type templateGaugeChartOptionsPtrType TemplateGaugeChartOptionsArgs
+
+func TemplateGaugeChartOptionsPtr(v *TemplateGaugeChartOptionsArgs) TemplateGaugeChartOptionsPtrInput {
+	return (*templateGaugeChartOptionsPtrType)(v)
+}
+
+func (*templateGaugeChartOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartOptions)(nil)).Elem()
+}
+
+func (i *templateGaugeChartOptionsPtrType) ToTemplateGaugeChartOptionsPtrOutput() TemplateGaugeChartOptionsPtrOutput {
+	return i.ToTemplateGaugeChartOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartOptionsPtrType) ToTemplateGaugeChartOptionsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartOptionsPtrOutput)
+}
+
+type TemplateGaugeChartOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartOptions)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartOptionsOutput) ToTemplateGaugeChartOptionsOutput() TemplateGaugeChartOptionsOutput {
+	return o
+}
+
+func (o TemplateGaugeChartOptionsOutput) ToTemplateGaugeChartOptionsOutputWithContext(ctx context.Context) TemplateGaugeChartOptionsOutput {
+	return o
+}
+
+func (o TemplateGaugeChartOptionsOutput) ToTemplateGaugeChartOptionsPtrOutput() TemplateGaugeChartOptionsPtrOutput {
+	return o.ToTemplateGaugeChartOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartOptionsOutput) ToTemplateGaugeChartOptionsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartOptions) *TemplateGaugeChartOptions {
+		return &v
+	}).(TemplateGaugeChartOptionsPtrOutput)
+}
+
+// The arc configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartOptionsOutput) Arc() TemplateArcConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateArcConfiguration { return v.Arc }).(TemplateArcConfigurationPtrOutput)
+}
+
+// The arc axis configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartOptionsOutput) ArcAxis() TemplateArcAxisConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateArcAxisConfiguration { return v.ArcAxis }).(TemplateArcAxisConfigurationPtrOutput)
+}
+
+// The comparison configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartOptionsOutput) Comparison() TemplateComparisonConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateComparisonConfiguration { return v.Comparison }).(TemplateComparisonConfigurationPtrOutput)
+}
+
+// The options that determine the primary value display type.
+func (o TemplateGaugeChartOptionsOutput) PrimaryValueDisplayType() TemplatePrimaryValueDisplayTypePtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplatePrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(TemplatePrimaryValueDisplayTypePtrOutput)
+}
+
+// The options that determine the primary value font configuration.
+func (o TemplateGaugeChartOptionsOutput) PrimaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateFontConfiguration { return v.PrimaryValueFontConfiguration }).(TemplateFontConfigurationPtrOutput)
+}
+
+type TemplateGaugeChartOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartOptions)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartOptionsPtrOutput) ToTemplateGaugeChartOptionsPtrOutput() TemplateGaugeChartOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartOptionsPtrOutput) ToTemplateGaugeChartOptionsPtrOutputWithContext(ctx context.Context) TemplateGaugeChartOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartOptionsPtrOutput) Elem() TemplateGaugeChartOptionsOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartOptions) TemplateGaugeChartOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartOptions
+		return ret
+	}).(TemplateGaugeChartOptionsOutput)
+}
+
+// The arc configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartOptionsPtrOutput) Arc() TemplateArcConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplateArcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Arc
+	}).(TemplateArcConfigurationPtrOutput)
+}
+
+// The arc axis configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartOptionsPtrOutput) ArcAxis() TemplateArcAxisConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplateArcAxisConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ArcAxis
+	}).(TemplateArcAxisConfigurationPtrOutput)
+}
+
+// The comparison configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartOptionsPtrOutput) Comparison() TemplateComparisonConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplateComparisonConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Comparison
+	}).(TemplateComparisonConfigurationPtrOutput)
+}
+
+// The options that determine the primary value display type.
+func (o TemplateGaugeChartOptionsPtrOutput) PrimaryValueDisplayType() TemplatePrimaryValueDisplayTypePtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplatePrimaryValueDisplayType {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryValueDisplayType
+	}).(TemplatePrimaryValueDisplayTypePtrOutput)
+}
+
+// The options that determine the primary value font configuration.
+func (o TemplateGaugeChartOptionsPtrOutput) PrimaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplateFontConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryValueFontConfiguration
+	}).(TemplateFontConfigurationPtrOutput)
+}
+
+type TemplateGaugeChartPrimaryValueConditionalFormatting struct {
+	// The conditional formatting of the primary value icon.
+	Icon *TemplateConditionalFormattingIcon `pulumi:"icon"`
+	// The conditional formatting of the primary value text color.
+	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
+}
+
+// TemplateGaugeChartPrimaryValueConditionalFormattingInput is an input type that accepts TemplateGaugeChartPrimaryValueConditionalFormattingArgs and TemplateGaugeChartPrimaryValueConditionalFormattingOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartPrimaryValueConditionalFormattingInput` via:
+//
+//	TemplateGaugeChartPrimaryValueConditionalFormattingArgs{...}
+type TemplateGaugeChartPrimaryValueConditionalFormattingInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartPrimaryValueConditionalFormattingOutput() TemplateGaugeChartPrimaryValueConditionalFormattingOutput
+	ToTemplateGaugeChartPrimaryValueConditionalFormattingOutputWithContext(context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingOutput
+}
+
+type TemplateGaugeChartPrimaryValueConditionalFormattingArgs struct {
+	// The conditional formatting of the primary value icon.
+	Icon TemplateConditionalFormattingIconPtrInput `pulumi:"icon"`
+	// The conditional formatting of the primary value text color.
+	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
+}
+
+func (TemplateGaugeChartPrimaryValueConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartPrimaryValueConditionalFormatting)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartPrimaryValueConditionalFormattingArgs) ToTemplateGaugeChartPrimaryValueConditionalFormattingOutput() TemplateGaugeChartPrimaryValueConditionalFormattingOutput {
+	return i.ToTemplateGaugeChartPrimaryValueConditionalFormattingOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartPrimaryValueConditionalFormattingArgs) ToTemplateGaugeChartPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartPrimaryValueConditionalFormattingOutput)
+}
+
+func (i TemplateGaugeChartPrimaryValueConditionalFormattingArgs) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return i.ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartPrimaryValueConditionalFormattingArgs) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartPrimaryValueConditionalFormattingOutput).ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput is an input type that accepts TemplateGaugeChartPrimaryValueConditionalFormattingArgs, TemplateGaugeChartPrimaryValueConditionalFormattingPtr and TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput` via:
+//
+//	        TemplateGaugeChartPrimaryValueConditionalFormattingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput
+	ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput
+}
+
+type templateGaugeChartPrimaryValueConditionalFormattingPtrType TemplateGaugeChartPrimaryValueConditionalFormattingArgs
+
+func TemplateGaugeChartPrimaryValueConditionalFormattingPtr(v *TemplateGaugeChartPrimaryValueConditionalFormattingArgs) TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput {
+	return (*templateGaugeChartPrimaryValueConditionalFormattingPtrType)(v)
+}
+
+func (*templateGaugeChartPrimaryValueConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartPrimaryValueConditionalFormatting)(nil)).Elem()
+}
+
+func (i *templateGaugeChartPrimaryValueConditionalFormattingPtrType) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return i.ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartPrimaryValueConditionalFormattingPtrType) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput)
+}
+
+type TemplateGaugeChartPrimaryValueConditionalFormattingOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartPrimaryValueConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartPrimaryValueConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) ToTemplateGaugeChartPrimaryValueConditionalFormattingOutput() TemplateGaugeChartPrimaryValueConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) ToTemplateGaugeChartPrimaryValueConditionalFormattingOutputWithContext(ctx context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return o.ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateGaugeChartPrimaryValueConditionalFormatting {
+		return &v
+	}).(TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput)
+}
+
+// The conditional formatting of the primary value icon.
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingIcon {
+		return v.Icon
+	}).(TemplateConditionalFormattingIconPtrOutput)
+}
+
+// The conditional formatting of the primary value text color.
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingColor {
+		return v.TextColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartPrimaryValueConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) ToTemplateGaugeChartPrimaryValueConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) Elem() TemplateGaugeChartPrimaryValueConditionalFormattingOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartPrimaryValueConditionalFormatting) TemplateGaugeChartPrimaryValueConditionalFormatting {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartPrimaryValueConditionalFormatting
+		return ret
+	}).(TemplateGaugeChartPrimaryValueConditionalFormattingOutput)
+}
+
+// The conditional formatting of the primary value icon.
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingIcon {
+		if v == nil {
+			return nil
+		}
+		return v.Icon
+	}).(TemplateConditionalFormattingIconPtrOutput)
+}
+
+// The conditional formatting of the primary value text color.
+func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingColor {
+		if v == nil {
+			return nil
+		}
+		return v.TextColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateGaugeChartVisual struct {
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration of a `GaugeChartVisual` .
+	ChartConfiguration *TemplateGaugeChartConfiguration `pulumi:"chartConfiguration"`
+	// The conditional formatting of a `GaugeChartVisual` .
+	ConditionalFormatting *TemplateGaugeChartConditionalFormatting `pulumi:"conditionalFormatting"`
+	// The subtitle that is displayed on the visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId string `pulumi:"visualId"`
+}
+
+// TemplateGaugeChartVisualInput is an input type that accepts TemplateGaugeChartVisualArgs and TemplateGaugeChartVisualOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartVisualInput` via:
+//
+//	TemplateGaugeChartVisualArgs{...}
+type TemplateGaugeChartVisualInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartVisualOutput() TemplateGaugeChartVisualOutput
+	ToTemplateGaugeChartVisualOutputWithContext(context.Context) TemplateGaugeChartVisualOutput
+}
+
+type TemplateGaugeChartVisualArgs struct {
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration of a `GaugeChartVisual` .
+	ChartConfiguration TemplateGaugeChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The conditional formatting of a `GaugeChartVisual` .
+	ConditionalFormatting TemplateGaugeChartConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
+	// The subtitle that is displayed on the visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
+}
+
+func (TemplateGaugeChartVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartVisual)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartVisualArgs) ToTemplateGaugeChartVisualOutput() TemplateGaugeChartVisualOutput {
+	return i.ToTemplateGaugeChartVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartVisualArgs) ToTemplateGaugeChartVisualOutputWithContext(ctx context.Context) TemplateGaugeChartVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartVisualOutput)
+}
+
+func (i TemplateGaugeChartVisualArgs) ToTemplateGaugeChartVisualPtrOutput() TemplateGaugeChartVisualPtrOutput {
+	return i.ToTemplateGaugeChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartVisualArgs) ToTemplateGaugeChartVisualPtrOutputWithContext(ctx context.Context) TemplateGaugeChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartVisualOutput).ToTemplateGaugeChartVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartVisualPtrInput is an input type that accepts TemplateGaugeChartVisualArgs, TemplateGaugeChartVisualPtr and TemplateGaugeChartVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartVisualPtrInput` via:
+//
+//	        TemplateGaugeChartVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartVisualPtrOutput() TemplateGaugeChartVisualPtrOutput
+	ToTemplateGaugeChartVisualPtrOutputWithContext(context.Context) TemplateGaugeChartVisualPtrOutput
+}
+
+type templateGaugeChartVisualPtrType TemplateGaugeChartVisualArgs
+
+func TemplateGaugeChartVisualPtr(v *TemplateGaugeChartVisualArgs) TemplateGaugeChartVisualPtrInput {
+	return (*templateGaugeChartVisualPtrType)(v)
+}
+
+func (*templateGaugeChartVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartVisual)(nil)).Elem()
+}
+
+func (i *templateGaugeChartVisualPtrType) ToTemplateGaugeChartVisualPtrOutput() TemplateGaugeChartVisualPtrOutput {
+	return i.ToTemplateGaugeChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartVisualPtrType) ToTemplateGaugeChartVisualPtrOutputWithContext(ctx context.Context) TemplateGaugeChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartVisualPtrOutput)
+}
+
+type TemplateGaugeChartVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartVisual)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartVisualOutput) ToTemplateGaugeChartVisualOutput() TemplateGaugeChartVisualOutput {
+	return o
+}
+
+func (o TemplateGaugeChartVisualOutput) ToTemplateGaugeChartVisualOutputWithContext(ctx context.Context) TemplateGaugeChartVisualOutput {
+	return o
+}
+
+func (o TemplateGaugeChartVisualOutput) ToTemplateGaugeChartVisualPtrOutput() TemplateGaugeChartVisualPtrOutput {
+	return o.ToTemplateGaugeChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartVisualOutput) ToTemplateGaugeChartVisualPtrOutputWithContext(ctx context.Context) TemplateGaugeChartVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartVisual) *TemplateGaugeChartVisual {
+		return &v
+	}).(TemplateGaugeChartVisualPtrOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateGaugeChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartVisualOutput) ChartConfiguration() TemplateGaugeChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateGaugeChartConfiguration { return v.ChartConfiguration }).(TemplateGaugeChartConfigurationPtrOutput)
+}
+
+// The conditional formatting of a `GaugeChartVisual` .
+func (o TemplateGaugeChartVisualOutput) ConditionalFormatting() TemplateGaugeChartConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateGaugeChartConditionalFormatting {
+		return v.ConditionalFormatting
+	}).(TemplateGaugeChartConditionalFormattingPtrOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateGaugeChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateGaugeChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateGaugeChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o TemplateGaugeChartVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateGaugeChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateGaugeChartVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartVisual)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartVisualPtrOutput) ToTemplateGaugeChartVisualPtrOutput() TemplateGaugeChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartVisualPtrOutput) ToTemplateGaugeChartVisualPtrOutputWithContext(ctx context.Context) TemplateGaugeChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartVisualPtrOutput) Elem() TemplateGaugeChartVisualOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) TemplateGaugeChartVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartVisual
+		return ret
+	}).(TemplateGaugeChartVisualOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateGaugeChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartVisualPtrOutput) ChartConfiguration() TemplateGaugeChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) *TemplateGaugeChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateGaugeChartConfigurationPtrOutput)
+}
+
+// The conditional formatting of a `GaugeChartVisual` .
+func (o TemplateGaugeChartVisualPtrOutput) ConditionalFormatting() TemplateGaugeChartConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) *TemplateGaugeChartConditionalFormatting {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionalFormatting
+	}).(TemplateGaugeChartConditionalFormattingPtrOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateGaugeChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateGaugeChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateGaugeChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualContentAltText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o TemplateGaugeChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGeospatialCoordinateBounds struct {
+	// The longitude of the east bound of the geospatial coordinate bounds.
+	East float64 `pulumi:"east"`
+	// The latitude of the north bound of the geospatial coordinate bounds.
+	North float64 `pulumi:"north"`
+	// The latitude of the south bound of the geospatial coordinate bounds.
+	South float64 `pulumi:"south"`
+	// The longitude of the west bound of the geospatial coordinate bounds.
+	West float64 `pulumi:"west"`
+}
+
+// TemplateGeospatialCoordinateBoundsInput is an input type that accepts TemplateGeospatialCoordinateBoundsArgs and TemplateGeospatialCoordinateBoundsOutput values.
+// You can construct a concrete instance of `TemplateGeospatialCoordinateBoundsInput` via:
+//
+//	TemplateGeospatialCoordinateBoundsArgs{...}
+type TemplateGeospatialCoordinateBoundsInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialCoordinateBoundsOutput() TemplateGeospatialCoordinateBoundsOutput
+	ToTemplateGeospatialCoordinateBoundsOutputWithContext(context.Context) TemplateGeospatialCoordinateBoundsOutput
+}
+
+type TemplateGeospatialCoordinateBoundsArgs struct {
+	// The longitude of the east bound of the geospatial coordinate bounds.
+	East pulumi.Float64Input `pulumi:"east"`
+	// The latitude of the north bound of the geospatial coordinate bounds.
+	North pulumi.Float64Input `pulumi:"north"`
+	// The latitude of the south bound of the geospatial coordinate bounds.
+	South pulumi.Float64Input `pulumi:"south"`
+	// The longitude of the west bound of the geospatial coordinate bounds.
+	West pulumi.Float64Input `pulumi:"west"`
+}
+
+func (TemplateGeospatialCoordinateBoundsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialCoordinateBounds)(nil)).Elem()
+}
+
+func (i TemplateGeospatialCoordinateBoundsArgs) ToTemplateGeospatialCoordinateBoundsOutput() TemplateGeospatialCoordinateBoundsOutput {
+	return i.ToTemplateGeospatialCoordinateBoundsOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialCoordinateBoundsArgs) ToTemplateGeospatialCoordinateBoundsOutputWithContext(ctx context.Context) TemplateGeospatialCoordinateBoundsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialCoordinateBoundsOutput)
+}
+
+func (i TemplateGeospatialCoordinateBoundsArgs) ToTemplateGeospatialCoordinateBoundsPtrOutput() TemplateGeospatialCoordinateBoundsPtrOutput {
+	return i.ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialCoordinateBoundsArgs) ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(ctx context.Context) TemplateGeospatialCoordinateBoundsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialCoordinateBoundsOutput).ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialCoordinateBoundsPtrInput is an input type that accepts TemplateGeospatialCoordinateBoundsArgs, TemplateGeospatialCoordinateBoundsPtr and TemplateGeospatialCoordinateBoundsPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialCoordinateBoundsPtrInput` via:
+//
+//	        TemplateGeospatialCoordinateBoundsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialCoordinateBoundsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialCoordinateBoundsPtrOutput() TemplateGeospatialCoordinateBoundsPtrOutput
+	ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(context.Context) TemplateGeospatialCoordinateBoundsPtrOutput
+}
+
+type templateGeospatialCoordinateBoundsPtrType TemplateGeospatialCoordinateBoundsArgs
+
+func TemplateGeospatialCoordinateBoundsPtr(v *TemplateGeospatialCoordinateBoundsArgs) TemplateGeospatialCoordinateBoundsPtrInput {
+	return (*templateGeospatialCoordinateBoundsPtrType)(v)
+}
+
+func (*templateGeospatialCoordinateBoundsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialCoordinateBounds)(nil)).Elem()
+}
+
+func (i *templateGeospatialCoordinateBoundsPtrType) ToTemplateGeospatialCoordinateBoundsPtrOutput() TemplateGeospatialCoordinateBoundsPtrOutput {
+	return i.ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialCoordinateBoundsPtrType) ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(ctx context.Context) TemplateGeospatialCoordinateBoundsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialCoordinateBoundsPtrOutput)
+}
+
+type TemplateGeospatialCoordinateBoundsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialCoordinateBoundsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialCoordinateBounds)(nil)).Elem()
+}
+
+func (o TemplateGeospatialCoordinateBoundsOutput) ToTemplateGeospatialCoordinateBoundsOutput() TemplateGeospatialCoordinateBoundsOutput {
+	return o
+}
+
+func (o TemplateGeospatialCoordinateBoundsOutput) ToTemplateGeospatialCoordinateBoundsOutputWithContext(ctx context.Context) TemplateGeospatialCoordinateBoundsOutput {
+	return o
+}
+
+func (o TemplateGeospatialCoordinateBoundsOutput) ToTemplateGeospatialCoordinateBoundsPtrOutput() TemplateGeospatialCoordinateBoundsPtrOutput {
+	return o.ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialCoordinateBoundsOutput) ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(ctx context.Context) TemplateGeospatialCoordinateBoundsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialCoordinateBounds) *TemplateGeospatialCoordinateBounds {
+		return &v
+	}).(TemplateGeospatialCoordinateBoundsPtrOutput)
+}
+
+// The longitude of the east bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsOutput) East() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGeospatialCoordinateBounds) float64 { return v.East }).(pulumi.Float64Output)
+}
+
+// The latitude of the north bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsOutput) North() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGeospatialCoordinateBounds) float64 { return v.North }).(pulumi.Float64Output)
+}
+
+// The latitude of the south bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsOutput) South() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGeospatialCoordinateBounds) float64 { return v.South }).(pulumi.Float64Output)
+}
+
+// The longitude of the west bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsOutput) West() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGeospatialCoordinateBounds) float64 { return v.West }).(pulumi.Float64Output)
+}
+
+type TemplateGeospatialCoordinateBoundsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialCoordinateBoundsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialCoordinateBounds)(nil)).Elem()
+}
+
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) ToTemplateGeospatialCoordinateBoundsPtrOutput() TemplateGeospatialCoordinateBoundsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) ToTemplateGeospatialCoordinateBoundsPtrOutputWithContext(ctx context.Context) TemplateGeospatialCoordinateBoundsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) Elem() TemplateGeospatialCoordinateBoundsOutput {
+	return o.ApplyT(func(v *TemplateGeospatialCoordinateBounds) TemplateGeospatialCoordinateBounds {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialCoordinateBounds
+		return ret
+	}).(TemplateGeospatialCoordinateBoundsOutput)
+}
+
+// The longitude of the east bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) East() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialCoordinateBounds) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.East
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The latitude of the north bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) North() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialCoordinateBounds) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.North
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The latitude of the south bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) South() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialCoordinateBounds) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.South
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The longitude of the west bound of the geospatial coordinate bounds.
+func (o TemplateGeospatialCoordinateBoundsPtrOutput) West() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialCoordinateBounds) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.West
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateGeospatialHeatmapColorScale struct {
+	// The list of colors to be used in heatmap point style.
+	Colors []TemplateGeospatialHeatmapDataColor `pulumi:"colors"`
+}
+
+// TemplateGeospatialHeatmapColorScaleInput is an input type that accepts TemplateGeospatialHeatmapColorScaleArgs and TemplateGeospatialHeatmapColorScaleOutput values.
+// You can construct a concrete instance of `TemplateGeospatialHeatmapColorScaleInput` via:
+//
+//	TemplateGeospatialHeatmapColorScaleArgs{...}
+type TemplateGeospatialHeatmapColorScaleInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialHeatmapColorScaleOutput() TemplateGeospatialHeatmapColorScaleOutput
+	ToTemplateGeospatialHeatmapColorScaleOutputWithContext(context.Context) TemplateGeospatialHeatmapColorScaleOutput
+}
+
+type TemplateGeospatialHeatmapColorScaleArgs struct {
+	// The list of colors to be used in heatmap point style.
+	Colors TemplateGeospatialHeatmapDataColorArrayInput `pulumi:"colors"`
+}
+
+func (TemplateGeospatialHeatmapColorScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (i TemplateGeospatialHeatmapColorScaleArgs) ToTemplateGeospatialHeatmapColorScaleOutput() TemplateGeospatialHeatmapColorScaleOutput {
+	return i.ToTemplateGeospatialHeatmapColorScaleOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialHeatmapColorScaleArgs) ToTemplateGeospatialHeatmapColorScaleOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapColorScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapColorScaleOutput)
+}
+
+func (i TemplateGeospatialHeatmapColorScaleArgs) ToTemplateGeospatialHeatmapColorScalePtrOutput() TemplateGeospatialHeatmapColorScalePtrOutput {
+	return i.ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialHeatmapColorScaleArgs) ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapColorScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapColorScaleOutput).ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialHeatmapColorScalePtrInput is an input type that accepts TemplateGeospatialHeatmapColorScaleArgs, TemplateGeospatialHeatmapColorScalePtr and TemplateGeospatialHeatmapColorScalePtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialHeatmapColorScalePtrInput` via:
+//
+//	        TemplateGeospatialHeatmapColorScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialHeatmapColorScalePtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialHeatmapColorScalePtrOutput() TemplateGeospatialHeatmapColorScalePtrOutput
+	ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(context.Context) TemplateGeospatialHeatmapColorScalePtrOutput
+}
+
+type templateGeospatialHeatmapColorScalePtrType TemplateGeospatialHeatmapColorScaleArgs
+
+func TemplateGeospatialHeatmapColorScalePtr(v *TemplateGeospatialHeatmapColorScaleArgs) TemplateGeospatialHeatmapColorScalePtrInput {
+	return (*templateGeospatialHeatmapColorScalePtrType)(v)
+}
+
+func (*templateGeospatialHeatmapColorScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (i *templateGeospatialHeatmapColorScalePtrType) ToTemplateGeospatialHeatmapColorScalePtrOutput() TemplateGeospatialHeatmapColorScalePtrOutput {
+	return i.ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialHeatmapColorScalePtrType) ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapColorScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapColorScalePtrOutput)
+}
+
+type TemplateGeospatialHeatmapColorScaleOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialHeatmapColorScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (o TemplateGeospatialHeatmapColorScaleOutput) ToTemplateGeospatialHeatmapColorScaleOutput() TemplateGeospatialHeatmapColorScaleOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapColorScaleOutput) ToTemplateGeospatialHeatmapColorScaleOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapColorScaleOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapColorScaleOutput) ToTemplateGeospatialHeatmapColorScalePtrOutput() TemplateGeospatialHeatmapColorScalePtrOutput {
+	return o.ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialHeatmapColorScaleOutput) ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapColorScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialHeatmapColorScale) *TemplateGeospatialHeatmapColorScale {
+		return &v
+	}).(TemplateGeospatialHeatmapColorScalePtrOutput)
+}
+
+// The list of colors to be used in heatmap point style.
+func (o TemplateGeospatialHeatmapColorScaleOutput) Colors() TemplateGeospatialHeatmapDataColorArrayOutput {
+	return o.ApplyT(func(v TemplateGeospatialHeatmapColorScale) []TemplateGeospatialHeatmapDataColor { return v.Colors }).(TemplateGeospatialHeatmapDataColorArrayOutput)
+}
+
+type TemplateGeospatialHeatmapColorScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialHeatmapColorScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialHeatmapColorScale)(nil)).Elem()
+}
+
+func (o TemplateGeospatialHeatmapColorScalePtrOutput) ToTemplateGeospatialHeatmapColorScalePtrOutput() TemplateGeospatialHeatmapColorScalePtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapColorScalePtrOutput) ToTemplateGeospatialHeatmapColorScalePtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapColorScalePtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapColorScalePtrOutput) Elem() TemplateGeospatialHeatmapColorScaleOutput {
+	return o.ApplyT(func(v *TemplateGeospatialHeatmapColorScale) TemplateGeospatialHeatmapColorScale {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialHeatmapColorScale
+		return ret
+	}).(TemplateGeospatialHeatmapColorScaleOutput)
+}
+
+// The list of colors to be used in heatmap point style.
+func (o TemplateGeospatialHeatmapColorScalePtrOutput) Colors() TemplateGeospatialHeatmapDataColorArrayOutput {
+	return o.ApplyT(func(v *TemplateGeospatialHeatmapColorScale) []TemplateGeospatialHeatmapDataColor {
+		if v == nil {
+			return nil
+		}
+		return v.Colors
+	}).(TemplateGeospatialHeatmapDataColorArrayOutput)
+}
+
+type TemplateGeospatialHeatmapConfiguration struct {
+	// The color scale specification for the heatmap point style.
+	HeatmapColor *TemplateGeospatialHeatmapColorScale `pulumi:"heatmapColor"`
+}
+
+// TemplateGeospatialHeatmapConfigurationInput is an input type that accepts TemplateGeospatialHeatmapConfigurationArgs and TemplateGeospatialHeatmapConfigurationOutput values.
+// You can construct a concrete instance of `TemplateGeospatialHeatmapConfigurationInput` via:
+//
+//	TemplateGeospatialHeatmapConfigurationArgs{...}
+type TemplateGeospatialHeatmapConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialHeatmapConfigurationOutput() TemplateGeospatialHeatmapConfigurationOutput
+	ToTemplateGeospatialHeatmapConfigurationOutputWithContext(context.Context) TemplateGeospatialHeatmapConfigurationOutput
+}
+
+type TemplateGeospatialHeatmapConfigurationArgs struct {
+	// The color scale specification for the heatmap point style.
+	HeatmapColor TemplateGeospatialHeatmapColorScalePtrInput `pulumi:"heatmapColor"`
+}
+
+func (TemplateGeospatialHeatmapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (i TemplateGeospatialHeatmapConfigurationArgs) ToTemplateGeospatialHeatmapConfigurationOutput() TemplateGeospatialHeatmapConfigurationOutput {
+	return i.ToTemplateGeospatialHeatmapConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialHeatmapConfigurationArgs) ToTemplateGeospatialHeatmapConfigurationOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapConfigurationOutput)
+}
+
+func (i TemplateGeospatialHeatmapConfigurationArgs) ToTemplateGeospatialHeatmapConfigurationPtrOutput() TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return i.ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialHeatmapConfigurationArgs) ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapConfigurationOutput).ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialHeatmapConfigurationPtrInput is an input type that accepts TemplateGeospatialHeatmapConfigurationArgs, TemplateGeospatialHeatmapConfigurationPtr and TemplateGeospatialHeatmapConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialHeatmapConfigurationPtrInput` via:
+//
+//	        TemplateGeospatialHeatmapConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialHeatmapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialHeatmapConfigurationPtrOutput() TemplateGeospatialHeatmapConfigurationPtrOutput
+	ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(context.Context) TemplateGeospatialHeatmapConfigurationPtrOutput
+}
+
+type templateGeospatialHeatmapConfigurationPtrType TemplateGeospatialHeatmapConfigurationArgs
+
+func TemplateGeospatialHeatmapConfigurationPtr(v *TemplateGeospatialHeatmapConfigurationArgs) TemplateGeospatialHeatmapConfigurationPtrInput {
+	return (*templateGeospatialHeatmapConfigurationPtrType)(v)
+}
+
+func (*templateGeospatialHeatmapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (i *templateGeospatialHeatmapConfigurationPtrType) ToTemplateGeospatialHeatmapConfigurationPtrOutput() TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return i.ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialHeatmapConfigurationPtrType) ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapConfigurationPtrOutput)
+}
+
+type TemplateGeospatialHeatmapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialHeatmapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGeospatialHeatmapConfigurationOutput) ToTemplateGeospatialHeatmapConfigurationOutput() TemplateGeospatialHeatmapConfigurationOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapConfigurationOutput) ToTemplateGeospatialHeatmapConfigurationOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapConfigurationOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapConfigurationOutput) ToTemplateGeospatialHeatmapConfigurationPtrOutput() TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return o.ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialHeatmapConfigurationOutput) ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialHeatmapConfiguration) *TemplateGeospatialHeatmapConfiguration {
+		return &v
+	}).(TemplateGeospatialHeatmapConfigurationPtrOutput)
+}
+
+// The color scale specification for the heatmap point style.
+func (o TemplateGeospatialHeatmapConfigurationOutput) HeatmapColor() TemplateGeospatialHeatmapColorScalePtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialHeatmapConfiguration) *TemplateGeospatialHeatmapColorScale {
+		return v.HeatmapColor
+	}).(TemplateGeospatialHeatmapColorScalePtrOutput)
+}
+
+type TemplateGeospatialHeatmapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialHeatmapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialHeatmapConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGeospatialHeatmapConfigurationPtrOutput) ToTemplateGeospatialHeatmapConfigurationPtrOutput() TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapConfigurationPtrOutput) ToTemplateGeospatialHeatmapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapConfigurationPtrOutput) Elem() TemplateGeospatialHeatmapConfigurationOutput {
+	return o.ApplyT(func(v *TemplateGeospatialHeatmapConfiguration) TemplateGeospatialHeatmapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialHeatmapConfiguration
+		return ret
+	}).(TemplateGeospatialHeatmapConfigurationOutput)
+}
+
+// The color scale specification for the heatmap point style.
+func (o TemplateGeospatialHeatmapConfigurationPtrOutput) HeatmapColor() TemplateGeospatialHeatmapColorScalePtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialHeatmapConfiguration) *TemplateGeospatialHeatmapColorScale {
+		if v == nil {
+			return nil
+		}
+		return v.HeatmapColor
+	}).(TemplateGeospatialHeatmapColorScalePtrOutput)
+}
+
+type TemplateGeospatialHeatmapDataColor struct {
+	// The hex color to be used in the heatmap point style.
+	Color string `pulumi:"color"`
+}
+
+// TemplateGeospatialHeatmapDataColorInput is an input type that accepts TemplateGeospatialHeatmapDataColorArgs and TemplateGeospatialHeatmapDataColorOutput values.
+// You can construct a concrete instance of `TemplateGeospatialHeatmapDataColorInput` via:
+//
+//	TemplateGeospatialHeatmapDataColorArgs{...}
+type TemplateGeospatialHeatmapDataColorInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialHeatmapDataColorOutput() TemplateGeospatialHeatmapDataColorOutput
+	ToTemplateGeospatialHeatmapDataColorOutputWithContext(context.Context) TemplateGeospatialHeatmapDataColorOutput
+}
+
+type TemplateGeospatialHeatmapDataColorArgs struct {
+	// The hex color to be used in the heatmap point style.
+	Color pulumi.StringInput `pulumi:"color"`
+}
+
+func (TemplateGeospatialHeatmapDataColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (i TemplateGeospatialHeatmapDataColorArgs) ToTemplateGeospatialHeatmapDataColorOutput() TemplateGeospatialHeatmapDataColorOutput {
+	return i.ToTemplateGeospatialHeatmapDataColorOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialHeatmapDataColorArgs) ToTemplateGeospatialHeatmapDataColorOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapDataColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapDataColorOutput)
+}
+
+// TemplateGeospatialHeatmapDataColorArrayInput is an input type that accepts TemplateGeospatialHeatmapDataColorArray and TemplateGeospatialHeatmapDataColorArrayOutput values.
+// You can construct a concrete instance of `TemplateGeospatialHeatmapDataColorArrayInput` via:
+//
+//	TemplateGeospatialHeatmapDataColorArray{ TemplateGeospatialHeatmapDataColorArgs{...} }
+type TemplateGeospatialHeatmapDataColorArrayInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialHeatmapDataColorArrayOutput() TemplateGeospatialHeatmapDataColorArrayOutput
+	ToTemplateGeospatialHeatmapDataColorArrayOutputWithContext(context.Context) TemplateGeospatialHeatmapDataColorArrayOutput
+}
+
+type TemplateGeospatialHeatmapDataColorArray []TemplateGeospatialHeatmapDataColorInput
+
+func (TemplateGeospatialHeatmapDataColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (i TemplateGeospatialHeatmapDataColorArray) ToTemplateGeospatialHeatmapDataColorArrayOutput() TemplateGeospatialHeatmapDataColorArrayOutput {
+	return i.ToTemplateGeospatialHeatmapDataColorArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialHeatmapDataColorArray) ToTemplateGeospatialHeatmapDataColorArrayOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapDataColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialHeatmapDataColorArrayOutput)
+}
+
+type TemplateGeospatialHeatmapDataColorOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialHeatmapDataColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (o TemplateGeospatialHeatmapDataColorOutput) ToTemplateGeospatialHeatmapDataColorOutput() TemplateGeospatialHeatmapDataColorOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapDataColorOutput) ToTemplateGeospatialHeatmapDataColorOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapDataColorOutput {
+	return o
+}
+
+// The hex color to be used in the heatmap point style.
+func (o TemplateGeospatialHeatmapDataColorOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateGeospatialHeatmapDataColor) string { return v.Color }).(pulumi.StringOutput)
+}
+
+type TemplateGeospatialHeatmapDataColorArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialHeatmapDataColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGeospatialHeatmapDataColor)(nil)).Elem()
+}
+
+func (o TemplateGeospatialHeatmapDataColorArrayOutput) ToTemplateGeospatialHeatmapDataColorArrayOutput() TemplateGeospatialHeatmapDataColorArrayOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapDataColorArrayOutput) ToTemplateGeospatialHeatmapDataColorArrayOutputWithContext(ctx context.Context) TemplateGeospatialHeatmapDataColorArrayOutput {
+	return o
+}
+
+func (o TemplateGeospatialHeatmapDataColorArrayOutput) Index(i pulumi.IntInput) TemplateGeospatialHeatmapDataColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateGeospatialHeatmapDataColor {
+		return vs[0].([]TemplateGeospatialHeatmapDataColor)[vs[1].(int)]
+	}).(TemplateGeospatialHeatmapDataColorOutput)
+}
+
+type TemplateGeospatialMapAggregatedFieldWells struct {
+	// The color field wells of a geospatial map.
+	Colors []TemplateDimensionField `pulumi:"colors"`
+	// The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.
+	Geospatial []TemplateDimensionField `pulumi:"geospatial"`
+	// The size field wells of a geospatial map. Values are aggregated based on geospatial fields.
+	Values []TemplateMeasureField `pulumi:"values"`
+}
+
+// TemplateGeospatialMapAggregatedFieldWellsInput is an input type that accepts TemplateGeospatialMapAggregatedFieldWellsArgs and TemplateGeospatialMapAggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapAggregatedFieldWellsInput` via:
+//
+//	TemplateGeospatialMapAggregatedFieldWellsArgs{...}
+type TemplateGeospatialMapAggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapAggregatedFieldWellsOutput() TemplateGeospatialMapAggregatedFieldWellsOutput
+	ToTemplateGeospatialMapAggregatedFieldWellsOutputWithContext(context.Context) TemplateGeospatialMapAggregatedFieldWellsOutput
+}
+
+type TemplateGeospatialMapAggregatedFieldWellsArgs struct {
+	// The color field wells of a geospatial map.
+	Colors TemplateDimensionFieldArrayInput `pulumi:"colors"`
+	// The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.
+	Geospatial TemplateDimensionFieldArrayInput `pulumi:"geospatial"`
+	// The size field wells of a geospatial map. Values are aggregated based on geospatial fields.
+	Values TemplateMeasureFieldArrayInput `pulumi:"values"`
+}
+
+func (TemplateGeospatialMapAggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i TemplateGeospatialMapAggregatedFieldWellsArgs) ToTemplateGeospatialMapAggregatedFieldWellsOutput() TemplateGeospatialMapAggregatedFieldWellsOutput {
+	return i.ToTemplateGeospatialMapAggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapAggregatedFieldWellsArgs) ToTemplateGeospatialMapAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateGeospatialMapAggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapAggregatedFieldWellsOutput)
+}
+
+func (i TemplateGeospatialMapAggregatedFieldWellsArgs) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutput() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapAggregatedFieldWellsArgs) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapAggregatedFieldWellsOutput).ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialMapAggregatedFieldWellsPtrInput is an input type that accepts TemplateGeospatialMapAggregatedFieldWellsArgs, TemplateGeospatialMapAggregatedFieldWellsPtr and TemplateGeospatialMapAggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapAggregatedFieldWellsPtrInput` via:
+//
+//	        TemplateGeospatialMapAggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialMapAggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapAggregatedFieldWellsPtrOutput() TemplateGeospatialMapAggregatedFieldWellsPtrOutput
+	ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateGeospatialMapAggregatedFieldWellsPtrOutput
+}
+
+type templateGeospatialMapAggregatedFieldWellsPtrType TemplateGeospatialMapAggregatedFieldWellsArgs
+
+func TemplateGeospatialMapAggregatedFieldWellsPtr(v *TemplateGeospatialMapAggregatedFieldWellsArgs) TemplateGeospatialMapAggregatedFieldWellsPtrInput {
+	return (*templateGeospatialMapAggregatedFieldWellsPtrType)(v)
+}
+
+func (*templateGeospatialMapAggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *templateGeospatialMapAggregatedFieldWellsPtrType) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutput() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialMapAggregatedFieldWellsPtrType) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateGeospatialMapAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapAggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) ToTemplateGeospatialMapAggregatedFieldWellsOutput() TemplateGeospatialMapAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) ToTemplateGeospatialMapAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateGeospatialMapAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutput() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return o.ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialMapAggregatedFieldWells) *TemplateGeospatialMapAggregatedFieldWells {
+		return &v
+	}).(TemplateGeospatialMapAggregatedFieldWellsPtrOutput)
+}
+
+// The color field wells of a geospatial map.
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) Colors() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapAggregatedFieldWells) []TemplateDimensionField { return v.Colors }).(TemplateDimensionFieldArrayOutput)
+}
+
+// The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) Geospatial() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapAggregatedFieldWells) []TemplateDimensionField { return v.Geospatial }).(TemplateDimensionFieldArrayOutput)
+}
+
+// The size field wells of a geospatial map. Values are aggregated based on geospatial fields.
+func (o TemplateGeospatialMapAggregatedFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapAggregatedFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateGeospatialMapAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutput() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) ToTemplateGeospatialMapAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) Elem() TemplateGeospatialMapAggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapAggregatedFieldWells) TemplateGeospatialMapAggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialMapAggregatedFieldWells
+		return ret
+	}).(TemplateGeospatialMapAggregatedFieldWellsOutput)
+}
+
+// The color field wells of a geospatial map.
+func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) Colors() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Colors
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+// The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.
+func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) Geospatial() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Geospatial
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+// The size field wells of a geospatial map. Values are aggregated based on geospatial fields.
+func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapAggregatedFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateGeospatialMapConfiguration struct {
+	// The field wells of the visual.
+	FieldWells *TemplateGeospatialMapFieldWells `pulumi:"fieldWells"`
+	// The legend display setup of the visual.
+	Legend *TemplateLegendOptions `pulumi:"legend"`
+	// The map style options of the geospatial map.
+	MapStyleOptions *TemplateGeospatialMapStyleOptions `pulumi:"mapStyleOptions"`
+	// The point style options of the geospatial map.
+	PointStyleOptions *TemplateGeospatialPointStyleOptions `pulumi:"pointStyleOptions"`
+	// The tooltip display setup of the visual.
+	Tooltip       *TemplateTooltipOptions `pulumi:"tooltip"`
+	VisualPalette *TemplateVisualPalette  `pulumi:"visualPalette"`
+	// The window options of the geospatial map.
+	WindowOptions *TemplateGeospatialWindowOptions `pulumi:"windowOptions"`
+}
+
+// TemplateGeospatialMapConfigurationInput is an input type that accepts TemplateGeospatialMapConfigurationArgs and TemplateGeospatialMapConfigurationOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapConfigurationInput` via:
+//
+//	TemplateGeospatialMapConfigurationArgs{...}
+type TemplateGeospatialMapConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapConfigurationOutput() TemplateGeospatialMapConfigurationOutput
+	ToTemplateGeospatialMapConfigurationOutputWithContext(context.Context) TemplateGeospatialMapConfigurationOutput
+}
+
+type TemplateGeospatialMapConfigurationArgs struct {
+	// The field wells of the visual.
+	FieldWells TemplateGeospatialMapFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The legend display setup of the visual.
+	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
+	// The map style options of the geospatial map.
+	MapStyleOptions TemplateGeospatialMapStyleOptionsPtrInput `pulumi:"mapStyleOptions"`
+	// The point style options of the geospatial map.
+	PointStyleOptions TemplateGeospatialPointStyleOptionsPtrInput `pulumi:"pointStyleOptions"`
+	// The tooltip display setup of the visual.
+	Tooltip       TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
+	VisualPalette TemplateVisualPalettePtrInput  `pulumi:"visualPalette"`
+	// The window options of the geospatial map.
+	WindowOptions TemplateGeospatialWindowOptionsPtrInput `pulumi:"windowOptions"`
+}
+
+func (TemplateGeospatialMapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapConfiguration)(nil)).Elem()
+}
+
+func (i TemplateGeospatialMapConfigurationArgs) ToTemplateGeospatialMapConfigurationOutput() TemplateGeospatialMapConfigurationOutput {
+	return i.ToTemplateGeospatialMapConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapConfigurationArgs) ToTemplateGeospatialMapConfigurationOutputWithContext(ctx context.Context) TemplateGeospatialMapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapConfigurationOutput)
+}
+
+func (i TemplateGeospatialMapConfigurationArgs) ToTemplateGeospatialMapConfigurationPtrOutput() TemplateGeospatialMapConfigurationPtrOutput {
+	return i.ToTemplateGeospatialMapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapConfigurationArgs) ToTemplateGeospatialMapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapConfigurationOutput).ToTemplateGeospatialMapConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialMapConfigurationPtrInput is an input type that accepts TemplateGeospatialMapConfigurationArgs, TemplateGeospatialMapConfigurationPtr and TemplateGeospatialMapConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapConfigurationPtrInput` via:
+//
+//	        TemplateGeospatialMapConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialMapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapConfigurationPtrOutput() TemplateGeospatialMapConfigurationPtrOutput
+	ToTemplateGeospatialMapConfigurationPtrOutputWithContext(context.Context) TemplateGeospatialMapConfigurationPtrOutput
+}
+
+type templateGeospatialMapConfigurationPtrType TemplateGeospatialMapConfigurationArgs
+
+func TemplateGeospatialMapConfigurationPtr(v *TemplateGeospatialMapConfigurationArgs) TemplateGeospatialMapConfigurationPtrInput {
+	return (*templateGeospatialMapConfigurationPtrType)(v)
+}
+
+func (*templateGeospatialMapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapConfiguration)(nil)).Elem()
+}
+
+func (i *templateGeospatialMapConfigurationPtrType) ToTemplateGeospatialMapConfigurationPtrOutput() TemplateGeospatialMapConfigurationPtrOutput {
+	return i.ToTemplateGeospatialMapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialMapConfigurationPtrType) ToTemplateGeospatialMapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapConfigurationPtrOutput)
+}
+
+type TemplateGeospatialMapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapConfigurationOutput) ToTemplateGeospatialMapConfigurationOutput() TemplateGeospatialMapConfigurationOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapConfigurationOutput) ToTemplateGeospatialMapConfigurationOutputWithContext(ctx context.Context) TemplateGeospatialMapConfigurationOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapConfigurationOutput) ToTemplateGeospatialMapConfigurationPtrOutput() TemplateGeospatialMapConfigurationPtrOutput {
+	return o.ToTemplateGeospatialMapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapConfigurationOutput) ToTemplateGeospatialMapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialMapConfiguration) *TemplateGeospatialMapConfiguration {
+		return &v
+	}).(TemplateGeospatialMapConfigurationPtrOutput)
+}
+
+// The field wells of the visual.
+func (o TemplateGeospatialMapConfigurationOutput) FieldWells() TemplateGeospatialMapFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialMapFieldWells { return v.FieldWells }).(TemplateGeospatialMapFieldWellsPtrOutput)
+}
+
+// The legend display setup of the visual.
+func (o TemplateGeospatialMapConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
+}
+
+// The map style options of the geospatial map.
+func (o TemplateGeospatialMapConfigurationOutput) MapStyleOptions() TemplateGeospatialMapStyleOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialMapStyleOptions {
+		return v.MapStyleOptions
+	}).(TemplateGeospatialMapStyleOptionsPtrOutput)
+}
+
+// The point style options of the geospatial map.
+func (o TemplateGeospatialMapConfigurationOutput) PointStyleOptions() TemplateGeospatialPointStyleOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialPointStyleOptions {
+		return v.PointStyleOptions
+	}).(TemplateGeospatialPointStyleOptionsPtrOutput)
+}
+
+// The tooltip display setup of the visual.
+func (o TemplateGeospatialMapConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
+}
+
+func (o TemplateGeospatialMapConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
+}
+
+// The window options of the geospatial map.
+func (o TemplateGeospatialMapConfigurationOutput) WindowOptions() TemplateGeospatialWindowOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialWindowOptions { return v.WindowOptions }).(TemplateGeospatialWindowOptionsPtrOutput)
+}
+
+type TemplateGeospatialMapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapConfigurationPtrOutput) ToTemplateGeospatialMapConfigurationPtrOutput() TemplateGeospatialMapConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapConfigurationPtrOutput) ToTemplateGeospatialMapConfigurationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapConfigurationPtrOutput) Elem() TemplateGeospatialMapConfigurationOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) TemplateGeospatialMapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialMapConfiguration
+		return ret
+	}).(TemplateGeospatialMapConfigurationOutput)
+}
+
+// The field wells of the visual.
+func (o TemplateGeospatialMapConfigurationPtrOutput) FieldWells() TemplateGeospatialMapFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialMapFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateGeospatialMapFieldWellsPtrOutput)
+}
+
+// The legend display setup of the visual.
+func (o TemplateGeospatialMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateLegendOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Legend
+	}).(TemplateLegendOptionsPtrOutput)
+}
+
+// The map style options of the geospatial map.
+func (o TemplateGeospatialMapConfigurationPtrOutput) MapStyleOptions() TemplateGeospatialMapStyleOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialMapStyleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MapStyleOptions
+	}).(TemplateGeospatialMapStyleOptionsPtrOutput)
+}
+
+// The point style options of the geospatial map.
+func (o TemplateGeospatialMapConfigurationPtrOutput) PointStyleOptions() TemplateGeospatialPointStyleOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialPointStyleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PointStyleOptions
+	}).(TemplateGeospatialPointStyleOptionsPtrOutput)
+}
+
+// The tooltip display setup of the visual.
+func (o TemplateGeospatialMapConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateTooltipOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Tooltip
+	}).(TemplateTooltipOptionsPtrOutput)
+}
+
+func (o TemplateGeospatialMapConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateVisualPalette {
+		if v == nil {
+			return nil
+		}
+		return v.VisualPalette
+	}).(TemplateVisualPalettePtrOutput)
+}
+
+// The window options of the geospatial map.
+func (o TemplateGeospatialMapConfigurationPtrOutput) WindowOptions() TemplateGeospatialWindowOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialWindowOptions {
+		if v == nil {
+			return nil
+		}
+		return v.WindowOptions
+	}).(TemplateGeospatialWindowOptionsPtrOutput)
+}
+
+type TemplateGeospatialMapFieldWells struct {
+	// The aggregated field well for a geospatial map.
+	GeospatialMapAggregatedFieldWells *TemplateGeospatialMapAggregatedFieldWells `pulumi:"geospatialMapAggregatedFieldWells"`
+}
+
+// TemplateGeospatialMapFieldWellsInput is an input type that accepts TemplateGeospatialMapFieldWellsArgs and TemplateGeospatialMapFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapFieldWellsInput` via:
+//
+//	TemplateGeospatialMapFieldWellsArgs{...}
+type TemplateGeospatialMapFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapFieldWellsOutput() TemplateGeospatialMapFieldWellsOutput
+	ToTemplateGeospatialMapFieldWellsOutputWithContext(context.Context) TemplateGeospatialMapFieldWellsOutput
+}
+
+type TemplateGeospatialMapFieldWellsArgs struct {
+	// The aggregated field well for a geospatial map.
+	GeospatialMapAggregatedFieldWells TemplateGeospatialMapAggregatedFieldWellsPtrInput `pulumi:"geospatialMapAggregatedFieldWells"`
+}
+
+func (TemplateGeospatialMapFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapFieldWells)(nil)).Elem()
+}
+
+func (i TemplateGeospatialMapFieldWellsArgs) ToTemplateGeospatialMapFieldWellsOutput() TemplateGeospatialMapFieldWellsOutput {
+	return i.ToTemplateGeospatialMapFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapFieldWellsArgs) ToTemplateGeospatialMapFieldWellsOutputWithContext(ctx context.Context) TemplateGeospatialMapFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapFieldWellsOutput)
+}
+
+func (i TemplateGeospatialMapFieldWellsArgs) ToTemplateGeospatialMapFieldWellsPtrOutput() TemplateGeospatialMapFieldWellsPtrOutput {
+	return i.ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapFieldWellsArgs) ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapFieldWellsOutput).ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialMapFieldWellsPtrInput is an input type that accepts TemplateGeospatialMapFieldWellsArgs, TemplateGeospatialMapFieldWellsPtr and TemplateGeospatialMapFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapFieldWellsPtrInput` via:
+//
+//	        TemplateGeospatialMapFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialMapFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapFieldWellsPtrOutput() TemplateGeospatialMapFieldWellsPtrOutput
+	ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(context.Context) TemplateGeospatialMapFieldWellsPtrOutput
+}
+
+type templateGeospatialMapFieldWellsPtrType TemplateGeospatialMapFieldWellsArgs
+
+func TemplateGeospatialMapFieldWellsPtr(v *TemplateGeospatialMapFieldWellsArgs) TemplateGeospatialMapFieldWellsPtrInput {
+	return (*templateGeospatialMapFieldWellsPtrType)(v)
+}
+
+func (*templateGeospatialMapFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapFieldWells)(nil)).Elem()
+}
+
+func (i *templateGeospatialMapFieldWellsPtrType) ToTemplateGeospatialMapFieldWellsPtrOutput() TemplateGeospatialMapFieldWellsPtrOutput {
+	return i.ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialMapFieldWellsPtrType) ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapFieldWellsPtrOutput)
+}
+
+type TemplateGeospatialMapFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapFieldWells)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapFieldWellsOutput) ToTemplateGeospatialMapFieldWellsOutput() TemplateGeospatialMapFieldWellsOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapFieldWellsOutput) ToTemplateGeospatialMapFieldWellsOutputWithContext(ctx context.Context) TemplateGeospatialMapFieldWellsOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapFieldWellsOutput) ToTemplateGeospatialMapFieldWellsPtrOutput() TemplateGeospatialMapFieldWellsPtrOutput {
+	return o.ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapFieldWellsOutput) ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialMapFieldWells) *TemplateGeospatialMapFieldWells {
+		return &v
+	}).(TemplateGeospatialMapFieldWellsPtrOutput)
+}
+
+// The aggregated field well for a geospatial map.
+func (o TemplateGeospatialMapFieldWellsOutput) GeospatialMapAggregatedFieldWells() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapFieldWells) *TemplateGeospatialMapAggregatedFieldWells {
+		return v.GeospatialMapAggregatedFieldWells
+	}).(TemplateGeospatialMapAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateGeospatialMapFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapFieldWells)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapFieldWellsPtrOutput) ToTemplateGeospatialMapFieldWellsPtrOutput() TemplateGeospatialMapFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapFieldWellsPtrOutput) ToTemplateGeospatialMapFieldWellsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapFieldWellsPtrOutput) Elem() TemplateGeospatialMapFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapFieldWells) TemplateGeospatialMapFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialMapFieldWells
+		return ret
+	}).(TemplateGeospatialMapFieldWellsOutput)
+}
+
+// The aggregated field well for a geospatial map.
+func (o TemplateGeospatialMapFieldWellsPtrOutput) GeospatialMapAggregatedFieldWells() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapFieldWells) *TemplateGeospatialMapAggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.GeospatialMapAggregatedFieldWells
+	}).(TemplateGeospatialMapAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateGeospatialMapStyleOptions struct {
+	// The base map style of the geospatial map.
+	BaseMapStyle *TemplateBaseMapStyleType `pulumi:"baseMapStyle"`
+}
+
+// TemplateGeospatialMapStyleOptionsInput is an input type that accepts TemplateGeospatialMapStyleOptionsArgs and TemplateGeospatialMapStyleOptionsOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapStyleOptionsInput` via:
+//
+//	TemplateGeospatialMapStyleOptionsArgs{...}
+type TemplateGeospatialMapStyleOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapStyleOptionsOutput() TemplateGeospatialMapStyleOptionsOutput
+	ToTemplateGeospatialMapStyleOptionsOutputWithContext(context.Context) TemplateGeospatialMapStyleOptionsOutput
+}
+
+type TemplateGeospatialMapStyleOptionsArgs struct {
+	// The base map style of the geospatial map.
+	BaseMapStyle TemplateBaseMapStyleTypePtrInput `pulumi:"baseMapStyle"`
+}
+
+func (TemplateGeospatialMapStyleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapStyleOptions)(nil)).Elem()
+}
+
+func (i TemplateGeospatialMapStyleOptionsArgs) ToTemplateGeospatialMapStyleOptionsOutput() TemplateGeospatialMapStyleOptionsOutput {
+	return i.ToTemplateGeospatialMapStyleOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapStyleOptionsArgs) ToTemplateGeospatialMapStyleOptionsOutputWithContext(ctx context.Context) TemplateGeospatialMapStyleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapStyleOptionsOutput)
+}
+
+func (i TemplateGeospatialMapStyleOptionsArgs) ToTemplateGeospatialMapStyleOptionsPtrOutput() TemplateGeospatialMapStyleOptionsPtrOutput {
+	return i.ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapStyleOptionsArgs) ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapStyleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapStyleOptionsOutput).ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialMapStyleOptionsPtrInput is an input type that accepts TemplateGeospatialMapStyleOptionsArgs, TemplateGeospatialMapStyleOptionsPtr and TemplateGeospatialMapStyleOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapStyleOptionsPtrInput` via:
+//
+//	        TemplateGeospatialMapStyleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialMapStyleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapStyleOptionsPtrOutput() TemplateGeospatialMapStyleOptionsPtrOutput
+	ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(context.Context) TemplateGeospatialMapStyleOptionsPtrOutput
+}
+
+type templateGeospatialMapStyleOptionsPtrType TemplateGeospatialMapStyleOptionsArgs
+
+func TemplateGeospatialMapStyleOptionsPtr(v *TemplateGeospatialMapStyleOptionsArgs) TemplateGeospatialMapStyleOptionsPtrInput {
+	return (*templateGeospatialMapStyleOptionsPtrType)(v)
+}
+
+func (*templateGeospatialMapStyleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapStyleOptions)(nil)).Elem()
+}
+
+func (i *templateGeospatialMapStyleOptionsPtrType) ToTemplateGeospatialMapStyleOptionsPtrOutput() TemplateGeospatialMapStyleOptionsPtrOutput {
+	return i.ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialMapStyleOptionsPtrType) ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapStyleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapStyleOptionsPtrOutput)
+}
+
+type TemplateGeospatialMapStyleOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapStyleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapStyleOptions)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapStyleOptionsOutput) ToTemplateGeospatialMapStyleOptionsOutput() TemplateGeospatialMapStyleOptionsOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapStyleOptionsOutput) ToTemplateGeospatialMapStyleOptionsOutputWithContext(ctx context.Context) TemplateGeospatialMapStyleOptionsOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapStyleOptionsOutput) ToTemplateGeospatialMapStyleOptionsPtrOutput() TemplateGeospatialMapStyleOptionsPtrOutput {
+	return o.ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapStyleOptionsOutput) ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapStyleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialMapStyleOptions) *TemplateGeospatialMapStyleOptions {
+		return &v
+	}).(TemplateGeospatialMapStyleOptionsPtrOutput)
+}
+
+// The base map style of the geospatial map.
+func (o TemplateGeospatialMapStyleOptionsOutput) BaseMapStyle() TemplateBaseMapStyleTypePtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapStyleOptions) *TemplateBaseMapStyleType { return v.BaseMapStyle }).(TemplateBaseMapStyleTypePtrOutput)
+}
+
+type TemplateGeospatialMapStyleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapStyleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapStyleOptions)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapStyleOptionsPtrOutput) ToTemplateGeospatialMapStyleOptionsPtrOutput() TemplateGeospatialMapStyleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapStyleOptionsPtrOutput) ToTemplateGeospatialMapStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapStyleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapStyleOptionsPtrOutput) Elem() TemplateGeospatialMapStyleOptionsOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapStyleOptions) TemplateGeospatialMapStyleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialMapStyleOptions
+		return ret
+	}).(TemplateGeospatialMapStyleOptionsOutput)
+}
+
+// The base map style of the geospatial map.
+func (o TemplateGeospatialMapStyleOptionsPtrOutput) BaseMapStyle() TemplateBaseMapStyleTypePtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapStyleOptions) *TemplateBaseMapStyleType {
+		if v == nil {
+			return nil
+		}
+		return v.BaseMapStyle
+	}).(TemplateBaseMapStyleTypePtrOutput)
+}
+
+type TemplateGeospatialMapVisual struct {
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration settings of the visual.
+	ChartConfiguration *TemplateGeospatialMapConfiguration `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId string `pulumi:"visualId"`
+}
+
+// TemplateGeospatialMapVisualInput is an input type that accepts TemplateGeospatialMapVisualArgs and TemplateGeospatialMapVisualOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapVisualInput` via:
+//
+//	TemplateGeospatialMapVisualArgs{...}
+type TemplateGeospatialMapVisualInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapVisualOutput() TemplateGeospatialMapVisualOutput
+	ToTemplateGeospatialMapVisualOutputWithContext(context.Context) TemplateGeospatialMapVisualOutput
+}
+
+type TemplateGeospatialMapVisualArgs struct {
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration settings of the visual.
+	ChartConfiguration TemplateGeospatialMapConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId pulumi.StringInput `pulumi:"visualId"`
+}
+
+func (TemplateGeospatialMapVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapVisual)(nil)).Elem()
+}
+
+func (i TemplateGeospatialMapVisualArgs) ToTemplateGeospatialMapVisualOutput() TemplateGeospatialMapVisualOutput {
+	return i.ToTemplateGeospatialMapVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapVisualArgs) ToTemplateGeospatialMapVisualOutputWithContext(ctx context.Context) TemplateGeospatialMapVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapVisualOutput)
+}
+
+func (i TemplateGeospatialMapVisualArgs) ToTemplateGeospatialMapVisualPtrOutput() TemplateGeospatialMapVisualPtrOutput {
+	return i.ToTemplateGeospatialMapVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialMapVisualArgs) ToTemplateGeospatialMapVisualPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapVisualOutput).ToTemplateGeospatialMapVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialMapVisualPtrInput is an input type that accepts TemplateGeospatialMapVisualArgs, TemplateGeospatialMapVisualPtr and TemplateGeospatialMapVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialMapVisualPtrInput` via:
+//
+//	        TemplateGeospatialMapVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialMapVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapVisualPtrOutput() TemplateGeospatialMapVisualPtrOutput
+	ToTemplateGeospatialMapVisualPtrOutputWithContext(context.Context) TemplateGeospatialMapVisualPtrOutput
+}
+
+type templateGeospatialMapVisualPtrType TemplateGeospatialMapVisualArgs
+
+func TemplateGeospatialMapVisualPtr(v *TemplateGeospatialMapVisualArgs) TemplateGeospatialMapVisualPtrInput {
+	return (*templateGeospatialMapVisualPtrType)(v)
+}
+
+func (*templateGeospatialMapVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapVisual)(nil)).Elem()
+}
+
+func (i *templateGeospatialMapVisualPtrType) ToTemplateGeospatialMapVisualPtrOutput() TemplateGeospatialMapVisualPtrOutput {
+	return i.ToTemplateGeospatialMapVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialMapVisualPtrType) ToTemplateGeospatialMapVisualPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialMapVisualPtrOutput)
+}
+
+type TemplateGeospatialMapVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapVisual)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapVisualOutput) ToTemplateGeospatialMapVisualOutput() TemplateGeospatialMapVisualOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapVisualOutput) ToTemplateGeospatialMapVisualOutputWithContext(ctx context.Context) TemplateGeospatialMapVisualOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapVisualOutput) ToTemplateGeospatialMapVisualPtrOutput() TemplateGeospatialMapVisualPtrOutput {
+	return o.ToTemplateGeospatialMapVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapVisualOutput) ToTemplateGeospatialMapVisualPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialMapVisual) *TemplateGeospatialMapVisual {
+		return &v
+	}).(TemplateGeospatialMapVisualPtrOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateGeospatialMapVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration settings of the visual.
+func (o TemplateGeospatialMapVisualOutput) ChartConfiguration() TemplateGeospatialMapConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateGeospatialMapConfiguration { return v.ChartConfiguration }).(TemplateGeospatialMapConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateGeospatialMapVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateGeospatialMapVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateGeospatialMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateGeospatialMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+func (o TemplateGeospatialMapVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateGeospatialMapVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateGeospatialMapVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapVisual)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapVisualPtrOutput) ToTemplateGeospatialMapVisualPtrOutput() TemplateGeospatialMapVisualPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapVisualPtrOutput) ToTemplateGeospatialMapVisualPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapVisualPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapVisualPtrOutput) Elem() TemplateGeospatialMapVisualOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) TemplateGeospatialMapVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialMapVisual
+		return ret
+	}).(TemplateGeospatialMapVisualOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateGeospatialMapVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration settings of the visual.
+func (o TemplateGeospatialMapVisualPtrOutput) ChartConfiguration() TemplateGeospatialMapConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *TemplateGeospatialMapConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateGeospatialMapConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateGeospatialMapVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateGeospatialMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateGeospatialMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateGeospatialMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualContentAltText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+func (o TemplateGeospatialMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGeospatialPointStyleOptions struct {
+	// The cluster marker configuration of the geospatial point style.
+	ClusterMarkerConfiguration *TemplateClusterMarkerConfiguration `pulumi:"clusterMarkerConfiguration"`
+	// The heatmap configuration of the geospatial point style.
+	HeatmapConfiguration *TemplateGeospatialHeatmapConfiguration `pulumi:"heatmapConfiguration"`
+	// The selected point styles (point, cluster) of the geospatial map.
+	SelectedPointStyle *TemplateGeospatialSelectedPointStyle `pulumi:"selectedPointStyle"`
+}
+
+// TemplateGeospatialPointStyleOptionsInput is an input type that accepts TemplateGeospatialPointStyleOptionsArgs and TemplateGeospatialPointStyleOptionsOutput values.
+// You can construct a concrete instance of `TemplateGeospatialPointStyleOptionsInput` via:
+//
+//	TemplateGeospatialPointStyleOptionsArgs{...}
+type TemplateGeospatialPointStyleOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialPointStyleOptionsOutput() TemplateGeospatialPointStyleOptionsOutput
+	ToTemplateGeospatialPointStyleOptionsOutputWithContext(context.Context) TemplateGeospatialPointStyleOptionsOutput
+}
+
+type TemplateGeospatialPointStyleOptionsArgs struct {
+	// The cluster marker configuration of the geospatial point style.
+	ClusterMarkerConfiguration TemplateClusterMarkerConfigurationPtrInput `pulumi:"clusterMarkerConfiguration"`
+	// The heatmap configuration of the geospatial point style.
+	HeatmapConfiguration TemplateGeospatialHeatmapConfigurationPtrInput `pulumi:"heatmapConfiguration"`
+	// The selected point styles (point, cluster) of the geospatial map.
+	SelectedPointStyle TemplateGeospatialSelectedPointStylePtrInput `pulumi:"selectedPointStyle"`
+}
+
+func (TemplateGeospatialPointStyleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialPointStyleOptions)(nil)).Elem()
+}
+
+func (i TemplateGeospatialPointStyleOptionsArgs) ToTemplateGeospatialPointStyleOptionsOutput() TemplateGeospatialPointStyleOptionsOutput {
+	return i.ToTemplateGeospatialPointStyleOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialPointStyleOptionsArgs) ToTemplateGeospatialPointStyleOptionsOutputWithContext(ctx context.Context) TemplateGeospatialPointStyleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialPointStyleOptionsOutput)
+}
+
+func (i TemplateGeospatialPointStyleOptionsArgs) ToTemplateGeospatialPointStyleOptionsPtrOutput() TemplateGeospatialPointStyleOptionsPtrOutput {
+	return i.ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialPointStyleOptionsArgs) ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialPointStyleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialPointStyleOptionsOutput).ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialPointStyleOptionsPtrInput is an input type that accepts TemplateGeospatialPointStyleOptionsArgs, TemplateGeospatialPointStyleOptionsPtr and TemplateGeospatialPointStyleOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialPointStyleOptionsPtrInput` via:
+//
+//	        TemplateGeospatialPointStyleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialPointStyleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialPointStyleOptionsPtrOutput() TemplateGeospatialPointStyleOptionsPtrOutput
+	ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(context.Context) TemplateGeospatialPointStyleOptionsPtrOutput
+}
+
+type templateGeospatialPointStyleOptionsPtrType TemplateGeospatialPointStyleOptionsArgs
+
+func TemplateGeospatialPointStyleOptionsPtr(v *TemplateGeospatialPointStyleOptionsArgs) TemplateGeospatialPointStyleOptionsPtrInput {
+	return (*templateGeospatialPointStyleOptionsPtrType)(v)
+}
+
+func (*templateGeospatialPointStyleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialPointStyleOptions)(nil)).Elem()
+}
+
+func (i *templateGeospatialPointStyleOptionsPtrType) ToTemplateGeospatialPointStyleOptionsPtrOutput() TemplateGeospatialPointStyleOptionsPtrOutput {
+	return i.ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialPointStyleOptionsPtrType) ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialPointStyleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialPointStyleOptionsPtrOutput)
+}
+
+type TemplateGeospatialPointStyleOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialPointStyleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialPointStyleOptions)(nil)).Elem()
+}
+
+func (o TemplateGeospatialPointStyleOptionsOutput) ToTemplateGeospatialPointStyleOptionsOutput() TemplateGeospatialPointStyleOptionsOutput {
+	return o
+}
+
+func (o TemplateGeospatialPointStyleOptionsOutput) ToTemplateGeospatialPointStyleOptionsOutputWithContext(ctx context.Context) TemplateGeospatialPointStyleOptionsOutput {
+	return o
+}
+
+func (o TemplateGeospatialPointStyleOptionsOutput) ToTemplateGeospatialPointStyleOptionsPtrOutput() TemplateGeospatialPointStyleOptionsPtrOutput {
+	return o.ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialPointStyleOptionsOutput) ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialPointStyleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialPointStyleOptions) *TemplateGeospatialPointStyleOptions {
+		return &v
+	}).(TemplateGeospatialPointStyleOptionsPtrOutput)
+}
+
+// The cluster marker configuration of the geospatial point style.
+func (o TemplateGeospatialPointStyleOptionsOutput) ClusterMarkerConfiguration() TemplateClusterMarkerConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialPointStyleOptions) *TemplateClusterMarkerConfiguration {
+		return v.ClusterMarkerConfiguration
+	}).(TemplateClusterMarkerConfigurationPtrOutput)
+}
+
+// The heatmap configuration of the geospatial point style.
+func (o TemplateGeospatialPointStyleOptionsOutput) HeatmapConfiguration() TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialPointStyleOptions) *TemplateGeospatialHeatmapConfiguration {
+		return v.HeatmapConfiguration
+	}).(TemplateGeospatialHeatmapConfigurationPtrOutput)
+}
+
+// The selected point styles (point, cluster) of the geospatial map.
+func (o TemplateGeospatialPointStyleOptionsOutput) SelectedPointStyle() TemplateGeospatialSelectedPointStylePtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialPointStyleOptions) *TemplateGeospatialSelectedPointStyle {
+		return v.SelectedPointStyle
+	}).(TemplateGeospatialSelectedPointStylePtrOutput)
+}
+
+type TemplateGeospatialPointStyleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialPointStyleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialPointStyleOptions)(nil)).Elem()
+}
+
+func (o TemplateGeospatialPointStyleOptionsPtrOutput) ToTemplateGeospatialPointStyleOptionsPtrOutput() TemplateGeospatialPointStyleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialPointStyleOptionsPtrOutput) ToTemplateGeospatialPointStyleOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialPointStyleOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialPointStyleOptionsPtrOutput) Elem() TemplateGeospatialPointStyleOptionsOutput {
+	return o.ApplyT(func(v *TemplateGeospatialPointStyleOptions) TemplateGeospatialPointStyleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialPointStyleOptions
+		return ret
+	}).(TemplateGeospatialPointStyleOptionsOutput)
+}
+
+// The cluster marker configuration of the geospatial point style.
+func (o TemplateGeospatialPointStyleOptionsPtrOutput) ClusterMarkerConfiguration() TemplateClusterMarkerConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialPointStyleOptions) *TemplateClusterMarkerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterMarkerConfiguration
+	}).(TemplateClusterMarkerConfigurationPtrOutput)
+}
+
+// The heatmap configuration of the geospatial point style.
+func (o TemplateGeospatialPointStyleOptionsPtrOutput) HeatmapConfiguration() TemplateGeospatialHeatmapConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialPointStyleOptions) *TemplateGeospatialHeatmapConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HeatmapConfiguration
+	}).(TemplateGeospatialHeatmapConfigurationPtrOutput)
+}
+
+// The selected point styles (point, cluster) of the geospatial map.
+func (o TemplateGeospatialPointStyleOptionsPtrOutput) SelectedPointStyle() TemplateGeospatialSelectedPointStylePtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialPointStyleOptions) *TemplateGeospatialSelectedPointStyle {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedPointStyle
+	}).(TemplateGeospatialSelectedPointStylePtrOutput)
+}
+
+type TemplateGeospatialWindowOptions struct {
+	// The bounds options (north, south, west, east) of the geospatial window options.
+	Bounds *TemplateGeospatialCoordinateBounds `pulumi:"bounds"`
+	// The map zoom modes (manual, auto) of the geospatial window options.
+	MapZoomMode *TemplateMapZoomMode `pulumi:"mapZoomMode"`
+}
+
+// TemplateGeospatialWindowOptionsInput is an input type that accepts TemplateGeospatialWindowOptionsArgs and TemplateGeospatialWindowOptionsOutput values.
+// You can construct a concrete instance of `TemplateGeospatialWindowOptionsInput` via:
+//
+//	TemplateGeospatialWindowOptionsArgs{...}
+type TemplateGeospatialWindowOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialWindowOptionsOutput() TemplateGeospatialWindowOptionsOutput
+	ToTemplateGeospatialWindowOptionsOutputWithContext(context.Context) TemplateGeospatialWindowOptionsOutput
+}
+
+type TemplateGeospatialWindowOptionsArgs struct {
+	// The bounds options (north, south, west, east) of the geospatial window options.
+	Bounds TemplateGeospatialCoordinateBoundsPtrInput `pulumi:"bounds"`
+	// The map zoom modes (manual, auto) of the geospatial window options.
+	MapZoomMode TemplateMapZoomModePtrInput `pulumi:"mapZoomMode"`
+}
+
+func (TemplateGeospatialWindowOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialWindowOptions)(nil)).Elem()
+}
+
+func (i TemplateGeospatialWindowOptionsArgs) ToTemplateGeospatialWindowOptionsOutput() TemplateGeospatialWindowOptionsOutput {
+	return i.ToTemplateGeospatialWindowOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialWindowOptionsArgs) ToTemplateGeospatialWindowOptionsOutputWithContext(ctx context.Context) TemplateGeospatialWindowOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialWindowOptionsOutput)
+}
+
+func (i TemplateGeospatialWindowOptionsArgs) ToTemplateGeospatialWindowOptionsPtrOutput() TemplateGeospatialWindowOptionsPtrOutput {
+	return i.ToTemplateGeospatialWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGeospatialWindowOptionsArgs) ToTemplateGeospatialWindowOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialWindowOptionsOutput).ToTemplateGeospatialWindowOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGeospatialWindowOptionsPtrInput is an input type that accepts TemplateGeospatialWindowOptionsArgs, TemplateGeospatialWindowOptionsPtr and TemplateGeospatialWindowOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGeospatialWindowOptionsPtrInput` via:
+//
+//	        TemplateGeospatialWindowOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGeospatialWindowOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialWindowOptionsPtrOutput() TemplateGeospatialWindowOptionsPtrOutput
+	ToTemplateGeospatialWindowOptionsPtrOutputWithContext(context.Context) TemplateGeospatialWindowOptionsPtrOutput
+}
+
+type templateGeospatialWindowOptionsPtrType TemplateGeospatialWindowOptionsArgs
+
+func TemplateGeospatialWindowOptionsPtr(v *TemplateGeospatialWindowOptionsArgs) TemplateGeospatialWindowOptionsPtrInput {
+	return (*templateGeospatialWindowOptionsPtrType)(v)
+}
+
+func (*templateGeospatialWindowOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialWindowOptions)(nil)).Elem()
+}
+
+func (i *templateGeospatialWindowOptionsPtrType) ToTemplateGeospatialWindowOptionsPtrOutput() TemplateGeospatialWindowOptionsPtrOutput {
+	return i.ToTemplateGeospatialWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGeospatialWindowOptionsPtrType) ToTemplateGeospatialWindowOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGeospatialWindowOptionsPtrOutput)
+}
+
+type TemplateGeospatialWindowOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialWindowOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialWindowOptions)(nil)).Elem()
+}
+
+func (o TemplateGeospatialWindowOptionsOutput) ToTemplateGeospatialWindowOptionsOutput() TemplateGeospatialWindowOptionsOutput {
+	return o
+}
+
+func (o TemplateGeospatialWindowOptionsOutput) ToTemplateGeospatialWindowOptionsOutputWithContext(ctx context.Context) TemplateGeospatialWindowOptionsOutput {
+	return o
+}
+
+func (o TemplateGeospatialWindowOptionsOutput) ToTemplateGeospatialWindowOptionsPtrOutput() TemplateGeospatialWindowOptionsPtrOutput {
+	return o.ToTemplateGeospatialWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialWindowOptionsOutput) ToTemplateGeospatialWindowOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialWindowOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialWindowOptions) *TemplateGeospatialWindowOptions {
+		return &v
+	}).(TemplateGeospatialWindowOptionsPtrOutput)
+}
+
+// The bounds options (north, south, west, east) of the geospatial window options.
+func (o TemplateGeospatialWindowOptionsOutput) Bounds() TemplateGeospatialCoordinateBoundsPtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialWindowOptions) *TemplateGeospatialCoordinateBounds { return v.Bounds }).(TemplateGeospatialCoordinateBoundsPtrOutput)
+}
+
+// The map zoom modes (manual, auto) of the geospatial window options.
+func (o TemplateGeospatialWindowOptionsOutput) MapZoomMode() TemplateMapZoomModePtrOutput {
+	return o.ApplyT(func(v TemplateGeospatialWindowOptions) *TemplateMapZoomMode { return v.MapZoomMode }).(TemplateMapZoomModePtrOutput)
+}
+
+type TemplateGeospatialWindowOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialWindowOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialWindowOptions)(nil)).Elem()
+}
+
+func (o TemplateGeospatialWindowOptionsPtrOutput) ToTemplateGeospatialWindowOptionsPtrOutput() TemplateGeospatialWindowOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialWindowOptionsPtrOutput) ToTemplateGeospatialWindowOptionsPtrOutputWithContext(ctx context.Context) TemplateGeospatialWindowOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialWindowOptionsPtrOutput) Elem() TemplateGeospatialWindowOptionsOutput {
+	return o.ApplyT(func(v *TemplateGeospatialWindowOptions) TemplateGeospatialWindowOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialWindowOptions
+		return ret
+	}).(TemplateGeospatialWindowOptionsOutput)
+}
+
+// The bounds options (north, south, west, east) of the geospatial window options.
+func (o TemplateGeospatialWindowOptionsPtrOutput) Bounds() TemplateGeospatialCoordinateBoundsPtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialWindowOptions) *TemplateGeospatialCoordinateBounds {
+		if v == nil {
+			return nil
+		}
+		return v.Bounds
+	}).(TemplateGeospatialCoordinateBoundsPtrOutput)
+}
+
+// The map zoom modes (manual, auto) of the geospatial window options.
+func (o TemplateGeospatialWindowOptionsPtrOutput) MapZoomMode() TemplateMapZoomModePtrOutput {
+	return o.ApplyT(func(v *TemplateGeospatialWindowOptions) *TemplateMapZoomMode {
+		if v == nil {
+			return nil
+		}
+		return v.MapZoomMode
+	}).(TemplateMapZoomModePtrOutput)
+}
+
+type TemplateGlobalTableBorderOptions struct {
+	// Determines the options for side specific border.
+	SideSpecificBorder *TemplateTableSideBorderOptions `pulumi:"sideSpecificBorder"`
+	// Determines the options for uniform border.
+	UniformBorder *TemplateTableBorderOptions `pulumi:"uniformBorder"`
+}
+
+// TemplateGlobalTableBorderOptionsInput is an input type that accepts TemplateGlobalTableBorderOptionsArgs and TemplateGlobalTableBorderOptionsOutput values.
+// You can construct a concrete instance of `TemplateGlobalTableBorderOptionsInput` via:
+//
+//	TemplateGlobalTableBorderOptionsArgs{...}
+type TemplateGlobalTableBorderOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGlobalTableBorderOptionsOutput() TemplateGlobalTableBorderOptionsOutput
+	ToTemplateGlobalTableBorderOptionsOutputWithContext(context.Context) TemplateGlobalTableBorderOptionsOutput
+}
+
+type TemplateGlobalTableBorderOptionsArgs struct {
+	// Determines the options for side specific border.
+	SideSpecificBorder TemplateTableSideBorderOptionsPtrInput `pulumi:"sideSpecificBorder"`
+	// Determines the options for uniform border.
+	UniformBorder TemplateTableBorderOptionsPtrInput `pulumi:"uniformBorder"`
+}
+
+func (TemplateGlobalTableBorderOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGlobalTableBorderOptions)(nil)).Elem()
+}
+
+func (i TemplateGlobalTableBorderOptionsArgs) ToTemplateGlobalTableBorderOptionsOutput() TemplateGlobalTableBorderOptionsOutput {
+	return i.ToTemplateGlobalTableBorderOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGlobalTableBorderOptionsArgs) ToTemplateGlobalTableBorderOptionsOutputWithContext(ctx context.Context) TemplateGlobalTableBorderOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGlobalTableBorderOptionsOutput)
+}
+
+func (i TemplateGlobalTableBorderOptionsArgs) ToTemplateGlobalTableBorderOptionsPtrOutput() TemplateGlobalTableBorderOptionsPtrOutput {
+	return i.ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGlobalTableBorderOptionsArgs) ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateGlobalTableBorderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGlobalTableBorderOptionsOutput).ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGlobalTableBorderOptionsPtrInput is an input type that accepts TemplateGlobalTableBorderOptionsArgs, TemplateGlobalTableBorderOptionsPtr and TemplateGlobalTableBorderOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGlobalTableBorderOptionsPtrInput` via:
+//
+//	        TemplateGlobalTableBorderOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGlobalTableBorderOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGlobalTableBorderOptionsPtrOutput() TemplateGlobalTableBorderOptionsPtrOutput
+	ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(context.Context) TemplateGlobalTableBorderOptionsPtrOutput
+}
+
+type templateGlobalTableBorderOptionsPtrType TemplateGlobalTableBorderOptionsArgs
+
+func TemplateGlobalTableBorderOptionsPtr(v *TemplateGlobalTableBorderOptionsArgs) TemplateGlobalTableBorderOptionsPtrInput {
+	return (*templateGlobalTableBorderOptionsPtrType)(v)
+}
+
+func (*templateGlobalTableBorderOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGlobalTableBorderOptions)(nil)).Elem()
+}
+
+func (i *templateGlobalTableBorderOptionsPtrType) ToTemplateGlobalTableBorderOptionsPtrOutput() TemplateGlobalTableBorderOptionsPtrOutput {
+	return i.ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGlobalTableBorderOptionsPtrType) ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateGlobalTableBorderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGlobalTableBorderOptionsPtrOutput)
+}
+
+type TemplateGlobalTableBorderOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGlobalTableBorderOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGlobalTableBorderOptions)(nil)).Elem()
+}
+
+func (o TemplateGlobalTableBorderOptionsOutput) ToTemplateGlobalTableBorderOptionsOutput() TemplateGlobalTableBorderOptionsOutput {
+	return o
+}
+
+func (o TemplateGlobalTableBorderOptionsOutput) ToTemplateGlobalTableBorderOptionsOutputWithContext(ctx context.Context) TemplateGlobalTableBorderOptionsOutput {
+	return o
+}
+
+func (o TemplateGlobalTableBorderOptionsOutput) ToTemplateGlobalTableBorderOptionsPtrOutput() TemplateGlobalTableBorderOptionsPtrOutput {
+	return o.ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGlobalTableBorderOptionsOutput) ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateGlobalTableBorderOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGlobalTableBorderOptions) *TemplateGlobalTableBorderOptions {
+		return &v
+	}).(TemplateGlobalTableBorderOptionsPtrOutput)
+}
+
+// Determines the options for side specific border.
+func (o TemplateGlobalTableBorderOptionsOutput) SideSpecificBorder() TemplateTableSideBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGlobalTableBorderOptions) *TemplateTableSideBorderOptions { return v.SideSpecificBorder }).(TemplateTableSideBorderOptionsPtrOutput)
+}
+
+// Determines the options for uniform border.
+func (o TemplateGlobalTableBorderOptionsOutput) UniformBorder() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGlobalTableBorderOptions) *TemplateTableBorderOptions { return v.UniformBorder }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+type TemplateGlobalTableBorderOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGlobalTableBorderOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGlobalTableBorderOptions)(nil)).Elem()
+}
+
+func (o TemplateGlobalTableBorderOptionsPtrOutput) ToTemplateGlobalTableBorderOptionsPtrOutput() TemplateGlobalTableBorderOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGlobalTableBorderOptionsPtrOutput) ToTemplateGlobalTableBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateGlobalTableBorderOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGlobalTableBorderOptionsPtrOutput) Elem() TemplateGlobalTableBorderOptionsOutput {
+	return o.ApplyT(func(v *TemplateGlobalTableBorderOptions) TemplateGlobalTableBorderOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGlobalTableBorderOptions
+		return ret
+	}).(TemplateGlobalTableBorderOptionsOutput)
+}
+
+// Determines the options for side specific border.
+func (o TemplateGlobalTableBorderOptionsPtrOutput) SideSpecificBorder() TemplateTableSideBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGlobalTableBorderOptions) *TemplateTableSideBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SideSpecificBorder
+	}).(TemplateTableSideBorderOptionsPtrOutput)
+}
+
+// Determines the options for uniform border.
+func (o TemplateGlobalTableBorderOptionsPtrOutput) UniformBorder() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGlobalTableBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.UniformBorder
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+type TemplateGradientColor struct {
+	// The list of gradient color stops.
+	Stops []TemplateGradientStop `pulumi:"stops"`
+}
+
+// TemplateGradientColorInput is an input type that accepts TemplateGradientColorArgs and TemplateGradientColorOutput values.
+// You can construct a concrete instance of `TemplateGradientColorInput` via:
+//
+//	TemplateGradientColorArgs{...}
+type TemplateGradientColorInput interface {
+	pulumi.Input
+
+	ToTemplateGradientColorOutput() TemplateGradientColorOutput
+	ToTemplateGradientColorOutputWithContext(context.Context) TemplateGradientColorOutput
+}
+
+type TemplateGradientColorArgs struct {
+	// The list of gradient color stops.
+	Stops TemplateGradientStopArrayInput `pulumi:"stops"`
+}
+
+func (TemplateGradientColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGradientColor)(nil)).Elem()
+}
+
+func (i TemplateGradientColorArgs) ToTemplateGradientColorOutput() TemplateGradientColorOutput {
+	return i.ToTemplateGradientColorOutputWithContext(context.Background())
+}
+
+func (i TemplateGradientColorArgs) ToTemplateGradientColorOutputWithContext(ctx context.Context) TemplateGradientColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGradientColorOutput)
+}
+
+func (i TemplateGradientColorArgs) ToTemplateGradientColorPtrOutput() TemplateGradientColorPtrOutput {
+	return i.ToTemplateGradientColorPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGradientColorArgs) ToTemplateGradientColorPtrOutputWithContext(ctx context.Context) TemplateGradientColorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGradientColorOutput).ToTemplateGradientColorPtrOutputWithContext(ctx)
+}
+
+// TemplateGradientColorPtrInput is an input type that accepts TemplateGradientColorArgs, TemplateGradientColorPtr and TemplateGradientColorPtrOutput values.
+// You can construct a concrete instance of `TemplateGradientColorPtrInput` via:
+//
+//	        TemplateGradientColorArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGradientColorPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGradientColorPtrOutput() TemplateGradientColorPtrOutput
+	ToTemplateGradientColorPtrOutputWithContext(context.Context) TemplateGradientColorPtrOutput
+}
+
+type templateGradientColorPtrType TemplateGradientColorArgs
+
+func TemplateGradientColorPtr(v *TemplateGradientColorArgs) TemplateGradientColorPtrInput {
+	return (*templateGradientColorPtrType)(v)
+}
+
+func (*templateGradientColorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGradientColor)(nil)).Elem()
+}
+
+func (i *templateGradientColorPtrType) ToTemplateGradientColorPtrOutput() TemplateGradientColorPtrOutput {
+	return i.ToTemplateGradientColorPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGradientColorPtrType) ToTemplateGradientColorPtrOutputWithContext(ctx context.Context) TemplateGradientColorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGradientColorPtrOutput)
+}
+
+type TemplateGradientColorOutput struct{ *pulumi.OutputState }
+
+func (TemplateGradientColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGradientColor)(nil)).Elem()
+}
+
+func (o TemplateGradientColorOutput) ToTemplateGradientColorOutput() TemplateGradientColorOutput {
+	return o
+}
+
+func (o TemplateGradientColorOutput) ToTemplateGradientColorOutputWithContext(ctx context.Context) TemplateGradientColorOutput {
+	return o
+}
+
+func (o TemplateGradientColorOutput) ToTemplateGradientColorPtrOutput() TemplateGradientColorPtrOutput {
+	return o.ToTemplateGradientColorPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGradientColorOutput) ToTemplateGradientColorPtrOutputWithContext(ctx context.Context) TemplateGradientColorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGradientColor) *TemplateGradientColor {
+		return &v
+	}).(TemplateGradientColorPtrOutput)
+}
+
+// The list of gradient color stops.
+func (o TemplateGradientColorOutput) Stops() TemplateGradientStopArrayOutput {
+	return o.ApplyT(func(v TemplateGradientColor) []TemplateGradientStop { return v.Stops }).(TemplateGradientStopArrayOutput)
+}
+
+type TemplateGradientColorPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGradientColorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGradientColor)(nil)).Elem()
+}
+
+func (o TemplateGradientColorPtrOutput) ToTemplateGradientColorPtrOutput() TemplateGradientColorPtrOutput {
+	return o
+}
+
+func (o TemplateGradientColorPtrOutput) ToTemplateGradientColorPtrOutputWithContext(ctx context.Context) TemplateGradientColorPtrOutput {
+	return o
+}
+
+func (o TemplateGradientColorPtrOutput) Elem() TemplateGradientColorOutput {
+	return o.ApplyT(func(v *TemplateGradientColor) TemplateGradientColor {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGradientColor
+		return ret
+	}).(TemplateGradientColorOutput)
+}
+
+// The list of gradient color stops.
+func (o TemplateGradientColorPtrOutput) Stops() TemplateGradientStopArrayOutput {
+	return o.ApplyT(func(v *TemplateGradientColor) []TemplateGradientStop {
+		if v == nil {
+			return nil
+		}
+		return v.Stops
+	}).(TemplateGradientStopArrayOutput)
+}
+
+type TemplateGradientStop struct {
+	// Determines the color.
+	Color *string `pulumi:"color"`
+	// Determines the data value.
+	DataValue *float64 `pulumi:"dataValue"`
+	// Determines gradient offset value.
+	GradientOffset float64 `pulumi:"gradientOffset"`
+}
+
+// TemplateGradientStopInput is an input type that accepts TemplateGradientStopArgs and TemplateGradientStopOutput values.
+// You can construct a concrete instance of `TemplateGradientStopInput` via:
+//
+//	TemplateGradientStopArgs{...}
+type TemplateGradientStopInput interface {
+	pulumi.Input
+
+	ToTemplateGradientStopOutput() TemplateGradientStopOutput
+	ToTemplateGradientStopOutputWithContext(context.Context) TemplateGradientStopOutput
+}
+
+type TemplateGradientStopArgs struct {
+	// Determines the color.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Determines the data value.
+	DataValue pulumi.Float64PtrInput `pulumi:"dataValue"`
+	// Determines gradient offset value.
+	GradientOffset pulumi.Float64Input `pulumi:"gradientOffset"`
+}
+
+func (TemplateGradientStopArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGradientStop)(nil)).Elem()
+}
+
+func (i TemplateGradientStopArgs) ToTemplateGradientStopOutput() TemplateGradientStopOutput {
+	return i.ToTemplateGradientStopOutputWithContext(context.Background())
+}
+
+func (i TemplateGradientStopArgs) ToTemplateGradientStopOutputWithContext(ctx context.Context) TemplateGradientStopOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGradientStopOutput)
+}
+
+// TemplateGradientStopArrayInput is an input type that accepts TemplateGradientStopArray and TemplateGradientStopArrayOutput values.
+// You can construct a concrete instance of `TemplateGradientStopArrayInput` via:
+//
+//	TemplateGradientStopArray{ TemplateGradientStopArgs{...} }
+type TemplateGradientStopArrayInput interface {
+	pulumi.Input
+
+	ToTemplateGradientStopArrayOutput() TemplateGradientStopArrayOutput
+	ToTemplateGradientStopArrayOutputWithContext(context.Context) TemplateGradientStopArrayOutput
+}
+
+type TemplateGradientStopArray []TemplateGradientStopInput
+
+func (TemplateGradientStopArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGradientStop)(nil)).Elem()
+}
+
+func (i TemplateGradientStopArray) ToTemplateGradientStopArrayOutput() TemplateGradientStopArrayOutput {
+	return i.ToTemplateGradientStopArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateGradientStopArray) ToTemplateGradientStopArrayOutputWithContext(ctx context.Context) TemplateGradientStopArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGradientStopArrayOutput)
+}
+
+type TemplateGradientStopOutput struct{ *pulumi.OutputState }
+
+func (TemplateGradientStopOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGradientStop)(nil)).Elem()
+}
+
+func (o TemplateGradientStopOutput) ToTemplateGradientStopOutput() TemplateGradientStopOutput {
+	return o
+}
+
+func (o TemplateGradientStopOutput) ToTemplateGradientStopOutputWithContext(ctx context.Context) TemplateGradientStopOutput {
+	return o
+}
+
+// Determines the color.
+func (o TemplateGradientStopOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGradientStop) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// Determines the data value.
+func (o TemplateGradientStopOutput) DataValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateGradientStop) *float64 { return v.DataValue }).(pulumi.Float64PtrOutput)
+}
+
+// Determines gradient offset value.
+func (o TemplateGradientStopOutput) GradientOffset() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGradientStop) float64 { return v.GradientOffset }).(pulumi.Float64Output)
+}
+
+type TemplateGradientStopArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateGradientStopArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGradientStop)(nil)).Elem()
+}
+
+func (o TemplateGradientStopArrayOutput) ToTemplateGradientStopArrayOutput() TemplateGradientStopArrayOutput {
+	return o
+}
+
+func (o TemplateGradientStopArrayOutput) ToTemplateGradientStopArrayOutputWithContext(ctx context.Context) TemplateGradientStopArrayOutput {
+	return o
+}
+
+func (o TemplateGradientStopArrayOutput) Index(i pulumi.IntInput) TemplateGradientStopOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateGradientStop {
+		return vs[0].([]TemplateGradientStop)[vs[1].(int)]
+	}).(TemplateGradientStopOutput)
+}
+
+type TemplateGridLayoutCanvasSizeOptions struct {
+	// The options that determine the sizing of the canvas used in a grid layout.
+	ScreenCanvasSizeOptions *TemplateGridLayoutScreenCanvasSizeOptions `pulumi:"screenCanvasSizeOptions"`
+}
+
+// TemplateGridLayoutCanvasSizeOptionsInput is an input type that accepts TemplateGridLayoutCanvasSizeOptionsArgs and TemplateGridLayoutCanvasSizeOptionsOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutCanvasSizeOptionsInput` via:
+//
+//	TemplateGridLayoutCanvasSizeOptionsArgs{...}
+type TemplateGridLayoutCanvasSizeOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutCanvasSizeOptionsOutput() TemplateGridLayoutCanvasSizeOptionsOutput
+	ToTemplateGridLayoutCanvasSizeOptionsOutputWithContext(context.Context) TemplateGridLayoutCanvasSizeOptionsOutput
+}
+
+type TemplateGridLayoutCanvasSizeOptionsArgs struct {
+	// The options that determine the sizing of the canvas used in a grid layout.
+	ScreenCanvasSizeOptions TemplateGridLayoutScreenCanvasSizeOptionsPtrInput `pulumi:"screenCanvasSizeOptions"`
+}
+
+func (TemplateGridLayoutCanvasSizeOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutCanvasSizeOptions)(nil)).Elem()
+}
+
+func (i TemplateGridLayoutCanvasSizeOptionsArgs) ToTemplateGridLayoutCanvasSizeOptionsOutput() TemplateGridLayoutCanvasSizeOptionsOutput {
+	return i.ToTemplateGridLayoutCanvasSizeOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutCanvasSizeOptionsArgs) ToTemplateGridLayoutCanvasSizeOptionsOutputWithContext(ctx context.Context) TemplateGridLayoutCanvasSizeOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutCanvasSizeOptionsOutput)
+}
+
+func (i TemplateGridLayoutCanvasSizeOptionsArgs) ToTemplateGridLayoutCanvasSizeOptionsPtrOutput() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return i.ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutCanvasSizeOptionsArgs) ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutCanvasSizeOptionsOutput).ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGridLayoutCanvasSizeOptionsPtrInput is an input type that accepts TemplateGridLayoutCanvasSizeOptionsArgs, TemplateGridLayoutCanvasSizeOptionsPtr and TemplateGridLayoutCanvasSizeOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutCanvasSizeOptionsPtrInput` via:
+//
+//	        TemplateGridLayoutCanvasSizeOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGridLayoutCanvasSizeOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutCanvasSizeOptionsPtrOutput() TemplateGridLayoutCanvasSizeOptionsPtrOutput
+	ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(context.Context) TemplateGridLayoutCanvasSizeOptionsPtrOutput
+}
+
+type templateGridLayoutCanvasSizeOptionsPtrType TemplateGridLayoutCanvasSizeOptionsArgs
+
+func TemplateGridLayoutCanvasSizeOptionsPtr(v *TemplateGridLayoutCanvasSizeOptionsArgs) TemplateGridLayoutCanvasSizeOptionsPtrInput {
+	return (*templateGridLayoutCanvasSizeOptionsPtrType)(v)
+}
+
+func (*templateGridLayoutCanvasSizeOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGridLayoutCanvasSizeOptions)(nil)).Elem()
+}
+
+func (i *templateGridLayoutCanvasSizeOptionsPtrType) ToTemplateGridLayoutCanvasSizeOptionsPtrOutput() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return i.ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGridLayoutCanvasSizeOptionsPtrType) ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
+}
+
+type TemplateGridLayoutCanvasSizeOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutCanvasSizeOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutCanvasSizeOptions)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsOutput) ToTemplateGridLayoutCanvasSizeOptionsOutput() TemplateGridLayoutCanvasSizeOptionsOutput {
+	return o
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsOutput) ToTemplateGridLayoutCanvasSizeOptionsOutputWithContext(ctx context.Context) TemplateGridLayoutCanvasSizeOptionsOutput {
+	return o
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsOutput) ToTemplateGridLayoutCanvasSizeOptionsPtrOutput() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return o.ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsOutput) ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGridLayoutCanvasSizeOptions) *TemplateGridLayoutCanvasSizeOptions {
+		return &v
+	}).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
+}
+
+// The options that determine the sizing of the canvas used in a grid layout.
+func (o TemplateGridLayoutCanvasSizeOptionsOutput) ScreenCanvasSizeOptions() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGridLayoutCanvasSizeOptions) *TemplateGridLayoutScreenCanvasSizeOptions {
+		return v.ScreenCanvasSizeOptions
+	}).(TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput)
+}
+
+type TemplateGridLayoutCanvasSizeOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutCanvasSizeOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGridLayoutCanvasSizeOptions)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsPtrOutput) ToTemplateGridLayoutCanvasSizeOptionsPtrOutput() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsPtrOutput) ToTemplateGridLayoutCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGridLayoutCanvasSizeOptionsPtrOutput) Elem() TemplateGridLayoutCanvasSizeOptionsOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutCanvasSizeOptions) TemplateGridLayoutCanvasSizeOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGridLayoutCanvasSizeOptions
+		return ret
+	}).(TemplateGridLayoutCanvasSizeOptionsOutput)
+}
+
+// The options that determine the sizing of the canvas used in a grid layout.
+func (o TemplateGridLayoutCanvasSizeOptionsPtrOutput) ScreenCanvasSizeOptions() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutCanvasSizeOptions) *TemplateGridLayoutScreenCanvasSizeOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ScreenCanvasSizeOptions
+	}).(TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput)
+}
+
+type TemplateGridLayoutConfiguration struct {
+	CanvasSizeOptions *TemplateGridLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
+	// The elements that are included in a grid layout.
+	Elements []TemplateGridLayoutElement `pulumi:"elements"`
+}
+
+// TemplateGridLayoutConfigurationInput is an input type that accepts TemplateGridLayoutConfigurationArgs and TemplateGridLayoutConfigurationOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutConfigurationInput` via:
+//
+//	TemplateGridLayoutConfigurationArgs{...}
+type TemplateGridLayoutConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutConfigurationOutput() TemplateGridLayoutConfigurationOutput
+	ToTemplateGridLayoutConfigurationOutputWithContext(context.Context) TemplateGridLayoutConfigurationOutput
+}
+
+type TemplateGridLayoutConfigurationArgs struct {
+	CanvasSizeOptions TemplateGridLayoutCanvasSizeOptionsPtrInput `pulumi:"canvasSizeOptions"`
+	// The elements that are included in a grid layout.
+	Elements TemplateGridLayoutElementArrayInput `pulumi:"elements"`
+}
+
+func (TemplateGridLayoutConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutConfiguration)(nil)).Elem()
+}
+
+func (i TemplateGridLayoutConfigurationArgs) ToTemplateGridLayoutConfigurationOutput() TemplateGridLayoutConfigurationOutput {
+	return i.ToTemplateGridLayoutConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutConfigurationArgs) ToTemplateGridLayoutConfigurationOutputWithContext(ctx context.Context) TemplateGridLayoutConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutConfigurationOutput)
+}
+
+func (i TemplateGridLayoutConfigurationArgs) ToTemplateGridLayoutConfigurationPtrOutput() TemplateGridLayoutConfigurationPtrOutput {
+	return i.ToTemplateGridLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutConfigurationArgs) ToTemplateGridLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateGridLayoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutConfigurationOutput).ToTemplateGridLayoutConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateGridLayoutConfigurationPtrInput is an input type that accepts TemplateGridLayoutConfigurationArgs, TemplateGridLayoutConfigurationPtr and TemplateGridLayoutConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutConfigurationPtrInput` via:
+//
+//	        TemplateGridLayoutConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGridLayoutConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutConfigurationPtrOutput() TemplateGridLayoutConfigurationPtrOutput
+	ToTemplateGridLayoutConfigurationPtrOutputWithContext(context.Context) TemplateGridLayoutConfigurationPtrOutput
+}
+
+type templateGridLayoutConfigurationPtrType TemplateGridLayoutConfigurationArgs
+
+func TemplateGridLayoutConfigurationPtr(v *TemplateGridLayoutConfigurationArgs) TemplateGridLayoutConfigurationPtrInput {
+	return (*templateGridLayoutConfigurationPtrType)(v)
+}
+
+func (*templateGridLayoutConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGridLayoutConfiguration)(nil)).Elem()
+}
+
+func (i *templateGridLayoutConfigurationPtrType) ToTemplateGridLayoutConfigurationPtrOutput() TemplateGridLayoutConfigurationPtrOutput {
+	return i.ToTemplateGridLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGridLayoutConfigurationPtrType) ToTemplateGridLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateGridLayoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutConfigurationPtrOutput)
+}
+
+type TemplateGridLayoutConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutConfigurationOutput) ToTemplateGridLayoutConfigurationOutput() TemplateGridLayoutConfigurationOutput {
+	return o
+}
+
+func (o TemplateGridLayoutConfigurationOutput) ToTemplateGridLayoutConfigurationOutputWithContext(ctx context.Context) TemplateGridLayoutConfigurationOutput {
+	return o
+}
+
+func (o TemplateGridLayoutConfigurationOutput) ToTemplateGridLayoutConfigurationPtrOutput() TemplateGridLayoutConfigurationPtrOutput {
+	return o.ToTemplateGridLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGridLayoutConfigurationOutput) ToTemplateGridLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateGridLayoutConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGridLayoutConfiguration) *TemplateGridLayoutConfiguration {
+		return &v
+	}).(TemplateGridLayoutConfigurationPtrOutput)
+}
+
+func (o TemplateGridLayoutConfigurationOutput) CanvasSizeOptions() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateGridLayoutConfiguration) *TemplateGridLayoutCanvasSizeOptions {
+		return v.CanvasSizeOptions
+	}).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
+}
+
+// The elements that are included in a grid layout.
+func (o TemplateGridLayoutConfigurationOutput) Elements() TemplateGridLayoutElementArrayOutput {
+	return o.ApplyT(func(v TemplateGridLayoutConfiguration) []TemplateGridLayoutElement { return v.Elements }).(TemplateGridLayoutElementArrayOutput)
+}
+
+type TemplateGridLayoutConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGridLayoutConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutConfigurationPtrOutput) ToTemplateGridLayoutConfigurationPtrOutput() TemplateGridLayoutConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGridLayoutConfigurationPtrOutput) ToTemplateGridLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateGridLayoutConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGridLayoutConfigurationPtrOutput) Elem() TemplateGridLayoutConfigurationOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutConfiguration) TemplateGridLayoutConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGridLayoutConfiguration
+		return ret
+	}).(TemplateGridLayoutConfigurationOutput)
+}
+
+func (o TemplateGridLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutConfiguration) *TemplateGridLayoutCanvasSizeOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CanvasSizeOptions
+	}).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
+}
+
+// The elements that are included in a grid layout.
+func (o TemplateGridLayoutConfigurationPtrOutput) Elements() TemplateGridLayoutElementArrayOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutConfiguration) []TemplateGridLayoutElement {
+		if v == nil {
+			return nil
+		}
+		return v.Elements
+	}).(TemplateGridLayoutElementArrayOutput)
+}
+
+type TemplateGridLayoutElement struct {
+	// The column index for the upper left corner of an element.
+	ColumnIndex *float64 `pulumi:"columnIndex"`
+	// The width of a grid element expressed as a number of grid columns.
+	ColumnSpan float64 `pulumi:"columnSpan"`
+	// A unique identifier for an element within a grid layout.
+	ElementId string `pulumi:"elementId"`
+	// The type of element.
+	ElementType_ TemplateLayoutElementType `pulumi:"elementType"`
+	// The row index for the upper left corner of an element.
+	RowIndex *float64 `pulumi:"rowIndex"`
+	// The height of a grid element expressed as a number of grid rows.
+	RowSpan float64 `pulumi:"rowSpan"`
+}
+
+// TemplateGridLayoutElementInput is an input type that accepts TemplateGridLayoutElementArgs and TemplateGridLayoutElementOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutElementInput` via:
+//
+//	TemplateGridLayoutElementArgs{...}
+type TemplateGridLayoutElementInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutElementOutput() TemplateGridLayoutElementOutput
+	ToTemplateGridLayoutElementOutputWithContext(context.Context) TemplateGridLayoutElementOutput
+}
+
+type TemplateGridLayoutElementArgs struct {
+	// The column index for the upper left corner of an element.
+	ColumnIndex pulumi.Float64PtrInput `pulumi:"columnIndex"`
+	// The width of a grid element expressed as a number of grid columns.
+	ColumnSpan pulumi.Float64Input `pulumi:"columnSpan"`
+	// A unique identifier for an element within a grid layout.
+	ElementId pulumi.StringInput `pulumi:"elementId"`
+	// The type of element.
+	ElementType_ TemplateLayoutElementTypeInput `pulumi:"elementType"`
+	// The row index for the upper left corner of an element.
+	RowIndex pulumi.Float64PtrInput `pulumi:"rowIndex"`
+	// The height of a grid element expressed as a number of grid rows.
+	RowSpan pulumi.Float64Input `pulumi:"rowSpan"`
+}
+
+func (TemplateGridLayoutElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutElement)(nil)).Elem()
+}
+
+func (i TemplateGridLayoutElementArgs) ToTemplateGridLayoutElementOutput() TemplateGridLayoutElementOutput {
+	return i.ToTemplateGridLayoutElementOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutElementArgs) ToTemplateGridLayoutElementOutputWithContext(ctx context.Context) TemplateGridLayoutElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutElementOutput)
+}
+
+// TemplateGridLayoutElementArrayInput is an input type that accepts TemplateGridLayoutElementArray and TemplateGridLayoutElementArrayOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutElementArrayInput` via:
+//
+//	TemplateGridLayoutElementArray{ TemplateGridLayoutElementArgs{...} }
+type TemplateGridLayoutElementArrayInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutElementArrayOutput() TemplateGridLayoutElementArrayOutput
+	ToTemplateGridLayoutElementArrayOutputWithContext(context.Context) TemplateGridLayoutElementArrayOutput
+}
+
+type TemplateGridLayoutElementArray []TemplateGridLayoutElementInput
+
+func (TemplateGridLayoutElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGridLayoutElement)(nil)).Elem()
+}
+
+func (i TemplateGridLayoutElementArray) ToTemplateGridLayoutElementArrayOutput() TemplateGridLayoutElementArrayOutput {
+	return i.ToTemplateGridLayoutElementArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutElementArray) ToTemplateGridLayoutElementArrayOutputWithContext(ctx context.Context) TemplateGridLayoutElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutElementArrayOutput)
+}
+
+type TemplateGridLayoutElementOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutElement)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutElementOutput) ToTemplateGridLayoutElementOutput() TemplateGridLayoutElementOutput {
+	return o
+}
+
+func (o TemplateGridLayoutElementOutput) ToTemplateGridLayoutElementOutputWithContext(ctx context.Context) TemplateGridLayoutElementOutput {
+	return o
+}
+
+// The column index for the upper left corner of an element.
+func (o TemplateGridLayoutElementOutput) ColumnIndex() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateGridLayoutElement) *float64 { return v.ColumnIndex }).(pulumi.Float64PtrOutput)
+}
+
+// The width of a grid element expressed as a number of grid columns.
+func (o TemplateGridLayoutElementOutput) ColumnSpan() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGridLayoutElement) float64 { return v.ColumnSpan }).(pulumi.Float64Output)
+}
+
+// A unique identifier for an element within a grid layout.
+func (o TemplateGridLayoutElementOutput) ElementId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateGridLayoutElement) string { return v.ElementId }).(pulumi.StringOutput)
+}
+
+// The type of element.
+func (o TemplateGridLayoutElementOutput) GetElementType_() TemplateLayoutElementTypeOutput {
+	return o.ApplyT(func(v TemplateGridLayoutElement) TemplateLayoutElementType { return v.ElementType_ }).(TemplateLayoutElementTypeOutput)
+}
+
+// The row index for the upper left corner of an element.
+func (o TemplateGridLayoutElementOutput) RowIndex() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateGridLayoutElement) *float64 { return v.RowIndex }).(pulumi.Float64PtrOutput)
+}
+
+// The height of a grid element expressed as a number of grid rows.
+func (o TemplateGridLayoutElementOutput) RowSpan() pulumi.Float64Output {
+	return o.ApplyT(func(v TemplateGridLayoutElement) float64 { return v.RowSpan }).(pulumi.Float64Output)
+}
+
+type TemplateGridLayoutElementArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGridLayoutElement)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutElementArrayOutput) ToTemplateGridLayoutElementArrayOutput() TemplateGridLayoutElementArrayOutput {
+	return o
+}
+
+func (o TemplateGridLayoutElementArrayOutput) ToTemplateGridLayoutElementArrayOutputWithContext(ctx context.Context) TemplateGridLayoutElementArrayOutput {
+	return o
+}
+
+func (o TemplateGridLayoutElementArrayOutput) Index(i pulumi.IntInput) TemplateGridLayoutElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateGridLayoutElement {
+		return vs[0].([]TemplateGridLayoutElement)[vs[1].(int)]
+	}).(TemplateGridLayoutElementOutput)
+}
+
 type TemplateGridLayoutScreenCanvasSizeOptions struct {
 	// String based length that is composed of value and unit in px
 	OptimizedViewPortWidth *string `pulumi:"optimizedViewPortWidth"`
@@ -59336,6 +63071,50 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConfigurationInput)(nil)).Elem(), TemplateGaugeChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConfigurationPtrInput)(nil)).Elem(), TemplateGaugeChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartFieldWellsInput)(nil)).Elem(), TemplateGaugeChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartFieldWellsPtrInput)(nil)).Elem(), TemplateGaugeChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartOptionsInput)(nil)).Elem(), TemplateGaugeChartOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartOptionsPtrInput)(nil)).Elem(), TemplateGaugeChartOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartPrimaryValueConditionalFormattingInput)(nil)).Elem(), TemplateGaugeChartPrimaryValueConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput)(nil)).Elem(), TemplateGaugeChartPrimaryValueConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartVisualInput)(nil)).Elem(), TemplateGaugeChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartVisualPtrInput)(nil)).Elem(), TemplateGaugeChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialCoordinateBoundsInput)(nil)).Elem(), TemplateGeospatialCoordinateBoundsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialCoordinateBoundsPtrInput)(nil)).Elem(), TemplateGeospatialCoordinateBoundsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialHeatmapColorScaleInput)(nil)).Elem(), TemplateGeospatialHeatmapColorScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialHeatmapColorScalePtrInput)(nil)).Elem(), TemplateGeospatialHeatmapColorScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialHeatmapConfigurationInput)(nil)).Elem(), TemplateGeospatialHeatmapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialHeatmapConfigurationPtrInput)(nil)).Elem(), TemplateGeospatialHeatmapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialHeatmapDataColorInput)(nil)).Elem(), TemplateGeospatialHeatmapDataColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialHeatmapDataColorArrayInput)(nil)).Elem(), TemplateGeospatialHeatmapDataColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapAggregatedFieldWellsInput)(nil)).Elem(), TemplateGeospatialMapAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateGeospatialMapAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapConfigurationInput)(nil)).Elem(), TemplateGeospatialMapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapConfigurationPtrInput)(nil)).Elem(), TemplateGeospatialMapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapFieldWellsInput)(nil)).Elem(), TemplateGeospatialMapFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapFieldWellsPtrInput)(nil)).Elem(), TemplateGeospatialMapFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapStyleOptionsInput)(nil)).Elem(), TemplateGeospatialMapStyleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapStyleOptionsPtrInput)(nil)).Elem(), TemplateGeospatialMapStyleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapVisualInput)(nil)).Elem(), TemplateGeospatialMapVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapVisualPtrInput)(nil)).Elem(), TemplateGeospatialMapVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialPointStyleOptionsInput)(nil)).Elem(), TemplateGeospatialPointStyleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialPointStyleOptionsPtrInput)(nil)).Elem(), TemplateGeospatialPointStyleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialWindowOptionsInput)(nil)).Elem(), TemplateGeospatialWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialWindowOptionsPtrInput)(nil)).Elem(), TemplateGeospatialWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGlobalTableBorderOptionsInput)(nil)).Elem(), TemplateGlobalTableBorderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGlobalTableBorderOptionsPtrInput)(nil)).Elem(), TemplateGlobalTableBorderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGradientColorInput)(nil)).Elem(), TemplateGradientColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGradientColorPtrInput)(nil)).Elem(), TemplateGradientColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGradientStopInput)(nil)).Elem(), TemplateGradientStopArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGradientStopArrayInput)(nil)).Elem(), TemplateGradientStopArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutCanvasSizeOptionsInput)(nil)).Elem(), TemplateGridLayoutCanvasSizeOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutCanvasSizeOptionsPtrInput)(nil)).Elem(), TemplateGridLayoutCanvasSizeOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutConfigurationInput)(nil)).Elem(), TemplateGridLayoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutConfigurationPtrInput)(nil)).Elem(), TemplateGridLayoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutElementInput)(nil)).Elem(), TemplateGridLayoutElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutElementArrayInput)(nil)).Elem(), TemplateGridLayoutElementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutScreenCanvasSizeOptionsInput)(nil)).Elem(), TemplateGridLayoutScreenCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutScreenCanvasSizeOptionsPtrInput)(nil)).Elem(), TemplateGridLayoutScreenCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGrowthRateComputationInput)(nil)).Elem(), TemplateGrowthRateComputationArgs{})
@@ -59993,6 +63772,50 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateGaugeChartConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartPrimaryValueConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartVisualOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartVisualPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialCoordinateBoundsOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialCoordinateBoundsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialHeatmapColorScaleOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialHeatmapColorScalePtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialHeatmapConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialHeatmapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialHeatmapDataColorOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialHeatmapDataColorArrayOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapAggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapStyleOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapStyleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapVisualOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapVisualPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialPointStyleOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialPointStyleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialWindowOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialWindowOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGlobalTableBorderOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGlobalTableBorderOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGradientColorOutput{})
+	pulumi.RegisterOutputType(TemplateGradientColorPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGradientStopOutput{})
+	pulumi.RegisterOutputType(TemplateGradientStopArrayOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutCanvasSizeOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutCanvasSizeOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutElementOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutElementArrayOutput{})
 	pulumi.RegisterOutputType(TemplateGridLayoutScreenCanvasSizeOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateGrowthRateComputationOutput{})

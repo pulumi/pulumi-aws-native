@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// 
         /// 4. Add an `IdentityProvider` resource to your CloudFormation template.
         /// 
-        /// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+        /// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalAuthenticationType? AuthenticationType;
         /// <summary>
@@ -119,6 +119,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The ARN of the web portal.
         /// </summary>
         public readonly string? PortalArn;
+        public readonly string? PortalCustomDomain;
         /// <summary>
         /// The endpoint URL of the web portal that users access in order to start streaming sessions.
         /// </summary>
@@ -184,6 +185,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? portalArn,
 
+            string? portalCustomDomain,
+
             string? portalEndpoint,
 
             Pulumi.AwsNative.WorkSpacesWeb.PortalStatus? portalStatus,
@@ -215,6 +218,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             MaxConcurrentSessions = maxConcurrentSessions;
             NetworkSettingsArn = networkSettingsArn;
             PortalArn = portalArn;
+            PortalCustomDomain = portalCustomDomain;
             PortalEndpoint = portalEndpoint;
             PortalStatus = portalStatus;
             RendererType = rendererType;

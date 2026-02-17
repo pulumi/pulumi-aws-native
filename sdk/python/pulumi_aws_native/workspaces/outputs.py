@@ -17,6 +17,7 @@ from ._enums import *
 
 __all__ = [
     'ConnectionAliasAssociation',
+    'WorkspaceProperties',
     'WorkspacesPoolApplicationSettings',
     'WorkspacesPoolCapacity',
     'WorkspacesPoolTimeoutSettings',
@@ -98,6 +99,98 @@ class ConnectionAliasAssociation(dict):
         The identifier of the directory associated with a connection alias.
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class WorkspaceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeTypeName":
+            suggest = "compute_type_name"
+        elif key == "rootVolumeSizeGib":
+            suggest = "root_volume_size_gib"
+        elif key == "runningMode":
+            suggest = "running_mode"
+        elif key == "runningModeAutoStopTimeoutInMinutes":
+            suggest = "running_mode_auto_stop_timeout_in_minutes"
+        elif key == "userVolumeSizeGib":
+            suggest = "user_volume_size_gib"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_type_name: Optional[_builtins.str] = None,
+                 root_volume_size_gib: Optional[_builtins.int] = None,
+                 running_mode: Optional[_builtins.str] = None,
+                 running_mode_auto_stop_timeout_in_minutes: Optional[_builtins.int] = None,
+                 user_volume_size_gib: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+        :param _builtins.int root_volume_size_gib: The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        :param _builtins.str running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+        :param _builtins.int running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param _builtins.int user_volume_size_gib: The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        """
+        if compute_type_name is not None:
+            pulumi.set(__self__, "compute_type_name", compute_type_name)
+        if root_volume_size_gib is not None:
+            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+        if running_mode is not None:
+            pulumi.set(__self__, "running_mode", running_mode)
+        if running_mode_auto_stop_timeout_in_minutes is not None:
+            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+        if user_volume_size_gib is not None:
+            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+
+    @_builtins.property
+    @pulumi.getter(name="computeTypeName")
+    def compute_type_name(self) -> Optional[_builtins.str]:
+        """
+        The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
+        """
+        return pulumi.get(self, "compute_type_name")
+
+    @_builtins.property
+    @pulumi.getter(name="rootVolumeSizeGib")
+    def root_volume_size_gib(self) -> Optional[_builtins.int]:
+        """
+        The size of the root volume. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        """
+        return pulumi.get(self, "root_volume_size_gib")
+
+    @_builtins.property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> Optional[_builtins.str]:
+        """
+        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html) .
+        """
+        return pulumi.get(self, "running_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
+    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        """
+        return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="userVolumeSizeGib")
+    def user_volume_size_gib(self) -> Optional[_builtins.int]:
+        """
+        The size of the user storage. For important information about how to modify the size of the root and user volumes, see [Modify a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html) .
+        """
+        return pulumi.get(self, "user_volume_size_gib")
 
 
 @pulumi.output_type

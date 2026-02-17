@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConfigurationSetArchivingOptions',
     'ConfigurationSetDashboardOptions',
     'ConfigurationSetDeliveryOptions',
     'ConfigurationSetEventDestinationCloudWatchDestination',
@@ -29,6 +30,9 @@ __all__ = [
     'ConfigurationSetReputationOptions',
     'ConfigurationSetSendingOptions',
     'ConfigurationSetSuppressionOptions',
+    'ConfigurationSetSuppressionOptionsValidationOptionsProperties',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties',
     'ConfigurationSetTrackingOptions',
     'ConfigurationSetVdmOptions',
     'ContactListTopic',
@@ -119,6 +123,46 @@ __all__ = [
     'VdmAttributesDashboardAttributes',
     'VdmAttributesGuardianAttributes',
 ]
+
+@pulumi.output_type
+class ConfigurationSetArchivingOptions(dict):
+    """
+    An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveArn":
+            suggest = "archive_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetArchivingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetArchivingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetArchivingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_arn: Optional[_builtins.str] = None):
+        """
+        An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+        :param _builtins.str archive_arn: The ARN of the MailManager archive to associate with the configuration set.
+        """
+        if archive_arn is not None:
+            pulumi.set(__self__, "archive_arn", archive_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveArn")
+    def archive_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the MailManager archive to associate with the configuration set.
+        """
+        return pulumi.get(self, "archive_arn")
+
 
 @pulumi.output_type
 class ConfigurationSetDashboardOptions(dict):
@@ -710,6 +754,8 @@ class ConfigurationSetSuppressionOptions(dict):
         suggest = None
         if key == "suppressedReasons":
             suggest = "suppressed_reasons"
+        elif key == "validationOptions":
+            suggest = "validation_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetSuppressionOptions. Access the value via the '{suggest}' property getter instead.")
@@ -723,13 +769,17 @@ class ConfigurationSetSuppressionOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 suppressed_reasons: Optional[Sequence[_builtins.str]] = None):
+                 suppressed_reasons: Optional[Sequence[_builtins.str]] = None,
+                 validation_options: Optional['outputs.ConfigurationSetSuppressionOptionsValidationOptionsProperties'] = None):
         """
         An object that contains information about the suppression list preferences for your account.
         :param Sequence[_builtins.str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        :param 'ConfigurationSetSuppressionOptionsValidationOptionsProperties' validation_options: An object that contains information about the validation options for your account.
         """
         if suppressed_reasons is not None:
             pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @_builtins.property
     @pulumi.getter(name="suppressedReasons")
@@ -738,6 +788,145 @@ class ConfigurationSetSuppressionOptions(dict):
         A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
         return pulumi.get(self, "suppressed_reasons")
+
+    @_builtins.property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional['outputs.ConfigurationSetSuppressionOptionsValidationOptionsProperties']:
+        """
+        An object that contains information about the validation options for your account.
+        """
+        return pulumi.get(self, "validation_options")
+
+
+@pulumi.output_type
+class ConfigurationSetSuppressionOptionsValidationOptionsProperties(dict):
+    """
+    An object that contains information about the validation options for your account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionThreshold":
+            suggest = "condition_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetSuppressionOptionsValidationOptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetSuppressionOptionsValidationOptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetSuppressionOptionsValidationOptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_threshold: 'outputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties'):
+        """
+        An object that contains information about the validation options for your account.
+        :param 'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties' condition_threshold: The condition threshold settings for suppression validation.
+        """
+        pulumi.set(__self__, "condition_threshold", condition_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionThreshold")
+    def condition_threshold(self) -> 'outputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties':
+        """
+        The condition threshold settings for suppression validation.
+        """
+        return pulumi.get(self, "condition_threshold")
+
+
+@pulumi.output_type
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties(dict):
+    """
+    The condition threshold settings for suppression validation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionThresholdEnabled":
+            suggest = "condition_threshold_enabled"
+        elif key == "overallConfidenceThreshold":
+            suggest = "overall_confidence_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_threshold_enabled: _builtins.str,
+                 overall_confidence_threshold: Optional['outputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties'] = None):
+        """
+        The condition threshold settings for suppression validation.
+        :param _builtins.str condition_threshold_enabled: Whether the condition threshold is enabled or disabled.
+        :param 'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties' overall_confidence_threshold: The overall confidence threshold settings.
+        """
+        pulumi.set(__self__, "condition_threshold_enabled", condition_threshold_enabled)
+        if overall_confidence_threshold is not None:
+            pulumi.set(__self__, "overall_confidence_threshold", overall_confidence_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionThresholdEnabled")
+    def condition_threshold_enabled(self) -> _builtins.str:
+        """
+        Whether the condition threshold is enabled or disabled.
+        """
+        return pulumi.get(self, "condition_threshold_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="overallConfidenceThreshold")
+    def overall_confidence_threshold(self) -> Optional['outputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties']:
+        """
+        The overall confidence threshold settings.
+        """
+        return pulumi.get(self, "overall_confidence_threshold")
+
+
+@pulumi.output_type
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties(dict):
+    """
+    The overall confidence threshold settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidenceVerdictThreshold":
+            suggest = "confidence_verdict_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidence_verdict_threshold: _builtins.str):
+        """
+        The overall confidence threshold settings.
+        :param _builtins.str confidence_verdict_threshold: The confidence verdict threshold level.
+        """
+        pulumi.set(__self__, "confidence_verdict_threshold", confidence_verdict_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="confidenceVerdictThreshold")
+    def confidence_verdict_threshold(self) -> _builtins.str:
+        """
+        The confidence verdict threshold level.
+        """
+        return pulumi.get(self, "confidence_verdict_threshold")
 
 
 @pulumi.output_type

@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// Descriptive text that you can provide to help with identification of the current policy store.
         /// </summary>
         public readonly string? Description;
+        public readonly Union<Outputs.EncryptionState0Properties, Outputs.EncryptionState1Properties>? EncryptionState;
         /// <summary>
         /// The unique ID of the new or updated policy store.
         /// </summary>
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
             string? description,
 
+            Union<Outputs.EncryptionState0Properties, Outputs.EncryptionState1Properties>? encryptionState,
+
             string? policyStoreId,
 
             Union<Outputs.PolicyStoreSchemaDefinition0Properties, Outputs.PolicyStoreSchemaDefinition1Properties>? schema,
@@ -117,6 +120,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
             Arn = arn;
             DeletionProtection = deletionProtection;
             Description = description;
+            EncryptionState = encryptionState;
             PolicyStoreId = policyStoreId;
             Schema = schema;
             Tags = tags;

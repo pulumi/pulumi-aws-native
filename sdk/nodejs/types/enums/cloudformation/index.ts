@@ -318,7 +318,7 @@ export const StackStatus = {
 } as const;
 
 /**
- * Current status of the stack.
+ * Returns a success or failure message associated with the stack status.
  */
 export type StackStatus = (typeof StackStatus)[keyof typeof StackStatus];
 

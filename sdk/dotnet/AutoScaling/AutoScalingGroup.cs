@@ -33,13 +33,13 @@ namespace Pulumi.AwsNative.AutoScaling
         public Output<string?> AutoScalingGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The instance capacity distribution across Availability Zones.
+        /// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         /// </summary>
         [Output("availabilityZoneDistribution")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneDistribution?> AvailabilityZoneDistribution { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone impairment policy.
+        /// The Availability Zone impairment policy for the Auto Scaling group.
         /// </summary>
         [Output("availabilityZoneImpairmentPolicy")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy?> AvailabilityZoneImpairmentPolicy { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity reservation specification.
+        /// The capacity reservation specification for the Auto Scaling group.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.AutoScalingGroupCapacityReservationSpecification?> CapacityReservationSpecification { get; private set; } = null!;
@@ -84,6 +84,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Output("defaultInstanceWarmup")]
         public Output<int?> DefaultInstanceWarmup { get; private set; } = null!;
+
+        [Output("deletionProtection")]
+        public Output<string?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
         /// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
@@ -318,13 +321,13 @@ namespace Pulumi.AwsNative.AutoScaling
         public Input<string>? AutoScalingGroupName { get; set; }
 
         /// <summary>
-        /// The instance capacity distribution across Availability Zones.
+        /// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         /// </summary>
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
 
         /// <summary>
-        /// The Availability Zone impairment policy.
+        /// The Availability Zone impairment policy for the Auto Scaling group.
         /// </summary>
         [Input("availabilityZoneImpairmentPolicy")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>? AvailabilityZoneImpairmentPolicy { get; set; }
@@ -348,7 +351,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public Input<bool>? CapacityRebalance { get; set; }
 
         /// <summary>
-        /// The capacity reservation specification.
+        /// The capacity reservation specification for the Auto Scaling group.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.AutoScalingGroupCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
@@ -375,6 +378,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Input("defaultInstanceWarmup")]
         public Input<int>? DefaultInstanceWarmup { get; set; }
+
+        [Input("deletionProtection")]
+        public Input<string>? DeletionProtection { get; set; }
 
         /// <summary>
         /// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.

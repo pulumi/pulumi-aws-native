@@ -53,6 +53,7 @@ export interface GetMembershipResult {
      * The default protected query result configuration as specified by the member who can receive results.
      */
     readonly defaultResultConfiguration?: outputs.cleanrooms.MembershipProtectedQueryResultConfiguration;
+    readonly isMetricsEnabled?: boolean;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *

@@ -13,6 +13,3402 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type EndpointCertificate struct {
+	CertificateArn  *string `pulumi:"certificateArn"`
+	CertificateData *string `pulumi:"certificateData"`
+}
+
+type EndpointCertificateOutput struct{ *pulumi.OutputState }
+
+func (EndpointCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCertificate)(nil)).Elem()
+}
+
+func (o EndpointCertificateOutput) ToEndpointCertificateOutput() EndpointCertificateOutput {
+	return o
+}
+
+func (o EndpointCertificateOutput) ToEndpointCertificateOutputWithContext(ctx context.Context) EndpointCertificateOutput {
+	return o
+}
+
+func (o EndpointCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCertificate) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointCertificateOutput) CertificateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCertificate) *string { return v.CertificateData }).(pulumi.StringPtrOutput)
+}
+
+type EndpointCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCertificate)(nil)).Elem()
+}
+
+func (o EndpointCertificatePtrOutput) ToEndpointCertificatePtrOutput() EndpointCertificatePtrOutput {
+	return o
+}
+
+func (o EndpointCertificatePtrOutput) ToEndpointCertificatePtrOutputWithContext(ctx context.Context) EndpointCertificatePtrOutput {
+	return o
+}
+
+func (o EndpointCertificatePtrOutput) Elem() EndpointCertificateOutput {
+	return o.ApplyT(func(v *EndpointCertificate) EndpointCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointCertificate
+		return ret
+	}).(EndpointCertificateOutput)
+}
+
+func (o EndpointCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointCertificatePtrOutput) CertificateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateData
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointCloudWatchMonitoringConfiguration struct {
+	LogGroupName        string  `pulumi:"logGroupName"`
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+}
+
+// EndpointCloudWatchMonitoringConfigurationInput is an input type that accepts EndpointCloudWatchMonitoringConfigurationArgs and EndpointCloudWatchMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `EndpointCloudWatchMonitoringConfigurationInput` via:
+//
+//	EndpointCloudWatchMonitoringConfigurationArgs{...}
+type EndpointCloudWatchMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointCloudWatchMonitoringConfigurationOutput() EndpointCloudWatchMonitoringConfigurationOutput
+	ToEndpointCloudWatchMonitoringConfigurationOutputWithContext(context.Context) EndpointCloudWatchMonitoringConfigurationOutput
+}
+
+type EndpointCloudWatchMonitoringConfigurationArgs struct {
+	LogGroupName        pulumi.StringInput    `pulumi:"logGroupName"`
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+}
+
+func (EndpointCloudWatchMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i EndpointCloudWatchMonitoringConfigurationArgs) ToEndpointCloudWatchMonitoringConfigurationOutput() EndpointCloudWatchMonitoringConfigurationOutput {
+	return i.ToEndpointCloudWatchMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointCloudWatchMonitoringConfigurationArgs) ToEndpointCloudWatchMonitoringConfigurationOutputWithContext(ctx context.Context) EndpointCloudWatchMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCloudWatchMonitoringConfigurationOutput)
+}
+
+func (i EndpointCloudWatchMonitoringConfigurationArgs) ToEndpointCloudWatchMonitoringConfigurationPtrOutput() EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return i.ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointCloudWatchMonitoringConfigurationArgs) ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCloudWatchMonitoringConfigurationOutput).ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointCloudWatchMonitoringConfigurationPtrInput is an input type that accepts EndpointCloudWatchMonitoringConfigurationArgs, EndpointCloudWatchMonitoringConfigurationPtr and EndpointCloudWatchMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointCloudWatchMonitoringConfigurationPtrInput` via:
+//
+//	        EndpointCloudWatchMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointCloudWatchMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointCloudWatchMonitoringConfigurationPtrOutput() EndpointCloudWatchMonitoringConfigurationPtrOutput
+	ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Context) EndpointCloudWatchMonitoringConfigurationPtrOutput
+}
+
+type endpointCloudWatchMonitoringConfigurationPtrType EndpointCloudWatchMonitoringConfigurationArgs
+
+func EndpointCloudWatchMonitoringConfigurationPtr(v *EndpointCloudWatchMonitoringConfigurationArgs) EndpointCloudWatchMonitoringConfigurationPtrInput {
+	return (*endpointCloudWatchMonitoringConfigurationPtrType)(v)
+}
+
+func (*endpointCloudWatchMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *endpointCloudWatchMonitoringConfigurationPtrType) ToEndpointCloudWatchMonitoringConfigurationPtrOutput() EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return i.ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointCloudWatchMonitoringConfigurationPtrType) ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+type EndpointCloudWatchMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointCloudWatchMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationOutput) ToEndpointCloudWatchMonitoringConfigurationOutput() EndpointCloudWatchMonitoringConfigurationOutput {
+	return o
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationOutput) ToEndpointCloudWatchMonitoringConfigurationOutputWithContext(ctx context.Context) EndpointCloudWatchMonitoringConfigurationOutput {
+	return o
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationOutput) ToEndpointCloudWatchMonitoringConfigurationPtrOutput() EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationOutput) ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointCloudWatchMonitoringConfiguration) *EndpointCloudWatchMonitoringConfiguration {
+		return &v
+	}).(EndpointCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointCloudWatchMonitoringConfiguration) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCloudWatchMonitoringConfiguration) *string { return v.LogStreamNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+type EndpointCloudWatchMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointCloudWatchMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationPtrOutput) ToEndpointCloudWatchMonitoringConfigurationPtrOutput() EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationPtrOutput) ToEndpointCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationPtrOutput) Elem() EndpointCloudWatchMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *EndpointCloudWatchMonitoringConfiguration) EndpointCloudWatchMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointCloudWatchMonitoringConfiguration
+		return ret
+	}).(EndpointCloudWatchMonitoringConfigurationOutput)
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCloudWatchMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointCloudWatchMonitoringConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCloudWatchMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationOverrides struct {
+	ApplicationConfiguration []EndpointEmreksConfiguration    `pulumi:"applicationConfiguration"`
+	MonitoringConfiguration  *EndpointMonitoringConfiguration `pulumi:"monitoringConfiguration"`
+}
+
+// EndpointConfigurationOverridesInput is an input type that accepts EndpointConfigurationOverridesArgs and EndpointConfigurationOverridesOutput values.
+// You can construct a concrete instance of `EndpointConfigurationOverridesInput` via:
+//
+//	EndpointConfigurationOverridesArgs{...}
+type EndpointConfigurationOverridesInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationOverridesOutput() EndpointConfigurationOverridesOutput
+	ToEndpointConfigurationOverridesOutputWithContext(context.Context) EndpointConfigurationOverridesOutput
+}
+
+type EndpointConfigurationOverridesArgs struct {
+	ApplicationConfiguration EndpointEmreksConfigurationArrayInput   `pulumi:"applicationConfiguration"`
+	MonitoringConfiguration  EndpointMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
+}
+
+func (EndpointConfigurationOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationOverrides)(nil)).Elem()
+}
+
+func (i EndpointConfigurationOverridesArgs) ToEndpointConfigurationOverridesOutput() EndpointConfigurationOverridesOutput {
+	return i.ToEndpointConfigurationOverridesOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationOverridesArgs) ToEndpointConfigurationOverridesOutputWithContext(ctx context.Context) EndpointConfigurationOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationOverridesOutput)
+}
+
+func (i EndpointConfigurationOverridesArgs) ToEndpointConfigurationOverridesPtrOutput() EndpointConfigurationOverridesPtrOutput {
+	return i.ToEndpointConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationOverridesArgs) ToEndpointConfigurationOverridesPtrOutputWithContext(ctx context.Context) EndpointConfigurationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationOverridesOutput).ToEndpointConfigurationOverridesPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationOverridesPtrInput is an input type that accepts EndpointConfigurationOverridesArgs, EndpointConfigurationOverridesPtr and EndpointConfigurationOverridesPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationOverridesPtrInput` via:
+//
+//	        EndpointConfigurationOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigurationOverridesPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationOverridesPtrOutput() EndpointConfigurationOverridesPtrOutput
+	ToEndpointConfigurationOverridesPtrOutputWithContext(context.Context) EndpointConfigurationOverridesPtrOutput
+}
+
+type endpointConfigurationOverridesPtrType EndpointConfigurationOverridesArgs
+
+func EndpointConfigurationOverridesPtr(v *EndpointConfigurationOverridesArgs) EndpointConfigurationOverridesPtrInput {
+	return (*endpointConfigurationOverridesPtrType)(v)
+}
+
+func (*endpointConfigurationOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationOverrides)(nil)).Elem()
+}
+
+func (i *endpointConfigurationOverridesPtrType) ToEndpointConfigurationOverridesPtrOutput() EndpointConfigurationOverridesPtrOutput {
+	return i.ToEndpointConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationOverridesPtrType) ToEndpointConfigurationOverridesPtrOutputWithContext(ctx context.Context) EndpointConfigurationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationOverridesPtrOutput)
+}
+
+type EndpointConfigurationOverridesOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationOverrides)(nil)).Elem()
+}
+
+func (o EndpointConfigurationOverridesOutput) ToEndpointConfigurationOverridesOutput() EndpointConfigurationOverridesOutput {
+	return o
+}
+
+func (o EndpointConfigurationOverridesOutput) ToEndpointConfigurationOverridesOutputWithContext(ctx context.Context) EndpointConfigurationOverridesOutput {
+	return o
+}
+
+func (o EndpointConfigurationOverridesOutput) ToEndpointConfigurationOverridesPtrOutput() EndpointConfigurationOverridesPtrOutput {
+	return o.ToEndpointConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationOverridesOutput) ToEndpointConfigurationOverridesPtrOutputWithContext(ctx context.Context) EndpointConfigurationOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationOverrides) *EndpointConfigurationOverrides {
+		return &v
+	}).(EndpointConfigurationOverridesPtrOutput)
+}
+
+func (o EndpointConfigurationOverridesOutput) ApplicationConfiguration() EndpointEmreksConfigurationArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationOverrides) []EndpointEmreksConfiguration {
+		return v.ApplicationConfiguration
+	}).(EndpointEmreksConfigurationArrayOutput)
+}
+
+func (o EndpointConfigurationOverridesOutput) MonitoringConfiguration() EndpointMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationOverrides) *EndpointMonitoringConfiguration {
+		return v.MonitoringConfiguration
+	}).(EndpointMonitoringConfigurationPtrOutput)
+}
+
+type EndpointConfigurationOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationOverrides)(nil)).Elem()
+}
+
+func (o EndpointConfigurationOverridesPtrOutput) ToEndpointConfigurationOverridesPtrOutput() EndpointConfigurationOverridesPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationOverridesPtrOutput) ToEndpointConfigurationOverridesPtrOutputWithContext(ctx context.Context) EndpointConfigurationOverridesPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationOverridesPtrOutput) Elem() EndpointConfigurationOverridesOutput {
+	return o.ApplyT(func(v *EndpointConfigurationOverrides) EndpointConfigurationOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationOverrides
+		return ret
+	}).(EndpointConfigurationOverridesOutput)
+}
+
+func (o EndpointConfigurationOverridesPtrOutput) ApplicationConfiguration() EndpointEmreksConfigurationArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigurationOverrides) []EndpointEmreksConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationConfiguration
+	}).(EndpointEmreksConfigurationArrayOutput)
+}
+
+func (o EndpointConfigurationOverridesPtrOutput) MonitoringConfiguration() EndpointMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationOverrides) *EndpointMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringConfiguration
+	}).(EndpointMonitoringConfigurationPtrOutput)
+}
+
+type EndpointContainerLogRotationConfiguration struct {
+	MaxFilesToKeep int    `pulumi:"maxFilesToKeep"`
+	RotationSize   string `pulumi:"rotationSize"`
+}
+
+// EndpointContainerLogRotationConfigurationInput is an input type that accepts EndpointContainerLogRotationConfigurationArgs and EndpointContainerLogRotationConfigurationOutput values.
+// You can construct a concrete instance of `EndpointContainerLogRotationConfigurationInput` via:
+//
+//	EndpointContainerLogRotationConfigurationArgs{...}
+type EndpointContainerLogRotationConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointContainerLogRotationConfigurationOutput() EndpointContainerLogRotationConfigurationOutput
+	ToEndpointContainerLogRotationConfigurationOutputWithContext(context.Context) EndpointContainerLogRotationConfigurationOutput
+}
+
+type EndpointContainerLogRotationConfigurationArgs struct {
+	MaxFilesToKeep pulumi.IntInput    `pulumi:"maxFilesToKeep"`
+	RotationSize   pulumi.StringInput `pulumi:"rotationSize"`
+}
+
+func (EndpointContainerLogRotationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointContainerLogRotationConfiguration)(nil)).Elem()
+}
+
+func (i EndpointContainerLogRotationConfigurationArgs) ToEndpointContainerLogRotationConfigurationOutput() EndpointContainerLogRotationConfigurationOutput {
+	return i.ToEndpointContainerLogRotationConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointContainerLogRotationConfigurationArgs) ToEndpointContainerLogRotationConfigurationOutputWithContext(ctx context.Context) EndpointContainerLogRotationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointContainerLogRotationConfigurationOutput)
+}
+
+func (i EndpointContainerLogRotationConfigurationArgs) ToEndpointContainerLogRotationConfigurationPtrOutput() EndpointContainerLogRotationConfigurationPtrOutput {
+	return i.ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointContainerLogRotationConfigurationArgs) ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(ctx context.Context) EndpointContainerLogRotationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointContainerLogRotationConfigurationOutput).ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointContainerLogRotationConfigurationPtrInput is an input type that accepts EndpointContainerLogRotationConfigurationArgs, EndpointContainerLogRotationConfigurationPtr and EndpointContainerLogRotationConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointContainerLogRotationConfigurationPtrInput` via:
+//
+//	        EndpointContainerLogRotationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointContainerLogRotationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointContainerLogRotationConfigurationPtrOutput() EndpointContainerLogRotationConfigurationPtrOutput
+	ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(context.Context) EndpointContainerLogRotationConfigurationPtrOutput
+}
+
+type endpointContainerLogRotationConfigurationPtrType EndpointContainerLogRotationConfigurationArgs
+
+func EndpointContainerLogRotationConfigurationPtr(v *EndpointContainerLogRotationConfigurationArgs) EndpointContainerLogRotationConfigurationPtrInput {
+	return (*endpointContainerLogRotationConfigurationPtrType)(v)
+}
+
+func (*endpointContainerLogRotationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointContainerLogRotationConfiguration)(nil)).Elem()
+}
+
+func (i *endpointContainerLogRotationConfigurationPtrType) ToEndpointContainerLogRotationConfigurationPtrOutput() EndpointContainerLogRotationConfigurationPtrOutput {
+	return i.ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointContainerLogRotationConfigurationPtrType) ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(ctx context.Context) EndpointContainerLogRotationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointContainerLogRotationConfigurationPtrOutput)
+}
+
+type EndpointContainerLogRotationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointContainerLogRotationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointContainerLogRotationConfiguration)(nil)).Elem()
+}
+
+func (o EndpointContainerLogRotationConfigurationOutput) ToEndpointContainerLogRotationConfigurationOutput() EndpointContainerLogRotationConfigurationOutput {
+	return o
+}
+
+func (o EndpointContainerLogRotationConfigurationOutput) ToEndpointContainerLogRotationConfigurationOutputWithContext(ctx context.Context) EndpointContainerLogRotationConfigurationOutput {
+	return o
+}
+
+func (o EndpointContainerLogRotationConfigurationOutput) ToEndpointContainerLogRotationConfigurationPtrOutput() EndpointContainerLogRotationConfigurationPtrOutput {
+	return o.ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointContainerLogRotationConfigurationOutput) ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(ctx context.Context) EndpointContainerLogRotationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointContainerLogRotationConfiguration) *EndpointContainerLogRotationConfiguration {
+		return &v
+	}).(EndpointContainerLogRotationConfigurationPtrOutput)
+}
+
+func (o EndpointContainerLogRotationConfigurationOutput) MaxFilesToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointContainerLogRotationConfiguration) int { return v.MaxFilesToKeep }).(pulumi.IntOutput)
+}
+
+func (o EndpointContainerLogRotationConfigurationOutput) RotationSize() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointContainerLogRotationConfiguration) string { return v.RotationSize }).(pulumi.StringOutput)
+}
+
+type EndpointContainerLogRotationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointContainerLogRotationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointContainerLogRotationConfiguration)(nil)).Elem()
+}
+
+func (o EndpointContainerLogRotationConfigurationPtrOutput) ToEndpointContainerLogRotationConfigurationPtrOutput() EndpointContainerLogRotationConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointContainerLogRotationConfigurationPtrOutput) ToEndpointContainerLogRotationConfigurationPtrOutputWithContext(ctx context.Context) EndpointContainerLogRotationConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointContainerLogRotationConfigurationPtrOutput) Elem() EndpointContainerLogRotationConfigurationOutput {
+	return o.ApplyT(func(v *EndpointContainerLogRotationConfiguration) EndpointContainerLogRotationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointContainerLogRotationConfiguration
+		return ret
+	}).(EndpointContainerLogRotationConfigurationOutput)
+}
+
+func (o EndpointContainerLogRotationConfigurationPtrOutput) MaxFilesToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointContainerLogRotationConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxFilesToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointContainerLogRotationConfigurationPtrOutput) RotationSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointContainerLogRotationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RotationSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointEmreksConfiguration struct {
+	Classification string                        `pulumi:"classification"`
+	Configurations []EndpointEmreksConfiguration `pulumi:"configurations"`
+	Properties     map[string]string             `pulumi:"properties"`
+}
+
+// EndpointEmreksConfigurationInput is an input type that accepts EndpointEmreksConfigurationArgs and EndpointEmreksConfigurationOutput values.
+// You can construct a concrete instance of `EndpointEmreksConfigurationInput` via:
+//
+//	EndpointEmreksConfigurationArgs{...}
+type EndpointEmreksConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointEmreksConfigurationOutput() EndpointEmreksConfigurationOutput
+	ToEndpointEmreksConfigurationOutputWithContext(context.Context) EndpointEmreksConfigurationOutput
+}
+
+type EndpointEmreksConfigurationArgs struct {
+	Classification pulumi.StringInput                    `pulumi:"classification"`
+	Configurations EndpointEmreksConfigurationArrayInput `pulumi:"configurations"`
+	Properties     pulumi.StringMapInput                 `pulumi:"properties"`
+}
+
+func (EndpointEmreksConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEmreksConfiguration)(nil)).Elem()
+}
+
+func (i EndpointEmreksConfigurationArgs) ToEndpointEmreksConfigurationOutput() EndpointEmreksConfigurationOutput {
+	return i.ToEndpointEmreksConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointEmreksConfigurationArgs) ToEndpointEmreksConfigurationOutputWithContext(ctx context.Context) EndpointEmreksConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEmreksConfigurationOutput)
+}
+
+// EndpointEmreksConfigurationArrayInput is an input type that accepts EndpointEmreksConfigurationArray and EndpointEmreksConfigurationArrayOutput values.
+// You can construct a concrete instance of `EndpointEmreksConfigurationArrayInput` via:
+//
+//	EndpointEmreksConfigurationArray{ EndpointEmreksConfigurationArgs{...} }
+type EndpointEmreksConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToEndpointEmreksConfigurationArrayOutput() EndpointEmreksConfigurationArrayOutput
+	ToEndpointEmreksConfigurationArrayOutputWithContext(context.Context) EndpointEmreksConfigurationArrayOutput
+}
+
+type EndpointEmreksConfigurationArray []EndpointEmreksConfigurationInput
+
+func (EndpointEmreksConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointEmreksConfiguration)(nil)).Elem()
+}
+
+func (i EndpointEmreksConfigurationArray) ToEndpointEmreksConfigurationArrayOutput() EndpointEmreksConfigurationArrayOutput {
+	return i.ToEndpointEmreksConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointEmreksConfigurationArray) ToEndpointEmreksConfigurationArrayOutputWithContext(ctx context.Context) EndpointEmreksConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEmreksConfigurationArrayOutput)
+}
+
+type EndpointEmreksConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointEmreksConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEmreksConfiguration)(nil)).Elem()
+}
+
+func (o EndpointEmreksConfigurationOutput) ToEndpointEmreksConfigurationOutput() EndpointEmreksConfigurationOutput {
+	return o
+}
+
+func (o EndpointEmreksConfigurationOutput) ToEndpointEmreksConfigurationOutputWithContext(ctx context.Context) EndpointEmreksConfigurationOutput {
+	return o
+}
+
+func (o EndpointEmreksConfigurationOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointEmreksConfiguration) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+func (o EndpointEmreksConfigurationOutput) Configurations() EndpointEmreksConfigurationArrayOutput {
+	return o.ApplyT(func(v EndpointEmreksConfiguration) []EndpointEmreksConfiguration { return v.Configurations }).(EndpointEmreksConfigurationArrayOutput)
+}
+
+func (o EndpointEmreksConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EndpointEmreksConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+type EndpointEmreksConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointEmreksConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointEmreksConfiguration)(nil)).Elem()
+}
+
+func (o EndpointEmreksConfigurationArrayOutput) ToEndpointEmreksConfigurationArrayOutput() EndpointEmreksConfigurationArrayOutput {
+	return o
+}
+
+func (o EndpointEmreksConfigurationArrayOutput) ToEndpointEmreksConfigurationArrayOutputWithContext(ctx context.Context) EndpointEmreksConfigurationArrayOutput {
+	return o
+}
+
+func (o EndpointEmreksConfigurationArrayOutput) Index(i pulumi.IntInput) EndpointEmreksConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointEmreksConfiguration {
+		return vs[0].([]EndpointEmreksConfiguration)[vs[1].(int)]
+	}).(EndpointEmreksConfigurationOutput)
+}
+
+type EndpointMonitoringConfiguration struct {
+	CloudWatchMonitoringConfiguration *EndpointCloudWatchMonitoringConfiguration      `pulumi:"cloudWatchMonitoringConfiguration"`
+	ContainerLogRotationConfiguration *EndpointContainerLogRotationConfiguration      `pulumi:"containerLogRotationConfiguration"`
+	PersistentAppUi                   *EndpointMonitoringConfigurationPersistentAppUi `pulumi:"persistentAppUi"`
+	S3MonitoringConfiguration         *EndpointS3MonitoringConfiguration              `pulumi:"s3MonitoringConfiguration"`
+}
+
+// EndpointMonitoringConfigurationInput is an input type that accepts EndpointMonitoringConfigurationArgs and EndpointMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `EndpointMonitoringConfigurationInput` via:
+//
+//	EndpointMonitoringConfigurationArgs{...}
+type EndpointMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointMonitoringConfigurationOutput() EndpointMonitoringConfigurationOutput
+	ToEndpointMonitoringConfigurationOutputWithContext(context.Context) EndpointMonitoringConfigurationOutput
+}
+
+type EndpointMonitoringConfigurationArgs struct {
+	CloudWatchMonitoringConfiguration EndpointCloudWatchMonitoringConfigurationPtrInput      `pulumi:"cloudWatchMonitoringConfiguration"`
+	ContainerLogRotationConfiguration EndpointContainerLogRotationConfigurationPtrInput      `pulumi:"containerLogRotationConfiguration"`
+	PersistentAppUi                   EndpointMonitoringConfigurationPersistentAppUiPtrInput `pulumi:"persistentAppUi"`
+	S3MonitoringConfiguration         EndpointS3MonitoringConfigurationPtrInput              `pulumi:"s3MonitoringConfiguration"`
+}
+
+func (EndpointMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i EndpointMonitoringConfigurationArgs) ToEndpointMonitoringConfigurationOutput() EndpointMonitoringConfigurationOutput {
+	return i.ToEndpointMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointMonitoringConfigurationArgs) ToEndpointMonitoringConfigurationOutputWithContext(ctx context.Context) EndpointMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMonitoringConfigurationOutput)
+}
+
+func (i EndpointMonitoringConfigurationArgs) ToEndpointMonitoringConfigurationPtrOutput() EndpointMonitoringConfigurationPtrOutput {
+	return i.ToEndpointMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointMonitoringConfigurationArgs) ToEndpointMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMonitoringConfigurationOutput).ToEndpointMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointMonitoringConfigurationPtrInput is an input type that accepts EndpointMonitoringConfigurationArgs, EndpointMonitoringConfigurationPtr and EndpointMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointMonitoringConfigurationPtrInput` via:
+//
+//	        EndpointMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointMonitoringConfigurationPtrOutput() EndpointMonitoringConfigurationPtrOutput
+	ToEndpointMonitoringConfigurationPtrOutputWithContext(context.Context) EndpointMonitoringConfigurationPtrOutput
+}
+
+type endpointMonitoringConfigurationPtrType EndpointMonitoringConfigurationArgs
+
+func EndpointMonitoringConfigurationPtr(v *EndpointMonitoringConfigurationArgs) EndpointMonitoringConfigurationPtrInput {
+	return (*endpointMonitoringConfigurationPtrType)(v)
+}
+
+func (*endpointMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *endpointMonitoringConfigurationPtrType) ToEndpointMonitoringConfigurationPtrOutput() EndpointMonitoringConfigurationPtrOutput {
+	return i.ToEndpointMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointMonitoringConfigurationPtrType) ToEndpointMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointMonitoringConfigurationPtrOutput)
+}
+
+type EndpointMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o EndpointMonitoringConfigurationOutput) ToEndpointMonitoringConfigurationOutput() EndpointMonitoringConfigurationOutput {
+	return o
+}
+
+func (o EndpointMonitoringConfigurationOutput) ToEndpointMonitoringConfigurationOutputWithContext(ctx context.Context) EndpointMonitoringConfigurationOutput {
+	return o
+}
+
+func (o EndpointMonitoringConfigurationOutput) ToEndpointMonitoringConfigurationPtrOutput() EndpointMonitoringConfigurationPtrOutput {
+	return o.ToEndpointMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointMonitoringConfigurationOutput) ToEndpointMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMonitoringConfiguration) *EndpointMonitoringConfiguration {
+		return &v
+	}).(EndpointMonitoringConfigurationPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationOutput) CloudWatchMonitoringConfiguration() EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v EndpointMonitoringConfiguration) *EndpointCloudWatchMonitoringConfiguration {
+		return v.CloudWatchMonitoringConfiguration
+	}).(EndpointCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationOutput) ContainerLogRotationConfiguration() EndpointContainerLogRotationConfigurationPtrOutput {
+	return o.ApplyT(func(v EndpointMonitoringConfiguration) *EndpointContainerLogRotationConfiguration {
+		return v.ContainerLogRotationConfiguration
+	}).(EndpointContainerLogRotationConfigurationPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationOutput) PersistentAppUi() EndpointMonitoringConfigurationPersistentAppUiPtrOutput {
+	return o.ApplyT(func(v EndpointMonitoringConfiguration) *EndpointMonitoringConfigurationPersistentAppUi {
+		return v.PersistentAppUi
+	}).(EndpointMonitoringConfigurationPersistentAppUiPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationOutput) S3MonitoringConfiguration() EndpointS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v EndpointMonitoringConfiguration) *EndpointS3MonitoringConfiguration {
+		return v.S3MonitoringConfiguration
+	}).(EndpointS3MonitoringConfigurationPtrOutput)
+}
+
+type EndpointMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) ToEndpointMonitoringConfigurationPtrOutput() EndpointMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) ToEndpointMonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) Elem() EndpointMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *EndpointMonitoringConfiguration) EndpointMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointMonitoringConfiguration
+		return ret
+	}).(EndpointMonitoringConfigurationOutput)
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) CloudWatchMonitoringConfiguration() EndpointCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *EndpointMonitoringConfiguration) *EndpointCloudWatchMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchMonitoringConfiguration
+	}).(EndpointCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) ContainerLogRotationConfiguration() EndpointContainerLogRotationConfigurationPtrOutput {
+	return o.ApplyT(func(v *EndpointMonitoringConfiguration) *EndpointContainerLogRotationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogRotationConfiguration
+	}).(EndpointContainerLogRotationConfigurationPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) PersistentAppUi() EndpointMonitoringConfigurationPersistentAppUiPtrOutput {
+	return o.ApplyT(func(v *EndpointMonitoringConfiguration) *EndpointMonitoringConfigurationPersistentAppUi {
+		if v == nil {
+			return nil
+		}
+		return v.PersistentAppUi
+	}).(EndpointMonitoringConfigurationPersistentAppUiPtrOutput)
+}
+
+func (o EndpointMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() EndpointS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *EndpointMonitoringConfiguration) *EndpointS3MonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3MonitoringConfiguration
+	}).(EndpointS3MonitoringConfigurationPtrOutput)
+}
+
+type EndpointS3MonitoringConfiguration struct {
+	LogUri string `pulumi:"logUri"`
+}
+
+// EndpointS3MonitoringConfigurationInput is an input type that accepts EndpointS3MonitoringConfigurationArgs and EndpointS3MonitoringConfigurationOutput values.
+// You can construct a concrete instance of `EndpointS3MonitoringConfigurationInput` via:
+//
+//	EndpointS3MonitoringConfigurationArgs{...}
+type EndpointS3MonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointS3MonitoringConfigurationOutput() EndpointS3MonitoringConfigurationOutput
+	ToEndpointS3MonitoringConfigurationOutputWithContext(context.Context) EndpointS3MonitoringConfigurationOutput
+}
+
+type EndpointS3MonitoringConfigurationArgs struct {
+	LogUri pulumi.StringInput `pulumi:"logUri"`
+}
+
+func (EndpointS3MonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i EndpointS3MonitoringConfigurationArgs) ToEndpointS3MonitoringConfigurationOutput() EndpointS3MonitoringConfigurationOutput {
+	return i.ToEndpointS3MonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointS3MonitoringConfigurationArgs) ToEndpointS3MonitoringConfigurationOutputWithContext(ctx context.Context) EndpointS3MonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3MonitoringConfigurationOutput)
+}
+
+func (i EndpointS3MonitoringConfigurationArgs) ToEndpointS3MonitoringConfigurationPtrOutput() EndpointS3MonitoringConfigurationPtrOutput {
+	return i.ToEndpointS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointS3MonitoringConfigurationArgs) ToEndpointS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3MonitoringConfigurationOutput).ToEndpointS3MonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointS3MonitoringConfigurationPtrInput is an input type that accepts EndpointS3MonitoringConfigurationArgs, EndpointS3MonitoringConfigurationPtr and EndpointS3MonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointS3MonitoringConfigurationPtrInput` via:
+//
+//	        EndpointS3MonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointS3MonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointS3MonitoringConfigurationPtrOutput() EndpointS3MonitoringConfigurationPtrOutput
+	ToEndpointS3MonitoringConfigurationPtrOutputWithContext(context.Context) EndpointS3MonitoringConfigurationPtrOutput
+}
+
+type endpointS3MonitoringConfigurationPtrType EndpointS3MonitoringConfigurationArgs
+
+func EndpointS3MonitoringConfigurationPtr(v *EndpointS3MonitoringConfigurationArgs) EndpointS3MonitoringConfigurationPtrInput {
+	return (*endpointS3MonitoringConfigurationPtrType)(v)
+}
+
+func (*endpointS3MonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *endpointS3MonitoringConfigurationPtrType) ToEndpointS3MonitoringConfigurationPtrOutput() EndpointS3MonitoringConfigurationPtrOutput {
+	return i.ToEndpointS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointS3MonitoringConfigurationPtrType) ToEndpointS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3MonitoringConfigurationPtrOutput)
+}
+
+type EndpointS3MonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointS3MonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o EndpointS3MonitoringConfigurationOutput) ToEndpointS3MonitoringConfigurationOutput() EndpointS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o EndpointS3MonitoringConfigurationOutput) ToEndpointS3MonitoringConfigurationOutputWithContext(ctx context.Context) EndpointS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o EndpointS3MonitoringConfigurationOutput) ToEndpointS3MonitoringConfigurationPtrOutput() EndpointS3MonitoringConfigurationPtrOutput {
+	return o.ToEndpointS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointS3MonitoringConfigurationOutput) ToEndpointS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointS3MonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointS3MonitoringConfiguration) *EndpointS3MonitoringConfiguration {
+		return &v
+	}).(EndpointS3MonitoringConfigurationPtrOutput)
+}
+
+func (o EndpointS3MonitoringConfigurationOutput) LogUri() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointS3MonitoringConfiguration) string { return v.LogUri }).(pulumi.StringOutput)
+}
+
+type EndpointS3MonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointS3MonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o EndpointS3MonitoringConfigurationPtrOutput) ToEndpointS3MonitoringConfigurationPtrOutput() EndpointS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointS3MonitoringConfigurationPtrOutput) ToEndpointS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) EndpointS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointS3MonitoringConfigurationPtrOutput) Elem() EndpointS3MonitoringConfigurationOutput {
+	return o.ApplyT(func(v *EndpointS3MonitoringConfiguration) EndpointS3MonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointS3MonitoringConfiguration
+		return ret
+	}).(EndpointS3MonitoringConfigurationOutput)
+}
+
+func (o EndpointS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointTag struct {
+	// A user-defined key, which is the minimum required information for a valid tag.
+	Key string `pulumi:"key"`
+	// A user-defined value, which is optional in a tag.
+	Value string `pulumi:"value"`
+}
+
+// At-rest encryption configuration.
+type SecurityConfigurationAtRestEncryptionConfiguration struct {
+	LocalDiskEncryptionConfiguration *SecurityConfigurationLocalDiskEncryptionConfiguration `pulumi:"localDiskEncryptionConfiguration"`
+	S3EncryptionConfiguration        *SecurityConfigurationS3EncryptionConfiguration        `pulumi:"s3EncryptionConfiguration"`
+}
+
+// SecurityConfigurationAtRestEncryptionConfigurationInput is an input type that accepts SecurityConfigurationAtRestEncryptionConfigurationArgs and SecurityConfigurationAtRestEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationAtRestEncryptionConfigurationInput` via:
+//
+//	SecurityConfigurationAtRestEncryptionConfigurationArgs{...}
+type SecurityConfigurationAtRestEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationAtRestEncryptionConfigurationOutput() SecurityConfigurationAtRestEncryptionConfigurationOutput
+	ToSecurityConfigurationAtRestEncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationAtRestEncryptionConfigurationOutput
+}
+
+// At-rest encryption configuration.
+type SecurityConfigurationAtRestEncryptionConfigurationArgs struct {
+	LocalDiskEncryptionConfiguration SecurityConfigurationLocalDiskEncryptionConfigurationPtrInput `pulumi:"localDiskEncryptionConfiguration"`
+	S3EncryptionConfiguration        SecurityConfigurationS3EncryptionConfigurationPtrInput        `pulumi:"s3EncryptionConfiguration"`
+}
+
+func (SecurityConfigurationAtRestEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationAtRestEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationAtRestEncryptionConfigurationArgs) ToSecurityConfigurationAtRestEncryptionConfigurationOutput() SecurityConfigurationAtRestEncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationAtRestEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationAtRestEncryptionConfigurationArgs) ToSecurityConfigurationAtRestEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationAtRestEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAtRestEncryptionConfigurationOutput)
+}
+
+func (i SecurityConfigurationAtRestEncryptionConfigurationArgs) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutput() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationAtRestEncryptionConfigurationArgs) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAtRestEncryptionConfigurationOutput).ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationAtRestEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationAtRestEncryptionConfigurationArgs, SecurityConfigurationAtRestEncryptionConfigurationPtr and SecurityConfigurationAtRestEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationAtRestEncryptionConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationAtRestEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationAtRestEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutput() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput
+	ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationAtRestEncryptionConfigurationPtrOutput
+}
+
+type securityConfigurationAtRestEncryptionConfigurationPtrType SecurityConfigurationAtRestEncryptionConfigurationArgs
+
+func SecurityConfigurationAtRestEncryptionConfigurationPtr(v *SecurityConfigurationAtRestEncryptionConfigurationArgs) SecurityConfigurationAtRestEncryptionConfigurationPtrInput {
+	return (*securityConfigurationAtRestEncryptionConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationAtRestEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationAtRestEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationAtRestEncryptionConfigurationPtrType) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutput() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationAtRestEncryptionConfigurationPtrType) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAtRestEncryptionConfigurationPtrOutput)
+}
+
+// At-rest encryption configuration.
+type SecurityConfigurationAtRestEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationAtRestEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationAtRestEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationOutput) ToSecurityConfigurationAtRestEncryptionConfigurationOutput() SecurityConfigurationAtRestEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationOutput) ToSecurityConfigurationAtRestEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationAtRestEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationOutput) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutput() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return o.ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationOutput) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationAtRestEncryptionConfiguration) *SecurityConfigurationAtRestEncryptionConfiguration {
+		return &v
+	}).(SecurityConfigurationAtRestEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationOutput) LocalDiskEncryptionConfiguration() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationAtRestEncryptionConfiguration) *SecurityConfigurationLocalDiskEncryptionConfiguration {
+		return v.LocalDiskEncryptionConfiguration
+	}).(SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationOutput) S3EncryptionConfiguration() SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationAtRestEncryptionConfiguration) *SecurityConfigurationS3EncryptionConfiguration {
+		return v.S3EncryptionConfiguration
+	}).(SecurityConfigurationS3EncryptionConfigurationPtrOutput)
+}
+
+type SecurityConfigurationAtRestEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationAtRestEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationAtRestEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationPtrOutput) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutput() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationPtrOutput) ToSecurityConfigurationAtRestEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationAtRestEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAtRestEncryptionConfiguration) SecurityConfigurationAtRestEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationAtRestEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationAtRestEncryptionConfigurationOutput)
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationPtrOutput) LocalDiskEncryptionConfiguration() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAtRestEncryptionConfiguration) *SecurityConfigurationLocalDiskEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskEncryptionConfiguration
+	}).(SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAtRestEncryptionConfigurationPtrOutput) S3EncryptionConfiguration() SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAtRestEncryptionConfiguration) *SecurityConfigurationS3EncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3EncryptionConfiguration
+	}).(SecurityConfigurationS3EncryptionConfigurationPtrOutput)
+}
+
+// Authentication configuration for the security configuration.
+type SecurityConfigurationAuthenticationConfiguration struct {
+	IamConfiguration            *SecurityConfigurationIamConfiguration            `pulumi:"iamConfiguration"`
+	IdentityCenterConfiguration *SecurityConfigurationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
+}
+
+// SecurityConfigurationAuthenticationConfigurationInput is an input type that accepts SecurityConfigurationAuthenticationConfigurationArgs and SecurityConfigurationAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationAuthenticationConfigurationInput` via:
+//
+//	SecurityConfigurationAuthenticationConfigurationArgs{...}
+type SecurityConfigurationAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationAuthenticationConfigurationOutput() SecurityConfigurationAuthenticationConfigurationOutput
+	ToSecurityConfigurationAuthenticationConfigurationOutputWithContext(context.Context) SecurityConfigurationAuthenticationConfigurationOutput
+}
+
+// Authentication configuration for the security configuration.
+type SecurityConfigurationAuthenticationConfigurationArgs struct {
+	IamConfiguration            SecurityConfigurationIamConfigurationPtrInput            `pulumi:"iamConfiguration"`
+	IdentityCenterConfiguration SecurityConfigurationIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
+}
+
+func (SecurityConfigurationAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationAuthenticationConfigurationArgs) ToSecurityConfigurationAuthenticationConfigurationOutput() SecurityConfigurationAuthenticationConfigurationOutput {
+	return i.ToSecurityConfigurationAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationAuthenticationConfigurationArgs) ToSecurityConfigurationAuthenticationConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAuthenticationConfigurationOutput)
+}
+
+func (i SecurityConfigurationAuthenticationConfigurationArgs) ToSecurityConfigurationAuthenticationConfigurationPtrOutput() SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return i.ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationAuthenticationConfigurationArgs) ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAuthenticationConfigurationOutput).ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationAuthenticationConfigurationPtrInput is an input type that accepts SecurityConfigurationAuthenticationConfigurationArgs, SecurityConfigurationAuthenticationConfigurationPtr and SecurityConfigurationAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationAuthenticationConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationAuthenticationConfigurationPtrOutput() SecurityConfigurationAuthenticationConfigurationPtrOutput
+	ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationAuthenticationConfigurationPtrOutput
+}
+
+type securityConfigurationAuthenticationConfigurationPtrType SecurityConfigurationAuthenticationConfigurationArgs
+
+func SecurityConfigurationAuthenticationConfigurationPtr(v *SecurityConfigurationAuthenticationConfigurationArgs) SecurityConfigurationAuthenticationConfigurationPtrInput {
+	return (*securityConfigurationAuthenticationConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationAuthenticationConfigurationPtrType) ToSecurityConfigurationAuthenticationConfigurationPtrOutput() SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return i.ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationAuthenticationConfigurationPtrType) ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+// Authentication configuration for the security configuration.
+type SecurityConfigurationAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationOutput) ToSecurityConfigurationAuthenticationConfigurationOutput() SecurityConfigurationAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationOutput) ToSecurityConfigurationAuthenticationConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationOutput) ToSecurityConfigurationAuthenticationConfigurationPtrOutput() SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationOutput) ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationAuthenticationConfiguration) *SecurityConfigurationAuthenticationConfiguration {
+		return &v
+	}).(SecurityConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationOutput) IamConfiguration() SecurityConfigurationIamConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationAuthenticationConfiguration) *SecurityConfigurationIamConfiguration {
+		return v.IamConfiguration
+	}).(SecurityConfigurationIamConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationOutput) IdentityCenterConfiguration() SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationAuthenticationConfiguration) *SecurityConfigurationIdentityCenterConfiguration {
+		return v.IdentityCenterConfiguration
+	}).(SecurityConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+type SecurityConfigurationAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationPtrOutput) ToSecurityConfigurationAuthenticationConfigurationPtrOutput() SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationPtrOutput) ToSecurityConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationPtrOutput) Elem() SecurityConfigurationAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAuthenticationConfiguration) SecurityConfigurationAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationAuthenticationConfiguration
+		return ret
+	}).(SecurityConfigurationAuthenticationConfigurationOutput)
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationPtrOutput) IamConfiguration() SecurityConfigurationIamConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAuthenticationConfiguration) *SecurityConfigurationIamConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IamConfiguration
+	}).(SecurityConfigurationIamConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAuthenticationConfigurationPtrOutput) IdentityCenterConfiguration() SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAuthenticationConfiguration) *SecurityConfigurationIdentityCenterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterConfiguration
+	}).(SecurityConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+// Authorization configuration for the security configuration.
+type SecurityConfigurationAuthorizationConfiguration struct {
+	LakeFormationConfiguration *SecurityConfigurationLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
+}
+
+// SecurityConfigurationAuthorizationConfigurationInput is an input type that accepts SecurityConfigurationAuthorizationConfigurationArgs and SecurityConfigurationAuthorizationConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationAuthorizationConfigurationInput` via:
+//
+//	SecurityConfigurationAuthorizationConfigurationArgs{...}
+type SecurityConfigurationAuthorizationConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationAuthorizationConfigurationOutput() SecurityConfigurationAuthorizationConfigurationOutput
+	ToSecurityConfigurationAuthorizationConfigurationOutputWithContext(context.Context) SecurityConfigurationAuthorizationConfigurationOutput
+}
+
+// Authorization configuration for the security configuration.
+type SecurityConfigurationAuthorizationConfigurationArgs struct {
+	LakeFormationConfiguration SecurityConfigurationLakeFormationConfigurationPtrInput `pulumi:"lakeFormationConfiguration"`
+}
+
+func (SecurityConfigurationAuthorizationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationAuthorizationConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationAuthorizationConfigurationArgs) ToSecurityConfigurationAuthorizationConfigurationOutput() SecurityConfigurationAuthorizationConfigurationOutput {
+	return i.ToSecurityConfigurationAuthorizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationAuthorizationConfigurationArgs) ToSecurityConfigurationAuthorizationConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationAuthorizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAuthorizationConfigurationOutput)
+}
+
+func (i SecurityConfigurationAuthorizationConfigurationArgs) ToSecurityConfigurationAuthorizationConfigurationPtrOutput() SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return i.ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationAuthorizationConfigurationArgs) ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAuthorizationConfigurationOutput).ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationAuthorizationConfigurationPtrInput is an input type that accepts SecurityConfigurationAuthorizationConfigurationArgs, SecurityConfigurationAuthorizationConfigurationPtr and SecurityConfigurationAuthorizationConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationAuthorizationConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationAuthorizationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationAuthorizationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationAuthorizationConfigurationPtrOutput() SecurityConfigurationAuthorizationConfigurationPtrOutput
+	ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationAuthorizationConfigurationPtrOutput
+}
+
+type securityConfigurationAuthorizationConfigurationPtrType SecurityConfigurationAuthorizationConfigurationArgs
+
+func SecurityConfigurationAuthorizationConfigurationPtr(v *SecurityConfigurationAuthorizationConfigurationArgs) SecurityConfigurationAuthorizationConfigurationPtrInput {
+	return (*securityConfigurationAuthorizationConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationAuthorizationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationAuthorizationConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationAuthorizationConfigurationPtrType) ToSecurityConfigurationAuthorizationConfigurationPtrOutput() SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return i.ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationAuthorizationConfigurationPtrType) ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationAuthorizationConfigurationPtrOutput)
+}
+
+// Authorization configuration for the security configuration.
+type SecurityConfigurationAuthorizationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationAuthorizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationAuthorizationConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationOutput) ToSecurityConfigurationAuthorizationConfigurationOutput() SecurityConfigurationAuthorizationConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationOutput) ToSecurityConfigurationAuthorizationConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationAuthorizationConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationOutput) ToSecurityConfigurationAuthorizationConfigurationPtrOutput() SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return o.ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationOutput) ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationAuthorizationConfiguration) *SecurityConfigurationAuthorizationConfiguration {
+		return &v
+	}).(SecurityConfigurationAuthorizationConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationOutput) LakeFormationConfiguration() SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationAuthorizationConfiguration) *SecurityConfigurationLakeFormationConfiguration {
+		return v.LakeFormationConfiguration
+	}).(SecurityConfigurationLakeFormationConfigurationPtrOutput)
+}
+
+type SecurityConfigurationAuthorizationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationAuthorizationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationAuthorizationConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationPtrOutput) ToSecurityConfigurationAuthorizationConfigurationPtrOutput() SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationPtrOutput) ToSecurityConfigurationAuthorizationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationPtrOutput) Elem() SecurityConfigurationAuthorizationConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAuthorizationConfiguration) SecurityConfigurationAuthorizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationAuthorizationConfiguration
+		return ret
+	}).(SecurityConfigurationAuthorizationConfigurationOutput)
+}
+
+func (o SecurityConfigurationAuthorizationConfigurationPtrOutput) LakeFormationConfiguration() SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationAuthorizationConfiguration) *SecurityConfigurationLakeFormationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LakeFormationConfiguration
+	}).(SecurityConfigurationLakeFormationConfigurationPtrOutput)
+}
+
+// Container information.
+type SecurityConfigurationContainerInfo struct {
+	EksInfo *SecurityConfigurationEksInfo `pulumi:"eksInfo"`
+}
+
+// SecurityConfigurationContainerInfoInput is an input type that accepts SecurityConfigurationContainerInfoArgs and SecurityConfigurationContainerInfoOutput values.
+// You can construct a concrete instance of `SecurityConfigurationContainerInfoInput` via:
+//
+//	SecurityConfigurationContainerInfoArgs{...}
+type SecurityConfigurationContainerInfoInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationContainerInfoOutput() SecurityConfigurationContainerInfoOutput
+	ToSecurityConfigurationContainerInfoOutputWithContext(context.Context) SecurityConfigurationContainerInfoOutput
+}
+
+// Container information.
+type SecurityConfigurationContainerInfoArgs struct {
+	EksInfo SecurityConfigurationEksInfoPtrInput `pulumi:"eksInfo"`
+}
+
+func (SecurityConfigurationContainerInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationContainerInfo)(nil)).Elem()
+}
+
+func (i SecurityConfigurationContainerInfoArgs) ToSecurityConfigurationContainerInfoOutput() SecurityConfigurationContainerInfoOutput {
+	return i.ToSecurityConfigurationContainerInfoOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationContainerInfoArgs) ToSecurityConfigurationContainerInfoOutputWithContext(ctx context.Context) SecurityConfigurationContainerInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationContainerInfoOutput)
+}
+
+func (i SecurityConfigurationContainerInfoArgs) ToSecurityConfigurationContainerInfoPtrOutput() SecurityConfigurationContainerInfoPtrOutput {
+	return i.ToSecurityConfigurationContainerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationContainerInfoArgs) ToSecurityConfigurationContainerInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationContainerInfoOutput).ToSecurityConfigurationContainerInfoPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationContainerInfoPtrInput is an input type that accepts SecurityConfigurationContainerInfoArgs, SecurityConfigurationContainerInfoPtr and SecurityConfigurationContainerInfoPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationContainerInfoPtrInput` via:
+//
+//	        SecurityConfigurationContainerInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationContainerInfoPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationContainerInfoPtrOutput() SecurityConfigurationContainerInfoPtrOutput
+	ToSecurityConfigurationContainerInfoPtrOutputWithContext(context.Context) SecurityConfigurationContainerInfoPtrOutput
+}
+
+type securityConfigurationContainerInfoPtrType SecurityConfigurationContainerInfoArgs
+
+func SecurityConfigurationContainerInfoPtr(v *SecurityConfigurationContainerInfoArgs) SecurityConfigurationContainerInfoPtrInput {
+	return (*securityConfigurationContainerInfoPtrType)(v)
+}
+
+func (*securityConfigurationContainerInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationContainerInfo)(nil)).Elem()
+}
+
+func (i *securityConfigurationContainerInfoPtrType) ToSecurityConfigurationContainerInfoPtrOutput() SecurityConfigurationContainerInfoPtrOutput {
+	return i.ToSecurityConfigurationContainerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationContainerInfoPtrType) ToSecurityConfigurationContainerInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationContainerInfoPtrOutput)
+}
+
+// Container information.
+type SecurityConfigurationContainerInfoOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationContainerInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationContainerInfo)(nil)).Elem()
+}
+
+func (o SecurityConfigurationContainerInfoOutput) ToSecurityConfigurationContainerInfoOutput() SecurityConfigurationContainerInfoOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerInfoOutput) ToSecurityConfigurationContainerInfoOutputWithContext(ctx context.Context) SecurityConfigurationContainerInfoOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerInfoOutput) ToSecurityConfigurationContainerInfoPtrOutput() SecurityConfigurationContainerInfoPtrOutput {
+	return o.ToSecurityConfigurationContainerInfoPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationContainerInfoOutput) ToSecurityConfigurationContainerInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationContainerInfo) *SecurityConfigurationContainerInfo {
+		return &v
+	}).(SecurityConfigurationContainerInfoPtrOutput)
+}
+
+func (o SecurityConfigurationContainerInfoOutput) EksInfo() SecurityConfigurationEksInfoPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationContainerInfo) *SecurityConfigurationEksInfo { return v.EksInfo }).(SecurityConfigurationEksInfoPtrOutput)
+}
+
+type SecurityConfigurationContainerInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationContainerInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationContainerInfo)(nil)).Elem()
+}
+
+func (o SecurityConfigurationContainerInfoPtrOutput) ToSecurityConfigurationContainerInfoPtrOutput() SecurityConfigurationContainerInfoPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerInfoPtrOutput) ToSecurityConfigurationContainerInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerInfoPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerInfoPtrOutput) Elem() SecurityConfigurationContainerInfoOutput {
+	return o.ApplyT(func(v *SecurityConfigurationContainerInfo) SecurityConfigurationContainerInfo {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationContainerInfo
+		return ret
+	}).(SecurityConfigurationContainerInfoOutput)
+}
+
+func (o SecurityConfigurationContainerInfoPtrOutput) EksInfo() SecurityConfigurationEksInfoPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationContainerInfo) *SecurityConfigurationEksInfo {
+		if v == nil {
+			return nil
+		}
+		return v.EksInfo
+	}).(SecurityConfigurationEksInfoPtrOutput)
+}
+
+// Container provider information.
+type SecurityConfigurationContainerProvider struct {
+	// The container provider ID.
+	Id   string                              `pulumi:"id"`
+	Info *SecurityConfigurationContainerInfo `pulumi:"info"`
+	// The container provider type.
+	Type SecurityConfigurationContainerProviderType `pulumi:"type"`
+}
+
+// SecurityConfigurationContainerProviderInput is an input type that accepts SecurityConfigurationContainerProviderArgs and SecurityConfigurationContainerProviderOutput values.
+// You can construct a concrete instance of `SecurityConfigurationContainerProviderInput` via:
+//
+//	SecurityConfigurationContainerProviderArgs{...}
+type SecurityConfigurationContainerProviderInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationContainerProviderOutput() SecurityConfigurationContainerProviderOutput
+	ToSecurityConfigurationContainerProviderOutputWithContext(context.Context) SecurityConfigurationContainerProviderOutput
+}
+
+// Container provider information.
+type SecurityConfigurationContainerProviderArgs struct {
+	// The container provider ID.
+	Id   pulumi.StringInput                         `pulumi:"id"`
+	Info SecurityConfigurationContainerInfoPtrInput `pulumi:"info"`
+	// The container provider type.
+	Type SecurityConfigurationContainerProviderTypeInput `pulumi:"type"`
+}
+
+func (SecurityConfigurationContainerProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationContainerProvider)(nil)).Elem()
+}
+
+func (i SecurityConfigurationContainerProviderArgs) ToSecurityConfigurationContainerProviderOutput() SecurityConfigurationContainerProviderOutput {
+	return i.ToSecurityConfigurationContainerProviderOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationContainerProviderArgs) ToSecurityConfigurationContainerProviderOutputWithContext(ctx context.Context) SecurityConfigurationContainerProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationContainerProviderOutput)
+}
+
+func (i SecurityConfigurationContainerProviderArgs) ToSecurityConfigurationContainerProviderPtrOutput() SecurityConfigurationContainerProviderPtrOutput {
+	return i.ToSecurityConfigurationContainerProviderPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationContainerProviderArgs) ToSecurityConfigurationContainerProviderPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationContainerProviderOutput).ToSecurityConfigurationContainerProviderPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationContainerProviderPtrInput is an input type that accepts SecurityConfigurationContainerProviderArgs, SecurityConfigurationContainerProviderPtr and SecurityConfigurationContainerProviderPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationContainerProviderPtrInput` via:
+//
+//	        SecurityConfigurationContainerProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationContainerProviderPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationContainerProviderPtrOutput() SecurityConfigurationContainerProviderPtrOutput
+	ToSecurityConfigurationContainerProviderPtrOutputWithContext(context.Context) SecurityConfigurationContainerProviderPtrOutput
+}
+
+type securityConfigurationContainerProviderPtrType SecurityConfigurationContainerProviderArgs
+
+func SecurityConfigurationContainerProviderPtr(v *SecurityConfigurationContainerProviderArgs) SecurityConfigurationContainerProviderPtrInput {
+	return (*securityConfigurationContainerProviderPtrType)(v)
+}
+
+func (*securityConfigurationContainerProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationContainerProvider)(nil)).Elem()
+}
+
+func (i *securityConfigurationContainerProviderPtrType) ToSecurityConfigurationContainerProviderPtrOutput() SecurityConfigurationContainerProviderPtrOutput {
+	return i.ToSecurityConfigurationContainerProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationContainerProviderPtrType) ToSecurityConfigurationContainerProviderPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationContainerProviderPtrOutput)
+}
+
+// Container provider information.
+type SecurityConfigurationContainerProviderOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationContainerProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationContainerProvider)(nil)).Elem()
+}
+
+func (o SecurityConfigurationContainerProviderOutput) ToSecurityConfigurationContainerProviderOutput() SecurityConfigurationContainerProviderOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerProviderOutput) ToSecurityConfigurationContainerProviderOutputWithContext(ctx context.Context) SecurityConfigurationContainerProviderOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerProviderOutput) ToSecurityConfigurationContainerProviderPtrOutput() SecurityConfigurationContainerProviderPtrOutput {
+	return o.ToSecurityConfigurationContainerProviderPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationContainerProviderOutput) ToSecurityConfigurationContainerProviderPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationContainerProvider) *SecurityConfigurationContainerProvider {
+		return &v
+	}).(SecurityConfigurationContainerProviderPtrOutput)
+}
+
+// The container provider ID.
+func (o SecurityConfigurationContainerProviderOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityConfigurationContainerProvider) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o SecurityConfigurationContainerProviderOutput) Info() SecurityConfigurationContainerInfoPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationContainerProvider) *SecurityConfigurationContainerInfo { return v.Info }).(SecurityConfigurationContainerInfoPtrOutput)
+}
+
+// The container provider type.
+func (o SecurityConfigurationContainerProviderOutput) Type() SecurityConfigurationContainerProviderTypeOutput {
+	return o.ApplyT(func(v SecurityConfigurationContainerProvider) SecurityConfigurationContainerProviderType {
+		return v.Type
+	}).(SecurityConfigurationContainerProviderTypeOutput)
+}
+
+type SecurityConfigurationContainerProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationContainerProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationContainerProvider)(nil)).Elem()
+}
+
+func (o SecurityConfigurationContainerProviderPtrOutput) ToSecurityConfigurationContainerProviderPtrOutput() SecurityConfigurationContainerProviderPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerProviderPtrOutput) ToSecurityConfigurationContainerProviderPtrOutputWithContext(ctx context.Context) SecurityConfigurationContainerProviderPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationContainerProviderPtrOutput) Elem() SecurityConfigurationContainerProviderOutput {
+	return o.ApplyT(func(v *SecurityConfigurationContainerProvider) SecurityConfigurationContainerProvider {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationContainerProvider
+		return ret
+	}).(SecurityConfigurationContainerProviderOutput)
+}
+
+// The container provider ID.
+func (o SecurityConfigurationContainerProviderPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationContainerProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigurationContainerProviderPtrOutput) Info() SecurityConfigurationContainerInfoPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationContainerProvider) *SecurityConfigurationContainerInfo {
+		if v == nil {
+			return nil
+		}
+		return v.Info
+	}).(SecurityConfigurationContainerInfoPtrOutput)
+}
+
+// The container provider type.
+func (o SecurityConfigurationContainerProviderPtrOutput) Type() SecurityConfigurationContainerProviderTypePtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationContainerProvider) *SecurityConfigurationContainerProviderType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(SecurityConfigurationContainerProviderTypePtrOutput)
+}
+
+// Security configuration data containing encryption and authorization settings.
+type SecurityConfigurationData struct {
+	AuthenticationConfiguration *SecurityConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	AuthorizationConfiguration  *SecurityConfigurationAuthorizationConfiguration  `pulumi:"authorizationConfiguration"`
+	EncryptionConfiguration     *SecurityConfigurationEncryptionConfiguration     `pulumi:"encryptionConfiguration"`
+}
+
+// SecurityConfigurationDataInput is an input type that accepts SecurityConfigurationDataArgs and SecurityConfigurationDataOutput values.
+// You can construct a concrete instance of `SecurityConfigurationDataInput` via:
+//
+//	SecurityConfigurationDataArgs{...}
+type SecurityConfigurationDataInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationDataOutput() SecurityConfigurationDataOutput
+	ToSecurityConfigurationDataOutputWithContext(context.Context) SecurityConfigurationDataOutput
+}
+
+// Security configuration data containing encryption and authorization settings.
+type SecurityConfigurationDataArgs struct {
+	AuthenticationConfiguration SecurityConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
+	AuthorizationConfiguration  SecurityConfigurationAuthorizationConfigurationPtrInput  `pulumi:"authorizationConfiguration"`
+	EncryptionConfiguration     SecurityConfigurationEncryptionConfigurationPtrInput     `pulumi:"encryptionConfiguration"`
+}
+
+func (SecurityConfigurationDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationData)(nil)).Elem()
+}
+
+func (i SecurityConfigurationDataArgs) ToSecurityConfigurationDataOutput() SecurityConfigurationDataOutput {
+	return i.ToSecurityConfigurationDataOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationDataArgs) ToSecurityConfigurationDataOutputWithContext(ctx context.Context) SecurityConfigurationDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationDataOutput)
+}
+
+// Security configuration data containing encryption and authorization settings.
+type SecurityConfigurationDataOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationData)(nil)).Elem()
+}
+
+func (o SecurityConfigurationDataOutput) ToSecurityConfigurationDataOutput() SecurityConfigurationDataOutput {
+	return o
+}
+
+func (o SecurityConfigurationDataOutput) ToSecurityConfigurationDataOutputWithContext(ctx context.Context) SecurityConfigurationDataOutput {
+	return o
+}
+
+func (o SecurityConfigurationDataOutput) AuthenticationConfiguration() SecurityConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationData) *SecurityConfigurationAuthenticationConfiguration {
+		return v.AuthenticationConfiguration
+	}).(SecurityConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationDataOutput) AuthorizationConfiguration() SecurityConfigurationAuthorizationConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationData) *SecurityConfigurationAuthorizationConfiguration {
+		return v.AuthorizationConfiguration
+	}).(SecurityConfigurationAuthorizationConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationDataOutput) EncryptionConfiguration() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationData) *SecurityConfigurationEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
+}
+
+// EKS information.
+type SecurityConfigurationEksInfo struct {
+	// The EKS namespace.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// SecurityConfigurationEksInfoInput is an input type that accepts SecurityConfigurationEksInfoArgs and SecurityConfigurationEksInfoOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEksInfoInput` via:
+//
+//	SecurityConfigurationEksInfoArgs{...}
+type SecurityConfigurationEksInfoInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEksInfoOutput() SecurityConfigurationEksInfoOutput
+	ToSecurityConfigurationEksInfoOutputWithContext(context.Context) SecurityConfigurationEksInfoOutput
+}
+
+// EKS information.
+type SecurityConfigurationEksInfoArgs struct {
+	// The EKS namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (SecurityConfigurationEksInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEksInfo)(nil)).Elem()
+}
+
+func (i SecurityConfigurationEksInfoArgs) ToSecurityConfigurationEksInfoOutput() SecurityConfigurationEksInfoOutput {
+	return i.ToSecurityConfigurationEksInfoOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEksInfoArgs) ToSecurityConfigurationEksInfoOutputWithContext(ctx context.Context) SecurityConfigurationEksInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEksInfoOutput)
+}
+
+func (i SecurityConfigurationEksInfoArgs) ToSecurityConfigurationEksInfoPtrOutput() SecurityConfigurationEksInfoPtrOutput {
+	return i.ToSecurityConfigurationEksInfoPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEksInfoArgs) ToSecurityConfigurationEksInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationEksInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEksInfoOutput).ToSecurityConfigurationEksInfoPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationEksInfoPtrInput is an input type that accepts SecurityConfigurationEksInfoArgs, SecurityConfigurationEksInfoPtr and SecurityConfigurationEksInfoPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEksInfoPtrInput` via:
+//
+//	        SecurityConfigurationEksInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationEksInfoPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEksInfoPtrOutput() SecurityConfigurationEksInfoPtrOutput
+	ToSecurityConfigurationEksInfoPtrOutputWithContext(context.Context) SecurityConfigurationEksInfoPtrOutput
+}
+
+type securityConfigurationEksInfoPtrType SecurityConfigurationEksInfoArgs
+
+func SecurityConfigurationEksInfoPtr(v *SecurityConfigurationEksInfoArgs) SecurityConfigurationEksInfoPtrInput {
+	return (*securityConfigurationEksInfoPtrType)(v)
+}
+
+func (*securityConfigurationEksInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEksInfo)(nil)).Elem()
+}
+
+func (i *securityConfigurationEksInfoPtrType) ToSecurityConfigurationEksInfoPtrOutput() SecurityConfigurationEksInfoPtrOutput {
+	return i.ToSecurityConfigurationEksInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationEksInfoPtrType) ToSecurityConfigurationEksInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationEksInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEksInfoPtrOutput)
+}
+
+// EKS information.
+type SecurityConfigurationEksInfoOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEksInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEksInfo)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEksInfoOutput) ToSecurityConfigurationEksInfoOutput() SecurityConfigurationEksInfoOutput {
+	return o
+}
+
+func (o SecurityConfigurationEksInfoOutput) ToSecurityConfigurationEksInfoOutputWithContext(ctx context.Context) SecurityConfigurationEksInfoOutput {
+	return o
+}
+
+func (o SecurityConfigurationEksInfoOutput) ToSecurityConfigurationEksInfoPtrOutput() SecurityConfigurationEksInfoPtrOutput {
+	return o.ToSecurityConfigurationEksInfoPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationEksInfoOutput) ToSecurityConfigurationEksInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationEksInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEksInfo) *SecurityConfigurationEksInfo {
+		return &v
+	}).(SecurityConfigurationEksInfoPtrOutput)
+}
+
+// The EKS namespace.
+func (o SecurityConfigurationEksInfoOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationEksInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEksInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEksInfo)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEksInfoPtrOutput) ToSecurityConfigurationEksInfoPtrOutput() SecurityConfigurationEksInfoPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEksInfoPtrOutput) ToSecurityConfigurationEksInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationEksInfoPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEksInfoPtrOutput) Elem() SecurityConfigurationEksInfoOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEksInfo) SecurityConfigurationEksInfo {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEksInfo
+		return ret
+	}).(SecurityConfigurationEksInfoOutput)
+}
+
+// The EKS namespace.
+func (o SecurityConfigurationEksInfoPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEksInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption configuration for the security configuration.
+type SecurityConfigurationEncryptionConfiguration struct {
+	AtRestEncryptionConfiguration    *SecurityConfigurationAtRestEncryptionConfiguration    `pulumi:"atRestEncryptionConfiguration"`
+	InTransitEncryptionConfiguration *SecurityConfigurationInTransitEncryptionConfiguration `pulumi:"inTransitEncryptionConfiguration"`
+}
+
+// SecurityConfigurationEncryptionConfigurationInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs and SecurityConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationInput` via:
+//
+//	SecurityConfigurationEncryptionConfigurationArgs{...}
+type SecurityConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput
+	ToSecurityConfigurationEncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationOutput
+}
+
+// Encryption configuration for the security configuration.
+type SecurityConfigurationEncryptionConfigurationArgs struct {
+	AtRestEncryptionConfiguration    SecurityConfigurationAtRestEncryptionConfigurationPtrInput    `pulumi:"atRestEncryptionConfiguration"`
+	InTransitEncryptionConfiguration SecurityConfigurationInTransitEncryptionConfigurationPtrInput `pulumi:"inTransitEncryptionConfiguration"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput).ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs, SecurityConfigurationEncryptionConfigurationPtr and SecurityConfigurationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput
+	ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput
+}
+
+type securityConfigurationEncryptionConfigurationPtrType SecurityConfigurationEncryptionConfigurationArgs
+
+func SecurityConfigurationEncryptionConfigurationPtr(v *SecurityConfigurationEncryptionConfigurationArgs) SecurityConfigurationEncryptionConfigurationPtrInput {
+	return (*securityConfigurationEncryptionConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationPtrOutput)
+}
+
+// Encryption configuration for the security configuration.
+type SecurityConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfiguration {
+		return &v
+	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) AtRestEncryptionConfiguration() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationAtRestEncryptionConfiguration {
+		return v.AtRestEncryptionConfiguration
+	}).(SecurityConfigurationAtRestEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) InTransitEncryptionConfiguration() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationInTransitEncryptionConfiguration {
+		return v.InTransitEncryptionConfiguration
+	}).(SecurityConfigurationInTransitEncryptionConfigurationPtrOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) AtRestEncryptionConfiguration() SecurityConfigurationAtRestEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationAtRestEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AtRestEncryptionConfiguration
+	}).(SecurityConfigurationAtRestEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) InTransitEncryptionConfiguration() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationInTransitEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InTransitEncryptionConfiguration
+	}).(SecurityConfigurationInTransitEncryptionConfigurationPtrOutput)
+}
+
+// IAM configuration.
+type SecurityConfigurationIamConfiguration struct {
+	// The system role ARN.
+	SystemRole *string `pulumi:"systemRole"`
+}
+
+// SecurityConfigurationIamConfigurationInput is an input type that accepts SecurityConfigurationIamConfigurationArgs and SecurityConfigurationIamConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationIamConfigurationInput` via:
+//
+//	SecurityConfigurationIamConfigurationArgs{...}
+type SecurityConfigurationIamConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationIamConfigurationOutput() SecurityConfigurationIamConfigurationOutput
+	ToSecurityConfigurationIamConfigurationOutputWithContext(context.Context) SecurityConfigurationIamConfigurationOutput
+}
+
+// IAM configuration.
+type SecurityConfigurationIamConfigurationArgs struct {
+	// The system role ARN.
+	SystemRole pulumi.StringPtrInput `pulumi:"systemRole"`
+}
+
+func (SecurityConfigurationIamConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationIamConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationIamConfigurationArgs) ToSecurityConfigurationIamConfigurationOutput() SecurityConfigurationIamConfigurationOutput {
+	return i.ToSecurityConfigurationIamConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationIamConfigurationArgs) ToSecurityConfigurationIamConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationIamConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationIamConfigurationOutput)
+}
+
+func (i SecurityConfigurationIamConfigurationArgs) ToSecurityConfigurationIamConfigurationPtrOutput() SecurityConfigurationIamConfigurationPtrOutput {
+	return i.ToSecurityConfigurationIamConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationIamConfigurationArgs) ToSecurityConfigurationIamConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIamConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationIamConfigurationOutput).ToSecurityConfigurationIamConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationIamConfigurationPtrInput is an input type that accepts SecurityConfigurationIamConfigurationArgs, SecurityConfigurationIamConfigurationPtr and SecurityConfigurationIamConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationIamConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationIamConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationIamConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationIamConfigurationPtrOutput() SecurityConfigurationIamConfigurationPtrOutput
+	ToSecurityConfigurationIamConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationIamConfigurationPtrOutput
+}
+
+type securityConfigurationIamConfigurationPtrType SecurityConfigurationIamConfigurationArgs
+
+func SecurityConfigurationIamConfigurationPtr(v *SecurityConfigurationIamConfigurationArgs) SecurityConfigurationIamConfigurationPtrInput {
+	return (*securityConfigurationIamConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationIamConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationIamConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationIamConfigurationPtrType) ToSecurityConfigurationIamConfigurationPtrOutput() SecurityConfigurationIamConfigurationPtrOutput {
+	return i.ToSecurityConfigurationIamConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationIamConfigurationPtrType) ToSecurityConfigurationIamConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIamConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationIamConfigurationPtrOutput)
+}
+
+// IAM configuration.
+type SecurityConfigurationIamConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationIamConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationIamConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationIamConfigurationOutput) ToSecurityConfigurationIamConfigurationOutput() SecurityConfigurationIamConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationIamConfigurationOutput) ToSecurityConfigurationIamConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationIamConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationIamConfigurationOutput) ToSecurityConfigurationIamConfigurationPtrOutput() SecurityConfigurationIamConfigurationPtrOutput {
+	return o.ToSecurityConfigurationIamConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationIamConfigurationOutput) ToSecurityConfigurationIamConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIamConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationIamConfiguration) *SecurityConfigurationIamConfiguration {
+		return &v
+	}).(SecurityConfigurationIamConfigurationPtrOutput)
+}
+
+// The system role ARN.
+func (o SecurityConfigurationIamConfigurationOutput) SystemRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationIamConfiguration) *string { return v.SystemRole }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationIamConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationIamConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationIamConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationIamConfigurationPtrOutput) ToSecurityConfigurationIamConfigurationPtrOutput() SecurityConfigurationIamConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationIamConfigurationPtrOutput) ToSecurityConfigurationIamConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIamConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationIamConfigurationPtrOutput) Elem() SecurityConfigurationIamConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationIamConfiguration) SecurityConfigurationIamConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationIamConfiguration
+		return ret
+	}).(SecurityConfigurationIamConfigurationOutput)
+}
+
+// The system role ARN.
+func (o SecurityConfigurationIamConfigurationPtrOutput) SystemRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationIamConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity Center configuration.
+type SecurityConfigurationIdentityCenterConfiguration struct {
+	// Whether to enable Identity Center integration.
+	EnableIdentityCenter *bool `pulumi:"enableIdentityCenter"`
+	// Whether Identity Center application assignment is required.
+	IdentityCenterApplicationAssignmentRequired *bool `pulumi:"identityCenterApplicationAssignmentRequired"`
+	// The ARN of the Identity Center instance.
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+}
+
+// SecurityConfigurationIdentityCenterConfigurationInput is an input type that accepts SecurityConfigurationIdentityCenterConfigurationArgs and SecurityConfigurationIdentityCenterConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationIdentityCenterConfigurationInput` via:
+//
+//	SecurityConfigurationIdentityCenterConfigurationArgs{...}
+type SecurityConfigurationIdentityCenterConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationIdentityCenterConfigurationOutput() SecurityConfigurationIdentityCenterConfigurationOutput
+	ToSecurityConfigurationIdentityCenterConfigurationOutputWithContext(context.Context) SecurityConfigurationIdentityCenterConfigurationOutput
+}
+
+// Identity Center configuration.
+type SecurityConfigurationIdentityCenterConfigurationArgs struct {
+	// Whether to enable Identity Center integration.
+	EnableIdentityCenter pulumi.BoolPtrInput `pulumi:"enableIdentityCenter"`
+	// Whether Identity Center application assignment is required.
+	IdentityCenterApplicationAssignmentRequired pulumi.BoolPtrInput `pulumi:"identityCenterApplicationAssignmentRequired"`
+	// The ARN of the Identity Center instance.
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+}
+
+func (SecurityConfigurationIdentityCenterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationIdentityCenterConfigurationArgs) ToSecurityConfigurationIdentityCenterConfigurationOutput() SecurityConfigurationIdentityCenterConfigurationOutput {
+	return i.ToSecurityConfigurationIdentityCenterConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationIdentityCenterConfigurationArgs) ToSecurityConfigurationIdentityCenterConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationIdentityCenterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationIdentityCenterConfigurationOutput)
+}
+
+func (i SecurityConfigurationIdentityCenterConfigurationArgs) ToSecurityConfigurationIdentityCenterConfigurationPtrOutput() SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return i.ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationIdentityCenterConfigurationArgs) ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationIdentityCenterConfigurationOutput).ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationIdentityCenterConfigurationPtrInput is an input type that accepts SecurityConfigurationIdentityCenterConfigurationArgs, SecurityConfigurationIdentityCenterConfigurationPtr and SecurityConfigurationIdentityCenterConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationIdentityCenterConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationIdentityCenterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationIdentityCenterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationIdentityCenterConfigurationPtrOutput() SecurityConfigurationIdentityCenterConfigurationPtrOutput
+	ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationIdentityCenterConfigurationPtrOutput
+}
+
+type securityConfigurationIdentityCenterConfigurationPtrType SecurityConfigurationIdentityCenterConfigurationArgs
+
+func SecurityConfigurationIdentityCenterConfigurationPtr(v *SecurityConfigurationIdentityCenterConfigurationArgs) SecurityConfigurationIdentityCenterConfigurationPtrInput {
+	return (*securityConfigurationIdentityCenterConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationIdentityCenterConfigurationPtrType) ToSecurityConfigurationIdentityCenterConfigurationPtrOutput() SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return i.ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationIdentityCenterConfigurationPtrType) ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+// Identity Center configuration.
+type SecurityConfigurationIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationIdentityCenterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) ToSecurityConfigurationIdentityCenterConfigurationOutput() SecurityConfigurationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) ToSecurityConfigurationIdentityCenterConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) ToSecurityConfigurationIdentityCenterConfigurationPtrOutput() SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationIdentityCenterConfiguration) *SecurityConfigurationIdentityCenterConfiguration {
+		return &v
+	}).(SecurityConfigurationIdentityCenterConfigurationPtrOutput)
+}
+
+// Whether to enable Identity Center integration.
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) EnableIdentityCenter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationIdentityCenterConfiguration) *bool { return v.EnableIdentityCenter }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Identity Center application assignment is required.
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) IdentityCenterApplicationAssignmentRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationIdentityCenterConfiguration) *bool {
+		return v.IdentityCenterApplicationAssignmentRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the Identity Center instance.
+func (o SecurityConfigurationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationPtrOutput) ToSecurityConfigurationIdentityCenterConfigurationPtrOutput() SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationPtrOutput) ToSecurityConfigurationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationIdentityCenterConfigurationPtrOutput) Elem() SecurityConfigurationIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationIdentityCenterConfiguration) SecurityConfigurationIdentityCenterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationIdentityCenterConfiguration
+		return ret
+	}).(SecurityConfigurationIdentityCenterConfigurationOutput)
+}
+
+// Whether to enable Identity Center integration.
+func (o SecurityConfigurationIdentityCenterConfigurationPtrOutput) EnableIdentityCenter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationIdentityCenterConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIdentityCenter
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Identity Center application assignment is required.
+func (o SecurityConfigurationIdentityCenterConfigurationPtrOutput) IdentityCenterApplicationAssignmentRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationIdentityCenterConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterApplicationAssignmentRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the Identity Center instance.
+func (o SecurityConfigurationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationIdentityCenterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// In-transit encryption configuration.
+type SecurityConfigurationInTransitEncryptionConfiguration struct {
+	TlsCertificateConfiguration *SecurityConfigurationTlsCertificateConfiguration `pulumi:"tlsCertificateConfiguration"`
+}
+
+// SecurityConfigurationInTransitEncryptionConfigurationInput is an input type that accepts SecurityConfigurationInTransitEncryptionConfigurationArgs and SecurityConfigurationInTransitEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationInTransitEncryptionConfigurationInput` via:
+//
+//	SecurityConfigurationInTransitEncryptionConfigurationArgs{...}
+type SecurityConfigurationInTransitEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationInTransitEncryptionConfigurationOutput() SecurityConfigurationInTransitEncryptionConfigurationOutput
+	ToSecurityConfigurationInTransitEncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationInTransitEncryptionConfigurationOutput
+}
+
+// In-transit encryption configuration.
+type SecurityConfigurationInTransitEncryptionConfigurationArgs struct {
+	TlsCertificateConfiguration SecurityConfigurationTlsCertificateConfigurationPtrInput `pulumi:"tlsCertificateConfiguration"`
+}
+
+func (SecurityConfigurationInTransitEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationInTransitEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationInTransitEncryptionConfigurationArgs) ToSecurityConfigurationInTransitEncryptionConfigurationOutput() SecurityConfigurationInTransitEncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationInTransitEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationInTransitEncryptionConfigurationArgs) ToSecurityConfigurationInTransitEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationInTransitEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationInTransitEncryptionConfigurationOutput)
+}
+
+func (i SecurityConfigurationInTransitEncryptionConfigurationArgs) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutput() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationInTransitEncryptionConfigurationArgs) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationInTransitEncryptionConfigurationOutput).ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationInTransitEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationInTransitEncryptionConfigurationArgs, SecurityConfigurationInTransitEncryptionConfigurationPtr and SecurityConfigurationInTransitEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationInTransitEncryptionConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationInTransitEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationInTransitEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutput() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput
+	ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationInTransitEncryptionConfigurationPtrOutput
+}
+
+type securityConfigurationInTransitEncryptionConfigurationPtrType SecurityConfigurationInTransitEncryptionConfigurationArgs
+
+func SecurityConfigurationInTransitEncryptionConfigurationPtr(v *SecurityConfigurationInTransitEncryptionConfigurationArgs) SecurityConfigurationInTransitEncryptionConfigurationPtrInput {
+	return (*securityConfigurationInTransitEncryptionConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationInTransitEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationInTransitEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationInTransitEncryptionConfigurationPtrType) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutput() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationInTransitEncryptionConfigurationPtrType) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationInTransitEncryptionConfigurationPtrOutput)
+}
+
+// In-transit encryption configuration.
+type SecurityConfigurationInTransitEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationInTransitEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationInTransitEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationOutput) ToSecurityConfigurationInTransitEncryptionConfigurationOutput() SecurityConfigurationInTransitEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationOutput) ToSecurityConfigurationInTransitEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationInTransitEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationOutput) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutput() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return o.ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationOutput) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationInTransitEncryptionConfiguration) *SecurityConfigurationInTransitEncryptionConfiguration {
+		return &v
+	}).(SecurityConfigurationInTransitEncryptionConfigurationPtrOutput)
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationOutput) TlsCertificateConfiguration() SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationInTransitEncryptionConfiguration) *SecurityConfigurationTlsCertificateConfiguration {
+		return v.TlsCertificateConfiguration
+	}).(SecurityConfigurationTlsCertificateConfigurationPtrOutput)
+}
+
+type SecurityConfigurationInTransitEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationInTransitEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationInTransitEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationPtrOutput) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutput() SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationPtrOutput) ToSecurityConfigurationInTransitEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationInTransitEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationInTransitEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationInTransitEncryptionConfiguration) SecurityConfigurationInTransitEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationInTransitEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationInTransitEncryptionConfigurationOutput)
+}
+
+func (o SecurityConfigurationInTransitEncryptionConfigurationPtrOutput) TlsCertificateConfiguration() SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationInTransitEncryptionConfiguration) *SecurityConfigurationTlsCertificateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TlsCertificateConfiguration
+	}).(SecurityConfigurationTlsCertificateConfigurationPtrOutput)
+}
+
+// Lake Formation configuration.
+type SecurityConfigurationLakeFormationConfiguration struct {
+	// The session tag to authorize Lake Formation access.
+	AuthorizedSessionTagValue *string `pulumi:"authorizedSessionTagValue"`
+	// Whether query access control is enabled.
+	QueryAccessControlEnabled *bool `pulumi:"queryAccessControlEnabled"`
+	// The ARN of the query engine role.
+	QueryEngineRoleArn  *string                                   `pulumi:"queryEngineRoleArn"`
+	SecureNamespaceInfo *SecurityConfigurationSecureNamespaceInfo `pulumi:"secureNamespaceInfo"`
+}
+
+// SecurityConfigurationLakeFormationConfigurationInput is an input type that accepts SecurityConfigurationLakeFormationConfigurationArgs and SecurityConfigurationLakeFormationConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationLakeFormationConfigurationInput` via:
+//
+//	SecurityConfigurationLakeFormationConfigurationArgs{...}
+type SecurityConfigurationLakeFormationConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationLakeFormationConfigurationOutput() SecurityConfigurationLakeFormationConfigurationOutput
+	ToSecurityConfigurationLakeFormationConfigurationOutputWithContext(context.Context) SecurityConfigurationLakeFormationConfigurationOutput
+}
+
+// Lake Formation configuration.
+type SecurityConfigurationLakeFormationConfigurationArgs struct {
+	// The session tag to authorize Lake Formation access.
+	AuthorizedSessionTagValue pulumi.StringPtrInput `pulumi:"authorizedSessionTagValue"`
+	// Whether query access control is enabled.
+	QueryAccessControlEnabled pulumi.BoolPtrInput `pulumi:"queryAccessControlEnabled"`
+	// The ARN of the query engine role.
+	QueryEngineRoleArn  pulumi.StringPtrInput                            `pulumi:"queryEngineRoleArn"`
+	SecureNamespaceInfo SecurityConfigurationSecureNamespaceInfoPtrInput `pulumi:"secureNamespaceInfo"`
+}
+
+func (SecurityConfigurationLakeFormationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationLakeFormationConfigurationArgs) ToSecurityConfigurationLakeFormationConfigurationOutput() SecurityConfigurationLakeFormationConfigurationOutput {
+	return i.ToSecurityConfigurationLakeFormationConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationLakeFormationConfigurationArgs) ToSecurityConfigurationLakeFormationConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationLakeFormationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationLakeFormationConfigurationOutput)
+}
+
+func (i SecurityConfigurationLakeFormationConfigurationArgs) ToSecurityConfigurationLakeFormationConfigurationPtrOutput() SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return i.ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationLakeFormationConfigurationArgs) ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationLakeFormationConfigurationOutput).ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationLakeFormationConfigurationPtrInput is an input type that accepts SecurityConfigurationLakeFormationConfigurationArgs, SecurityConfigurationLakeFormationConfigurationPtr and SecurityConfigurationLakeFormationConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationLakeFormationConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationLakeFormationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationLakeFormationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationLakeFormationConfigurationPtrOutput() SecurityConfigurationLakeFormationConfigurationPtrOutput
+	ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationLakeFormationConfigurationPtrOutput
+}
+
+type securityConfigurationLakeFormationConfigurationPtrType SecurityConfigurationLakeFormationConfigurationArgs
+
+func SecurityConfigurationLakeFormationConfigurationPtr(v *SecurityConfigurationLakeFormationConfigurationArgs) SecurityConfigurationLakeFormationConfigurationPtrInput {
+	return (*securityConfigurationLakeFormationConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationLakeFormationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationLakeFormationConfigurationPtrType) ToSecurityConfigurationLakeFormationConfigurationPtrOutput() SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return i.ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationLakeFormationConfigurationPtrType) ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationLakeFormationConfigurationPtrOutput)
+}
+
+// Lake Formation configuration.
+type SecurityConfigurationLakeFormationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationLakeFormationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationOutput) ToSecurityConfigurationLakeFormationConfigurationOutput() SecurityConfigurationLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationOutput) ToSecurityConfigurationLakeFormationConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationOutput) ToSecurityConfigurationLakeFormationConfigurationPtrOutput() SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return o.ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationOutput) ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationLakeFormationConfiguration) *SecurityConfigurationLakeFormationConfiguration {
+		return &v
+	}).(SecurityConfigurationLakeFormationConfigurationPtrOutput)
+}
+
+// The session tag to authorize Lake Formation access.
+func (o SecurityConfigurationLakeFormationConfigurationOutput) AuthorizedSessionTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationLakeFormationConfiguration) *string { return v.AuthorizedSessionTagValue }).(pulumi.StringPtrOutput)
+}
+
+// Whether query access control is enabled.
+func (o SecurityConfigurationLakeFormationConfigurationOutput) QueryAccessControlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationLakeFormationConfiguration) *bool { return v.QueryAccessControlEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the query engine role.
+func (o SecurityConfigurationLakeFormationConfigurationOutput) QueryEngineRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationLakeFormationConfiguration) *string { return v.QueryEngineRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationOutput) SecureNamespaceInfo() SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationLakeFormationConfiguration) *SecurityConfigurationSecureNamespaceInfo {
+		return v.SecureNamespaceInfo
+	}).(SecurityConfigurationSecureNamespaceInfoPtrOutput)
+}
+
+type SecurityConfigurationLakeFormationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationLakeFormationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) ToSecurityConfigurationLakeFormationConfigurationPtrOutput() SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) ToSecurityConfigurationLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLakeFormationConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) Elem() SecurityConfigurationLakeFormationConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLakeFormationConfiguration) SecurityConfigurationLakeFormationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationLakeFormationConfiguration
+		return ret
+	}).(SecurityConfigurationLakeFormationConfigurationOutput)
+}
+
+// The session tag to authorize Lake Formation access.
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) AuthorizedSessionTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLakeFormationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizedSessionTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether query access control is enabled.
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) QueryAccessControlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLakeFormationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.QueryAccessControlEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the query engine role.
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) QueryEngineRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLakeFormationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryEngineRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigurationLakeFormationConfigurationPtrOutput) SecureNamespaceInfo() SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLakeFormationConfiguration) *SecurityConfigurationSecureNamespaceInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SecureNamespaceInfo
+	}).(SecurityConfigurationSecureNamespaceInfoPtrOutput)
+}
+
+// Local disk encryption configuration.
+type SecurityConfigurationLocalDiskEncryptionConfiguration struct {
+	// The AWS KMS key ID.
+	AwsKmsKeyId *string `pulumi:"awsKmsKeyId"`
+	// The encryption key provider type.
+	EncryptionKeyProviderType *SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType `pulumi:"encryptionKeyProviderType"`
+}
+
+// SecurityConfigurationLocalDiskEncryptionConfigurationInput is an input type that accepts SecurityConfigurationLocalDiskEncryptionConfigurationArgs and SecurityConfigurationLocalDiskEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationLocalDiskEncryptionConfigurationInput` via:
+//
+//	SecurityConfigurationLocalDiskEncryptionConfigurationArgs{...}
+type SecurityConfigurationLocalDiskEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationLocalDiskEncryptionConfigurationOutput() SecurityConfigurationLocalDiskEncryptionConfigurationOutput
+	ToSecurityConfigurationLocalDiskEncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationOutput
+}
+
+// Local disk encryption configuration.
+type SecurityConfigurationLocalDiskEncryptionConfigurationArgs struct {
+	// The AWS KMS key ID.
+	AwsKmsKeyId pulumi.StringPtrInput `pulumi:"awsKmsKeyId"`
+	// The encryption key provider type.
+	EncryptionKeyProviderType SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypePtrInput `pulumi:"encryptionKeyProviderType"`
+}
+
+func (SecurityConfigurationLocalDiskEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationLocalDiskEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationLocalDiskEncryptionConfigurationArgs) ToSecurityConfigurationLocalDiskEncryptionConfigurationOutput() SecurityConfigurationLocalDiskEncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationLocalDiskEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationLocalDiskEncryptionConfigurationArgs) ToSecurityConfigurationLocalDiskEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationLocalDiskEncryptionConfigurationOutput)
+}
+
+func (i SecurityConfigurationLocalDiskEncryptionConfigurationArgs) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationLocalDiskEncryptionConfigurationArgs) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationLocalDiskEncryptionConfigurationOutput).ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationLocalDiskEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationLocalDiskEncryptionConfigurationArgs, SecurityConfigurationLocalDiskEncryptionConfigurationPtr and SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationLocalDiskEncryptionConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationLocalDiskEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationLocalDiskEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput
+	ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput
+}
+
+type securityConfigurationLocalDiskEncryptionConfigurationPtrType SecurityConfigurationLocalDiskEncryptionConfigurationArgs
+
+func SecurityConfigurationLocalDiskEncryptionConfigurationPtr(v *SecurityConfigurationLocalDiskEncryptionConfigurationArgs) SecurityConfigurationLocalDiskEncryptionConfigurationPtrInput {
+	return (*securityConfigurationLocalDiskEncryptionConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationLocalDiskEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationLocalDiskEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationLocalDiskEncryptionConfigurationPtrType) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationLocalDiskEncryptionConfigurationPtrType) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput)
+}
+
+// Local disk encryption configuration.
+type SecurityConfigurationLocalDiskEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationLocalDiskEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationLocalDiskEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationOutput) ToSecurityConfigurationLocalDiskEncryptionConfigurationOutput() SecurityConfigurationLocalDiskEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationOutput) ToSecurityConfigurationLocalDiskEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationOutput) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return o.ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationOutput) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationLocalDiskEncryptionConfiguration) *SecurityConfigurationLocalDiskEncryptionConfiguration {
+		return &v
+	}).(SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput)
+}
+
+// The AWS KMS key ID.
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationLocalDiskEncryptionConfiguration) *string { return v.AwsKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The encryption key provider type.
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationOutput) EncryptionKeyProviderType() SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypePtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationLocalDiskEncryptionConfiguration) *SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType {
+		return v.EncryptionKeyProviderType
+	}).(SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypePtrOutput)
+}
+
+type SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationLocalDiskEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput() SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput) ToSecurityConfigurationLocalDiskEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationLocalDiskEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLocalDiskEncryptionConfiguration) SecurityConfigurationLocalDiskEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationLocalDiskEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationLocalDiskEncryptionConfigurationOutput)
+}
+
+// The AWS KMS key ID.
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLocalDiskEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption key provider type.
+func (o SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput) EncryptionKeyProviderType() SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypePtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationLocalDiskEncryptionConfiguration) *SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyProviderType
+	}).(SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypePtrOutput)
+}
+
+// S3 encryption configuration.
+type SecurityConfigurationS3EncryptionConfiguration struct {
+	// The S3 encryption option.
+	EncryptionOption *SecurityConfigurationS3EncryptionConfigurationEncryptionOption `pulumi:"encryptionOption"`
+	// The KMS key ID for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// SecurityConfigurationS3EncryptionConfigurationInput is an input type that accepts SecurityConfigurationS3EncryptionConfigurationArgs and SecurityConfigurationS3EncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionConfigurationInput` via:
+//
+//	SecurityConfigurationS3EncryptionConfigurationArgs{...}
+type SecurityConfigurationS3EncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionConfigurationOutput() SecurityConfigurationS3EncryptionConfigurationOutput
+	ToSecurityConfigurationS3EncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationS3EncryptionConfigurationOutput
+}
+
+// S3 encryption configuration.
+type SecurityConfigurationS3EncryptionConfigurationArgs struct {
+	// The S3 encryption option.
+	EncryptionOption SecurityConfigurationS3EncryptionConfigurationEncryptionOptionPtrInput `pulumi:"encryptionOption"`
+	// The KMS key ID for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (SecurityConfigurationS3EncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3EncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationS3EncryptionConfigurationArgs) ToSecurityConfigurationS3EncryptionConfigurationOutput() SecurityConfigurationS3EncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationS3EncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionConfigurationArgs) ToSecurityConfigurationS3EncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionConfigurationOutput)
+}
+
+func (i SecurityConfigurationS3EncryptionConfigurationArgs) ToSecurityConfigurationS3EncryptionConfigurationPtrOutput() SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionConfigurationArgs) ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionConfigurationOutput).ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationS3EncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationS3EncryptionConfigurationArgs, SecurityConfigurationS3EncryptionConfigurationPtr and SecurityConfigurationS3EncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationS3EncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationS3EncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionConfigurationPtrOutput() SecurityConfigurationS3EncryptionConfigurationPtrOutput
+	ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationS3EncryptionConfigurationPtrOutput
+}
+
+type securityConfigurationS3EncryptionConfigurationPtrType SecurityConfigurationS3EncryptionConfigurationArgs
+
+func SecurityConfigurationS3EncryptionConfigurationPtr(v *SecurityConfigurationS3EncryptionConfigurationArgs) SecurityConfigurationS3EncryptionConfigurationPtrInput {
+	return (*securityConfigurationS3EncryptionConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationS3EncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationS3EncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationS3EncryptionConfigurationPtrType) ToSecurityConfigurationS3EncryptionConfigurationPtrOutput() SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationS3EncryptionConfigurationPtrType) ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionConfigurationPtrOutput)
+}
+
+// S3 encryption configuration.
+type SecurityConfigurationS3EncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3EncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationOutput) ToSecurityConfigurationS3EncryptionConfigurationOutput() SecurityConfigurationS3EncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationOutput) ToSecurityConfigurationS3EncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationOutput) ToSecurityConfigurationS3EncryptionConfigurationPtrOutput() SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return o.ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationOutput) ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationS3EncryptionConfiguration) *SecurityConfigurationS3EncryptionConfiguration {
+		return &v
+	}).(SecurityConfigurationS3EncryptionConfigurationPtrOutput)
+}
+
+// The S3 encryption option.
+func (o SecurityConfigurationS3EncryptionConfigurationOutput) EncryptionOption() SecurityConfigurationS3EncryptionConfigurationEncryptionOptionPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationS3EncryptionConfiguration) *SecurityConfigurationS3EncryptionConfigurationEncryptionOption {
+		return v.EncryptionOption
+	}).(SecurityConfigurationS3EncryptionConfigurationEncryptionOptionPtrOutput)
+}
+
+// The KMS key ID for encryption.
+func (o SecurityConfigurationS3EncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationS3EncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationS3EncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationS3EncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationPtrOutput) ToSecurityConfigurationS3EncryptionConfigurationPtrOutput() SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationPtrOutput) ToSecurityConfigurationS3EncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionConfigurationPtrOutput) Elem() SecurityConfigurationS3EncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationS3EncryptionConfiguration) SecurityConfigurationS3EncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationS3EncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationS3EncryptionConfigurationOutput)
+}
+
+// The S3 encryption option.
+func (o SecurityConfigurationS3EncryptionConfigurationPtrOutput) EncryptionOption() SecurityConfigurationS3EncryptionConfigurationEncryptionOptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationS3EncryptionConfiguration) *SecurityConfigurationS3EncryptionConfigurationEncryptionOption {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionOption
+	}).(SecurityConfigurationS3EncryptionConfigurationEncryptionOptionPtrOutput)
+}
+
+// The KMS key ID for encryption.
+func (o SecurityConfigurationS3EncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationS3EncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secure namespace information for Lake Formation.
+type SecurityConfigurationSecureNamespaceInfo struct {
+	// The ID of the cluster.
+	ClusterId *string `pulumi:"clusterId"`
+	// The namespace.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// SecurityConfigurationSecureNamespaceInfoInput is an input type that accepts SecurityConfigurationSecureNamespaceInfoArgs and SecurityConfigurationSecureNamespaceInfoOutput values.
+// You can construct a concrete instance of `SecurityConfigurationSecureNamespaceInfoInput` via:
+//
+//	SecurityConfigurationSecureNamespaceInfoArgs{...}
+type SecurityConfigurationSecureNamespaceInfoInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationSecureNamespaceInfoOutput() SecurityConfigurationSecureNamespaceInfoOutput
+	ToSecurityConfigurationSecureNamespaceInfoOutputWithContext(context.Context) SecurityConfigurationSecureNamespaceInfoOutput
+}
+
+// Secure namespace information for Lake Formation.
+type SecurityConfigurationSecureNamespaceInfoArgs struct {
+	// The ID of the cluster.
+	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
+	// The namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (SecurityConfigurationSecureNamespaceInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationSecureNamespaceInfo)(nil)).Elem()
+}
+
+func (i SecurityConfigurationSecureNamespaceInfoArgs) ToSecurityConfigurationSecureNamespaceInfoOutput() SecurityConfigurationSecureNamespaceInfoOutput {
+	return i.ToSecurityConfigurationSecureNamespaceInfoOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationSecureNamespaceInfoArgs) ToSecurityConfigurationSecureNamespaceInfoOutputWithContext(ctx context.Context) SecurityConfigurationSecureNamespaceInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationSecureNamespaceInfoOutput)
+}
+
+func (i SecurityConfigurationSecureNamespaceInfoArgs) ToSecurityConfigurationSecureNamespaceInfoPtrOutput() SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return i.ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationSecureNamespaceInfoArgs) ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationSecureNamespaceInfoOutput).ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationSecureNamespaceInfoPtrInput is an input type that accepts SecurityConfigurationSecureNamespaceInfoArgs, SecurityConfigurationSecureNamespaceInfoPtr and SecurityConfigurationSecureNamespaceInfoPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationSecureNamespaceInfoPtrInput` via:
+//
+//	        SecurityConfigurationSecureNamespaceInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationSecureNamespaceInfoPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationSecureNamespaceInfoPtrOutput() SecurityConfigurationSecureNamespaceInfoPtrOutput
+	ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(context.Context) SecurityConfigurationSecureNamespaceInfoPtrOutput
+}
+
+type securityConfigurationSecureNamespaceInfoPtrType SecurityConfigurationSecureNamespaceInfoArgs
+
+func SecurityConfigurationSecureNamespaceInfoPtr(v *SecurityConfigurationSecureNamespaceInfoArgs) SecurityConfigurationSecureNamespaceInfoPtrInput {
+	return (*securityConfigurationSecureNamespaceInfoPtrType)(v)
+}
+
+func (*securityConfigurationSecureNamespaceInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationSecureNamespaceInfo)(nil)).Elem()
+}
+
+func (i *securityConfigurationSecureNamespaceInfoPtrType) ToSecurityConfigurationSecureNamespaceInfoPtrOutput() SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return i.ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationSecureNamespaceInfoPtrType) ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationSecureNamespaceInfoPtrOutput)
+}
+
+// Secure namespace information for Lake Formation.
+type SecurityConfigurationSecureNamespaceInfoOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationSecureNamespaceInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationSecureNamespaceInfo)(nil)).Elem()
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoOutput) ToSecurityConfigurationSecureNamespaceInfoOutput() SecurityConfigurationSecureNamespaceInfoOutput {
+	return o
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoOutput) ToSecurityConfigurationSecureNamespaceInfoOutputWithContext(ctx context.Context) SecurityConfigurationSecureNamespaceInfoOutput {
+	return o
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoOutput) ToSecurityConfigurationSecureNamespaceInfoPtrOutput() SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return o.ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoOutput) ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationSecureNamespaceInfo) *SecurityConfigurationSecureNamespaceInfo {
+		return &v
+	}).(SecurityConfigurationSecureNamespaceInfoPtrOutput)
+}
+
+// The ID of the cluster.
+func (o SecurityConfigurationSecureNamespaceInfoOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationSecureNamespaceInfo) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
+// The namespace.
+func (o SecurityConfigurationSecureNamespaceInfoOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationSecureNamespaceInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationSecureNamespaceInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationSecureNamespaceInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationSecureNamespaceInfo)(nil)).Elem()
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoPtrOutput) ToSecurityConfigurationSecureNamespaceInfoPtrOutput() SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoPtrOutput) ToSecurityConfigurationSecureNamespaceInfoPtrOutputWithContext(ctx context.Context) SecurityConfigurationSecureNamespaceInfoPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationSecureNamespaceInfoPtrOutput) Elem() SecurityConfigurationSecureNamespaceInfoOutput {
+	return o.ApplyT(func(v *SecurityConfigurationSecureNamespaceInfo) SecurityConfigurationSecureNamespaceInfo {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationSecureNamespaceInfo
+		return ret
+	}).(SecurityConfigurationSecureNamespaceInfoOutput)
+}
+
+// The ID of the cluster.
+func (o SecurityConfigurationSecureNamespaceInfoPtrOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationSecureNamespaceInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The namespace.
+func (o SecurityConfigurationSecureNamespaceInfoPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationSecureNamespaceInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this security configuration.
+type SecurityConfigurationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// TLS certificate configuration for in-transit encryption.
+type SecurityConfigurationTlsCertificateConfiguration struct {
+	// The certificate provider type.
+	CertificateProviderType *SecurityConfigurationTlsCertificateConfigurationCertificateProviderType `pulumi:"certificateProviderType"`
+	// The ARN of the secret containing the private key.
+	PrivateKeySecretArn *string `pulumi:"privateKeySecretArn"`
+	// The ARN of the secret containing the public key.
+	PublicKeySecretArn *string `pulumi:"publicKeySecretArn"`
+}
+
+// SecurityConfigurationTlsCertificateConfigurationInput is an input type that accepts SecurityConfigurationTlsCertificateConfigurationArgs and SecurityConfigurationTlsCertificateConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationTlsCertificateConfigurationInput` via:
+//
+//	SecurityConfigurationTlsCertificateConfigurationArgs{...}
+type SecurityConfigurationTlsCertificateConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationTlsCertificateConfigurationOutput() SecurityConfigurationTlsCertificateConfigurationOutput
+	ToSecurityConfigurationTlsCertificateConfigurationOutputWithContext(context.Context) SecurityConfigurationTlsCertificateConfigurationOutput
+}
+
+// TLS certificate configuration for in-transit encryption.
+type SecurityConfigurationTlsCertificateConfigurationArgs struct {
+	// The certificate provider type.
+	CertificateProviderType SecurityConfigurationTlsCertificateConfigurationCertificateProviderTypePtrInput `pulumi:"certificateProviderType"`
+	// The ARN of the secret containing the private key.
+	PrivateKeySecretArn pulumi.StringPtrInput `pulumi:"privateKeySecretArn"`
+	// The ARN of the secret containing the public key.
+	PublicKeySecretArn pulumi.StringPtrInput `pulumi:"publicKeySecretArn"`
+}
+
+func (SecurityConfigurationTlsCertificateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationTlsCertificateConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationTlsCertificateConfigurationArgs) ToSecurityConfigurationTlsCertificateConfigurationOutput() SecurityConfigurationTlsCertificateConfigurationOutput {
+	return i.ToSecurityConfigurationTlsCertificateConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationTlsCertificateConfigurationArgs) ToSecurityConfigurationTlsCertificateConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationTlsCertificateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationTlsCertificateConfigurationOutput)
+}
+
+func (i SecurityConfigurationTlsCertificateConfigurationArgs) ToSecurityConfigurationTlsCertificateConfigurationPtrOutput() SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return i.ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationTlsCertificateConfigurationArgs) ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationTlsCertificateConfigurationOutput).ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationTlsCertificateConfigurationPtrInput is an input type that accepts SecurityConfigurationTlsCertificateConfigurationArgs, SecurityConfigurationTlsCertificateConfigurationPtr and SecurityConfigurationTlsCertificateConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationTlsCertificateConfigurationPtrInput` via:
+//
+//	        SecurityConfigurationTlsCertificateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationTlsCertificateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationTlsCertificateConfigurationPtrOutput() SecurityConfigurationTlsCertificateConfigurationPtrOutput
+	ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationTlsCertificateConfigurationPtrOutput
+}
+
+type securityConfigurationTlsCertificateConfigurationPtrType SecurityConfigurationTlsCertificateConfigurationArgs
+
+func SecurityConfigurationTlsCertificateConfigurationPtr(v *SecurityConfigurationTlsCertificateConfigurationArgs) SecurityConfigurationTlsCertificateConfigurationPtrInput {
+	return (*securityConfigurationTlsCertificateConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationTlsCertificateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationTlsCertificateConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationTlsCertificateConfigurationPtrType) ToSecurityConfigurationTlsCertificateConfigurationPtrOutput() SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return i.ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationTlsCertificateConfigurationPtrType) ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationTlsCertificateConfigurationPtrOutput)
+}
+
+// TLS certificate configuration for in-transit encryption.
+type SecurityConfigurationTlsCertificateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationTlsCertificateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationTlsCertificateConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) ToSecurityConfigurationTlsCertificateConfigurationOutput() SecurityConfigurationTlsCertificateConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) ToSecurityConfigurationTlsCertificateConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationTlsCertificateConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) ToSecurityConfigurationTlsCertificateConfigurationPtrOutput() SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return o.ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationTlsCertificateConfiguration) *SecurityConfigurationTlsCertificateConfiguration {
+		return &v
+	}).(SecurityConfigurationTlsCertificateConfigurationPtrOutput)
+}
+
+// The certificate provider type.
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) CertificateProviderType() SecurityConfigurationTlsCertificateConfigurationCertificateProviderTypePtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationTlsCertificateConfiguration) *SecurityConfigurationTlsCertificateConfigurationCertificateProviderType {
+		return v.CertificateProviderType
+	}).(SecurityConfigurationTlsCertificateConfigurationCertificateProviderTypePtrOutput)
+}
+
+// The ARN of the secret containing the private key.
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) PrivateKeySecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationTlsCertificateConfiguration) *string { return v.PrivateKeySecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret containing the public key.
+func (o SecurityConfigurationTlsCertificateConfigurationOutput) PublicKeySecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationTlsCertificateConfiguration) *string { return v.PublicKeySecretArn }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationTlsCertificateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationTlsCertificateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationTlsCertificateConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationPtrOutput) ToSecurityConfigurationTlsCertificateConfigurationPtrOutput() SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationPtrOutput) ToSecurityConfigurationTlsCertificateConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationTlsCertificateConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationTlsCertificateConfigurationPtrOutput) Elem() SecurityConfigurationTlsCertificateConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationTlsCertificateConfiguration) SecurityConfigurationTlsCertificateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationTlsCertificateConfiguration
+		return ret
+	}).(SecurityConfigurationTlsCertificateConfigurationOutput)
+}
+
+// The certificate provider type.
+func (o SecurityConfigurationTlsCertificateConfigurationPtrOutput) CertificateProviderType() SecurityConfigurationTlsCertificateConfigurationCertificateProviderTypePtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationTlsCertificateConfiguration) *SecurityConfigurationTlsCertificateConfigurationCertificateProviderType {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateProviderType
+	}).(SecurityConfigurationTlsCertificateConfigurationCertificateProviderTypePtrOutput)
+}
+
+// The ARN of the secret containing the private key.
+func (o SecurityConfigurationTlsCertificateConfigurationPtrOutput) PrivateKeySecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationTlsCertificateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeySecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret containing the public key.
+func (o SecurityConfigurationTlsCertificateConfigurationPtrOutput) PublicKeySecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationTlsCertificateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicKeySecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualClusterContainerInfo struct {
 	// The information about the Amazon EKS cluster.
 	EksInfo VirtualClusterEksInfo `pulumi:"eksInfo"`
@@ -214,9 +3610,97 @@ type VirtualClusterTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCloudWatchMonitoringConfigurationInput)(nil)).Elem(), EndpointCloudWatchMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCloudWatchMonitoringConfigurationPtrInput)(nil)).Elem(), EndpointCloudWatchMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationOverridesInput)(nil)).Elem(), EndpointConfigurationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationOverridesPtrInput)(nil)).Elem(), EndpointConfigurationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointContainerLogRotationConfigurationInput)(nil)).Elem(), EndpointContainerLogRotationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointContainerLogRotationConfigurationPtrInput)(nil)).Elem(), EndpointContainerLogRotationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEmreksConfigurationInput)(nil)).Elem(), EndpointEmreksConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEmreksConfigurationArrayInput)(nil)).Elem(), EndpointEmreksConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitoringConfigurationInput)(nil)).Elem(), EndpointMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitoringConfigurationPtrInput)(nil)).Elem(), EndpointMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3MonitoringConfigurationInput)(nil)).Elem(), EndpointS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3MonitoringConfigurationPtrInput)(nil)).Elem(), EndpointS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAtRestEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationAtRestEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAtRestEncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationAtRestEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAuthenticationConfigurationInput)(nil)).Elem(), SecurityConfigurationAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAuthenticationConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAuthorizationConfigurationInput)(nil)).Elem(), SecurityConfigurationAuthorizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAuthorizationConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationAuthorizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationContainerInfoInput)(nil)).Elem(), SecurityConfigurationContainerInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationContainerInfoPtrInput)(nil)).Elem(), SecurityConfigurationContainerInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationContainerProviderInput)(nil)).Elem(), SecurityConfigurationContainerProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationContainerProviderPtrInput)(nil)).Elem(), SecurityConfigurationContainerProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationDataInput)(nil)).Elem(), SecurityConfigurationDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEksInfoInput)(nil)).Elem(), SecurityConfigurationEksInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEksInfoPtrInput)(nil)).Elem(), SecurityConfigurationEksInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationIamConfigurationInput)(nil)).Elem(), SecurityConfigurationIamConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationIamConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationIamConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationIdentityCenterConfigurationInput)(nil)).Elem(), SecurityConfigurationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationIdentityCenterConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationInTransitEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationInTransitEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationInTransitEncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationInTransitEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationLakeFormationConfigurationInput)(nil)).Elem(), SecurityConfigurationLakeFormationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationLakeFormationConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationLakeFormationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationLocalDiskEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationLocalDiskEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationLocalDiskEncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationLocalDiskEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationS3EncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationS3EncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationSecureNamespaceInfoInput)(nil)).Elem(), SecurityConfigurationSecureNamespaceInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationSecureNamespaceInfoPtrInput)(nil)).Elem(), SecurityConfigurationSecureNamespaceInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationTlsCertificateConfigurationInput)(nil)).Elem(), SecurityConfigurationTlsCertificateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationTlsCertificateConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationTlsCertificateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerInfoInput)(nil)).Elem(), VirtualClusterContainerInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderInput)(nil)).Elem(), VirtualClusterContainerProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterEksInfoInput)(nil)).Elem(), VirtualClusterEksInfoArgs{})
+	pulumi.RegisterOutputType(EndpointCertificateOutput{})
+	pulumi.RegisterOutputType(EndpointCertificatePtrOutput{})
+	pulumi.RegisterOutputType(EndpointCloudWatchMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointCloudWatchMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationOverridesOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationOverridesPtrOutput{})
+	pulumi.RegisterOutputType(EndpointContainerLogRotationConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointContainerLogRotationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointEmreksConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointEmreksConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(EndpointMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointS3MonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointS3MonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationAtRestEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationAtRestEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationAuthenticationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationAuthorizationConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationAuthorizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationContainerInfoOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationContainerInfoPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationContainerProviderOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationContainerProviderPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationDataOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEksInfoOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEksInfoPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationIamConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationIamConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationIdentityCenterConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationIdentityCenterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationInTransitEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationInTransitEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationLakeFormationConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationLakeFormationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationLocalDiskEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationLocalDiskEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationSecureNamespaceInfoOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationSecureNamespaceInfoPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationTlsCertificateConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationTlsCertificateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerInfoOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerProviderOutput{})
 	pulumi.RegisterOutputType(VirtualClusterEksInfoOutput{})

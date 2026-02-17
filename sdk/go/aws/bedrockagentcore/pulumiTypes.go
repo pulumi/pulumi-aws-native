@@ -2048,6 +2048,433 @@ func (o GatewayProtocolConfigurationPropertiesPtrOutput) Mcp() GatewayMcpGateway
 	}).(GatewayMcpGatewayConfigurationPtrOutput)
 }
 
+type GatewayTargetApiGatewayTargetConfiguration struct {
+	ApiGatewayToolConfiguration GatewayTargetApiGatewayToolConfiguration `pulumi:"apiGatewayToolConfiguration"`
+	RestApiId                   string                                   `pulumi:"restApiId"`
+	Stage                       string                                   `pulumi:"stage"`
+}
+
+// GatewayTargetApiGatewayTargetConfigurationInput is an input type that accepts GatewayTargetApiGatewayTargetConfigurationArgs and GatewayTargetApiGatewayTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetApiGatewayTargetConfigurationInput` via:
+//
+//	GatewayTargetApiGatewayTargetConfigurationArgs{...}
+type GatewayTargetApiGatewayTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiGatewayTargetConfigurationOutput() GatewayTargetApiGatewayTargetConfigurationOutput
+	ToGatewayTargetApiGatewayTargetConfigurationOutputWithContext(context.Context) GatewayTargetApiGatewayTargetConfigurationOutput
+}
+
+type GatewayTargetApiGatewayTargetConfigurationArgs struct {
+	ApiGatewayToolConfiguration GatewayTargetApiGatewayToolConfigurationInput `pulumi:"apiGatewayToolConfiguration"`
+	RestApiId                   pulumi.StringInput                            `pulumi:"restApiId"`
+	Stage                       pulumi.StringInput                            `pulumi:"stage"`
+}
+
+func (GatewayTargetApiGatewayTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetApiGatewayTargetConfigurationArgs) ToGatewayTargetApiGatewayTargetConfigurationOutput() GatewayTargetApiGatewayTargetConfigurationOutput {
+	return i.ToGatewayTargetApiGatewayTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiGatewayTargetConfigurationArgs) ToGatewayTargetApiGatewayTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetApiGatewayTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiGatewayTargetConfigurationOutput)
+}
+
+type GatewayTargetApiGatewayTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationOutput) ToGatewayTargetApiGatewayTargetConfigurationOutput() GatewayTargetApiGatewayTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationOutput) ToGatewayTargetApiGatewayTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetApiGatewayTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationOutput) ApiGatewayToolConfiguration() GatewayTargetApiGatewayToolConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayTargetConfiguration) GatewayTargetApiGatewayToolConfiguration {
+		return v.ApiGatewayToolConfiguration
+	}).(GatewayTargetApiGatewayToolConfigurationOutput)
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayTargetConfiguration) string { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayTargetConfiguration) string { return v.Stage }).(pulumi.StringOutput)
+}
+
+type GatewayTargetApiGatewayTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetApiGatewayTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationPtrOutput) ToGatewayTargetApiGatewayTargetConfigurationPtrOutput() GatewayTargetApiGatewayTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationPtrOutput) ToGatewayTargetApiGatewayTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetApiGatewayTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationPtrOutput) Elem() GatewayTargetApiGatewayTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayTargetConfiguration) GatewayTargetApiGatewayTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetApiGatewayTargetConfiguration
+		return ret
+	}).(GatewayTargetApiGatewayTargetConfigurationOutput)
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationPtrOutput) ApiGatewayToolConfiguration() GatewayTargetApiGatewayToolConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayTargetConfiguration) *GatewayTargetApiGatewayToolConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiGatewayToolConfiguration
+	}).(GatewayTargetApiGatewayToolConfigurationPtrOutput)
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationPtrOutput) RestApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RestApiId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetApiGatewayTargetConfigurationPtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetApiGatewayToolConfiguration struct {
+	ToolFilters   []GatewayTargetApiGatewayToolFilter   `pulumi:"toolFilters"`
+	ToolOverrides []GatewayTargetApiGatewayToolOverride `pulumi:"toolOverrides"`
+}
+
+// GatewayTargetApiGatewayToolConfigurationInput is an input type that accepts GatewayTargetApiGatewayToolConfigurationArgs and GatewayTargetApiGatewayToolConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetApiGatewayToolConfigurationInput` via:
+//
+//	GatewayTargetApiGatewayToolConfigurationArgs{...}
+type GatewayTargetApiGatewayToolConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiGatewayToolConfigurationOutput() GatewayTargetApiGatewayToolConfigurationOutput
+	ToGatewayTargetApiGatewayToolConfigurationOutputWithContext(context.Context) GatewayTargetApiGatewayToolConfigurationOutput
+}
+
+type GatewayTargetApiGatewayToolConfigurationArgs struct {
+	ToolFilters   GatewayTargetApiGatewayToolFilterArrayInput   `pulumi:"toolFilters"`
+	ToolOverrides GatewayTargetApiGatewayToolOverrideArrayInput `pulumi:"toolOverrides"`
+}
+
+func (GatewayTargetApiGatewayToolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetApiGatewayToolConfigurationArgs) ToGatewayTargetApiGatewayToolConfigurationOutput() GatewayTargetApiGatewayToolConfigurationOutput {
+	return i.ToGatewayTargetApiGatewayToolConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiGatewayToolConfigurationArgs) ToGatewayTargetApiGatewayToolConfigurationOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiGatewayToolConfigurationOutput)
+}
+
+type GatewayTargetApiGatewayToolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayToolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationOutput) ToGatewayTargetApiGatewayToolConfigurationOutput() GatewayTargetApiGatewayToolConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationOutput) ToGatewayTargetApiGatewayToolConfigurationOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationOutput) ToolFilters() GatewayTargetApiGatewayToolFilterArrayOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolConfiguration) []GatewayTargetApiGatewayToolFilter {
+		return v.ToolFilters
+	}).(GatewayTargetApiGatewayToolFilterArrayOutput)
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationOutput) ToolOverrides() GatewayTargetApiGatewayToolOverrideArrayOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolConfiguration) []GatewayTargetApiGatewayToolOverride {
+		return v.ToolOverrides
+	}).(GatewayTargetApiGatewayToolOverrideArrayOutput)
+}
+
+type GatewayTargetApiGatewayToolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayToolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationPtrOutput) ToGatewayTargetApiGatewayToolConfigurationPtrOutput() GatewayTargetApiGatewayToolConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationPtrOutput) ToGatewayTargetApiGatewayToolConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationPtrOutput) Elem() GatewayTargetApiGatewayToolConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayToolConfiguration) GatewayTargetApiGatewayToolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetApiGatewayToolConfiguration
+		return ret
+	}).(GatewayTargetApiGatewayToolConfigurationOutput)
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationPtrOutput) ToolFilters() GatewayTargetApiGatewayToolFilterArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayToolConfiguration) []GatewayTargetApiGatewayToolFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ToolFilters
+	}).(GatewayTargetApiGatewayToolFilterArrayOutput)
+}
+
+func (o GatewayTargetApiGatewayToolConfigurationPtrOutput) ToolOverrides() GatewayTargetApiGatewayToolOverrideArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetApiGatewayToolConfiguration) []GatewayTargetApiGatewayToolOverride {
+		if v == nil {
+			return nil
+		}
+		return v.ToolOverrides
+	}).(GatewayTargetApiGatewayToolOverrideArrayOutput)
+}
+
+type GatewayTargetApiGatewayToolFilter struct {
+	FilterPath string                       `pulumi:"filterPath"`
+	Methods    []GatewayTargetRestApiMethod `pulumi:"methods"`
+}
+
+// GatewayTargetApiGatewayToolFilterInput is an input type that accepts GatewayTargetApiGatewayToolFilterArgs and GatewayTargetApiGatewayToolFilterOutput values.
+// You can construct a concrete instance of `GatewayTargetApiGatewayToolFilterInput` via:
+//
+//	GatewayTargetApiGatewayToolFilterArgs{...}
+type GatewayTargetApiGatewayToolFilterInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiGatewayToolFilterOutput() GatewayTargetApiGatewayToolFilterOutput
+	ToGatewayTargetApiGatewayToolFilterOutputWithContext(context.Context) GatewayTargetApiGatewayToolFilterOutput
+}
+
+type GatewayTargetApiGatewayToolFilterArgs struct {
+	FilterPath pulumi.StringInput                   `pulumi:"filterPath"`
+	Methods    GatewayTargetRestApiMethodArrayInput `pulumi:"methods"`
+}
+
+func (GatewayTargetApiGatewayToolFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayToolFilter)(nil)).Elem()
+}
+
+func (i GatewayTargetApiGatewayToolFilterArgs) ToGatewayTargetApiGatewayToolFilterOutput() GatewayTargetApiGatewayToolFilterOutput {
+	return i.ToGatewayTargetApiGatewayToolFilterOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiGatewayToolFilterArgs) ToGatewayTargetApiGatewayToolFilterOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiGatewayToolFilterOutput)
+}
+
+// GatewayTargetApiGatewayToolFilterArrayInput is an input type that accepts GatewayTargetApiGatewayToolFilterArray and GatewayTargetApiGatewayToolFilterArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetApiGatewayToolFilterArrayInput` via:
+//
+//	GatewayTargetApiGatewayToolFilterArray{ GatewayTargetApiGatewayToolFilterArgs{...} }
+type GatewayTargetApiGatewayToolFilterArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiGatewayToolFilterArrayOutput() GatewayTargetApiGatewayToolFilterArrayOutput
+	ToGatewayTargetApiGatewayToolFilterArrayOutputWithContext(context.Context) GatewayTargetApiGatewayToolFilterArrayOutput
+}
+
+type GatewayTargetApiGatewayToolFilterArray []GatewayTargetApiGatewayToolFilterInput
+
+func (GatewayTargetApiGatewayToolFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetApiGatewayToolFilter)(nil)).Elem()
+}
+
+func (i GatewayTargetApiGatewayToolFilterArray) ToGatewayTargetApiGatewayToolFilterArrayOutput() GatewayTargetApiGatewayToolFilterArrayOutput {
+	return i.ToGatewayTargetApiGatewayToolFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiGatewayToolFilterArray) ToGatewayTargetApiGatewayToolFilterArrayOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiGatewayToolFilterArrayOutput)
+}
+
+type GatewayTargetApiGatewayToolFilterOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayToolFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayToolFilter)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayToolFilterOutput) ToGatewayTargetApiGatewayToolFilterOutput() GatewayTargetApiGatewayToolFilterOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolFilterOutput) ToGatewayTargetApiGatewayToolFilterOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolFilterOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolFilterOutput) FilterPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolFilter) string { return v.FilterPath }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetApiGatewayToolFilterOutput) Methods() GatewayTargetRestApiMethodArrayOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolFilter) []GatewayTargetRestApiMethod { return v.Methods }).(GatewayTargetRestApiMethodArrayOutput)
+}
+
+type GatewayTargetApiGatewayToolFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayToolFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetApiGatewayToolFilter)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayToolFilterArrayOutput) ToGatewayTargetApiGatewayToolFilterArrayOutput() GatewayTargetApiGatewayToolFilterArrayOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolFilterArrayOutput) ToGatewayTargetApiGatewayToolFilterArrayOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolFilterArrayOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolFilterArrayOutput) Index(i pulumi.IntInput) GatewayTargetApiGatewayToolFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetApiGatewayToolFilter {
+		return vs[0].([]GatewayTargetApiGatewayToolFilter)[vs[1].(int)]
+	}).(GatewayTargetApiGatewayToolFilterOutput)
+}
+
+type GatewayTargetApiGatewayToolOverride struct {
+	Description *string                    `pulumi:"description"`
+	Method      GatewayTargetRestApiMethod `pulumi:"method"`
+	Name        string                     `pulumi:"name"`
+	Path        string                     `pulumi:"path"`
+}
+
+// GatewayTargetApiGatewayToolOverrideInput is an input type that accepts GatewayTargetApiGatewayToolOverrideArgs and GatewayTargetApiGatewayToolOverrideOutput values.
+// You can construct a concrete instance of `GatewayTargetApiGatewayToolOverrideInput` via:
+//
+//	GatewayTargetApiGatewayToolOverrideArgs{...}
+type GatewayTargetApiGatewayToolOverrideInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiGatewayToolOverrideOutput() GatewayTargetApiGatewayToolOverrideOutput
+	ToGatewayTargetApiGatewayToolOverrideOutputWithContext(context.Context) GatewayTargetApiGatewayToolOverrideOutput
+}
+
+type GatewayTargetApiGatewayToolOverrideArgs struct {
+	Description pulumi.StringPtrInput           `pulumi:"description"`
+	Method      GatewayTargetRestApiMethodInput `pulumi:"method"`
+	Name        pulumi.StringInput              `pulumi:"name"`
+	Path        pulumi.StringInput              `pulumi:"path"`
+}
+
+func (GatewayTargetApiGatewayToolOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayToolOverride)(nil)).Elem()
+}
+
+func (i GatewayTargetApiGatewayToolOverrideArgs) ToGatewayTargetApiGatewayToolOverrideOutput() GatewayTargetApiGatewayToolOverrideOutput {
+	return i.ToGatewayTargetApiGatewayToolOverrideOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiGatewayToolOverrideArgs) ToGatewayTargetApiGatewayToolOverrideOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiGatewayToolOverrideOutput)
+}
+
+// GatewayTargetApiGatewayToolOverrideArrayInput is an input type that accepts GatewayTargetApiGatewayToolOverrideArray and GatewayTargetApiGatewayToolOverrideArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetApiGatewayToolOverrideArrayInput` via:
+//
+//	GatewayTargetApiGatewayToolOverrideArray{ GatewayTargetApiGatewayToolOverrideArgs{...} }
+type GatewayTargetApiGatewayToolOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiGatewayToolOverrideArrayOutput() GatewayTargetApiGatewayToolOverrideArrayOutput
+	ToGatewayTargetApiGatewayToolOverrideArrayOutputWithContext(context.Context) GatewayTargetApiGatewayToolOverrideArrayOutput
+}
+
+type GatewayTargetApiGatewayToolOverrideArray []GatewayTargetApiGatewayToolOverrideInput
+
+func (GatewayTargetApiGatewayToolOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetApiGatewayToolOverride)(nil)).Elem()
+}
+
+func (i GatewayTargetApiGatewayToolOverrideArray) ToGatewayTargetApiGatewayToolOverrideArrayOutput() GatewayTargetApiGatewayToolOverrideArrayOutput {
+	return i.ToGatewayTargetApiGatewayToolOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiGatewayToolOverrideArray) ToGatewayTargetApiGatewayToolOverrideArrayOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiGatewayToolOverrideArrayOutput)
+}
+
+type GatewayTargetApiGatewayToolOverrideOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayToolOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetApiGatewayToolOverride)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayToolOverrideOutput) ToGatewayTargetApiGatewayToolOverrideOutput() GatewayTargetApiGatewayToolOverrideOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolOverrideOutput) ToGatewayTargetApiGatewayToolOverrideOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolOverrideOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetApiGatewayToolOverrideOutput) Method() GatewayTargetRestApiMethodOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolOverride) GatewayTargetRestApiMethod { return v.Method }).(GatewayTargetRestApiMethodOutput)
+}
+
+func (o GatewayTargetApiGatewayToolOverrideOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolOverride) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetApiGatewayToolOverrideOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetApiGatewayToolOverride) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GatewayTargetApiGatewayToolOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetApiGatewayToolOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetApiGatewayToolOverride)(nil)).Elem()
+}
+
+func (o GatewayTargetApiGatewayToolOverrideArrayOutput) ToGatewayTargetApiGatewayToolOverrideArrayOutput() GatewayTargetApiGatewayToolOverrideArrayOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolOverrideArrayOutput) ToGatewayTargetApiGatewayToolOverrideArrayOutputWithContext(ctx context.Context) GatewayTargetApiGatewayToolOverrideArrayOutput {
+	return o
+}
+
+func (o GatewayTargetApiGatewayToolOverrideArrayOutput) Index(i pulumi.IntInput) GatewayTargetApiGatewayToolOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetApiGatewayToolOverride {
+		return vs[0].([]GatewayTargetApiGatewayToolOverride)[vs[1].(int)]
+	}).(GatewayTargetApiGatewayToolOverrideOutput)
+}
+
 type GatewayTargetApiKeyCredentialProvider struct {
 	CredentialLocation      *GatewayTargetApiKeyCredentialLocation `pulumi:"credentialLocation"`
 	CredentialParameterName *string                                `pulumi:"credentialParameterName"`
@@ -3279,6 +3706,90 @@ func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) McpServer() Gat
 		}
 		return &v.McpServer
 	}).(GatewayTargetMcpServerTargetConfigurationPtrOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration4Properties struct {
+	ApiGateway GatewayTargetApiGatewayTargetConfiguration `pulumi:"apiGateway"`
+}
+
+// GatewayTargetMcpTargetConfiguration4PropertiesInput is an input type that accepts GatewayTargetMcpTargetConfiguration4PropertiesArgs and GatewayTargetMcpTargetConfiguration4PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpTargetConfiguration4PropertiesInput` via:
+//
+//	GatewayTargetMcpTargetConfiguration4PropertiesArgs{...}
+type GatewayTargetMcpTargetConfiguration4PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpTargetConfiguration4PropertiesOutput() GatewayTargetMcpTargetConfiguration4PropertiesOutput
+	ToGatewayTargetMcpTargetConfiguration4PropertiesOutputWithContext(context.Context) GatewayTargetMcpTargetConfiguration4PropertiesOutput
+}
+
+type GatewayTargetMcpTargetConfiguration4PropertiesArgs struct {
+	ApiGateway GatewayTargetApiGatewayTargetConfigurationInput `pulumi:"apiGateway"`
+}
+
+func (GatewayTargetMcpTargetConfiguration4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpTargetConfiguration4Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetMcpTargetConfiguration4PropertiesArgs) ToGatewayTargetMcpTargetConfiguration4PropertiesOutput() GatewayTargetMcpTargetConfiguration4PropertiesOutput {
+	return i.ToGatewayTargetMcpTargetConfiguration4PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpTargetConfiguration4PropertiesArgs) ToGatewayTargetMcpTargetConfiguration4PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpTargetConfiguration4PropertiesOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpTargetConfiguration4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpTargetConfiguration4Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesOutput) ToGatewayTargetMcpTargetConfiguration4PropertiesOutput() GatewayTargetMcpTargetConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesOutput) ToGatewayTargetMcpTargetConfiguration4PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesOutput) ApiGateway() GatewayTargetApiGatewayTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetMcpTargetConfiguration4Properties) GatewayTargetApiGatewayTargetConfiguration {
+		return v.ApiGateway
+	}).(GatewayTargetApiGatewayTargetConfigurationOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpTargetConfiguration4Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) ToGatewayTargetMcpTargetConfiguration4PropertiesPtrOutput() GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) ToGatewayTargetMcpTargetConfiguration4PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) Elem() GatewayTargetMcpTargetConfiguration4PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpTargetConfiguration4Properties) GatewayTargetMcpTargetConfiguration4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMcpTargetConfiguration4Properties
+		return ret
+	}).(GatewayTargetMcpTargetConfiguration4PropertiesOutput)
+}
+
+func (o GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) ApiGateway() GatewayTargetApiGatewayTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpTargetConfiguration4Properties) *GatewayTargetApiGatewayTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiGateway
+	}).(GatewayTargetApiGatewayTargetConfigurationPtrOutput)
 }
 
 type GatewayTargetMetadataConfiguration struct {
@@ -9082,6 +9593,122 @@ func (o RuntimeAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() RuntimeCu
 	}).(RuntimeCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+// The value or values in the custom claim to match and relationship of match
+type RuntimeAuthorizingClaimMatchValueType struct {
+	ClaimMatchOperator RuntimeClaimMatchOperator  `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    RuntimeClaimMatchValueType `pulumi:"claimMatchValue"`
+}
+
+// RuntimeAuthorizingClaimMatchValueTypeInput is an input type that accepts RuntimeAuthorizingClaimMatchValueTypeArgs and RuntimeAuthorizingClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `RuntimeAuthorizingClaimMatchValueTypeInput` via:
+//
+//	RuntimeAuthorizingClaimMatchValueTypeArgs{...}
+type RuntimeAuthorizingClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeAuthorizingClaimMatchValueTypeOutput() RuntimeAuthorizingClaimMatchValueTypeOutput
+	ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(context.Context) RuntimeAuthorizingClaimMatchValueTypeOutput
+}
+
+// The value or values in the custom claim to match and relationship of match
+type RuntimeAuthorizingClaimMatchValueTypeArgs struct {
+	ClaimMatchOperator RuntimeClaimMatchOperatorInput  `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    RuntimeClaimMatchValueTypeInput `pulumi:"claimMatchValue"`
+}
+
+func (RuntimeAuthorizingClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (i RuntimeAuthorizingClaimMatchValueTypeArgs) ToRuntimeAuthorizingClaimMatchValueTypeOutput() RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return i.ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i RuntimeAuthorizingClaimMatchValueTypeArgs) ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAuthorizingClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match and relationship of match
+type RuntimeAuthorizingClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAuthorizingClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ToRuntimeAuthorizingClaimMatchValueTypeOutput() RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ToRuntimeAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() RuntimeClaimMatchOperatorOutput {
+	return o.ApplyT(func(v RuntimeAuthorizingClaimMatchValueType) RuntimeClaimMatchOperator { return v.ClaimMatchOperator }).(RuntimeClaimMatchOperatorOutput)
+}
+
+func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() RuntimeClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v RuntimeAuthorizingClaimMatchValueType) RuntimeClaimMatchValueType { return v.ClaimMatchValue }).(RuntimeClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match for
+type RuntimeClaimMatchValueType struct {
+	MatchValueString     *string  `pulumi:"matchValueString"`
+	MatchValueStringList []string `pulumi:"matchValueStringList"`
+}
+
+// RuntimeClaimMatchValueTypeInput is an input type that accepts RuntimeClaimMatchValueTypeArgs and RuntimeClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `RuntimeClaimMatchValueTypeInput` via:
+//
+//	RuntimeClaimMatchValueTypeArgs{...}
+type RuntimeClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeClaimMatchValueTypeOutput() RuntimeClaimMatchValueTypeOutput
+	ToRuntimeClaimMatchValueTypeOutputWithContext(context.Context) RuntimeClaimMatchValueTypeOutput
+}
+
+// The value or values in the custom claim to match for
+type RuntimeClaimMatchValueTypeArgs struct {
+	MatchValueString     pulumi.StringPtrInput   `pulumi:"matchValueString"`
+	MatchValueStringList pulumi.StringArrayInput `pulumi:"matchValueStringList"`
+}
+
+func (RuntimeClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeClaimMatchValueType)(nil)).Elem()
+}
+
+func (i RuntimeClaimMatchValueTypeArgs) ToRuntimeClaimMatchValueTypeOutput() RuntimeClaimMatchValueTypeOutput {
+	return i.ToRuntimeClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i RuntimeClaimMatchValueTypeArgs) ToRuntimeClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match for
+type RuntimeClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeClaimMatchValueType)(nil)).Elem()
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) ToRuntimeClaimMatchValueTypeOutput() RuntimeClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) ToRuntimeClaimMatchValueTypeOutputWithContext(ctx context.Context) RuntimeClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeClaimMatchValueType) *string { return v.MatchValueString }).(pulumi.StringPtrOutput)
+}
+
+func (o RuntimeClaimMatchValueTypeOutput) MatchValueStringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeClaimMatchValueType) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
+}
+
 // Object represents source code from zip file
 type RuntimeCode struct {
 	S3 *RuntimeS3Location `pulumi:"s3"`
@@ -9521,12 +10148,127 @@ func (o RuntimeContainerConfigurationPtrOutput) ContainerUri() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Required custom claim
+type RuntimeCustomClaimValidationType struct {
+	AuthorizingClaimMatchValue RuntimeAuthorizingClaimMatchValueType `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      string                                `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType RuntimeInboundTokenClaimValueType     `pulumi:"inboundTokenClaimValueType"`
+}
+
+// RuntimeCustomClaimValidationTypeInput is an input type that accepts RuntimeCustomClaimValidationTypeArgs and RuntimeCustomClaimValidationTypeOutput values.
+// You can construct a concrete instance of `RuntimeCustomClaimValidationTypeInput` via:
+//
+//	RuntimeCustomClaimValidationTypeArgs{...}
+type RuntimeCustomClaimValidationTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeCustomClaimValidationTypeOutput() RuntimeCustomClaimValidationTypeOutput
+	ToRuntimeCustomClaimValidationTypeOutputWithContext(context.Context) RuntimeCustomClaimValidationTypeOutput
+}
+
+// Required custom claim
+type RuntimeCustomClaimValidationTypeArgs struct {
+	AuthorizingClaimMatchValue RuntimeAuthorizingClaimMatchValueTypeInput `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      pulumi.StringInput                         `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType RuntimeInboundTokenClaimValueTypeInput     `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (RuntimeCustomClaimValidationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i RuntimeCustomClaimValidationTypeArgs) ToRuntimeCustomClaimValidationTypeOutput() RuntimeCustomClaimValidationTypeOutput {
+	return i.ToRuntimeCustomClaimValidationTypeOutputWithContext(context.Background())
+}
+
+func (i RuntimeCustomClaimValidationTypeArgs) ToRuntimeCustomClaimValidationTypeOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCustomClaimValidationTypeOutput)
+}
+
+// RuntimeCustomClaimValidationTypeArrayInput is an input type that accepts RuntimeCustomClaimValidationTypeArray and RuntimeCustomClaimValidationTypeArrayOutput values.
+// You can construct a concrete instance of `RuntimeCustomClaimValidationTypeArrayInput` via:
+//
+//	RuntimeCustomClaimValidationTypeArray{ RuntimeCustomClaimValidationTypeArgs{...} }
+type RuntimeCustomClaimValidationTypeArrayInput interface {
+	pulumi.Input
+
+	ToRuntimeCustomClaimValidationTypeArrayOutput() RuntimeCustomClaimValidationTypeArrayOutput
+	ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(context.Context) RuntimeCustomClaimValidationTypeArrayOutput
+}
+
+type RuntimeCustomClaimValidationTypeArray []RuntimeCustomClaimValidationTypeInput
+
+func (RuntimeCustomClaimValidationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i RuntimeCustomClaimValidationTypeArray) ToRuntimeCustomClaimValidationTypeArrayOutput() RuntimeCustomClaimValidationTypeArrayOutput {
+	return i.ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i RuntimeCustomClaimValidationTypeArray) ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCustomClaimValidationTypeArrayOutput)
+}
+
+// Required custom claim
+type RuntimeCustomClaimValidationTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCustomClaimValidationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) ToRuntimeCustomClaimValidationTypeOutput() RuntimeCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) ToRuntimeCustomClaimValidationTypeOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) AuthorizingClaimMatchValue() RuntimeAuthorizingClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v RuntimeCustomClaimValidationType) RuntimeAuthorizingClaimMatchValueType {
+		return v.AuthorizingClaimMatchValue
+	}).(RuntimeAuthorizingClaimMatchValueTypeOutput)
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeCustomClaimValidationType) string { return v.InboundTokenClaimName }).(pulumi.StringOutput)
+}
+
+func (o RuntimeCustomClaimValidationTypeOutput) InboundTokenClaimValueType() RuntimeInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v RuntimeCustomClaimValidationType) RuntimeInboundTokenClaimValueType {
+		return v.InboundTokenClaimValueType
+	}).(RuntimeInboundTokenClaimValueTypeOutput)
+}
+
+type RuntimeCustomClaimValidationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCustomClaimValidationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o RuntimeCustomClaimValidationTypeArrayOutput) ToRuntimeCustomClaimValidationTypeArrayOutput() RuntimeCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeArrayOutput) ToRuntimeCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) RuntimeCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o RuntimeCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) RuntimeCustomClaimValidationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeCustomClaimValidationType {
+		return vs[0].([]RuntimeCustomClaimValidationType)[vs[1].(int)]
+	}).(RuntimeCustomClaimValidationTypeOutput)
+}
+
 // Configuration for custom JWT authorizer
 type RuntimeCustomJwtAuthorizerConfiguration struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience []string `pulumi:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
-	AllowedClients []string `pulumi:"allowedClients"`
+	AllowedClients []string                           `pulumi:"allowedClients"`
+	AllowedScopes  []string                           `pulumi:"allowedScopes"`
+	CustomClaims   []RuntimeCustomClaimValidationType `pulumi:"customClaims"`
 	// The configuration authorization.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
@@ -9547,7 +10289,9 @@ type RuntimeCustomJwtAuthorizerConfigurationArgs struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience pulumi.StringArrayInput `pulumi:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
-	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	AllowedClients pulumi.StringArrayInput                    `pulumi:"allowedClients"`
+	AllowedScopes  pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
+	CustomClaims   RuntimeCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
 	// The configuration authorization.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
@@ -9640,6 +10384,16 @@ func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedClients() pulumi.S
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) CustomClaims() RuntimeCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []RuntimeCustomClaimValidationType {
+		return v.CustomClaims
+	}).(RuntimeCustomClaimValidationTypeArrayOutput)
+}
+
 // The configuration authorization.
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
@@ -9687,6 +10441,24 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulum
 		}
 		return v.AllowedClients
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() RuntimeCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []RuntimeCustomClaimValidationType {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(RuntimeCustomClaimValidationTypeArrayOutput)
 }
 
 // The configuration authorization.
@@ -10521,6 +11293,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationPtrInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayTargetConfigurationInput)(nil)).Elem(), GatewayTargetApiGatewayTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolConfigurationInput)(nil)).Elem(), GatewayTargetApiGatewayToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolFilterInput)(nil)).Elem(), GatewayTargetApiGatewayToolFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolFilterArrayInput)(nil)).Elem(), GatewayTargetApiGatewayToolFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolOverrideInput)(nil)).Elem(), GatewayTargetApiGatewayToolOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolOverrideArrayInput)(nil)).Elem(), GatewayTargetApiGatewayToolOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiKeyCredentialProviderInput)(nil)).Elem(), GatewayTargetApiKeyCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiKeyCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetApiKeyCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration0PropertiesArgs{})
@@ -10537,6 +11315,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration2PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration4PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
@@ -10606,12 +11385,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), RuntimeAuthorizingClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchValueTypeInput)(nil)).Elem(), RuntimeClaimMatchValueTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeInput)(nil)).Elem(), RuntimeCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodePtrInput)(nil)).Elem(), RuntimeCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeConfigurationInput)(nil)).Elem(), RuntimeCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeConfigurationPtrInput)(nil)).Elem(), RuntimeCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeContainerConfigurationInput)(nil)).Elem(), RuntimeContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeContainerConfigurationPtrInput)(nil)).Elem(), RuntimeContainerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomClaimValidationTypeInput)(nil)).Elem(), RuntimeCustomClaimValidationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomClaimValidationTypeArrayInput)(nil)).Elem(), RuntimeCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
@@ -10652,6 +11435,14 @@ func init() {
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolFilterOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolFilterArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolOverrideOutput{})
+	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiKeyCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiKeyCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiSchemaConfiguration0PropertiesOutput{})
@@ -10676,6 +11467,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration4PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
@@ -10752,12 +11545,16 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAuthorizingClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeClaimMatchValueTypeOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeOutput{})
 	pulumi.RegisterOutputType(RuntimeCodePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeContainerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeCustomClaimValidationTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})

@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, automatic_restart_time=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_status=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, instance_create_time=None, iops=None, is_storage_config_upgrade_available=None, latest_restorable_time=None, license_model=None, listener_endpoint=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, percent_progress=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, read_replica_db_cluster_identifiers=None, read_replica_db_instance_identifiers=None, replica_mode=None, resume_full_automation_mode_time=None, secondary_availability_zone=None, source_db_cluster_identifier=None, status_infos=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, additional_storage_volumes=None, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, automatic_restart_time=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_status=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, instance_create_time=None, iops=None, is_storage_config_upgrade_available=None, latest_restorable_time=None, license_model=None, listener_endpoint=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, percent_progress=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, read_replica_db_cluster_identifiers=None, read_replica_db_instance_identifiers=None, replica_mode=None, resume_full_automation_mode_time=None, secondary_availability_zone=None, source_db_cluster_identifier=None, status_infos=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+        if additional_storage_volumes and not isinstance(additional_storage_volumes, list):
+            raise TypeError("Expected argument 'additional_storage_volumes' to be a list")
+        pulumi.set(__self__, "additional_storage_volumes", additional_storage_volumes)
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -234,6 +237,14 @@ class GetDbInstanceResult:
         if vpc_security_groups and not isinstance(vpc_security_groups, list):
             raise TypeError("Expected argument 'vpc_security_groups' to be a list")
         pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalStorageVolumes")
+    def additional_storage_volumes(self) -> Optional[Sequence['outputs.DbInstanceAdditionalStorageVolume']]:
+        """
+        The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
+        return pulumi.get(self, "additional_storage_volumes")
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
@@ -1063,6 +1074,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
         if False:
             yield self
         return GetDbInstanceResult(
+            additional_storage_volumes=self.additional_storage_volumes,
             allocated_storage=self.allocated_storage,
             associated_roles=self.associated_roles,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
@@ -1170,6 +1182,7 @@ def get_db_instance(db_instance_identifier: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbInstance', __args__, opts=opts, typ=GetDbInstanceResult).value
 
     return AwaitableGetDbInstanceResult(
+        additional_storage_volumes=pulumi.get(__ret__, 'additional_storage_volumes'),
         allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
         associated_roles=pulumi.get(__ret__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
@@ -1274,6 +1287,7 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[_builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbInstance', __args__, opts=opts, typ=GetDbInstanceResult)
     return __ret__.apply(lambda __response__: GetDbInstanceResult(
+        additional_storage_volumes=pulumi.get(__response__, 'additional_storage_volumes'),
         allocated_storage=pulumi.get(__response__, 'allocated_storage'),
         associated_roles=pulumi.get(__response__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),

@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
+        [Output("globalTableSourceArn")]
+        public Output<string?> GlobalTableSourceArn { get; private set; } = null!;
+
         /// <summary>
         /// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         /// </summary>
@@ -76,6 +79,12 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Output("multiRegionConsistency")]
         public Output<Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency?> MultiRegionConsistency { get; private set; } = null!;
+
+        [Output("readOnDemandThroughputSettings")]
+        public Output<Outputs.GlobalTableReadOnDemandThroughputSettings?> ReadOnDemandThroughputSettings { get; private set; } = null!;
+
+        [Output("readProvisionedThroughputSettings")]
+        public Output<Outputs.GlobalTableGlobalReadProvisionedThroughputSettings?> ReadProvisionedThroughputSettings { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
@@ -172,8 +181,6 @@ namespace Pulumi.AwsNative.DynamoDb
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "keySchema[*]",
-                    "localSecondaryIndexes[*]",
                     "tableName",
                 },
             };
@@ -198,7 +205,7 @@ namespace Pulumi.AwsNative.DynamoDb
 
     public sealed class GlobalTableArgs : global::Pulumi.ResourceArgs
     {
-        [Input("attributeDefinitions", required: true)]
+        [Input("attributeDefinitions")]
         private InputList<Inputs.GlobalTableAttributeDefinitionArgs>? _attributeDefinitions;
 
         /// <summary>
@@ -235,6 +242,9 @@ namespace Pulumi.AwsNative.DynamoDb
             set => _globalSecondaryIndexes = value;
         }
 
+        [Input("globalTableSourceArn")]
+        public Input<string>? GlobalTableSourceArn { get; set; }
+
         [Input("globalTableWitnesses")]
         private InputList<Inputs.GlobalTableWitnessArgs>? _globalTableWitnesses;
 
@@ -247,7 +257,7 @@ namespace Pulumi.AwsNative.DynamoDb
             set => _globalTableWitnesses = value;
         }
 
-        [Input("keySchema", required: true)]
+        [Input("keySchema")]
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
 
         /// <summary>
@@ -283,6 +293,12 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Input("multiRegionConsistency")]
         public Input<Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency>? MultiRegionConsistency { get; set; }
+
+        [Input("readOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
+
+        [Input("readProvisionedThroughputSettings")]
+        public Input<Inputs.GlobalTableGlobalReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }
 
         [Input("replicas", required: true)]
         private InputList<Inputs.GlobalTableReplicaSpecificationArgs>? _replicas;

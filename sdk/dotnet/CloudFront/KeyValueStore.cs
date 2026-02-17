@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a KeyValueStore resource with the given unique name, arguments, and options.
@@ -117,6 +120,14 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public KeyValueStoreArgs()
         {

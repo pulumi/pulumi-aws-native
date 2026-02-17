@@ -11,16 +11,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+    /// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
     /// </summary>
     public sealed class ClusterOrchestratorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-        /// </summary>
-        [Input("eks", required: true)]
-        public Input<Inputs.ClusterOrchestratorEksConfigArgs> Eks { get; set; } = null!;
-
         public ClusterOrchestratorArgs()
         {
         }

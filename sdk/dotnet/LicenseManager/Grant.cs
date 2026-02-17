@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.LicenseManager
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
+        /// A list of tags to attach.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The version of the grant.
         /// </summary>
         [Output("version")]
@@ -167,6 +173,18 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of tags to attach.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public GrantArgs()
         {

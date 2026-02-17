@@ -80,6 +80,8 @@ __all__ = [
     'BotCustomVocabularyItemArgsDict',
     'BotCustomVocabularyArgs',
     'BotCustomVocabularyArgsDict',
+    'BotDeepgramSpeechModelConfigArgs',
+    'BotDeepgramSpeechModelConfigArgsDict',
     'BotDefaultConditionalBranchArgs',
     'BotDefaultConditionalBranchArgsDict',
     'BotDialogActionArgs',
@@ -222,6 +224,10 @@ __all__ = [
     'BotSlotArgsDict',
     'BotSpecificationsArgs',
     'BotSpecificationsArgsDict',
+    'BotSpeechModelConfigArgs',
+    'BotSpeechModelConfigArgsDict',
+    'BotSpeechRecognitionSettingsArgs',
+    'BotSpeechRecognitionSettingsArgsDict',
     'BotSsmlMessageArgs',
     'BotSsmlMessageArgsDict',
     'BotStillWaitingResponseSpecificationArgs',
@@ -266,16 +272,11 @@ __all__ = [
     'SentimentAnalysisSettingsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BotAdvancedRecognitionSettingArgsDict(TypedDict):
-        audio_recognition_strategy: NotRequired[pulumi.Input['BotAudioRecognitionStrategy']]
-        """
-        Enables using the slot values as a custom vocabulary for recognizing user utterances.
-        """
-elif False:
-    BotAdvancedRecognitionSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotAdvancedRecognitionSettingArgsDict(TypedDict):
+    audio_recognition_strategy: NotRequired[pulumi.Input['BotAudioRecognitionStrategy']]
+    """
+    Enables using the slot values as a custom vocabulary for recognizing user utterances.
+    """
 
 @pulumi.input_type
 class BotAdvancedRecognitionSettingArgs:
@@ -300,14 +301,11 @@ class BotAdvancedRecognitionSettingArgs:
         pulumi.set(self, "audio_recognition_strategy", value)
 
 
-if not MYPY:
-    class BotAliasAudioLogDestinationArgsDict(TypedDict):
-        """
-        The location of audio log files collected when conversation logging is enabled for a bot.
-        """
-        s3_bucket: pulumi.Input['BotAliasS3BucketLogDestinationArgsDict']
-elif False:
-    BotAliasAudioLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasAudioLogDestinationArgsDict(TypedDict):
+    """
+    The location of audio log files collected when conversation logging is enabled for a bot.
+    """
+    s3_bucket: pulumi.Input['BotAliasS3BucketLogDestinationArgsDict']
 
 @pulumi.input_type
 class BotAliasAudioLogDestinationArgs:
@@ -328,15 +326,12 @@ class BotAliasAudioLogDestinationArgs:
         pulumi.set(self, "s3_bucket", value)
 
 
-if not MYPY:
-    class BotAliasAudioLogSettingArgsDict(TypedDict):
-        """
-        Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
-        """
-        destination: pulumi.Input['BotAliasAudioLogDestinationArgsDict']
-        enabled: pulumi.Input[_builtins.bool]
-elif False:
-    BotAliasAudioLogSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasAudioLogSettingArgsDict(TypedDict):
+    """
+    Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
+    """
+    destination: pulumi.Input['BotAliasAudioLogDestinationArgsDict']
+    enabled: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class BotAliasAudioLogSettingArgs:
@@ -368,18 +363,15 @@ class BotAliasAudioLogSettingArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BotAliasCloudWatchLogGroupLogDestinationArgsDict(TypedDict):
-        cloud_watch_log_group_arn: pulumi.Input[_builtins.str]
-        """
-        A string used to identify the groupArn for the Cloudwatch Log Group
-        """
-        log_prefix: pulumi.Input[_builtins.str]
-        """
-        A string containing the value for the Log Prefix
-        """
-elif False:
-    BotAliasCloudWatchLogGroupLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasCloudWatchLogGroupLogDestinationArgsDict(TypedDict):
+    cloud_watch_log_group_arn: pulumi.Input[_builtins.str]
+    """
+    A string used to identify the groupArn for the Cloudwatch Log Group
+    """
+    log_prefix: pulumi.Input[_builtins.str]
+    """
+    A string containing the value for the Log Prefix
+    """
 
 @pulumi.input_type
 class BotAliasCloudWatchLogGroupLogDestinationArgs:
@@ -418,14 +410,11 @@ class BotAliasCloudWatchLogGroupLogDestinationArgs:
         pulumi.set(self, "log_prefix", value)
 
 
-if not MYPY:
-    class BotAliasCodeHookSpecificationArgsDict(TypedDict):
-        """
-        Contains information about code hooks that Amazon Lex calls during a conversation.
-        """
-        lambda_code_hook: pulumi.Input['BotAliasLambdaCodeHookArgsDict']
-elif False:
-    BotAliasCodeHookSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasCodeHookSpecificationArgsDict(TypedDict):
+    """
+    Contains information about code hooks that Amazon Lex calls during a conversation.
+    """
+    lambda_code_hook: pulumi.Input['BotAliasLambdaCodeHookArgsDict']
 
 @pulumi.input_type
 class BotAliasCodeHookSpecificationArgs:
@@ -446,21 +435,18 @@ class BotAliasCodeHookSpecificationArgs:
         pulumi.set(self, "lambda_code_hook", value)
 
 
-if not MYPY:
-    class BotAliasConversationLogSettingsArgsDict(TypedDict):
-        """
-        Contains information about code hooks that Amazon Lex calls during a conversation.
-        """
-        audio_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAliasAudioLogSettingArgsDict']]]]
-        """
-        The Amazon S3 settings for logging audio to an S3 bucket.
-        """
-        text_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgsDict']]]]
-        """
-        The Amazon CloudWatch Logs settings for logging text and metadata.
-        """
-elif False:
-    BotAliasConversationLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasConversationLogSettingsArgsDict(TypedDict):
+    """
+    Contains information about code hooks that Amazon Lex calls during a conversation.
+    """
+    audio_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAliasAudioLogSettingArgsDict']]]]
+    """
+    The Amazon S3 settings for logging audio to an S3 bucket.
+    """
+    text_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgsDict']]]]
+    """
+    The Amazon CloudWatch Logs settings for logging text and metadata.
+    """
 
 @pulumi.input_type
 class BotAliasConversationLogSettingsArgs:
@@ -502,21 +488,18 @@ class BotAliasConversationLogSettingsArgs:
         pulumi.set(self, "text_log_settings", value)
 
 
-if not MYPY:
-    class BotAliasLambdaCodeHookArgsDict(TypedDict):
-        """
-        Contains information about code hooks that Amazon Lex calls during a conversation.
-        """
-        code_hook_interface_version: pulumi.Input[_builtins.str]
-        """
-        The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
-        """
-        lambda_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Lambda function.
-        """
-elif False:
-    BotAliasLambdaCodeHookArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasLambdaCodeHookArgsDict(TypedDict):
+    """
+    Contains information about code hooks that Amazon Lex calls during a conversation.
+    """
+    code_hook_interface_version: pulumi.Input[_builtins.str]
+    """
+    The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
+    """
+    lambda_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Lambda function.
+    """
 
 @pulumi.input_type
 class BotAliasLambdaCodeHookArgs:
@@ -556,18 +539,15 @@ class BotAliasLambdaCodeHookArgs:
         pulumi.set(self, "lambda_arn", value)
 
 
-if not MYPY:
-    class BotAliasLocaleSettingsItemArgsDict(TypedDict):
-        """
-        A locale setting in alias
-        """
-        bot_alias_locale_setting: pulumi.Input['BotAliasLocaleSettingsArgsDict']
-        locale_id: pulumi.Input[_builtins.str]
-        """
-        A string used to identify the locale
-        """
-elif False:
-    BotAliasLocaleSettingsItemArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasLocaleSettingsItemArgsDict(TypedDict):
+    """
+    A locale setting in alias
+    """
+    bot_alias_locale_setting: pulumi.Input['BotAliasLocaleSettingsArgsDict']
+    locale_id: pulumi.Input[_builtins.str]
+    """
+    A string used to identify the locale
+    """
 
 @pulumi.input_type
 class BotAliasLocaleSettingsItemArgs:
@@ -603,18 +583,15 @@ class BotAliasLocaleSettingsItemArgs:
         pulumi.set(self, "locale_id", value)
 
 
-if not MYPY:
-    class BotAliasLocaleSettingsArgsDict(TypedDict):
-        """
-        You can use this parameter to specify a specific Lambda function to run different functions in different locales.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether the Lambda code hook is enabled
-        """
-        code_hook_specification: NotRequired[pulumi.Input['BotAliasCodeHookSpecificationArgsDict']]
-elif False:
-    BotAliasLocaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasLocaleSettingsArgsDict(TypedDict):
+    """
+    You can use this parameter to specify a specific Lambda function to run different functions in different locales.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the Lambda code hook is enabled
+    """
+    code_hook_specification: NotRequired[pulumi.Input['BotAliasCodeHookSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotAliasLocaleSettingsArgs:
@@ -651,25 +628,22 @@ class BotAliasLocaleSettingsArgs:
         pulumi.set(self, "code_hook_specification", value)
 
 
-if not MYPY:
-    class BotAliasS3BucketLogDestinationArgsDict(TypedDict):
-        """
-        Specifies an Amazon S3 bucket for logging audio conversations
-        """
-        log_prefix: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 key of the deployment package.
-        """
-        s3_bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
-        """
-elif False:
-    BotAliasS3BucketLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasS3BucketLogDestinationArgsDict(TypedDict):
+    """
+    Specifies an Amazon S3 bucket for logging audio conversations
+    """
+    log_prefix: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 key of the deployment package.
+    """
+    s3_bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
+    """
 
 @pulumi.input_type
 class BotAliasS3BucketLogDestinationArgs:
@@ -725,14 +699,11 @@ class BotAliasS3BucketLogDestinationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class BotAliasTextLogDestinationArgsDict(TypedDict):
-        """
-        Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-        """
-        cloud_watch: pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgsDict']
-elif False:
-    BotAliasTextLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasTextLogDestinationArgsDict(TypedDict):
+    """
+    Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
+    """
+    cloud_watch: pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgsDict']
 
 @pulumi.input_type
 class BotAliasTextLogDestinationArgs:
@@ -753,15 +724,12 @@ class BotAliasTextLogDestinationArgs:
         pulumi.set(self, "cloud_watch", value)
 
 
-if not MYPY:
-    class BotAliasTextLogSettingArgsDict(TypedDict):
-        """
-        Contains information about code hooks that Amazon Lex calls during a conversation.
-        """
-        destination: pulumi.Input['BotAliasTextLogDestinationArgsDict']
-        enabled: pulumi.Input[_builtins.bool]
-elif False:
-    BotAliasTextLogSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotAliasTextLogSettingArgsDict(TypedDict):
+    """
+    Contains information about code hooks that Amazon Lex calls during a conversation.
+    """
+    destination: pulumi.Input['BotAliasTextLogDestinationArgsDict']
+    enabled: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class BotAliasTextLogSettingArgs:
@@ -793,12 +761,9 @@ class BotAliasTextLogSettingArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BotAllowedInputTypesArgsDict(TypedDict):
-        allow_audio_input: pulumi.Input[_builtins.bool]
-        allow_dtmf_input: pulumi.Input[_builtins.bool]
-elif False:
-    BotAllowedInputTypesArgsDict: TypeAlias = Mapping[str, Any]
+class BotAllowedInputTypesArgsDict(TypedDict):
+    allow_audio_input: pulumi.Input[_builtins.bool]
+    allow_dtmf_input: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class BotAllowedInputTypesArgs:
@@ -827,13 +792,10 @@ class BotAllowedInputTypesArgs:
         pulumi.set(self, "allow_dtmf_input", value)
 
 
-if not MYPY:
-    class BotAudioAndDtmfInputSpecificationArgsDict(TypedDict):
-        start_timeout_ms: pulumi.Input[_builtins.int]
-        audio_specification: NotRequired[pulumi.Input['BotAudioSpecificationArgsDict']]
-        dtmf_specification: NotRequired[pulumi.Input['BotDtmfSpecificationArgsDict']]
-elif False:
-    BotAudioAndDtmfInputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAudioAndDtmfInputSpecificationArgsDict(TypedDict):
+    start_timeout_ms: pulumi.Input[_builtins.int]
+    audio_specification: NotRequired[pulumi.Input['BotAudioSpecificationArgsDict']]
+    dtmf_specification: NotRequired[pulumi.Input['BotDtmfSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotAudioAndDtmfInputSpecificationArgs:
@@ -875,11 +837,8 @@ class BotAudioAndDtmfInputSpecificationArgs:
         pulumi.set(self, "dtmf_specification", value)
 
 
-if not MYPY:
-    class BotAudioLogDestinationArgsDict(TypedDict):
-        s3_bucket: pulumi.Input['BotS3BucketLogDestinationArgsDict']
-elif False:
-    BotAudioLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAudioLogDestinationArgsDict(TypedDict):
+    s3_bucket: pulumi.Input['BotS3BucketLogDestinationArgsDict']
 
 @pulumi.input_type
 class BotAudioLogDestinationArgs:
@@ -897,12 +856,9 @@ class BotAudioLogDestinationArgs:
         pulumi.set(self, "s3_bucket", value)
 
 
-if not MYPY:
-    class BotAudioLogSettingArgsDict(TypedDict):
-        destination: pulumi.Input['BotAudioLogDestinationArgsDict']
-        enabled: pulumi.Input[_builtins.bool]
-elif False:
-    BotAudioLogSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotAudioLogSettingArgsDict(TypedDict):
+    destination: pulumi.Input['BotAudioLogDestinationArgsDict']
+    enabled: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class BotAudioLogSettingArgs:
@@ -931,12 +887,9 @@ class BotAudioLogSettingArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BotAudioSpecificationArgsDict(TypedDict):
-        end_timeout_ms: pulumi.Input[_builtins.int]
-        max_length_ms: pulumi.Input[_builtins.int]
-elif False:
-    BotAudioSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotAudioSpecificationArgsDict(TypedDict):
+    end_timeout_ms: pulumi.Input[_builtins.int]
+    max_length_ms: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class BotAudioSpecificationArgs:
@@ -965,12 +918,9 @@ class BotAudioSpecificationArgs:
         pulumi.set(self, "max_length_ms", value)
 
 
-if not MYPY:
-    class BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgsDict(TypedDict):
-        bedrock_agent_alias_id: NotRequired[pulumi.Input[_builtins.str]]
-        bedrock_agent_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgsDict(TypedDict):
+    bedrock_agent_alias_id: NotRequired[pulumi.Input[_builtins.str]]
+    bedrock_agent_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs:
@@ -1001,12 +951,9 @@ class BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgs:
         pulumi.set(self, "bedrock_agent_id", value)
 
 
-if not MYPY:
-    class BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgsDict(TypedDict):
-        bedrock_knowledge_base_arn: pulumi.Input[_builtins.str]
-        bedrock_model_configuration: pulumi.Input['BotBedrockModelSpecificationArgsDict']
-elif False:
-    BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgsDict(TypedDict):
+    bedrock_knowledge_base_arn: pulumi.Input[_builtins.str]
+    bedrock_model_configuration: pulumi.Input['BotBedrockModelSpecificationArgsDict']
 
 @pulumi.input_type
 class BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgs:
@@ -1035,12 +982,9 @@ class BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigura
         pulumi.set(self, "bedrock_model_configuration", value)
 
 
-if not MYPY:
-    class BotBedrockAgentIntentConfigurationArgsDict(TypedDict):
-        bedrock_agent_configuration: NotRequired[pulumi.Input['BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgsDict']]
-        bedrock_agent_intent_knowledge_base_configuration: NotRequired[pulumi.Input['BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgsDict']]
-elif False:
-    BotBedrockAgentIntentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BotBedrockAgentIntentConfigurationArgsDict(TypedDict):
+    bedrock_agent_configuration: NotRequired[pulumi.Input['BotBedrockAgentIntentConfigurationBedrockAgentConfigurationPropertiesArgsDict']]
+    bedrock_agent_intent_knowledge_base_configuration: NotRequired[pulumi.Input['BotBedrockAgentIntentConfigurationBedrockAgentIntentKnowledgeBaseConfigurationPropertiesArgsDict']]
 
 @pulumi.input_type
 class BotBedrockAgentIntentConfigurationArgs:
@@ -1071,12 +1015,9 @@ class BotBedrockAgentIntentConfigurationArgs:
         pulumi.set(self, "bedrock_agent_intent_knowledge_base_configuration", value)
 
 
-if not MYPY:
-    class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict(TypedDict):
-        bedrock_guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        bedrock_guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict(TypedDict):
+    bedrock_guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    bedrock_guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs:
@@ -1107,17 +1048,14 @@ class BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgs:
         pulumi.set(self, "bedrock_guardrail_version", value)
 
 
-if not MYPY:
-    class BotBedrockModelSpecificationArgsDict(TypedDict):
-        model_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the foundation model used in descriptive bot building.
-        """
-        bedrock_guardrail_configuration: NotRequired[pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict']]
-        bedrock_model_custom_prompt: NotRequired[pulumi.Input[_builtins.str]]
-        bedrock_trace_status: NotRequired[pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus']]
-elif False:
-    BotBedrockModelSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotBedrockModelSpecificationArgsDict(TypedDict):
+    model_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the foundation model used in descriptive bot building.
+    """
+    bedrock_guardrail_configuration: NotRequired[pulumi.Input['BotBedrockModelSpecificationBedrockGuardrailConfigurationPropertiesArgsDict']]
+    bedrock_model_custom_prompt: NotRequired[pulumi.Input[_builtins.str]]
+    bedrock_trace_status: NotRequired[pulumi.Input['BotBedrockModelSpecificationBedrockTraceStatus']]
 
 @pulumi.input_type
 class BotBedrockModelSpecificationArgs:
@@ -1177,12 +1115,9 @@ class BotBedrockModelSpecificationArgs:
         pulumi.set(self, "bedrock_trace_status", value)
 
 
-if not MYPY:
-    class BotButtonArgsDict(TypedDict):
-        text: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BotButtonArgsDict: TypeAlias = Mapping[str, Any]
+class BotButtonArgsDict(TypedDict):
+    text: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotButtonArgs:
@@ -1211,12 +1146,9 @@ class BotButtonArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotCloudWatchLogGroupLogDestinationArgsDict(TypedDict):
-        cloud_watch_log_group_arn: pulumi.Input[_builtins.str]
-        log_prefix: pulumi.Input[_builtins.str]
-elif False:
-    BotCloudWatchLogGroupLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotCloudWatchLogGroupLogDestinationArgsDict(TypedDict):
+    cloud_watch_log_group_arn: pulumi.Input[_builtins.str]
+    log_prefix: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotCloudWatchLogGroupLogDestinationArgs:
@@ -1245,14 +1177,11 @@ class BotCloudWatchLogGroupLogDestinationArgs:
         pulumi.set(self, "log_prefix", value)
 
 
-if not MYPY:
-    class BotCompositeSlotTypeSettingArgsDict(TypedDict):
-        sub_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSubSlotTypeCompositionArgsDict']]]]
-        """
-        Subslots in the composite slot.
-        """
-elif False:
-    BotCompositeSlotTypeSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotCompositeSlotTypeSettingArgsDict(TypedDict):
+    sub_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSubSlotTypeCompositionArgsDict']]]]
+    """
+    Subslots in the composite slot.
+    """
 
 @pulumi.input_type
 class BotCompositeSlotTypeSettingArgs:
@@ -1277,14 +1206,11 @@ class BotCompositeSlotTypeSettingArgs:
         pulumi.set(self, "sub_slots", value)
 
 
-if not MYPY:
-    class BotConditionalBranchArgsDict(TypedDict):
-        condition: pulumi.Input['BotConditionArgsDict']
-        name: pulumi.Input[_builtins.str]
-        next_step: pulumi.Input['BotDialogStateArgsDict']
-        response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-elif False:
-    BotConditionalBranchArgsDict: TypeAlias = Mapping[str, Any]
+class BotConditionalBranchArgsDict(TypedDict):
+    condition: pulumi.Input['BotConditionArgsDict']
+    name: pulumi.Input[_builtins.str]
+    next_step: pulumi.Input['BotDialogStateArgsDict']
+    response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotConditionalBranchArgs:
@@ -1336,22 +1262,19 @@ class BotConditionalBranchArgs:
         pulumi.set(self, "response", value)
 
 
-if not MYPY:
-    class BotConditionalSpecificationArgsDict(TypedDict):
-        conditional_branches: pulumi.Input[Sequence[pulumi.Input['BotConditionalBranchArgsDict']]]
-        """
-        A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
-        """
-        default_branch: pulumi.Input['BotDefaultConditionalBranchArgsDict']
-        """
-        The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
-        """
-        is_active: pulumi.Input[_builtins.bool]
-        """
-        Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
-        """
-elif False:
-    BotConditionalSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotConditionalSpecificationArgsDict(TypedDict):
+    conditional_branches: pulumi.Input[Sequence[pulumi.Input['BotConditionalBranchArgsDict']]]
+    """
+    A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
+    """
+    default_branch: pulumi.Input['BotDefaultConditionalBranchArgsDict']
+    """
+    The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
+    """
+    is_active: pulumi.Input[_builtins.bool]
+    """
+    Determines whether a conditional branch is active. When `IsActive` is false, the conditions are not evaluated.
+    """
 
 @pulumi.input_type
 class BotConditionalSpecificationArgs:
@@ -1405,11 +1328,8 @@ class BotConditionalSpecificationArgs:
         pulumi.set(self, "is_active", value)
 
 
-if not MYPY:
-    class BotConditionArgsDict(TypedDict):
-        expression_string: pulumi.Input[_builtins.str]
-elif False:
-    BotConditionArgsDict: TypeAlias = Mapping[str, Any]
+class BotConditionArgsDict(TypedDict):
+    expression_string: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotConditionArgs:
@@ -1427,18 +1347,15 @@ class BotConditionArgs:
         pulumi.set(self, "expression_string", value)
 
 
-if not MYPY:
-    class BotConversationLogSettingsArgsDict(TypedDict):
-        audio_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgsDict']]]]
-        """
-        The Amazon S3 settings for logging audio to an S3 bucket.
-        """
-        text_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgsDict']]]]
-        """
-        The Amazon CloudWatch Logs settings for logging text and metadata.
-        """
-elif False:
-    BotConversationLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotConversationLogSettingsArgsDict(TypedDict):
+    audio_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgsDict']]]]
+    """
+    The Amazon S3 settings for logging audio to an S3 bucket.
+    """
+    text_log_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgsDict']]]]
+    """
+    The Amazon CloudWatch Logs settings for logging text and metadata.
+    """
 
 @pulumi.input_type
 class BotConversationLogSettingsArgs:
@@ -1479,11 +1396,8 @@ class BotConversationLogSettingsArgs:
         pulumi.set(self, "text_log_settings", value)
 
 
-if not MYPY:
-    class BotCustomPayloadArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BotCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+class BotCustomPayloadArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotCustomPayloadArgs:
@@ -1501,13 +1415,10 @@ class BotCustomPayloadArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotCustomVocabularyItemArgsDict(TypedDict):
-        phrase: pulumi.Input[_builtins.str]
-        display_as: NotRequired[pulumi.Input[_builtins.str]]
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    BotCustomVocabularyItemArgsDict: TypeAlias = Mapping[str, Any]
+class BotCustomVocabularyItemArgsDict(TypedDict):
+    phrase: pulumi.Input[_builtins.str]
+    display_as: NotRequired[pulumi.Input[_builtins.str]]
+    weight: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class BotCustomVocabularyItemArgs:
@@ -1549,14 +1460,11 @@ class BotCustomVocabularyItemArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class BotCustomVocabularyArgsDict(TypedDict):
-        custom_vocabulary_items: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgsDict']]]
-        """
-        Specifies a list of words that you expect to be used during a conversation with your bot.
-        """
-elif False:
-    BotCustomVocabularyArgsDict: TypeAlias = Mapping[str, Any]
+class BotCustomVocabularyArgsDict(TypedDict):
+    custom_vocabulary_items: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgsDict']]]
+    """
+    Specifies a list of words that you expect to be used during a conversation with your bot.
+    """
 
 @pulumi.input_type
 class BotCustomVocabularyArgs:
@@ -1580,18 +1488,47 @@ class BotCustomVocabularyArgs:
         pulumi.set(self, "custom_vocabulary_items", value)
 
 
-if not MYPY:
-    class BotDefaultConditionalBranchArgsDict(TypedDict):
-        next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        The next step in the conversation.
-        """
-        response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        """
-elif False:
-    BotDefaultConditionalBranchArgsDict: TypeAlias = Mapping[str, Any]
+class BotDeepgramSpeechModelConfigArgsDict(TypedDict):
+    api_token_secret_arn: pulumi.Input[_builtins.str]
+    model_id: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class BotDeepgramSpeechModelConfigArgs:
+    def __init__(__self__, *,
+                 api_token_secret_arn: pulumi.Input[_builtins.str],
+                 model_id: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "api_token_secret_arn", api_token_secret_arn)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenSecretArn")
+    def api_token_secret_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "api_token_secret_arn")
+
+    @api_token_secret_arn.setter
+    def api_token_secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_token_secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "model_id", value)
+
+
+class BotDefaultConditionalBranchArgsDict(TypedDict):
+    next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    The next step in the conversation.
+    """
+    response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input.
+    """
 
 @pulumi.input_type
 class BotDefaultConditionalBranchArgs:
@@ -1632,22 +1569,19 @@ class BotDefaultConditionalBranchArgs:
         pulumi.set(self, "response", value)
 
 
-if not MYPY:
-    class BotDialogActionArgsDict(TypedDict):
-        type: pulumi.Input['BotDialogActionType']
-        """
-        The action that the bot should execute.
-        """
-        slot_to_elicit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
-        """
-        suppress_next_message: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When true the next message for the intent is not used.
-        """
-elif False:
-    BotDialogActionArgsDict: TypeAlias = Mapping[str, Any]
+class BotDialogActionArgsDict(TypedDict):
+    type: pulumi.Input['BotDialogActionType']
+    """
+    The action that the bot should execute.
+    """
+    slot_to_elicit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the dialog action is `ElicitSlot` , defines the slot to elicit from the user.
+    """
+    suppress_next_message: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true the next message for the intent is not used.
+    """
 
 @pulumi.input_type
 class BotDialogActionArgs:
@@ -1703,26 +1637,23 @@ class BotDialogActionArgs:
         pulumi.set(self, "suppress_next_message", value)
 
 
-if not MYPY:
-    class BotDialogCodeHookInvocationSettingArgsDict(TypedDict):
-        enable_code_hook_invocation: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether a Lambda function should be invoked for the dialog.
-        """
-        is_active: pulumi.Input[_builtins.bool]
-        """
-        Determines whether a dialog code hook is used when the intent is activated.
-        """
-        post_code_hook_specification: pulumi.Input['BotPostDialogCodeHookInvocationSpecificationArgsDict']
-        """
-        Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
-        """
-        invocation_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A label that indicates the dialog step from which the dialog code hook is happening.
-        """
-elif False:
-    BotDialogCodeHookInvocationSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotDialogCodeHookInvocationSettingArgsDict(TypedDict):
+    enable_code_hook_invocation: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether a Lambda function should be invoked for the dialog.
+    """
+    is_active: pulumi.Input[_builtins.bool]
+    """
+    Determines whether a dialog code hook is used when the intent is activated.
+    """
+    post_code_hook_specification: pulumi.Input['BotPostDialogCodeHookInvocationSpecificationArgsDict']
+    """
+    Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
+    """
+    invocation_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A label that indicates the dialog step from which the dialog code hook is happening.
+    """
 
 @pulumi.input_type
 class BotDialogCodeHookInvocationSettingArgs:
@@ -1792,14 +1723,11 @@ class BotDialogCodeHookInvocationSettingArgs:
         pulumi.set(self, "invocation_label", value)
 
 
-if not MYPY:
-    class BotDialogCodeHookSettingArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Enables the dialog code hook so that it processes user requests.
-        """
-elif False:
-    BotDialogCodeHookSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotDialogCodeHookSettingArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables the dialog code hook so that it processes user requests.
+    """
 
 @pulumi.input_type
 class BotDialogCodeHookSettingArgs:
@@ -1823,22 +1751,19 @@ class BotDialogCodeHookSettingArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BotDialogStateArgsDict(TypedDict):
-        dialog_action: NotRequired[pulumi.Input['BotDialogActionArgsDict']]
-        """
-        Defines the action that the bot executes at runtime when the conversation reaches this step.
-        """
-        intent: NotRequired[pulumi.Input['BotIntentOverrideArgsDict']]
-        """
-        Override settings to configure the intent state.
-        """
-        session_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSessionAttributeArgsDict']]]]
-        """
-        Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-        """
-elif False:
-    BotDialogStateArgsDict: TypeAlias = Mapping[str, Any]
+class BotDialogStateArgsDict(TypedDict):
+    dialog_action: NotRequired[pulumi.Input['BotDialogActionArgsDict']]
+    """
+    Defines the action that the bot executes at runtime when the conversation reaches this step.
+    """
+    intent: NotRequired[pulumi.Input['BotIntentOverrideArgsDict']]
+    """
+    Override settings to configure the intent state.
+    """
+    session_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSessionAttributeArgsDict']]]]
+    """
+    Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+    """
 
 @pulumi.input_type
 class BotDialogStateArgs:
@@ -1895,14 +1820,11 @@ class BotDialogStateArgs:
         pulumi.set(self, "session_attributes", value)
 
 
-if not MYPY:
-    class BotDtmfSpecificationArgsDict(TypedDict):
-        deletion_character: pulumi.Input[_builtins.str]
-        end_character: pulumi.Input[_builtins.str]
-        end_timeout_ms: pulumi.Input[_builtins.int]
-        max_length: pulumi.Input[_builtins.int]
-elif False:
-    BotDtmfSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotDtmfSpecificationArgsDict(TypedDict):
+    deletion_character: pulumi.Input[_builtins.str]
+    end_character: pulumi.Input[_builtins.str]
+    end_timeout_ms: pulumi.Input[_builtins.int]
+    max_length: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class BotDtmfSpecificationArgs:
@@ -1953,18 +1875,15 @@ class BotDtmfSpecificationArgs:
         pulumi.set(self, "max_length", value)
 
 
-if not MYPY:
-    class BotElicitationCodeHookInvocationSettingArgsDict(TypedDict):
-        enable_code_hook_invocation: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether a Lambda function should be invoked for the dialog.
-        """
-        invocation_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A label that indicates the dialog step from which the dialog code hook is happening.
-        """
-elif False:
-    BotElicitationCodeHookInvocationSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotElicitationCodeHookInvocationSettingArgsDict(TypedDict):
+    enable_code_hook_invocation: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether a Lambda function should be invoked for the dialog.
+    """
+    invocation_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A label that indicates the dialog step from which the dialog code hook is happening.
+    """
 
 @pulumi.input_type
 class BotElicitationCodeHookInvocationSettingArgs:
@@ -2004,14 +1923,11 @@ class BotElicitationCodeHookInvocationSettingArgs:
         pulumi.set(self, "invocation_label", value)
 
 
-if not MYPY:
-    class BotExternalSourceSettingArgsDict(TypedDict):
-        grammar_slot_type_setting: NotRequired[pulumi.Input['BotGrammarSlotTypeSettingArgsDict']]
-        """
-        Settings required for a slot type based on a grammar that you provide.
-        """
-elif False:
-    BotExternalSourceSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotExternalSourceSettingArgsDict(TypedDict):
+    grammar_slot_type_setting: NotRequired[pulumi.Input['BotGrammarSlotTypeSettingArgsDict']]
+    """
+    Settings required for a slot type based on a grammar that you provide.
+    """
 
 @pulumi.input_type
 class BotExternalSourceSettingArgs:
@@ -2036,26 +1952,23 @@ class BotExternalSourceSettingArgs:
         pulumi.set(self, "grammar_slot_type_setting", value)
 
 
-if not MYPY:
-    class BotFulfillmentCodeHookSettingArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether a Lambda function should be invoked to fulfill a specific intent.
-        """
-        fulfillment_updates_specification: NotRequired[pulumi.Input['BotFulfillmentUpdatesSpecificationArgsDict']]
-        """
-        Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
-        """
-        post_fulfillment_status_specification: NotRequired[pulumi.Input['BotPostFulfillmentStatusSpecificationArgsDict']]
-        """
-        Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
-        """
-elif False:
-    BotFulfillmentCodeHookSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotFulfillmentCodeHookSettingArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether a Lambda function should be invoked to fulfill a specific intent.
+    """
+    fulfillment_updates_specification: NotRequired[pulumi.Input['BotFulfillmentUpdatesSpecificationArgsDict']]
+    """
+    Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the fulfillment code hook is used. When `active` is false, the code hook doesn't run.
+    """
+    post_fulfillment_status_specification: NotRequired[pulumi.Input['BotPostFulfillmentStatusSpecificationArgsDict']]
+    """
+    Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
+    """
 
 @pulumi.input_type
 class BotFulfillmentCodeHookSettingArgs:
@@ -2127,22 +2040,19 @@ class BotFulfillmentCodeHookSettingArgs:
         pulumi.set(self, "post_fulfillment_status_specification", value)
 
 
-if not MYPY:
-    class BotFulfillmentStartResponseSpecificationArgsDict(TypedDict):
-        delay_in_seconds: pulumi.Input[_builtins.int]
-        """
-        The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
-        """
-        message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
-        """
-        1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
-        """
-        allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the user can interrupt the start message while it is playing.
-        """
-elif False:
-    BotFulfillmentStartResponseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotFulfillmentStartResponseSpecificationArgsDict(TypedDict):
+    delay_in_seconds: pulumi.Input[_builtins.int]
+    """
+    The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
+    """
+    message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
+    """
+    1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
+    """
+    allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the user can interrupt the start message while it is playing.
+    """
 
 @pulumi.input_type
 class BotFulfillmentStartResponseSpecificationArgs:
@@ -2197,22 +2107,19 @@ class BotFulfillmentStartResponseSpecificationArgs:
         pulumi.set(self, "allow_interrupt", value)
 
 
-if not MYPY:
-    class BotFulfillmentUpdateResponseSpecificationArgsDict(TypedDict):
-        frequency_in_seconds: pulumi.Input[_builtins.int]
-        """
-        The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-        """
-        message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
-        """
-        1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.
-        """
-        allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the user can interrupt an update message while it is playing.
-        """
-elif False:
-    BotFulfillmentUpdateResponseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotFulfillmentUpdateResponseSpecificationArgsDict(TypedDict):
+    frequency_in_seconds: pulumi.Input[_builtins.int]
+    """
+    The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
+    """
+    message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
+    """
+    1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.
+    """
+    allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the user can interrupt an update message while it is playing.
+    """
 
 @pulumi.input_type
 class BotFulfillmentUpdateResponseSpecificationArgs:
@@ -2267,28 +2174,25 @@ class BotFulfillmentUpdateResponseSpecificationArgs:
         pulumi.set(self, "allow_interrupt", value)
 
 
-if not MYPY:
-    class BotFulfillmentUpdatesSpecificationArgsDict(TypedDict):
-        active: pulumi.Input[_builtins.bool]
-        """
-        Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+class BotFulfillmentUpdatesSpecificationArgsDict(TypedDict):
+    active: pulumi.Input[_builtins.bool]
+    """
+    Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
 
-        If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
-        """
-        start_response: NotRequired[pulumi.Input['BotFulfillmentStartResponseSpecificationArgsDict']]
-        """
-        Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The length of time that the fulfillment Lambda function should run before it times out.
-        """
-        update_response: NotRequired[pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgsDict']]
-        """
-        Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
-        """
-elif False:
-    BotFulfillmentUpdatesSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+    If the `active` field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
+    """
+    start_response: NotRequired[pulumi.Input['BotFulfillmentStartResponseSpecificationArgsDict']]
+    """
+    Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The length of time that the fulfillment Lambda function should run before it times out.
+    """
+    update_response: NotRequired[pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgsDict']]
+    """
+    Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
+    """
 
 @pulumi.input_type
 class BotFulfillmentUpdatesSpecificationArgs:
@@ -2364,12 +2268,9 @@ class BotFulfillmentUpdatesSpecificationArgs:
         pulumi.set(self, "update_response", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
-elif False:
-    BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs:
@@ -2399,12 +2300,9 @@ class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpe
         pulumi.set(self, "bedrock_model_specification", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
-elif False:
-    BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs:
@@ -2434,12 +2332,9 @@ class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGeneratio
         pulumi.set(self, "bedrock_model_specification", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict(TypedDict):
-        descriptive_bot_builder_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict']]
-        sample_utterance_generation_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict']]
-elif False:
-    BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict(TypedDict):
+    descriptive_bot_builder_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict']]
+    sample_utterance_generation_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs:
@@ -2470,13 +2365,10 @@ class BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs:
         pulumi.set(self, "sample_utterance_generation_specification", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        assisted_nlu_mode: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode']]
-        intent_disambiguation_settings: NotRequired[pulumi.Input['BotIntentDisambiguationSettingsArgsDict']]
-elif False:
-    BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    assisted_nlu_mode: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode']]
+    intent_disambiguation_settings: NotRequired[pulumi.Input['BotIntentDisambiguationSettingsArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs:
@@ -2518,12 +2410,9 @@ class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificatio
         pulumi.set(self, "intent_disambiguation_settings", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
-elif False:
-    BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs:
@@ -2553,12 +2442,9 @@ class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementS
         pulumi.set(self, "bedrock_model_specification", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict(TypedDict):
-        nlu_improvement_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict']]
-        slot_resolution_improvement_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict']]
-elif False:
-    BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict(TypedDict):
+    nlu_improvement_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict']]
+    slot_resolution_improvement_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs:
@@ -2589,12 +2475,9 @@ class BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs:
         pulumi.set(self, "slot_resolution_improvement_specification", value)
 
 
-if not MYPY:
-    class BotGenerativeAiSettingsArgsDict(TypedDict):
-        buildtime_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict']]
-        runtime_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict']]
-elif False:
-    BotGenerativeAiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotGenerativeAiSettingsArgsDict(TypedDict):
+    buildtime_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict']]
+    runtime_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict']]
 
 @pulumi.input_type
 class BotGenerativeAiSettingsArgs:
@@ -2625,14 +2508,11 @@ class BotGenerativeAiSettingsArgs:
         pulumi.set(self, "runtime_settings", value)
 
 
-if not MYPY:
-    class BotGrammarSlotTypeSettingArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input['BotGrammarSlotTypeSourceArgsDict']]
-        """
-        The source of the grammar used to create the slot type.
-        """
-elif False:
-    BotGrammarSlotTypeSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotGrammarSlotTypeSettingArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input['BotGrammarSlotTypeSourceArgsDict']]
+    """
+    The source of the grammar used to create the slot type.
+    """
 
 @pulumi.input_type
 class BotGrammarSlotTypeSettingArgs:
@@ -2657,22 +2537,19 @@ class BotGrammarSlotTypeSettingArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class BotGrammarSlotTypeSourceArgsDict(TypedDict):
-        s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon S3 bucket that contains the grammar source.
-        """
-        s3_object_key: pulumi.Input[_builtins.str]
-        """
-        The path to the grammar in the Amazon S3 bucket.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS  key required to decrypt the contents of the grammar, if any.
-        """
-elif False:
-    BotGrammarSlotTypeSourceArgsDict: TypeAlias = Mapping[str, Any]
+class BotGrammarSlotTypeSourceArgsDict(TypedDict):
+    s3_bucket_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket that contains the grammar source.
+    """
+    s3_object_key: pulumi.Input[_builtins.str]
+    """
+    The path to the grammar in the Amazon S3 bucket.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS  key required to decrypt the contents of the grammar, if any.
+    """
 
 @pulumi.input_type
 class BotGrammarSlotTypeSourceArgs:
@@ -2727,14 +2604,11 @@ class BotGrammarSlotTypeSourceArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class BotImageResponseCardArgsDict(TypedDict):
-        title: pulumi.Input[_builtins.str]
-        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotButtonArgsDict']]]]
-        image_url: NotRequired[pulumi.Input[_builtins.str]]
-        subtitle: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+class BotImageResponseCardArgsDict(TypedDict):
+    title: pulumi.Input[_builtins.str]
+    buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotButtonArgsDict']]]]
+    image_url: NotRequired[pulumi.Input[_builtins.str]]
+    subtitle: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotImageResponseCardArgs:
@@ -2788,26 +2662,23 @@ class BotImageResponseCardArgs:
         pulumi.set(self, "subtitle", value)
 
 
-if not MYPY:
-    class BotInitialResponseSettingArgsDict(TypedDict):
-        code_hook: NotRequired[pulumi.Input['BotDialogCodeHookInvocationSettingArgsDict']]
-        """
-        Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
-        """
-        conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
-        """
-        initial_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        """
-        next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        The next step in the conversation.
-        """
-elif False:
-    BotInitialResponseSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotInitialResponseSettingArgsDict(TypedDict):
+    code_hook: NotRequired[pulumi.Input['BotDialogCodeHookInvocationSettingArgsDict']]
+    """
+    Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+    """
+    conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+    """
+    initial_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input.
+    """
+    next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    The next step in the conversation.
+    """
 
 @pulumi.input_type
 class BotInitialResponseSettingArgs:
@@ -2880,11 +2751,8 @@ class BotInitialResponseSettingArgs:
         pulumi.set(self, "next_step", value)
 
 
-if not MYPY:
-    class BotInputContextArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-elif False:
-    BotInputContextArgsDict: TypeAlias = Mapping[str, Any]
+class BotInputContextArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotInputContextArgs:
@@ -2902,26 +2770,23 @@ class BotInputContextArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class BotIntentClosingSettingArgsDict(TypedDict):
-        closing_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        The response that Amazon Lex sends to the user when the intent is complete.
-        """
-        conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
-        """
-        next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot executes after playing the intent's closing response.
-        """
-elif False:
-    BotIntentClosingSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotIntentClosingSettingArgsDict(TypedDict):
+    closing_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    The response that Amazon Lex sends to the user when the intent is complete.
+    """
+    conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional` .
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the `IsActive` field isn't specified, the default is true.
+    """
+    next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot executes after playing the intent's closing response.
+    """
 
 @pulumi.input_type
 class BotIntentClosingSettingArgs:
@@ -2994,64 +2859,61 @@ class BotIntentClosingSettingArgs:
         pulumi.set(self, "next_step", value)
 
 
-if not MYPY:
-    class BotIntentConfirmationSettingArgsDict(TypedDict):
-        prompt_specification: pulumi.Input['BotPromptSpecificationArgsDict']
-        """
-        Prompts the user to confirm the intent. This question should have a yes or no answer.
+class BotIntentConfirmationSettingArgsDict(TypedDict):
+    prompt_specification: pulumi.Input['BotPromptSpecificationArgsDict']
+    """
+    Prompts the user to confirm the intent. This question should have a yes or no answer.
 
-        Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-        """
-        code_hook: NotRequired[pulumi.Input['BotDialogCodeHookInvocationSettingArgsDict']]
-        """
-        The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
-        """
-        confirmation_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the intent is closed.
-        """
-        confirmation_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot executes when the customer confirms the intent.
-        """
-        confirmation_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        """
-        declination_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the intent is declined.
-        """
-        declination_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot executes when the customer declines the intent.
-        """
-        declination_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
-        """
-        elicitation_code_hook: NotRequired[pulumi.Input['BotElicitationCodeHookInvocationSettingArgsDict']]
-        """
-        The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
-        """
-        failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
-        """
-        failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        The next step to take in the conversation if the confirmation step fails.
-        """
-        failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
-        """
-elif False:
-    BotIntentConfirmationSettingArgsDict: TypeAlias = Mapping[str, Any]
+    Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+    """
+    code_hook: NotRequired[pulumi.Input['BotDialogCodeHookInvocationSettingArgsDict']]
+    """
+    The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
+    """
+    confirmation_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the intent is closed.
+    """
+    confirmation_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot executes when the customer confirms the intent.
+    """
+    confirmation_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input.
+    """
+    declination_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the intent is declined.
+    """
+    declination_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot executes when the customer declines the intent.
+    """
+    declination_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    When the user answers "no" to the question defined in `promptSpecification` , Amazon Lex responds with this response to acknowledge that the intent was canceled.
+    """
+    elicitation_code_hook: NotRequired[pulumi.Input['BotElicitationCodeHookInvocationSettingArgsDict']]
+    """
+    The `DialogCodeHookInvocationSetting` used when the code hook is invoked during confirmation prompt retries.
+    """
+    failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+    """
+    failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    The next step to take in the conversation if the confirmation step fails.
+    """
+    failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input when the intent confirmation fails.
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the `IsActive` field isn't specified, the default is true.
+    """
 
 @pulumi.input_type
 class BotIntentConfirmationSettingArgs:
@@ -3271,22 +3133,19 @@ class BotIntentConfirmationSettingArgs:
         pulumi.set(self, "is_active", value)
 
 
-if not MYPY:
-    class BotIntentDisambiguationSettingsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
-        """
-        custom_disambiguation_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
-        """
-        max_disambiguation_intents: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
-        """
-elif False:
-    BotIntentDisambiguationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotIntentDisambiguationSettingsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
+    """
+    custom_disambiguation_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
+    """
+    max_disambiguation_intents: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
+    """
 
 @pulumi.input_type
 class BotIntentDisambiguationSettingsArgs:
@@ -3342,18 +3201,15 @@ class BotIntentDisambiguationSettingsArgs:
         pulumi.set(self, "max_disambiguation_intents", value)
 
 
-if not MYPY:
-    class BotIntentOverrideArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the intent. Only required when you're switching intents.
-        """
-        slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideMapArgsDict']]]]
-        """
-        A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
-        """
-elif False:
-    BotIntentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class BotIntentOverrideArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the intent. Only required when you're switching intents.
+    """
+    slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideMapArgsDict']]]]
+    """
+    A map of all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden.
+    """
 
 @pulumi.input_type
 class BotIntentOverrideArgs:
@@ -3394,70 +3250,67 @@ class BotIntentOverrideArgs:
         pulumi.set(self, "slots", value)
 
 
-if not MYPY:
-    class BotIntentArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
-        """
-        bedrock_agent_intent_configuration: NotRequired[pulumi.Input['BotBedrockAgentIntentConfigurationArgsDict']]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Type definition for the intent.
-        """
-        dialog_code_hook: NotRequired[pulumi.Input['BotDialogCodeHookSettingArgsDict']]
-        """
-        Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        fulfillment_code_hook: NotRequired[pulumi.Input['BotFulfillmentCodeHookSettingArgsDict']]
-        """
-        Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
-        """
-        initial_response_setting: NotRequired[pulumi.Input['BotInitialResponseSettingArgsDict']]
-        """
-        Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
-        """
-        input_contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotInputContextArgsDict']]]]
-        """
-        A list of contexts that must be active for this intent to be considered by Amazon Lex .
-        """
-        intent_closing_setting: NotRequired[pulumi.Input['BotIntentClosingSettingArgsDict']]
-        """
-        Sets the response that Amazon Lex sends to the user when the intent is closed.
-        """
-        intent_confirmation_setting: NotRequired[pulumi.Input['BotIntentConfirmationSettingArgsDict']]
-        """
-        Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
-        """
-        kendra_configuration: NotRequired[pulumi.Input['BotKendraConfigurationArgsDict']]
-        """
-        Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
-        """
-        output_contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotOutputContextArgsDict']]]]
-        """
-        A list of contexts that the intent activates when it is fulfilled.
-        """
-        parent_intent_signature: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for the built-in intent to base this intent on.
-        """
-        q_in_connect_intent_configuration: NotRequired[pulumi.Input['BotQInConnectIntentConfigurationArgsDict']]
-        qn_a_intent_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationArgsDict']]
-        sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
-        """
-        A list of utterances that a user might say to signal the intent.
-        """
-        slot_priorities: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgsDict']]]]
-        """
-        Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
-        """
-        slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotArgsDict']]]]
-        """
-        A list of slots that the intent requires for fulfillment.
-        """
-elif False:
-    BotIntentArgsDict: TypeAlias = Mapping[str, Any]
+class BotIntentArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
+    """
+    bedrock_agent_intent_configuration: NotRequired[pulumi.Input['BotBedrockAgentIntentConfigurationArgsDict']]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Type definition for the intent.
+    """
+    dialog_code_hook: NotRequired[pulumi.Input['BotDialogCodeHookSettingArgsDict']]
+    """
+    Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    fulfillment_code_hook: NotRequired[pulumi.Input['BotFulfillmentCodeHookSettingArgsDict']]
+    """
+    Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
+    """
+    initial_response_setting: NotRequired[pulumi.Input['BotInitialResponseSettingArgsDict']]
+    """
+    Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+    """
+    input_contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotInputContextArgsDict']]]]
+    """
+    A list of contexts that must be active for this intent to be considered by Amazon Lex .
+    """
+    intent_closing_setting: NotRequired[pulumi.Input['BotIntentClosingSettingArgsDict']]
+    """
+    Sets the response that Amazon Lex sends to the user when the intent is closed.
+    """
+    intent_confirmation_setting: NotRequired[pulumi.Input['BotIntentConfirmationSettingArgsDict']]
+    """
+    Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
+    """
+    kendra_configuration: NotRequired[pulumi.Input['BotKendraConfigurationArgsDict']]
+    """
+    Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
+    """
+    output_contexts: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotOutputContextArgsDict']]]]
+    """
+    A list of contexts that the intent activates when it is fulfilled.
+    """
+    parent_intent_signature: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for the built-in intent to base this intent on.
+    """
+    q_in_connect_intent_configuration: NotRequired[pulumi.Input['BotQInConnectIntentConfigurationArgsDict']]
+    qn_a_intent_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationArgsDict']]
+    sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
+    """
+    A list of utterances that a user might say to signal the intent.
+    """
+    slot_priorities: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgsDict']]]]
+    """
+    Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
+    """
+    slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotArgsDict']]]]
+    """
+    A list of slots that the intent requires for fulfillment.
+    """
 
 @pulumi.input_type
 class BotIntentArgs:
@@ -3737,22 +3590,19 @@ class BotIntentArgs:
         pulumi.set(self, "slots", value)
 
 
-if not MYPY:
-    class BotKendraConfigurationArgsDict(TypedDict):
-        kendra_index: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-        """
-        query_filter_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
-        """
-        query_filter_string_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
-        """
-elif False:
-    BotKendraConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BotKendraConfigurationArgsDict(TypedDict):
+    kendra_index: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
+    """
+    query_filter_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
+    """
+    query_filter_string_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the `AMAZON.KendraSearchIntent` intent uses a custom query string to query the Amazon Kendra index.
+    """
 
 @pulumi.input_type
 class BotKendraConfigurationArgs:
@@ -3808,48 +3658,46 @@ class BotKendraConfigurationArgs:
         pulumi.set(self, "query_filter_string_enabled", value)
 
 
-if not MYPY:
-    class BotLocaleArgsDict(TypedDict):
-        locale_id: pulumi.Input[_builtins.str]
-        """
-        The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
-        """
-        nlu_confidence_threshold: pulumi.Input[_builtins.float]
-        """
-        Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
-        """
-        custom_vocabulary: NotRequired[pulumi.Input['BotCustomVocabularyArgsDict']]
-        """
-        Specifies a custom vocabulary to use with a specific locale.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the bot locale. Use this to help identify the bot locale in lists.
-        """
-        generative_ai_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsArgsDict']]
-        intents: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotIntentArgsDict']]]]
-        """
-        One or more intents defined for the locale.
-        """
-        slot_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgsDict']]]]
-        """
-        One or more slot types defined for the locale.
-        """
-        speech_detection_sensitivity: NotRequired[pulumi.Input['BotSpeechDetectionSensitivity']]
-        unified_speech_settings: NotRequired[pulumi.Input['BotUnifiedSpeechSettingsArgsDict']]
-        voice_settings: NotRequired[pulumi.Input['BotVoiceSettingsArgsDict']]
-        """
-        Defines settings for using an Amazon Polly voice to communicate with a user.
+class BotLocaleArgsDict(TypedDict):
+    locale_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
+    """
+    nlu_confidence_threshold: pulumi.Input[_builtins.float]
+    """
+    Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
+    """
+    custom_vocabulary: NotRequired[pulumi.Input['BotCustomVocabularyArgsDict']]
+    """
+    Specifies a custom vocabulary to use with a specific locale.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the bot locale. Use this to help identify the bot locale in lists.
+    """
+    generative_ai_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsArgsDict']]
+    intents: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotIntentArgsDict']]]]
+    """
+    One or more intents defined for the locale.
+    """
+    slot_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgsDict']]]]
+    """
+    One or more slot types defined for the locale.
+    """
+    speech_detection_sensitivity: NotRequired[pulumi.Input['BotSpeechDetectionSensitivity']]
+    speech_recognition_settings: NotRequired[pulumi.Input['BotSpeechRecognitionSettingsArgsDict']]
+    unified_speech_settings: NotRequired[pulumi.Input['BotUnifiedSpeechSettingsArgsDict']]
+    voice_settings: NotRequired[pulumi.Input['BotVoiceSettingsArgsDict']]
+    """
+    Defines settings for using an Amazon Polly voice to communicate with a user.
 
-        Valid values include:
+    Valid values include:
 
-        - `standard`
-        - `neural`
-        - `long-form`
-        - `generative`
-        """
-elif False:
-    BotLocaleArgsDict: TypeAlias = Mapping[str, Any]
+    - `standard`
+    - `neural`
+    - `long-form`
+    - `generative`
+    """
 
 @pulumi.input_type
 class BotLocaleArgs:
@@ -3862,6 +3710,7 @@ class BotLocaleArgs:
                  intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
                  slot_types: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]]] = None,
                  speech_detection_sensitivity: Optional[pulumi.Input['BotSpeechDetectionSensitivity']] = None,
+                 speech_recognition_settings: Optional[pulumi.Input['BotSpeechRecognitionSettingsArgs']] = None,
                  unified_speech_settings: Optional[pulumi.Input['BotUnifiedSpeechSettingsArgs']] = None,
                  voice_settings: Optional[pulumi.Input['BotVoiceSettingsArgs']] = None):
         """
@@ -3894,6 +3743,8 @@ class BotLocaleArgs:
             pulumi.set(__self__, "slot_types", slot_types)
         if speech_detection_sensitivity is not None:
             pulumi.set(__self__, "speech_detection_sensitivity", speech_detection_sensitivity)
+        if speech_recognition_settings is not None:
+            pulumi.set(__self__, "speech_recognition_settings", speech_recognition_settings)
         if unified_speech_settings is not None:
             pulumi.set(__self__, "unified_speech_settings", unified_speech_settings)
         if voice_settings is not None:
@@ -3990,6 +3841,15 @@ class BotLocaleArgs:
         pulumi.set(self, "speech_detection_sensitivity", value)
 
     @_builtins.property
+    @pulumi.getter(name="speechRecognitionSettings")
+    def speech_recognition_settings(self) -> Optional[pulumi.Input['BotSpeechRecognitionSettingsArgs']]:
+        return pulumi.get(self, "speech_recognition_settings")
+
+    @speech_recognition_settings.setter
+    def speech_recognition_settings(self, value: Optional[pulumi.Input['BotSpeechRecognitionSettingsArgs']]):
+        pulumi.set(self, "speech_recognition_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="unifiedSpeechSettings")
     def unified_speech_settings(self) -> Optional[pulumi.Input['BotUnifiedSpeechSettingsArgs']]:
         return pulumi.get(self, "unified_speech_settings")
@@ -4018,12 +3878,9 @@ class BotLocaleArgs:
         pulumi.set(self, "voice_settings", value)
 
 
-if not MYPY:
-    class BotMessageGroupArgsDict(TypedDict):
-        message: pulumi.Input['BotMessageArgsDict']
-        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotMessageArgsDict']]]]
-elif False:
-    BotMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+class BotMessageGroupArgsDict(TypedDict):
+    message: pulumi.Input['BotMessageArgsDict']
+    variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotMessageArgsDict']]]]
 
 @pulumi.input_type
 class BotMessageGroupArgs:
@@ -4053,14 +3910,11 @@ class BotMessageGroupArgs:
         pulumi.set(self, "variations", value)
 
 
-if not MYPY:
-    class BotMessageArgsDict(TypedDict):
-        custom_payload: NotRequired[pulumi.Input['BotCustomPayloadArgsDict']]
-        image_response_card: NotRequired[pulumi.Input['BotImageResponseCardArgsDict']]
-        plain_text_message: NotRequired[pulumi.Input['BotPlainTextMessageArgsDict']]
-        ssml_message: NotRequired[pulumi.Input['BotSsmlMessageArgsDict']]
-elif False:
-    BotMessageArgsDict: TypeAlias = Mapping[str, Any]
+class BotMessageArgsDict(TypedDict):
+    custom_payload: NotRequired[pulumi.Input['BotCustomPayloadArgsDict']]
+    image_response_card: NotRequired[pulumi.Input['BotImageResponseCardArgsDict']]
+    plain_text_message: NotRequired[pulumi.Input['BotPlainTextMessageArgsDict']]
+    ssml_message: NotRequired[pulumi.Input['BotSsmlMessageArgsDict']]
 
 @pulumi.input_type
 class BotMessageArgs:
@@ -4115,18 +3969,15 @@ class BotMessageArgs:
         pulumi.set(self, "ssml_message", value)
 
 
-if not MYPY:
-    class BotMultipleValuesSettingArgsDict(TypedDict):
-        allow_multiple_values: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
+class BotMultipleValuesSettingArgsDict(TypedDict):
+    allow_multiple_values: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
 
-        Multi-value slots are only available in the en-US locale. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException` .
+    Multi-value slots are only available in the en-US locale. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException` .
 
-        If the `allowMutlipleValues` is not set, the default value is `false` .
-        """
-elif False:
-    BotMultipleValuesSettingArgsDict: TypeAlias = Mapping[str, Any]
+    If the `allowMutlipleValues` is not set, the default value is `false` .
+    """
 
 @pulumi.input_type
 class BotMultipleValuesSettingArgs:
@@ -4159,14 +4010,11 @@ class BotMultipleValuesSettingArgs:
         pulumi.set(self, "allow_multiple_values", value)
 
 
-if not MYPY:
-    class BotObfuscationSettingArgsDict(TypedDict):
-        obfuscation_setting_type: pulumi.Input['BotObfuscationSettingObfuscationSettingType']
-        """
-        Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
-        """
-elif False:
-    BotObfuscationSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotObfuscationSettingArgsDict(TypedDict):
+    obfuscation_setting_type: pulumi.Input['BotObfuscationSettingObfuscationSettingType']
+    """
+    Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
+    """
 
 @pulumi.input_type
 class BotObfuscationSettingArgs:
@@ -4190,13 +4038,10 @@ class BotObfuscationSettingArgs:
         pulumi.set(self, "obfuscation_setting_type", value)
 
 
-if not MYPY:
-    class BotOutputContextArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        time_to_live_in_seconds: pulumi.Input[_builtins.int]
-        turns_to_live: pulumi.Input[_builtins.int]
-elif False:
-    BotOutputContextArgsDict: TypeAlias = Mapping[str, Any]
+class BotOutputContextArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    time_to_live_in_seconds: pulumi.Input[_builtins.int]
+    turns_to_live: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class BotOutputContextArgs:
@@ -4236,11 +4081,8 @@ class BotOutputContextArgs:
         pulumi.set(self, "turns_to_live", value)
 
 
-if not MYPY:
-    class BotPlainTextMessageArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BotPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+class BotPlainTextMessageArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotPlainTextMessageArgs:
@@ -4258,46 +4100,43 @@ class BotPlainTextMessageArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotPostDialogCodeHookInvocationSpecificationArgsDict(TypedDict):
-        failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
-        """
-        failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
-        """
-        failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
-        """
-        success_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the dialog code hook finishes successfully.
-        """
-        success_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifics the next step the bot runs after the dialog code hook finishes successfully.
-        """
-        success_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
-        """
-        timeout_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate if the code hook times out.
-        """
-        timeout_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot runs when the code hook times out.
-        """
-        timeout_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
-        """
-elif False:
-    BotPostDialogCodeHookInvocationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotPostDialogCodeHookInvocationSpecificationArgsDict(TypedDict):
+    failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+    """
+    failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+    """
+    failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input when the code hook fails.
+    """
+    success_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the dialog code hook finishes successfully.
+    """
+    success_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifics the next step the bot runs after the dialog code hook finishes successfully.
+    """
+    success_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond when the code hook succeeds.
+    """
+    timeout_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate if the code hook times out.
+    """
+    timeout_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot runs when the code hook times out.
+    """
+    timeout_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond to the user input when the code hook times out.
+    """
 
 @pulumi.input_type
 class BotPostDialogCodeHookInvocationSpecificationArgs:
@@ -4450,46 +4289,43 @@ class BotPostDialogCodeHookInvocationSpecificationArgs:
         pulumi.set(self, "timeout_response", value)
 
 
-if not MYPY:
-    class BotPostFulfillmentStatusSpecificationArgsDict(TypedDict):
-        failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
-        """
-        failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
-        """
-        failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
-        """
-        success_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
-        """
-        success_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
-        """
-        success_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
-        """
-        timeout_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate if the fulfillment code hook times out.
-        """
-        timeout_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot runs when the fulfillment code hook times out.
-        """
-        timeout_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
-        """
-elif False:
-    BotPostFulfillmentStatusSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotPostFulfillmentStatusSpecificationArgsDict(TypedDict):
+    failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+    """
+    failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the `State` field of the `Intent` object set to `Failed` .
+    """
+    failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
+    """
+    success_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
+    """
+    success_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
+    """
+    success_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
+    """
+    timeout_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate if the fulfillment code hook times out.
+    """
+    timeout_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot runs when the fulfillment code hook times out.
+    """
+    timeout_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
+    """
 
 @pulumi.input_type
 class BotPostFulfillmentStatusSpecificationArgs:
@@ -4642,14 +4478,11 @@ class BotPostFulfillmentStatusSpecificationArgs:
         pulumi.set(self, "timeout_response", value)
 
 
-if not MYPY:
-    class BotPromptAttemptSpecificationArgsDict(TypedDict):
-        allowed_input_types: pulumi.Input['BotAllowedInputTypesArgsDict']
-        allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
-        audio_and_dtmf_input_specification: NotRequired[pulumi.Input['BotAudioAndDtmfInputSpecificationArgsDict']]
-        text_input_specification: NotRequired[pulumi.Input['BotTextInputSpecificationArgsDict']]
-elif False:
-    BotPromptAttemptSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotPromptAttemptSpecificationArgsDict(TypedDict):
+    allowed_input_types: pulumi.Input['BotAllowedInputTypesArgsDict']
+    allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
+    audio_and_dtmf_input_specification: NotRequired[pulumi.Input['BotAudioAndDtmfInputSpecificationArgsDict']]
+    text_input_specification: NotRequired[pulumi.Input['BotTextInputSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotPromptAttemptSpecificationArgs:
@@ -4703,30 +4536,27 @@ class BotPromptAttemptSpecificationArgs:
         pulumi.set(self, "text_input_specification", value)
 
 
-if not MYPY:
-    class BotPromptSpecificationArgsDict(TypedDict):
-        max_retries: pulumi.Input[_builtins.int]
-        """
-        The maximum number of times the bot tries to elicit a response from the user using this prompt.
-        """
-        message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
-        """
-        A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
-        """
-        allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the user can interrupt a speech prompt from the bot.
-        """
-        message_selection_strategy: NotRequired[pulumi.Input['BotMessageSelectionStrategy']]
-        """
-        Indicates how a message is selected from a message group among retries.
-        """
-        prompt_attempts_specification: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgsDict']]]]
-        """
-        Specifies the advanced settings on each attempt of the prompt.
-        """
-elif False:
-    BotPromptSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotPromptSpecificationArgsDict(TypedDict):
+    max_retries: pulumi.Input[_builtins.int]
+    """
+    The maximum number of times the bot tries to elicit a response from the user using this prompt.
+    """
+    message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
+    """
+    A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
+    """
+    allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the user can interrupt a speech prompt from the bot.
+    """
+    message_selection_strategy: NotRequired[pulumi.Input['BotMessageSelectionStrategy']]
+    """
+    Indicates how a message is selected from a message group among retries.
+    """
+    prompt_attempts_specification: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgsDict']]]]
+    """
+    Specifies the advanced settings on each attempt of the prompt.
+    """
 
 @pulumi.input_type
 class BotPromptSpecificationArgs:
@@ -4813,11 +4643,8 @@ class BotPromptSpecificationArgs:
         pulumi.set(self, "prompt_attempts_specification", value)
 
 
-if not MYPY:
-    class BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgsDict(TypedDict):
-        assistant_arn: pulumi.Input[_builtins.str]
-elif False:
-    BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgsDict(TypedDict):
+    assistant_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgs:
@@ -4835,11 +4662,8 @@ class BotQInConnectIntentConfigurationQInConnectAssistantConfigurationProperties
         pulumi.set(self, "assistant_arn", value)
 
 
-if not MYPY:
-    class BotQInConnectIntentConfigurationArgsDict(TypedDict):
-        q_in_connect_assistant_configuration: NotRequired[pulumi.Input['BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgsDict']]
-elif False:
-    BotQInConnectIntentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BotQInConnectIntentConfigurationArgsDict(TypedDict):
+    q_in_connect_assistant_configuration: NotRequired[pulumi.Input['BotQInConnectIntentConfigurationQInConnectAssistantConfigurationPropertiesArgsDict']]
 
 @pulumi.input_type
 class BotQInConnectIntentConfigurationArgs:
@@ -4858,11 +4682,8 @@ class BotQInConnectIntentConfigurationArgs:
         pulumi.set(self, "q_in_connect_assistant_configuration", value)
 
 
-if not MYPY:
-    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict(TypedDict):
-        answer_field: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict(TypedDict):
+    answer_field: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgs:
@@ -4881,13 +4702,10 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledge
         pulumi.set(self, "answer_field", value)
 
 
-if not MYPY:
-    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict(TypedDict):
-        bedrock_knowledge_base_arn: NotRequired[pulumi.Input[_builtins.str]]
-        bkb_exact_response_fields: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict']]
-        exact_response: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict(TypedDict):
+    bedrock_knowledge_base_arn: NotRequired[pulumi.Input[_builtins.str]]
+    bkb_exact_response_fields: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesBkbExactResponseFieldsPropertiesArgsDict']]
+    exact_response: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgs:
@@ -4930,12 +4748,9 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledge
         pulumi.set(self, "exact_response", value)
 
 
-if not MYPY:
-    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict(TypedDict):
-        answer_field: NotRequired[pulumi.Input[_builtins.str]]
-        question_field: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict(TypedDict):
+    answer_field: NotRequired[pulumi.Input[_builtins.str]]
+    question_field: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgs:
@@ -4966,15 +4781,12 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfig
         pulumi.set(self, "question_field", value)
 
 
-if not MYPY:
-    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict(TypedDict):
-        domain_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        exact_response: NotRequired[pulumi.Input[_builtins.bool]]
-        exact_response_fields: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict']]
-        include_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        index_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict(TypedDict):
+    domain_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    exact_response: NotRequired[pulumi.Input[_builtins.bool]]
+    exact_response_fields: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesExactResponseFieldsPropertiesArgsDict']]
+    include_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    index_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgs:
@@ -5041,16 +4853,13 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfig
         pulumi.set(self, "index_name", value)
 
 
-if not MYPY:
-    class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
-        """
-        bedrock_knowledge_store_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict']]
-        kendra_configuration: NotRequired[pulumi.Input['BotQnAKendraConfigurationArgsDict']]
-        opensearch_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict']]
-elif False:
-    BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
+    """
+    bedrock_knowledge_store_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesBedrockKnowledgeStoreConfigurationPropertiesArgsDict']]
+    kendra_configuration: NotRequired[pulumi.Input['BotQnAKendraConfigurationArgsDict']]
+    opensearch_configuration: NotRequired[pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesOpensearchConfigurationPropertiesArgsDict']]
 
 @pulumi.input_type
 class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs:
@@ -5096,15 +4905,12 @@ class BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgs:
         pulumi.set(self, "opensearch_configuration", value)
 
 
-if not MYPY:
-    class BotQnAIntentConfigurationArgsDict(TypedDict):
-        bedrock_model_configuration: pulumi.Input['BotBedrockModelSpecificationArgsDict']
-        data_source_configuration: pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict']
-        """
-        Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
-        """
-elif False:
-    BotQnAIntentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAIntentConfigurationArgsDict(TypedDict):
+    bedrock_model_configuration: pulumi.Input['BotBedrockModelSpecificationArgsDict']
+    data_source_configuration: pulumi.Input['BotQnAIntentConfigurationDataSourceConfigurationPropertiesArgsDict']
+    """
+    Contains details about the configuration of the data source used for the `AMAZON.QnAIntent` .
+    """
 
 @pulumi.input_type
 class BotQnAIntentConfigurationArgs:
@@ -5139,26 +4945,23 @@ class BotQnAIntentConfigurationArgs:
         pulumi.set(self, "data_source_configuration", value)
 
 
-if not MYPY:
-    class BotQnAKendraConfigurationArgsDict(TypedDict):
-        exact_response: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
-        """
-        kendra_index: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Amazon Kendra index to use.
-        """
-        query_filter_string_enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether to enable an Amazon Kendra filter string or not.
-        """
-        query_filter_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
-        """
-elif False:
-    BotQnAKendraConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BotQnAKendraConfigurationArgsDict(TypedDict):
+    exact_response: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html) .
+    """
+    kendra_index: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Amazon Kendra index to use.
+    """
+    query_filter_string_enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether to enable an Amazon Kendra filter string or not.
+    """
+    query_filter_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering) .
+    """
 
 @pulumi.input_type
 class BotQnAKendraConfigurationArgs:
@@ -5228,11 +5031,8 @@ class BotQnAKendraConfigurationArgs:
         pulumi.set(self, "query_filter_string", value)
 
 
-if not MYPY:
-    class BotReplicationArgsDict(TypedDict):
-        replica_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    BotReplicationArgsDict: TypeAlias = Mapping[str, Any]
+class BotReplicationArgsDict(TypedDict):
+    replica_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class BotReplicationArgs:
@@ -5250,18 +5050,15 @@ class BotReplicationArgs:
         pulumi.set(self, "replica_regions", value)
 
 
-if not MYPY:
-    class BotResponseSpecificationArgsDict(TypedDict):
-        message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
-        """
-        A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
-        """
-        allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the user can interrupt a speech response from Amazon Lex.
-        """
-elif False:
-    BotResponseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotResponseSpecificationArgsDict(TypedDict):
+    message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
+    """
+    A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
+    """
+    allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the user can interrupt a speech response from Amazon Lex.
+    """
 
 @pulumi.input_type
 class BotResponseSpecificationArgs:
@@ -5301,13 +5098,10 @@ class BotResponseSpecificationArgs:
         pulumi.set(self, "allow_interrupt", value)
 
 
-if not MYPY:
-    class BotS3BucketLogDestinationArgsDict(TypedDict):
-        log_prefix: pulumi.Input[_builtins.str]
-        s3_bucket_arn: pulumi.Input[_builtins.str]
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotS3BucketLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotS3BucketLogDestinationArgsDict(TypedDict):
+    log_prefix: pulumi.Input[_builtins.str]
+    s3_bucket_arn: pulumi.Input[_builtins.str]
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotS3BucketLogDestinationArgs:
@@ -5348,22 +5142,19 @@ class BotS3BucketLogDestinationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class BotS3LocationArgsDict(TypedDict):
-        s3_bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket name.
-        """
-        s3_object_key: pulumi.Input[_builtins.str]
-        """
-        The path and file name to the object in the S3 bucket.
-        """
-        s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the object in the S3 bucket.
-        """
-elif False:
-    BotS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class BotS3LocationArgsDict(TypedDict):
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket name.
+    """
+    s3_object_key: pulumi.Input[_builtins.str]
+    """
+    The path and file name to the object in the S3 bucket.
+    """
+    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the object in the S3 bucket.
+    """
 
 @pulumi.input_type
 class BotS3LocationArgs:
@@ -5418,11 +5209,8 @@ class BotS3LocationArgs:
         pulumi.set(self, "s3_object_version", value)
 
 
-if not MYPY:
-    class BotSampleUtteranceArgsDict(TypedDict):
-        utterance: pulumi.Input[_builtins.str]
-elif False:
-    BotSampleUtteranceArgsDict: TypeAlias = Mapping[str, Any]
+class BotSampleUtteranceArgsDict(TypedDict):
+    utterance: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotSampleUtteranceArgs:
@@ -5440,11 +5228,8 @@ class BotSampleUtteranceArgs:
         pulumi.set(self, "utterance", value)
 
 
-if not MYPY:
-    class BotSampleValueArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BotSampleValueArgsDict: TypeAlias = Mapping[str, Any]
+class BotSampleValueArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotSampleValueArgs:
@@ -5462,18 +5247,15 @@ class BotSampleValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotSessionAttributeArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the session attribute.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The session-specific context information for the session attribute.
-        """
-elif False:
-    BotSessionAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class BotSessionAttributeArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the session attribute.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The session-specific context information for the session attribute.
+    """
 
 @pulumi.input_type
 class BotSessionAttributeArgs:
@@ -5513,42 +5295,39 @@ class BotSessionAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotSlotCaptureSettingArgsDict(TypedDict):
-        capture_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate after the slot value is captured.
-        """
-        capture_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
-        """
-        capture_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input.
-        """
-        code_hook: NotRequired[pulumi.Input['BotDialogCodeHookInvocationSettingArgsDict']]
-        """
-        Code hook called after Amazon Lex successfully captures a slot value.
-        """
-        elicitation_code_hook: NotRequired[pulumi.Input['BotElicitationCodeHookInvocationSettingArgsDict']]
-        """
-        Code hook called when Amazon Lex doesn't capture a slot value.
-        """
-        failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
-        """
-        A list of conditional branches to evaluate when the slot value isn't captured.
-        """
-        failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
-        """
-        Specifies the next step that the bot runs when the slot value code is not recognized.
-        """
-        failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
-        """
-        Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
-        """
-elif False:
-    BotSlotCaptureSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotCaptureSettingArgsDict(TypedDict):
+    capture_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate after the slot value is captured.
+    """
+    capture_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
+    """
+    capture_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input.
+    """
+    code_hook: NotRequired[pulumi.Input['BotDialogCodeHookInvocationSettingArgsDict']]
+    """
+    Code hook called after Amazon Lex successfully captures a slot value.
+    """
+    elicitation_code_hook: NotRequired[pulumi.Input['BotElicitationCodeHookInvocationSettingArgsDict']]
+    """
+    Code hook called when Amazon Lex doesn't capture a slot value.
+    """
+    failure_conditional: NotRequired[pulumi.Input['BotConditionalSpecificationArgsDict']]
+    """
+    A list of conditional branches to evaluate when the slot value isn't captured.
+    """
+    failure_next_step: NotRequired[pulumi.Input['BotDialogStateArgsDict']]
+    """
+    Specifies the next step that the bot runs when the slot value code is not recognized.
+    """
+    failure_response: NotRequired[pulumi.Input['BotResponseSpecificationArgsDict']]
+    """
+    Specifies a list of message groups that Amazon Lex uses to respond the user input when the slot fails to be captured.
+    """
 
 @pulumi.input_type
 class BotSlotCaptureSettingArgs:
@@ -5685,14 +5464,11 @@ class BotSlotCaptureSettingArgs:
         pulumi.set(self, "failure_response", value)
 
 
-if not MYPY:
-    class BotSlotDefaultValueSpecificationArgsDict(TypedDict):
-        default_value_list: pulumi.Input[Sequence[pulumi.Input['BotSlotDefaultValueArgsDict']]]
-        """
-        A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
-        """
-elif False:
-    BotSlotDefaultValueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotDefaultValueSpecificationArgsDict(TypedDict):
+    default_value_list: pulumi.Input[Sequence[pulumi.Input['BotSlotDefaultValueArgsDict']]]
+    """
+    A list of default values. Amazon Lex chooses the default value to use in the order that they are presented in the list.
+    """
 
 @pulumi.input_type
 class BotSlotDefaultValueSpecificationArgs:
@@ -5716,14 +5492,11 @@ class BotSlotDefaultValueSpecificationArgs:
         pulumi.set(self, "default_value_list", value)
 
 
-if not MYPY:
-    class BotSlotDefaultValueArgsDict(TypedDict):
-        default_value: pulumi.Input[_builtins.str]
-        """
-        The default value to use when a user doesn't provide a value for a slot.
-        """
-elif False:
-    BotSlotDefaultValueArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotDefaultValueArgsDict(TypedDict):
+    default_value: pulumi.Input[_builtins.str]
+    """
+    The default value to use when a user doesn't provide a value for a slot.
+    """
 
 @pulumi.input_type
 class BotSlotDefaultValueArgs:
@@ -5747,12 +5520,9 @@ class BotSlotDefaultValueArgs:
         pulumi.set(self, "default_value", value)
 
 
-if not MYPY:
-    class BotSlotPriorityArgsDict(TypedDict):
-        priority: pulumi.Input[_builtins.int]
-        slot_name: pulumi.Input[_builtins.str]
-elif False:
-    BotSlotPriorityArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotPriorityArgsDict(TypedDict):
+    priority: pulumi.Input[_builtins.int]
+    slot_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotSlotPriorityArgs:
@@ -5781,12 +5551,9 @@ class BotSlotPriorityArgs:
         pulumi.set(self, "slot_name", value)
 
 
-if not MYPY:
-    class BotSlotTypeValueArgsDict(TypedDict):
-        sample_value: pulumi.Input['BotSampleValueArgsDict']
-        synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleValueArgsDict']]]]
-elif False:
-    BotSlotTypeValueArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotTypeValueArgsDict(TypedDict):
+    sample_value: pulumi.Input['BotSampleValueArgsDict']
+    synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleValueArgsDict']]]]
 
 @pulumi.input_type
 class BotSlotTypeValueArgs:
@@ -5816,42 +5583,39 @@ class BotSlotTypeValueArgs:
         pulumi.set(self, "synonyms", value)
 
 
-if not MYPY:
-    class BotSlotTypeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the slot type. A slot type name must be unique withing the account.
-        """
-        composite_slot_type_setting: NotRequired[pulumi.Input['BotCompositeSlotTypeSettingArgsDict']]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the slot type. Use the description to help identify the slot type in lists.
-        """
-        external_source_setting: NotRequired[pulumi.Input['BotExternalSourceSettingArgsDict']]
-        """
-        Sets the type of external information used to create the slot type.
-        """
-        parent_slot_type_signature: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent lot type.
+class BotSlotTypeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the slot type. A slot type name must be unique withing the account.
+    """
+    composite_slot_type_setting: NotRequired[pulumi.Input['BotCompositeSlotTypeSettingArgsDict']]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the slot type. Use the description to help identify the slot type in lists.
+    """
+    external_source_setting: NotRequired[pulumi.Input['BotExternalSourceSettingArgsDict']]
+    """
+    Sets the type of external information used to create the slot type.
+    """
+    parent_slot_type_signature: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent lot type.
 
-        Only `AMAZON.AlphaNumeric` is supported.
-        """
-        slot_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgsDict']]]]
-        """
-        A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
-        """
-        value_selection_setting: NotRequired[pulumi.Input['BotSlotValueSelectionSettingArgsDict']]
-        """
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+    Only `AMAZON.AlphaNumeric` is supported.
+    """
+    slot_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgsDict']]]]
+    """
+    A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
+    """
+    value_selection_setting: NotRequired[pulumi.Input['BotSlotValueSelectionSettingArgsDict']]
+    """
+    Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
 
-        - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
-        - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+    - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+    - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 
-        If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
-        """
-elif False:
-    BotSlotTypeArgsDict: TypeAlias = Mapping[str, Any]
+    If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+    """
 
 @pulumi.input_type
 class BotSlotTypeArgs:
@@ -5981,34 +5745,31 @@ class BotSlotTypeArgs:
         pulumi.set(self, "value_selection_setting", value)
 
 
-if not MYPY:
-    class BotSlotValueElicitationSettingArgsDict(TypedDict):
-        slot_constraint: pulumi.Input['BotSlotConstraint']
-        """
-        Specifies whether the slot is required or optional.
-        """
-        default_value_specification: NotRequired[pulumi.Input['BotSlotDefaultValueSpecificationArgsDict']]
-        """
-        A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
-        """
-        prompt_specification: NotRequired[pulumi.Input['BotPromptSpecificationArgsDict']]
-        """
-        The prompt that Amazon Lex uses to elicit the slot value from the user.
-        """
-        sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
-        """
-        If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
-        """
-        slot_capture_setting: NotRequired[pulumi.Input['BotSlotCaptureSettingArgsDict']]
-        """
-        Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
-        """
-        wait_and_continue_specification: NotRequired[pulumi.Input['BotWaitAndContinueSpecificationArgsDict']]
-        """
-        Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-        """
-elif False:
-    BotSlotValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotValueElicitationSettingArgsDict(TypedDict):
+    slot_constraint: pulumi.Input['BotSlotConstraint']
+    """
+    Specifies whether the slot is required or optional.
+    """
+    default_value_specification: NotRequired[pulumi.Input['BotSlotDefaultValueSpecificationArgsDict']]
+    """
+    A list of default values for a slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
+    """
+    prompt_specification: NotRequired[pulumi.Input['BotPromptSpecificationArgsDict']]
+    """
+    The prompt that Amazon Lex uses to elicit the slot value from the user.
+    """
+    sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
+    """
+    If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+    """
+    slot_capture_setting: NotRequired[pulumi.Input['BotSlotCaptureSettingArgsDict']]
+    """
+    Specifies the settings that Amazon Lex uses when a slot value is successfully entered by a user.
+    """
+    wait_and_continue_specification: NotRequired[pulumi.Input['BotWaitAndContinueSpecificationArgsDict']]
+    """
+    Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+    """
 
 @pulumi.input_type
 class BotSlotValueElicitationSettingArgs:
@@ -6112,18 +5873,15 @@ class BotSlotValueElicitationSettingArgs:
         pulumi.set(self, "wait_and_continue_specification", value)
 
 
-if not MYPY:
-    class BotSlotValueOverrideMapArgsDict(TypedDict):
-        slot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the slot.
-        """
-        slot_value_override: NotRequired[pulumi.Input['BotSlotValueOverrideArgsDict']]
-        """
-        The SlotValueOverride object to which the slot name will be mapped.
-        """
-elif False:
-    BotSlotValueOverrideMapArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotValueOverrideMapArgsDict(TypedDict):
+    slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the slot.
+    """
+    slot_value_override: NotRequired[pulumi.Input['BotSlotValueOverrideArgsDict']]
+    """
+    The SlotValueOverride object to which the slot name will be mapped.
+    """
 
 @pulumi.input_type
 class BotSlotValueOverrideMapArgs:
@@ -6164,22 +5922,19 @@ class BotSlotValueOverrideMapArgs:
         pulumi.set(self, "slot_value_override", value)
 
 
-if not MYPY:
-    class BotSlotValueOverrideArgsDict(TypedDict):
-        shape: NotRequired[pulumi.Input['BotSlotShape']]
-        """
-        When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
-        """
-        value: NotRequired[pulumi.Input['BotSlotValueArgsDict']]
-        """
-        The current value of the slot.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideArgsDict']]]]
-        """
-        A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
-        """
-elif False:
-    BotSlotValueOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotValueOverrideArgsDict(TypedDict):
+    shape: NotRequired[pulumi.Input['BotSlotShape']]
+    """
+    When the shape value is `List` , it indicates that the `values` field contains a list of slot values. When the value is `Scalar` , it indicates that the `value` field contains a single value.
+    """
+    value: NotRequired[pulumi.Input['BotSlotValueArgsDict']]
+    """
+    The current value of the slot.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideArgsDict']]]]
+    """
+    A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
+    """
 
 @pulumi.input_type
 class BotSlotValueOverrideArgs:
@@ -6236,27 +5991,24 @@ class BotSlotValueOverrideArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class BotSlotValueRegexFilterArgsDict(TypedDict):
-        pattern: pulumi.Input[_builtins.str]
-        """
-        A regular expression used to validate the value of a slot.
+class BotSlotValueRegexFilterArgsDict(TypedDict):
+    pattern: pulumi.Input[_builtins.str]
+    """
+    A regular expression used to validate the value of a slot.
 
-        Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+    Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
 
-        - A-Z, a-z
-        - 0-9
-        - Unicode characters ("\\⁠u<Unicode>")
+    - A-Z, a-z
+    - 0-9
+    - Unicode characters ("\\⁠u<Unicode>")
 
-        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A".
+    Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A".
 
-        The following regular expression operators are not supported:
+    The following regular expression operators are not supported:
 
-        - Infinite repeaters: *, +, or {x,} with no upper bound.
-        - Wild card (.)
-        """
-elif False:
-    BotSlotValueRegexFilterArgsDict: TypeAlias = Mapping[str, Any]
+    - Infinite repeaters: *, +, or {x,} with no upper bound.
+    - Wild card (.)
+    """
 
 @pulumi.input_type
 class BotSlotValueRegexFilterArgs:
@@ -6306,27 +6058,24 @@ class BotSlotValueRegexFilterArgs:
         pulumi.set(self, "pattern", value)
 
 
-if not MYPY:
-    class BotSlotValueSelectionSettingArgsDict(TypedDict):
-        resolution_strategy: pulumi.Input['BotSlotValueResolutionStrategy']
-        """
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+class BotSlotValueSelectionSettingArgsDict(TypedDict):
+    resolution_strategy: pulumi.Input['BotSlotValueResolutionStrategy']
+    """
+    Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
 
-        - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
-        - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+    - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+    - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 
-        If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
-        """
-        advanced_recognition_setting: NotRequired[pulumi.Input['BotAdvancedRecognitionSettingArgsDict']]
-        """
-        Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-        """
-        regex_filter: NotRequired[pulumi.Input['BotSlotValueRegexFilterArgsDict']]
-        """
-        A regular expression used to validate the value of a slot.
-        """
-elif False:
-    BotSlotValueSelectionSettingArgsDict: TypeAlias = Mapping[str, Any]
+    If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+    """
+    advanced_recognition_setting: NotRequired[pulumi.Input['BotAdvancedRecognitionSettingArgsDict']]
+    """
+    Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+    """
+    regex_filter: NotRequired[pulumi.Input['BotSlotValueRegexFilterArgsDict']]
+    """
+    A regular expression used to validate the value of a slot.
+    """
 
 @pulumi.input_type
 class BotSlotValueSelectionSettingArgs:
@@ -6392,14 +6141,11 @@ class BotSlotValueSelectionSettingArgs:
         pulumi.set(self, "regex_filter", value)
 
 
-if not MYPY:
-    class BotSlotValueArgsDict(TypedDict):
-        interpreted_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
-        """
-elif False:
-    BotSlotValueArgsDict: TypeAlias = Mapping[str, Any]
+class BotSlotValueArgsDict(TypedDict):
+    interpreted_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the `resolvedValues` list.
+    """
 
 @pulumi.input_type
 class BotSlotValueArgs:
@@ -6424,40 +6170,37 @@ class BotSlotValueArgs:
         pulumi.set(self, "interpreted_value", value)
 
 
-if not MYPY:
-    class BotSlotArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name given to the slot.
-        """
-        slot_type_name: pulumi.Input[_builtins.str]
-        """
-        The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
-        """
-        value_elicitation_setting: pulumi.Input['BotSlotValueElicitationSettingArgsDict']
-        """
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+class BotSlotArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name given to the slot.
+    """
+    slot_type_name: pulumi.Input[_builtins.str]
+    """
+    The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
+    """
+    value_elicitation_setting: pulumi.Input['BotSlotValueElicitationSettingArgsDict']
+    """
+    Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
 
-        - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
-        - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+    - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+    - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 
-        If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the slot.
-        """
-        multiple_values_setting: NotRequired[pulumi.Input['BotMultipleValuesSettingArgsDict']]
-        """
-        Indicates whether a slot can return multiple values.
-        """
-        obfuscation_setting: NotRequired[pulumi.Input['BotObfuscationSettingArgsDict']]
-        """
-        Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
-        """
-        sub_slot_setting: NotRequired[pulumi.Input['BotSubSlotSettingArgsDict']]
-elif False:
-    BotSlotArgsDict: TypeAlias = Mapping[str, Any]
+    If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the slot.
+    """
+    multiple_values_setting: NotRequired[pulumi.Input['BotMultipleValuesSettingArgsDict']]
+    """
+    Indicates whether a slot can return multiple values.
+    """
+    obfuscation_setting: NotRequired[pulumi.Input['BotObfuscationSettingArgsDict']]
+    """
+    Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
+    """
+    sub_slot_setting: NotRequired[pulumi.Input['BotSubSlotSettingArgsDict']]
 
 @pulumi.input_type
 class BotSlotArgs:
@@ -6581,13 +6324,10 @@ class BotSlotArgs:
         pulumi.set(self, "sub_slot_setting", value)
 
 
-if not MYPY:
-    class BotSpecificationsArgsDict(TypedDict):
-        value_elicitation_setting: pulumi.Input['BotSubSlotValueElicitationSettingArgsDict']
-        slot_type_id: NotRequired[pulumi.Input[_builtins.str]]
-        slot_type_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+class BotSpecificationsArgsDict(TypedDict):
+    value_elicitation_setting: pulumi.Input['BotSubSlotValueElicitationSettingArgsDict']
+    slot_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    slot_type_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotSpecificationsArgs:
@@ -6629,11 +6369,61 @@ class BotSpecificationsArgs:
         pulumi.set(self, "slot_type_name", value)
 
 
-if not MYPY:
-    class BotSsmlMessageArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BotSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+class BotSpeechModelConfigArgsDict(TypedDict):
+    deepgram_config: NotRequired[pulumi.Input['BotDeepgramSpeechModelConfigArgsDict']]
+
+@pulumi.input_type
+class BotSpeechModelConfigArgs:
+    def __init__(__self__, *,
+                 deepgram_config: Optional[pulumi.Input['BotDeepgramSpeechModelConfigArgs']] = None):
+        if deepgram_config is not None:
+            pulumi.set(__self__, "deepgram_config", deepgram_config)
+
+    @_builtins.property
+    @pulumi.getter(name="deepgramConfig")
+    def deepgram_config(self) -> Optional[pulumi.Input['BotDeepgramSpeechModelConfigArgs']]:
+        return pulumi.get(self, "deepgram_config")
+
+    @deepgram_config.setter
+    def deepgram_config(self, value: Optional[pulumi.Input['BotDeepgramSpeechModelConfigArgs']]):
+        pulumi.set(self, "deepgram_config", value)
+
+
+class BotSpeechRecognitionSettingsArgsDict(TypedDict):
+    speech_model_config: NotRequired[pulumi.Input['BotSpeechModelConfigArgsDict']]
+    speech_model_preference: NotRequired[pulumi.Input['BotSpeechModelPreference']]
+
+@pulumi.input_type
+class BotSpeechRecognitionSettingsArgs:
+    def __init__(__self__, *,
+                 speech_model_config: Optional[pulumi.Input['BotSpeechModelConfigArgs']] = None,
+                 speech_model_preference: Optional[pulumi.Input['BotSpeechModelPreference']] = None):
+        if speech_model_config is not None:
+            pulumi.set(__self__, "speech_model_config", speech_model_config)
+        if speech_model_preference is not None:
+            pulumi.set(__self__, "speech_model_preference", speech_model_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="speechModelConfig")
+    def speech_model_config(self) -> Optional[pulumi.Input['BotSpeechModelConfigArgs']]:
+        return pulumi.get(self, "speech_model_config")
+
+    @speech_model_config.setter
+    def speech_model_config(self, value: Optional[pulumi.Input['BotSpeechModelConfigArgs']]):
+        pulumi.set(self, "speech_model_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="speechModelPreference")
+    def speech_model_preference(self) -> Optional[pulumi.Input['BotSpeechModelPreference']]:
+        return pulumi.get(self, "speech_model_preference")
+
+    @speech_model_preference.setter
+    def speech_model_preference(self, value: Optional[pulumi.Input['BotSpeechModelPreference']]):
+        pulumi.set(self, "speech_model_preference", value)
+
+
+class BotSsmlMessageArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotSsmlMessageArgs:
@@ -6651,26 +6441,23 @@ class BotSsmlMessageArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotStillWaitingResponseSpecificationArgsDict(TypedDict):
-        frequency_in_seconds: pulumi.Input[_builtins.int]
-        """
-        How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
-        """
-        message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
-        """
-        One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
-        """
-        timeout_in_seconds: pulumi.Input[_builtins.int]
-        """
-        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-        """
-        allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that the user can interrupt the response by speaking while the message is being played.
-        """
-elif False:
-    BotStillWaitingResponseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotStillWaitingResponseSpecificationArgsDict(TypedDict):
+    frequency_in_seconds: pulumi.Input[_builtins.int]
+    """
+    How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
+    """
+    message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgsDict']]]
+    """
+    One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
+    """
+    timeout_in_seconds: pulumi.Input[_builtins.int]
+    """
+    If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+    """
+    allow_interrupt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that the user can interrupt the response by speaking while the message is being played.
+    """
 
 @pulumi.input_type
 class BotStillWaitingResponseSpecificationArgs:
@@ -6740,18 +6527,15 @@ class BotStillWaitingResponseSpecificationArgs:
         pulumi.set(self, "allow_interrupt", value)
 
 
-if not MYPY:
-    class BotSubSlotSettingArgsDict(TypedDict):
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
-        """
-        slot_specifications: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgsDict']]]]
-        """
-        Specifications for the constituent sub slots of a composite slot.
-        """
-elif False:
-    BotSubSlotSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotSubSlotSettingArgsDict(TypedDict):
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+    """
+    slot_specifications: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgsDict']]]]
+    """
+    Specifications for the constituent sub slots of a composite slot.
+    """
 
 @pulumi.input_type
 class BotSubSlotSettingArgs:
@@ -6792,19 +6576,16 @@ class BotSubSlotSettingArgs:
         pulumi.set(self, "slot_specifications", value)
 
 
-if not MYPY:
-    class BotSubSlotTypeCompositionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of a constituent sub slot inside a composite slot.
-        """
-        slot_type_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-        """
-        slot_type_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotSubSlotTypeCompositionArgsDict: TypeAlias = Mapping[str, Any]
+class BotSubSlotTypeCompositionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a constituent sub slot inside a composite slot.
+    """
+    slot_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
+    """
+    slot_type_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotSubSlotTypeCompositionArgs:
@@ -6856,14 +6637,11 @@ class BotSubSlotTypeCompositionArgs:
         pulumi.set(self, "slot_type_name", value)
 
 
-if not MYPY:
-    class BotSubSlotValueElicitationSettingArgsDict(TypedDict):
-        default_value_specification: NotRequired[pulumi.Input['BotSlotDefaultValueSpecificationArgsDict']]
-        prompt_specification: NotRequired[pulumi.Input['BotPromptSpecificationArgsDict']]
-        sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
-        wait_and_continue_specification: NotRequired[pulumi.Input['BotWaitAndContinueSpecificationArgsDict']]
-elif False:
-    BotSubSlotValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotSubSlotValueElicitationSettingArgsDict(TypedDict):
+    default_value_specification: NotRequired[pulumi.Input['BotSlotDefaultValueSpecificationArgsDict']]
+    prompt_specification: NotRequired[pulumi.Input['BotPromptSpecificationArgsDict']]
+    sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
+    wait_and_continue_specification: NotRequired[pulumi.Input['BotWaitAndContinueSpecificationArgsDict']]
 
 @pulumi.input_type
 class BotSubSlotValueElicitationSettingArgs:
@@ -6918,12 +6696,9 @@ class BotSubSlotValueElicitationSettingArgs:
         pulumi.set(self, "wait_and_continue_specification", value)
 
 
-if not MYPY:
-    class BotTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    BotTagArgsDict: TypeAlias = Mapping[str, Any]
+class BotTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotTagArgs:
@@ -6952,14 +6727,11 @@ class BotTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgsDict(TypedDict):
-        """
-        Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-        """
-        detect_sentiment: pulumi.Input[_builtins.bool]
-elif False:
-    BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgsDict(TypedDict):
+    """
+    Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+    """
+    detect_sentiment: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs:
@@ -6980,26 +6752,23 @@ class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs:
         pulumi.set(self, "detect_sentiment", value)
 
 
-if not MYPY:
-    class BotTestBotAliasSettingsArgsDict(TypedDict):
-        bot_alias_locale_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgsDict']]]]
-        """
-        Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
-        """
-        conversation_log_settings: NotRequired[pulumi.Input['BotConversationLogSettingsArgsDict']]
-        """
-        Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a description for the test bot alias.
-        """
-        sentiment_analysis_settings: NotRequired[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgsDict']]
-        """
-        Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-        """
-elif False:
-    BotTestBotAliasSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotTestBotAliasSettingsArgsDict(TypedDict):
+    bot_alias_locale_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgsDict']]]]
+    """
+    Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
+    """
+    conversation_log_settings: NotRequired[pulumi.Input['BotConversationLogSettingsArgsDict']]
+    """
+    Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a description for the test bot alias.
+    """
+    sentiment_analysis_settings: NotRequired[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgsDict']]
+    """
+    Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+    """
 
 @pulumi.input_type
 class BotTestBotAliasSettingsArgs:
@@ -7072,11 +6841,8 @@ class BotTestBotAliasSettingsArgs:
         pulumi.set(self, "sentiment_analysis_settings", value)
 
 
-if not MYPY:
-    class BotTextInputSpecificationArgsDict(TypedDict):
-        start_timeout_ms: pulumi.Input[_builtins.int]
-elif False:
-    BotTextInputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotTextInputSpecificationArgsDict(TypedDict):
+    start_timeout_ms: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class BotTextInputSpecificationArgs:
@@ -7094,11 +6860,8 @@ class BotTextInputSpecificationArgs:
         pulumi.set(self, "start_timeout_ms", value)
 
 
-if not MYPY:
-    class BotTextLogDestinationArgsDict(TypedDict):
-        cloud_watch: pulumi.Input['BotCloudWatchLogGroupLogDestinationArgsDict']
-elif False:
-    BotTextLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class BotTextLogDestinationArgsDict(TypedDict):
+    cloud_watch: pulumi.Input['BotCloudWatchLogGroupLogDestinationArgsDict']
 
 @pulumi.input_type
 class BotTextLogDestinationArgs:
@@ -7116,12 +6879,9 @@ class BotTextLogDestinationArgs:
         pulumi.set(self, "cloud_watch", value)
 
 
-if not MYPY:
-    class BotTextLogSettingArgsDict(TypedDict):
-        destination: pulumi.Input['BotTextLogDestinationArgsDict']
-        enabled: pulumi.Input[_builtins.bool]
-elif False:
-    BotTextLogSettingArgsDict: TypeAlias = Mapping[str, Any]
+class BotTextLogSettingArgsDict(TypedDict):
+    destination: pulumi.Input['BotTextLogDestinationArgsDict']
+    enabled: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class BotTextLogSettingArgs:
@@ -7150,15 +6910,12 @@ class BotTextLogSettingArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgsDict(TypedDict):
-        """
-        The foundation model configuration to use for unified speech processing capabilities.
-        """
-        model_arn: pulumi.Input[_builtins.str]
-        voice_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgsDict(TypedDict):
+    """
+    The foundation model configuration to use for unified speech processing capabilities.
+    """
+    model_arn: pulumi.Input[_builtins.str]
+    voice_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs:
@@ -7191,14 +6948,11 @@ class BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs:
         pulumi.set(self, "voice_id", value)
 
 
-if not MYPY:
-    class BotUnifiedSpeechSettingsArgsDict(TypedDict):
-        speech_foundation_model: pulumi.Input['BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgsDict']
-        """
-        The foundation model configuration to use for unified speech processing capabilities.
-        """
-elif False:
-    BotUnifiedSpeechSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BotUnifiedSpeechSettingsArgsDict(TypedDict):
+    speech_foundation_model: pulumi.Input['BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgsDict']
+    """
+    The foundation model configuration to use for unified speech processing capabilities.
+    """
 
 @pulumi.input_type
 class BotUnifiedSpeechSettingsArgs:
@@ -7222,14 +6976,11 @@ class BotUnifiedSpeechSettingsArgs:
         pulumi.set(self, "speech_foundation_model", value)
 
 
-if not MYPY:
-    class BotVersionLocaleDetailsArgsDict(TypedDict):
-        """
-        The version of a bot used for a bot locale.
-        """
-        source_bot_version: pulumi.Input[_builtins.str]
-elif False:
-    BotVersionLocaleDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class BotVersionLocaleDetailsArgsDict(TypedDict):
+    """
+    The version of a bot used for a bot locale.
+    """
+    source_bot_version: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotVersionLocaleDetailsArgs:
@@ -7250,12 +7001,9 @@ class BotVersionLocaleDetailsArgs:
         pulumi.set(self, "source_bot_version", value)
 
 
-if not MYPY:
-    class BotVersionLocaleSpecificationArgsDict(TypedDict):
-        bot_version_locale_details: pulumi.Input['BotVersionLocaleDetailsArgsDict']
-        locale_id: pulumi.Input[_builtins.str]
-elif False:
-    BotVersionLocaleSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotVersionLocaleSpecificationArgsDict(TypedDict):
+    bot_version_locale_details: pulumi.Input['BotVersionLocaleDetailsArgsDict']
+    locale_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BotVersionLocaleSpecificationArgs:
@@ -7284,20 +7032,17 @@ class BotVersionLocaleSpecificationArgs:
         pulumi.set(self, "locale_id", value)
 
 
-if not MYPY:
-    class BotVoiceSettingsArgsDict(TypedDict):
-        voice_id: pulumi.Input[_builtins.str]
-        """
-        The identifier of the Amazon Polly voice to use.
-        """
-        engine: NotRequired[pulumi.Input['BotVoiceSettingsEngine']]
-        """
-        Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
+class BotVoiceSettingsArgsDict(TypedDict):
+    voice_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the Amazon Polly voice to use.
+    """
+    engine: NotRequired[pulumi.Input['BotVoiceSettingsEngine']]
+    """
+    Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
 
-        If you do not specify a value, the default is `standard` .
-        """
-elif False:
-    BotVoiceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    If you do not specify a value, the default is `standard` .
+    """
 
 @pulumi.input_type
 class BotVoiceSettingsArgs:
@@ -7341,26 +7086,23 @@ class BotVoiceSettingsArgs:
         pulumi.set(self, "engine", value)
 
 
-if not MYPY:
-    class BotWaitAndContinueSpecificationArgsDict(TypedDict):
-        continue_response: pulumi.Input['BotResponseSpecificationArgsDict']
-        """
-        The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-        """
-        waiting_response: pulumi.Input['BotResponseSpecificationArgsDict']
-        """
-        The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-        """
-        is_active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
-        """
-        still_waiting_response: NotRequired[pulumi.Input['BotStillWaitingResponseSpecificationArgsDict']]
-        """
-        A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-        """
-elif False:
-    BotWaitAndContinueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class BotWaitAndContinueSpecificationArgsDict(TypedDict):
+    continue_response: pulumi.Input['BotResponseSpecificationArgsDict']
+    """
+    The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+    """
+    waiting_response: pulumi.Input['BotResponseSpecificationArgsDict']
+    """
+    The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+    """
+    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the bot will wait for a user to respond. When this field is false, wait and continue responses for a slot aren't used. If the `IsActive` field isn't specified, the default is true.
+    """
+    still_waiting_response: NotRequired[pulumi.Input['BotStillWaitingResponseSpecificationArgsDict']]
+    """
+    A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+    """
 
 @pulumi.input_type
 class BotWaitAndContinueSpecificationArgs:
@@ -7431,17 +7173,14 @@ class BotWaitAndContinueSpecificationArgs:
         pulumi.set(self, "still_waiting_response", value)
 
 
-if not MYPY:
-    class DataPrivacyPropertiesArgsDict(TypedDict):
-        """
-        By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
-        """
-        child_directed: pulumi.Input[_builtins.bool]
-        """
-        For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
-        """
-elif False:
-    DataPrivacyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataPrivacyPropertiesArgsDict(TypedDict):
+    """
+    By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
+    """
+    child_directed: pulumi.Input[_builtins.bool]
+    """
+    For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
+    """
 
 @pulumi.input_type
 class DataPrivacyPropertiesArgs:
@@ -7466,11 +7205,8 @@ class DataPrivacyPropertiesArgs:
         pulumi.set(self, "child_directed", value)
 
 
-if not MYPY:
-    class ErrorLogSettingsPropertiesArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-elif False:
-    ErrorLogSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorLogSettingsPropertiesArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
 
 @pulumi.input_type
 class ErrorLogSettingsPropertiesArgs:
@@ -7488,14 +7224,11 @@ class ErrorLogSettingsPropertiesArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ResourcePolicyPolicyArgsDict(TypedDict):
-        """
-        A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
-        """
-        pass
-elif False:
-    ResourcePolicyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyPolicyArgsDict(TypedDict):
+    """
+    A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
+    """
+    pass
 
 @pulumi.input_type
 class ResourcePolicyPolicyArgs:
@@ -7506,17 +7239,14 @@ class ResourcePolicyPolicyArgs:
         pass
 
 
-if not MYPY:
-    class SentimentAnalysisSettingsPropertiesArgsDict(TypedDict):
-        """
-        Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-        """
-        detect_sentiment: pulumi.Input[_builtins.bool]
-        """
-        Enable to call Amazon Comprehend for Sentiment natively within Lex
-        """
-elif False:
-    SentimentAnalysisSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SentimentAnalysisSettingsPropertiesArgsDict(TypedDict):
+    """
+    Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+    """
+    detect_sentiment: pulumi.Input[_builtins.bool]
+    """
+    Enable to call Amazon Comprehend for Sentiment natively within Lex
+    """
 
 @pulumi.input_type
 class SentimentAnalysisSettingsPropertiesArgs:

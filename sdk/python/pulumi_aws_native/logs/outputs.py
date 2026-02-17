@@ -22,6 +22,8 @@ __all__ = [
     'MetricFilterDimension',
     'MetricFilterMetricTransformation',
     'ResourceConfigProperties',
+    'ScheduledQueryDestinationConfiguration',
+    'ScheduledQueryS3Configuration',
     'TransformerAddKeyEntry',
     'TransformerCopyValueEntry',
     'TransformerMoveKeyEntry',
@@ -391,6 +393,74 @@ class ResourceConfigProperties(dict):
         This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
         """
         return pulumi.get(self, "open_search_resource_config")
+
+
+@pulumi.output_type
+class ScheduledQueryDestinationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_configuration: Optional['outputs.ScheduledQueryS3Configuration'] = None):
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.ScheduledQueryS3Configuration']:
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class ScheduledQueryS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationIdentifier":
+            suggest = "destination_identifier"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_identifier: _builtins.str,
+                 role_arn: _builtins.str):
+        pulumi.set(__self__, "destination_identifier", destination_identifier)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIdentifier")
+    def destination_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "destination_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

@@ -1402,6 +1402,527 @@ func (in *commandNamespacePtr) ToCommandNamespacePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(CommandNamespacePtrOutput)
 }
 
+type CommandOutputFormat string
+
+const (
+	CommandOutputFormatJson = CommandOutputFormat("JSON")
+	CommandOutputFormatCbor = CommandOutputFormat("CBOR")
+)
+
+func (CommandOutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandOutputFormat)(nil)).Elem()
+}
+
+func (e CommandOutputFormat) ToCommandOutputFormatOutput() CommandOutputFormatOutput {
+	return pulumi.ToOutput(e).(CommandOutputFormatOutput)
+}
+
+func (e CommandOutputFormat) ToCommandOutputFormatOutputWithContext(ctx context.Context) CommandOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CommandOutputFormatOutput)
+}
+
+func (e CommandOutputFormat) ToCommandOutputFormatPtrOutput() CommandOutputFormatPtrOutput {
+	return e.ToCommandOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e CommandOutputFormat) ToCommandOutputFormatPtrOutputWithContext(ctx context.Context) CommandOutputFormatPtrOutput {
+	return CommandOutputFormat(e).ToCommandOutputFormatOutputWithContext(ctx).ToCommandOutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e CommandOutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandOutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandOutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CommandOutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CommandOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (CommandOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandOutputFormat)(nil)).Elem()
+}
+
+func (o CommandOutputFormatOutput) ToCommandOutputFormatOutput() CommandOutputFormatOutput {
+	return o
+}
+
+func (o CommandOutputFormatOutput) ToCommandOutputFormatOutputWithContext(ctx context.Context) CommandOutputFormatOutput {
+	return o
+}
+
+func (o CommandOutputFormatOutput) ToCommandOutputFormatPtrOutput() CommandOutputFormatPtrOutput {
+	return o.ToCommandOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o CommandOutputFormatOutput) ToCommandOutputFormatPtrOutputWithContext(ctx context.Context) CommandOutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandOutputFormat) *CommandOutputFormat {
+		return &v
+	}).(CommandOutputFormatPtrOutput)
+}
+
+func (o CommandOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CommandOutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandOutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CommandOutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandOutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandOutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommandOutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (CommandOutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandOutputFormat)(nil)).Elem()
+}
+
+func (o CommandOutputFormatPtrOutput) ToCommandOutputFormatPtrOutput() CommandOutputFormatPtrOutput {
+	return o
+}
+
+func (o CommandOutputFormatPtrOutput) ToCommandOutputFormatPtrOutputWithContext(ctx context.Context) CommandOutputFormatPtrOutput {
+	return o
+}
+
+func (o CommandOutputFormatPtrOutput) Elem() CommandOutputFormatOutput {
+	return o.ApplyT(func(v *CommandOutputFormat) CommandOutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret CommandOutputFormat
+		return ret
+	}).(CommandOutputFormatOutput)
+}
+
+func (o CommandOutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CommandOutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CommandOutputFormatInput is an input type that accepts values of the CommandOutputFormat enum
+// A concrete instance of `CommandOutputFormatInput` can be one of the following:
+//
+//	CommandOutputFormatJson
+//	CommandOutputFormatCbor
+type CommandOutputFormatInput interface {
+	pulumi.Input
+
+	ToCommandOutputFormatOutput() CommandOutputFormatOutput
+	ToCommandOutputFormatOutputWithContext(context.Context) CommandOutputFormatOutput
+}
+
+var commandOutputFormatPtrType = reflect.TypeOf((**CommandOutputFormat)(nil)).Elem()
+
+type CommandOutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToCommandOutputFormatPtrOutput() CommandOutputFormatPtrOutput
+	ToCommandOutputFormatPtrOutputWithContext(context.Context) CommandOutputFormatPtrOutput
+}
+
+type commandOutputFormatPtr string
+
+func CommandOutputFormatPtr(v string) CommandOutputFormatPtrInput {
+	return (*commandOutputFormatPtr)(&v)
+}
+
+func (*commandOutputFormatPtr) ElementType() reflect.Type {
+	return commandOutputFormatPtrType
+}
+
+func (in *commandOutputFormatPtr) ToCommandOutputFormatPtrOutput() CommandOutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(CommandOutputFormatPtrOutput)
+}
+
+func (in *commandOutputFormatPtr) ToCommandOutputFormatPtrOutputWithContext(ctx context.Context) CommandOutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CommandOutputFormatPtrOutput)
+}
+
+type CommandParameterType string
+
+const (
+	CommandParameterTypeString       = CommandParameterType("STRING")
+	CommandParameterTypeInteger      = CommandParameterType("INTEGER")
+	CommandParameterTypeDouble       = CommandParameterType("DOUBLE")
+	CommandParameterTypeLong         = CommandParameterType("LONG")
+	CommandParameterTypeUnsignedlong = CommandParameterType("UNSIGNEDLONG")
+	CommandParameterTypeBoolean      = CommandParameterType("BOOLEAN")
+	CommandParameterTypeBinary       = CommandParameterType("BINARY")
+)
+
+func (CommandParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameterType)(nil)).Elem()
+}
+
+func (e CommandParameterType) ToCommandParameterTypeOutput() CommandParameterTypeOutput {
+	return pulumi.ToOutput(e).(CommandParameterTypeOutput)
+}
+
+func (e CommandParameterType) ToCommandParameterTypeOutputWithContext(ctx context.Context) CommandParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CommandParameterTypeOutput)
+}
+
+func (e CommandParameterType) ToCommandParameterTypePtrOutput() CommandParameterTypePtrOutput {
+	return e.ToCommandParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e CommandParameterType) ToCommandParameterTypePtrOutputWithContext(ctx context.Context) CommandParameterTypePtrOutput {
+	return CommandParameterType(e).ToCommandParameterTypeOutputWithContext(ctx).ToCommandParameterTypePtrOutputWithContext(ctx)
+}
+
+func (e CommandParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CommandParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CommandParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameterType)(nil)).Elem()
+}
+
+func (o CommandParameterTypeOutput) ToCommandParameterTypeOutput() CommandParameterTypeOutput {
+	return o
+}
+
+func (o CommandParameterTypeOutput) ToCommandParameterTypeOutputWithContext(ctx context.Context) CommandParameterTypeOutput {
+	return o
+}
+
+func (o CommandParameterTypeOutput) ToCommandParameterTypePtrOutput() CommandParameterTypePtrOutput {
+	return o.ToCommandParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterTypeOutput) ToCommandParameterTypePtrOutputWithContext(ctx context.Context) CommandParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandParameterType) *CommandParameterType {
+		return &v
+	}).(CommandParameterTypePtrOutput)
+}
+
+func (o CommandParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CommandParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CommandParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommandParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandParameterType)(nil)).Elem()
+}
+
+func (o CommandParameterTypePtrOutput) ToCommandParameterTypePtrOutput() CommandParameterTypePtrOutput {
+	return o
+}
+
+func (o CommandParameterTypePtrOutput) ToCommandParameterTypePtrOutputWithContext(ctx context.Context) CommandParameterTypePtrOutput {
+	return o
+}
+
+func (o CommandParameterTypePtrOutput) Elem() CommandParameterTypeOutput {
+	return o.ApplyT(func(v *CommandParameterType) CommandParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret CommandParameterType
+		return ret
+	}).(CommandParameterTypeOutput)
+}
+
+func (o CommandParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CommandParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CommandParameterTypeInput is an input type that accepts values of the CommandParameterType enum
+// A concrete instance of `CommandParameterTypeInput` can be one of the following:
+//
+//	CommandParameterTypeString
+//	CommandParameterTypeInteger
+//	CommandParameterTypeDouble
+//	CommandParameterTypeLong
+//	CommandParameterTypeUnsignedlong
+//	CommandParameterTypeBoolean
+//	CommandParameterTypeBinary
+type CommandParameterTypeInput interface {
+	pulumi.Input
+
+	ToCommandParameterTypeOutput() CommandParameterTypeOutput
+	ToCommandParameterTypeOutputWithContext(context.Context) CommandParameterTypeOutput
+}
+
+var commandParameterTypePtrType = reflect.TypeOf((**CommandParameterType)(nil)).Elem()
+
+type CommandParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToCommandParameterTypePtrOutput() CommandParameterTypePtrOutput
+	ToCommandParameterTypePtrOutputWithContext(context.Context) CommandParameterTypePtrOutput
+}
+
+type commandParameterTypePtr string
+
+func CommandParameterTypePtr(v string) CommandParameterTypePtrInput {
+	return (*commandParameterTypePtr)(&v)
+}
+
+func (*commandParameterTypePtr) ElementType() reflect.Type {
+	return commandParameterTypePtrType
+}
+
+func (in *commandParameterTypePtr) ToCommandParameterTypePtrOutput() CommandParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(CommandParameterTypePtrOutput)
+}
+
+func (in *commandParameterTypePtr) ToCommandParameterTypePtrOutputWithContext(ctx context.Context) CommandParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CommandParameterTypePtrOutput)
+}
+
+type CommandParameterValueComparisonOperator string
+
+const (
+	CommandParameterValueComparisonOperatorEquals            = CommandParameterValueComparisonOperator("EQUALS")
+	CommandParameterValueComparisonOperatorNotEquals         = CommandParameterValueComparisonOperator("NOT_EQUALS")
+	CommandParameterValueComparisonOperatorLessThan          = CommandParameterValueComparisonOperator("LESS_THAN")
+	CommandParameterValueComparisonOperatorLessThanEquals    = CommandParameterValueComparisonOperator("LESS_THAN_EQUALS")
+	CommandParameterValueComparisonOperatorGreaterThan       = CommandParameterValueComparisonOperator("GREATER_THAN")
+	CommandParameterValueComparisonOperatorGreaterThanEquals = CommandParameterValueComparisonOperator("GREATER_THAN_EQUALS")
+	CommandParameterValueComparisonOperatorInSet             = CommandParameterValueComparisonOperator("IN_SET")
+	CommandParameterValueComparisonOperatorNotInSet          = CommandParameterValueComparisonOperator("NOT_IN_SET")
+	CommandParameterValueComparisonOperatorInRange           = CommandParameterValueComparisonOperator("IN_RANGE")
+	CommandParameterValueComparisonOperatorNotInRange        = CommandParameterValueComparisonOperator("NOT_IN_RANGE")
+)
+
+func (CommandParameterValueComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameterValueComparisonOperator)(nil)).Elem()
+}
+
+func (e CommandParameterValueComparisonOperator) ToCommandParameterValueComparisonOperatorOutput() CommandParameterValueComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(CommandParameterValueComparisonOperatorOutput)
+}
+
+func (e CommandParameterValueComparisonOperator) ToCommandParameterValueComparisonOperatorOutputWithContext(ctx context.Context) CommandParameterValueComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CommandParameterValueComparisonOperatorOutput)
+}
+
+func (e CommandParameterValueComparisonOperator) ToCommandParameterValueComparisonOperatorPtrOutput() CommandParameterValueComparisonOperatorPtrOutput {
+	return e.ToCommandParameterValueComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e CommandParameterValueComparisonOperator) ToCommandParameterValueComparisonOperatorPtrOutputWithContext(ctx context.Context) CommandParameterValueComparisonOperatorPtrOutput {
+	return CommandParameterValueComparisonOperator(e).ToCommandParameterValueComparisonOperatorOutputWithContext(ctx).ToCommandParameterValueComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e CommandParameterValueComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandParameterValueComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandParameterValueComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CommandParameterValueComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CommandParameterValueComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterValueComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameterValueComparisonOperator)(nil)).Elem()
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToCommandParameterValueComparisonOperatorOutput() CommandParameterValueComparisonOperatorOutput {
+	return o
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToCommandParameterValueComparisonOperatorOutputWithContext(ctx context.Context) CommandParameterValueComparisonOperatorOutput {
+	return o
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToCommandParameterValueComparisonOperatorPtrOutput() CommandParameterValueComparisonOperatorPtrOutput {
+	return o.ToCommandParameterValueComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToCommandParameterValueComparisonOperatorPtrOutputWithContext(ctx context.Context) CommandParameterValueComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandParameterValueComparisonOperator) *CommandParameterValueComparisonOperator {
+		return &v
+	}).(CommandParameterValueComparisonOperatorPtrOutput)
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandParameterValueComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterValueComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandParameterValueComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommandParameterValueComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterValueComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandParameterValueComparisonOperator)(nil)).Elem()
+}
+
+func (o CommandParameterValueComparisonOperatorPtrOutput) ToCommandParameterValueComparisonOperatorPtrOutput() CommandParameterValueComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o CommandParameterValueComparisonOperatorPtrOutput) ToCommandParameterValueComparisonOperatorPtrOutputWithContext(ctx context.Context) CommandParameterValueComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o CommandParameterValueComparisonOperatorPtrOutput) Elem() CommandParameterValueComparisonOperatorOutput {
+	return o.ApplyT(func(v *CommandParameterValueComparisonOperator) CommandParameterValueComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret CommandParameterValueComparisonOperator
+		return ret
+	}).(CommandParameterValueComparisonOperatorOutput)
+}
+
+func (o CommandParameterValueComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterValueComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CommandParameterValueComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CommandParameterValueComparisonOperatorInput is an input type that accepts values of the CommandParameterValueComparisonOperator enum
+// A concrete instance of `CommandParameterValueComparisonOperatorInput` can be one of the following:
+//
+//	CommandParameterValueComparisonOperatorEquals
+//	CommandParameterValueComparisonOperatorNotEquals
+//	CommandParameterValueComparisonOperatorLessThan
+//	CommandParameterValueComparisonOperatorLessThanEquals
+//	CommandParameterValueComparisonOperatorGreaterThan
+//	CommandParameterValueComparisonOperatorGreaterThanEquals
+//	CommandParameterValueComparisonOperatorInSet
+//	CommandParameterValueComparisonOperatorNotInSet
+//	CommandParameterValueComparisonOperatorInRange
+//	CommandParameterValueComparisonOperatorNotInRange
+type CommandParameterValueComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToCommandParameterValueComparisonOperatorOutput() CommandParameterValueComparisonOperatorOutput
+	ToCommandParameterValueComparisonOperatorOutputWithContext(context.Context) CommandParameterValueComparisonOperatorOutput
+}
+
+var commandParameterValueComparisonOperatorPtrType = reflect.TypeOf((**CommandParameterValueComparisonOperator)(nil)).Elem()
+
+type CommandParameterValueComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToCommandParameterValueComparisonOperatorPtrOutput() CommandParameterValueComparisonOperatorPtrOutput
+	ToCommandParameterValueComparisonOperatorPtrOutputWithContext(context.Context) CommandParameterValueComparisonOperatorPtrOutput
+}
+
+type commandParameterValueComparisonOperatorPtr string
+
+func CommandParameterValueComparisonOperatorPtr(v string) CommandParameterValueComparisonOperatorPtrInput {
+	return (*commandParameterValueComparisonOperatorPtr)(&v)
+}
+
+func (*commandParameterValueComparisonOperatorPtr) ElementType() reflect.Type {
+	return commandParameterValueComparisonOperatorPtrType
+}
+
+func (in *commandParameterValueComparisonOperatorPtr) ToCommandParameterValueComparisonOperatorPtrOutput() CommandParameterValueComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(CommandParameterValueComparisonOperatorPtrOutput)
+}
+
+func (in *commandParameterValueComparisonOperatorPtr) ToCommandParameterValueComparisonOperatorPtrOutputWithContext(ctx context.Context) CommandParameterValueComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CommandParameterValueComparisonOperatorPtrOutput)
+}
+
 // The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
 type CustomMetricMetricType string
 
@@ -3525,6 +4046,178 @@ func (in *loggingDefaultLogLevelPtr) ToLoggingDefaultLogLevelPtrOutput() Logging
 
 func (in *loggingDefaultLogLevelPtr) ToLoggingDefaultLogLevelPtrOutputWithContext(ctx context.Context) LoggingDefaultLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingDefaultLogLevelPtrOutput)
+}
+
+// The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+type LoggingEventConfigurationLogLevel string
+
+const (
+	LoggingEventConfigurationLogLevelError    = LoggingEventConfigurationLogLevel("ERROR")
+	LoggingEventConfigurationLogLevelWarn     = LoggingEventConfigurationLogLevel("WARN")
+	LoggingEventConfigurationLogLevelInfo     = LoggingEventConfigurationLogLevel("INFO")
+	LoggingEventConfigurationLogLevelDebug    = LoggingEventConfigurationLogLevel("DEBUG")
+	LoggingEventConfigurationLogLevelDisabled = LoggingEventConfigurationLogLevel("DISABLED")
+)
+
+func (LoggingEventConfigurationLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingEventConfigurationLogLevel)(nil)).Elem()
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelOutput() LoggingEventConfigurationLogLevelOutput {
+	return pulumi.ToOutput(e).(LoggingEventConfigurationLogLevelOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingEventConfigurationLogLevelOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return e.ToLoggingEventConfigurationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingEventConfigurationLogLevel) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return LoggingEventConfigurationLogLevel(e).ToLoggingEventConfigurationLogLevelOutputWithContext(ctx).ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingEventConfigurationLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingEventConfigurationLogLevelOutput struct{ *pulumi.OutputState }
+
+func (LoggingEventConfigurationLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingEventConfigurationLogLevel)(nil)).Elem()
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelOutput() LoggingEventConfigurationLogLevelOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return o.ToLoggingEventConfigurationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingEventConfigurationLogLevel) *LoggingEventConfigurationLogLevel {
+		return &v
+	}).(LoggingEventConfigurationLogLevelPtrOutput)
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingEventConfigurationLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingEventConfigurationLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingEventConfigurationLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingEventConfigurationLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingEventConfigurationLogLevel)(nil)).Elem()
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return o
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) Elem() LoggingEventConfigurationLogLevelOutput {
+	return o.ApplyT(func(v *LoggingEventConfigurationLogLevel) LoggingEventConfigurationLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingEventConfigurationLogLevel
+		return ret
+	}).(LoggingEventConfigurationLogLevelOutput)
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingEventConfigurationLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingEventConfigurationLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingEventConfigurationLogLevelInput is an input type that accepts values of the LoggingEventConfigurationLogLevel enum
+// A concrete instance of `LoggingEventConfigurationLogLevelInput` can be one of the following:
+//
+//	LoggingEventConfigurationLogLevelError
+//	LoggingEventConfigurationLogLevelWarn
+//	LoggingEventConfigurationLogLevelInfo
+//	LoggingEventConfigurationLogLevelDebug
+//	LoggingEventConfigurationLogLevelDisabled
+type LoggingEventConfigurationLogLevelInput interface {
+	pulumi.Input
+
+	ToLoggingEventConfigurationLogLevelOutput() LoggingEventConfigurationLogLevelOutput
+	ToLoggingEventConfigurationLogLevelOutputWithContext(context.Context) LoggingEventConfigurationLogLevelOutput
+}
+
+var loggingEventConfigurationLogLevelPtrType = reflect.TypeOf((**LoggingEventConfigurationLogLevel)(nil)).Elem()
+
+type LoggingEventConfigurationLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput
+	ToLoggingEventConfigurationLogLevelPtrOutputWithContext(context.Context) LoggingEventConfigurationLogLevelPtrOutput
+}
+
+type loggingEventConfigurationLogLevelPtr string
+
+func LoggingEventConfigurationLogLevelPtr(v string) LoggingEventConfigurationLogLevelPtrInput {
+	return (*loggingEventConfigurationLogLevelPtr)(&v)
+}
+
+func (*loggingEventConfigurationLogLevelPtr) ElementType() reflect.Type {
+	return loggingEventConfigurationLogLevelPtrType
+}
+
+func (in *loggingEventConfigurationLogLevelPtr) ToLoggingEventConfigurationLogLevelPtrOutput() LoggingEventConfigurationLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(LoggingEventConfigurationLogLevelPtrOutput)
+}
+
+func (in *loggingEventConfigurationLogLevelPtr) ToLoggingEventConfigurationLogLevelPtrOutputWithContext(ctx context.Context) LoggingEventConfigurationLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingEventConfigurationLogLevelPtrOutput)
 }
 
 // Specifies which types of information are logged.
@@ -6469,6 +7162,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateStatusPtrInput)(nil)).Elem(), CertificateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CommandNamespaceInput)(nil)).Elem(), CommandNamespace("AWS-IoT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CommandNamespacePtrInput)(nil)).Elem(), CommandNamespace("AWS-IoT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandOutputFormatInput)(nil)).Elem(), CommandOutputFormat("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandOutputFormatPtrInput)(nil)).Elem(), CommandOutputFormat("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterTypeInput)(nil)).Elem(), CommandParameterType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterTypePtrInput)(nil)).Elem(), CommandParameterType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterValueComparisonOperatorInput)(nil)).Elem(), CommandParameterValueComparisonOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterValueComparisonOperatorPtrInput)(nil)).Elem(), CommandParameterValueComparisonOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypeInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypePtrInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTypeInput)(nil)).Elem(), DimensionType("TOPIC_FILTER"))
@@ -6491,6 +7190,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobRetryFailureTypePtrInput)(nil)).Elem(), JobTemplateJobRetryFailureType("FAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelPtrInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationLogLevelInput)(nil)).Elem(), LoggingEventConfigurationLogLevel("ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationLogLevelPtrInput)(nil)).Elem(), LoggingEventConfigurationLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelPtrInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput)(nil)).Elem(), MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY"))
@@ -6540,6 +7241,12 @@ func init() {
 	pulumi.RegisterOutputType(CertificateStatusPtrOutput{})
 	pulumi.RegisterOutputType(CommandNamespaceOutput{})
 	pulumi.RegisterOutputType(CommandNamespacePtrOutput{})
+	pulumi.RegisterOutputType(CommandOutputFormatOutput{})
+	pulumi.RegisterOutputType(CommandOutputFormatPtrOutput{})
+	pulumi.RegisterOutputType(CommandParameterTypeOutput{})
+	pulumi.RegisterOutputType(CommandParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(CommandParameterValueComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(CommandParameterValueComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypeOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(DimensionTypeOutput{})
@@ -6568,6 +7275,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateJobRetryFailureTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingDefaultLogLevelOutput{})
 	pulumi.RegisterOutputType(LoggingDefaultLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(LoggingEventConfigurationLogLevelOutput{})
+	pulumi.RegisterOutputType(LoggingEventConfigurationLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput{})

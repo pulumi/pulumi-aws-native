@@ -25,6 +25,9 @@ __all__ = [
     'EvaluationFormAutoEvaluationConfiguration',
     'EvaluationFormAutomaticFailConfiguration',
     'EvaluationFormBaseItem',
+    'EvaluationFormEvaluationReviewConfiguration',
+    'EvaluationFormEvaluationReviewNotificationRecipient',
+    'EvaluationFormEvaluationReviewNotificationRecipientValue',
     'EvaluationFormItem',
     'EvaluationFormItemEnablementCondition',
     'EvaluationFormItemEnablementConditionOperand',
@@ -73,6 +76,7 @@ __all__ = [
     'InstanceStorageConfigKinesisVideoStreamConfig',
     'InstanceStorageConfigS3Config',
     'LockVersionProperties',
+    'NotificationContent',
     'QueueOutboundCallerConfig',
     'QueueOutboundEmailConfig',
     'QuickConnectConfig',
@@ -109,6 +113,9 @@ __all__ = [
     'TaskTemplateInvisibleFieldInfo',
     'TaskTemplateReadOnlyFieldInfo',
     'TaskTemplateRequiredFieldInfo',
+    'UserAfterContactWorkConfig',
+    'UserAfterContactWorkConfigPerChannel',
+    'UserAutoAcceptConfig',
     'UserHierarchyStructureLevelFive',
     'UserHierarchyStructureLevelFour',
     'UserHierarchyStructureLevelOne',
@@ -116,8 +123,11 @@ __all__ = [
     'UserHierarchyStructureLevelTwo',
     'UserHierarchyStructureProperties',
     'UserIdentityInfo',
+    'UserPersistentConnectionConfig',
     'UserPhoneConfig',
+    'UserPhoneNumberConfig',
     'UserProficiency',
+    'UserVoiceEnhancementConfig',
     'ValidationProperties',
     'ValidationPropertiesEnumProperties',
     'ValuesProperties',
@@ -450,6 +460,120 @@ class EvaluationFormBaseItem(dict):
         A subsection or inner section of an item.
         """
         return pulumi.get(self, "section")
+
+
+@pulumi.output_type
+class EvaluationFormEvaluationReviewConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reviewNotificationRecipients":
+            suggest = "review_notification_recipients"
+        elif key == "eligibilityDays":
+            suggest = "eligibility_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormEvaluationReviewConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormEvaluationReviewConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormEvaluationReviewConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 review_notification_recipients: Sequence['outputs.EvaluationFormEvaluationReviewNotificationRecipient'],
+                 eligibility_days: Optional[_builtins.int] = None):
+        """
+        :param Sequence['EvaluationFormEvaluationReviewNotificationRecipient'] review_notification_recipients: List of recipients who should be notified when a review is requested.
+        :param _builtins.int eligibility_days: Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+        pulumi.set(__self__, "review_notification_recipients", review_notification_recipients)
+        if eligibility_days is not None:
+            pulumi.set(__self__, "eligibility_days", eligibility_days)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewNotificationRecipients")
+    def review_notification_recipients(self) -> Sequence['outputs.EvaluationFormEvaluationReviewNotificationRecipient']:
+        """
+        List of recipients who should be notified when a review is requested.
+        """
+        return pulumi.get(self, "review_notification_recipients")
+
+    @_builtins.property
+    @pulumi.getter(name="eligibilityDays")
+    def eligibility_days(self) -> Optional[_builtins.int]:
+        """
+        Number of days during which a request for review can be submitted for evaluations created from this form.
+        """
+        return pulumi.get(self, "eligibility_days")
+
+
+@pulumi.output_type
+class EvaluationFormEvaluationReviewNotificationRecipient(dict):
+    def __init__(__self__, *,
+                 type: 'EvaluationFormEvaluationReviewNotificationRecipientType',
+                 value: 'outputs.EvaluationFormEvaluationReviewNotificationRecipientValue'):
+        """
+        :param 'EvaluationFormEvaluationReviewNotificationRecipientType' type: The type of notification recipient.
+        :param 'EvaluationFormEvaluationReviewNotificationRecipientValue' value: The value associated with the notification recipient type.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'EvaluationFormEvaluationReviewNotificationRecipientType':
+        """
+        The type of notification recipient.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.EvaluationFormEvaluationReviewNotificationRecipientValue':
+        """
+        The value associated with the notification recipient type.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EvaluationFormEvaluationReviewNotificationRecipientValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormEvaluationReviewNotificationRecipientValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormEvaluationReviewNotificationRecipientValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormEvaluationReviewNotificationRecipientValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str user_id: The user identifier for the notification recipient.
+        """
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[_builtins.str]:
+        """
+        The user identifier for the notification recipient.
+        """
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type
@@ -2707,6 +2831,8 @@ class InstanceAttributes(dict):
             suggest = "enhanced_contact_monitoring"
         elif key == "highVolumeOutBound":
             suggest = "high_volume_out_bound"
+        elif key == "messageStreaming":
+            suggest = "message_streaming"
         elif key == "multiPartyChatConference":
             suggest = "multi_party_chat_conference"
         elif key == "multiPartyConference":
@@ -2735,6 +2861,7 @@ class InstanceAttributes(dict):
                  enhanced_chat_monitoring: Optional[_builtins.bool] = None,
                  enhanced_contact_monitoring: Optional[_builtins.bool] = None,
                  high_volume_out_bound: Optional[_builtins.bool] = None,
+                 message_streaming: Optional[_builtins.bool] = None,
                  multi_party_chat_conference: Optional[_builtins.bool] = None,
                  multi_party_conference: Optional[_builtins.bool] = None,
                  use_custom_tts_voices: Optional[_builtins.bool] = None):
@@ -2754,6 +2881,8 @@ class InstanceAttributes(dict):
             pulumi.set(__self__, "enhanced_contact_monitoring", enhanced_contact_monitoring)
         if high_volume_out_bound is not None:
             pulumi.set(__self__, "high_volume_out_bound", high_volume_out_bound)
+        if message_streaming is not None:
+            pulumi.set(__self__, "message_streaming", message_streaming)
         if multi_party_chat_conference is not None:
             pulumi.set(__self__, "multi_party_chat_conference", multi_party_chat_conference)
         if multi_party_conference is not None:
@@ -2805,6 +2934,11 @@ class InstanceAttributes(dict):
     @pulumi.getter(name="highVolumeOutBound")
     def high_volume_out_bound(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "high_volume_out_bound")
+
+    @_builtins.property
+    @pulumi.getter(name="messageStreaming")
+    def message_streaming(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "message_streaming")
 
     @_builtins.property
     @pulumi.getter(name="multiPartyChatConference")
@@ -3109,6 +3243,142 @@ class LockVersionProperties(dict):
     @pulumi.getter(name="dataTable")
     def data_table(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "data_table")
+
+
+@pulumi.output_type
+class NotificationContent(dict):
+    """
+    The content of a notification
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deDe":
+            suggest = "de_de"
+        elif key == "enUs":
+            suggest = "en_us"
+        elif key == "esEs":
+            suggest = "es_es"
+        elif key == "frFr":
+            suggest = "fr_fr"
+        elif key == "idId":
+            suggest = "id_id"
+        elif key == "itIt":
+            suggest = "it_it"
+        elif key == "jaJp":
+            suggest = "ja_jp"
+        elif key == "koKr":
+            suggest = "ko_kr"
+        elif key == "ptBr":
+            suggest = "pt_br"
+        elif key == "zhCn":
+            suggest = "zh_cn"
+        elif key == "zhTw":
+            suggest = "zh_tw"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 de_de: Optional[_builtins.str] = None,
+                 en_us: Optional[_builtins.str] = None,
+                 es_es: Optional[_builtins.str] = None,
+                 fr_fr: Optional[_builtins.str] = None,
+                 id_id: Optional[_builtins.str] = None,
+                 it_it: Optional[_builtins.str] = None,
+                 ja_jp: Optional[_builtins.str] = None,
+                 ko_kr: Optional[_builtins.str] = None,
+                 pt_br: Optional[_builtins.str] = None,
+                 zh_cn: Optional[_builtins.str] = None,
+                 zh_tw: Optional[_builtins.str] = None):
+        """
+        The content of a notification
+        """
+        if de_de is not None:
+            pulumi.set(__self__, "de_de", de_de)
+        if en_us is not None:
+            pulumi.set(__self__, "en_us", en_us)
+        if es_es is not None:
+            pulumi.set(__self__, "es_es", es_es)
+        if fr_fr is not None:
+            pulumi.set(__self__, "fr_fr", fr_fr)
+        if id_id is not None:
+            pulumi.set(__self__, "id_id", id_id)
+        if it_it is not None:
+            pulumi.set(__self__, "it_it", it_it)
+        if ja_jp is not None:
+            pulumi.set(__self__, "ja_jp", ja_jp)
+        if ko_kr is not None:
+            pulumi.set(__self__, "ko_kr", ko_kr)
+        if pt_br is not None:
+            pulumi.set(__self__, "pt_br", pt_br)
+        if zh_cn is not None:
+            pulumi.set(__self__, "zh_cn", zh_cn)
+        if zh_tw is not None:
+            pulumi.set(__self__, "zh_tw", zh_tw)
+
+    @_builtins.property
+    @pulumi.getter(name="deDe")
+    def de_de(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "de_de")
+
+    @_builtins.property
+    @pulumi.getter(name="enUs")
+    def en_us(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "en_us")
+
+    @_builtins.property
+    @pulumi.getter(name="esEs")
+    def es_es(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "es_es")
+
+    @_builtins.property
+    @pulumi.getter(name="frFr")
+    def fr_fr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "fr_fr")
+
+    @_builtins.property
+    @pulumi.getter(name="idId")
+    def id_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id_id")
+
+    @_builtins.property
+    @pulumi.getter(name="itIt")
+    def it_it(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "it_it")
+
+    @_builtins.property
+    @pulumi.getter(name="jaJp")
+    def ja_jp(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ja_jp")
+
+    @_builtins.property
+    @pulumi.getter(name="koKr")
+    def ko_kr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ko_kr")
+
+    @_builtins.property
+    @pulumi.getter(name="ptBr")
+    def pt_br(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pt_br")
+
+    @_builtins.property
+    @pulumi.getter(name="zhCn")
+    def zh_cn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zh_cn")
+
+    @_builtins.property
+    @pulumi.getter(name="zhTw")
+    def zh_tw(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zh_tw")
 
 
 @pulumi.output_type
@@ -4772,6 +5042,146 @@ class TaskTemplateRequiredFieldInfo(dict):
 
 
 @pulumi.output_type
+class UserAfterContactWorkConfig(dict):
+    """
+    After Contact Work configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterContactWorkTimeLimit":
+            suggest = "after_contact_work_time_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAfterContactWorkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAfterContactWorkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAfterContactWorkConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 after_contact_work_time_limit: Optional[_builtins.int] = None):
+        """
+        After Contact Work configuration.
+        """
+        if after_contact_work_time_limit is not None:
+            pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkTimeLimit")
+    def after_contact_work_time_limit(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "after_contact_work_time_limit")
+
+
+@pulumi.output_type
+class UserAfterContactWorkConfigPerChannel(dict):
+    """
+    After Contact Work configuration per channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterContactWorkConfig":
+            suggest = "after_contact_work_config"
+        elif key == "agentFirstCallbackAfterContactWorkConfig":
+            suggest = "agent_first_callback_after_contact_work_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAfterContactWorkConfigPerChannel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAfterContactWorkConfigPerChannel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAfterContactWorkConfigPerChannel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 after_contact_work_config: 'outputs.UserAfterContactWorkConfig',
+                 channel: 'UserChannel',
+                 agent_first_callback_after_contact_work_config: Optional['outputs.UserAfterContactWorkConfig'] = None):
+        """
+        After Contact Work configuration per channel.
+        """
+        pulumi.set(__self__, "after_contact_work_config", after_contact_work_config)
+        pulumi.set(__self__, "channel", channel)
+        if agent_first_callback_after_contact_work_config is not None:
+            pulumi.set(__self__, "agent_first_callback_after_contact_work_config", agent_first_callback_after_contact_work_config)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkConfig")
+    def after_contact_work_config(self) -> 'outputs.UserAfterContactWorkConfig':
+        return pulumi.get(self, "after_contact_work_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> 'UserChannel':
+        return pulumi.get(self, "channel")
+
+    @_builtins.property
+    @pulumi.getter(name="agentFirstCallbackAfterContactWorkConfig")
+    def agent_first_callback_after_contact_work_config(self) -> Optional['outputs.UserAfterContactWorkConfig']:
+        return pulumi.get(self, "agent_first_callback_after_contact_work_config")
+
+
+@pulumi.output_type
+class UserAutoAcceptConfig(dict):
+    """
+    Auto-accept configuration per channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoAccept":
+            suggest = "auto_accept"
+        elif key == "agentFirstCallbackAutoAccept":
+            suggest = "agent_first_callback_auto_accept"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAutoAcceptConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAutoAcceptConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAutoAcceptConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_accept: _builtins.bool,
+                 channel: 'UserChannel',
+                 agent_first_callback_auto_accept: Optional[_builtins.bool] = None):
+        """
+        Auto-accept configuration per channel.
+        """
+        pulumi.set(__self__, "auto_accept", auto_accept)
+        pulumi.set(__self__, "channel", channel)
+        if agent_first_callback_auto_accept is not None:
+            pulumi.set(__self__, "agent_first_callback_auto_accept", agent_first_callback_auto_accept)
+
+    @_builtins.property
+    @pulumi.getter(name="autoAccept")
+    def auto_accept(self) -> _builtins.bool:
+        return pulumi.get(self, "auto_accept")
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> 'UserChannel':
+        return pulumi.get(self, "channel")
+
+    @_builtins.property
+    @pulumi.getter(name="agentFirstCallbackAutoAccept")
+    def agent_first_callback_auto_accept(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "agent_first_callback_auto_accept")
+
+
+@pulumi.output_type
 class UserHierarchyStructureLevelFive(dict):
     """
     Information about level five.
@@ -5281,6 +5691,48 @@ class UserIdentityInfo(dict):
 
 
 @pulumi.output_type
+class UserPersistentConnectionConfig(dict):
+    """
+    Persistent Connection configuration per channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "persistentConnection":
+            suggest = "persistent_connection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPersistentConnectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPersistentConnectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPersistentConnectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel: 'UserChannel',
+                 persistent_connection: _builtins.bool):
+        """
+        Persistent Connection configuration per channel.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "persistent_connection", persistent_connection)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> 'UserChannel':
+        return pulumi.get(self, "channel")
+
+    @_builtins.property
+    @pulumi.getter(name="persistentConnection")
+    def persistent_connection(self) -> _builtins.bool:
+        return pulumi.get(self, "persistent_connection")
+
+
+@pulumi.output_type
 class UserPhoneConfig(dict):
     """
     Contains information about the phone configuration settings for a user.
@@ -5288,9 +5740,7 @@ class UserPhoneConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "phoneType":
-            suggest = "phone_type"
-        elif key == "afterContactWorkTimeLimit":
+        if key == "afterContactWorkTimeLimit":
             suggest = "after_contact_work_time_limit"
         elif key == "autoAccept":
             suggest = "auto_accept"
@@ -5298,6 +5748,8 @@ class UserPhoneConfig(dict):
             suggest = "desk_phone_number"
         elif key == "persistentConnection":
             suggest = "persistent_connection"
+        elif key == "phoneType":
+            suggest = "phone_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPhoneConfig. Access the value via the '{suggest}' property getter instead.")
@@ -5311,22 +5763,21 @@ class UserPhoneConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 phone_type: 'UserPhoneType',
                  after_contact_work_time_limit: Optional[_builtins.int] = None,
                  auto_accept: Optional[_builtins.bool] = None,
                  desk_phone_number: Optional[_builtins.str] = None,
-                 persistent_connection: Optional[_builtins.bool] = None):
+                 persistent_connection: Optional[_builtins.bool] = None,
+                 phone_type: Optional['UserPhoneType'] = None):
         """
         Contains information about the phone configuration settings for a user.
-        :param 'UserPhoneType' phone_type: The phone type.
         :param _builtins.int after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
                
                > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
         :param _builtins.bool auto_accept: The Auto accept setting.
         :param _builtins.str desk_phone_number: The phone number for the user's desk phone.
         :param _builtins.bool persistent_connection: The persistent connection setting for the user.
+        :param 'UserPhoneType' phone_type: The phone type.
         """
-        pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
             pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
         if auto_accept is not None:
@@ -5335,14 +5786,8 @@ class UserPhoneConfig(dict):
             pulumi.set(__self__, "desk_phone_number", desk_phone_number)
         if persistent_connection is not None:
             pulumi.set(__self__, "persistent_connection", persistent_connection)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneType")
-    def phone_type(self) -> 'UserPhoneType':
-        """
-        The phone type.
-        """
-        return pulumi.get(self, "phone_type")
+        if phone_type is not None:
+            pulumi.set(__self__, "phone_type", phone_type)
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")
@@ -5377,6 +5822,66 @@ class UserPhoneConfig(dict):
         The persistent connection setting for the user.
         """
         return pulumi.get(self, "persistent_connection")
+
+    @_builtins.property
+    @pulumi.getter(name="phoneType")
+    def phone_type(self) -> Optional['UserPhoneType']:
+        """
+        The phone type.
+        """
+        return pulumi.get(self, "phone_type")
+
+
+@pulumi.output_type
+class UserPhoneNumberConfig(dict):
+    """
+    Phone Number configuration per channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "phoneType":
+            suggest = "phone_type"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPhoneNumberConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPhoneNumberConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPhoneNumberConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel: 'UserChannel',
+                 phone_type: 'UserPhoneType',
+                 phone_number: Optional[_builtins.str] = None):
+        """
+        Phone Number configuration per channel.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "phone_type", phone_type)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> 'UserChannel':
+        return pulumi.get(self, "channel")
+
+    @_builtins.property
+    @pulumi.getter(name="phoneType")
+    def phone_type(self) -> 'UserPhoneType':
+        return pulumi.get(self, "phone_type")
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "phone_number")
 
 
 @pulumi.output_type
@@ -5440,6 +5945,48 @@ class UserProficiency(dict):
         The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
         """
         return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class UserVoiceEnhancementConfig(dict):
+    """
+    Voice Enhancement configuration per channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "voiceEnhancementMode":
+            suggest = "voice_enhancement_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserVoiceEnhancementConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserVoiceEnhancementConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserVoiceEnhancementConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel: 'UserChannel',
+                 voice_enhancement_mode: 'UserVoiceEnhancementMode'):
+        """
+        Voice Enhancement configuration per channel.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "voice_enhancement_mode", voice_enhancement_mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def channel(self) -> 'UserChannel':
+        return pulumi.get(self, "channel")
+
+    @_builtins.property
+    @pulumi.getter(name="voiceEnhancementMode")
+    def voice_enhancement_mode(self) -> 'UserVoiceEnhancementMode':
+        return pulumi.get(self, "voice_enhancement_mode")
 
 
 @pulumi.output_type

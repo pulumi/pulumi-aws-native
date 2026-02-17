@@ -64,16 +64,11 @@ __all__ = [
     'ResourceDataSyncSyncSourceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssociationInstanceAssociationOutputLocationArgsDict(TypedDict):
-        s3_location: NotRequired[pulumi.Input['AssociationS3OutputLocationArgsDict']]
-        """
-        `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
-        """
-elif False:
-    AssociationInstanceAssociationOutputLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AssociationInstanceAssociationOutputLocationArgsDict(TypedDict):
+    s3_location: NotRequired[pulumi.Input['AssociationS3OutputLocationArgsDict']]
+    """
+    `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
+    """
 
 @pulumi.input_type
 class AssociationInstanceAssociationOutputLocationArgs:
@@ -98,22 +93,19 @@ class AssociationInstanceAssociationOutputLocationArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class AssociationS3OutputLocationArgsDict(TypedDict):
-        output_s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the S3 bucket.
-        """
-        output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 bucket subfolder.
-        """
-        output_s3_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region of the S3 bucket.
-        """
-elif False:
-    AssociationS3OutputLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AssociationS3OutputLocationArgsDict(TypedDict):
+    output_s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the S3 bucket.
+    """
+    output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 bucket subfolder.
+    """
+    output_s3_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region of the S3 bucket.
+    """
 
 @pulumi.input_type
 class AssociationS3OutputLocationArgs:
@@ -170,20 +162,17 @@ class AssociationS3OutputLocationArgs:
         pulumi.set(self, "output_s3_region", value)
 
 
-if not MYPY:
-    class AssociationTargetArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        User-defined criteria for sending commands that target managed nodes that meet the criteria.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
+class AssociationTargetArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    User-defined criteria for sending commands that target managed nodes that meet the criteria.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
 
-        Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
-        """
-elif False:
-    AssociationTargetArgsDict: TypeAlias = Mapping[str, Any]
+    Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
+    """
 
 @pulumi.input_type
 class AssociationTargetArgs:
@@ -226,22 +215,19 @@ class AssociationTargetArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DocumentAttachmentsSourceArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input['DocumentAttachmentsSourceKey']]
-        """
-        The key of a key-value pair that identifies the location of an attachment to a document.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the document attachment file.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
-        """
-elif False:
-    DocumentAttachmentsSourceArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentAttachmentsSourceArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input['DocumentAttachmentsSourceKey']]
+    """
+    The key of a key-value pair that identifies the location of an attachment to a document.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the document attachment file.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
+    """
 
 @pulumi.input_type
 class DocumentAttachmentsSourceArgs:
@@ -298,18 +284,15 @@ class DocumentAttachmentsSourceArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DocumentRequiresArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The document version required by the current document.
-        """
-elif False:
-    DocumentRequiresArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentRequiresArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The document version required by the current document.
+    """
 
 @pulumi.input_type
 class DocumentRequiresArgs:
@@ -350,18 +333,15 @@ class DocumentRequiresArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTargetTargetsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        User-defined criteria for sending commands that target managed nodes that meet the criteria.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        User-defined criteria that maps to Key.
-        """
-elif False:
-    MaintenanceWindowTargetTargetsArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTargetTargetsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    User-defined criteria for sending commands that target managed nodes that meet the criteria.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    User-defined criteria that maps to Key.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTargetTargetsArgs:
@@ -400,18 +380,15 @@ class MaintenanceWindowTargetTargetsArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskCloudWatchOutputConfigArgsDict(TypedDict):
-        cloud_watch_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the CloudWatch log group where you want to send command output.
-        """
-        cloud_watch_output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables Systems Manager to send command output to CloudWatch Logs.
-        """
-elif False:
-    MaintenanceWindowTaskCloudWatchOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTaskCloudWatchOutputConfigArgsDict(TypedDict):
+    cloud_watch_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the CloudWatch log group where you want to send command output.
+    """
+    cloud_watch_output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables Systems Manager to send command output to CloudWatch Logs.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskCloudWatchOutputConfigArgs:
@@ -452,22 +429,19 @@ class MaintenanceWindowTaskCloudWatchOutputConfigArgs:
         pulumi.set(self, "cloud_watch_output_enabled", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskLoggingInfoArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        The AWS Region where the S3 bucket is located.
-        """
-        s3_bucket: pulumi.Input[_builtins.str]
-        """
-        The name of an S3 bucket where execution logs are stored.
-        """
-        s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 bucket subfolder.
-        """
-elif False:
-    MaintenanceWindowTaskLoggingInfoArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTaskLoggingInfoArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region where the S3 bucket is located.
+    """
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The name of an S3 bucket where execution logs are stored.
+    """
+    s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 bucket subfolder.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskLoggingInfoArgs:
@@ -522,18 +496,15 @@ class MaintenanceWindowTaskLoggingInfoArgs:
         pulumi.set(self, "s3_prefix", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict(TypedDict):
-        document_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of an Automation runbook to use during task execution.
-        """
-        parameters: NotRequired[Any]
-        """
-        The parameters for the `AUTOMATION` type task.
-        """
-elif False:
-    MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict(TypedDict):
+    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of an Automation runbook to use during task execution.
+    """
+    parameters: NotRequired[Any]
+    """
+    The parameters for the `AUTOMATION` type task.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs:
@@ -574,26 +545,23 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict(TypedDict):
-        client_context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
-        """
-        payload: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JSON to provide to your AWS Lambda function as input.
+class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict(TypedDict):
+    client_context: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
+    """
+    payload: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    JSON to provide to your AWS Lambda function as input.
 
-        > Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object. 
+    > Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object. 
 
-        *Length Constraint:* 4096
-        """
-        qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An AWS Lambda function version or alias name. If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
-        """
-elif False:
-    MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict: TypeAlias = Mapping[str, Any]
+    *Length Constraint:* 4096
+    """
+    qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An AWS Lambda function version or alias name. If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs:
@@ -658,64 +626,61 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs:
         pulumi.set(self, "qualifier", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict(TypedDict):
-        cloud_watch_output_config: NotRequired[pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgsDict']]
-        """
-        Configuration options for sending command output to Amazon CloudWatch Logs.
-        """
-        comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Information about the command or commands to run.
-        """
-        document_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        """
-        document_hash_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
-        """
-        document_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Systems Manager document (SSM document) version to use in the request. You can specify `$DEFAULT` , `$LATEST` , or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
+class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict(TypedDict):
+    cloud_watch_output_config: NotRequired[pulumi.Input['MaintenanceWindowTaskCloudWatchOutputConfigArgsDict']]
+    """
+    Configuration options for sending command output to Amazon CloudWatch Logs.
+    """
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Information about the command or commands to run.
+    """
+    document_hash: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+    """
+    document_hash_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
+    """
+    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Systems Manager document (SSM document) version to use in the request. You can specify `$DEFAULT` , `$LATEST` , or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
 
-        `--document-version "\\$DEFAULT"`
+    `--document-version "\\$DEFAULT"`
 
-        `--document-version "\\$LATEST"`
+    `--document-version "\\$LATEST"`
 
-        `--document-version "3"`
-        """
-        notification_config: NotRequired[pulumi.Input['MaintenanceWindowTaskNotificationConfigArgsDict']]
-        """
-        Configurations for sending notifications about command status changes on a per-managed node basis.
-        """
-        output_s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon Simple Storage Service (Amazon S3) bucket.
-        """
-        output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 bucket subfolder.
-        """
-        parameters: NotRequired[Any]
-        """
-        The parameters for the `RUN_COMMAND` task execution.
+    `--document-version "3"`
+    """
+    notification_config: NotRequired[pulumi.Input['MaintenanceWindowTaskNotificationConfigArgsDict']]
+    """
+    Configurations for sending notifications about command status changes on a per-managed node basis.
+    """
+    output_s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Amazon Simple Storage Service (Amazon S3) bucket.
+    """
+    output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 bucket subfolder.
+    """
+    parameters: NotRequired[Any]
+    """
+    The parameters for the `RUN_COMMAND` task execution.
 
-        The supported parameters are the same as those for the `SendCommand` API call. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference* .
-        """
-        service_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses a service-linked role in your account. If no appropriate service-linked role for Systems Manager exists in your account, it is created when you run `RegisterTaskWithMaintenanceWindow` .
+    The supported parameters are the same as those for the `SendCommand` API call. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference* .
+    """
+    service_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses a service-linked role in your account. If no appropriate service-linked role for Systems Manager exists in your account, it is created when you run `RegisterTaskWithMaintenanceWindow` .
 
-        However, for an improved security posture, we strongly recommend creating a custom policy and custom service role for running your maintenance window tasks. The policy can be crafted to provide only the permissions needed for your particular maintenance window tasks. For more information, see [Setting up Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html) in the in the *AWS Systems Manager User Guide* .
-        """
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If this time is reached and the command hasn't already started running, it doesn't run.
-        """
-elif False:
-    MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict: TypeAlias = Mapping[str, Any]
+    However, for an improved security posture, we strongly recommend creating a custom policy and custom service role for running your maintenance window tasks. The policy can be crafted to provide only the permissions needed for your particular maintenance window tasks. For more information, see [Setting up Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html) in the in the *AWS Systems Manager User Guide* .
+    """
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If this time is reached and the command hasn't already started running, it doesn't run.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
@@ -920,18 +885,15 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
         pulumi.set(self, "timeout_seconds", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict(TypedDict):
-        input: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The inputs for the `STEP_FUNCTIONS` task.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the `STEP_FUNCTIONS` task.
-        """
-elif False:
-    MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict(TypedDict):
+    input: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The inputs for the `STEP_FUNCTIONS` task.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the `STEP_FUNCTIONS` task.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs:
@@ -972,25 +934,22 @@ class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskNotificationConfigArgsDict(TypedDict):
-        notification_arn: pulumi.Input[_builtins.str]
-        """
-        An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        """
-        notification_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
-        """
-        notification_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The notification type.
+class MaintenanceWindowTaskNotificationConfigArgsDict(TypedDict):
+    notification_arn: pulumi.Input[_builtins.str]
+    """
+    An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
+    """
+    notification_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
+    """
+    notification_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The notification type.
 
-        - `Command` : Receive notification when the status of a command changes.
-        - `Invocation` : For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
-        """
-elif False:
-    MaintenanceWindowTaskNotificationConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `Command` : Receive notification when the status of a command changes.
+    - `Invocation` : For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskNotificationConfigArgs:
@@ -1052,18 +1011,15 @@ class MaintenanceWindowTaskNotificationConfigArgs:
         pulumi.set(self, "notification_type", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskTargetArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        User-defined criteria for sending commands that target instances that meet the criteria. `Key` can be `InstanceIds` or `WindowTargetIds` . For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        User-defined criteria that maps to `Key` . For example, if you specify `InstanceIds` , you can specify `i-1234567890abcdef0,i-9876543210abcdef0` to run a command on two EC2 instances. For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
-        """
-elif False:
-    MaintenanceWindowTaskTargetArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTaskTargetArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    User-defined criteria for sending commands that target instances that meet the criteria. `Key` can be `InstanceIds` or `WindowTargetIds` . For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    User-defined criteria that maps to `Key` . For example, if you specify `InstanceIds` , you can specify `i-1234567890abcdef0,i-9876543210abcdef0` to run a command on two EC2 instances. For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskTargetArgs:
@@ -1102,26 +1058,23 @@ class MaintenanceWindowTaskTargetArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class MaintenanceWindowTaskTaskInvocationParametersArgsDict(TypedDict):
-        maintenance_window_automation_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict']]
-        """
-        The parameters for an `AUTOMATION` task type.
-        """
-        maintenance_window_lambda_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict']]
-        """
-        The parameters for a `LAMBDA` task type.
-        """
-        maintenance_window_run_command_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict']]
-        """
-        The parameters for a `RUN_COMMAND` task type.
-        """
-        maintenance_window_step_functions_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict']]
-        """
-        The parameters for a `STEP_FUNCTIONS` task type.
-        """
-elif False:
-    MaintenanceWindowTaskTaskInvocationParametersArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceWindowTaskTaskInvocationParametersArgsDict(TypedDict):
+    maintenance_window_automation_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgsDict']]
+    """
+    The parameters for an `AUTOMATION` task type.
+    """
+    maintenance_window_lambda_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgsDict']]
+    """
+    The parameters for a `LAMBDA` task type.
+    """
+    maintenance_window_run_command_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgsDict']]
+    """
+    The parameters for a `RUN_COMMAND` task type.
+    """
+    maintenance_window_step_functions_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgsDict']]
+    """
+    The parameters for a `STEP_FUNCTIONS` task type.
+    """
 
 @pulumi.input_type
 class MaintenanceWindowTaskTaskInvocationParametersArgs:
@@ -1194,17 +1147,14 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
         pulumi.set(self, "maintenance_window_step_functions_parameters", value)
 
 
-if not MYPY:
-    class PatchBaselinePatchFilterGroupArgsDict(TypedDict):
-        """
-        The patch filter group that defines the criteria for the rule.
-        """
-        patch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgsDict']]]]
-        """
-        The set of patch filters that make up the group.
-        """
-elif False:
-    PatchBaselinePatchFilterGroupArgsDict: TypeAlias = Mapping[str, Any]
+class PatchBaselinePatchFilterGroupArgsDict(TypedDict):
+    """
+    The patch filter group that defines the criteria for the rule.
+    """
+    patch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgsDict']]]]
+    """
+    The set of patch filters that make up the group.
+    """
 
 @pulumi.input_type
 class PatchBaselinePatchFilterGroupArgs:
@@ -1230,25 +1180,22 @@ class PatchBaselinePatchFilterGroupArgs:
         pulumi.set(self, "patch_filters", value)
 
 
-if not MYPY:
-    class PatchBaselinePatchFilterArgsDict(TypedDict):
-        """
-        Defines which patches should be included in a patch baseline.
-        """
-        key: NotRequired[pulumi.Input['PatchBaselinePatchFilterKey']]
-        """
-        The key for the filter.
+class PatchBaselinePatchFilterArgsDict(TypedDict):
+    """
+    Defines which patches should be included in a patch baseline.
+    """
+    key: NotRequired[pulumi.Input['PatchBaselinePatchFilterKey']]
+    """
+    The key for the filter.
 
-        For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value for the filter key.
+    For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The value for the filter key.
 
-        For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-        """
-elif False:
-    PatchBaselinePatchFilterArgsDict: TypeAlias = Mapping[str, Any]
+    For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+    """
 
 @pulumi.input_type
 class PatchBaselinePatchFilterArgs:
@@ -1298,45 +1245,42 @@ class PatchBaselinePatchFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class PatchBaselinePatchSourceArgsDict(TypedDict):
-        """
-        Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-        """
-        configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the repo configuration.
+class PatchBaselinePatchSourceArgsDict(TypedDict):
+    """
+    Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+    """
+    configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the repo configuration.
 
-        *Example for yum repositories*
+    *Example for yum repositories*
 
-        `[main]`
+    `[main]`
 
-        `name=MyCustomRepository`
+    `name=MyCustomRepository`
 
-        `baseurl=https://my-custom-repository`
+    `baseurl=https://my-custom-repository`
 
-        `enabled=1`
+    `enabled=1`
 
-        For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+    For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
 
-        *Examples for Ubuntu Server and Debian Server*
+    *Examples for Ubuntu Server and Debian Server*
 
-        `deb http://security.ubuntu.com/ubuntu jammy main`
+    `deb http://security.ubuntu.com/ubuntu jammy main`
 
-        `deb https://site.example.com/debian distribution component1 component2 component3`
+    `deb https://site.example.com/debian distribution component1 component2 component3`
 
-        Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name specified to identify the patch source.
-        """
-        products: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-        """
-elif False:
-    PatchBaselinePatchSourceArgsDict: TypeAlias = Mapping[str, Any]
+    Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name specified to identify the patch source.
+    """
+    products: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
+    """
 
 @pulumi.input_type
 class PatchBaselinePatchSourceArgs:
@@ -1434,17 +1378,14 @@ class PatchBaselinePatchSourceArgs:
         pulumi.set(self, "products", value)
 
 
-if not MYPY:
-    class PatchBaselineRuleGroupArgsDict(TypedDict):
-        """
-        A set of rules defining the approval rules for a patch baseline.
-        """
-        patch_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgsDict']]]]
-        """
-        The rules that make up the rule group.
-        """
-elif False:
-    PatchBaselineRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
+class PatchBaselineRuleGroupArgsDict(TypedDict):
+    """
+    A set of rules defining the approval rules for a patch baseline.
+    """
+    patch_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgsDict']]]]
+    """
+    The rules that make up the rule group.
+    """
 
 @pulumi.input_type
 class PatchBaselineRuleGroupArgs:
@@ -1470,51 +1411,48 @@ class PatchBaselineRuleGroupArgs:
         pulumi.set(self, "patch_rules", value)
 
 
-if not MYPY:
-    class PatchBaselineRuleArgsDict(TypedDict):
-        """
-        Defines an approval rule for a patch baseline.
-        """
-        approve_after_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
+class PatchBaselineRuleArgsDict(TypedDict):
+    """
+    Defines an approval rule for a patch baseline.
+    """
+    approve_after_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 
-        Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the day represented by `7` is `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
+    Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the day represented by `7` is `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
 
-        This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
+    This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 
-        Not supported for Debian Server or Ubuntu Server.
+    Not supported for Debian Server or Ubuntu Server.
 
-        > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
-        """
-        approve_until_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
+    > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
+    """
+    approve_until_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 
-        Enter dates in the format `YYYY-MM-DD` . For example, `2025-11-16` .
+    Enter dates in the format `YYYY-MM-DD` . For example, `2025-11-16` .
 
-        Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If you enter the date `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
+    Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If you enter the date `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
 
-        This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+    This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 
-        Not supported for Debian Server or Ubuntu Server.
+    Not supported for Debian Server or Ubuntu Server.
 
-        > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
-        """
-        compliance_level: NotRequired[pulumi.Input['PatchBaselineRuleComplianceLevel']]
-        """
-        A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
-        """
-        enable_non_security: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
-        """
-        patch_filter_group: NotRequired[pulumi.Input['PatchBaselinePatchFilterGroupArgsDict']]
-        """
-        The patch filter group that defines the criteria for the rule.
-        """
-elif False:
-    PatchBaselineRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
+    """
+    compliance_level: NotRequired[pulumi.Input['PatchBaselineRuleComplianceLevel']]
+    """
+    A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
+    """
+    enable_non_security: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
+    """
+    patch_filter_group: NotRequired[pulumi.Input['PatchBaselinePatchFilterGroupArgsDict']]
+    """
+    The patch filter group that defines the criteria for the rule.
+    """
 
 @pulumi.input_type
 class PatchBaselineRuleArgs:
@@ -1640,18 +1578,15 @@ class PatchBaselineRuleArgs:
         pulumi.set(self, "patch_filter_group", value)
 
 
-if not MYPY:
-    class ResourceDataSyncAwsOrganizationsSourceArgsDict(TypedDict):
-        organization_source_type: pulumi.Input[_builtins.str]
-        """
-        If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
-        """
-        organizational_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The AWS Organizations organization units included in the sync.
-        """
-elif False:
-    ResourceDataSyncAwsOrganizationsSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDataSyncAwsOrganizationsSourceArgsDict(TypedDict):
+    organization_source_type: pulumi.Input[_builtins.str]
+    """
+    If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+    """
+    organizational_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The AWS Organizations organization units included in the sync.
+    """
 
 @pulumi.input_type
 class ResourceDataSyncAwsOrganizationsSourceArgs:
@@ -1691,30 +1626,27 @@ class ResourceDataSyncAwsOrganizationsSourceArgs:
         pulumi.set(self, "organizational_units", value)
 
 
-if not MYPY:
-    class ResourceDataSyncS3DestinationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket where the aggregated data is stored.
-        """
-        bucket_region: pulumi.Input[_builtins.str]
-        """
-        The AWS Region with the S3 bucket targeted by the resource data sync.
-        """
-        sync_format: pulumi.Input[_builtins.str]
-        """
-        A supported sync format. The following format is currently supported: JsonSerDe
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon S3 prefix for the bucket.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
-        """
-elif False:
-    ResourceDataSyncS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDataSyncS3DestinationArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket where the aggregated data is stored.
+    """
+    bucket_region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region with the S3 bucket targeted by the resource data sync.
+    """
+    sync_format: pulumi.Input[_builtins.str]
+    """
+    A supported sync format. The following format is currently supported: JsonSerDe
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amazon S3 prefix for the bucket.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
+    """
 
 @pulumi.input_type
 class ResourceDataSyncS3DestinationArgs:
@@ -1800,26 +1732,23 @@ class ResourceDataSyncS3DestinationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class ResourceDataSyncSyncSourceArgsDict(TypedDict):
-        source_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The `SyncSource` AWS Regions included in the resource data sync.
-        """
-        source_type: pulumi.Input[_builtins.str]
-        """
-        The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
-        """
-        aws_organizations_source: NotRequired[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgsDict']]
-        """
-        Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
-        """
-        include_future_regions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
-        """
-elif False:
-    ResourceDataSyncSyncSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDataSyncSyncSourceArgsDict(TypedDict):
+    source_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The `SyncSource` AWS Regions included in the resource data sync.
+    """
+    source_type: pulumi.Input[_builtins.str]
+    """
+    The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
+    """
+    aws_organizations_source: NotRequired[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgsDict']]
+    """
+    Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
+    """
+    include_future_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+    """
 
 @pulumi.input_type
 class ResourceDataSyncSyncSourceArgs:

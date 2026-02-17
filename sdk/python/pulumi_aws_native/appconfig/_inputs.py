@@ -28,23 +28,18 @@ __all__ = [
     'ExtensionParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationProfileValidatorsArgsDict(TypedDict):
-        """
-        A list of methods for validating the configuration.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
-        """
-elif False:
-    ConfigurationProfileValidatorsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfileValidatorsArgsDict(TypedDict):
+    """
+    A list of methods for validating the configuration.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+    """
 
 @pulumi.input_type
 class ConfigurationProfileValidatorsArgs:
@@ -86,22 +81,19 @@ class ConfigurationProfileValidatorsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DeploymentDynamicExtensionParametersArgsDict(TypedDict):
-        extension_reference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN or ID of the extension for which you are inserting a dynamic parameter.
-        """
-        parameter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parameter name.
-        """
-        parameter_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parameter value.
-        """
-elif False:
-    DeploymentDynamicExtensionParametersArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentDynamicExtensionParametersArgsDict(TypedDict):
+    extension_reference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN or ID of the extension for which you are inserting a dynamic parameter.
+    """
+    parameter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parameter name.
+    """
+    parameter_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parameter value.
+    """
 
 @pulumi.input_type
 class DeploymentDynamicExtensionParametersArgs:
@@ -158,21 +150,18 @@ class DeploymentDynamicExtensionParametersArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class EnvironmentMonitorArgsDict(TypedDict):
-        """
-        Amazon CloudWatch alarm to monitor during the deployment process.
-        """
-        alarm_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
-        """
-        alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
-        """
-elif False:
-    EnvironmentMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentMonitorArgsDict(TypedDict):
+    """
+    Amazon CloudWatch alarm to monitor during the deployment process.
+    """
+    alarm_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+    """
+    alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+    """
 
 @pulumi.input_type
 class EnvironmentMonitorArgs:
@@ -213,29 +202,26 @@ class EnvironmentMonitorArgs:
         pulumi.set(self, "alarm_role_arn", value)
 
 
-if not MYPY:
-    class ExtensionActionArgsDict(TypedDict):
-        """
-        An action for an extension to take at a specific action point.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extension action.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The URI of the extension action.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the extension Action.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role for invoking the extension action.
-        """
-elif False:
-    ExtensionActionArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionActionArgsDict(TypedDict):
+    """
+    An action for an extension to take at a specific action point.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extension action.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the extension action.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the extension Action.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role for invoking the extension action.
+    """
 
 @pulumi.input_type
 class ExtensionActionArgs:
@@ -307,19 +293,16 @@ class ExtensionActionArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class ExtensionParameterArgsDict(TypedDict):
-        """
-        A parameter for the extension to send to a specific action.
-        """
-        required: pulumi.Input[_builtins.bool]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the extension Parameter.
-        """
-        dynamic: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ExtensionParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionParameterArgsDict(TypedDict):
+    """
+    A parameter for the extension to send to a specific action.
+    """
+    required: pulumi.Input[_builtins.bool]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the extension Parameter.
+    """
+    dynamic: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ExtensionParameterArgs:

@@ -66,6 +66,14 @@ export interface GetLicenseResult {
      */
     readonly productSku?: string;
     /**
+     * License status.
+     */
+    readonly status?: string;
+    /**
+     * A list of tags to attach.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * Date and time range during which the license is valid, in ISO8601-UTC format.
      */
     readonly validity?: outputs.licensemanager.LicenseValidityDateFormat;

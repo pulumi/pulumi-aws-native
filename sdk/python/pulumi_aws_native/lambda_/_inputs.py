@@ -120,19 +120,14 @@ __all__ = [
     'VersionRuntimePolicyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AliasProvisionedConcurrencyConfigurationArgsDict(TypedDict):
-        """
-        A provisioned concurrency configuration for a function's alias.
-        """
-        provisioned_concurrent_executions: pulumi.Input[_builtins.int]
-        """
-        The amount of provisioned concurrency to allocate for the alias.
-        """
-elif False:
-    AliasProvisionedConcurrencyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AliasProvisionedConcurrencyConfigurationArgsDict(TypedDict):
+    """
+    A provisioned concurrency configuration for a function's alias.
+    """
+    provisioned_concurrent_executions: pulumi.Input[_builtins.int]
+    """
+    The amount of provisioned concurrency to allocate for the alias.
+    """
 
 @pulumi.input_type
 class AliasProvisionedConcurrencyConfigurationArgs:
@@ -157,17 +152,14 @@ class AliasProvisionedConcurrencyConfigurationArgs:
         pulumi.set(self, "provisioned_concurrent_executions", value)
 
 
-if not MYPY:
-    class AliasRoutingConfigurationArgsDict(TypedDict):
-        """
-        The traffic-shifting configuration of a Lambda function alias.
-        """
-        additional_version_weights: NotRequired[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgsDict']]]]
-        """
-        The second version, and the percentage of traffic that's routed to it.
-        """
-elif False:
-    AliasRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AliasRoutingConfigurationArgsDict(TypedDict):
+    """
+    The traffic-shifting configuration of a Lambda function alias.
+    """
+    additional_version_weights: NotRequired[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgsDict']]]]
+    """
+    The second version, and the percentage of traffic that's routed to it.
+    """
 
 @pulumi.input_type
 class AliasRoutingConfigurationArgs:
@@ -193,21 +185,18 @@ class AliasRoutingConfigurationArgs:
         pulumi.set(self, "additional_version_weights", value)
 
 
-if not MYPY:
-    class AliasVersionWeightArgsDict(TypedDict):
-        """
-        The traffic-shifting configuration of a Lambda function alias.
-        """
-        function_version: pulumi.Input[_builtins.str]
-        """
-        The qualifier of the second version.
-        """
-        function_weight: pulumi.Input[_builtins.float]
-        """
-        The percentage of traffic that the alias routes to the second version.
-        """
-elif False:
-    AliasVersionWeightArgsDict: TypeAlias = Mapping[str, Any]
+class AliasVersionWeightArgsDict(TypedDict):
+    """
+    The traffic-shifting configuration of a Lambda function alias.
+    """
+    function_version: pulumi.Input[_builtins.str]
+    """
+    The qualifier of the second version.
+    """
+    function_weight: pulumi.Input[_builtins.float]
+    """
+    The percentage of traffic that the alias routes to the second version.
+    """
 
 @pulumi.input_type
 class AliasVersionWeightArgs:
@@ -247,25 +236,22 @@ class AliasVersionWeightArgs:
         pulumi.set(self, "function_weight", value)
 
 
-if not MYPY:
-    class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
-        """
-        Specifications for the types of EC2 instances that the capacity provider can use.
-        """
-        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
-        """
-        architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]
-        """
-        The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
-        """
-        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
-        """
-elif False:
-    CapacityProviderInstanceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
+    """
+    Specifications for the types of EC2 instances that the capacity provider can use.
+    """
+    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+    """
+    architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]
+    """
+    The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+    """
+    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+    """
 
 @pulumi.input_type
 class CapacityProviderInstanceRequirementsArgs:
@@ -323,17 +309,14 @@ class CapacityProviderInstanceRequirementsArgs:
         pulumi.set(self, "excluded_instance_types", value)
 
 
-if not MYPY:
-    class CapacityProviderPermissionsConfigArgsDict(TypedDict):
-        """
-        IAM permissions configuration for the capacity provider.
-        """
-        capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that Lambda assumes to manage the capacity provider.
-        """
-elif False:
-    CapacityProviderPermissionsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityProviderPermissionsConfigArgsDict(TypedDict):
+    """
+    IAM permissions configuration for the capacity provider.
+    """
+    capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+    """
 
 @pulumi.input_type
 class CapacityProviderPermissionsConfigArgs:
@@ -358,25 +341,22 @@ class CapacityProviderPermissionsConfigArgs:
         pulumi.set(self, "capacity_provider_operator_role_arn", value)
 
 
-if not MYPY:
-    class CapacityProviderScalingConfigArgsDict(TypedDict):
-        """
-        The scaling configuration for the capacity provider.
-        """
-        max_v_cpu_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of EC2 instances that the capacity provider can scale up to.
-        """
-        scaling_mode: NotRequired[pulumi.Input['CapacityProviderScalingMode']]
-        """
-        The scaling mode that determines how the capacity provider responds to changes in demand.
-        """
-        scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgsDict']]]]
-        """
-        A list of target tracking scaling policies for the capacity provider.
-        """
-elif False:
-    CapacityProviderScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityProviderScalingConfigArgsDict(TypedDict):
+    """
+    The scaling configuration for the capacity provider.
+    """
+    max_v_cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of EC2 instances that the capacity provider can scale up to.
+    """
+    scaling_mode: NotRequired[pulumi.Input['CapacityProviderScalingMode']]
+    """
+    The scaling mode that determines how the capacity provider responds to changes in demand.
+    """
+    scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgsDict']]]]
+    """
+    A list of target tracking scaling policies for the capacity provider.
+    """
 
 @pulumi.input_type
 class CapacityProviderScalingConfigArgs:
@@ -434,21 +414,18 @@ class CapacityProviderScalingConfigArgs:
         pulumi.set(self, "scaling_policies", value)
 
 
-if not MYPY:
-    class CapacityProviderTargetTrackingScalingPolicyArgsDict(TypedDict):
-        """
-        A target tracking scaling policy for the capacity provider.
-        """
-        predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType']
-        """
-        The predefined metric type to track for scaling decisions.
-        """
-        target_value: pulumi.Input[_builtins.float]
-        """
-        The target value for the metric as a percentage (for example, 70.0 for 70%).
-        """
-elif False:
-    CapacityProviderTargetTrackingScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityProviderTargetTrackingScalingPolicyArgsDict(TypedDict):
+    """
+    A target tracking scaling policy for the capacity provider.
+    """
+    predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType']
+    """
+    The predefined metric type to track for scaling decisions.
+    """
+    target_value: pulumi.Input[_builtins.float]
+    """
+    The target value for the metric as a percentage (for example, 70.0 for 70%).
+    """
 
 @pulumi.input_type
 class CapacityProviderTargetTrackingScalingPolicyArgs:
@@ -488,21 +465,18 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
         pulumi.set(self, "target_value", value)
 
 
-if not MYPY:
-    class CapacityProviderVpcConfigArgsDict(TypedDict):
-        """
-        VPC configuration for the capacity provider.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of security group IDs to associate with EC2 instances.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of subnet IDs where the capacity provider can launch EC2 instances.
-        """
-elif False:
-    CapacityProviderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityProviderVpcConfigArgsDict(TypedDict):
+    """
+    VPC configuration for the capacity provider.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of security group IDs to associate with EC2 instances.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of subnet IDs where the capacity provider can launch EC2 instances.
+    """
 
 @pulumi.input_type
 class CapacityProviderVpcConfigArgs:
@@ -542,17 +516,14 @@ class CapacityProviderVpcConfigArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class CodeSigningConfigAllowedPublishersArgsDict(TypedDict):
-        """
-        When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
-        """
-        signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of Signing profile version Arns
-        """
-elif False:
-    CodeSigningConfigAllowedPublishersArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSigningConfigAllowedPublishersArgsDict(TypedDict):
+    """
+    When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+    """
+    signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of Signing profile version Arns
+    """
 
 @pulumi.input_type
 class CodeSigningConfigAllowedPublishersArgs:
@@ -577,17 +548,14 @@ class CodeSigningConfigAllowedPublishersArgs:
         pulumi.set(self, "signing_profile_version_arns", value)
 
 
-if not MYPY:
-    class CodeSigningConfigCodeSigningPoliciesArgsDict(TypedDict):
-        """
-        Policies to control how to act if a signature is invalid
-        """
-        untrusted_artifact_on_deployment: pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment']
-        """
-        Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
-        """
-elif False:
-    CodeSigningConfigCodeSigningPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+class CodeSigningConfigCodeSigningPoliciesArgsDict(TypedDict):
+    """
+    Policies to control how to act if a signature is invalid
+    """
+    untrusted_artifact_on_deployment: pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment']
+    """
+    Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
+    """
 
 @pulumi.input_type
 class CodeSigningConfigCodeSigningPoliciesArgs:
@@ -612,25 +580,22 @@ class CodeSigningConfigCodeSigningPoliciesArgs:
         pulumi.set(self, "untrusted_artifact_on_deployment", value)
 
 
-if not MYPY:
-    class EventInvokeConfigDestinationConfigArgsDict(TypedDict):
-        """
-        A destination for events after they have been sent to a function for processing.
-        """
-        on_failure: NotRequired[pulumi.Input['EventInvokeConfigOnFailureArgsDict']]
-        """
-        The destination configuration for failed invocations.
+class EventInvokeConfigDestinationConfigArgsDict(TypedDict):
+    """
+    A destination for events after they have been sent to a function for processing.
+    """
+    on_failure: NotRequired[pulumi.Input['EventInvokeConfigOnFailureArgsDict']]
+    """
+    The destination configuration for failed invocations.
 
-        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
-        """
-        on_success: NotRequired[pulumi.Input['EventInvokeConfigOnSuccessArgsDict']]
-        """
-        The destination configuration for successful invocations.
+    > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
+    """
+    on_success: NotRequired[pulumi.Input['EventInvokeConfigOnSuccessArgsDict']]
+    """
+    The destination configuration for successful invocations.
 
-        > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
-        """
-elif False:
-    EventInvokeConfigDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
+    """
 
 @pulumi.input_type
 class EventInvokeConfigDestinationConfigArgs:
@@ -680,17 +645,14 @@ class EventInvokeConfigDestinationConfigArgs:
         pulumi.set(self, "on_success", value)
 
 
-if not MYPY:
-    class EventInvokeConfigOnFailureArgsDict(TypedDict):
-        """
-        The destination configuration for failed invocations.
-        """
-        destination: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the destination resource.
-        """
-elif False:
-    EventInvokeConfigOnFailureArgsDict: TypeAlias = Mapping[str, Any]
+class EventInvokeConfigOnFailureArgsDict(TypedDict):
+    """
+    The destination configuration for failed invocations.
+    """
+    destination: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the destination resource.
+    """
 
 @pulumi.input_type
 class EventInvokeConfigOnFailureArgs:
@@ -715,17 +677,14 @@ class EventInvokeConfigOnFailureArgs:
         pulumi.set(self, "destination", value)
 
 
-if not MYPY:
-    class EventInvokeConfigOnSuccessArgsDict(TypedDict):
-        """
-        The destination configuration for successful invocations.
-        """
-        destination: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the destination resource.
-        """
-elif False:
-    EventInvokeConfigOnSuccessArgsDict: TypeAlias = Mapping[str, Any]
+class EventInvokeConfigOnSuccessArgsDict(TypedDict):
+    """
+    The destination configuration for successful invocations.
+    """
+    destination: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the destination resource.
+    """
 
 @pulumi.input_type
 class EventInvokeConfigOnSuccessArgs:
@@ -750,21 +709,18 @@ class EventInvokeConfigOnSuccessArgs:
         pulumi.set(self, "destination", value)
 
 
-if not MYPY:
-    class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
-        """
-        Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
-        """
-        consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
-        """
-        schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgsDict']]
-        """
-        Specific configuration settings for a Kafka schema registry.
-        """
-elif False:
-    EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
+    """
+    Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+    """
+    consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+    """
+    schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgsDict']]
+    """
+    Specific configuration settings for a Kafka schema registry.
+    """
 
 @pulumi.input_type
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
@@ -806,17 +762,14 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
         pulumi.set(self, "schema_registry_config", value)
 
 
-if not MYPY:
-    class EventSourceMappingDestinationConfigArgsDict(TypedDict):
-        """
-        A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
-        """
-        on_failure: NotRequired[pulumi.Input['EventSourceMappingOnFailureArgsDict']]
-        """
-        The destination configuration for failed invocations.
-        """
-elif False:
-    EventSourceMappingDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingDestinationConfigArgsDict(TypedDict):
+    """
+    A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
+    """
+    on_failure: NotRequired[pulumi.Input['EventSourceMappingOnFailureArgsDict']]
+    """
+    The destination configuration for failed invocations.
+    """
 
 @pulumi.input_type
 class EventSourceMappingDestinationConfigArgs:
@@ -842,25 +795,22 @@ class EventSourceMappingDestinationConfigArgs:
         pulumi.set(self, "on_failure", value)
 
 
-if not MYPY:
-    class EventSourceMappingDocumentDbEventSourceConfigArgsDict(TypedDict):
-        """
-        Specific configuration settings for a DocumentDB event source.
-        """
-        collection_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the database to consume within the DocumentDB cluster.
-        """
-        full_document: NotRequired[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]
-        """
-        Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
-        """
-elif False:
-    EventSourceMappingDocumentDbEventSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingDocumentDbEventSourceConfigArgsDict(TypedDict):
+    """
+    Specific configuration settings for a DocumentDB event source.
+    """
+    collection_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the database to consume within the DocumentDB cluster.
+    """
+    full_document: NotRequired[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]
+    """
+    Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
+    """
 
 @pulumi.input_type
 class EventSourceMappingDocumentDbEventSourceConfigArgs:
@@ -918,17 +868,14 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
         pulumi.set(self, "full_document", value)
 
 
-if not MYPY:
-    class EventSourceMappingEndpointsArgsDict(TypedDict):
-        """
-        The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
-        """
-        kafka_bootstrap_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
-        """
-elif False:
-    EventSourceMappingEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingEndpointsArgsDict(TypedDict):
+    """
+    The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
+    """
+    kafka_bootstrap_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
+    """
 
 @pulumi.input_type
 class EventSourceMappingEndpointsArgs:
@@ -954,17 +901,14 @@ class EventSourceMappingEndpointsArgs:
         pulumi.set(self, "kafka_bootstrap_servers", value)
 
 
-if not MYPY:
-    class EventSourceMappingFilterCriteriaArgsDict(TypedDict):
-        """
-        An object that contains the filters for an event source.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgsDict']]]]
-        """
-        A list of filters.
-        """
-elif False:
-    EventSourceMappingFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingFilterCriteriaArgsDict(TypedDict):
+    """
+    An object that contains the filters for an event source.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgsDict']]]]
+    """
+    A list of filters.
+    """
 
 @pulumi.input_type
 class EventSourceMappingFilterCriteriaArgs:
@@ -990,17 +934,14 @@ class EventSourceMappingFilterCriteriaArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class EventSourceMappingFilterArgsDict(TypedDict):
-        """
-        A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
-        """
-        pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
-elif False:
-    EventSourceMappingFilterArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingFilterArgsDict(TypedDict):
+    """
+    A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
+    """
+    pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+    """
 
 @pulumi.input_type
 class EventSourceMappingFilterArgs:
@@ -1026,17 +967,14 @@ class EventSourceMappingFilterArgs:
         pulumi.set(self, "pattern", value)
 
 
-if not MYPY:
-    class EventSourceMappingLoggingConfigArgsDict(TypedDict):
-        """
-        The function's Amazon CloudWatch Logs configuration settings.
-        """
-        system_log_level: NotRequired[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]
-        """
-        Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
-        """
-elif False:
-    EventSourceMappingLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingLoggingConfigArgsDict(TypedDict):
+    """
+    The function's Amazon CloudWatch Logs configuration settings.
+    """
+    system_log_level: NotRequired[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]
+    """
+    Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+    """
 
 @pulumi.input_type
 class EventSourceMappingLoggingConfigArgs:
@@ -1062,17 +1000,14 @@ class EventSourceMappingLoggingConfigArgs:
         pulumi.set(self, "system_log_level", value)
 
 
-if not MYPY:
-    class EventSourceMappingMetricsConfigArgsDict(TypedDict):
-        """
-        The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
-        """
-        metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]
-        """
-        The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
-        """
-elif False:
-    EventSourceMappingMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingMetricsConfigArgsDict(TypedDict):
+    """
+    The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
+    """
+    metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]
+    """
+    The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+    """
 
 @pulumi.input_type
 class EventSourceMappingMetricsConfigArgs:
@@ -1098,20 +1033,17 @@ class EventSourceMappingMetricsConfigArgs:
         pulumi.set(self, "metrics", value)
 
 
-if not MYPY:
-    class EventSourceMappingOnFailureArgsDict(TypedDict):
-        """
-        A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the destination resource.
-         To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-          Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
-          To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
-        """
-elif False:
-    EventSourceMappingOnFailureArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingOnFailureArgsDict(TypedDict):
+    """
+    A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the destination resource.
+     To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+      Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+      To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+    """
 
 @pulumi.input_type
 class EventSourceMappingOnFailureArgs:
@@ -1143,25 +1075,22 @@ class EventSourceMappingOnFailureArgs:
         pulumi.set(self, "destination", value)
 
 
-if not MYPY:
-    class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
-        """
-        The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
-        """
-        maximum_pollers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
-        """
-        minimum_pollers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
-        """
-        poller_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-        """
-elif False:
-    EventSourceMappingProvisionedPollerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
+    """
+    The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
+    """
+    maximum_pollers: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+    """
+    minimum_pollers: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
+    """
+    poller_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+    """
 
 @pulumi.input_type
 class EventSourceMappingProvisionedPollerConfigArgs:
@@ -1219,17 +1148,14 @@ class EventSourceMappingProvisionedPollerConfigArgs:
         pulumi.set(self, "poller_group_name", value)
 
 
-if not MYPY:
-    class EventSourceMappingScalingConfigArgsDict(TypedDict):
-        """
-        (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
-        """
-        maximum_concurrency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Limits the number of concurrent instances that the SQS event source can invoke.
-        """
-elif False:
-    EventSourceMappingScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingScalingConfigArgsDict(TypedDict):
+    """
+    (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
+    """
+    maximum_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Limits the number of concurrent instances that the SQS event source can invoke.
+    """
 
 @pulumi.input_type
 class EventSourceMappingScalingConfigArgs:
@@ -1255,23 +1181,20 @@ class EventSourceMappingScalingConfigArgs:
         pulumi.set(self, "maximum_concurrency", value)
 
 
-if not MYPY:
-    class EventSourceMappingSchemaRegistryAccessConfigArgsDict(TypedDict):
-        """
-        Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
-         If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
-         If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
-        """
-        type: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]
-        """
-        The type of authentication Lambda uses to access your schema registry.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-        """
-elif False:
-    EventSourceMappingSchemaRegistryAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingSchemaRegistryAccessConfigArgsDict(TypedDict):
+    """
+    Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+     If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+     If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
+    """
+    type: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]
+    """
+    The type of authentication Lambda uses to access your schema registry.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+    """
 
 @pulumi.input_type
 class EventSourceMappingSchemaRegistryAccessConfigArgs:
@@ -1315,33 +1238,30 @@ class EventSourceMappingSchemaRegistryAccessConfigArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class EventSourceMappingSchemaRegistryConfigArgsDict(TypedDict):
-        """
-        Specific configuration settings for a Kafka schema registry.
-        """
-        access_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgsDict']]]]
-        """
-        An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-        """
-        event_record_format: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]
-        """
-        The record format that Lambda delivers to your function after schema validation.
-          +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
-          +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
-        """
-        schema_registry_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-          +  For GLU schema registries, use the ARN of the registry.
-          +  For Confluent schema registries, use the URL of the registry.
-        """
-        schema_validation_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgsDict']]]]
-        """
-        An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-        """
-elif False:
-    EventSourceMappingSchemaRegistryConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingSchemaRegistryConfigArgsDict(TypedDict):
+    """
+    Specific configuration settings for a Kafka schema registry.
+    """
+    access_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgsDict']]]]
+    """
+    An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+    """
+    event_record_format: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]
+    """
+    The record format that Lambda delivers to your function after schema validation.
+      +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+      +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+    """
+    schema_registry_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+      +  For GLU schema registries, use the ARN of the registry.
+      +  For Confluent schema registries, use the URL of the registry.
+    """
+    schema_validation_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgsDict']]]]
+    """
+    An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+    """
 
 @pulumi.input_type
 class EventSourceMappingSchemaRegistryConfigArgs:
@@ -1423,17 +1343,14 @@ class EventSourceMappingSchemaRegistryConfigArgs:
         pulumi.set(self, "schema_validation_configs", value)
 
 
-if not MYPY:
-    class EventSourceMappingSchemaValidationConfigArgsDict(TypedDict):
-        """
-        Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
-        """
-        attribute: NotRequired[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]
-        """
-        The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
-        """
-elif False:
-    EventSourceMappingSchemaValidationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingSchemaValidationConfigArgsDict(TypedDict):
+    """
+    Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
+    """
+    attribute: NotRequired[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]
+    """
+    The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
+    """
 
 @pulumi.input_type
 class EventSourceMappingSchemaValidationConfigArgs:
@@ -1459,17 +1376,14 @@ class EventSourceMappingSchemaValidationConfigArgs:
         pulumi.set(self, "attribute", value)
 
 
-if not MYPY:
-    class EventSourceMappingSelfManagedEventSourceArgsDict(TypedDict):
-        """
-        The self-managed Apache Kafka cluster for your event source.
-        """
-        endpoints: NotRequired[pulumi.Input['EventSourceMappingEndpointsArgsDict']]
-        """
-        The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
-        """
-elif False:
-    EventSourceMappingSelfManagedEventSourceArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingSelfManagedEventSourceArgsDict(TypedDict):
+    """
+    The self-managed Apache Kafka cluster for your event source.
+    """
+    endpoints: NotRequired[pulumi.Input['EventSourceMappingEndpointsArgsDict']]
+    """
+    The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
+    """
 
 @pulumi.input_type
 class EventSourceMappingSelfManagedEventSourceArgs:
@@ -1495,21 +1409,18 @@ class EventSourceMappingSelfManagedEventSourceArgs:
         pulumi.set(self, "endpoints", value)
 
 
-if not MYPY:
-    class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
-        """
-        Specific configuration settings for a self-managed Apache Kafka event source.
-        """
-        consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
-        """
-        schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgsDict']]
-        """
-        Specific configuration settings for a Kafka schema registry.
-        """
-elif False:
-    EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
+    """
+    Specific configuration settings for a self-managed Apache Kafka event source.
+    """
+    consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
+    """
+    schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgsDict']]
+    """
+    Specific configuration settings for a Kafka schema registry.
+    """
 
 @pulumi.input_type
 class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
@@ -1551,30 +1462,27 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
         pulumi.set(self, "schema_registry_config", value)
 
 
-if not MYPY:
-    class EventSourceMappingSourceAccessConfigurationArgsDict(TypedDict):
-        """
-        An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
-        """
-        type: NotRequired[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]
-        """
-        The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
-          +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
-          +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
-          +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
-          +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
-          +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
-          +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
-          +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
-          +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
-          +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
-        """
-elif False:
-    EventSourceMappingSourceAccessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EventSourceMappingSourceAccessConfigurationArgsDict(TypedDict):
+    """
+    An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
+    """
+    type: NotRequired[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]
+    """
+    The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
+      +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+      +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+      +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+      +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+      +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+      +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+      +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+      +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+      +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
+    """
 
 @pulumi.input_type
 class EventSourceMappingSourceAccessConfigurationArgs:
@@ -1634,14 +1542,11 @@ class EventSourceMappingSourceAccessConfigurationArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class FunctionCapacityProviderConfigArgsDict(TypedDict):
-        lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict']
-        """
-        Configuration for Lambda-managed instances used by the capacity provider.
-        """
-elif False:
-    FunctionCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionCapacityProviderConfigArgsDict(TypedDict):
+    lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict']
+    """
+    Configuration for Lambda-managed instances used by the capacity provider.
+    """
 
 @pulumi.input_type
 class FunctionCapacityProviderConfigArgs:
@@ -1665,42 +1570,39 @@ class FunctionCapacityProviderConfigArgs:
         pulumi.set(self, "lambda_managed_instances_capacity_provider_config", value)
 
 
-if not MYPY:
-    class FunctionCodeArgsDict(TypedDict):
-        """
-        The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
-          When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
-          Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
-        """
-        image_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
-        """
-        s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
-        """
-        s3_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 key of the deployment package.
-        """
-        s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For versioned objects, the version of the deployment package object to use.
-        """
-        source_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
-        """
-        zip_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-          When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
-           For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
-         If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
-        """
-elif False:
-    FunctionCodeArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionCodeArgsDict(TypedDict):
+    """
+    The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+      Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
+    """
+    image_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
+    """
+    s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
+    """
+    s3_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 key of the deployment package.
+    """
+    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For versioned objects, the version of the deployment package object to use.
+    """
+    source_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
+    """
+    zip_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
+      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+       For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
+     If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
+    """
 
 @pulumi.input_type
 class FunctionCodeArgs:
@@ -1814,17 +1716,14 @@ class FunctionCodeArgs:
         pulumi.set(self, "zip_file", value)
 
 
-if not MYPY:
-    class FunctionDeadLetterConfigArgsDict(TypedDict):
-        """
-        The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) for failed asynchronous invocations.
-        """
-        target_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
-        """
-elif False:
-    FunctionDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionDeadLetterConfigArgsDict(TypedDict):
+    """
+    The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) for failed asynchronous invocations.
+    """
+    target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+    """
 
 @pulumi.input_type
 class FunctionDeadLetterConfigArgs:
@@ -1850,18 +1749,15 @@ class FunctionDeadLetterConfigArgs:
         pulumi.set(self, "target_arn", value)
 
 
-if not MYPY:
-    class FunctionDurableConfigArgsDict(TypedDict):
-        execution_timeout: pulumi.Input[_builtins.int]
-        """
-        The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
-        """
-        retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
-        """
-elif False:
-    FunctionDurableConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionDurableConfigArgsDict(TypedDict):
+    execution_timeout: pulumi.Input[_builtins.int]
+    """
+    The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+    """
+    retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+    """
 
 @pulumi.input_type
 class FunctionDurableConfigArgs:
@@ -1901,18 +1797,15 @@ class FunctionDurableConfigArgs:
         pulumi.set(self, "retention_period_in_days", value)
 
 
-if not MYPY:
-    class FunctionEnvironmentArgsDict(TypedDict):
-        """
-        A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
-        """
-        variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
-         If the value of the environment variable is a time or a duration, enclose the value in quotes.
-        """
-elif False:
-    FunctionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionEnvironmentArgsDict(TypedDict):
+    """
+    A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
+    """
+    variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+     If the value of the environment variable is a time or a duration, enclose the value in quotes.
+    """
 
 @pulumi.input_type
 class FunctionEnvironmentArgs:
@@ -1940,17 +1833,14 @@ class FunctionEnvironmentArgs:
         pulumi.set(self, "variables", value)
 
 
-if not MYPY:
-    class FunctionEphemeralStorageArgsDict(TypedDict):
-        """
-        The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
-        """
-        size: pulumi.Input[_builtins.int]
-        """
-        The size of the function's ``/tmp`` directory.
-        """
-elif False:
-    FunctionEphemeralStorageArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionEphemeralStorageArgsDict(TypedDict):
+    """
+    The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+    """
+    size: pulumi.Input[_builtins.int]
+    """
+    The size of the function's ``/tmp`` directory.
+    """
 
 @pulumi.input_type
 class FunctionEphemeralStorageArgs:
@@ -1975,21 +1865,18 @@ class FunctionEphemeralStorageArgs:
         pulumi.set(self, "size", value)
 
 
-if not MYPY:
-    class FunctionFileSystemConfigArgsDict(TypedDict):
-        """
-        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
-        """
-        local_mount_path: pulumi.Input[_builtins.str]
-        """
-        The path where the function can access the file system, starting with ``/mnt/``.
-        """
-elif False:
-    FunctionFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionFileSystemConfigArgsDict(TypedDict):
+    """
+    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+    """
+    local_mount_path: pulumi.Input[_builtins.str]
+    """
+    The path where the function can access the file system, starting with ``/mnt/``.
+    """
 
 @pulumi.input_type
 class FunctionFileSystemConfigArgs:
@@ -2029,25 +1916,22 @@ class FunctionFileSystemConfigArgs:
         pulumi.set(self, "local_mount_path", value)
 
 
-if not MYPY:
-    class FunctionImageConfigArgsDict(TypedDict):
-        """
-        Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
-        """
-        entry_point: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
-        """
-        working_directory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
-        """
-elif False:
-    FunctionImageConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionImageConfigArgsDict(TypedDict):
+    """
+    Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
+    """
+    entry_point: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
+    """
+    working_directory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
+    """
 
 @pulumi.input_type
 class FunctionImageConfigArgs:
@@ -2105,22 +1989,19 @@ class FunctionImageConfigArgs:
         pulumi.set(self, "working_directory", value)
 
 
-if not MYPY:
-    class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
-        capacity_provider_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the capacity provider.
-        """
-        execution_environment_memory_gi_b_per_v_cpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The amount of memory in GiB allocated per vCPU for execution environments.
-        """
-        per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of concurrent execution environments that can run on each compute instance.
-        """
-elif False:
-    FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
+    capacity_provider_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the capacity provider.
+    """
+    execution_environment_memory_gi_b_per_v_cpu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The amount of memory in GiB allocated per vCPU for execution environments.
+    """
+    per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of concurrent execution environments that can run on each compute instance.
+    """
 
 @pulumi.input_type
 class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
@@ -2176,29 +2057,26 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
         pulumi.set(self, "per_execution_environment_max_concurrency", value)
 
 
-if not MYPY:
-    class FunctionLoggingConfigArgsDict(TypedDict):
-        """
-        The function's Amazon CloudWatch Logs configuration settings.
-        """
-        application_log_level: NotRequired[pulumi.Input['FunctionLoggingConfigApplicationLogLevel']]
-        """
-        Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
-        """
-        log_format: NotRequired[pulumi.Input['FunctionLoggingConfigLogFormat']]
-        """
-        The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
-        """
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
-        """
-        system_log_level: NotRequired[pulumi.Input['FunctionLoggingConfigSystemLogLevel']]
-        """
-        Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
-        """
-elif False:
-    FunctionLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionLoggingConfigArgsDict(TypedDict):
+    """
+    The function's Amazon CloudWatch Logs configuration settings.
+    """
+    application_log_level: NotRequired[pulumi.Input['FunctionLoggingConfigApplicationLogLevel']]
+    """
+    Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
+    """
+    log_format: NotRequired[pulumi.Input['FunctionLoggingConfigLogFormat']]
+    """
+    The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
+    """
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
+    """
+    system_log_level: NotRequired[pulumi.Input['FunctionLoggingConfigSystemLogLevel']]
+    """
+    Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+    """
 
 @pulumi.input_type
 class FunctionLoggingConfigArgs:
@@ -2272,27 +2150,24 @@ class FunctionLoggingConfigArgs:
         pulumi.set(self, "system_log_level", value)
 
 
-if not MYPY:
-    class FunctionRuntimeManagementConfigArgsDict(TypedDict):
-        """
-        Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
-        """
-        update_runtime_on: pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn']
-        """
-        Specify the runtime update mode.
-          +  *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
-          +  *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
-          +  *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
-          
-         *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
-        """
-        runtime_version_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the runtime version you want the function to use.
-          This is only required if you're using the *Manual* runtime update mode.
-        """
-elif False:
-    FunctionRuntimeManagementConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionRuntimeManagementConfigArgsDict(TypedDict):
+    """
+    Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+    """
+    update_runtime_on: pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn']
+    """
+    Specify the runtime update mode.
+      +  *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+      +  *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+      +  *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
+      
+     *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
+    """
+    runtime_version_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the runtime version you want the function to use.
+      This is only required if you're using the *Manual* runtime update mode.
+    """
 
 @pulumi.input_type
 class FunctionRuntimeManagementConfigArgs:
@@ -2345,18 +2220,15 @@ class FunctionRuntimeManagementConfigArgs:
         pulumi.set(self, "runtime_version_arn", value)
 
 
-if not MYPY:
-    class FunctionScalingConfigArgsDict(TypedDict):
-        max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of execution environments that can be provisioned for the function.
-        """
-        min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of execution environments to maintain for the function.
-        """
-elif False:
-    FunctionScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionScalingConfigArgsDict(TypedDict):
+    max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of execution environments that can be provisioned for the function.
+    """
+    min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of execution environments to maintain for the function.
+    """
 
 @pulumi.input_type
 class FunctionScalingConfigArgs:
@@ -2397,17 +2269,14 @@ class FunctionScalingConfigArgs:
         pulumi.set(self, "min_execution_environments", value)
 
 
-if not MYPY:
-    class FunctionSnapStartArgsDict(TypedDict):
-        """
-        The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-        """
-        apply_on: pulumi.Input['FunctionSnapStartApplyOn']
-        """
-        Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
-        """
-elif False:
-    FunctionSnapStartArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionSnapStartArgsDict(TypedDict):
+    """
+    The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+    """
+    apply_on: pulumi.Input['FunctionSnapStartApplyOn']
+    """
+    Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+    """
 
 @pulumi.input_type
 class FunctionSnapStartArgs:
@@ -2432,14 +2301,11 @@ class FunctionSnapStartArgs:
         pulumi.set(self, "apply_on", value)
 
 
-if not MYPY:
-    class FunctionTenancyConfigArgsDict(TypedDict):
-        tenant_isolation_mode: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']
-        """
-        Determines how your Lambda function isolates execution environments between tenants.
-        """
-elif False:
-    FunctionTenancyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionTenancyConfigArgsDict(TypedDict):
+    tenant_isolation_mode: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']
+    """
+    Determines how your Lambda function isolates execution environments between tenants.
+    """
 
 @pulumi.input_type
 class FunctionTenancyConfigArgs:
@@ -2463,17 +2329,14 @@ class FunctionTenancyConfigArgs:
         pulumi.set(self, "tenant_isolation_mode", value)
 
 
-if not MYPY:
-    class FunctionTracingConfigArgsDict(TypedDict):
-        """
-        The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
-        """
-        mode: NotRequired[pulumi.Input['FunctionTracingConfigMode']]
-        """
-        The tracing mode.
-        """
-elif False:
-    FunctionTracingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionTracingConfigArgsDict(TypedDict):
+    """
+    The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
+    """
+    mode: NotRequired[pulumi.Input['FunctionTracingConfigMode']]
+    """
+    The tracing mode.
+    """
 
 @pulumi.input_type
 class FunctionTracingConfigArgs:
@@ -2499,27 +2362,24 @@ class FunctionTracingConfigArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class FunctionVpcConfigArgsDict(TypedDict):
-        """
-        The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
-          When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
-         To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
-        """
-        ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of VPC security group IDs.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of VPC subnet IDs.
-        """
-elif False:
-    FunctionVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionVpcConfigArgsDict(TypedDict):
+    """
+    The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+      When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+     To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
+    """
+    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of VPC security group IDs.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of VPC subnet IDs.
+    """
 
 @pulumi.input_type
 class FunctionVpcConfigArgs:
@@ -2579,22 +2439,19 @@ class FunctionVpcConfigArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class LayerVersionContentArgsDict(TypedDict):
-        s3_bucket: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket of the layer archive.
-        """
-        s3_key: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 key of the layer archive.
-        """
-        s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For versioned objects, the version of the layer archive object to use.
-        """
-elif False:
-    LayerVersionContentArgsDict: TypeAlias = Mapping[str, Any]
+class LayerVersionContentArgsDict(TypedDict):
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket of the layer archive.
+    """
+    s3_key: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 key of the layer archive.
+    """
+    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For versioned objects, the version of the layer archive object to use.
+    """
 
 @pulumi.input_type
 class LayerVersionContentArgs:
@@ -2649,34 +2506,31 @@ class LayerVersionContentArgs:
         pulumi.set(self, "s3_object_version", value)
 
 
-if not MYPY:
-    class UrlCorsArgsDict(TypedDict):
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether credentials are included in the CORS request.
-        """
-        allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Represents a collection of allowed headers.
-        """
-        allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]
-        """
-        Represents a collection of allowed HTTP methods.
-        """
-        allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Represents a collection of allowed origins.
-        """
-        expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Represents a collection of exposed headers.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
-        """
-elif False:
-    UrlCorsArgsDict: TypeAlias = Mapping[str, Any]
+class UrlCorsArgsDict(TypedDict):
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether credentials are included in the CORS request.
+    """
+    allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Represents a collection of allowed headers.
+    """
+    allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]
+    """
+    Represents a collection of allowed HTTP methods.
+    """
+    allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Represents a collection of allowed origins.
+    """
+    expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Represents a collection of exposed headers.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
+    """
 
 @pulumi.input_type
 class UrlCorsArgs:
@@ -2781,21 +2635,18 @@ class UrlCorsArgs:
         pulumi.set(self, "max_age", value)
 
 
-if not MYPY:
-    class VersionFunctionScalingConfigArgsDict(TypedDict):
-        """
-        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
-        """
-        max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of execution environments that can be provisioned for the function.
-        """
-        min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of execution environments to maintain for the function.
-        """
-elif False:
-    VersionFunctionScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class VersionFunctionScalingConfigArgsDict(TypedDict):
+    """
+    Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+    """
+    max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of execution environments that can be provisioned for the function.
+    """
+    min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of execution environments to maintain for the function.
+    """
 
 @pulumi.input_type
 class VersionFunctionScalingConfigArgs:
@@ -2837,17 +2688,14 @@ class VersionFunctionScalingConfigArgs:
         pulumi.set(self, "min_execution_environments", value)
 
 
-if not MYPY:
-    class VersionProvisionedConcurrencyConfigurationArgsDict(TypedDict):
-        """
-        A provisioned concurrency configuration for a function's version.
-        """
-        provisioned_concurrent_executions: pulumi.Input[_builtins.int]
-        """
-        The amount of provisioned concurrency to allocate for the version.
-        """
-elif False:
-    VersionProvisionedConcurrencyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VersionProvisionedConcurrencyConfigurationArgsDict(TypedDict):
+    """
+    A provisioned concurrency configuration for a function's version.
+    """
+    provisioned_concurrent_executions: pulumi.Input[_builtins.int]
+    """
+    The amount of provisioned concurrency to allocate for the version.
+    """
 
 @pulumi.input_type
 class VersionProvisionedConcurrencyConfigurationArgs:
@@ -2872,21 +2720,18 @@ class VersionProvisionedConcurrencyConfigurationArgs:
         pulumi.set(self, "provisioned_concurrent_executions", value)
 
 
-if not MYPY:
-    class VersionRuntimePolicyArgsDict(TypedDict):
-        """
-        Runtime Management Config of a function.
-        """
-        update_runtime_on: pulumi.Input[_builtins.str]
-        """
-        The runtime update mode.
-        """
-        runtime_version_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
-        """
-elif False:
-    VersionRuntimePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VersionRuntimePolicyArgsDict(TypedDict):
+    """
+    Runtime Management Config of a function.
+    """
+    update_runtime_on: pulumi.Input[_builtins.str]
+    """
+    The runtime update mode.
+    """
+    runtime_version_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
+    """
 
 @pulumi.input_type
 class VersionRuntimePolicyArgs:

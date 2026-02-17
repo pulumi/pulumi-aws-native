@@ -21,7 +21,8 @@ type VolumeAttachment struct {
 	pulumi.CustomResourceState
 
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
-	Device pulumi.StringPtrOutput `pulumi:"device"`
+	Device       pulumi.StringPtrOutput `pulumi:"device"`
+	EbsCardIndex pulumi.IntPtrOutput    `pulumi:"ebsCardIndex"`
 	// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
@@ -43,6 +44,7 @@ func NewVolumeAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"device",
+		"ebsCardIndex",
 		"instanceId",
 		"volumeId",
 	})
@@ -81,7 +83,8 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 
 type volumeAttachmentArgs struct {
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
-	Device *string `pulumi:"device"`
+	Device       *string `pulumi:"device"`
+	EbsCardIndex *int    `pulumi:"ebsCardIndex"`
 	// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId string `pulumi:"instanceId"`
 	// The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
@@ -91,7 +94,8 @@ type volumeAttachmentArgs struct {
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
-	Device pulumi.StringPtrInput
+	Device       pulumi.StringPtrInput
+	EbsCardIndex pulumi.IntPtrInput
 	// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId pulumi.StringInput
 	// The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
@@ -138,6 +142,10 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.
 // The device name (for example, “/dev/sdh“ or “xvdh“).
 func (o VolumeAttachmentOutput) Device() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringPtrOutput { return v.Device }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeAttachmentOutput) EbsCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeAttachment) pulumi.IntPtrOutput { return v.EbsCardIndex }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.

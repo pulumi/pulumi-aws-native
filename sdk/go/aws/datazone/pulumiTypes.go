@@ -2071,6 +2071,146 @@ func (o ConnectionLineageSyncSchedulePtrOutput) Schedule() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// MLflow Properties Input
+type ConnectionMlflowPropertiesInput struct {
+	// The ARN of the MLflow tracking server
+	TrackingServerArn *string `pulumi:"trackingServerArn"`
+}
+
+// ConnectionMlflowPropertiesInputInput is an input type that accepts ConnectionMlflowPropertiesInputArgs and ConnectionMlflowPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionMlflowPropertiesInputInput` via:
+//
+//	ConnectionMlflowPropertiesInputArgs{...}
+type ConnectionMlflowPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionMlflowPropertiesInputOutput() ConnectionMlflowPropertiesInputOutput
+	ToConnectionMlflowPropertiesInputOutputWithContext(context.Context) ConnectionMlflowPropertiesInputOutput
+}
+
+// MLflow Properties Input
+type ConnectionMlflowPropertiesInputArgs struct {
+	// The ARN of the MLflow tracking server
+	TrackingServerArn pulumi.StringPtrInput `pulumi:"trackingServerArn"`
+}
+
+func (ConnectionMlflowPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMlflowPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionMlflowPropertiesInputArgs) ToConnectionMlflowPropertiesInputOutput() ConnectionMlflowPropertiesInputOutput {
+	return i.ToConnectionMlflowPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionMlflowPropertiesInputArgs) ToConnectionMlflowPropertiesInputOutputWithContext(ctx context.Context) ConnectionMlflowPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMlflowPropertiesInputOutput)
+}
+
+func (i ConnectionMlflowPropertiesInputArgs) ToConnectionMlflowPropertiesInputPtrOutput() ConnectionMlflowPropertiesInputPtrOutput {
+	return i.ToConnectionMlflowPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionMlflowPropertiesInputArgs) ToConnectionMlflowPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionMlflowPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMlflowPropertiesInputOutput).ToConnectionMlflowPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionMlflowPropertiesInputPtrInput is an input type that accepts ConnectionMlflowPropertiesInputArgs, ConnectionMlflowPropertiesInputPtr and ConnectionMlflowPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionMlflowPropertiesInputPtrInput` via:
+//
+//	        ConnectionMlflowPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionMlflowPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionMlflowPropertiesInputPtrOutput() ConnectionMlflowPropertiesInputPtrOutput
+	ToConnectionMlflowPropertiesInputPtrOutputWithContext(context.Context) ConnectionMlflowPropertiesInputPtrOutput
+}
+
+type connectionMlflowPropertiesInputPtrType ConnectionMlflowPropertiesInputArgs
+
+func ConnectionMlflowPropertiesInputPtr(v *ConnectionMlflowPropertiesInputArgs) ConnectionMlflowPropertiesInputPtrInput {
+	return (*connectionMlflowPropertiesInputPtrType)(v)
+}
+
+func (*connectionMlflowPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionMlflowPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionMlflowPropertiesInputPtrType) ToConnectionMlflowPropertiesInputPtrOutput() ConnectionMlflowPropertiesInputPtrOutput {
+	return i.ToConnectionMlflowPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionMlflowPropertiesInputPtrType) ToConnectionMlflowPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionMlflowPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMlflowPropertiesInputPtrOutput)
+}
+
+// MLflow Properties Input
+type ConnectionMlflowPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionMlflowPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMlflowPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionMlflowPropertiesInputOutput) ToConnectionMlflowPropertiesInputOutput() ConnectionMlflowPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionMlflowPropertiesInputOutput) ToConnectionMlflowPropertiesInputOutputWithContext(ctx context.Context) ConnectionMlflowPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionMlflowPropertiesInputOutput) ToConnectionMlflowPropertiesInputPtrOutput() ConnectionMlflowPropertiesInputPtrOutput {
+	return o.ToConnectionMlflowPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionMlflowPropertiesInputOutput) ToConnectionMlflowPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionMlflowPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionMlflowPropertiesInput) *ConnectionMlflowPropertiesInput {
+		return &v
+	}).(ConnectionMlflowPropertiesInputPtrOutput)
+}
+
+// The ARN of the MLflow tracking server
+func (o ConnectionMlflowPropertiesInputOutput) TrackingServerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionMlflowPropertiesInput) *string { return v.TrackingServerArn }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionMlflowPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionMlflowPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionMlflowPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionMlflowPropertiesInputPtrOutput) ToConnectionMlflowPropertiesInputPtrOutput() ConnectionMlflowPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionMlflowPropertiesInputPtrOutput) ToConnectionMlflowPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionMlflowPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionMlflowPropertiesInputPtrOutput) Elem() ConnectionMlflowPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionMlflowPropertiesInput) ConnectionMlflowPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionMlflowPropertiesInput
+		return ret
+	}).(ConnectionMlflowPropertiesInputOutput)
+}
+
+// The ARN of the MLflow tracking server
+func (o ConnectionMlflowPropertiesInputPtrOutput) TrackingServerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionMlflowPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingServerArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // OAuth2 Client Application
 type ConnectionOAuth2ClientApplication struct {
 	AwsManagedClientApplicationReference *string `pulumi:"awsManagedClientApplicationReference"`
@@ -3827,6 +3967,141 @@ func (o ConnectionPropertiesInput8PropertiesPtrOutput) S3Properties() Connection
 	}).(ConnectionS3PropertiesInputPtrOutput)
 }
 
+type ConnectionPropertiesInput9Properties struct {
+	MlflowProperties ConnectionMlflowPropertiesInput `pulumi:"mlflowProperties"`
+}
+
+// ConnectionPropertiesInput9PropertiesInput is an input type that accepts ConnectionPropertiesInput9PropertiesArgs and ConnectionPropertiesInput9PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput9PropertiesInput` via:
+//
+//	ConnectionPropertiesInput9PropertiesArgs{...}
+type ConnectionPropertiesInput9PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput9PropertiesOutput() ConnectionPropertiesInput9PropertiesOutput
+	ToConnectionPropertiesInput9PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput9PropertiesOutput
+}
+
+type ConnectionPropertiesInput9PropertiesArgs struct {
+	MlflowProperties ConnectionMlflowPropertiesInputInput `pulumi:"mlflowProperties"`
+}
+
+func (ConnectionPropertiesInput9PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput9Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput9PropertiesArgs) ToConnectionPropertiesInput9PropertiesOutput() ConnectionPropertiesInput9PropertiesOutput {
+	return i.ToConnectionPropertiesInput9PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput9PropertiesArgs) ToConnectionPropertiesInput9PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput9PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput9PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput9PropertiesArgs) ToConnectionPropertiesInput9PropertiesPtrOutput() ConnectionPropertiesInput9PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput9PropertiesArgs) ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput9PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput9PropertiesOutput).ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput9PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput9PropertiesArgs, ConnectionPropertiesInput9PropertiesPtr and ConnectionPropertiesInput9PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput9PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput9PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput9PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput9PropertiesPtrOutput() ConnectionPropertiesInput9PropertiesPtrOutput
+	ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput9PropertiesPtrOutput
+}
+
+type connectionPropertiesInput9PropertiesPtrType ConnectionPropertiesInput9PropertiesArgs
+
+func ConnectionPropertiesInput9PropertiesPtr(v *ConnectionPropertiesInput9PropertiesArgs) ConnectionPropertiesInput9PropertiesPtrInput {
+	return (*connectionPropertiesInput9PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput9PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput9Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput9PropertiesPtrType) ToConnectionPropertiesInput9PropertiesPtrOutput() ConnectionPropertiesInput9PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput9PropertiesPtrType) ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput9PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput9PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput9PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput9PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput9Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput9PropertiesOutput) ToConnectionPropertiesInput9PropertiesOutput() ConnectionPropertiesInput9PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput9PropertiesOutput) ToConnectionPropertiesInput9PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput9PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput9PropertiesOutput) ToConnectionPropertiesInput9PropertiesPtrOutput() ConnectionPropertiesInput9PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput9PropertiesOutput) ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput9PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput9Properties) *ConnectionPropertiesInput9Properties {
+		return &v
+	}).(ConnectionPropertiesInput9PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput9PropertiesOutput) MlflowProperties() ConnectionMlflowPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput9Properties) ConnectionMlflowPropertiesInput {
+		return v.MlflowProperties
+	}).(ConnectionMlflowPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput9PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput9PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput9Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput9PropertiesPtrOutput) ToConnectionPropertiesInput9PropertiesPtrOutput() ConnectionPropertiesInput9PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput9PropertiesPtrOutput) ToConnectionPropertiesInput9PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput9PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput9PropertiesPtrOutput) Elem() ConnectionPropertiesInput9PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput9Properties) ConnectionPropertiesInput9Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput9Properties
+		return ret
+	}).(ConnectionPropertiesInput9PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput9PropertiesPtrOutput) MlflowProperties() ConnectionMlflowPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput9Properties) *ConnectionMlflowPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.MlflowProperties
+	}).(ConnectionMlflowPropertiesInputPtrOutput)
+}
+
 type ConnectionRedshiftCredentials0Properties struct {
 	SecretArn string `pulumi:"secretArn"`
 }
@@ -4890,6 +5165,7 @@ type ConnectionSparkEmrPropertiesInput struct {
 	InstanceProfileArn       *string `pulumi:"instanceProfileArn"`
 	JavaVirtualEnv           *string `pulumi:"javaVirtualEnv"`
 	LogUri                   *string `pulumi:"logUri"`
+	ManagedEndpointArn       *string `pulumi:"managedEndpointArn"`
 	PythonVirtualEnv         *string `pulumi:"pythonVirtualEnv"`
 	RuntimeRole              *string `pulumi:"runtimeRole"`
 	TrustedCertificatesS3Uri *string `pulumi:"trustedCertificatesS3Uri"`
@@ -4912,6 +5188,7 @@ type ConnectionSparkEmrPropertiesInputArgs struct {
 	InstanceProfileArn       pulumi.StringPtrInput `pulumi:"instanceProfileArn"`
 	JavaVirtualEnv           pulumi.StringPtrInput `pulumi:"javaVirtualEnv"`
 	LogUri                   pulumi.StringPtrInput `pulumi:"logUri"`
+	ManagedEndpointArn       pulumi.StringPtrInput `pulumi:"managedEndpointArn"`
 	PythonVirtualEnv         pulumi.StringPtrInput `pulumi:"pythonVirtualEnv"`
 	RuntimeRole              pulumi.StringPtrInput `pulumi:"runtimeRole"`
 	TrustedCertificatesS3Uri pulumi.StringPtrInput `pulumi:"trustedCertificatesS3Uri"`
@@ -5011,6 +5288,10 @@ func (o ConnectionSparkEmrPropertiesInputOutput) LogUri() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.LogUri }).(pulumi.StringPtrOutput)
 }
 
+func (o ConnectionSparkEmrPropertiesInputOutput) ManagedEndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.ManagedEndpointArn }).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSparkEmrPropertiesInputOutput) PythonVirtualEnv() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionSparkEmrPropertiesInput) *string { return v.PythonVirtualEnv }).(pulumi.StringPtrOutput)
 }
@@ -5080,6 +5361,15 @@ func (o ConnectionSparkEmrPropertiesInputPtrOutput) LogUri() pulumi.StringPtrOut
 			return nil
 		}
 		return v.LogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSparkEmrPropertiesInputPtrOutput) ManagedEndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSparkEmrPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedEndpointArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15385,6 +15675,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionIamPropertiesInputPtrInput)(nil)).Elem(), ConnectionIamPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLineageSyncScheduleInput)(nil)).Elem(), ConnectionLineageSyncScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionLineageSyncSchedulePtrInput)(nil)).Elem(), ConnectionLineageSyncScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionMlflowPropertiesInputInput)(nil)).Elem(), ConnectionMlflowPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionMlflowPropertiesInputPtrInput)(nil)).Elem(), ConnectionMlflowPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2ClientApplicationInput)(nil)).Elem(), ConnectionOAuth2ClientApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2ClientApplicationPtrInput)(nil)).Elem(), ConnectionOAuth2ClientApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2PropertiesInput)(nil)).Elem(), ConnectionOAuth2PropertiesArgs{})
@@ -15409,6 +15701,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput7PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput7PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput8PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput8PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput8PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput8PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput9PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput9PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput9PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput9PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials0PropertiesInput)(nil)).Elem(), ConnectionRedshiftCredentials0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials0PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftCredentials0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials1PropertiesInput)(nil)).Elem(), ConnectionRedshiftCredentials1PropertiesArgs{})
@@ -15595,6 +15889,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionIamPropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionLineageSyncScheduleOutput{})
 	pulumi.RegisterOutputType(ConnectionLineageSyncSchedulePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionMlflowPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionMlflowPropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuth2ClientApplicationOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuth2ClientApplicationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuth2PropertiesOutput{})
@@ -15619,6 +15915,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPropertiesInput7PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput8PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput8PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput9PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput9PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftCredentials0PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftCredentials0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftCredentials1PropertiesOutput{})

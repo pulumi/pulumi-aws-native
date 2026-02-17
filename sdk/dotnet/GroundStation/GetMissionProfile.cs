@@ -120,6 +120,10 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+        /// </summary>
+        public readonly string? TelemetrySinkConfigArn;
+        /// <summary>
         /// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         /// </summary>
         public readonly string? TrackingConfigArn;
@@ -148,6 +152,8 @@ namespace Pulumi.AwsNative.GroundStation
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? telemetrySinkConfigArn,
+
             string? trackingConfigArn)
         {
             Arn = arn;
@@ -161,6 +167,7 @@ namespace Pulumi.AwsNative.GroundStation
             StreamsKmsKey = streamsKmsKey;
             StreamsKmsRole = streamsKmsRole;
             Tags = tags;
+            TelemetrySinkConfigArn = telemetrySinkConfigArn;
             TrackingConfigArn = trackingConfigArn;
         }
     }

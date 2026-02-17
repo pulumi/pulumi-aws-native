@@ -90,48 +90,43 @@ __all__ = [
     'ThemeValueArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ComponentActionParametersArgsDict(TypedDict):
-        anchor: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The HTML anchor link to the location to open. Specify this value for a navigation action.
-        """
-        fields: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgsDict']]]]
-        """
-        A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
-        """
-        global_: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
-        """
-        id: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The unique ID of the component that the `ActionParameters` apply to.
-        """
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
-        """
-        state: NotRequired[pulumi.Input['ComponentMutationActionSetStateParameterArgsDict']]
-        """
-        A key-value pair that specifies the state property name and its initial value.
-        """
-        target: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The element within the same component to modify when the action occurs.
-        """
-        type: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
-        """
-        url: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The URL to the location to open. Specify this value for a navigation action.
-        """
-elif False:
-    ComponentActionParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentActionParametersArgsDict(TypedDict):
+    anchor: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The HTML anchor link to the location to open. Specify this value for a navigation action.
+    """
+    fields: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgsDict']]]]
+    """
+    A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+    """
+    global_: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
+    """
+    id: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The unique ID of the component that the `ActionParameters` apply to.
+    """
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+    """
+    state: NotRequired[pulumi.Input['ComponentMutationActionSetStateParameterArgsDict']]
+    """
+    A key-value pair that specifies the state property name and its initial value.
+    """
+    target: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The element within the same component to modify when the action occurs.
+    """
+    type: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
+    """
+    url: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The URL to the location to open. Specify this value for a navigation action.
+    """
 
 @pulumi.input_type
 class ComponentActionParametersArgs:
@@ -284,42 +279,39 @@ class ComponentActionParametersArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ComponentBindingPropertiesValuePropertiesArgsDict(TypedDict):
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon S3 bucket.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value to assign to the property.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The field to bind the data to.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage key for an Amazon S3 bucket.
-        """
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amplify DataStore model.
-        """
-        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgsDict']]]]
-        """
-        A list of predicates for binding a component's properties to data.
-        """
-        slot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a component slot.
-        """
-        user_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An authenticated user attribute.
-        """
-elif False:
-    ComponentBindingPropertiesValuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentBindingPropertiesValuePropertiesArgsDict(TypedDict):
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amazon S3 bucket.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value to assign to the property.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The field to bind the data to.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage key for an Amazon S3 bucket.
+    """
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amplify DataStore model.
+    """
+    predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgsDict']]]]
+    """
+    A list of predicates for binding a component's properties to data.
+    """
+    slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a component slot.
+    """
+    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An authenticated user attribute.
+    """
 
 @pulumi.input_type
 class ComponentBindingPropertiesValuePropertiesArgs:
@@ -456,22 +448,19 @@ class ComponentBindingPropertiesValuePropertiesArgs:
         pulumi.set(self, "user_attribute", value)
 
 
-if not MYPY:
-    class ComponentBindingPropertiesValueArgsDict(TypedDict):
-        binding_properties: NotRequired[pulumi.Input['ComponentBindingPropertiesValuePropertiesArgsDict']]
-        """
-        Describes the properties to customize with data at runtime.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value of the property.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property type.
-        """
-elif False:
-    ComponentBindingPropertiesValueArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentBindingPropertiesValueArgsDict(TypedDict):
+    binding_properties: NotRequired[pulumi.Input['ComponentBindingPropertiesValuePropertiesArgsDict']]
+    """
+    Describes the properties to customize with data at runtime.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value of the property.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property type.
+    """
 
 @pulumi.input_type
 class ComponentBindingPropertiesValueArgs:
@@ -528,34 +517,31 @@ class ComponentBindingPropertiesValueArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ComponentChildArgsDict(TypedDict):
-        component_type: pulumi.Input[_builtins.str]
-        """
-        The type of the child component.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the child component.
-        """
-        properties: pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgsDict']]]
-        """
-        Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
-        """
-        children: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgsDict']]]]
-        """
-        The list of `ComponentChild` instances for this component.
-        """
-        events: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgsDict']]]]
-        """
-        Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
-        """
-        source_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique ID of the child component in its original source system, such as Figma.
-        """
-elif False:
-    ComponentChildArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentChildArgsDict(TypedDict):
+    component_type: pulumi.Input[_builtins.str]
+    """
+    The type of the child component.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the child component.
+    """
+    properties: pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgsDict']]]
+    """
+    Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
+    """
+    children: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgsDict']]]]
+    """
+    The list of `ComponentChild` instances for this component.
+    """
+    events: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgsDict']]]]
+    """
+    Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+    """
+    source_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique ID of the child component in its original source system, such as Figma.
+    """
 
 @pulumi.input_type
 class ComponentChildArgs:
@@ -657,38 +643,35 @@ class ComponentChildArgs:
         pulumi.set(self, "source_id", value)
 
 
-if not MYPY:
-    class ComponentConditionPropertyArgsDict(TypedDict):
-        else_: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The value to assign to the property if the condition is not met.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a field. Specify this when the property is a data model.
-        """
-        operand: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the property to evaluate.
-        """
-        operand_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the property to evaluate.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use to perform the evaluation, such as `eq` to represent equals.
-        """
-        property: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the conditional property.
-        """
-        then: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
-        """
-        The value to assign to the property if the condition is met.
-        """
-elif False:
-    ComponentConditionPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentConditionPropertyArgsDict(TypedDict):
+    else_: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The value to assign to the property if the condition is not met.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a field. Specify this when the property is a data model.
+    """
+    operand: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the property to evaluate.
+    """
+    operand_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the property to evaluate.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use to perform the evaluation, such as `eq` to represent equals.
+    """
+    property: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the conditional property.
+    """
+    then: NotRequired[pulumi.Input['ComponentPropertyArgsDict']]
+    """
+    The value to assign to the property if the condition is met.
+    """
 
 @pulumi.input_type
 class ComponentConditionPropertyArgs:
@@ -809,26 +792,23 @@ class ComponentConditionPropertyArgs:
         pulumi.set(self, "then", value)
 
 
-if not MYPY:
-    class ComponentDataConfigurationArgsDict(TypedDict):
-        model: pulumi.Input[_builtins.str]
-        """
-        The name of the data model to use to bind data to a component.
-        """
-        identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
-        """
-        predicate: NotRequired[pulumi.Input['ComponentPredicateArgsDict']]
-        """
-        Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
-        """
-        sort: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgsDict']]]]
-        """
-        Describes how to sort the component's properties.
-        """
-elif False:
-    ComponentDataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentDataConfigurationArgsDict(TypedDict):
+    model: pulumi.Input[_builtins.str]
+    """
+    The name of the data model to use to bind data to a component.
+    """
+    identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+    """
+    predicate: NotRequired[pulumi.Input['ComponentPredicateArgsDict']]
+    """
+    Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
+    """
+    sort: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgsDict']]]]
+    """
+    Describes how to sort the component's properties.
+    """
 
 @pulumi.input_type
 class ComponentDataConfigurationArgs:
@@ -900,22 +880,19 @@ class ComponentDataConfigurationArgs:
         pulumi.set(self, "sort", value)
 
 
-if not MYPY:
-    class ComponentEventArgsDict(TypedDict):
-        action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action to perform when a specific event is raised.
-        """
-        binding_event: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
-        """
-        parameters: NotRequired[pulumi.Input['ComponentActionParametersArgsDict']]
-        """
-        Describes information about the action.
-        """
-elif False:
-    ComponentEventArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentEventArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to perform when a specific event is raised.
+    """
+    binding_event: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+    """
+    parameters: NotRequired[pulumi.Input['ComponentActionParametersArgsDict']]
+    """
+    Describes information about the action.
+    """
 
 @pulumi.input_type
 class ComponentEventArgs:
@@ -972,18 +949,15 @@ class ComponentEventArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class ComponentFormBindingElementArgsDict(TypedDict):
-        element: pulumi.Input[_builtins.str]
-        """
-        The name of the component to retrieve a value from.
-        """
-        property: pulumi.Input[_builtins.str]
-        """
-        The property to retrieve a value from.
-        """
-elif False:
-    ComponentFormBindingElementArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentFormBindingElementArgsDict(TypedDict):
+    element: pulumi.Input[_builtins.str]
+    """
+    The name of the component to retrieve a value from.
+    """
+    property: pulumi.Input[_builtins.str]
+    """
+    The property to retrieve a value from.
+    """
 
 @pulumi.input_type
 class ComponentFormBindingElementArgs:
@@ -1022,22 +996,19 @@ class ComponentFormBindingElementArgs:
         pulumi.set(self, "property", value)
 
 
-if not MYPY:
-    class ComponentMutationActionSetStateParameterArgsDict(TypedDict):
-        component_name: pulumi.Input[_builtins.str]
-        """
-        The name of the component that is being modified.
-        """
-        property: pulumi.Input[_builtins.str]
-        """
-        The name of the component property to apply the state configuration to.
-        """
-        set: pulumi.Input['ComponentPropertyArgsDict']
-        """
-        The state configuration to assign to the property.
-        """
-elif False:
-    ComponentMutationActionSetStateParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentMutationActionSetStateParameterArgsDict(TypedDict):
+    component_name: pulumi.Input[_builtins.str]
+    """
+    The name of the component that is being modified.
+    """
+    property: pulumi.Input[_builtins.str]
+    """
+    The name of the component property to apply the state configuration to.
+    """
+    set: pulumi.Input['ComponentPropertyArgsDict']
+    """
+    The state configuration to assign to the property.
+    """
 
 @pulumi.input_type
 class ComponentMutationActionSetStateParameterArgs:
@@ -1091,34 +1062,31 @@ class ComponentMutationActionSetStateParameterArgs:
         pulumi.set(self, "set", value)
 
 
-if not MYPY:
-    class ComponentPredicateArgsDict(TypedDict):
-        and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgsDict']]]]
-        """
-        A list of predicates to combine logically.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The field to query.
-        """
-        operand: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value to use when performing the evaluation.
-        """
-        operand_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of value to use when performing the evaluation.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use to perform the evaluation.
-        """
-        or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgsDict']]]]
-        """
-        A list of predicates to combine logically.
-        """
-elif False:
-    ComponentPredicateArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentPredicateArgsDict(TypedDict):
+    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgsDict']]]]
+    """
+    A list of predicates to combine logically.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The field to query.
+    """
+    operand: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value to use when performing the evaluation.
+    """
+    operand_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of value to use when performing the evaluation.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use to perform the evaluation.
+    """
+    or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgsDict']]]]
+    """
+    A list of predicates to combine logically.
+    """
 
 @pulumi.input_type
 class ComponentPredicateArgs:
@@ -1223,18 +1191,15 @@ class ComponentPredicateArgs:
         pulumi.set(self, "or_", value)
 
 
-if not MYPY:
-    class ComponentPropertyBindingPropertiesArgsDict(TypedDict):
-        property: pulumi.Input[_builtins.str]
-        """
-        The component property to bind to the data field.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data field to bind the property to.
-        """
-elif False:
-    ComponentPropertyBindingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentPropertyBindingPropertiesArgsDict(TypedDict):
+    property: pulumi.Input[_builtins.str]
+    """
+    The component property to bind to the data field.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data field to bind the property to.
+    """
 
 @pulumi.input_type
 class ComponentPropertyBindingPropertiesArgs:
@@ -1274,70 +1239,67 @@ class ComponentPropertyBindingPropertiesArgs:
         pulumi.set(self, "field", value)
 
 
-if not MYPY:
-    class ComponentPropertyArgsDict(TypedDict):
-        binding_properties: NotRequired[pulumi.Input['ComponentPropertyBindingPropertiesArgsDict']]
-        """
-        The information to bind the component property to data at runtime.
-        """
-        bindings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentFormBindingElementArgsDict']]]]
-        """
-        The information to bind the component property to form data.
-        """
-        collection_binding_properties: NotRequired[pulumi.Input['ComponentPropertyBindingPropertiesArgsDict']]
-        """
-        The information to bind the component property to data at runtime. Use this for collection components.
-        """
-        component_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the component that is affected by an event.
-        """
-        concat: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgsDict']]]]
-        """
-        A list of component properties to concatenate to create the value to assign to this component property.
-        """
-        condition: NotRequired[pulumi.Input['ComponentConditionPropertyArgsDict']]
-        """
-        The conditional expression to use to assign a value to the component property.
-        """
-        configured: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the user configured the property in Amplify Studio after importing it.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value to assign to the component property.
-        """
-        event: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An event that occurs in your app. Use this for workflow data binding.
-        """
-        imported_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value assigned to the property when the component is imported into an app.
-        """
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data model to use to assign a value to the component property.
-        """
-        property: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the component's property that is affected by an event.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The component type.
-        """
-        user_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An authenticated user attribute to use to assign a value to the component property.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value to assign to the component property.
-        """
-elif False:
-    ComponentPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentPropertyArgsDict(TypedDict):
+    binding_properties: NotRequired[pulumi.Input['ComponentPropertyBindingPropertiesArgsDict']]
+    """
+    The information to bind the component property to data at runtime.
+    """
+    bindings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentFormBindingElementArgsDict']]]]
+    """
+    The information to bind the component property to form data.
+    """
+    collection_binding_properties: NotRequired[pulumi.Input['ComponentPropertyBindingPropertiesArgsDict']]
+    """
+    The information to bind the component property to data at runtime. Use this for collection components.
+    """
+    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the component that is affected by an event.
+    """
+    concat: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgsDict']]]]
+    """
+    A list of component properties to concatenate to create the value to assign to this component property.
+    """
+    condition: NotRequired[pulumi.Input['ComponentConditionPropertyArgsDict']]
+    """
+    The conditional expression to use to assign a value to the component property.
+    """
+    configured: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the user configured the property in Amplify Studio after importing it.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value to assign to the component property.
+    """
+    event: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An event that occurs in your app. Use this for workflow data binding.
+    """
+    imported_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value assigned to the property when the component is imported into an app.
+    """
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data model to use to assign a value to the component property.
+    """
+    property: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the component's property that is affected by an event.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The component type.
+    """
+    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An authenticated user attribute to use to assign a value to the component property.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value to assign to the component property.
+    """
 
 @pulumi.input_type
 class ComponentPropertyArgs:
@@ -1586,18 +1548,15 @@ class ComponentPropertyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ComponentSortPropertyArgsDict(TypedDict):
-        direction: pulumi.Input['ComponentSortDirection']
-        """
-        The direction of the sort, either ascending or descending.
-        """
-        field: pulumi.Input[_builtins.str]
-        """
-        The field to perform the sort on.
-        """
-elif False:
-    ComponentSortPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentSortPropertyArgsDict(TypedDict):
+    direction: pulumi.Input['ComponentSortDirection']
+    """
+    The direction of the sort, either ascending or descending.
+    """
+    field: pulumi.Input[_builtins.str]
+    """
+    The field to perform the sort on.
+    """
 
 @pulumi.input_type
 class ComponentSortPropertyArgs:
@@ -1636,18 +1595,15 @@ class ComponentSortPropertyArgs:
         pulumi.set(self, "field", value)
 
 
-if not MYPY:
-    class ComponentVariantArgsDict(TypedDict):
-        overrides: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
-        """
-        variant_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The combination of variants that comprise this variant.
-        """
-elif False:
-    ComponentVariantArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentVariantArgsDict(TypedDict):
+    overrides: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+    """
+    variant_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The combination of variants that comprise this variant.
+    """
 
 @pulumi.input_type
 class ComponentVariantArgs:
@@ -1688,22 +1644,19 @@ class ComponentVariantArgs:
         pulumi.set(self, "variant_values", value)
 
 
-if not MYPY:
-    class FormButtonArgsDict(TypedDict):
-        children: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the button's properties.
-        """
-        excluded: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the button is visible on the form.
-        """
-        position: NotRequired[pulumi.Input[Union['FormFieldPosition0PropertiesArgsDict', 'FormFieldPosition1PropertiesArgsDict', 'FormFieldPosition2PropertiesArgsDict']]]
-        """
-        The position of the button.
-        """
-elif False:
-    FormButtonArgsDict: TypeAlias = Mapping[str, Any]
+class FormButtonArgsDict(TypedDict):
+    children: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describes the button's properties.
+    """
+    excluded: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the button is visible on the form.
+    """
+    position: NotRequired[pulumi.Input[Union['FormFieldPosition0PropertiesArgsDict', 'FormFieldPosition1PropertiesArgsDict', 'FormFieldPosition2PropertiesArgsDict']]]
+    """
+    The position of the button.
+    """
 
 @pulumi.input_type
 class FormButtonArgs:
@@ -1760,26 +1713,23 @@ class FormButtonArgs:
         pulumi.set(self, "position", value)
 
 
-if not MYPY:
-    class FormCtaArgsDict(TypedDict):
-        cancel: NotRequired[pulumi.Input['FormButtonArgsDict']]
-        """
-        Displays a cancel button.
-        """
-        clear: NotRequired[pulumi.Input['FormButtonArgsDict']]
-        """
-        Displays a clear button.
-        """
-        position: NotRequired[pulumi.Input['FormButtonsPosition']]
-        """
-        The position of the button.
-        """
-        submit: NotRequired[pulumi.Input['FormButtonArgsDict']]
-        """
-        Displays a submit button.
-        """
-elif False:
-    FormCtaArgsDict: TypeAlias = Mapping[str, Any]
+class FormCtaArgsDict(TypedDict):
+    cancel: NotRequired[pulumi.Input['FormButtonArgsDict']]
+    """
+    Displays a cancel button.
+    """
+    clear: NotRequired[pulumi.Input['FormButtonArgsDict']]
+    """
+    Displays a clear button.
+    """
+    position: NotRequired[pulumi.Input['FormButtonsPosition']]
+    """
+    The position of the button.
+    """
+    submit: NotRequired[pulumi.Input['FormButtonArgsDict']]
+    """
+    Displays a submit button.
+    """
 
 @pulumi.input_type
 class FormCtaArgs:
@@ -1852,18 +1802,15 @@ class FormCtaArgs:
         pulumi.set(self, "submit", value)
 
 
-if not MYPY:
-    class FormDataTypeConfigArgsDict(TypedDict):
-        data_source_type: pulumi.Input['FormDataSourceType']
-        """
-        The data source type, either an Amplify DataStore model or a custom data type.
-        """
-        data_type_name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the data type you are using as the data source for the form.
-        """
-elif False:
-    FormDataTypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FormDataTypeConfigArgsDict(TypedDict):
+    data_source_type: pulumi.Input['FormDataSourceType']
+    """
+    The data source type, either an Amplify DataStore model or a custom data type.
+    """
+    data_type_name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the data type you are using as the data source for the form.
+    """
 
 @pulumi.input_type
 class FormDataTypeConfigArgs:
@@ -1902,30 +1849,27 @@ class FormDataTypeConfigArgs:
         pulumi.set(self, "data_type_name", value)
 
 
-if not MYPY:
-    class FormFieldConfigArgsDict(TypedDict):
-        excluded: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to hide a field.
-        """
-        input_type: NotRequired[pulumi.Input['FormFieldInputConfigArgsDict']]
-        """
-        Describes the configuration for the default input value to display for a field.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label for the field.
-        """
-        position: NotRequired[pulumi.Input[Union['FormFieldPosition0PropertiesArgsDict', 'FormFieldPosition1PropertiesArgsDict', 'FormFieldPosition2PropertiesArgsDict']]]
-        """
-        Specifies the field position.
-        """
-        validations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgsDict']]]]
-        """
-        The validations to perform on the value in the field.
-        """
-elif False:
-    FormFieldConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FormFieldConfigArgsDict(TypedDict):
+    excluded: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to hide a field.
+    """
+    input_type: NotRequired[pulumi.Input['FormFieldInputConfigArgsDict']]
+    """
+    Describes the configuration for the default input value to display for a field.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label for the field.
+    """
+    position: NotRequired[pulumi.Input[Union['FormFieldPosition0PropertiesArgsDict', 'FormFieldPosition1PropertiesArgsDict', 'FormFieldPosition2PropertiesArgsDict']]]
+    """
+    Specifies the field position.
+    """
+    validations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgsDict']]]]
+    """
+    The validations to perform on the value in the field.
+    """
 
 @pulumi.input_type
 class FormFieldConfigArgs:
@@ -2014,74 +1958,71 @@ class FormFieldConfigArgs:
         pulumi.set(self, "validations", value)
 
 
-if not MYPY:
-    class FormFieldInputConfigArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The input type for the field.
-        """
-        default_checked: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether a field has a default value.
-        """
-        default_country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default country code for a phone number.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value for the field.
-        """
-        descriptive_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text to display to describe the field.
-        """
-        file_uploader_config: NotRequired[pulumi.Input['FormFileUploaderFieldConfigArgsDict']]
-        """
-        The configuration for the file uploader field.
-        """
-        is_array: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
-        """
-        max_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum value to display for the field.
-        """
-        min_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum value to display for the field.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field.
-        """
-        placeholder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text to display as a placeholder for the field.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies a read only field.
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies a field that requires input.
-        """
-        step: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The stepping increment for a numeric value in a field.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the field.
-        """
-        value_mappings: NotRequired[pulumi.Input['FormValueMappingsArgsDict']]
-        """
-        The information to use to customize the input fields with data at runtime.
-        """
-elif False:
-    FormFieldInputConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FormFieldInputConfigArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The input type for the field.
+    """
+    default_checked: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether a field has a default value.
+    """
+    default_country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default country code for a phone number.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value for the field.
+    """
+    descriptive_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text to display to describe the field.
+    """
+    file_uploader_config: NotRequired[pulumi.Input['FormFileUploaderFieldConfigArgsDict']]
+    """
+    The configuration for the file uploader field.
+    """
+    is_array: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+    """
+    max_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum value to display for the field.
+    """
+    min_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum value to display for the field.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field.
+    """
+    placeholder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text to display as a placeholder for the field.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies a read only field.
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies a field that requires input.
+    """
+    step: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The stepping increment for a numeric value in a field.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for the field.
+    """
+    value_mappings: NotRequired[pulumi.Input['FormValueMappingsArgsDict']]
+    """
+    The information to use to customize the input fields with data at runtime.
+    """
 
 @pulumi.input_type
 class FormFieldInputConfigArgs:
@@ -2345,11 +2286,8 @@ class FormFieldInputConfigArgs:
         pulumi.set(self, "value_mappings", value)
 
 
-if not MYPY:
-    class FormFieldPosition0PropertiesArgsDict(TypedDict):
-        fixed: pulumi.Input['FormFixedPosition']
-elif False:
-    FormFieldPosition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormFieldPosition0PropertiesArgsDict(TypedDict):
+    fixed: pulumi.Input['FormFixedPosition']
 
 @pulumi.input_type
 class FormFieldPosition0PropertiesArgs:
@@ -2367,11 +2305,8 @@ class FormFieldPosition0PropertiesArgs:
         pulumi.set(self, "fixed", value)
 
 
-if not MYPY:
-    class FormFieldPosition1PropertiesArgsDict(TypedDict):
-        right_of: pulumi.Input[_builtins.str]
-elif False:
-    FormFieldPosition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormFieldPosition1PropertiesArgsDict(TypedDict):
+    right_of: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FormFieldPosition1PropertiesArgs:
@@ -2389,11 +2324,8 @@ class FormFieldPosition1PropertiesArgs:
         pulumi.set(self, "right_of", value)
 
 
-if not MYPY:
-    class FormFieldPosition2PropertiesArgsDict(TypedDict):
-        below: pulumi.Input[_builtins.str]
-elif False:
-    FormFieldPosition2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormFieldPosition2PropertiesArgsDict(TypedDict):
+    below: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FormFieldPosition2PropertiesArgs:
@@ -2411,26 +2343,23 @@ class FormFieldPosition2PropertiesArgs:
         pulumi.set(self, "below", value)
 
 
-if not MYPY:
-    class FormFieldValidationConfigurationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The validation to perform on an object type. ``
-        """
-        num_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
-        """
-        The validation to perform on a number value.
-        """
-        str_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The validation to perform on a string value.
-        """
-        validation_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The validation message to display.
-        """
-elif False:
-    FormFieldValidationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FormFieldValidationConfigurationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The validation to perform on an object type. ``
+    """
+    num_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    """
+    The validation to perform on a number value.
+    """
+    str_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The validation to perform on a string value.
+    """
+    validation_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The validation message to display.
+    """
 
 @pulumi.input_type
 class FormFieldValidationConfigurationArgs:
@@ -2502,36 +2431,33 @@ class FormFieldValidationConfigurationArgs:
         pulumi.set(self, "validation_message", value)
 
 
-if not MYPY:
-    class FormFileUploaderFieldConfigArgsDict(TypedDict):
-        accepted_file_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
-        """
-        access_level: pulumi.Input['FormStorageAccessLevel']
-        """
-        The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
-        """
-        is_resumable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows the file upload operation to be paused and resumed. The default value is `false` .
+class FormFileUploaderFieldConfigArgsDict(TypedDict):
+    accepted_file_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
+    """
+    access_level: pulumi.Input['FormStorageAccessLevel']
+    """
+    The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
+    """
+    is_resumable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows the file upload operation to be paused and resumed. The default value is `false` .
 
-        When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
-        """
-        max_file_count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
-        """
-        max_size: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
-        """
-        show_thumbnails: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
-        """
-elif False:
-    FormFileUploaderFieldConfigArgsDict: TypeAlias = Mapping[str, Any]
+    When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
+    """
+    max_file_count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
+    """
+    max_size: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
+    """
+    show_thumbnails: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
+    """
 
 @pulumi.input_type
 class FormFileUploaderFieldConfigArgs:
@@ -2638,14 +2564,11 @@ class FormFileUploaderFieldConfigArgs:
         pulumi.set(self, "show_thumbnails", value)
 
 
-if not MYPY:
-    class FormInputBindingPropertiesValuePropertiesArgsDict(TypedDict):
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amplify DataStore model.
-        """
-elif False:
-    FormInputBindingPropertiesValuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormInputBindingPropertiesValuePropertiesArgsDict(TypedDict):
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amplify DataStore model.
+    """
 
 @pulumi.input_type
 class FormInputBindingPropertiesValuePropertiesArgs:
@@ -2670,18 +2593,15 @@ class FormInputBindingPropertiesValuePropertiesArgs:
         pulumi.set(self, "model", value)
 
 
-if not MYPY:
-    class FormInputBindingPropertiesValueArgsDict(TypedDict):
-        binding_properties: NotRequired[pulumi.Input['FormInputBindingPropertiesValuePropertiesArgsDict']]
-        """
-        Describes the properties to customize with data at runtime.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property type.
-        """
-elif False:
-    FormInputBindingPropertiesValueArgsDict: TypeAlias = Mapping[str, Any]
+class FormInputBindingPropertiesValueArgsDict(TypedDict):
+    binding_properties: NotRequired[pulumi.Input['FormInputBindingPropertiesValuePropertiesArgsDict']]
+    """
+    Describes the properties to customize with data at runtime.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property type.
+    """
 
 @pulumi.input_type
 class FormInputBindingPropertiesValueArgs:
@@ -2722,18 +2642,15 @@ class FormInputBindingPropertiesValueArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FormInputValuePropertyBindingPropertiesArgsDict(TypedDict):
-        property: pulumi.Input[_builtins.str]
-        """
-        The form property to bind to the data field.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data field to bind the property to.
-        """
-elif False:
-    FormInputValuePropertyBindingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormInputValuePropertyBindingPropertiesArgsDict(TypedDict):
+    property: pulumi.Input[_builtins.str]
+    """
+    The form property to bind to the data field.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data field to bind the property to.
+    """
 
 @pulumi.input_type
 class FormInputValuePropertyBindingPropertiesArgs:
@@ -2773,22 +2690,19 @@ class FormInputValuePropertyBindingPropertiesArgs:
         pulumi.set(self, "field", value)
 
 
-if not MYPY:
-    class FormInputValuePropertyArgsDict(TypedDict):
-        binding_properties: NotRequired[pulumi.Input['FormInputValuePropertyBindingPropertiesArgsDict']]
-        """
-        The information to bind fields to data at runtime.
-        """
-        concat: NotRequired[pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgsDict']]]]
-        """
-        A list of form properties to concatenate to create the value to assign to this field property.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value to assign to the input field.
-        """
-elif False:
-    FormInputValuePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class FormInputValuePropertyArgsDict(TypedDict):
+    binding_properties: NotRequired[pulumi.Input['FormInputValuePropertyBindingPropertiesArgsDict']]
+    """
+    The information to bind fields to data at runtime.
+    """
+    concat: NotRequired[pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgsDict']]]]
+    """
+    A list of form properties to concatenate to create the value to assign to this field property.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value to assign to the input field.
+    """
 
 @pulumi.input_type
 class FormInputValuePropertyArgs:
@@ -2845,34 +2759,31 @@ class FormInputValuePropertyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FormSectionalElementArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
-        """
-        excluded: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Excludes a sectional element that was generated by default for a specified data model.
-        """
-        level: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
-        """
-        orientation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
-        """
-        position: NotRequired[pulumi.Input[Union['FormFieldPosition0PropertiesArgsDict', 'FormFieldPosition1PropertiesArgsDict', 'FormFieldPosition2PropertiesArgsDict']]]
-        """
-        Specifies the position of the text in a field for a `Text` sectional element.
-        """
-        text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text for a `Text` sectional element.
-        """
-elif False:
-    FormSectionalElementArgsDict: TypeAlias = Mapping[str, Any]
+class FormSectionalElementArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
+    """
+    excluded: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Excludes a sectional element that was generated by default for a specified data model.
+    """
+    level: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
+    """
+    orientation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
+    """
+    position: NotRequired[pulumi.Input[Union['FormFieldPosition0PropertiesArgsDict', 'FormFieldPosition1PropertiesArgsDict', 'FormFieldPosition2PropertiesArgsDict']]]
+    """
+    Specifies the position of the text in a field for a `Text` sectional element.
+    """
+    text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text for a `Text` sectional element.
+    """
 
 @pulumi.input_type
 class FormSectionalElementArgs:
@@ -2976,11 +2887,8 @@ class FormSectionalElementArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class FormStyleConfig0PropertiesArgsDict(TypedDict):
-        token_reference: pulumi.Input[_builtins.str]
-elif False:
-    FormStyleConfig0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormStyleConfig0PropertiesArgsDict(TypedDict):
+    token_reference: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FormStyleConfig0PropertiesArgs:
@@ -2998,11 +2906,8 @@ class FormStyleConfig0PropertiesArgs:
         pulumi.set(self, "token_reference", value)
 
 
-if not MYPY:
-    class FormStyleConfig1PropertiesArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-elif False:
-    FormStyleConfig1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FormStyleConfig1PropertiesArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FormStyleConfig1PropertiesArgs:
@@ -3020,22 +2925,19 @@ class FormStyleConfig1PropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FormStyleArgsDict(TypedDict):
-        horizontal_gap: NotRequired[pulumi.Input[Union['FormStyleConfig0PropertiesArgsDict', 'FormStyleConfig1PropertiesArgsDict']]]
-        """
-        The spacing for the horizontal gap.
-        """
-        outer_padding: NotRequired[pulumi.Input[Union['FormStyleConfig0PropertiesArgsDict', 'FormStyleConfig1PropertiesArgsDict']]]
-        """
-        The size of the outer padding for the form.
-        """
-        vertical_gap: NotRequired[pulumi.Input[Union['FormStyleConfig0PropertiesArgsDict', 'FormStyleConfig1PropertiesArgsDict']]]
-        """
-        The spacing for the vertical gap.
-        """
-elif False:
-    FormStyleArgsDict: TypeAlias = Mapping[str, Any]
+class FormStyleArgsDict(TypedDict):
+    horizontal_gap: NotRequired[pulumi.Input[Union['FormStyleConfig0PropertiesArgsDict', 'FormStyleConfig1PropertiesArgsDict']]]
+    """
+    The spacing for the horizontal gap.
+    """
+    outer_padding: NotRequired[pulumi.Input[Union['FormStyleConfig0PropertiesArgsDict', 'FormStyleConfig1PropertiesArgsDict']]]
+    """
+    The size of the outer padding for the form.
+    """
+    vertical_gap: NotRequired[pulumi.Input[Union['FormStyleConfig0PropertiesArgsDict', 'FormStyleConfig1PropertiesArgsDict']]]
+    """
+    The spacing for the vertical gap.
+    """
 
 @pulumi.input_type
 class FormStyleArgs:
@@ -3092,18 +2994,15 @@ class FormStyleArgs:
         pulumi.set(self, "vertical_gap", value)
 
 
-if not MYPY:
-    class FormValueMappingsArgsDict(TypedDict):
-        values: pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgsDict']]]
-        """
-        The value and display value pairs.
-        """
-        binding_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgsDict']]]]
-        """
-        The information to bind fields to data at runtime.
-        """
-elif False:
-    FormValueMappingsArgsDict: TypeAlias = Mapping[str, Any]
+class FormValueMappingsArgsDict(TypedDict):
+    values: pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgsDict']]]
+    """
+    The value and display value pairs.
+    """
+    binding_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgsDict']]]]
+    """
+    The information to bind fields to data at runtime.
+    """
 
 @pulumi.input_type
 class FormValueMappingsArgs:
@@ -3143,18 +3042,15 @@ class FormValueMappingsArgs:
         pulumi.set(self, "binding_properties", value)
 
 
-if not MYPY:
-    class FormValueMappingArgsDict(TypedDict):
-        value: pulumi.Input['FormInputValuePropertyArgsDict']
-        """
-        The complex object.
-        """
-        display_value: NotRequired[pulumi.Input['FormInputValuePropertyArgsDict']]
-        """
-        The value to display for the complex object.
-        """
-elif False:
-    FormValueMappingArgsDict: TypeAlias = Mapping[str, Any]
+class FormValueMappingArgsDict(TypedDict):
+    value: pulumi.Input['FormInputValuePropertyArgsDict']
+    """
+    The complex object.
+    """
+    display_value: NotRequired[pulumi.Input['FormInputValuePropertyArgsDict']]
+    """
+    The value to display for the complex object.
+    """
 
 @pulumi.input_type
 class FormValueMappingArgs:
@@ -3194,18 +3090,15 @@ class FormValueMappingArgs:
         pulumi.set(self, "display_value", value)
 
 
-if not MYPY:
-    class ThemeValuesArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the property.
-        """
-        value: NotRequired[pulumi.Input['ThemeValueArgsDict']]
-        """
-        The value of the property.
-        """
-elif False:
-    ThemeValuesArgsDict: TypeAlias = Mapping[str, Any]
+class ThemeValuesArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the property.
+    """
+    value: NotRequired[pulumi.Input['ThemeValueArgsDict']]
+    """
+    The value of the property.
+    """
 
 @pulumi.input_type
 class ThemeValuesArgs:
@@ -3246,18 +3139,15 @@ class ThemeValuesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ThemeValueArgsDict(TypedDict):
-        children: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgsDict']]]]
-        """
-        A list of key-value pairs that define the theme's properties.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of a theme property.
-        """
-elif False:
-    ThemeValueArgsDict: TypeAlias = Mapping[str, Any]
+class ThemeValueArgsDict(TypedDict):
+    children: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgsDict']]]]
+    """
+    A list of key-value pairs that define the theme's properties.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of a theme property.
+    """
 
 @pulumi.input_type
 class ThemeValueArgs:

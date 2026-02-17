@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("securityGroups")]
+        [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
 
         /// <summary>

@@ -10,14 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
+    /// </summary>
     public sealed class AutoScalingGroupRetentionTriggersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
-        /// 
-        /// Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
-        /// 
-        /// Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
+        /// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
+        ///   Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
+        ///   Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
         /// </summary>
         [Input("terminateHookAbandon")]
         public Input<string>? TerminateHookAbandon { get; set; }

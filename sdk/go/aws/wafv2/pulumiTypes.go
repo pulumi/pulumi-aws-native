@@ -3798,7 +3798,8 @@ type RuleGroupFieldToMatch struct {
 	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-	Cookies *RuleGroupCookies `pulumi:"cookies"`
+	Cookies     *RuleGroupCookies     `pulumi:"cookies"`
+	HeaderOrder *RuleGroupHeaderOrder `pulumi:"headerOrder"`
 	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
@@ -3877,7 +3878,8 @@ type RuleGroupFieldToMatchArgs struct {
 	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-	Cookies RuleGroupCookiesPtrInput `pulumi:"cookies"`
+	Cookies     RuleGroupCookiesPtrInput     `pulumi:"cookies"`
+	HeaderOrder RuleGroupHeaderOrderPtrInput `pulumi:"headerOrder"`
 	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
@@ -4031,6 +4033,10 @@ func (o RuleGroupFieldToMatchOutput) Cookies() RuleGroupCookiesPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupCookies { return v.Cookies }).(RuleGroupCookiesPtrOutput)
 }
 
+func (o RuleGroupFieldToMatchOutput) HeaderOrder() RuleGroupHeaderOrderPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupHeaderOrder { return v.HeaderOrder }).(RuleGroupHeaderOrderPtrOutput)
+}
+
 // Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 //
 // Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
@@ -4173,6 +4179,15 @@ func (o RuleGroupFieldToMatchPtrOutput) Cookies() RuleGroupCookiesPtrOutput {
 		}
 		return v.Cookies
 	}).(RuleGroupCookiesPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchPtrOutput) HeaderOrder() RuleGroupHeaderOrderPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupHeaderOrder {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderOrder
+	}).(RuleGroupHeaderOrderPtrOutput)
 }
 
 // Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
@@ -5129,6 +5144,142 @@ func (o RuleGroupHeaderMatchPatternPtrOutput) IncludedHeaders() pulumi.StringArr
 		}
 		return v.IncludedHeaders
 	}).(pulumi.StringArrayOutput)
+}
+
+// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+type RuleGroupHeaderOrder struct {
+	OversizeHandling RuleGroupOversizeHandling `pulumi:"oversizeHandling"`
+}
+
+// RuleGroupHeaderOrderInput is an input type that accepts RuleGroupHeaderOrderArgs and RuleGroupHeaderOrderOutput values.
+// You can construct a concrete instance of `RuleGroupHeaderOrderInput` via:
+//
+//	RuleGroupHeaderOrderArgs{...}
+type RuleGroupHeaderOrderInput interface {
+	pulumi.Input
+
+	ToRuleGroupHeaderOrderOutput() RuleGroupHeaderOrderOutput
+	ToRuleGroupHeaderOrderOutputWithContext(context.Context) RuleGroupHeaderOrderOutput
+}
+
+// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+type RuleGroupHeaderOrderArgs struct {
+	OversizeHandling RuleGroupOversizeHandlingInput `pulumi:"oversizeHandling"`
+}
+
+func (RuleGroupHeaderOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupHeaderOrder)(nil)).Elem()
+}
+
+func (i RuleGroupHeaderOrderArgs) ToRuleGroupHeaderOrderOutput() RuleGroupHeaderOrderOutput {
+	return i.ToRuleGroupHeaderOrderOutputWithContext(context.Background())
+}
+
+func (i RuleGroupHeaderOrderArgs) ToRuleGroupHeaderOrderOutputWithContext(ctx context.Context) RuleGroupHeaderOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderOrderOutput)
+}
+
+func (i RuleGroupHeaderOrderArgs) ToRuleGroupHeaderOrderPtrOutput() RuleGroupHeaderOrderPtrOutput {
+	return i.ToRuleGroupHeaderOrderPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupHeaderOrderArgs) ToRuleGroupHeaderOrderPtrOutputWithContext(ctx context.Context) RuleGroupHeaderOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderOrderOutput).ToRuleGroupHeaderOrderPtrOutputWithContext(ctx)
+}
+
+// RuleGroupHeaderOrderPtrInput is an input type that accepts RuleGroupHeaderOrderArgs, RuleGroupHeaderOrderPtr and RuleGroupHeaderOrderPtrOutput values.
+// You can construct a concrete instance of `RuleGroupHeaderOrderPtrInput` via:
+//
+//	        RuleGroupHeaderOrderArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupHeaderOrderPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupHeaderOrderPtrOutput() RuleGroupHeaderOrderPtrOutput
+	ToRuleGroupHeaderOrderPtrOutputWithContext(context.Context) RuleGroupHeaderOrderPtrOutput
+}
+
+type ruleGroupHeaderOrderPtrType RuleGroupHeaderOrderArgs
+
+func RuleGroupHeaderOrderPtr(v *RuleGroupHeaderOrderArgs) RuleGroupHeaderOrderPtrInput {
+	return (*ruleGroupHeaderOrderPtrType)(v)
+}
+
+func (*ruleGroupHeaderOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupHeaderOrder)(nil)).Elem()
+}
+
+func (i *ruleGroupHeaderOrderPtrType) ToRuleGroupHeaderOrderPtrOutput() RuleGroupHeaderOrderPtrOutput {
+	return i.ToRuleGroupHeaderOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupHeaderOrderPtrType) ToRuleGroupHeaderOrderPtrOutputWithContext(ctx context.Context) RuleGroupHeaderOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupHeaderOrderPtrOutput)
+}
+
+// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+type RuleGroupHeaderOrderOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupHeaderOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupHeaderOrder)(nil)).Elem()
+}
+
+func (o RuleGroupHeaderOrderOutput) ToRuleGroupHeaderOrderOutput() RuleGroupHeaderOrderOutput {
+	return o
+}
+
+func (o RuleGroupHeaderOrderOutput) ToRuleGroupHeaderOrderOutputWithContext(ctx context.Context) RuleGroupHeaderOrderOutput {
+	return o
+}
+
+func (o RuleGroupHeaderOrderOutput) ToRuleGroupHeaderOrderPtrOutput() RuleGroupHeaderOrderPtrOutput {
+	return o.ToRuleGroupHeaderOrderPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupHeaderOrderOutput) ToRuleGroupHeaderOrderPtrOutputWithContext(ctx context.Context) RuleGroupHeaderOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupHeaderOrder) *RuleGroupHeaderOrder {
+		return &v
+	}).(RuleGroupHeaderOrderPtrOutput)
+}
+
+func (o RuleGroupHeaderOrderOutput) OversizeHandling() RuleGroupOversizeHandlingOutput {
+	return o.ApplyT(func(v RuleGroupHeaderOrder) RuleGroupOversizeHandling { return v.OversizeHandling }).(RuleGroupOversizeHandlingOutput)
+}
+
+type RuleGroupHeaderOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupHeaderOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupHeaderOrder)(nil)).Elem()
+}
+
+func (o RuleGroupHeaderOrderPtrOutput) ToRuleGroupHeaderOrderPtrOutput() RuleGroupHeaderOrderPtrOutput {
+	return o
+}
+
+func (o RuleGroupHeaderOrderPtrOutput) ToRuleGroupHeaderOrderPtrOutputWithContext(ctx context.Context) RuleGroupHeaderOrderPtrOutput {
+	return o
+}
+
+func (o RuleGroupHeaderOrderPtrOutput) Elem() RuleGroupHeaderOrderOutput {
+	return o.ApplyT(func(v *RuleGroupHeaderOrder) RuleGroupHeaderOrder {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupHeaderOrder
+		return ret
+	}).(RuleGroupHeaderOrderOutput)
+}
+
+func (o RuleGroupHeaderOrderPtrOutput) OversizeHandling() RuleGroupOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupHeaderOrder) *RuleGroupOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return &v.OversizeHandling
+	}).(RuleGroupOversizeHandlingPtrOutput)
 }
 
 // Includes headers of a web request.
@@ -17380,7 +17531,8 @@ type WebAclFieldToMatch struct {
 	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-	Cookies *WebAclCookies `pulumi:"cookies"`
+	Cookies     *WebAclCookies     `pulumi:"cookies"`
+	HeaderOrder *WebAclHeaderOrder `pulumi:"headerOrder"`
 	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
@@ -17459,7 +17611,8 @@ type WebAclFieldToMatchArgs struct {
 	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
-	Cookies WebAclCookiesPtrInput `pulumi:"cookies"`
+	Cookies     WebAclCookiesPtrInput     `pulumi:"cookies"`
+	HeaderOrder WebAclHeaderOrderPtrInput `pulumi:"headerOrder"`
 	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
 	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
@@ -17613,6 +17766,10 @@ func (o WebAclFieldToMatchOutput) Cookies() WebAclCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclCookies { return v.Cookies }).(WebAclCookiesPtrOutput)
 }
 
+func (o WebAclFieldToMatchOutput) HeaderOrder() WebAclHeaderOrderPtrOutput {
+	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclHeaderOrder { return v.HeaderOrder }).(WebAclHeaderOrderPtrOutput)
+}
+
 // Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 //
 // Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
@@ -17755,6 +17912,15 @@ func (o WebAclFieldToMatchPtrOutput) Cookies() WebAclCookiesPtrOutput {
 		}
 		return v.Cookies
 	}).(WebAclCookiesPtrOutput)
+}
+
+func (o WebAclFieldToMatchPtrOutput) HeaderOrder() WebAclHeaderOrderPtrOutput {
+	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclHeaderOrder {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderOrder
+	}).(WebAclHeaderOrderPtrOutput)
 }
 
 // Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
@@ -18775,6 +18941,142 @@ func (o WebAclHeaderMatchPatternPtrOutput) IncludedHeaders() pulumi.StringArrayO
 		}
 		return v.IncludedHeaders
 	}).(pulumi.StringArrayOutput)
+}
+
+// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+type WebAclHeaderOrder struct {
+	OversizeHandling WebAclOversizeHandling `pulumi:"oversizeHandling"`
+}
+
+// WebAclHeaderOrderInput is an input type that accepts WebAclHeaderOrderArgs and WebAclHeaderOrderOutput values.
+// You can construct a concrete instance of `WebAclHeaderOrderInput` via:
+//
+//	WebAclHeaderOrderArgs{...}
+type WebAclHeaderOrderInput interface {
+	pulumi.Input
+
+	ToWebAclHeaderOrderOutput() WebAclHeaderOrderOutput
+	ToWebAclHeaderOrderOutputWithContext(context.Context) WebAclHeaderOrderOutput
+}
+
+// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+type WebAclHeaderOrderArgs struct {
+	OversizeHandling WebAclOversizeHandlingInput `pulumi:"oversizeHandling"`
+}
+
+func (WebAclHeaderOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclHeaderOrder)(nil)).Elem()
+}
+
+func (i WebAclHeaderOrderArgs) ToWebAclHeaderOrderOutput() WebAclHeaderOrderOutput {
+	return i.ToWebAclHeaderOrderOutputWithContext(context.Background())
+}
+
+func (i WebAclHeaderOrderArgs) ToWebAclHeaderOrderOutputWithContext(ctx context.Context) WebAclHeaderOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclHeaderOrderOutput)
+}
+
+func (i WebAclHeaderOrderArgs) ToWebAclHeaderOrderPtrOutput() WebAclHeaderOrderPtrOutput {
+	return i.ToWebAclHeaderOrderPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclHeaderOrderArgs) ToWebAclHeaderOrderPtrOutputWithContext(ctx context.Context) WebAclHeaderOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclHeaderOrderOutput).ToWebAclHeaderOrderPtrOutputWithContext(ctx)
+}
+
+// WebAclHeaderOrderPtrInput is an input type that accepts WebAclHeaderOrderArgs, WebAclHeaderOrderPtr and WebAclHeaderOrderPtrOutput values.
+// You can construct a concrete instance of `WebAclHeaderOrderPtrInput` via:
+//
+//	        WebAclHeaderOrderArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclHeaderOrderPtrInput interface {
+	pulumi.Input
+
+	ToWebAclHeaderOrderPtrOutput() WebAclHeaderOrderPtrOutput
+	ToWebAclHeaderOrderPtrOutputWithContext(context.Context) WebAclHeaderOrderPtrOutput
+}
+
+type webAclHeaderOrderPtrType WebAclHeaderOrderArgs
+
+func WebAclHeaderOrderPtr(v *WebAclHeaderOrderArgs) WebAclHeaderOrderPtrInput {
+	return (*webAclHeaderOrderPtrType)(v)
+}
+
+func (*webAclHeaderOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclHeaderOrder)(nil)).Elem()
+}
+
+func (i *webAclHeaderOrderPtrType) ToWebAclHeaderOrderPtrOutput() WebAclHeaderOrderPtrOutput {
+	return i.ToWebAclHeaderOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclHeaderOrderPtrType) ToWebAclHeaderOrderPtrOutputWithContext(ctx context.Context) WebAclHeaderOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclHeaderOrderPtrOutput)
+}
+
+// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+type WebAclHeaderOrderOutput struct{ *pulumi.OutputState }
+
+func (WebAclHeaderOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclHeaderOrder)(nil)).Elem()
+}
+
+func (o WebAclHeaderOrderOutput) ToWebAclHeaderOrderOutput() WebAclHeaderOrderOutput {
+	return o
+}
+
+func (o WebAclHeaderOrderOutput) ToWebAclHeaderOrderOutputWithContext(ctx context.Context) WebAclHeaderOrderOutput {
+	return o
+}
+
+func (o WebAclHeaderOrderOutput) ToWebAclHeaderOrderPtrOutput() WebAclHeaderOrderPtrOutput {
+	return o.ToWebAclHeaderOrderPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclHeaderOrderOutput) ToWebAclHeaderOrderPtrOutputWithContext(ctx context.Context) WebAclHeaderOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclHeaderOrder) *WebAclHeaderOrder {
+		return &v
+	}).(WebAclHeaderOrderPtrOutput)
+}
+
+func (o WebAclHeaderOrderOutput) OversizeHandling() WebAclOversizeHandlingOutput {
+	return o.ApplyT(func(v WebAclHeaderOrder) WebAclOversizeHandling { return v.OversizeHandling }).(WebAclOversizeHandlingOutput)
+}
+
+type WebAclHeaderOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclHeaderOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclHeaderOrder)(nil)).Elem()
+}
+
+func (o WebAclHeaderOrderPtrOutput) ToWebAclHeaderOrderPtrOutput() WebAclHeaderOrderPtrOutput {
+	return o
+}
+
+func (o WebAclHeaderOrderPtrOutput) ToWebAclHeaderOrderPtrOutputWithContext(ctx context.Context) WebAclHeaderOrderPtrOutput {
+	return o
+}
+
+func (o WebAclHeaderOrderPtrOutput) Elem() WebAclHeaderOrderOutput {
+	return o.ApplyT(func(v *WebAclHeaderOrder) WebAclHeaderOrder {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclHeaderOrder
+		return ret
+	}).(WebAclHeaderOrderOutput)
+}
+
+func (o WebAclHeaderOrderPtrOutput) OversizeHandling() WebAclOversizeHandlingPtrOutput {
+	return o.ApplyT(func(v *WebAclHeaderOrder) *WebAclOversizeHandling {
+		if v == nil {
+			return nil
+		}
+		return &v.OversizeHandling
+	}).(WebAclOversizeHandlingPtrOutput)
 }
 
 // Includes headers of a web request.
@@ -28754,6 +29056,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupGeoMatchStatementPtrInput)(nil)).Elem(), RuleGroupGeoMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderMatchPatternInput)(nil)).Elem(), RuleGroupHeaderMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderMatchPatternPtrInput)(nil)).Elem(), RuleGroupHeaderMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderOrderInput)(nil)).Elem(), RuleGroupHeaderOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeaderOrderPtrInput)(nil)).Elem(), RuleGroupHeaderOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeadersInput)(nil)).Elem(), RuleGroupHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupHeadersPtrInput)(nil)).Elem(), RuleGroupHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupImmunityTimePropertyInput)(nil)).Elem(), RuleGroupImmunityTimePropertyArgs{})
@@ -28905,6 +29209,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclGeoMatchStatementPtrInput)(nil)).Elem(), WebAclGeoMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclHeaderMatchPatternInput)(nil)).Elem(), WebAclHeaderMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclHeaderMatchPatternPtrInput)(nil)).Elem(), WebAclHeaderMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclHeaderOrderInput)(nil)).Elem(), WebAclHeaderOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclHeaderOrderPtrInput)(nil)).Elem(), WebAclHeaderOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclHeadersInput)(nil)).Elem(), WebAclHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclHeadersPtrInput)(nil)).Elem(), WebAclHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclImmunityTimePropertyInput)(nil)).Elem(), WebAclImmunityTimePropertyArgs{})
@@ -29069,6 +29375,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupGeoMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeaderMatchPatternOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeaderMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupHeaderOrderOutput{})
+	pulumi.RegisterOutputType(RuleGroupHeaderOrderPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeadersOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeadersPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupImmunityTimePropertyOutput{})
@@ -29222,6 +29530,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclGeoMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclHeaderMatchPatternOutput{})
 	pulumi.RegisterOutputType(WebAclHeaderMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(WebAclHeaderOrderOutput{})
+	pulumi.RegisterOutputType(WebAclHeaderOrderPtrOutput{})
 	pulumi.RegisterOutputType(WebAclHeadersOutput{})
 	pulumi.RegisterOutputType(WebAclHeadersPtrOutput{})
 	pulumi.RegisterOutputType(WebAclImmunityTimePropertyOutput{})

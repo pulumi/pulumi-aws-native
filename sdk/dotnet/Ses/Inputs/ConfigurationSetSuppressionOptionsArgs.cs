@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Ses.Inputs
             set => _suppressedReasons = value;
         }
 
+        /// <summary>
+        /// An object that contains information about the validation options for your account.
+        /// </summary>
+        [Input("validationOptions")]
+        public Input<Inputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs>? ValidationOptions { get; set; }
+
         public ConfigurationSetSuppressionOptionsArgs()
         {
         }

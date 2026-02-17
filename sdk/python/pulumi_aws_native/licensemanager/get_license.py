@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetLicenseResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLicenseResult:
-    def __init__(__self__, beneficiary=None, consumption_configuration=None, entitlements=None, home_region=None, issuer=None, license_arn=None, license_metadata=None, license_name=None, product_name=None, product_sku=None, validity=None, version=None):
+    def __init__(__self__, beneficiary=None, consumption_configuration=None, entitlements=None, home_region=None, issuer=None, license_arn=None, license_metadata=None, license_name=None, product_name=None, product_sku=None, status=None, tags=None, validity=None, version=None):
         if beneficiary and not isinstance(beneficiary, str):
             raise TypeError("Expected argument 'beneficiary' to be a str")
         pulumi.set(__self__, "beneficiary", beneficiary)
@@ -55,6 +56,12 @@ class GetLicenseResult:
         if product_sku and not isinstance(product_sku, str):
             raise TypeError("Expected argument 'product_sku' to be a str")
         pulumi.set(__self__, "product_sku", product_sku)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if validity and not isinstance(validity, dict):
             raise TypeError("Expected argument 'validity' to be a dict")
         pulumi.set(__self__, "validity", validity)
@@ -144,6 +151,22 @@ class GetLicenseResult:
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        License status.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to attach.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def validity(self) -> Optional['outputs.LicenseValidityDateFormat']:
         """
         Date and time range during which the license is valid, in ISO8601-UTC format.
@@ -175,6 +198,8 @@ class AwaitableGetLicenseResult(GetLicenseResult):
             license_name=self.license_name,
             product_name=self.product_name,
             product_sku=self.product_sku,
+            status=self.status,
+            tags=self.tags,
             validity=self.validity,
             version=self.version)
 
@@ -203,6 +228,8 @@ def get_license(license_arn: Optional[_builtins.str] = None,
         license_name=pulumi.get(__ret__, 'license_name'),
         product_name=pulumi.get(__ret__, 'product_name'),
         product_sku=pulumi.get(__ret__, 'product_sku'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
         validity=pulumi.get(__ret__, 'validity'),
         version=pulumi.get(__ret__, 'version'))
 def get_license_output(license_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -228,5 +255,7 @@ def get_license_output(license_arn: Optional[pulumi.Input[_builtins.str]] = None
         license_name=pulumi.get(__response__, 'license_name'),
         product_name=pulumi.get(__response__, 'product_name'),
         product_sku=pulumi.get(__response__, 'product_sku'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
         validity=pulumi.get(__response__, 'validity'),
         version=pulumi.get(__response__, 'version')))

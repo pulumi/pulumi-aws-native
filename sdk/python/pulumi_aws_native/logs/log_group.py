@@ -23,6 +23,7 @@ __all__ = ['LogGroupArgs', 'LogGroup']
 class LogGroupArgs:
     def __init__(__self__, *,
                  data_protection_policy: Optional[Any] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
@@ -35,6 +36,7 @@ class LogGroupArgs:
         :param Any data_protection_policy: Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+        :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
         :param pulumi.Input[Sequence[Any]] field_index_policies: Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
                 You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CWL Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
                 Currently, this array supports only one field index policy object.
@@ -58,6 +60,8 @@ class LogGroupArgs:
         """
         if data_protection_policy is not None:
             pulumi.set(__self__, "data_protection_policy", data_protection_policy)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if field_index_policies is not None:
             pulumi.set(__self__, "field_index_policies", field_index_policies)
         if kms_key_id is not None:
@@ -86,6 +90,18 @@ class LogGroupArgs:
     @data_protection_policy.setter
     def data_protection_policy(self, value: Optional[Any]):
         pulumi.set(self, "data_protection_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
+
+    @deletion_protection_enabled.setter
+    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldIndexPolicies")
@@ -192,6 +208,7 @@ class LogGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_protection_policy: Optional[Any] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
@@ -212,6 +229,7 @@ class LogGroup(pulumi.CustomResource):
         :param Any data_protection_policy: Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+        :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
         :param pulumi.Input[Sequence[Any]] field_index_policies: Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
                 You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CWL Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
                 Currently, this array supports only one field index policy object.
@@ -262,6 +280,7 @@ class LogGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_protection_policy: Optional[Any] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
@@ -279,6 +298,7 @@ class LogGroup(pulumi.CustomResource):
             __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
             __props__.__dict__["data_protection_policy"] = data_protection_policy
+            __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["field_index_policies"] = field_index_policies
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_group_class"] = log_group_class
@@ -313,6 +333,7 @@ class LogGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["data_protection_policy"] = None
+        __props__.__dict__["deletion_protection_enabled"] = None
         __props__.__dict__["field_index_policies"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_group_class"] = None
@@ -339,6 +360,14 @@ class LogGroup(pulumi.CustomResource):
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @_builtins.property
     @pulumi.getter(name="fieldIndexPolicies")

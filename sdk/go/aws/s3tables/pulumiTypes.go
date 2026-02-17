@@ -872,8 +872,11 @@ func (o TableCompactionPtrOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
 
 // Contains details about the metadata for an Iceberg table.
 type TableIcebergMetadata struct {
+	IcebergPartitionSpec *TableIcebergPartitionSpec `pulumi:"icebergPartitionSpec"`
 	// The schema for an Iceberg table.
-	IcebergSchema TableIcebergSchema `pulumi:"icebergSchema"`
+	IcebergSchema    TableIcebergSchema     `pulumi:"icebergSchema"`
+	IcebergSortOrder *TableIcebergSortOrder `pulumi:"icebergSortOrder"`
+	TableProperties  map[string]string      `pulumi:"tableProperties"`
 }
 
 // TableIcebergMetadataInput is an input type that accepts TableIcebergMetadataArgs and TableIcebergMetadataOutput values.
@@ -889,8 +892,11 @@ type TableIcebergMetadataInput interface {
 
 // Contains details about the metadata for an Iceberg table.
 type TableIcebergMetadataArgs struct {
+	IcebergPartitionSpec TableIcebergPartitionSpecPtrInput `pulumi:"icebergPartitionSpec"`
 	// The schema for an Iceberg table.
-	IcebergSchema TableIcebergSchemaInput `pulumi:"icebergSchema"`
+	IcebergSchema    TableIcebergSchemaInput       `pulumi:"icebergSchema"`
+	IcebergSortOrder TableIcebergSortOrderPtrInput `pulumi:"icebergSortOrder"`
+	TableProperties  pulumi.StringMapInput         `pulumi:"tableProperties"`
 }
 
 func (TableIcebergMetadataArgs) ElementType() reflect.Type {
@@ -971,9 +977,21 @@ func (o TableIcebergMetadataOutput) ToTableIcebergMetadataPtrOutputWithContext(c
 	}).(TableIcebergMetadataPtrOutput)
 }
 
+func (o TableIcebergMetadataOutput) IcebergPartitionSpec() TableIcebergPartitionSpecPtrOutput {
+	return o.ApplyT(func(v TableIcebergMetadata) *TableIcebergPartitionSpec { return v.IcebergPartitionSpec }).(TableIcebergPartitionSpecPtrOutput)
+}
+
 // The schema for an Iceberg table.
 func (o TableIcebergMetadataOutput) IcebergSchema() TableIcebergSchemaOutput {
 	return o.ApplyT(func(v TableIcebergMetadata) TableIcebergSchema { return v.IcebergSchema }).(TableIcebergSchemaOutput)
+}
+
+func (o TableIcebergMetadataOutput) IcebergSortOrder() TableIcebergSortOrderPtrOutput {
+	return o.ApplyT(func(v TableIcebergMetadata) *TableIcebergSortOrder { return v.IcebergSortOrder }).(TableIcebergSortOrderPtrOutput)
+}
+
+func (o TableIcebergMetadataOutput) TableProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TableIcebergMetadata) map[string]string { return v.TableProperties }).(pulumi.StringMapOutput)
 }
 
 type TableIcebergMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -1000,6 +1018,15 @@ func (o TableIcebergMetadataPtrOutput) Elem() TableIcebergMetadataOutput {
 	}).(TableIcebergMetadataOutput)
 }
 
+func (o TableIcebergMetadataPtrOutput) IcebergPartitionSpec() TableIcebergPartitionSpecPtrOutput {
+	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergPartitionSpec {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergPartitionSpec
+	}).(TableIcebergPartitionSpecPtrOutput)
+}
+
 // The schema for an Iceberg table.
 func (o TableIcebergMetadataPtrOutput) IcebergSchema() TableIcebergSchemaPtrOutput {
 	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergSchema {
@@ -1008,6 +1035,310 @@ func (o TableIcebergMetadataPtrOutput) IcebergSchema() TableIcebergSchemaPtrOutp
 		}
 		return &v.IcebergSchema
 	}).(TableIcebergSchemaPtrOutput)
+}
+
+func (o TableIcebergMetadataPtrOutput) IcebergSortOrder() TableIcebergSortOrderPtrOutput {
+	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergSortOrder {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergSortOrder
+	}).(TableIcebergSortOrderPtrOutput)
+}
+
+func (o TableIcebergMetadataPtrOutput) TableProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TableIcebergMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TableProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// A partition field specification for an Iceberg table
+type TableIcebergPartitionField struct {
+	// The partition field ID (auto-assigned starting from 1000 if not specified)
+	FieldId *int `pulumi:"fieldId"`
+	// The name of the partition field
+	Name string `pulumi:"name"`
+	// The source column ID to partition on
+	SourceId int `pulumi:"sourceId"`
+	// The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+	Transform string `pulumi:"transform"`
+}
+
+// TableIcebergPartitionFieldInput is an input type that accepts TableIcebergPartitionFieldArgs and TableIcebergPartitionFieldOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionFieldInput` via:
+//
+//	TableIcebergPartitionFieldArgs{...}
+type TableIcebergPartitionFieldInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionFieldOutput() TableIcebergPartitionFieldOutput
+	ToTableIcebergPartitionFieldOutputWithContext(context.Context) TableIcebergPartitionFieldOutput
+}
+
+// A partition field specification for an Iceberg table
+type TableIcebergPartitionFieldArgs struct {
+	// The partition field ID (auto-assigned starting from 1000 if not specified)
+	FieldId pulumi.IntPtrInput `pulumi:"fieldId"`
+	// The name of the partition field
+	Name pulumi.StringInput `pulumi:"name"`
+	// The source column ID to partition on
+	SourceId pulumi.IntInput `pulumi:"sourceId"`
+	// The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+	Transform pulumi.StringInput `pulumi:"transform"`
+}
+
+func (TableIcebergPartitionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (i TableIcebergPartitionFieldArgs) ToTableIcebergPartitionFieldOutput() TableIcebergPartitionFieldOutput {
+	return i.ToTableIcebergPartitionFieldOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionFieldArgs) ToTableIcebergPartitionFieldOutputWithContext(ctx context.Context) TableIcebergPartitionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionFieldOutput)
+}
+
+// TableIcebergPartitionFieldArrayInput is an input type that accepts TableIcebergPartitionFieldArray and TableIcebergPartitionFieldArrayOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionFieldArrayInput` via:
+//
+//	TableIcebergPartitionFieldArray{ TableIcebergPartitionFieldArgs{...} }
+type TableIcebergPartitionFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionFieldArrayOutput() TableIcebergPartitionFieldArrayOutput
+	ToTableIcebergPartitionFieldArrayOutputWithContext(context.Context) TableIcebergPartitionFieldArrayOutput
+}
+
+type TableIcebergPartitionFieldArray []TableIcebergPartitionFieldInput
+
+func (TableIcebergPartitionFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (i TableIcebergPartitionFieldArray) ToTableIcebergPartitionFieldArrayOutput() TableIcebergPartitionFieldArrayOutput {
+	return i.ToTableIcebergPartitionFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionFieldArray) ToTableIcebergPartitionFieldArrayOutputWithContext(ctx context.Context) TableIcebergPartitionFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionFieldArrayOutput)
+}
+
+// A partition field specification for an Iceberg table
+type TableIcebergPartitionFieldOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionFieldOutput) ToTableIcebergPartitionFieldOutput() TableIcebergPartitionFieldOutput {
+	return o
+}
+
+func (o TableIcebergPartitionFieldOutput) ToTableIcebergPartitionFieldOutputWithContext(ctx context.Context) TableIcebergPartitionFieldOutput {
+	return o
+}
+
+// The partition field ID (auto-assigned starting from 1000 if not specified)
+func (o TableIcebergPartitionFieldOutput) FieldId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) *int { return v.FieldId }).(pulumi.IntPtrOutput)
+}
+
+// The name of the partition field
+func (o TableIcebergPartitionFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source column ID to partition on
+func (o TableIcebergPartitionFieldOutput) SourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) int { return v.SourceId }).(pulumi.IntOutput)
+}
+
+// The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+func (o TableIcebergPartitionFieldOutput) Transform() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergPartitionField) string { return v.Transform }).(pulumi.StringOutput)
+}
+
+type TableIcebergPartitionFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergPartitionField)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionFieldArrayOutput) ToTableIcebergPartitionFieldArrayOutput() TableIcebergPartitionFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergPartitionFieldArrayOutput) ToTableIcebergPartitionFieldArrayOutputWithContext(ctx context.Context) TableIcebergPartitionFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergPartitionFieldArrayOutput) Index(i pulumi.IntInput) TableIcebergPartitionFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableIcebergPartitionField {
+		return vs[0].([]TableIcebergPartitionField)[vs[1].(int)]
+	}).(TableIcebergPartitionFieldOutput)
+}
+
+// Partition specification for an Iceberg table
+type TableIcebergPartitionSpec struct {
+	// List of partition fields
+	Fields []TableIcebergPartitionField `pulumi:"fields"`
+	// The partition spec ID (defaults to 0 if not specified)
+	SpecId *int `pulumi:"specId"`
+}
+
+// TableIcebergPartitionSpecInput is an input type that accepts TableIcebergPartitionSpecArgs and TableIcebergPartitionSpecOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionSpecInput` via:
+//
+//	TableIcebergPartitionSpecArgs{...}
+type TableIcebergPartitionSpecInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionSpecOutput() TableIcebergPartitionSpecOutput
+	ToTableIcebergPartitionSpecOutputWithContext(context.Context) TableIcebergPartitionSpecOutput
+}
+
+// Partition specification for an Iceberg table
+type TableIcebergPartitionSpecArgs struct {
+	// List of partition fields
+	Fields TableIcebergPartitionFieldArrayInput `pulumi:"fields"`
+	// The partition spec ID (defaults to 0 if not specified)
+	SpecId pulumi.IntPtrInput `pulumi:"specId"`
+}
+
+func (TableIcebergPartitionSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecOutput() TableIcebergPartitionSpecOutput {
+	return i.ToTableIcebergPartitionSpecOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecOutputWithContext(ctx context.Context) TableIcebergPartitionSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionSpecOutput)
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return i.ToTableIcebergPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergPartitionSpecArgs) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionSpecOutput).ToTableIcebergPartitionSpecPtrOutputWithContext(ctx)
+}
+
+// TableIcebergPartitionSpecPtrInput is an input type that accepts TableIcebergPartitionSpecArgs, TableIcebergPartitionSpecPtr and TableIcebergPartitionSpecPtrOutput values.
+// You can construct a concrete instance of `TableIcebergPartitionSpecPtrInput` via:
+//
+//	        TableIcebergPartitionSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergPartitionSpecPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput
+	ToTableIcebergPartitionSpecPtrOutputWithContext(context.Context) TableIcebergPartitionSpecPtrOutput
+}
+
+type tableIcebergPartitionSpecPtrType TableIcebergPartitionSpecArgs
+
+func TableIcebergPartitionSpecPtr(v *TableIcebergPartitionSpecArgs) TableIcebergPartitionSpecPtrInput {
+	return (*tableIcebergPartitionSpecPtrType)(v)
+}
+
+func (*tableIcebergPartitionSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (i *tableIcebergPartitionSpecPtrType) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return i.ToTableIcebergPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergPartitionSpecPtrType) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergPartitionSpecPtrOutput)
+}
+
+// Partition specification for an Iceberg table
+type TableIcebergPartitionSpecOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecOutput() TableIcebergPartitionSpecOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecOutputWithContext(ctx context.Context) TableIcebergPartitionSpecOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return o.ToTableIcebergPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergPartitionSpecOutput) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergPartitionSpec) *TableIcebergPartitionSpec {
+		return &v
+	}).(TableIcebergPartitionSpecPtrOutput)
+}
+
+// List of partition fields
+func (o TableIcebergPartitionSpecOutput) Fields() TableIcebergPartitionFieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergPartitionSpec) []TableIcebergPartitionField { return v.Fields }).(TableIcebergPartitionFieldArrayOutput)
+}
+
+// The partition spec ID (defaults to 0 if not specified)
+func (o TableIcebergPartitionSpecOutput) SpecId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergPartitionSpec) *int { return v.SpecId }).(pulumi.IntPtrOutput)
+}
+
+type TableIcebergPartitionSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergPartitionSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergPartitionSpec)(nil)).Elem()
+}
+
+func (o TableIcebergPartitionSpecPtrOutput) ToTableIcebergPartitionSpecPtrOutput() TableIcebergPartitionSpecPtrOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecPtrOutput) ToTableIcebergPartitionSpecPtrOutputWithContext(ctx context.Context) TableIcebergPartitionSpecPtrOutput {
+	return o
+}
+
+func (o TableIcebergPartitionSpecPtrOutput) Elem() TableIcebergPartitionSpecOutput {
+	return o.ApplyT(func(v *TableIcebergPartitionSpec) TableIcebergPartitionSpec {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergPartitionSpec
+		return ret
+	}).(TableIcebergPartitionSpecOutput)
+}
+
+// List of partition fields
+func (o TableIcebergPartitionSpecPtrOutput) Fields() TableIcebergPartitionFieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergPartitionSpec) []TableIcebergPartitionField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(TableIcebergPartitionFieldArrayOutput)
+}
+
+// The partition spec ID (defaults to 0 if not specified)
+func (o TableIcebergPartitionSpecPtrOutput) SpecId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableIcebergPartitionSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpecId
+	}).(pulumi.IntPtrOutput)
 }
 
 // Contains details about the schema for an Iceberg table
@@ -1150,6 +1481,292 @@ func (o TableIcebergSchemaPtrOutput) SchemaFieldList() TableSchemaFieldArrayOutp
 	}).(TableSchemaFieldArrayOutput)
 }
 
+// A sort field specification for an Iceberg table
+type TableIcebergSortField struct {
+	// Sort direction (asc or desc)
+	Direction TableIcebergSortFieldDirection `pulumi:"direction"`
+	// Null value ordering (nulls-first or nulls-last)
+	NullOrder TableIcebergSortFieldNullOrder `pulumi:"nullOrder"`
+	// The source column ID to sort on
+	SourceId int `pulumi:"sourceId"`
+	// The sort transform function
+	Transform string `pulumi:"transform"`
+}
+
+// TableIcebergSortFieldInput is an input type that accepts TableIcebergSortFieldArgs and TableIcebergSortFieldOutput values.
+// You can construct a concrete instance of `TableIcebergSortFieldInput` via:
+//
+//	TableIcebergSortFieldArgs{...}
+type TableIcebergSortFieldInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldOutput() TableIcebergSortFieldOutput
+	ToTableIcebergSortFieldOutputWithContext(context.Context) TableIcebergSortFieldOutput
+}
+
+// A sort field specification for an Iceberg table
+type TableIcebergSortFieldArgs struct {
+	// Sort direction (asc or desc)
+	Direction TableIcebergSortFieldDirectionInput `pulumi:"direction"`
+	// Null value ordering (nulls-first or nulls-last)
+	NullOrder TableIcebergSortFieldNullOrderInput `pulumi:"nullOrder"`
+	// The source column ID to sort on
+	SourceId pulumi.IntInput `pulumi:"sourceId"`
+	// The sort transform function
+	Transform pulumi.StringInput `pulumi:"transform"`
+}
+
+func (TableIcebergSortFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortField)(nil)).Elem()
+}
+
+func (i TableIcebergSortFieldArgs) ToTableIcebergSortFieldOutput() TableIcebergSortFieldOutput {
+	return i.ToTableIcebergSortFieldOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortFieldArgs) ToTableIcebergSortFieldOutputWithContext(ctx context.Context) TableIcebergSortFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortFieldOutput)
+}
+
+// TableIcebergSortFieldArrayInput is an input type that accepts TableIcebergSortFieldArray and TableIcebergSortFieldArrayOutput values.
+// You can construct a concrete instance of `TableIcebergSortFieldArrayInput` via:
+//
+//	TableIcebergSortFieldArray{ TableIcebergSortFieldArgs{...} }
+type TableIcebergSortFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldArrayOutput() TableIcebergSortFieldArrayOutput
+	ToTableIcebergSortFieldArrayOutputWithContext(context.Context) TableIcebergSortFieldArrayOutput
+}
+
+type TableIcebergSortFieldArray []TableIcebergSortFieldInput
+
+func (TableIcebergSortFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergSortField)(nil)).Elem()
+}
+
+func (i TableIcebergSortFieldArray) ToTableIcebergSortFieldArrayOutput() TableIcebergSortFieldArrayOutput {
+	return i.ToTableIcebergSortFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortFieldArray) ToTableIcebergSortFieldArrayOutputWithContext(ctx context.Context) TableIcebergSortFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortFieldArrayOutput)
+}
+
+// A sort field specification for an Iceberg table
+type TableIcebergSortFieldOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortField)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldOutput) ToTableIcebergSortFieldOutput() TableIcebergSortFieldOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldOutput) ToTableIcebergSortFieldOutputWithContext(ctx context.Context) TableIcebergSortFieldOutput {
+	return o
+}
+
+// Sort direction (asc or desc)
+func (o TableIcebergSortFieldOutput) Direction() TableIcebergSortFieldDirectionOutput {
+	return o.ApplyT(func(v TableIcebergSortField) TableIcebergSortFieldDirection { return v.Direction }).(TableIcebergSortFieldDirectionOutput)
+}
+
+// Null value ordering (nulls-first or nulls-last)
+func (o TableIcebergSortFieldOutput) NullOrder() TableIcebergSortFieldNullOrderOutput {
+	return o.ApplyT(func(v TableIcebergSortField) TableIcebergSortFieldNullOrder { return v.NullOrder }).(TableIcebergSortFieldNullOrderOutput)
+}
+
+// The source column ID to sort on
+func (o TableIcebergSortFieldOutput) SourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v TableIcebergSortField) int { return v.SourceId }).(pulumi.IntOutput)
+}
+
+// The sort transform function
+func (o TableIcebergSortFieldOutput) Transform() pulumi.StringOutput {
+	return o.ApplyT(func(v TableIcebergSortField) string { return v.Transform }).(pulumi.StringOutput)
+}
+
+type TableIcebergSortFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableIcebergSortField)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldArrayOutput) ToTableIcebergSortFieldArrayOutput() TableIcebergSortFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldArrayOutput) ToTableIcebergSortFieldArrayOutputWithContext(ctx context.Context) TableIcebergSortFieldArrayOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldArrayOutput) Index(i pulumi.IntInput) TableIcebergSortFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableIcebergSortField {
+		return vs[0].([]TableIcebergSortField)[vs[1].(int)]
+	}).(TableIcebergSortFieldOutput)
+}
+
+// Sort order specification for an Iceberg table
+type TableIcebergSortOrder struct {
+	// List of sort fields
+	Fields []TableIcebergSortField `pulumi:"fields"`
+	// The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+	OrderId *int `pulumi:"orderId"`
+}
+
+// TableIcebergSortOrderInput is an input type that accepts TableIcebergSortOrderArgs and TableIcebergSortOrderOutput values.
+// You can construct a concrete instance of `TableIcebergSortOrderInput` via:
+//
+//	TableIcebergSortOrderArgs{...}
+type TableIcebergSortOrderInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortOrderOutput() TableIcebergSortOrderOutput
+	ToTableIcebergSortOrderOutputWithContext(context.Context) TableIcebergSortOrderOutput
+}
+
+// Sort order specification for an Iceberg table
+type TableIcebergSortOrderArgs struct {
+	// List of sort fields
+	Fields TableIcebergSortFieldArrayInput `pulumi:"fields"`
+	// The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+	OrderId pulumi.IntPtrInput `pulumi:"orderId"`
+}
+
+func (TableIcebergSortOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderOutput() TableIcebergSortOrderOutput {
+	return i.ToTableIcebergSortOrderOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderOutputWithContext(ctx context.Context) TableIcebergSortOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortOrderOutput)
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return i.ToTableIcebergSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSortOrderArgs) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortOrderOutput).ToTableIcebergSortOrderPtrOutputWithContext(ctx)
+}
+
+// TableIcebergSortOrderPtrInput is an input type that accepts TableIcebergSortOrderArgs, TableIcebergSortOrderPtr and TableIcebergSortOrderPtrOutput values.
+// You can construct a concrete instance of `TableIcebergSortOrderPtrInput` via:
+//
+//	        TableIcebergSortOrderArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergSortOrderPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput
+	ToTableIcebergSortOrderPtrOutputWithContext(context.Context) TableIcebergSortOrderPtrOutput
+}
+
+type tableIcebergSortOrderPtrType TableIcebergSortOrderArgs
+
+func TableIcebergSortOrderPtr(v *TableIcebergSortOrderArgs) TableIcebergSortOrderPtrInput {
+	return (*tableIcebergSortOrderPtrType)(v)
+}
+
+func (*tableIcebergSortOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (i *tableIcebergSortOrderPtrType) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return i.ToTableIcebergSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergSortOrderPtrType) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSortOrderPtrOutput)
+}
+
+// Sort order specification for an Iceberg table
+type TableIcebergSortOrderOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderOutput() TableIcebergSortOrderOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderOutputWithContext(ctx context.Context) TableIcebergSortOrderOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return o.ToTableIcebergSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortOrderOutput) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSortOrder) *TableIcebergSortOrder {
+		return &v
+	}).(TableIcebergSortOrderPtrOutput)
+}
+
+// List of sort fields
+func (o TableIcebergSortOrderOutput) Fields() TableIcebergSortFieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergSortOrder) []TableIcebergSortField { return v.Fields }).(TableIcebergSortFieldArrayOutput)
+}
+
+// The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+func (o TableIcebergSortOrderOutput) OrderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergSortOrder) *int { return v.OrderId }).(pulumi.IntPtrOutput)
+}
+
+type TableIcebergSortOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSortOrder)(nil)).Elem()
+}
+
+func (o TableIcebergSortOrderPtrOutput) ToTableIcebergSortOrderPtrOutput() TableIcebergSortOrderPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderPtrOutput) ToTableIcebergSortOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortOrderPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortOrderPtrOutput) Elem() TableIcebergSortOrderOutput {
+	return o.ApplyT(func(v *TableIcebergSortOrder) TableIcebergSortOrder {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSortOrder
+		return ret
+	}).(TableIcebergSortOrderOutput)
+}
+
+// List of sort fields
+func (o TableIcebergSortOrderPtrOutput) Fields() TableIcebergSortFieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSortOrder) []TableIcebergSortField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(TableIcebergSortFieldArrayOutput)
+}
+
+// The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+func (o TableIcebergSortOrderPtrOutput) OrderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableIcebergSortOrder) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OrderId
+	}).(pulumi.IntPtrOutput)
+}
+
 // A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
 type TablePolicyResourcePolicy struct {
 }
@@ -1222,6 +1839,8 @@ func (o TablePolicyResourcePolicyPtrOutput) Elem() TablePolicyResourcePolicyOutp
 
 // Contains details about the schema for an Iceberg table
 type TableSchemaField struct {
+	// The unique identifier for the field
+	Id *int `pulumi:"id"`
 	// The name of the field
 	Name string `pulumi:"name"`
 	// A Boolean value that specifies whether values are required for each row in this field
@@ -1243,6 +1862,8 @@ type TableSchemaFieldInput interface {
 
 // Contains details about the schema for an Iceberg table
 type TableSchemaFieldArgs struct {
+	// The unique identifier for the field
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// The name of the field
 	Name pulumi.StringInput `pulumi:"name"`
 	// A Boolean value that specifies whether values are required for each row in this field
@@ -1301,6 +1922,11 @@ func (o TableSchemaFieldOutput) ToTableSchemaFieldOutput() TableSchemaFieldOutpu
 
 func (o TableSchemaFieldOutput) ToTableSchemaFieldOutputWithContext(ctx context.Context) TableSchemaFieldOutput {
 	return o
+}
+
+// The unique identifier for the field
+func (o TableSchemaFieldOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableSchemaField) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 // The name of the field
@@ -1679,8 +2305,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionPtrInput)(nil)).Elem(), TableCompactionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergMetadataInput)(nil)).Elem(), TableIcebergMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergMetadataPtrInput)(nil)).Elem(), TableIcebergMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionFieldInput)(nil)).Elem(), TableIcebergPartitionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionFieldArrayInput)(nil)).Elem(), TableIcebergPartitionFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionSpecInput)(nil)).Elem(), TableIcebergPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionSpecPtrInput)(nil)).Elem(), TableIcebergPartitionSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaInput)(nil)).Elem(), TableIcebergSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaPtrInput)(nil)).Elem(), TableIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldInput)(nil)).Elem(), TableIcebergSortFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldArrayInput)(nil)).Elem(), TableIcebergSortFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortOrderInput)(nil)).Elem(), TableIcebergSortOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortOrderPtrInput)(nil)).Elem(), TableIcebergSortOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePolicyResourcePolicyInput)(nil)).Elem(), TablePolicyResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaFieldInput)(nil)).Elem(), TableSchemaFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaFieldArrayInput)(nil)).Elem(), TableSchemaFieldArray{})
@@ -1702,8 +2336,16 @@ func init() {
 	pulumi.RegisterOutputType(TableCompactionPtrOutput{})
 	pulumi.RegisterOutputType(TableIcebergMetadataOutput{})
 	pulumi.RegisterOutputType(TableIcebergMetadataPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionFieldOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionSpecOutput{})
+	pulumi.RegisterOutputType(TableIcebergPartitionSpecPtrOutput{})
 	pulumi.RegisterOutputType(TableIcebergSchemaOutput{})
 	pulumi.RegisterOutputType(TableIcebergSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortOrderOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortOrderPtrOutput{})
 	pulumi.RegisterOutputType(TablePolicyResourcePolicyOutput{})
 	pulumi.RegisterOutputType(TablePolicyResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableSchemaFieldOutput{})

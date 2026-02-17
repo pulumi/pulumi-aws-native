@@ -879,7 +879,7 @@ type AppMonitorMetricDefinition struct {
 	//
 	// If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 	//
-	// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+	// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
 	ValueKey *string `pulumi:"valueKey"`
 }
 
@@ -1006,7 +1006,7 @@ type AppMonitorMetricDefinitionArgs struct {
 	//
 	// If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 	//
-	// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+	// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
 	ValueKey pulumi.StringPtrInput `pulumi:"valueKey"`
 }
 
@@ -1187,7 +1187,7 @@ func (o AppMonitorMetricDefinitionOutput) UnitLabel() pulumi.StringPtrOutput {
 //
 // If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 //
-// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
 func (o AppMonitorMetricDefinitionOutput) ValueKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppMonitorMetricDefinition) *string { return v.ValueKey }).(pulumi.StringPtrOutput)
 }
@@ -1214,11 +1214,13 @@ func (o AppMonitorMetricDefinitionArrayOutput) Index(i pulumi.IntInput) AppMonit
 
 // An structure which defines the destination and the metrics that you want to send.
 type AppMonitorMetricDestination struct {
-	// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+	// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
 	Destination AppMonitorMetricDestinationDestination `pulumi:"destination"`
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
+	//
+	// This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
 	DestinationArn *string `pulumi:"destinationArn"`
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+	// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
 	//
 	// This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
@@ -1239,11 +1241,13 @@ type AppMonitorMetricDestinationInput interface {
 
 // An structure which defines the destination and the metrics that you want to send.
 type AppMonitorMetricDestinationArgs struct {
-	// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+	// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
 	Destination AppMonitorMetricDestinationDestinationInput `pulumi:"destination"`
-	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
+	//
+	// This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
 	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
-	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+	// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
 	//
 	// This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
 	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
@@ -1303,17 +1307,19 @@ func (o AppMonitorMetricDestinationOutput) ToAppMonitorMetricDestinationOutputWi
 	return o
 }
 
-// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
 func (o AppMonitorMetricDestinationOutput) Destination() AppMonitorMetricDestinationDestinationOutput {
 	return o.ApplyT(func(v AppMonitorMetricDestination) AppMonitorMetricDestinationDestination { return v.Destination }).(AppMonitorMetricDestinationDestinationOutput)
 }
 
-// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
+//
+// This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
 func (o AppMonitorMetricDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppMonitorMetricDestination) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
-// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+// Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
 //
 // This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
 func (o AppMonitorMetricDestinationOutput) IamRoleArn() pulumi.StringPtrOutput {

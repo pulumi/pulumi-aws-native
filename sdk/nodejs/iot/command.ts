@@ -78,9 +78,17 @@ export class Command extends pulumi.CustomResource {
      */
     declare public readonly payload: pulumi.Output<outputs.iot.CommandPayload | undefined>;
     /**
+     * The payload template associated with the command.
+     */
+    declare public readonly payloadTemplate: pulumi.Output<string | undefined>;
+    /**
      * A flag indicating whether the command is pending deletion.
      */
     declare public readonly pendingDeletion: pulumi.Output<boolean | undefined>;
+    /**
+     * The command preprocessor configuration.
+     */
+    declare public readonly preprocessor: pulumi.Output<outputs.iot.CommandPreprocessor | undefined>;
     /**
      * The customer role associated with the command.
      */
@@ -113,7 +121,9 @@ export class Command extends pulumi.CustomResource {
             resourceInputs["mandatoryParameters"] = args?.mandatoryParameters;
             resourceInputs["namespace"] = args?.namespace;
             resourceInputs["payload"] = args?.payload;
+            resourceInputs["payloadTemplate"] = args?.payloadTemplate;
             resourceInputs["pendingDeletion"] = args?.pendingDeletion;
+            resourceInputs["preprocessor"] = args?.preprocessor;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["commandArn"] = undefined /*out*/;
@@ -128,12 +138,14 @@ export class Command extends pulumi.CustomResource {
             resourceInputs["mandatoryParameters"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["payload"] = undefined /*out*/;
+            resourceInputs["payloadTemplate"] = undefined /*out*/;
             resourceInputs["pendingDeletion"] = undefined /*out*/;
+            resourceInputs["preprocessor"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["commandId"] };
+        const replaceOnChanges = { replaceOnChanges: ["commandId", "payloadTemplate", "preprocessor"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Command.__pulumiType, name, resourceInputs, opts);
     }
@@ -180,9 +192,17 @@ export interface CommandArgs {
      */
     payload?: pulumi.Input<inputs.iot.CommandPayloadArgs>;
     /**
+     * The payload template associated with the command.
+     */
+    payloadTemplate?: pulumi.Input<string>;
+    /**
      * A flag indicating whether the command is pending deletion.
      */
     pendingDeletion?: pulumi.Input<boolean>;
+    /**
+     * The command preprocessor configuration.
+     */
+    preprocessor?: pulumi.Input<inputs.iot.CommandPreprocessorArgs>;
     /**
      * The customer role associated with the command.
      */

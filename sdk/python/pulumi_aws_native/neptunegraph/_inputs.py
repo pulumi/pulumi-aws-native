@@ -19,19 +19,14 @@ __all__ = [
     'GraphVectorSearchConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GraphVectorSearchConfigurationArgsDict(TypedDict):
-        """
-        The vector search configuration.
-        """
-        vector_search_dimension: pulumi.Input[_builtins.int]
-        """
-        The vector search dimension
-        """
-elif False:
-    GraphVectorSearchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GraphVectorSearchConfigurationArgsDict(TypedDict):
+    """
+    The vector search configuration.
+    """
+    vector_search_dimension: pulumi.Input[_builtins.int]
+    """
+    The vector search dimension
+    """
 
 @pulumi.input_type
 class GraphVectorSearchConfigurationArgs:

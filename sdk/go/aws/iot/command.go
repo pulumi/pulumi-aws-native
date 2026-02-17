@@ -37,8 +37,12 @@ type Command struct {
 	Namespace CommandNamespacePtrOutput `pulumi:"namespace"`
 	// The payload associated with the command.
 	Payload CommandPayloadPtrOutput `pulumi:"payload"`
+	// The payload template associated with the command.
+	PayloadTemplate pulumi.StringPtrOutput `pulumi:"payloadTemplate"`
 	// A flag indicating whether the command is pending deletion.
 	PendingDeletion pulumi.BoolPtrOutput `pulumi:"pendingDeletion"`
+	// The command preprocessor configuration.
+	Preprocessor CommandPreprocessorPtrOutput `pulumi:"preprocessor"`
 	// The customer role associated with the command.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The tags to be associated with the command.
@@ -57,6 +61,8 @@ func NewCommand(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"commandId",
+		"payloadTemplate",
+		"preprocessor",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -110,8 +116,12 @@ type commandArgs struct {
 	Namespace *CommandNamespace `pulumi:"namespace"`
 	// The payload associated with the command.
 	Payload *CommandPayload `pulumi:"payload"`
+	// The payload template associated with the command.
+	PayloadTemplate *string `pulumi:"payloadTemplate"`
 	// A flag indicating whether the command is pending deletion.
 	PendingDeletion *bool `pulumi:"pendingDeletion"`
+	// The command preprocessor configuration.
+	Preprocessor *CommandPreprocessor `pulumi:"preprocessor"`
 	// The customer role associated with the command.
 	RoleArn *string `pulumi:"roleArn"`
 	// The tags to be associated with the command.
@@ -138,8 +148,12 @@ type CommandArgs struct {
 	Namespace CommandNamespacePtrInput
 	// The payload associated with the command.
 	Payload CommandPayloadPtrInput
+	// The payload template associated with the command.
+	PayloadTemplate pulumi.StringPtrInput
 	// A flag indicating whether the command is pending deletion.
 	PendingDeletion pulumi.BoolPtrInput
+	// The command preprocessor configuration.
+	Preprocessor CommandPreprocessorPtrInput
 	// The customer role associated with the command.
 	RoleArn pulumi.StringPtrInput
 	// The tags to be associated with the command.
@@ -233,9 +247,19 @@ func (o CommandOutput) Payload() CommandPayloadPtrOutput {
 	return o.ApplyT(func(v *Command) CommandPayloadPtrOutput { return v.Payload }).(CommandPayloadPtrOutput)
 }
 
+// The payload template associated with the command.
+func (o CommandOutput) PayloadTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringPtrOutput { return v.PayloadTemplate }).(pulumi.StringPtrOutput)
+}
+
 // A flag indicating whether the command is pending deletion.
 func (o CommandOutput) PendingDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Command) pulumi.BoolPtrOutput { return v.PendingDeletion }).(pulumi.BoolPtrOutput)
+}
+
+// The command preprocessor configuration.
+func (o CommandOutput) Preprocessor() CommandPreprocessorPtrOutput {
+	return o.ApplyT(func(v *Command) CommandPreprocessorPtrOutput { return v.Preprocessor }).(CommandPreprocessorPtrOutput)
 }
 
 // The customer role associated with the command.

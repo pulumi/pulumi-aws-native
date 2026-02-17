@@ -2205,6 +2205,7 @@ type ClusterInstanceGroup struct {
 	OnStartDeepHealthChecks []ClusterDeepHealthCheckType  `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       *ClusterVpcConfig             `pulumi:"overrideVpcConfig"`
 	ScheduledUpdateConfig   *ClusterScheduledUpdateConfig `pulumi:"scheduledUpdateConfig"`
+	SlurmConfig             *ClusterSlurmConfig           `pulumi:"slurmConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -2241,6 +2242,7 @@ type ClusterInstanceGroupArgs struct {
 	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       ClusterVpcConfigPtrInput             `pulumi:"overrideVpcConfig"`
 	ScheduledUpdateConfig   ClusterScheduledUpdateConfigPtrInput `pulumi:"scheduledUpdateConfig"`
+	SlurmConfig             ClusterSlurmConfigPtrInput           `pulumi:"slurmConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -2356,6 +2358,10 @@ func (o ClusterInstanceGroupOutput) OverrideVpcConfig() ClusterVpcConfigPtrOutpu
 
 func (o ClusterInstanceGroupOutput) ScheduledUpdateConfig() ClusterScheduledUpdateConfigPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterScheduledUpdateConfig { return v.ScheduledUpdateConfig }).(ClusterScheduledUpdateConfigPtrOutput)
+}
+
+func (o ClusterInstanceGroupOutput) SlurmConfig() ClusterSlurmConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterSlurmConfig { return v.SlurmConfig }).(ClusterSlurmConfigPtrOutput)
 }
 
 // The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -2933,10 +2939,8 @@ func (o ClusterOnDemandOptionsPtrOutput) Elem() ClusterOnDemandOptionsOutput {
 	}).(ClusterOnDemandOptionsOutput)
 }
 
-// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
 type ClusterOrchestrator struct {
-	// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-	Eks ClusterOrchestratorEksConfig `pulumi:"eks"`
 }
 
 // ClusterOrchestratorInput is an input type that accepts ClusterOrchestratorArgs and ClusterOrchestratorOutput values.
@@ -2950,10 +2954,8 @@ type ClusterOrchestratorInput interface {
 	ToClusterOrchestratorOutputWithContext(context.Context) ClusterOrchestratorOutput
 }
 
-// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
 type ClusterOrchestratorArgs struct {
-	// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-	Eks ClusterOrchestratorEksConfigInput `pulumi:"eks"`
 }
 
 func (ClusterOrchestratorArgs) ElementType() reflect.Type {
@@ -3009,7 +3011,7 @@ func (i *clusterOrchestratorPtrType) ToClusterOrchestratorPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorPtrOutput)
 }
 
-// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
 type ClusterOrchestratorOutput struct{ *pulumi.OutputState }
 
 func (ClusterOrchestratorOutput) ElementType() reflect.Type {
@@ -3034,11 +3036,6 @@ func (o ClusterOrchestratorOutput) ToClusterOrchestratorPtrOutputWithContext(ctx
 	}).(ClusterOrchestratorPtrOutput)
 }
 
-// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-func (o ClusterOrchestratorOutput) Eks() ClusterOrchestratorEksConfigOutput {
-	return o.ApplyT(func(v ClusterOrchestrator) ClusterOrchestratorEksConfig { return v.Eks }).(ClusterOrchestratorEksConfigOutput)
-}
-
 type ClusterOrchestratorPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterOrchestratorPtrOutput) ElementType() reflect.Type {
@@ -3061,156 +3058,6 @@ func (o ClusterOrchestratorPtrOutput) Elem() ClusterOrchestratorOutput {
 		var ret ClusterOrchestrator
 		return ret
 	}).(ClusterOrchestratorOutput)
-}
-
-// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-func (o ClusterOrchestratorPtrOutput) Eks() ClusterOrchestratorEksConfigPtrOutput {
-	return o.ApplyT(func(v *ClusterOrchestrator) *ClusterOrchestratorEksConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.Eks
-	}).(ClusterOrchestratorEksConfigPtrOutput)
-}
-
-// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-type ClusterOrchestratorEksConfig struct {
-	// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-	ClusterArn string `pulumi:"clusterArn"`
-}
-
-// ClusterOrchestratorEksConfigInput is an input type that accepts ClusterOrchestratorEksConfigArgs and ClusterOrchestratorEksConfigOutput values.
-// You can construct a concrete instance of `ClusterOrchestratorEksConfigInput` via:
-//
-//	ClusterOrchestratorEksConfigArgs{...}
-type ClusterOrchestratorEksConfigInput interface {
-	pulumi.Input
-
-	ToClusterOrchestratorEksConfigOutput() ClusterOrchestratorEksConfigOutput
-	ToClusterOrchestratorEksConfigOutputWithContext(context.Context) ClusterOrchestratorEksConfigOutput
-}
-
-// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-type ClusterOrchestratorEksConfigArgs struct {
-	// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
-}
-
-func (ClusterOrchestratorEksConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterOrchestratorEksConfig)(nil)).Elem()
-}
-
-func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigOutput() ClusterOrchestratorEksConfigOutput {
-	return i.ToClusterOrchestratorEksConfigOutputWithContext(context.Background())
-}
-
-func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorEksConfigOutput)
-}
-
-func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
-	return i.ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorEksConfigOutput).ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx)
-}
-
-// ClusterOrchestratorEksConfigPtrInput is an input type that accepts ClusterOrchestratorEksConfigArgs, ClusterOrchestratorEksConfigPtr and ClusterOrchestratorEksConfigPtrOutput values.
-// You can construct a concrete instance of `ClusterOrchestratorEksConfigPtrInput` via:
-//
-//	        ClusterOrchestratorEksConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type ClusterOrchestratorEksConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput
-	ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Context) ClusterOrchestratorEksConfigPtrOutput
-}
-
-type clusterOrchestratorEksConfigPtrType ClusterOrchestratorEksConfigArgs
-
-func ClusterOrchestratorEksConfigPtr(v *ClusterOrchestratorEksConfigArgs) ClusterOrchestratorEksConfigPtrInput {
-	return (*clusterOrchestratorEksConfigPtrType)(v)
-}
-
-func (*clusterOrchestratorEksConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterOrchestratorEksConfig)(nil)).Elem()
-}
-
-func (i *clusterOrchestratorEksConfigPtrType) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
-	return i.ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterOrchestratorEksConfigPtrType) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorEksConfigPtrOutput)
-}
-
-// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-type ClusterOrchestratorEksConfigOutput struct{ *pulumi.OutputState }
-
-func (ClusterOrchestratorEksConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterOrchestratorEksConfig)(nil)).Elem()
-}
-
-func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigOutput() ClusterOrchestratorEksConfigOutput {
-	return o
-}
-
-func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigOutput {
-	return o
-}
-
-func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
-	return o.ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOrchestratorEksConfig) *ClusterOrchestratorEksConfig {
-		return &v
-	}).(ClusterOrchestratorEksConfigPtrOutput)
-}
-
-// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-func (o ClusterOrchestratorEksConfigOutput) ClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterOrchestratorEksConfig) string { return v.ClusterArn }).(pulumi.StringOutput)
-}
-
-type ClusterOrchestratorEksConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterOrchestratorEksConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterOrchestratorEksConfig)(nil)).Elem()
-}
-
-func (o ClusterOrchestratorEksConfigPtrOutput) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
-	return o
-}
-
-func (o ClusterOrchestratorEksConfigPtrOutput) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
-	return o
-}
-
-func (o ClusterOrchestratorEksConfigPtrOutput) Elem() ClusterOrchestratorEksConfigOutput {
-	return o.ApplyT(func(v *ClusterOrchestratorEksConfig) ClusterOrchestratorEksConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterOrchestratorEksConfig
-		return ret
-	}).(ClusterOrchestratorEksConfigOutput)
-}
-
-// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-func (o ClusterOrchestratorEksConfigPtrOutput) ClusterArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterOrchestratorEksConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClusterArn
-	}).(pulumi.StringPtrOutput)
 }
 
 // Details of a restricted instance group in a SageMaker HyperPod cluster.
@@ -3686,6 +3533,165 @@ func (o ClusterScheduledUpdateConfigPtrOutput) ScheduleExpression() pulumi.Strin
 		}
 		return &v.ScheduleExpression
 	}).(pulumi.StringPtrOutput)
+}
+
+// Slurm configuration for the instance group.
+type ClusterSlurmConfig struct {
+	// The type of Slurm node for this instance group.
+	NodeType ClusterSlurmConfigNodeType `pulumi:"nodeType"`
+	// The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+	PartitionNames []string `pulumi:"partitionNames"`
+}
+
+// ClusterSlurmConfigInput is an input type that accepts ClusterSlurmConfigArgs and ClusterSlurmConfigOutput values.
+// You can construct a concrete instance of `ClusterSlurmConfigInput` via:
+//
+//	ClusterSlurmConfigArgs{...}
+type ClusterSlurmConfigInput interface {
+	pulumi.Input
+
+	ToClusterSlurmConfigOutput() ClusterSlurmConfigOutput
+	ToClusterSlurmConfigOutputWithContext(context.Context) ClusterSlurmConfigOutput
+}
+
+// Slurm configuration for the instance group.
+type ClusterSlurmConfigArgs struct {
+	// The type of Slurm node for this instance group.
+	NodeType ClusterSlurmConfigNodeTypeInput `pulumi:"nodeType"`
+	// The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+	PartitionNames pulumi.StringArrayInput `pulumi:"partitionNames"`
+}
+
+func (ClusterSlurmConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSlurmConfig)(nil)).Elem()
+}
+
+func (i ClusterSlurmConfigArgs) ToClusterSlurmConfigOutput() ClusterSlurmConfigOutput {
+	return i.ToClusterSlurmConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterSlurmConfigArgs) ToClusterSlurmConfigOutputWithContext(ctx context.Context) ClusterSlurmConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSlurmConfigOutput)
+}
+
+func (i ClusterSlurmConfigArgs) ToClusterSlurmConfigPtrOutput() ClusterSlurmConfigPtrOutput {
+	return i.ToClusterSlurmConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSlurmConfigArgs) ToClusterSlurmConfigPtrOutputWithContext(ctx context.Context) ClusterSlurmConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSlurmConfigOutput).ToClusterSlurmConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterSlurmConfigPtrInput is an input type that accepts ClusterSlurmConfigArgs, ClusterSlurmConfigPtr and ClusterSlurmConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterSlurmConfigPtrInput` via:
+//
+//	        ClusterSlurmConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterSlurmConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterSlurmConfigPtrOutput() ClusterSlurmConfigPtrOutput
+	ToClusterSlurmConfigPtrOutputWithContext(context.Context) ClusterSlurmConfigPtrOutput
+}
+
+type clusterSlurmConfigPtrType ClusterSlurmConfigArgs
+
+func ClusterSlurmConfigPtr(v *ClusterSlurmConfigArgs) ClusterSlurmConfigPtrInput {
+	return (*clusterSlurmConfigPtrType)(v)
+}
+
+func (*clusterSlurmConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSlurmConfig)(nil)).Elem()
+}
+
+func (i *clusterSlurmConfigPtrType) ToClusterSlurmConfigPtrOutput() ClusterSlurmConfigPtrOutput {
+	return i.ToClusterSlurmConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSlurmConfigPtrType) ToClusterSlurmConfigPtrOutputWithContext(ctx context.Context) ClusterSlurmConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSlurmConfigPtrOutput)
+}
+
+// Slurm configuration for the instance group.
+type ClusterSlurmConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterSlurmConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSlurmConfig)(nil)).Elem()
+}
+
+func (o ClusterSlurmConfigOutput) ToClusterSlurmConfigOutput() ClusterSlurmConfigOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigOutput) ToClusterSlurmConfigOutputWithContext(ctx context.Context) ClusterSlurmConfigOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigOutput) ToClusterSlurmConfigPtrOutput() ClusterSlurmConfigPtrOutput {
+	return o.ToClusterSlurmConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSlurmConfigOutput) ToClusterSlurmConfigPtrOutputWithContext(ctx context.Context) ClusterSlurmConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSlurmConfig) *ClusterSlurmConfig {
+		return &v
+	}).(ClusterSlurmConfigPtrOutput)
+}
+
+// The type of Slurm node for this instance group.
+func (o ClusterSlurmConfigOutput) NodeType() ClusterSlurmConfigNodeTypeOutput {
+	return o.ApplyT(func(v ClusterSlurmConfig) ClusterSlurmConfigNodeType { return v.NodeType }).(ClusterSlurmConfigNodeTypeOutput)
+}
+
+// The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+func (o ClusterSlurmConfigOutput) PartitionNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterSlurmConfig) []string { return v.PartitionNames }).(pulumi.StringArrayOutput)
+}
+
+type ClusterSlurmConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSlurmConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSlurmConfig)(nil)).Elem()
+}
+
+func (o ClusterSlurmConfigPtrOutput) ToClusterSlurmConfigPtrOutput() ClusterSlurmConfigPtrOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigPtrOutput) ToClusterSlurmConfigPtrOutputWithContext(ctx context.Context) ClusterSlurmConfigPtrOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigPtrOutput) Elem() ClusterSlurmConfigOutput {
+	return o.ApplyT(func(v *ClusterSlurmConfig) ClusterSlurmConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSlurmConfig
+		return ret
+	}).(ClusterSlurmConfigOutput)
+}
+
+// The type of Slurm node for this instance group.
+func (o ClusterSlurmConfigPtrOutput) NodeType() ClusterSlurmConfigNodeTypePtrOutput {
+	return o.ApplyT(func(v *ClusterSlurmConfig) *ClusterSlurmConfigNodeType {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeType
+	}).(ClusterSlurmConfigNodeTypePtrOutput)
+}
+
+// The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+func (o ClusterSlurmConfigPtrOutput) PartitionNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterSlurmConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionNames
+	}).(pulumi.StringArrayOutput)
 }
 
 // Options for Spot capacity
@@ -48697,14 +48703,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsPtrInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorInput)(nil)).Elem(), ClusterOrchestratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorPtrInput)(nil)).Elem(), ClusterOrchestratorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigPtrInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupArrayInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyPtrInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigPtrInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigInput)(nil)).Elem(), ClusterSlurmConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigPtrInput)(nil)).Elem(), ClusterSlurmConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotOptionsInput)(nil)).Elem(), ClusterSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotOptionsPtrInput)(nil)).Elem(), ClusterSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigInput)(nil)).Elem(), ClusterTieredStorageConfigArgs{})
@@ -49277,14 +49283,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOnDemandOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorPtrOutput{})
-	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigOutput{})
-	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSlurmConfigOutput{})
+	pulumi.RegisterOutputType(ClusterSlurmConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSpotOptionsOutput{})
 	pulumi.RegisterOutputType(ClusterSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigOutput{})

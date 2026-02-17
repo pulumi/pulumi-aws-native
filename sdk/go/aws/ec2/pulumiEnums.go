@@ -6143,7 +6143,8 @@ func (in *ipamMeteredAccountPtr) ToIpamMeteredAccountPtrOutputWithContext(ctx co
 type IpamPoolAwsService string
 
 const (
-	IpamPoolAwsServiceEc2 = IpamPoolAwsService("ec2")
+	IpamPoolAwsServiceEc2            = IpamPoolAwsService("ec2")
+	IpamPoolAwsServiceGlobalServices = IpamPoolAwsService("global-services")
 )
 
 func (IpamPoolAwsService) ElementType() reflect.Type {
@@ -6269,6 +6270,7 @@ func (o IpamPoolAwsServicePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `IpamPoolAwsServiceInput` can be one of the following:
 //
 //	IpamPoolAwsServiceEc2
+//	IpamPoolAwsServiceGlobalServices
 type IpamPoolAwsServiceInput interface {
 	pulumi.Input
 
@@ -6653,6 +6655,512 @@ func (o IpamPoolStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+type IpamPrefixListResolverRuleConditionOperation string
+
+const (
+	IpamPrefixListResolverRuleConditionOperationEquals    = IpamPrefixListResolverRuleConditionOperation("equals")
+	IpamPrefixListResolverRuleConditionOperationNotEquals = IpamPrefixListResolverRuleConditionOperation("not-equals")
+	IpamPrefixListResolverRuleConditionOperationSubnetOf  = IpamPrefixListResolverRuleConditionOperation("subnet-of")
+)
+
+func (IpamPrefixListResolverRuleConditionOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleConditionOperation)(nil)).Elem()
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToIpamPrefixListResolverRuleConditionOperationOutput() IpamPrefixListResolverRuleConditionOperationOutput {
+	return pulumi.ToOutput(e).(IpamPrefixListResolverRuleConditionOperationOutput)
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToIpamPrefixListResolverRuleConditionOperationOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamPrefixListResolverRuleConditionOperationOutput)
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToIpamPrefixListResolverRuleConditionOperationPtrOutput() IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return e.ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(context.Background())
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return IpamPrefixListResolverRuleConditionOperation(e).ToIpamPrefixListResolverRuleConditionOperationOutputWithContext(ctx).ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(ctx)
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamPrefixListResolverRuleConditionOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamPrefixListResolverRuleConditionOperationOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleConditionOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleConditionOperation)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToIpamPrefixListResolverRuleConditionOperationOutput() IpamPrefixListResolverRuleConditionOperationOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToIpamPrefixListResolverRuleConditionOperationOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOperationOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToIpamPrefixListResolverRuleConditionOperationPtrOutput() IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return o.ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamPrefixListResolverRuleConditionOperation) *IpamPrefixListResolverRuleConditionOperation {
+		return &v
+	}).(IpamPrefixListResolverRuleConditionOperationPtrOutput)
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamPrefixListResolverRuleConditionOperation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamPrefixListResolverRuleConditionOperation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamPrefixListResolverRuleConditionOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleConditionOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPrefixListResolverRuleConditionOperation)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationPtrOutput) ToIpamPrefixListResolverRuleConditionOperationPtrOutput() IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationPtrOutput) ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationPtrOutput) Elem() IpamPrefixListResolverRuleConditionOperationOutput {
+	return o.ApplyT(func(v *IpamPrefixListResolverRuleConditionOperation) IpamPrefixListResolverRuleConditionOperation {
+		if v != nil {
+			return *v
+		}
+		var ret IpamPrefixListResolverRuleConditionOperation
+		return ret
+	}).(IpamPrefixListResolverRuleConditionOperationOutput)
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleConditionOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamPrefixListResolverRuleConditionOperation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamPrefixListResolverRuleConditionOperationInput is an input type that accepts values of the IpamPrefixListResolverRuleConditionOperation enum
+// A concrete instance of `IpamPrefixListResolverRuleConditionOperationInput` can be one of the following:
+//
+//	IpamPrefixListResolverRuleConditionOperationEquals
+//	IpamPrefixListResolverRuleConditionOperationNotEquals
+//	IpamPrefixListResolverRuleConditionOperationSubnetOf
+type IpamPrefixListResolverRuleConditionOperationInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleConditionOperationOutput() IpamPrefixListResolverRuleConditionOperationOutput
+	ToIpamPrefixListResolverRuleConditionOperationOutputWithContext(context.Context) IpamPrefixListResolverRuleConditionOperationOutput
+}
+
+var ipamPrefixListResolverRuleConditionOperationPtrType = reflect.TypeOf((**IpamPrefixListResolverRuleConditionOperation)(nil)).Elem()
+
+type IpamPrefixListResolverRuleConditionOperationPtrInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleConditionOperationPtrOutput() IpamPrefixListResolverRuleConditionOperationPtrOutput
+	ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(context.Context) IpamPrefixListResolverRuleConditionOperationPtrOutput
+}
+
+type ipamPrefixListResolverRuleConditionOperationPtr string
+
+func IpamPrefixListResolverRuleConditionOperationPtr(v string) IpamPrefixListResolverRuleConditionOperationPtrInput {
+	return (*ipamPrefixListResolverRuleConditionOperationPtr)(&v)
+}
+
+func (*ipamPrefixListResolverRuleConditionOperationPtr) ElementType() reflect.Type {
+	return ipamPrefixListResolverRuleConditionOperationPtrType
+}
+
+func (in *ipamPrefixListResolverRuleConditionOperationPtr) ToIpamPrefixListResolverRuleConditionOperationPtrOutput() IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return pulumi.ToOutput(in).(IpamPrefixListResolverRuleConditionOperationPtrOutput)
+}
+
+func (in *ipamPrefixListResolverRuleConditionOperationPtr) ToIpamPrefixListResolverRuleConditionOperationPtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleConditionOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamPrefixListResolverRuleConditionOperationPtrOutput)
+}
+
+// The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+type IpamPrefixListResolverRuleResourceType string
+
+const (
+	IpamPrefixListResolverRuleResourceTypeVpc            = IpamPrefixListResolverRuleResourceType("vpc")
+	IpamPrefixListResolverRuleResourceTypeSubnet         = IpamPrefixListResolverRuleResourceType("subnet")
+	IpamPrefixListResolverRuleResourceTypeEip            = IpamPrefixListResolverRuleResourceType("eip")
+	IpamPrefixListResolverRuleResourceTypePublicIpv4Pool = IpamPrefixListResolverRuleResourceType("public-ipv4-pool")
+)
+
+func (IpamPrefixListResolverRuleResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleResourceType)(nil)).Elem()
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToIpamPrefixListResolverRuleResourceTypeOutput() IpamPrefixListResolverRuleResourceTypeOutput {
+	return pulumi.ToOutput(e).(IpamPrefixListResolverRuleResourceTypeOutput)
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToIpamPrefixListResolverRuleResourceTypeOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamPrefixListResolverRuleResourceTypeOutput)
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToIpamPrefixListResolverRuleResourceTypePtrOutput() IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return e.ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return IpamPrefixListResolverRuleResourceType(e).ToIpamPrefixListResolverRuleResourceTypeOutputWithContext(ctx).ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamPrefixListResolverRuleResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamPrefixListResolverRuleResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleResourceType)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToIpamPrefixListResolverRuleResourceTypeOutput() IpamPrefixListResolverRuleResourceTypeOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToIpamPrefixListResolverRuleResourceTypeOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleResourceTypeOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToIpamPrefixListResolverRuleResourceTypePtrOutput() IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return o.ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamPrefixListResolverRuleResourceType) *IpamPrefixListResolverRuleResourceType {
+		return &v
+	}).(IpamPrefixListResolverRuleResourceTypePtrOutput)
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamPrefixListResolverRuleResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamPrefixListResolverRuleResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamPrefixListResolverRuleResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPrefixListResolverRuleResourceType)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleResourceTypePtrOutput) ToIpamPrefixListResolverRuleResourceTypePtrOutput() IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleResourceTypePtrOutput) ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleResourceTypePtrOutput) Elem() IpamPrefixListResolverRuleResourceTypeOutput {
+	return o.ApplyT(func(v *IpamPrefixListResolverRuleResourceType) IpamPrefixListResolverRuleResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret IpamPrefixListResolverRuleResourceType
+		return ret
+	}).(IpamPrefixListResolverRuleResourceTypeOutput)
+}
+
+func (o IpamPrefixListResolverRuleResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamPrefixListResolverRuleResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamPrefixListResolverRuleResourceTypeInput is an input type that accepts values of the IpamPrefixListResolverRuleResourceType enum
+// A concrete instance of `IpamPrefixListResolverRuleResourceTypeInput` can be one of the following:
+//
+//	IpamPrefixListResolverRuleResourceTypeVpc
+//	IpamPrefixListResolverRuleResourceTypeSubnet
+//	IpamPrefixListResolverRuleResourceTypeEip
+//	IpamPrefixListResolverRuleResourceTypePublicIpv4Pool
+type IpamPrefixListResolverRuleResourceTypeInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleResourceTypeOutput() IpamPrefixListResolverRuleResourceTypeOutput
+	ToIpamPrefixListResolverRuleResourceTypeOutputWithContext(context.Context) IpamPrefixListResolverRuleResourceTypeOutput
+}
+
+var ipamPrefixListResolverRuleResourceTypePtrType = reflect.TypeOf((**IpamPrefixListResolverRuleResourceType)(nil)).Elem()
+
+type IpamPrefixListResolverRuleResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleResourceTypePtrOutput() IpamPrefixListResolverRuleResourceTypePtrOutput
+	ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(context.Context) IpamPrefixListResolverRuleResourceTypePtrOutput
+}
+
+type ipamPrefixListResolverRuleResourceTypePtr string
+
+func IpamPrefixListResolverRuleResourceTypePtr(v string) IpamPrefixListResolverRuleResourceTypePtrInput {
+	return (*ipamPrefixListResolverRuleResourceTypePtr)(&v)
+}
+
+func (*ipamPrefixListResolverRuleResourceTypePtr) ElementType() reflect.Type {
+	return ipamPrefixListResolverRuleResourceTypePtrType
+}
+
+func (in *ipamPrefixListResolverRuleResourceTypePtr) ToIpamPrefixListResolverRuleResourceTypePtrOutput() IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(IpamPrefixListResolverRuleResourceTypePtrOutput)
+}
+
+func (in *ipamPrefixListResolverRuleResourceTypePtr) ToIpamPrefixListResolverRuleResourceTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamPrefixListResolverRuleResourceTypePtrOutput)
+}
+
+// There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+type IpamPrefixListResolverRuleRuleType string
+
+const (
+	IpamPrefixListResolverRuleRuleTypeStaticCidr       = IpamPrefixListResolverRuleRuleType("static-cidr")
+	IpamPrefixListResolverRuleRuleTypeIpamResourceCidr = IpamPrefixListResolverRuleRuleType("ipam-resource-cidr")
+	IpamPrefixListResolverRuleRuleTypeIpamPoolCidr     = IpamPrefixListResolverRuleRuleType("ipam-pool-cidr")
+)
+
+func (IpamPrefixListResolverRuleRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleRuleType)(nil)).Elem()
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToIpamPrefixListResolverRuleRuleTypeOutput() IpamPrefixListResolverRuleRuleTypeOutput {
+	return pulumi.ToOutput(e).(IpamPrefixListResolverRuleRuleTypeOutput)
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToIpamPrefixListResolverRuleRuleTypeOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamPrefixListResolverRuleRuleTypeOutput)
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToIpamPrefixListResolverRuleRuleTypePtrOutput() IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return e.ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return IpamPrefixListResolverRuleRuleType(e).ToIpamPrefixListResolverRuleRuleTypeOutputWithContext(ctx).ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(ctx)
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamPrefixListResolverRuleRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamPrefixListResolverRuleRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamPrefixListResolverRuleRuleType)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToIpamPrefixListResolverRuleRuleTypeOutput() IpamPrefixListResolverRuleRuleTypeOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToIpamPrefixListResolverRuleRuleTypeOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleRuleTypeOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToIpamPrefixListResolverRuleRuleTypePtrOutput() IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return o.ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamPrefixListResolverRuleRuleType) *IpamPrefixListResolverRuleRuleType {
+		return &v
+	}).(IpamPrefixListResolverRuleRuleTypePtrOutput)
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamPrefixListResolverRuleRuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamPrefixListResolverRuleRuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamPrefixListResolverRuleRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IpamPrefixListResolverRuleRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamPrefixListResolverRuleRuleType)(nil)).Elem()
+}
+
+func (o IpamPrefixListResolverRuleRuleTypePtrOutput) ToIpamPrefixListResolverRuleRuleTypePtrOutput() IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleRuleTypePtrOutput) ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return o
+}
+
+func (o IpamPrefixListResolverRuleRuleTypePtrOutput) Elem() IpamPrefixListResolverRuleRuleTypeOutput {
+	return o.ApplyT(func(v *IpamPrefixListResolverRuleRuleType) IpamPrefixListResolverRuleRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret IpamPrefixListResolverRuleRuleType
+		return ret
+	}).(IpamPrefixListResolverRuleRuleTypeOutput)
+}
+
+func (o IpamPrefixListResolverRuleRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamPrefixListResolverRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamPrefixListResolverRuleRuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamPrefixListResolverRuleRuleTypeInput is an input type that accepts values of the IpamPrefixListResolverRuleRuleType enum
+// A concrete instance of `IpamPrefixListResolverRuleRuleTypeInput` can be one of the following:
+//
+//	IpamPrefixListResolverRuleRuleTypeStaticCidr
+//	IpamPrefixListResolverRuleRuleTypeIpamResourceCidr
+//	IpamPrefixListResolverRuleRuleTypeIpamPoolCidr
+type IpamPrefixListResolverRuleRuleTypeInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleRuleTypeOutput() IpamPrefixListResolverRuleRuleTypeOutput
+	ToIpamPrefixListResolverRuleRuleTypeOutputWithContext(context.Context) IpamPrefixListResolverRuleRuleTypeOutput
+}
+
+var ipamPrefixListResolverRuleRuleTypePtrType = reflect.TypeOf((**IpamPrefixListResolverRuleRuleType)(nil)).Elem()
+
+type IpamPrefixListResolverRuleRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToIpamPrefixListResolverRuleRuleTypePtrOutput() IpamPrefixListResolverRuleRuleTypePtrOutput
+	ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(context.Context) IpamPrefixListResolverRuleRuleTypePtrOutput
+}
+
+type ipamPrefixListResolverRuleRuleTypePtr string
+
+func IpamPrefixListResolverRuleRuleTypePtr(v string) IpamPrefixListResolverRuleRuleTypePtrInput {
+	return (*ipamPrefixListResolverRuleRuleTypePtr)(&v)
+}
+
+func (*ipamPrefixListResolverRuleRuleTypePtr) ElementType() reflect.Type {
+	return ipamPrefixListResolverRuleRuleTypePtrType
+}
+
+func (in *ipamPrefixListResolverRuleRuleTypePtr) ToIpamPrefixListResolverRuleRuleTypePtrOutput() IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return pulumi.ToOutput(in).(IpamPrefixListResolverRuleRuleTypePtrOutput)
+}
+
+func (in *ipamPrefixListResolverRuleRuleTypePtr) ToIpamPrefixListResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) IpamPrefixListResolverRuleRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamPrefixListResolverRuleRuleTypePtrOutput)
 }
 
 // An external service connecting to your AWS IPAM scope.
@@ -16312,9 +16820,9 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
 }
 
-// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat string
 
 const (
@@ -17660,7 +18168,7 @@ func (in *vpnConnectionPreSharedKeyStoragePtr) ToVpnConnectionPreSharedKeyStorag
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPreSharedKeyStoragePtrOutput)
 }
 
-// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. “standard“ supports up to 1.25 Gbps per tunnel, while “large“ supports up to 5 Gbps per tunnel. The default value is “standard“. Existing VPN connections without a bandwidth setting will automatically default to “standard“.
 type VpnConnectionTunnelBandwidth string
 
 const (
@@ -18245,6 +18753,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServicePtrInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourceInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourcePtrInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleConditionOperationInput)(nil)).Elem(), IpamPrefixListResolverRuleConditionOperation("equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleConditionOperationPtrInput)(nil)).Elem(), IpamPrefixListResolverRuleConditionOperation("equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleResourceTypeInput)(nil)).Elem(), IpamPrefixListResolverRuleResourceType("vpc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleResourceTypePtrInput)(nil)).Elem(), IpamPrefixListResolverRuleResourceType("vpc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleRuleTypeInput)(nil)).Elem(), IpamPrefixListResolverRuleRuleType("static-cidr"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamPrefixListResolverRuleRuleTypePtrInput)(nil)).Elem(), IpamPrefixListResolverRuleRuleType("static-cidr"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInput)(nil)).Elem(), IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType("infoblox"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrInput)(nil)).Elem(), IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType("infoblox"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamTierInput)(nil)).Elem(), IpamTier("free"))
@@ -18460,6 +18974,12 @@ func init() {
 	pulumi.RegisterOutputType(IpamPoolPublicIpSourcePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolStateEnumOutput{})
 	pulumi.RegisterOutputType(IpamPoolStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleConditionOperationOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleConditionOperationPtrOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleResourceTypeOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleRuleTypeOutput{})
+	pulumi.RegisterOutputType(IpamPrefixListResolverRuleRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput{})
 	pulumi.RegisterOutputType(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput{})
 	pulumi.RegisterOutputType(IpamScopeTypeOutput{})

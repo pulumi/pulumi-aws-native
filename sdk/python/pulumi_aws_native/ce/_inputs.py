@@ -20,24 +20,19 @@ __all__ = [
     'AnomalySubscriptionSubscriberArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AnomalySubscriptionSubscriberArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
-        """
-        type: pulumi.Input['AnomalySubscriptionSubscriberType']
-        """
-        The notification delivery channel.
-        """
-        status: NotRequired[pulumi.Input['AnomalySubscriptionSubscriberStatus']]
-        """
-        Indicates if the subscriber accepts the notifications.
-        """
-elif False:
-    AnomalySubscriptionSubscriberArgsDict: TypeAlias = Mapping[str, Any]
+class AnomalySubscriptionSubscriberArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+    """
+    type: pulumi.Input['AnomalySubscriptionSubscriberType']
+    """
+    The notification delivery channel.
+    """
+    status: NotRequired[pulumi.Input['AnomalySubscriptionSubscriberStatus']]
+    """
+    Indicates if the subscriber accepts the notifications.
+    """
 
 @pulumi.input_type
 class AnomalySubscriptionSubscriberArgs:

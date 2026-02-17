@@ -483,7 +483,7 @@ class CapacityProvider(pulumi.CustomResource):
             __props__.__dict__["managed_instances_provider"] = managed_instances_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupProvider.autoScalingGroupArn", "clusterName", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupProvider.autoScalingGroupArn", "clusterName", "managedInstancesProvider.instanceLaunchTemplate.fipsEnabled", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityProvider, __self__).__init__(
             'aws-native:ecs:CapacityProvider',

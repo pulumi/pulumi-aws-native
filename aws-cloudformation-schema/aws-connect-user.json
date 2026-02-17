@@ -1,93 +1,43 @@
 {
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
-  "tagging" : {
-    "permissions" : [ "connect:TagResource", "connect:UntagResource" ],
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : true
-  },
-  "handlers" : {
-    "read" : {
-      "permissions" : [ "connect:DescribeUser", "connect:ListUserProficiencies" ]
-    },
-    "create" : {
-      "permissions" : [ "connect:CreateUser", "connect:TagResource", "connect:AssociateUserProficiencies" ]
-    },
-    "update" : {
-      "permissions" : [ "connect:UpdateUserIdentityInfo", "connect:UpdateUserPhoneConfig", "connect:UpdateUserRoutingProfile", "connect:UpdateUserSecurityProfiles", "connect:UpdateUserHierarchy", "connect:TagResource", "connect:UntagResource", "connect:AssociateUserProficiencies", "connect:DisassociateUserProficiencies", "connect:UpdateUserProficiencies" ]
-    },
-    "list" : {
-      "permissions" : [ "connect:ListUsers" ],
-      "handlerSchema" : {
-        "properties" : {
-          "InstanceArn" : {
-            "$ref" : "resource-schema.json#/properties/InstanceArn"
-          }
-        },
-        "required" : [ "InstanceArn" ]
-      }
-    },
-    "delete" : {
-      "permissions" : [ "connect:DeleteUser", "connect:UntagResource" ]
-    }
-  },
   "typeName" : "AWS::Connect::User",
-  "readOnlyProperties" : [ "/properties/UserArn" ],
   "description" : "Resource Type definition for AWS::Connect::User",
-  "writeOnlyProperties" : [ "/properties/Password" ],
-  "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/UserArn" ],
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "definitions" : {
-    "AutoAccept" : {
-      "description" : "The Auto accept setting.",
-      "type" : "boolean"
+    "FirstName" : {
+      "description" : "The first name. This is required if you are using Amazon Connect or SAML for identity management.",
+      "type" : "string"
     },
-    "AttributeValue" : {
-      "minLength" : 1,
-      "description" : "The value of user's proficiency. You must use value of predefined attribute present in the Amazon Connect instance.",
-      "type" : "string",
-      "maxLength" : 64
+    "LastName" : {
+      "description" : "The last name. This is required if you are using Amazon Connect or SAML for identity management.",
+      "type" : "string"
     },
     "Email" : {
       "description" : "The email address. If you are using SAML for identity management and include this parameter, an error is returned.",
       "type" : "string"
     },
-    "UserProficiency" : {
-      "description" : "Proficiency of a user.",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "AttributeValue" : {
-          "$ref" : "#/definitions/AttributeValue"
-        },
-        "AttributeName" : {
-          "$ref" : "#/definitions/AttributeName"
-        },
-        "Level" : {
-          "$ref" : "#/definitions/Level"
-        }
-      },
-      "required" : [ "AttributeName", "AttributeValue", "Level" ]
-    },
-    "FirstName" : {
-      "description" : "The first name. This is required if you are using Amazon Connect or SAML for identity management.",
-      "type" : "string"
-    },
-    "SecurityProfileArn" : {
-      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/security-profile/[-a-zA-Z0-9]*$",
-      "description" : "The identifier of the security profile for the user.",
-      "type" : "string"
-    },
-    "PersistentConnection" : {
-      "description" : "The Persistent Connection setting.",
-      "type" : "boolean"
+    "SecondaryEmail" : {
+      "description" : "The secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.",
+      "type" : "string",
+      "pattern" : "(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}"
     },
     "Mobile" : {
-      "pattern" : "^\\+[1-9]\\d{1,14}$",
       "description" : "The mobile phone number.",
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "^\\+[1-9]\\d{1,14}$"
+    },
+    "SecurityProfileArn" : {
+      "description" : "The identifier of the security profile for the user.",
+      "type" : "string",
+      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/security-profile/[-a-zA-Z0-9]*$"
+    },
+    "AfterContactWorkTimeLimit" : {
+      "description" : "The After Call Work (ACW) timeout setting, in seconds.",
+      "type" : "integer",
+      "minimum" : 0
+    },
+    "AutoAccept" : {
+      "description" : "The Auto accept setting.",
+      "type" : "boolean"
     },
     "DeskPhoneNumber" : {
       "description" : "The phone number for the user's desk phone.",
@@ -98,43 +48,31 @@
       "type" : "string",
       "enum" : [ "SOFT_PHONE", "DESK_PHONE" ]
     },
-    "SecondaryEmail" : {
-      "pattern" : "(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}",
-      "description" : "The secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.",
-      "type" : "string"
+    "PersistentConnection" : {
+      "description" : "The Persistent Connection setting.",
+      "type" : "boolean"
     },
-    "AttributeName" : {
-      "minLength" : 1,
-      "description" : "The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.",
+    "VoiceEnhancementMode" : {
+      "description" : "The Voice Enhancement Mode setting.",
       "type" : "string",
-      "maxLength" : 64
-    },
-    "Level" : {
-      "description" : "The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.",
-      "maximum" : 5,
-      "type" : "number",
-      "minimum" : 1
-    },
-    "LastName" : {
-      "description" : "The last name. This is required if you are using Amazon Connect or SAML for identity management.",
-      "type" : "string"
+      "enum" : [ "NONE", "VOICE_ISOLATION", "NOISE_SUPPRESSION" ]
     },
     "UserIdentityInfo" : {
       "description" : "Contains information about the identity of a user.",
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Email" : {
-          "$ref" : "#/definitions/Email"
-        },
         "FirstName" : {
           "$ref" : "#/definitions/FirstName"
         },
-        "SecondaryEmail" : {
-          "$ref" : "#/definitions/SecondaryEmail"
-        },
         "LastName" : {
           "$ref" : "#/definitions/LastName"
+        },
+        "Email" : {
+          "$ref" : "#/definitions/Email"
+        },
+        "SecondaryEmail" : {
+          "$ref" : "#/definitions/SecondaryEmail"
         },
         "Mobile" : {
           "$ref" : "#/definitions/Mobile"
@@ -143,127 +81,331 @@
     },
     "UserPhoneConfig" : {
       "description" : "Contains information about the phone configuration settings for a user.",
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
+        "AfterContactWorkTimeLimit" : {
+          "$ref" : "#/definitions/AfterContactWorkTimeLimit"
+        },
         "AutoAccept" : {
           "$ref" : "#/definitions/AutoAccept"
+        },
+        "DeskPhoneNumber" : {
+          "$ref" : "#/definitions/DeskPhoneNumber"
         },
         "PhoneType" : {
           "$ref" : "#/definitions/PhoneType"
         },
         "PersistentConnection" : {
           "$ref" : "#/definitions/PersistentConnection"
-        },
-        "DeskPhoneNumber" : {
-          "$ref" : "#/definitions/DeskPhoneNumber"
-        },
-        "AfterContactWorkTimeLimit" : {
-          "$ref" : "#/definitions/AfterContactWorkTimeLimit"
         }
-      },
-      "required" : [ "PhoneType" ]
+      }
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Value" : {
-          "description" : "The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
-          "type" : "string",
-          "maxLength" : 256
-        },
         "Key" : {
-          "minLength" : 1,
-          "pattern" : "^(?!aws:)[a-zA-Z+-=._:/]+$",
-          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
           "type" : "string",
-          "maxLength" : 128
+          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "minLength" : 1,
+          "maxLength" : 128,
+          "pattern" : "^(?!aws:)[a-zA-Z+-=._:/]+$"
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "maxLength" : 256
         }
       },
       "required" : [ "Key", "Value" ]
     },
-    "AfterContactWorkTimeLimit" : {
-      "description" : "The After Call Work (ACW) timeout setting, in seconds.",
-      "type" : "integer",
-      "minimum" : 0
-    }
-  },
-  "required" : [ "InstanceArn", "PhoneConfig", "RoutingProfileArn", "SecurityProfileArns", "Username" ],
-  "properties" : {
-    "UserArn" : {
-      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent/[-a-zA-Z0-9]*$",
-      "description" : "The Amazon Resource Name (ARN) for the user.",
-      "type" : "string"
+    "UserProficiency" : {
+      "description" : "Proficiency of a user.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AttributeName" : {
+          "$ref" : "#/definitions/AttributeName"
+        },
+        "AttributeValue" : {
+          "$ref" : "#/definitions/AttributeValue"
+        },
+        "Level" : {
+          "$ref" : "#/definitions/Level"
+        }
+      },
+      "required" : [ "AttributeName", "AttributeValue", "Level" ]
     },
-    "RoutingProfileArn" : {
-      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/routing-profile/[-a-zA-Z0-9]*$",
-      "description" : "The identifier of the routing profile for the user.",
-      "type" : "string"
-    },
-    "Username" : {
-      "minLength" : 1,
-      "pattern" : "[a-zA-Z0-9\\_\\-\\.\\@]+",
-      "description" : "The user name for the account.",
+    "AttributeName" : {
+      "description" : "The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.",
       "type" : "string",
+      "minLength" : 1,
       "maxLength" : 64
     },
-    "PhoneConfig" : {
-      "description" : "The phone settings for the user.",
-      "$ref" : "#/definitions/UserPhoneConfig"
+    "AttributeValue" : {
+      "description" : "The value of user's proficiency. You must use value of predefined attribute present in the Amazon Connect instance.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 64
     },
+    "Level" : {
+      "description" : "The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.",
+      "type" : "number",
+      "minimum" : 1.0,
+      "maximum" : 5.0
+    },
+    "AutoAcceptConfig" : {
+      "description" : "Auto-accept configuration per channel.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Channel" : {
+          "$ref" : "#/definitions/Channel"
+        },
+        "AutoAccept" : {
+          "$ref" : "#/definitions/AutoAccept"
+        },
+        "AgentFirstCallbackAutoAccept" : {
+          "$ref" : "#/definitions/AgentFirstCallbackAutoAccept"
+        }
+      },
+      "required" : [ "Channel", "AutoAccept" ]
+    },
+    "Channel" : {
+      "description" : "The channels that agents can handle in the Contact Control Panel (CCP).",
+      "type" : "string",
+      "enum" : [ "VOICE", "CHAT", "TASK", "EMAIL" ]
+    },
+    "AgentFirstCallbackAutoAccept" : {
+      "description" : "The agent first callback auto accept setting.",
+      "type" : "boolean"
+    },
+    "AfterContactWorkConfigPerChannel" : {
+      "description" : "After Contact Work configuration per channel.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Channel" : {
+          "$ref" : "#/definitions/Channel"
+        },
+        "AfterContactWorkConfig" : {
+          "$ref" : "#/definitions/AfterContactWorkConfig"
+        },
+        "AgentFirstCallbackAfterContactWorkConfig" : {
+          "$ref" : "#/definitions/AfterContactWorkConfig"
+        }
+      },
+      "required" : [ "Channel", "AfterContactWorkConfig" ]
+    },
+    "AfterContactWorkConfig" : {
+      "description" : "After Contact Work configuration.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AfterContactWorkTimeLimit" : {
+          "$ref" : "#/definitions/AfterContactWorkTimeLimit"
+        }
+      }
+    },
+    "PhoneNumberConfig" : {
+      "description" : "Phone Number configuration per channel.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Channel" : {
+          "$ref" : "#/definitions/Channel"
+        },
+        "PhoneType" : {
+          "$ref" : "#/definitions/PhoneType"
+        },
+        "PhoneNumber" : {
+          "$ref" : "#/definitions/DeskPhoneNumber"
+        }
+      },
+      "required" : [ "Channel", "PhoneType" ]
+    },
+    "PersistentConnectionConfig" : {
+      "description" : "Persistent Connection configuration per channel.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Channel" : {
+          "$ref" : "#/definitions/Channel"
+        },
+        "PersistentConnection" : {
+          "$ref" : "#/definitions/PersistentConnection"
+        }
+      },
+      "required" : [ "Channel", "PersistentConnection" ]
+    },
+    "VoiceEnhancementConfig" : {
+      "description" : "Voice Enhancement configuration per channel.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Channel" : {
+          "$ref" : "#/definitions/Channel"
+        },
+        "VoiceEnhancementMode" : {
+          "$ref" : "#/definitions/VoiceEnhancementMode"
+        }
+      },
+      "required" : [ "Channel", "VoiceEnhancementMode" ]
+    }
+  },
+  "properties" : {
     "InstanceArn" : {
-      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$",
       "description" : "The identifier of the Amazon Connect instance.",
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$"
     },
     "DirectoryUserId" : {
       "description" : "The identifier of the user account in the directory used for identity management.",
       "type" : "string"
     },
+    "HierarchyGroupArn" : {
+      "description" : "The identifier of the hierarchy group for the user.",
+      "type" : "string",
+      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent-group/[-a-zA-Z0-9]*$"
+    },
+    "Username" : {
+      "description" : "The user name for the account.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 64,
+      "pattern" : "[a-zA-Z0-9\\_\\-\\.\\@]+"
+    },
+    "Password" : {
+      "description" : "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.",
+      "type" : "string",
+      "pattern" : "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\S]{8,64}$"
+    },
+    "RoutingProfileArn" : {
+      "description" : "The identifier of the routing profile for the user.",
+      "type" : "string",
+      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/routing-profile/[-a-zA-Z0-9]*$"
+    },
     "IdentityInfo" : {
       "description" : "The information about the identity of the user.",
       "$ref" : "#/definitions/UserIdentityInfo"
     },
-    "HierarchyGroupArn" : {
-      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent-group/[-a-zA-Z0-9]*$",
-      "description" : "The identifier of the hierarchy group for the user.",
-      "type" : "string"
+    "PhoneConfig" : {
+      "description" : "The phone settings for the user.",
+      "$ref" : "#/definitions/UserPhoneConfig"
     },
     "SecurityProfileArns" : {
+      "type" : "array",
       "minItems" : 1,
       "maxItems" : 10,
       "uniqueItems" : true,
-      "description" : "One or more security profile arns for the user",
       "insertionOrder" : false,
-      "type" : "array",
+      "description" : "One or more security profile arns for the user",
       "items" : {
         "$ref" : "#/definitions/SecurityProfileArn"
       }
     },
+    "UserArn" : {
+      "description" : "The Amazon Resource Name (ARN) for the user.",
+      "type" : "string",
+      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent/[-a-zA-Z0-9]*$"
+    },
     "Tags" : {
+      "type" : "array",
       "maxItems" : 50,
       "uniqueItems" : true,
-      "description" : "One or more tags.",
       "insertionOrder" : false,
-      "type" : "array",
+      "description" : "One or more tags.",
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     },
     "UserProficiencies" : {
       "description" : "One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.",
-      "insertionOrder" : false,
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/UserProficiency"
       }
     },
-    "Password" : {
-      "pattern" : "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\S]{8,64}$",
-      "description" : "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.",
-      "type" : "string"
+    "AutoAcceptConfigs" : {
+      "description" : "Auto-accept configurations of a user.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/AutoAcceptConfig"
+      }
+    },
+    "AfterContactWorkConfigs" : {
+      "description" : "After Contact Work configurations of a user.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/AfterContactWorkConfigPerChannel"
+      }
+    },
+    "PhoneNumberConfigs" : {
+      "description" : "Phone Number configurations of a user.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/PhoneNumberConfig"
+      }
+    },
+    "PersistentConnectionConfigs" : {
+      "description" : "Persistent Connection configurations of a user.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/PersistentConnectionConfig"
+      }
+    },
+    "VoiceEnhancementConfigs" : {
+      "description" : "Voice Enhancement configurations of a user.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/VoiceEnhancementConfig"
+      }
     }
+  },
+  "required" : [ "InstanceArn", "RoutingProfileArn", "SecurityProfileArns", "Username" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "connect:CreateUser", "connect:TagResource", "connect:AssociateUserProficiencies" ]
+    },
+    "read" : {
+      "permissions" : [ "connect:DescribeUser", "connect:ListUserProficiencies" ]
+    },
+    "delete" : {
+      "permissions" : [ "connect:DeleteUser", "connect:UntagResource" ]
+    },
+    "update" : {
+      "permissions" : [ "connect:UpdateUserIdentityInfo", "connect:UpdateUserPhoneConfig", "connect:UpdateUserRoutingProfile", "connect:UpdateUserSecurityProfiles", "connect:UpdateUserHierarchy", "connect:TagResource", "connect:UntagResource", "connect:AssociateUserProficiencies", "connect:DisassociateUserProficiencies", "connect:UpdateUserProficiencies", "connect:UpdateUserConfig" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "InstanceArn" : {
+            "$ref" : "resource-schema.json#/properties/InstanceArn"
+          }
+        },
+        "required" : [ "InstanceArn" ]
+      },
+      "permissions" : [ "connect:ListUsers" ]
+    }
+  },
+  "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/UserArn" ],
+  "readOnlyProperties" : [ "/properties/UserArn" ],
+  "writeOnlyProperties" : [ "/properties/Password" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "connect:TagResource", "connect:UntagResource" ]
   }
 }

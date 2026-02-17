@@ -14,6 +14,7 @@ __all__ = [
     'DataTableAttributeValueType',
     'DataTableStatus',
     'DataTableValueLockLevel',
+    'EvaluationFormEvaluationReviewNotificationRecipientType',
     'EvaluationFormItemEnablementConditionOperator',
     'EvaluationFormItemEnablementConfigurationAction',
     'EvaluationFormItemEnablementConfigurationDefaultAction',
@@ -42,6 +43,7 @@ __all__ = [
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
     'IntegrationAssociationIntegrationType',
+    'NotificationPriority',
     'QueueStatus',
     'QueueType',
     'QuickConnectType',
@@ -57,7 +59,9 @@ __all__ = [
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
     'TrafficDistributionGroupStatus',
+    'UserChannel',
     'UserPhoneType',
+    'UserVoiceEnhancementMode',
     'WorkspaceFontFamily',
     'WorkspaceMediaType',
     'WorkspaceVisibility',
@@ -135,6 +139,18 @@ class DataTableValueLockLevel(_builtins.str, Enum):
     The value lock level of the Data Table
     """
     NONE = "NONE"
+    DATA_TABLE = "DATA_TABLE"
+    PRIMARY_VALUE = "PRIMARY_VALUE"
+    ATTRIBUTE = "ATTRIBUTE"
+    VALUE = "VALUE"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormEvaluationReviewNotificationRecipientType")
+class EvaluationFormEvaluationReviewNotificationRecipientType(_builtins.str, Enum):
+    """
+    The type of notification recipient.
+    """
+    USER_ID = "USER_ID"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConditionOperator")
@@ -432,6 +448,16 @@ class IntegrationAssociationIntegrationType(_builtins.str, Enum):
     LEX_BOT = "LEX_BOT"
     LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
     APPLICATION = "APPLICATION"
+    CASES_DOMAIN = "CASES_DOMAIN"
+
+
+@pulumi.type_token("aws-native:connect:NotificationPriority")
+class NotificationPriority(_builtins.str, Enum):
+    """
+    The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+    """
+    HIGH = "HIGH"
+    LOW = "LOW"
 
 
 @pulumi.type_token("aws-native:connect:QueueStatus")
@@ -602,6 +628,17 @@ class TrafficDistributionGroupStatus(_builtins.str, Enum):
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 
 
+@pulumi.type_token("aws-native:connect:UserChannel")
+class UserChannel(_builtins.str, Enum):
+    """
+    The channels that agents can handle in the Contact Control Panel (CCP).
+    """
+    VOICE = "VOICE"
+    CHAT = "CHAT"
+    TASK = "TASK"
+    EMAIL = "EMAIL"
+
+
 @pulumi.type_token("aws-native:connect:UserPhoneType")
 class UserPhoneType(_builtins.str, Enum):
     """
@@ -609,6 +646,16 @@ class UserPhoneType(_builtins.str, Enum):
     """
     SOFT_PHONE = "SOFT_PHONE"
     DESK_PHONE = "DESK_PHONE"
+
+
+@pulumi.type_token("aws-native:connect:UserVoiceEnhancementMode")
+class UserVoiceEnhancementMode(_builtins.str, Enum):
+    """
+    The Voice Enhancement Mode setting.
+    """
+    NONE = "NONE"
+    VOICE_ISOLATION = "VOICE_ISOLATION"
+    NOISE_SUPPRESSION = "NOISE_SUPPRESSION"
 
 
 @pulumi.type_token("aws-native:connect:WorkspaceFontFamily")

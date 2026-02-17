@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupVectorBucketResult struct {
 	//
 	// Example: `2024-12-21T10:30:00Z`
 	CreationTime *string `pulumi:"creationTime"`
+	// User tags (key-value pairs) to associate with the vector bucket.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
 	//
 	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
@@ -79,6 +82,11 @@ func (o LookupVectorBucketResultOutput) ToLookupVectorBucketResultOutputWithCont
 // Example: `2024-12-21T10:30:00Z`
 func (o LookupVectorBucketResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVectorBucketResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// User tags (key-value pairs) to associate with the vector bucket.
+func (o LookupVectorBucketResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVectorBucketResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified vector bucket.

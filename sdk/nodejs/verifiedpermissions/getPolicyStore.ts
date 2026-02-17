@@ -39,6 +39,7 @@ export interface GetPolicyStoreResult {
      * Descriptive text that you can provide to help with identification of the current policy store.
      */
     readonly description?: string;
+    readonly encryptionState?: outputs.verifiedpermissions.EncryptionState0Properties | outputs.verifiedpermissions.EncryptionState1Properties;
     /**
      * The unique ID of the new or updated policy store.
      */

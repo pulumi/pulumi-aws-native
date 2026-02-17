@@ -42,6 +42,14 @@ namespace Pulumi.AwsNative.Backup.Inputs
             set => _backupPlanRule = value;
         }
 
+        [Input("scanSettings")]
+        private InputList<Inputs.BackupPlanScanSettingResourceTypeArgs>? _scanSettings;
+        public InputList<Inputs.BackupPlanScanSettingResourceTypeArgs> ScanSettings
+        {
+            get => _scanSettings ?? (_scanSettings = new InputList<Inputs.BackupPlanScanSettingResourceTypeArgs>());
+            set => _scanSettings = value;
+        }
+
         public BackupPlanResourceTypeArgs()
         {
         }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("s3VectorsEngine")]
         public Input<Inputs.DomainS3VectorsEngineArgs>? S3VectorsEngine { get; set; }
 
+        [Input("serverlessVectorAcceleration")]
+        public Input<Inputs.DomainServerlessVectorAccelerationArgs>? ServerlessVectorAcceleration { get; set; }
+
         public DomainAimlOptionsArgs()
         {
         }

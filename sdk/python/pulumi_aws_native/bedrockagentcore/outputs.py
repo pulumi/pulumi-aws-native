@@ -34,6 +34,10 @@ __all__ = [
     'GatewayLambdaInterceptorConfiguration',
     'GatewayMcpGatewayConfiguration',
     'GatewayProtocolConfigurationProperties',
+    'GatewayTargetApiGatewayTargetConfiguration',
+    'GatewayTargetApiGatewayToolConfiguration',
+    'GatewayTargetApiGatewayToolFilter',
+    'GatewayTargetApiGatewayToolOverride',
     'GatewayTargetApiKeyCredentialProvider',
     'GatewayTargetApiSchemaConfiguration0Properties',
     'GatewayTargetApiSchemaConfiguration1Properties',
@@ -46,6 +50,7 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration1Properties',
     'GatewayTargetMcpTargetConfiguration2Properties',
     'GatewayTargetMcpTargetConfiguration3Properties',
+    'GatewayTargetMcpTargetConfiguration4Properties',
     'GatewayTargetMetadataConfiguration',
     'GatewayTargetOAuthCredentialProvider',
     'GatewayTargetS3Configuration',
@@ -84,9 +89,12 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
     'RuntimeAgentRuntimeArtifact',
     'RuntimeAuthorizerConfiguration',
+    'RuntimeAuthorizingClaimMatchValueType',
+    'RuntimeClaimMatchValueType',
     'RuntimeCode',
     'RuntimeCodeConfiguration',
     'RuntimeContainerConfiguration',
+    'RuntimeCustomClaimValidationType',
     'RuntimeCustomJwtAuthorizerConfiguration',
     'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
@@ -771,6 +779,160 @@ class GatewayProtocolConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetApiGatewayTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiGatewayToolConfiguration":
+            suggest = "api_gateway_tool_configuration"
+        elif key == "restApiId":
+            suggest = "rest_api_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiGatewayTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiGatewayTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiGatewayTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_gateway_tool_configuration: 'outputs.GatewayTargetApiGatewayToolConfiguration',
+                 rest_api_id: _builtins.str,
+                 stage: _builtins.str):
+        pulumi.set(__self__, "api_gateway_tool_configuration", api_gateway_tool_configuration)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        pulumi.set(__self__, "stage", stage)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGatewayToolConfiguration")
+    def api_gateway_tool_configuration(self) -> 'outputs.GatewayTargetApiGatewayToolConfiguration':
+        return pulumi.get(self, "api_gateway_tool_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> _builtins.str:
+        return pulumi.get(self, "rest_api_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> _builtins.str:
+        return pulumi.get(self, "stage")
+
+
+@pulumi.output_type
+class GatewayTargetApiGatewayToolConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolFilters":
+            suggest = "tool_filters"
+        elif key == "toolOverrides":
+            suggest = "tool_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiGatewayToolConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiGatewayToolConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiGatewayToolConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tool_filters: Sequence['outputs.GatewayTargetApiGatewayToolFilter'],
+                 tool_overrides: Optional[Sequence['outputs.GatewayTargetApiGatewayToolOverride']] = None):
+        pulumi.set(__self__, "tool_filters", tool_filters)
+        if tool_overrides is not None:
+            pulumi.set(__self__, "tool_overrides", tool_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="toolFilters")
+    def tool_filters(self) -> Sequence['outputs.GatewayTargetApiGatewayToolFilter']:
+        return pulumi.get(self, "tool_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="toolOverrides")
+    def tool_overrides(self) -> Optional[Sequence['outputs.GatewayTargetApiGatewayToolOverride']]:
+        return pulumi.get(self, "tool_overrides")
+
+
+@pulumi.output_type
+class GatewayTargetApiGatewayToolFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterPath":
+            suggest = "filter_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiGatewayToolFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiGatewayToolFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiGatewayToolFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_path: _builtins.str,
+                 methods: Sequence['GatewayTargetRestApiMethod']):
+        pulumi.set(__self__, "filter_path", filter_path)
+        pulumi.set(__self__, "methods", methods)
+
+    @_builtins.property
+    @pulumi.getter(name="filterPath")
+    def filter_path(self) -> _builtins.str:
+        return pulumi.get(self, "filter_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def methods(self) -> Sequence['GatewayTargetRestApiMethod']:
+        return pulumi.get(self, "methods")
+
+
+@pulumi.output_type
+class GatewayTargetApiGatewayToolOverride(dict):
+    def __init__(__self__, *,
+                 method: 'GatewayTargetRestApiMethod',
+                 name: _builtins.str,
+                 path: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> 'GatewayTargetRestApiMethod':
+        return pulumi.get(self, "method")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class GatewayTargetApiKeyCredentialProvider(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1141,6 +1303,35 @@ class GatewayTargetMcpTargetConfiguration3Properties(dict):
     @pulumi.getter(name="mcpServer")
     def mcp_server(self) -> 'outputs.GatewayTargetMcpServerTargetConfiguration':
         return pulumi.get(self, "mcp_server")
+
+
+@pulumi.output_type
+class GatewayTargetMcpTargetConfiguration4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiGateway":
+            suggest = "api_gateway"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpTargetConfiguration4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpTargetConfiguration4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpTargetConfiguration4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_gateway: 'outputs.GatewayTargetApiGatewayTargetConfiguration'):
+        pulumi.set(__self__, "api_gateway", api_gateway)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> 'outputs.GatewayTargetApiGatewayTargetConfiguration':
+        return pulumi.get(self, "api_gateway")
 
 
 @pulumi.output_type
@@ -2949,6 +3140,96 @@ class RuntimeAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeAuthorizingClaimMatchValueType(dict):
+    """
+    The value or values in the custom claim to match and relationship of match
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimMatchOperator":
+            suggest = "claim_match_operator"
+        elif key == "claimMatchValue":
+            suggest = "claim_match_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeAuthorizingClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_match_operator: 'RuntimeClaimMatchOperator',
+                 claim_match_value: 'outputs.RuntimeClaimMatchValueType'):
+        """
+        The value or values in the custom claim to match and relationship of match
+        """
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> 'RuntimeClaimMatchOperator':
+        return pulumi.get(self, "claim_match_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> 'outputs.RuntimeClaimMatchValueType':
+        return pulumi.get(self, "claim_match_value")
+
+
+@pulumi.output_type
+class RuntimeClaimMatchValueType(dict):
+    """
+    The value or values in the custom claim to match for
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValueString":
+            suggest = "match_value_string"
+        elif key == "matchValueStringList":
+            suggest = "match_value_string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_value_string: Optional[_builtins.str] = None,
+                 match_value_string_list: Optional[Sequence[_builtins.str]] = None):
+        """
+        The value or values in the custom claim to match for
+        """
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_list is not None:
+            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "match_value_string")
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringList")
+    def match_value_string_list(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "match_value_string_list")
+
+
+@pulumi.output_type
 class RuntimeCode(dict):
     """
     Object represents source code from zip file
@@ -3052,6 +3333,59 @@ class RuntimeContainerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeCustomClaimValidationType(dict):
+    """
+    Required custom claim
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizingClaimMatchValue":
+            suggest = "authorizing_claim_match_value"
+        elif key == "inboundTokenClaimName":
+            suggest = "inbound_token_claim_name"
+        elif key == "inboundTokenClaimValueType":
+            suggest = "inbound_token_claim_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeCustomClaimValidationType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeCustomClaimValidationType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeCustomClaimValidationType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: 'outputs.RuntimeAuthorizingClaimMatchValueType',
+                 inbound_token_claim_name: _builtins.str,
+                 inbound_token_claim_value_type: 'RuntimeInboundTokenClaimValueType'):
+        """
+        Required custom claim
+        """
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> 'outputs.RuntimeAuthorizingClaimMatchValueType':
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> _builtins.str:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> 'RuntimeInboundTokenClaimValueType':
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+
+@pulumi.output_type
 class RuntimeCustomJwtAuthorizerConfiguration(dict):
     """
     Configuration for custom JWT authorizer
@@ -3065,6 +3399,10 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
             suggest = "allowed_audience"
         elif key == "allowedClients":
             suggest = "allowed_clients"
+        elif key == "allowedScopes":
+            suggest = "allowed_scopes"
+        elif key == "customClaims":
+            suggest = "custom_claims"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuntimeCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3080,7 +3418,9 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
     def __init__(__self__, *,
                  discovery_url: _builtins.str,
                  allowed_audience: Optional[Sequence[_builtins.str]] = None,
-                 allowed_clients: Optional[Sequence[_builtins.str]] = None):
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 custom_claims: Optional[Sequence['outputs.RuntimeCustomClaimValidationType']] = None):
         """
         Configuration for custom JWT authorizer
         :param _builtins.str discovery_url: The configuration authorization.
@@ -3092,6 +3432,10 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
             pulumi.set(__self__, "allowed_audience", allowed_audience)
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -3116,6 +3460,16 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
         Represents individual client IDs that are validated in the incoming JWT token validation process.
         """
         return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[Sequence['outputs.RuntimeCustomClaimValidationType']]:
+        return pulumi.get(self, "custom_claims")
 
 
 @pulumi.output_type

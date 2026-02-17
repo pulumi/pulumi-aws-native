@@ -30,20 +30,15 @@ __all__ = [
     'BudgetsActionSubscriberArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BudgetsActionActionThresholdArgsDict(TypedDict):
-        type: pulumi.Input['BudgetsActionActionThresholdType']
-        """
-        The type of threshold for a notification.
-        """
-        value: pulumi.Input[_builtins.float]
-        """
-        The threshold of a notification.
-        """
-elif False:
-    BudgetsActionActionThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetsActionActionThresholdArgsDict(TypedDict):
+    type: pulumi.Input['BudgetsActionActionThresholdType']
+    """
+    The type of threshold for a notification.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    The threshold of a notification.
+    """
 
 @pulumi.input_type
 class BudgetsActionActionThresholdArgs:
@@ -82,22 +77,19 @@ class BudgetsActionActionThresholdArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BudgetsActionDefinitionArgsDict(TypedDict):
-        iam_action_definition: NotRequired[pulumi.Input['BudgetsActionIamActionDefinitionArgsDict']]
-        """
-        The AWS Identity and Access Management ( IAM ) action definition details.
-        """
-        scp_action_definition: NotRequired[pulumi.Input['BudgetsActionScpActionDefinitionArgsDict']]
-        """
-        The service control policies (SCP) action definition details.
-        """
-        ssm_action_definition: NotRequired[pulumi.Input['BudgetsActionSsmActionDefinitionArgsDict']]
-        """
-        The Amazon EC2 Systems Manager ( SSM ) action definition details.
-        """
-elif False:
-    BudgetsActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetsActionDefinitionArgsDict(TypedDict):
+    iam_action_definition: NotRequired[pulumi.Input['BudgetsActionIamActionDefinitionArgsDict']]
+    """
+    The AWS Identity and Access Management ( IAM ) action definition details.
+    """
+    scp_action_definition: NotRequired[pulumi.Input['BudgetsActionScpActionDefinitionArgsDict']]
+    """
+    The service control policies (SCP) action definition details.
+    """
+    ssm_action_definition: NotRequired[pulumi.Input['BudgetsActionSsmActionDefinitionArgsDict']]
+    """
+    The Amazon EC2 Systems Manager ( SSM ) action definition details.
+    """
 
 @pulumi.input_type
 class BudgetsActionDefinitionArgs:
@@ -154,26 +146,23 @@ class BudgetsActionDefinitionArgs:
         pulumi.set(self, "ssm_action_definition", value)
 
 
-if not MYPY:
-    class BudgetsActionIamActionDefinitionArgsDict(TypedDict):
-        policy_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the policy to be attached.
-        """
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of groups to be attached. There must be at least one group.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of roles to be attached. There must be at least one role.
-        """
-        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of users to be attached. There must be at least one user.
-        """
-elif False:
-    BudgetsActionIamActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetsActionIamActionDefinitionArgsDict(TypedDict):
+    policy_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the policy to be attached.
+    """
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of groups to be attached. There must be at least one group.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of roles to be attached. There must be at least one role.
+    """
+    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of users to be attached. There must be at least one user.
+    """
 
 @pulumi.input_type
 class BudgetsActionIamActionDefinitionArgs:
@@ -245,18 +234,15 @@ class BudgetsActionIamActionDefinitionArgs:
         pulumi.set(self, "users", value)
 
 
-if not MYPY:
-    class BudgetsActionScpActionDefinitionArgsDict(TypedDict):
-        policy_id: pulumi.Input[_builtins.str]
-        """
-        The policy ID attached.
-        """
-        target_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of target IDs.
-        """
-elif False:
-    BudgetsActionScpActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetsActionScpActionDefinitionArgsDict(TypedDict):
+    policy_id: pulumi.Input[_builtins.str]
+    """
+    The policy ID attached.
+    """
+    target_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of target IDs.
+    """
 
 @pulumi.input_type
 class BudgetsActionScpActionDefinitionArgs:
@@ -295,22 +281,19 @@ class BudgetsActionScpActionDefinitionArgs:
         pulumi.set(self, "target_ids", value)
 
 
-if not MYPY:
-    class BudgetsActionSsmActionDefinitionArgsDict(TypedDict):
-        instance_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The EC2 and RDS instance IDs.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        The Region to run the ( SSM ) document.
-        """
-        subtype: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype']
-        """
-        The action subType.
-        """
-elif False:
-    BudgetsActionSsmActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetsActionSsmActionDefinitionArgsDict(TypedDict):
+    instance_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The EC2 and RDS instance IDs.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The Region to run the ( SSM ) document.
+    """
+    subtype: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype']
+    """
+    The action subType.
+    """
 
 @pulumi.input_type
 class BudgetsActionSsmActionDefinitionArgs:
@@ -364,20 +347,17 @@ class BudgetsActionSsmActionDefinitionArgs:
         pulumi.set(self, "subtype", value)
 
 
-if not MYPY:
-    class BudgetsActionSubscriberArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The address that AWS sends budget notifications to, either an SNS topic or an email.
+class BudgetsActionSubscriberArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The address that AWS sends budget notifications to, either an SNS topic or an email.
 
-        When you create a subscriber, the value of `Address` can't contain line breaks.
-        """
-        type: pulumi.Input['BudgetsActionSubscriberType']
-        """
-        The type of notification that AWS sends to a subscriber.
-        """
-elif False:
-    BudgetsActionSubscriberArgsDict: TypeAlias = Mapping[str, Any]
+    When you create a subscriber, the value of `Address` can't contain line breaks.
+    """
+    type: pulumi.Input['BudgetsActionSubscriberType']
+    """
+    The type of notification that AWS sends to a subscriber.
+    """
 
 @pulumi.input_type
 class BudgetsActionSubscriberArgs:

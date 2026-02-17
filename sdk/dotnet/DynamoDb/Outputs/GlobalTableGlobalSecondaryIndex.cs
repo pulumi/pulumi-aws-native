@@ -32,6 +32,8 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         /// </summary>
         public readonly Outputs.GlobalTableProjection Projection;
+        public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? ReadOnDemandThroughputSettings;
+        public readonly Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         /// <summary>
         /// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
         /// </summary>
@@ -53,6 +55,10 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             Outputs.GlobalTableProjection projection,
 
+            Outputs.GlobalTableReadOnDemandThroughputSettings? readOnDemandThroughputSettings,
+
+            Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? readProvisionedThroughputSettings,
+
             Outputs.GlobalTableWarmThroughput? warmThroughput,
 
             Outputs.GlobalTableWriteOnDemandThroughputSettings? writeOnDemandThroughputSettings,
@@ -62,6 +68,8 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
             IndexName = indexName;
             KeySchema = keySchema;
             Projection = projection;
+            ReadOnDemandThroughputSettings = readOnDemandThroughputSettings;
+            ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
             WarmThroughput = warmThroughput;
             WriteOnDemandThroughputSettings = writeOnDemandThroughputSettings;
             WriteProvisionedThroughputSettings = writeProvisionedThroughputSettings;

@@ -75,12 +75,25 @@ export type DataTableStatus = (typeof DataTableStatus)[keyof typeof DataTableSta
 
 export const DataTableValueLockLevel = {
     None: "NONE",
+    DataTable: "DATA_TABLE",
+    PrimaryValue: "PRIMARY_VALUE",
+    Attribute: "ATTRIBUTE",
+    Value: "VALUE",
 } as const;
 
 /**
  * The value lock level of the Data Table
  */
 export type DataTableValueLockLevel = (typeof DataTableValueLockLevel)[keyof typeof DataTableValueLockLevel];
+
+export const EvaluationFormEvaluationReviewNotificationRecipientType = {
+    UserId: "USER_ID",
+} as const;
+
+/**
+ * The type of notification recipient.
+ */
+export type EvaluationFormEvaluationReviewNotificationRecipientType = (typeof EvaluationFormEvaluationReviewNotificationRecipientType)[keyof typeof EvaluationFormEvaluationReviewNotificationRecipientType];
 
 export const EvaluationFormItemEnablementConditionOperator = {
     Or: "OR",
@@ -400,12 +413,23 @@ export const IntegrationAssociationIntegrationType = {
     LexBot: "LEX_BOT",
     LambdaFunction: "LAMBDA_FUNCTION",
     Application: "APPLICATION",
+    CasesDomain: "CASES_DOMAIN",
 } as const;
 
 /**
  * Specifies the integration type to be associated with the instance
  */
 export type IntegrationAssociationIntegrationType = (typeof IntegrationAssociationIntegrationType)[keyof typeof IntegrationAssociationIntegrationType];
+
+export const NotificationPriority = {
+    High: "HIGH",
+    Low: "LOW",
+} as const;
+
+/**
+ * The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+ */
+export type NotificationPriority = (typeof NotificationPriority)[keyof typeof NotificationPriority];
 
 export const QueueStatus = {
     Enabled: "ENABLED",
@@ -590,6 +614,18 @@ export const TrafficDistributionGroupStatus = {
  */
 export type TrafficDistributionGroupStatus = (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
 
+export const UserChannel = {
+    Voice: "VOICE",
+    Chat: "CHAT",
+    Task: "TASK",
+    Email: "EMAIL",
+} as const;
+
+/**
+ * The channels that agents can handle in the Contact Control Panel (CCP).
+ */
+export type UserChannel = (typeof UserChannel)[keyof typeof UserChannel];
+
 export const UserPhoneType = {
     SoftPhone: "SOFT_PHONE",
     DeskPhone: "DESK_PHONE",
@@ -599,6 +635,17 @@ export const UserPhoneType = {
  * The phone type.
  */
 export type UserPhoneType = (typeof UserPhoneType)[keyof typeof UserPhoneType];
+
+export const UserVoiceEnhancementMode = {
+    None: "NONE",
+    VoiceIsolation: "VOICE_ISOLATION",
+    NoiseSuppression: "NOISE_SUPPRESSION",
+} as const;
+
+/**
+ * The Voice Enhancement Mode setting.
+ */
+export type UserVoiceEnhancementMode = (typeof UserVoiceEnhancementMode)[keyof typeof UserVoiceEnhancementMode];
 
 export const WorkspaceFontFamily = {
     Arial: "ARIAL",

@@ -97,6 +97,40 @@ export const CommandNamespace = {
  */
 export type CommandNamespace = (typeof CommandNamespace)[keyof typeof CommandNamespace];
 
+export const CommandOutputFormat = {
+    Json: "JSON",
+    Cbor: "CBOR",
+} as const;
+
+export type CommandOutputFormat = (typeof CommandOutputFormat)[keyof typeof CommandOutputFormat];
+
+export const CommandParameterType = {
+    String: "STRING",
+    Integer: "INTEGER",
+    Double: "DOUBLE",
+    Long: "LONG",
+    Unsignedlong: "UNSIGNEDLONG",
+    Boolean: "BOOLEAN",
+    Binary: "BINARY",
+} as const;
+
+export type CommandParameterType = (typeof CommandParameterType)[keyof typeof CommandParameterType];
+
+export const CommandParameterValueComparisonOperator = {
+    Equals: "EQUALS",
+    NotEquals: "NOT_EQUALS",
+    LessThan: "LESS_THAN",
+    LessThanEquals: "LESS_THAN_EQUALS",
+    GreaterThan: "GREATER_THAN",
+    GreaterThanEquals: "GREATER_THAN_EQUALS",
+    InSet: "IN_SET",
+    NotInSet: "NOT_IN_SET",
+    InRange: "IN_RANGE",
+    NotInRange: "NOT_IN_RANGE",
+} as const;
+
+export type CommandParameterValueComparisonOperator = (typeof CommandParameterValueComparisonOperator)[keyof typeof CommandParameterValueComparisonOperator];
+
 export const CustomMetricMetricType = {
     StringList: "string-list",
     IpAddressList: "ip-address-list",
@@ -244,6 +278,19 @@ export const LoggingDefaultLogLevel = {
  * The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
  */
 export type LoggingDefaultLogLevel = (typeof LoggingDefaultLogLevel)[keyof typeof LoggingDefaultLogLevel];
+
+export const LoggingEventConfigurationLogLevel = {
+    Error: "ERROR",
+    Warn: "WARN",
+    Info: "INFO",
+    Debug: "DEBUG",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+ */
+export type LoggingEventConfigurationLogLevel = (typeof LoggingEventConfigurationLogLevel)[keyof typeof LoggingEventConfigurationLogLevel];
 
 export const MitigationActionEnableIoTLoggingParamsLogLevel = {
     Debug: "DEBUG",

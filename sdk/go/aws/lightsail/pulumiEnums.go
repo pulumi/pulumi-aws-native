@@ -10,6 +10,96 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The Lightsail resource type.
+type DatabaseSnapshotResourceType string
+
+const (
+	DatabaseSnapshotResourceTypeRelationalDatabaseSnapshot = DatabaseSnapshotResourceType("RelationalDatabaseSnapshot")
+)
+
+type DatabaseSnapshotResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (DatabaseSnapshotResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseSnapshotResourceType)(nil)).Elem()
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToDatabaseSnapshotResourceTypeOutput() DatabaseSnapshotResourceTypeOutput {
+	return o
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToDatabaseSnapshotResourceTypeOutputWithContext(ctx context.Context) DatabaseSnapshotResourceTypeOutput {
+	return o
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToDatabaseSnapshotResourceTypePtrOutput() DatabaseSnapshotResourceTypePtrOutput {
+	return o.ToDatabaseSnapshotResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToDatabaseSnapshotResourceTypePtrOutputWithContext(ctx context.Context) DatabaseSnapshotResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseSnapshotResourceType) *DatabaseSnapshotResourceType {
+		return &v
+	}).(DatabaseSnapshotResourceTypePtrOutput)
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabaseSnapshotResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseSnapshotResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabaseSnapshotResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatabaseSnapshotResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseSnapshotResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseSnapshotResourceType)(nil)).Elem()
+}
+
+func (o DatabaseSnapshotResourceTypePtrOutput) ToDatabaseSnapshotResourceTypePtrOutput() DatabaseSnapshotResourceTypePtrOutput {
+	return o
+}
+
+func (o DatabaseSnapshotResourceTypePtrOutput) ToDatabaseSnapshotResourceTypePtrOutputWithContext(ctx context.Context) DatabaseSnapshotResourceTypePtrOutput {
+	return o
+}
+
+func (o DatabaseSnapshotResourceTypePtrOutput) Elem() DatabaseSnapshotResourceTypeOutput {
+	return o.ApplyT(func(v *DatabaseSnapshotResourceType) DatabaseSnapshotResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseSnapshotResourceType
+		return ret
+	}).(DatabaseSnapshotResourceTypeOutput)
+}
+
+func (o DatabaseSnapshotResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseSnapshotResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatabaseSnapshotResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Status of the Addon
 type DiskAddOnStatus string
 
@@ -550,6 +640,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnStatusPtrInput)(nil)).Elem(), DiskAddOnStatus("Enabling"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusPtrInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
+	pulumi.RegisterOutputType(DatabaseSnapshotResourceTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseSnapshotResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DiskAddOnStatusOutput{})
 	pulumi.RegisterOutputType(DiskAddOnStatusPtrOutput{})
 	pulumi.RegisterOutputType(DiskSnapshotResourceTypeOutput{})

@@ -13,6 +13,146 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+type ConfigurationSetArchivingOptions struct {
+	// The ARN of the MailManager archive to associate with the configuration set.
+	ArchiveArn *string `pulumi:"archiveArn"`
+}
+
+// ConfigurationSetArchivingOptionsInput is an input type that accepts ConfigurationSetArchivingOptionsArgs and ConfigurationSetArchivingOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetArchivingOptionsInput` via:
+//
+//	ConfigurationSetArchivingOptionsArgs{...}
+type ConfigurationSetArchivingOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetArchivingOptionsOutput() ConfigurationSetArchivingOptionsOutput
+	ToConfigurationSetArchivingOptionsOutputWithContext(context.Context) ConfigurationSetArchivingOptionsOutput
+}
+
+// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+type ConfigurationSetArchivingOptionsArgs struct {
+	// The ARN of the MailManager archive to associate with the configuration set.
+	ArchiveArn pulumi.StringPtrInput `pulumi:"archiveArn"`
+}
+
+func (ConfigurationSetArchivingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsOutput() ConfigurationSetArchivingOptionsOutput {
+	return i.ToConfigurationSetArchivingOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArchivingOptionsOutput)
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return i.ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetArchivingOptionsArgs) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArchivingOptionsOutput).ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetArchivingOptionsPtrInput is an input type that accepts ConfigurationSetArchivingOptionsArgs, ConfigurationSetArchivingOptionsPtr and ConfigurationSetArchivingOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetArchivingOptionsPtrInput` via:
+//
+//	        ConfigurationSetArchivingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetArchivingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput
+	ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Context) ConfigurationSetArchivingOptionsPtrOutput
+}
+
+type configurationSetArchivingOptionsPtrType ConfigurationSetArchivingOptionsArgs
+
+func ConfigurationSetArchivingOptionsPtr(v *ConfigurationSetArchivingOptionsArgs) ConfigurationSetArchivingOptionsPtrInput {
+	return (*configurationSetArchivingOptionsPtrType)(v)
+}
+
+func (*configurationSetArchivingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (i *configurationSetArchivingOptionsPtrType) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return i.ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetArchivingOptionsPtrType) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArchivingOptionsPtrOutput)
+}
+
+// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+type ConfigurationSetArchivingOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetArchivingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsOutput() ConfigurationSetArchivingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return o.ToConfigurationSetArchivingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetArchivingOptionsOutput) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetArchivingOptions) *ConfigurationSetArchivingOptions {
+		return &v
+	}).(ConfigurationSetArchivingOptionsPtrOutput)
+}
+
+// The ARN of the MailManager archive to associate with the configuration set.
+func (o ConfigurationSetArchivingOptionsOutput) ArchiveArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetArchivingOptions) *string { return v.ArchiveArn }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetArchivingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetArchivingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetArchivingOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetArchivingOptionsPtrOutput) ToConfigurationSetArchivingOptionsPtrOutput() ConfigurationSetArchivingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsPtrOutput) ToConfigurationSetArchivingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetArchivingOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetArchivingOptionsPtrOutput) Elem() ConfigurationSetArchivingOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetArchivingOptions) ConfigurationSetArchivingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetArchivingOptions
+		return ret
+	}).(ConfigurationSetArchivingOptionsOutput)
+}
+
+// The ARN of the MailManager archive to associate with the configuration set.
+func (o ConfigurationSetArchivingOptionsPtrOutput) ArchiveArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetArchivingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Preferences regarding the Dashboard feature.
 type ConfigurationSetDashboardOptions struct {
 	// Whether emails sent with this configuration set have engagement tracking enabled.
@@ -1670,6 +1810,8 @@ func (o ConfigurationSetSendingOptionsPtrOutput) SendingEnabled() pulumi.BoolPtr
 type ConfigurationSetSuppressionOptions struct {
 	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
+	// An object that contains information about the validation options for your account.
+	ValidationOptions *ConfigurationSetSuppressionOptionsValidationOptionsProperties `pulumi:"validationOptions"`
 }
 
 // ConfigurationSetSuppressionOptionsInput is an input type that accepts ConfigurationSetSuppressionOptionsArgs and ConfigurationSetSuppressionOptionsOutput values.
@@ -1687,6 +1829,8 @@ type ConfigurationSetSuppressionOptionsInput interface {
 type ConfigurationSetSuppressionOptionsArgs struct {
 	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
 	SuppressedReasons pulumi.StringArrayInput `pulumi:"suppressedReasons"`
+	// An object that contains information about the validation options for your account.
+	ValidationOptions ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrInput `pulumi:"validationOptions"`
 }
 
 func (ConfigurationSetSuppressionOptionsArgs) ElementType() reflect.Type {
@@ -1772,6 +1916,13 @@ func (o ConfigurationSetSuppressionOptionsOutput) SuppressedReasons() pulumi.Str
 	return o.ApplyT(func(v ConfigurationSetSuppressionOptions) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
 }
 
+// An object that contains information about the validation options for your account.
+func (o ConfigurationSetSuppressionOptionsOutput) ValidationOptions() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetSuppressionOptions) *ConfigurationSetSuppressionOptionsValidationOptionsProperties {
+		return v.ValidationOptions
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput)
+}
+
 type ConfigurationSetSuppressionOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetSuppressionOptionsPtrOutput) ElementType() reflect.Type {
@@ -1804,6 +1955,463 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 		}
 		return v.SuppressedReasons
 	}).(pulumi.StringArrayOutput)
+}
+
+// An object that contains information about the validation options for your account.
+func (o ConfigurationSetSuppressionOptionsPtrOutput) ValidationOptions() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptions) *ConfigurationSetSuppressionOptionsValidationOptionsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationOptions
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput)
+}
+
+// An object that contains information about the validation options for your account.
+type ConfigurationSetSuppressionOptionsValidationOptionsProperties struct {
+	// The condition threshold settings for suppression validation.
+	ConditionThreshold ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties `pulumi:"conditionThreshold"`
+}
+
+// ConfigurationSetSuppressionOptionsValidationOptionsPropertiesInput is an input type that accepts ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs and ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsValidationOptionsPropertiesInput` via:
+//
+//	ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs{...}
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput
+}
+
+// An object that contains information about the validation options for your account.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs struct {
+	// The condition threshold settings for suppression validation.
+	ConditionThreshold ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesInput `pulumi:"conditionThreshold"`
+}
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsProperties)(nil)).Elem()
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput)
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput).ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrInput is an input type that accepts ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs, ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtr and ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrInput` via:
+//
+//	        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput
+}
+
+type configurationSetSuppressionOptionsValidationOptionsPropertiesPtrType ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs
+
+func ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtr(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrInput {
+	return (*configurationSetSuppressionOptionsValidationOptionsPropertiesPtrType)(v)
+}
+
+func (*configurationSetSuppressionOptionsValidationOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptionsValidationOptionsProperties)(nil)).Elem()
+}
+
+func (i *configurationSetSuppressionOptionsValidationOptionsPropertiesPtrType) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetSuppressionOptionsValidationOptionsPropertiesPtrType) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput)
+}
+
+// An object that contains information about the validation options for your account.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsProperties)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return o.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetSuppressionOptionsValidationOptionsProperties) *ConfigurationSetSuppressionOptionsValidationOptionsProperties {
+		return &v
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput)
+}
+
+// The condition threshold settings for suppression validation.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput) ConditionThreshold() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput {
+	return o.ApplyT(func(v ConfigurationSetSuppressionOptionsValidationOptionsProperties) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties {
+		return v.ConditionThreshold
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput)
+}
+
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptionsValidationOptionsProperties)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput) Elem() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsProperties) ConfigurationSetSuppressionOptionsValidationOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetSuppressionOptionsValidationOptionsProperties
+		return ret
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput)
+}
+
+// The condition threshold settings for suppression validation.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput) ConditionThreshold() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsProperties) *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionThreshold
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput)
+}
+
+// The condition threshold settings for suppression validation.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties struct {
+	// Whether the condition threshold is enabled or disabled.
+	ConditionThresholdEnabled string `pulumi:"conditionThresholdEnabled"`
+	// The overall confidence threshold settings.
+	OverallConfidenceThreshold *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties `pulumi:"overallConfidenceThreshold"`
+}
+
+// ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesInput is an input type that accepts ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs and ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesInput` via:
+//
+//	ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs{...}
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput
+}
+
+// The condition threshold settings for suppression validation.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs struct {
+	// Whether the condition threshold is enabled or disabled.
+	ConditionThresholdEnabled pulumi.StringInput `pulumi:"conditionThresholdEnabled"`
+	// The overall confidence threshold settings.
+	OverallConfidenceThreshold ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrInput `pulumi:"overallConfidenceThreshold"`
+}
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties)(nil)).Elem()
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput)
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput).ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrInput is an input type that accepts ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs, ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtr and ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrInput` via:
+//
+//	        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput
+}
+
+type configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrType ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs
+
+func ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtr(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrInput {
+	return (*configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrType)(v)
+}
+
+func (*configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties)(nil)).Elem()
+}
+
+func (i *configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrType) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrType) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput)
+}
+
+// The condition threshold settings for suppression validation.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return o.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties) *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties {
+		return &v
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput)
+}
+
+// Whether the condition threshold is enabled or disabled.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) ConditionThresholdEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties) string {
+		return v.ConditionThresholdEnabled
+	}).(pulumi.StringOutput)
+}
+
+// The overall confidence threshold settings.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput) OverallConfidenceThreshold() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties) *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties {
+		return v.OverallConfidenceThreshold
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput)
+}
+
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput) Elem() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties
+		return ret
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput)
+}
+
+// Whether the condition threshold is enabled or disabled.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput) ConditionThresholdEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionThresholdEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+// The overall confidence threshold settings.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput) OverallConfidenceThreshold() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties) *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties {
+		if v == nil {
+			return nil
+		}
+		return v.OverallConfidenceThreshold
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput)
+}
+
+// The overall confidence threshold settings.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties struct {
+	// The confidence verdict threshold level.
+	ConfidenceVerdictThreshold string `pulumi:"confidenceVerdictThreshold"`
+}
+
+// ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesInput is an input type that accepts ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs and ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesInput` via:
+//
+//	ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs{...}
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput
+}
+
+// The overall confidence threshold settings.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs struct {
+	// The confidence verdict threshold level.
+	ConfidenceVerdictThreshold pulumi.StringInput `pulumi:"confidenceVerdictThreshold"`
+}
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties)(nil)).Elem()
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput)
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput).ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrInput is an input type that accepts ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs, ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtr and ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrInput` via:
+//
+//	        ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput
+	ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput
+}
+
+type configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrType ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs
+
+func ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtr(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrInput {
+	return (*configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrType)(v)
+}
+
+func (*configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties)(nil)).Elem()
+}
+
+func (i *configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrType) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return i.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrType) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput)
+}
+
+// The overall confidence threshold settings.
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return o.ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties) *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties {
+		return &v
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput)
+}
+
+// The confidence verdict threshold level.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput) ConfidenceVerdictThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties) string {
+		return v.ConfidenceVerdictThreshold
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties)(nil)).Elem()
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput) ToConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput) Elem() ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties) ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties
+		return ret
+	}).(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput)
+}
+
+// The confidence verdict threshold level.
+func (o ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput) ConfidenceVerdictThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfidenceVerdictThreshold
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationSetTag struct {
@@ -2260,6 +2868,14 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactListTopic {
 		return vs[0].([]ContactListTopic)[vs[1].(int)]
 	}).(ContactListTopicOutput)
+}
+
+// An object that defines the tags (keys and values) that you want to associate with the tenant.
+type CustomVerificationEmailTemplateTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
 }
 
 type DedicatedIpPoolTag struct {
@@ -8302,6 +8918,11 @@ func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The resource to associate with the tenant
 type TenantResourceAssociation struct {
 	// The ARN of the resource to associate with the tenant
@@ -8691,6 +9312,8 @@ func (o VdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery() pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetArchivingOptionsInput)(nil)).Elem(), ConfigurationSetArchivingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetArchivingOptionsPtrInput)(nil)).Elem(), ConfigurationSetArchivingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDashboardOptionsInput)(nil)).Elem(), ConfigurationSetDashboardOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDashboardOptionsPtrInput)(nil)).Elem(), ConfigurationSetDashboardOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
@@ -8714,6 +9337,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsPtrInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
@@ -8825,6 +9454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesPtrInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesPtrInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
+	pulumi.RegisterOutputType(ConfigurationSetArchivingOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetArchivingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDashboardOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDashboardOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
@@ -8849,6 +9480,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsOutput{})

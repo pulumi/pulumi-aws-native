@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPortalResult:
-    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, data_protection_settings_arn=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, session_logger_arn=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
+    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, data_protection_settings_arn=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_custom_domain=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, session_logger_arn=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
         if authentication_type and not isinstance(authentication_type, str):
             raise TypeError("Expected argument 'authentication_type' to be a str")
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -59,6 +59,9 @@ class GetPortalResult:
         if portal_arn and not isinstance(portal_arn, str):
             raise TypeError("Expected argument 'portal_arn' to be a str")
         pulumi.set(__self__, "portal_arn", portal_arn)
+        if portal_custom_domain and not isinstance(portal_custom_domain, str):
+            raise TypeError("Expected argument 'portal_custom_domain' to be a str")
+        pulumi.set(__self__, "portal_custom_domain", portal_custom_domain)
         if portal_endpoint and not isinstance(portal_endpoint, str):
             raise TypeError("Expected argument 'portal_endpoint' to be a str")
         pulumi.set(__self__, "portal_endpoint", portal_endpoint)
@@ -106,7 +109,7 @@ class GetPortalResult:
 
         4. Add an `IdentityProvider` resource to your CloudFormation template.
 
-        `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+        `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -189,6 +192,11 @@ class GetPortalResult:
         The ARN of the web portal.
         """
         return pulumi.get(self, "portal_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="portalCustomDomain")
+    def portal_custom_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "portal_custom_domain")
 
     @_builtins.property
     @pulumi.getter(name="portalEndpoint")
@@ -288,6 +296,7 @@ class AwaitableGetPortalResult(GetPortalResult):
             max_concurrent_sessions=self.max_concurrent_sessions,
             network_settings_arn=self.network_settings_arn,
             portal_arn=self.portal_arn,
+            portal_custom_domain=self.portal_custom_domain,
             portal_endpoint=self.portal_endpoint,
             portal_status=self.portal_status,
             renderer_type=self.renderer_type,
@@ -325,6 +334,7 @@ def get_portal(portal_arn: Optional[_builtins.str] = None,
         max_concurrent_sessions=pulumi.get(__ret__, 'max_concurrent_sessions'),
         network_settings_arn=pulumi.get(__ret__, 'network_settings_arn'),
         portal_arn=pulumi.get(__ret__, 'portal_arn'),
+        portal_custom_domain=pulumi.get(__ret__, 'portal_custom_domain'),
         portal_endpoint=pulumi.get(__ret__, 'portal_endpoint'),
         portal_status=pulumi.get(__ret__, 'portal_status'),
         renderer_type=pulumi.get(__ret__, 'renderer_type'),
@@ -359,6 +369,7 @@ def get_portal_output(portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
         max_concurrent_sessions=pulumi.get(__response__, 'max_concurrent_sessions'),
         network_settings_arn=pulumi.get(__response__, 'network_settings_arn'),
         portal_arn=pulumi.get(__response__, 'portal_arn'),
+        portal_custom_domain=pulumi.get(__response__, 'portal_custom_domain'),
         portal_endpoint=pulumi.get(__response__, 'portal_endpoint'),
         portal_status=pulumi.get(__response__, 'portal_status'),
         renderer_type=pulumi.get(__response__, 'renderer_type'),

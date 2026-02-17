@@ -72,31 +72,26 @@ __all__ = [
     'VodSourceHttpPackageConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ChannelDashPlaylistSettingsArgsDict(TypedDict):
-        """
-        <p>Dash manifest configuration parameters.</p>
-        """
-        manifest_window_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
-        """
-        min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
-        """
-        min_update_period_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
-        """
-        suggested_presentation_delay_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
-        """
-elif False:
-    ChannelDashPlaylistSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelDashPlaylistSettingsArgsDict(TypedDict):
+    """
+    <p>Dash manifest configuration parameters.</p>
+    """
+    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+    """
+    min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+    """
+    min_update_period_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+    """
+    suggested_presentation_delay_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
+    """
 
 @pulumi.input_type
 class ChannelDashPlaylistSettingsArgs:
@@ -170,21 +165,18 @@ class ChannelDashPlaylistSettingsArgs:
         pulumi.set(self, "suggested_presentation_delay_seconds", value)
 
 
-if not MYPY:
-    class ChannelHlsPlaylistSettingsArgsDict(TypedDict):
-        """
-        <p>HLS playlist configuration parameters.</p>
-        """
-        ad_markup_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]]
-        """
-        <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
-        """
-        manifest_window_seconds: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
-        """
-elif False:
-    ChannelHlsPlaylistSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelHlsPlaylistSettingsArgsDict(TypedDict):
+    """
+    <p>HLS playlist configuration parameters.</p>
+    """
+    ad_markup_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]]
+    """
+    <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+    """
+    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
+    """
 
 @pulumi.input_type
 class ChannelHlsPlaylistSettingsArgs:
@@ -226,17 +218,14 @@ class ChannelHlsPlaylistSettingsArgs:
         pulumi.set(self, "manifest_window_seconds", value)
 
 
-if not MYPY:
-    class ChannelLogConfigurationForChannelArgsDict(TypedDict):
-        """
-        <p>The log configuration for the channel.</p>
-        """
-        log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]]
-        """
-        <p>The log types.</p>
-        """
-elif False:
-    ChannelLogConfigurationForChannelArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelLogConfigurationForChannelArgsDict(TypedDict):
+    """
+    <p>The log configuration for the channel.</p>
+    """
+    log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]]
+    """
+    <p>The log types.</p>
+    """
 
 @pulumi.input_type
 class ChannelLogConfigurationForChannelArgs:
@@ -262,29 +251,26 @@ class ChannelLogConfigurationForChannelArgs:
         pulumi.set(self, "log_types", value)
 
 
-if not MYPY:
-    class ChannelRequestOutputItemArgsDict(TypedDict):
-        """
-        <p>The output configuration for this channel.</p>
-        """
-        manifest_name: pulumi.Input[_builtins.str]
-        """
-        <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
-        """
-        source_group: pulumi.Input[_builtins.str]
-        """
-        <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
-        """
-        dash_playlist_settings: NotRequired[pulumi.Input['ChannelDashPlaylistSettingsArgsDict']]
-        """
-        DASH manifest configuration parameters.
-        """
-        hls_playlist_settings: NotRequired[pulumi.Input['ChannelHlsPlaylistSettingsArgsDict']]
-        """
-        HLS playlist configuration parameters.
-        """
-elif False:
-    ChannelRequestOutputItemArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelRequestOutputItemArgsDict(TypedDict):
+    """
+    <p>The output configuration for this channel.</p>
+    """
+    manifest_name: pulumi.Input[_builtins.str]
+    """
+    <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
+    """
+    source_group: pulumi.Input[_builtins.str]
+    """
+    <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+    """
+    dash_playlist_settings: NotRequired[pulumi.Input['ChannelDashPlaylistSettingsArgsDict']]
+    """
+    DASH manifest configuration parameters.
+    """
+    hls_playlist_settings: NotRequired[pulumi.Input['ChannelHlsPlaylistSettingsArgsDict']]
+    """
+    HLS playlist configuration parameters.
+    """
 
 @pulumi.input_type
 class ChannelRequestOutputItemArgs:
@@ -356,21 +342,18 @@ class ChannelRequestOutputItemArgs:
         pulumi.set(self, "hls_playlist_settings", value)
 
 
-if not MYPY:
-    class ChannelSlateSourceArgsDict(TypedDict):
-        """
-        <p>Slate VOD source configuration.</p>
-        """
-        source_location_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The name of the source location where the slate VOD source is stored.</p>
-        """
-        vod_source_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
-        """
-elif False:
-    ChannelSlateSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelSlateSourceArgsDict(TypedDict):
+    """
+    <p>Slate VOD source configuration.</p>
+    """
+    source_location_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The name of the source location where the slate VOD source is stored.</p>
+    """
+    vod_source_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
+    """
 
 @pulumi.input_type
 class ChannelSlateSourceArgs:
@@ -412,17 +395,14 @@ class ChannelSlateSourceArgs:
         pulumi.set(self, "vod_source_name", value)
 
 
-if not MYPY:
-    class ChannelTimeShiftConfigurationArgsDict(TypedDict):
-        """
-        <p>The configuration for time-shifted viewing.</p>
-        """
-        max_time_delay_seconds: pulumi.Input[_builtins.float]
-        """
-        <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
-        """
-elif False:
-    ChannelTimeShiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelTimeShiftConfigurationArgsDict(TypedDict):
+    """
+    <p>The configuration for time-shifted viewing.</p>
+    """
+    max_time_delay_seconds: pulumi.Input[_builtins.float]
+    """
+    <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+    """
 
 @pulumi.input_type
 class ChannelTimeShiftConfigurationArgs:
@@ -447,25 +427,22 @@ class ChannelTimeShiftConfigurationArgs:
         pulumi.set(self, "max_time_delay_seconds", value)
 
 
-if not MYPY:
-    class LiveSourceHttpPackageConfigurationArgsDict(TypedDict):
-        """
-        <p>The HTTP package configuration properties for the requested VOD source.</p>
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
-        """
-        source_group: pulumi.Input[_builtins.str]
-        """
-        <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
-        """
-        type: pulumi.Input['LiveSourceType']
-        """
-        The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
-        """
-elif False:
-    LiveSourceHttpPackageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LiveSourceHttpPackageConfigurationArgsDict(TypedDict):
+    """
+    <p>The HTTP package configuration properties for the requested VOD source.</p>
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+    """
+    source_group: pulumi.Input[_builtins.str]
+    """
+    <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+    """
+    type: pulumi.Input['LiveSourceType']
+    """
+    The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+    """
 
 @pulumi.input_type
 class LiveSourceHttpPackageConfigurationArgs:
@@ -520,17 +497,14 @@ class LiveSourceHttpPackageConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationAdConditioningConfigurationArgsDict(TypedDict):
-        """
-        <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
-        """
-        streaming_media_file_conditioning: pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning']
-        """
-        For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
-        """
-elif False:
-    PlaybackConfigurationAdConditioningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationAdConditioningConfigurationArgsDict(TypedDict):
+    """
+    <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+    """
+    streaming_media_file_conditioning: pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning']
+    """
+    For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationAdConditioningConfigurationArgs:
@@ -555,14 +529,11 @@ class PlaybackConfigurationAdConditioningConfigurationArgs:
         pulumi.set(self, "streaming_media_file_conditioning", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationAdDecisionServerConfigurationArgsDict(TypedDict):
-        """
-        The configuration for the request to the specified Ad Decision Server URL.
-        """
-        http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgsDict']
-elif False:
-    PlaybackConfigurationAdDecisionServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationAdDecisionServerConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the request to the specified Ad Decision Server URL.
+    """
+    http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgsDict']
 
 @pulumi.input_type
 class PlaybackConfigurationAdDecisionServerConfigurationArgs:
@@ -583,17 +554,14 @@ class PlaybackConfigurationAdDecisionServerConfigurationArgs:
         pulumi.set(self, "http_request", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationAdMarkerPassthroughArgsDict(TypedDict):
-        """
-        For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables ad marker passthrough for your configuration.
-        """
-elif False:
-    PlaybackConfigurationAdMarkerPassthroughArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationAdMarkerPassthroughArgsDict(TypedDict):
+    """
+    For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables ad marker passthrough for your configuration.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationAdMarkerPassthroughArgs:
@@ -619,18 +587,15 @@ class PlaybackConfigurationAdMarkerPassthroughArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationAdsInteractionLogArgsDict(TypedDict):
-        exclude_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
-        """
-        publish_opt_in_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
-        """
-elif False:
-    PlaybackConfigurationAdsInteractionLogArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationAdsInteractionLogArgsDict(TypedDict):
+    exclude_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+    """
+    publish_opt_in_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationAdsInteractionLogArgs:
@@ -671,25 +636,22 @@ class PlaybackConfigurationAdsInteractionLogArgs:
         pulumi.set(self, "publish_opt_in_event_types", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationAvailSuppressionArgsDict(TypedDict):
-        """
-        The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
-        """
-        fill_policy: NotRequired[pulumi.Input['PlaybackConfigurationAvailSuppressionFillPolicy']]
-        """
-        Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
-        """
-        mode: NotRequired[pulumi.Input['PlaybackConfigurationAvailSuppressionMode']]
-        """
-        Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
-        """
-elif False:
-    PlaybackConfigurationAvailSuppressionArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationAvailSuppressionArgsDict(TypedDict):
+    """
+    The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+    """
+    fill_policy: NotRequired[pulumi.Input['PlaybackConfigurationAvailSuppressionFillPolicy']]
+    """
+    Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+    """
+    mode: NotRequired[pulumi.Input['PlaybackConfigurationAvailSuppressionMode']]
+    """
+    Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationAvailSuppressionArgs:
@@ -747,21 +709,18 @@ class PlaybackConfigurationAvailSuppressionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationBumperArgsDict(TypedDict):
-        """
-        The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
-        """
-        end_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL for the end bumper asset.
-        """
-        start_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL for the start bumper asset.
-        """
-elif False:
-    PlaybackConfigurationBumperArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationBumperArgsDict(TypedDict):
+    """
+    The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+    """
+    end_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL for the end bumper asset.
+    """
+    start_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL for the start bumper asset.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationBumperArgs:
@@ -803,21 +762,18 @@ class PlaybackConfigurationBumperArgs:
         pulumi.set(self, "start_url", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationCdnConfigurationArgsDict(TypedDict):
-        """
-        The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
-        """
-        ad_segment_url_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
-        """
-        content_segment_url_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
-        """
-elif False:
-    PlaybackConfigurationCdnConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationCdnConfigurationArgsDict(TypedDict):
+    """
+    The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+    """
+    ad_segment_url_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
+    """
+    content_segment_url_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationCdnConfigurationArgs:
@@ -859,25 +815,22 @@ class PlaybackConfigurationCdnConfigurationArgs:
         pulumi.set(self, "content_segment_url_prefix", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationDashConfigurationArgsDict(TypedDict):
-        """
-        The configuration for DASH PUT operations.
-        """
-        manifest_endpoint_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting.
-        """
-        mpd_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
-        """
-        origin_manifest_type: NotRequired[pulumi.Input['PlaybackConfigurationDashConfigurationOriginManifestType']]
-        """
-        The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
-        """
-elif False:
-    PlaybackConfigurationDashConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationDashConfigurationArgsDict(TypedDict):
+    """
+    The configuration for DASH PUT operations.
+    """
+    manifest_endpoint_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting.
+    """
+    mpd_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
+    """
+    origin_manifest_type: NotRequired[pulumi.Input['PlaybackConfigurationDashConfigurationOriginManifestType']]
+    """
+    The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationDashConfigurationArgs:
@@ -935,14 +888,11 @@ class PlaybackConfigurationDashConfigurationArgs:
         pulumi.set(self, "origin_manifest_type", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationHlsConfigurationArgsDict(TypedDict):
-        manifest_endpoint_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
-        """
-elif False:
-    PlaybackConfigurationHlsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationHlsConfigurationArgsDict(TypedDict):
+    manifest_endpoint_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationHlsConfigurationArgs:
@@ -967,26 +917,23 @@ class PlaybackConfigurationHlsConfigurationArgs:
         pulumi.set(self, "manifest_endpoint_prefix", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationHttpRequestArgsDict(TypedDict):
-        """
-        The configuration for the request to the Ad Decision Server URL.
-        """
-        body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
-        """
-        compress_request: NotRequired[pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest']]
-        """
-        The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
-        """
-        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        http_method: NotRequired[pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod']]
-        """
-        Supported HTTP Methods for the request to the Ad Decision Server URL.
-        """
-elif False:
-    PlaybackConfigurationHttpRequestArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationHttpRequestArgsDict(TypedDict):
+    """
+    The configuration for the request to the Ad Decision Server URL.
+    """
+    body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+    """
+    compress_request: NotRequired[pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest']]
+    """
+    The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+    """
+    headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    http_method: NotRequired[pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod']]
+    """
+    Supported HTTP Methods for the request to the Ad Decision Server URL.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationHttpRequestArgs:
@@ -1056,21 +1003,18 @@ class PlaybackConfigurationHttpRequestArgs:
         pulumi.set(self, "http_method", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationLivePreRollConfigurationArgsDict(TypedDict):
-        """
-        The configuration for pre-roll ad insertion.
-        """
-        ad_decision_server_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
-        """
-        max_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
-        """
-elif False:
-    PlaybackConfigurationLivePreRollConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationLivePreRollConfigurationArgsDict(TypedDict):
+    """
+    The configuration for pre-roll ad insertion.
+    """
+    ad_decision_server_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
+    """
+    max_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationLivePreRollConfigurationArgs:
@@ -1112,26 +1056,23 @@ class PlaybackConfigurationLivePreRollConfigurationArgs:
         pulumi.set(self, "max_duration_seconds", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationLogConfigurationArgsDict(TypedDict):
-        percent_enabled: pulumi.Input[_builtins.int]
-        """
-        The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
-        """
-        ads_interaction_log: NotRequired[pulumi.Input['PlaybackConfigurationAdsInteractionLogArgsDict']]
-        """
-        The event types that MediaTailor emits in logs for interactions with the ADS.
-        """
-        enabled_logging_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
-        """
-        manifest_service_interaction_log: NotRequired[pulumi.Input['PlaybackConfigurationManifestServiceInteractionLogArgsDict']]
-        """
-        The event types that MediaTailor emits in logs for interactions with the origin server.
-        """
-elif False:
-    PlaybackConfigurationLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationLogConfigurationArgsDict(TypedDict):
+    percent_enabled: pulumi.Input[_builtins.int]
+    """
+    The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+    """
+    ads_interaction_log: NotRequired[pulumi.Input['PlaybackConfigurationAdsInteractionLogArgsDict']]
+    """
+    The event types that MediaTailor emits in logs for interactions with the ADS.
+    """
+    enabled_logging_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+    """
+    manifest_service_interaction_log: NotRequired[pulumi.Input['PlaybackConfigurationManifestServiceInteractionLogArgsDict']]
+    """
+    The event types that MediaTailor emits in logs for interactions with the origin server.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationLogConfigurationArgs:
@@ -1203,17 +1144,14 @@ class PlaybackConfigurationLogConfigurationArgs:
         pulumi.set(self, "manifest_service_interaction_log", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationManifestProcessingRulesArgsDict(TypedDict):
-        """
-        The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
-        """
-        ad_marker_passthrough: NotRequired[pulumi.Input['PlaybackConfigurationAdMarkerPassthroughArgsDict']]
-        """
-        For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
-        """
-elif False:
-    PlaybackConfigurationManifestProcessingRulesArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationManifestProcessingRulesArgsDict(TypedDict):
+    """
+    The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+    """
+    ad_marker_passthrough: NotRequired[pulumi.Input['PlaybackConfigurationAdMarkerPassthroughArgsDict']]
+    """
+    For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationManifestProcessingRulesArgs:
@@ -1239,14 +1177,11 @@ class PlaybackConfigurationManifestProcessingRulesArgs:
         pulumi.set(self, "ad_marker_passthrough", value)
 
 
-if not MYPY:
-    class PlaybackConfigurationManifestServiceInteractionLogArgsDict(TypedDict):
-        exclude_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
-        """
-elif False:
-    PlaybackConfigurationManifestServiceInteractionLogArgsDict: TypeAlias = Mapping[str, Any]
+class PlaybackConfigurationManifestServiceInteractionLogArgsDict(TypedDict):
+    exclude_event_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+    """
 
 @pulumi.input_type
 class PlaybackConfigurationManifestServiceInteractionLogArgs:
@@ -1271,31 +1206,28 @@ class PlaybackConfigurationManifestServiceInteractionLogArgs:
         pulumi.set(self, "exclude_event_types", value)
 
 
-if not MYPY:
-    class SourceLocationAccessConfigurationArgsDict(TypedDict):
-        """
-        <p>Access configuration parameters.</p>
-        """
-        access_type: NotRequired[pulumi.Input['SourceLocationAccessType']]
-        """
-        The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+class SourceLocationAccessConfigurationArgsDict(TypedDict):
+    """
+    <p>Access configuration parameters.</p>
+    """
+    access_type: NotRequired[pulumi.Input['SourceLocationAccessType']]
+    """
+    The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
 
-        `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+    `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
 
-        Before you can use `S3_SIGV4` , you must meet these requirements:
+    Before you can use `S3_SIGV4` , you must meet these requirements:
 
-        • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+    • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
 
-        • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+    • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
 
-        • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
-        """
-        secrets_manager_access_token_configuration: NotRequired[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgsDict']]
-        """
-        AWS Secrets Manager access token configuration parameters.
-        """
-elif False:
-    SourceLocationAccessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
+    """
+    secrets_manager_access_token_configuration: NotRequired[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgsDict']]
+    """
+    AWS Secrets Manager access token configuration parameters.
+    """
 
 @pulumi.input_type
 class SourceLocationAccessConfigurationArgs:
@@ -1357,17 +1289,14 @@ class SourceLocationAccessConfigurationArgs:
         pulumi.set(self, "secrets_manager_access_token_configuration", value)
 
 
-if not MYPY:
-    class SourceLocationDefaultSegmentDeliveryConfigurationArgsDict(TypedDict):
-        """
-        <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
-        """
-        base_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
-        """
-elif False:
-    SourceLocationDefaultSegmentDeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SourceLocationDefaultSegmentDeliveryConfigurationArgsDict(TypedDict):
+    """
+    <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+    """
+    base_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
+    """
 
 @pulumi.input_type
 class SourceLocationDefaultSegmentDeliveryConfigurationArgs:
@@ -1393,17 +1322,14 @@ class SourceLocationDefaultSegmentDeliveryConfigurationArgs:
         pulumi.set(self, "base_url", value)
 
 
-if not MYPY:
-    class SourceLocationHttpConfigurationArgsDict(TypedDict):
-        """
-        <p>The HTTP configuration for the source location.</p>
-        """
-        base_url: pulumi.Input[_builtins.str]
-        """
-        <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
-        """
-elif False:
-    SourceLocationHttpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SourceLocationHttpConfigurationArgsDict(TypedDict):
+    """
+    <p>The HTTP configuration for the source location.</p>
+    """
+    base_url: pulumi.Input[_builtins.str]
+    """
+    <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
+    """
 
 @pulumi.input_type
 class SourceLocationHttpConfigurationArgs:
@@ -1428,25 +1354,22 @@ class SourceLocationHttpConfigurationArgs:
         pulumi.set(self, "base_url", value)
 
 
-if not MYPY:
-    class SourceLocationSecretsManagerAccessTokenConfigurationArgsDict(TypedDict):
-        """
-        <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
-        """
-        header_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
-        """
-        secret_string_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
-        """
-elif False:
-    SourceLocationSecretsManagerAccessTokenConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SourceLocationSecretsManagerAccessTokenConfigurationArgsDict(TypedDict):
+    """
+    <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+    """
+    header_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+    """
+    secret_string_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+    """
 
 @pulumi.input_type
 class SourceLocationSecretsManagerAccessTokenConfigurationArgs:
@@ -1504,21 +1427,18 @@ class SourceLocationSecretsManagerAccessTokenConfigurationArgs:
         pulumi.set(self, "secret_string_key", value)
 
 
-if not MYPY:
-    class SourceLocationSegmentDeliveryConfigurationArgsDict(TypedDict):
-        """
-        <p>The segment delivery configuration settings.</p>
-        """
-        base_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
-        """
-elif False:
-    SourceLocationSegmentDeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SourceLocationSegmentDeliveryConfigurationArgsDict(TypedDict):
+    """
+    <p>The segment delivery configuration settings.</p>
+    """
+    base_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
+    """
 
 @pulumi.input_type
 class SourceLocationSegmentDeliveryConfigurationArgs:
@@ -1560,25 +1480,22 @@ class SourceLocationSegmentDeliveryConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class VodSourceHttpPackageConfigurationArgsDict(TypedDict):
-        """
-        <p>The HTTP package configuration properties for the requested VOD source.</p>
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
-        """
-        source_group: pulumi.Input[_builtins.str]
-        """
-        <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
-        """
-        type: pulumi.Input['VodSourceType']
-        """
-        The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
-        """
-elif False:
-    VodSourceHttpPackageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VodSourceHttpPackageConfigurationArgsDict(TypedDict):
+    """
+    <p>The HTTP package configuration properties for the requested VOD source.</p>
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
+    """
+    source_group: pulumi.Input[_builtins.str]
+    """
+    <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+    """
+    type: pulumi.Input['VodSourceType']
+    """
+    The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+    """
 
 @pulumi.input_type
 class VodSourceHttpPackageConfigurationArgs:

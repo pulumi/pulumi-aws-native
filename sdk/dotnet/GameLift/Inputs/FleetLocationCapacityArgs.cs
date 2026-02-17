@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public Input<int>? DesiredEc2Instances { get; set; }
 
         /// <summary>
+        /// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        /// </summary>
+        [Input("managedCapacityConfiguration")]
+        public Input<Inputs.FleetManagedCapacityConfigurationArgs>? ManagedCapacityConfiguration { get; set; }
+
+        /// <summary>
         /// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         /// </summary>
         [Input("maxSize", required: true)]
@@ -30,8 +36,8 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         /// </summary>
-        [Input("minSize", required: true)]
-        public Input<int> MinSize { get; set; } = null!;
+        [Input("minSize")]
+        public Input<int>? MinSize { get; set; }
 
         public FleetLocationCapacityArgs()
         {

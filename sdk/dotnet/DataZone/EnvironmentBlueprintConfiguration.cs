@@ -60,6 +60,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string?> EnvironmentRolePermissionBoundary { get; private set; } = null!;
 
         /// <summary>
+        /// Region-agnostic environment blueprint parameters.
+        /// </summary>
+        [Output("globalParameters")]
+        public Output<ImmutableDictionary<string, string>?> GlobalParameters { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the manage access role.
         /// </summary>
         [Output("manageAccessRoleArn")]
@@ -170,6 +176,18 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("environmentRolePermissionBoundary")]
         public Input<string>? EnvironmentRolePermissionBoundary { get; set; }
+
+        [Input("globalParameters")]
+        private InputMap<string>? _globalParameters;
+
+        /// <summary>
+        /// Region-agnostic environment blueprint parameters.
+        /// </summary>
+        public InputMap<string> GlobalParameters
+        {
+            get => _globalParameters ?? (_globalParameters = new InputMap<string>());
+            set => _globalParameters = value;
+        }
 
         /// <summary>
         /// The ARN of the manage access role.

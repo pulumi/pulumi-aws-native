@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'As2ConfigPropertiesArgs',
     'As2ConfigPropertiesArgsDict',
+    'ConnectorAsyncMdnConfigArgs',
+    'ConnectorAsyncMdnConfigArgsDict',
     'ConnectorEgressConfigArgs',
     'ConnectorEgressConfigArgsDict',
     'ConnectorVpcLatticeEgressConfigArgs',
@@ -44,10 +46,14 @@ __all__ = [
     'UserPosixProfileArgsDict',
     'WebAppCustomizationArgs',
     'WebAppCustomizationArgsDict',
+    'WebAppEndpointDetailsArgs',
+    'WebAppEndpointDetailsArgsDict',
     'WebAppIdentityProviderDetailsArgs',
     'WebAppIdentityProviderDetailsArgsDict',
     'WebAppUnitsPropertiesArgs',
     'WebAppUnitsPropertiesArgsDict',
+    'WebAppVpcArgs',
+    'WebAppVpcArgsDict',
     'WorkflowEfsInputFileLocationArgs',
     'WorkflowEfsInputFileLocationArgsDict',
     'WorkflowInputFileLocationArgs',
@@ -72,59 +78,59 @@ __all__ = [
     'WorkflowStepArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class As2ConfigPropertiesArgsDict(TypedDict):
-        """
-        Configuration for an AS2 connector.
-        """
-        basic_auth_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
-        """
-        compression: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]
-        """
-        Compression setting for this AS2 connector configuration.
-        """
-        encryption_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]
-        """
-        Encryption algorithm for this AS2 connector configuration.
-        """
-        local_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for the local profile.
-        """
-        mdn_response: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]
-        """
-        MDN Response setting for this AS2 connector configuration.
-        """
-        mdn_signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]
-        """
-        MDN Signing algorithm for this AS2 connector configuration.
-        """
-        message_subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message subject for this AS2 connector configuration.
-        """
-        partner_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for the partner profile.
-        """
-        preserve_content_type: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]
-        """
-        Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
-        """
-        signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]
-        """
-        Signing algorithm for this AS2 connector configuration.
-        """
-elif False:
-    As2ConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class As2ConfigPropertiesArgsDict(TypedDict):
+    """
+    Configuration for an AS2 connector.
+    """
+    async_mdn_config: NotRequired[pulumi.Input['ConnectorAsyncMdnConfigArgsDict']]
+    """
+    Configuration for an AS2 connector with ASYNC MDN Response
+    """
+    basic_auth_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+    """
+    compression: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]
+    """
+    Compression setting for this AS2 connector configuration.
+    """
+    encryption_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]
+    """
+    Encryption algorithm for this AS2 connector configuration.
+    """
+    local_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for the local profile.
+    """
+    mdn_response: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]
+    """
+    MDN Response setting for this AS2 connector configuration.
+    """
+    mdn_signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]
+    """
+    MDN Signing algorithm for this AS2 connector configuration.
+    """
+    message_subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message subject for this AS2 connector configuration.
+    """
+    partner_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for the partner profile.
+    """
+    preserve_content_type: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType']]
+    """
+    Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+    """
+    signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]
+    """
+    Signing algorithm for this AS2 connector configuration.
+    """
 
 @pulumi.input_type
 class As2ConfigPropertiesArgs:
     def __init__(__self__, *,
+                 async_mdn_config: Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']] = None,
                  basic_auth_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compression: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']] = None,
                  encryption_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']] = None,
@@ -137,6 +143,7 @@ class As2ConfigPropertiesArgs:
                  signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
         """
         Configuration for an AS2 connector.
+        :param pulumi.Input['ConnectorAsyncMdnConfigArgs'] async_mdn_config: Configuration for an AS2 connector with ASYNC MDN Response
         :param pulumi.Input[_builtins.str] basic_auth_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         :param pulumi.Input['ConnectorAs2ConfigPropertiesCompression'] compression: Compression setting for this AS2 connector configuration.
         :param pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] encryption_algorithm: Encryption algorithm for this AS2 connector configuration.
@@ -148,6 +155,8 @@ class As2ConfigPropertiesArgs:
         :param pulumi.Input['ConnectorAs2ConfigPropertiesPreserveContentType'] preserve_content_type: Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
         :param pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm'] signing_algorithm: Signing algorithm for this AS2 connector configuration.
         """
+        if async_mdn_config is not None:
+            pulumi.set(__self__, "async_mdn_config", async_mdn_config)
         if basic_auth_secret_id is not None:
             pulumi.set(__self__, "basic_auth_secret_id", basic_auth_secret_id)
         if compression is not None:
@@ -168,6 +177,18 @@ class As2ConfigPropertiesArgs:
             pulumi.set(__self__, "preserve_content_type", preserve_content_type)
         if signing_algorithm is not None:
             pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncMdnConfig")
+    def async_mdn_config(self) -> Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']]:
+        """
+        Configuration for an AS2 connector with ASYNC MDN Response
+        """
+        return pulumi.get(self, "async_mdn_config")
+
+    @async_mdn_config.setter
+    def async_mdn_config(self, value: Optional[pulumi.Input['ConnectorAsyncMdnConfigArgs']]):
+        pulumi.set(self, "async_mdn_config", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthSecretId")
@@ -290,14 +311,51 @@ class As2ConfigPropertiesArgs:
         pulumi.set(self, "signing_algorithm", value)
 
 
-if not MYPY:
-    class ConnectorEgressConfigArgsDict(TypedDict):
-        vpc_lattice: pulumi.Input['ConnectorVpcLatticeEgressConfigArgsDict']
+class ConnectorAsyncMdnConfigArgsDict(TypedDict):
+    server_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    url: pulumi.Input[_builtins.str]
+    """
+    URL of the server to receive the MDN response on
+    """
+
+@pulumi.input_type
+class ConnectorAsyncMdnConfigArgs:
+    def __init__(__self__, *,
+                 server_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 url: pulumi.Input[_builtins.str]):
         """
-        VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        :param pulumi.Input[_builtins.str] url: URL of the server to receive the MDN response on
         """
-elif False:
-    ConnectorEgressConfigArgsDict: TypeAlias = Mapping[str, Any]
+        pulumi.set(__self__, "server_ids", server_ids)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="serverIds")
+    def server_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "server_ids")
+
+    @server_ids.setter
+    def server_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "server_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL of the server to receive the MDN response on
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+
+class ConnectorEgressConfigArgsDict(TypedDict):
+    vpc_lattice: pulumi.Input['ConnectorVpcLatticeEgressConfigArgsDict']
+    """
+    VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+    """
 
 @pulumi.input_type
 class ConnectorEgressConfigArgs:
@@ -321,18 +379,15 @@ class ConnectorEgressConfigArgs:
         pulumi.set(self, "vpc_lattice", value)
 
 
-if not MYPY:
-    class ConnectorVpcLatticeEgressConfigArgsDict(TypedDict):
-        resource_configuration_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the VPC Lattice resource configuration
-        """
-        port_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port to connect to on the target VPC Lattice resource
-        """
-elif False:
-    ConnectorVpcLatticeEgressConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorVpcLatticeEgressConfigArgsDict(TypedDict):
+    resource_configuration_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the VPC Lattice resource configuration
+    """
+    port_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port to connect to on the target VPC Lattice resource
+    """
 
 @pulumi.input_type
 class ConnectorVpcLatticeEgressConfigArgs:
@@ -372,33 +427,30 @@ class ConnectorVpcLatticeEgressConfigArgs:
         pulumi.set(self, "port_number", value)
 
 
-if not MYPY:
-    class CustomDirectoriesPropertiesArgsDict(TypedDict):
-        """
-        Specifies a separate directory for each type of file to store for an AS2 message.
-        """
-        failed_files_directory: pulumi.Input[_builtins.str]
-        """
-        Specifies a location to store the failed files for an AS2 message.
-        """
-        mdn_files_directory: pulumi.Input[_builtins.str]
-        """
-        Specifies a location to store the MDN file for an AS2 message.
-        """
-        payload_files_directory: pulumi.Input[_builtins.str]
-        """
-        Specifies a location to store the payload file for an AS2 message.
-        """
-        status_files_directory: pulumi.Input[_builtins.str]
-        """
-        Specifies a location to store the status file for an AS2 message.
-        """
-        temporary_files_directory: pulumi.Input[_builtins.str]
-        """
-        Specifies a location to store the temporary processing file for an AS2 message.
-        """
-elif False:
-    CustomDirectoriesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomDirectoriesPropertiesArgsDict(TypedDict):
+    """
+    Specifies a separate directory for each type of file to store for an AS2 message.
+    """
+    failed_files_directory: pulumi.Input[_builtins.str]
+    """
+    Specifies a location to store the failed files for an AS2 message.
+    """
+    mdn_files_directory: pulumi.Input[_builtins.str]
+    """
+    Specifies a location to store the MDN file for an AS2 message.
+    """
+    payload_files_directory: pulumi.Input[_builtins.str]
+    """
+    Specifies a location to store the payload file for an AS2 message.
+    """
+    status_files_directory: pulumi.Input[_builtins.str]
+    """
+    Specifies a location to store the status file for an AS2 message.
+    """
+    temporary_files_directory: pulumi.Input[_builtins.str]
+    """
+    Specifies a location to store the temporary processing file for an AS2 message.
+    """
 
 @pulumi.input_type
 class CustomDirectoriesPropertiesArgs:
@@ -483,56 +535,53 @@ class CustomDirectoriesPropertiesArgs:
         pulumi.set(self, "temporary_files_directory", value)
 
 
-if not MYPY:
-    class ServerEndpointDetailsArgsDict(TypedDict):
-        address_allocation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+class ServerEndpointDetailsArgsDict(TypedDict):
+    address_allocation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
 
-        An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+    An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
 
-        This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+    This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
 
-        > This property can only be set as follows:
-        > 
-        > - `EndpointType` must be set to `VPC`
-        > - The Transfer Family server must be offline.
-        > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
-        > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
-        > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
-        > - Call the `UpdateServer` API to set or change this parameter.
-        > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of security groups IDs that are available to attach to your server's endpoint.
+    > This property can only be set as follows:
+    > 
+    > - `EndpointType` must be set to `VPC`
+    > - The Transfer Family server must be offline.
+    > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+    > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+    > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+    > - Call the `UpdateServer` API to set or change this parameter.
+    > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of security groups IDs that are available to attach to your server's endpoint.
 
-        > While `SecurityGroupIds` appears in the response syntax for consistency with `CreateServer` and `UpdateServer` operations, this field is not populated in `DescribeServer` responses. Security groups are managed at the VPC endpoint level and can be modified outside of the Transfer Family service. To retrieve current security group information, use the EC2 `DescribeVpcEndpoints` API with the `VpcEndpointId` returned in the response.
-        > 
-        > This property can only be set when `EndpointType` is set to `VPC` .
-        > 
-        > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of subnet IDs that are required to host your server endpoint in your VPC.
+    > While `SecurityGroupIds` appears in the response syntax for consistency with `CreateServer` and `UpdateServer` operations, this field is not populated in `DescribeServer` responses. Security groups are managed at the VPC endpoint level and can be modified outside of the Transfer Family service. To retrieve current security group information, use the EC2 `DescribeVpcEndpoints` API with the `VpcEndpointId` returned in the response.
+    > 
+    > This property can only be set when `EndpointType` is set to `VPC` .
+    > 
+    > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of subnet IDs that are required to host your server endpoint in your VPC.
 
-        > This property can only be set when `EndpointType` is set to `VPC` .
-        """
-        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the VPC endpoint.
+    > This property can only be set when `EndpointType` is set to `VPC` .
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the VPC endpoint.
 
-        > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+    > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
 
-        > This property can only be set when `EndpointType` is set to `VPC` .
-        """
-elif False:
-    ServerEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+    > This property can only be set when `EndpointType` is set to `VPC` .
+    """
 
 @pulumi.input_type
 class ServerEndpointDetailsArgs:
@@ -673,35 +722,32 @@ class ServerEndpointDetailsArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class ServerIdentityProviderDetailsArgsDict(TypedDict):
-        directory_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the AWS Directory Service directory that you want to use as your identity provider.
-        """
-        function: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN for a Lambda function to use for the Identity provider.
-        """
-        invocation_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
-        """
-        sftp_authentication_methods: NotRequired[pulumi.Input['ServerSftpAuthenticationMethods']]
-        """
-        For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+class ServerIdentityProviderDetailsArgsDict(TypedDict):
+    directory_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+    """
+    function: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN for a Lambda function to use for the Identity provider.
+    """
+    invocation_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+    """
+    sftp_authentication_methods: NotRequired[pulumi.Input['ServerSftpAuthenticationMethods']]
+    """
+    For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
 
-        - `PASSWORD` - users must provide their password to connect.
-        - `PUBLIC_KEY` - users must provide their private key to connect.
-        - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
-        - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides the location of the service endpoint used to authenticate users.
-        """
-elif False:
-    ServerIdentityProviderDetailsArgsDict: TypeAlias = Mapping[str, Any]
+    - `PASSWORD` - users must provide their password to connect.
+    - `PUBLIC_KEY` - users must provide their private key to connect.
+    - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+    - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the location of the service endpoint used to authenticate users.
+    """
 
 @pulumi.input_type
 class ServerIdentityProviderDetailsArgs:
@@ -800,50 +846,47 @@ class ServerIdentityProviderDetailsArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ServerProtocolDetailsArgsDict(TypedDict):
-        as2_transports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]
-        """
-        List of `As2Transport` objects.
-        """
-        passive_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+class ServerProtocolDetailsArgsDict(TypedDict):
+    as2_transports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]
+    """
+    List of `As2Transport` objects.
+    """
+    passive_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
 
-        `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+    `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
 
-        Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+    Replace `0.0.0.0` in the example above with the actual IP address you want to use.
 
-        > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
-        > 
-        > Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting `TlsSessionResumptionMode = ENFORCED` . For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family](https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations) . 
+    > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
+    > 
+    > Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting `TlsSessionResumptionMode = ENFORCED` . For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family](https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations) . 
 
-        *Special values*
+    *Special values*
 
-        The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
-        """
-        set_stat_option: NotRequired[pulumi.Input['ServerSetStatOption']]
-        """
-        Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+    The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+    """
+    set_stat_option: NotRequired[pulumi.Input['ServerSetStatOption']]
+    """
+    Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 
-        Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+    Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
 
-        Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+    Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
 
-        > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
-        """
-        tls_session_resumption_mode: NotRequired[pulumi.Input['ServerTlsSessionResumptionMode']]
-        """
-        A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+    > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+    """
+    tls_session_resumption_mode: NotRequired[pulumi.Input['ServerTlsSessionResumptionMode']]
+    """
+    A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
 
-        - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
-        - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
-        - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+    - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+    - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+    - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
 
-        > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
-        """
-elif False:
-    ServerProtocolDetailsArgsDict: TypeAlias = Mapping[str, Any]
+    > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+    """
 
 @pulumi.input_type
 class ServerProtocolDetailsArgs:
@@ -964,19 +1007,16 @@ class ServerProtocolDetailsArgs:
         pulumi.set(self, "tls_session_resumption_mode", value)
 
 
-if not MYPY:
-    class ServerS3StorageOptionsArgsDict(TypedDict):
-        directory_listing_optimization: NotRequired[pulumi.Input['ServerDirectoryListingOptimization']]
-        """
-        Specifies whether or not performance for your Amazon S3 directories is optimized.
+class ServerS3StorageOptionsArgsDict(TypedDict):
+    directory_listing_optimization: NotRequired[pulumi.Input['ServerDirectoryListingOptimization']]
+    """
+    Specifies whether or not performance for your Amazon S3 directories is optimized.
 
-        - If using the console, this is enabled by default.
-        - If using the API or CLI, this is disabled by default.
+    - If using the console, this is enabled by default.
+    - If using the API or CLI, this is disabled by default.
 
-        By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
-        """
-elif False:
-    ServerS3StorageOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+    """
 
 @pulumi.input_type
 class ServerS3StorageOptionsArgs:
@@ -1011,28 +1051,25 @@ class ServerS3StorageOptionsArgs:
         pulumi.set(self, "directory_listing_optimization", value)
 
 
-if not MYPY:
-    class ServerWorkflowDetailsArgsDict(TypedDict):
-        on_partial_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
-        """
-        A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+class ServerWorkflowDetailsArgsDict(TypedDict):
+    on_partial_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
+    """
+    A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
 
-        A *partial upload* occurs when a file is open when the session disconnects.
+    A *partial upload* occurs when a file is open when the session disconnects.
 
-        > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
-        """
-        on_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
-        """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+    > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+    """
+    on_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
+    """
+    A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
 
-        To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+    To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
 
-        `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+    `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
 
-        > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
-        """
-elif False:
-    ServerWorkflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
+    > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+    """
 
 @pulumi.input_type
 class ServerWorkflowDetailsArgs:
@@ -1093,18 +1130,15 @@ class ServerWorkflowDetailsArgs:
         pulumi.set(self, "on_upload", value)
 
 
-if not MYPY:
-    class ServerWorkflowDetailArgsDict(TypedDict):
-        execution_role: pulumi.Input[_builtins.str]
-        """
-        Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
-        """
-        workflow_id: pulumi.Input[_builtins.str]
-        """
-        A unique identifier for the workflow.
-        """
-elif False:
-    ServerWorkflowDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ServerWorkflowDetailArgsDict(TypedDict):
+    execution_role: pulumi.Input[_builtins.str]
+    """
+    Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+    """
+    workflow_id: pulumi.Input[_builtins.str]
+    """
+    A unique identifier for the workflow.
+    """
 
 @pulumi.input_type
 class ServerWorkflowDetailArgs:
@@ -1143,25 +1177,22 @@ class ServerWorkflowDetailArgs:
         pulumi.set(self, "workflow_id", value)
 
 
-if not MYPY:
-    class SftpConfigPropertiesArgsDict(TypedDict):
-        """
-        Configuration for an SFTP connector.
-        """
-        max_concurrent_connections: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of active connections that your connector can establish with the remote server at the same time.
-        """
-        trusted_host_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of public host keys, for the external server to which you are connecting.
-        """
-        user_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
-        """
-elif False:
-    SftpConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SftpConfigPropertiesArgsDict(TypedDict):
+    """
+    Configuration for an SFTP connector.
+    """
+    max_concurrent_connections: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of active connections that your connector can establish with the remote server at the same time.
+    """
+    trusted_host_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of public host keys, for the external server to which you are connecting.
+    """
+    user_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+    """
 
 @pulumi.input_type
 class SftpConfigPropertiesArgs:
@@ -1219,24 +1250,21 @@ class SftpConfigPropertiesArgs:
         pulumi.set(self, "user_secret_id", value)
 
 
-if not MYPY:
-    class UserHomeDirectoryMapEntryArgsDict(TypedDict):
-        entry: pulumi.Input[_builtins.str]
-        """
-        Represents an entry for `HomeDirectoryMappings` .
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        Represents the map target that is used in a `HomeDirectoryMapEntry` .
-        """
-        type: NotRequired[pulumi.Input['UserMapType']]
-        """
-        Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
+class UserHomeDirectoryMapEntryArgsDict(TypedDict):
+    entry: pulumi.Input[_builtins.str]
+    """
+    Represents an entry for `HomeDirectoryMappings` .
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    Represents the map target that is used in a `HomeDirectoryMapEntry` .
+    """
+    type: NotRequired[pulumi.Input['UserMapType']]
+    """
+    Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
 
-        > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
-        """
-elif False:
-    UserHomeDirectoryMapEntryArgsDict: TypeAlias = Mapping[str, Any]
+    > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
+    """
 
 @pulumi.input_type
 class UserHomeDirectoryMapEntryArgs:
@@ -1295,22 +1323,19 @@ class UserHomeDirectoryMapEntryArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class UserPosixProfileArgsDict(TypedDict):
-        gid: pulumi.Input[_builtins.float]
-        """
-        The POSIX group ID used for all EFS operations by this user.
-        """
-        uid: pulumi.Input[_builtins.float]
-        """
-        The POSIX user ID used for all EFS operations by this user.
-        """
-        secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
-        """
-        The secondary POSIX group IDs used for all EFS operations by this user.
-        """
-elif False:
-    UserPosixProfileArgsDict: TypeAlias = Mapping[str, Any]
+class UserPosixProfileArgsDict(TypedDict):
+    gid: pulumi.Input[_builtins.float]
+    """
+    The POSIX group ID used for all EFS operations by this user.
+    """
+    uid: pulumi.Input[_builtins.float]
+    """
+    The POSIX user ID used for all EFS operations by this user.
+    """
+    secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    """
+    The secondary POSIX group IDs used for all EFS operations by this user.
+    """
 
 @pulumi.input_type
 class UserPosixProfileArgs:
@@ -1365,22 +1390,19 @@ class UserPosixProfileArgs:
         pulumi.set(self, "secondary_gids", value)
 
 
-if not MYPY:
-    class WebAppCustomizationArgsDict(TypedDict):
-        favicon_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a favicon to display in the browser tab.
-        """
-        logo_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a logo to display on the web app.
-        """
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a title to display on the web app.
-        """
-elif False:
-    WebAppCustomizationArgsDict: TypeAlias = Mapping[str, Any]
+class WebAppCustomizationArgsDict(TypedDict):
+    favicon_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a favicon to display in the browser tab.
+    """
+    logo_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a logo to display on the web app.
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a title to display on the web app.
+    """
 
 @pulumi.input_type
 class WebAppCustomizationArgs:
@@ -1437,25 +1459,42 @@ class WebAppCustomizationArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class WebAppIdentityProviderDetailsArgsDict(TypedDict):
-        """
-        You can provide a structure that contains the details for the identity provider to use with your web app.
-        """
-        application_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
-        """
-        instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
-        """
-        role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM role in IAM Identity Center used for the web app.
-        """
-elif False:
-    WebAppIdentityProviderDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class WebAppEndpointDetailsArgsDict(TypedDict):
+    vpc: NotRequired[pulumi.Input['WebAppVpcArgsDict']]
+
+@pulumi.input_type
+class WebAppEndpointDetailsArgs:
+    def __init__(__self__, *,
+                 vpc: Optional[pulumi.Input['WebAppVpcArgs']] = None):
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> Optional[pulumi.Input['WebAppVpcArgs']]:
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: Optional[pulumi.Input['WebAppVpcArgs']]):
+        pulumi.set(self, "vpc", value)
+
+
+class WebAppIdentityProviderDetailsArgsDict(TypedDict):
+    """
+    You can provide a structure that contains the details for the identity provider to use with your web app.
+    """
+    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
+    """
+    instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
+    """
+    role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM role in IAM Identity Center used for the web app.
+    """
 
 @pulumi.input_type
 class WebAppIdentityProviderDetailsArgs:
@@ -1513,14 +1552,11 @@ class WebAppIdentityProviderDetailsArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class WebAppUnitsPropertiesArgsDict(TypedDict):
-        """
-        A union that contains the value for number of concurrent connections or the user sessions on your web app.
-        """
-        provisioned: pulumi.Input[_builtins.int]
-elif False:
-    WebAppUnitsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WebAppUnitsPropertiesArgsDict(TypedDict):
+    """
+    A union that contains the value for number of concurrent connections or the user sessions on your web app.
+    """
+    provisioned: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class WebAppUnitsPropertiesArgs:
@@ -1541,21 +1577,70 @@ class WebAppUnitsPropertiesArgs:
         pulumi.set(self, "provisioned", value)
 
 
-if not MYPY:
-    class WorkflowEfsInputFileLocationArgsDict(TypedDict):
+class WebAppVpcArgsDict(TypedDict):
+    """
+    You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class WebAppVpcArgs:
+    def __init__(__self__, *,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Specifies the details for an EFS file.
+        You can provide a structure that contains the details for the VPC endpoint to use with your web app.
         """
-        file_system_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the EFS filesystem that contains the file.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
-        """
-elif False:
-    WorkflowEfsInputFileLocationArgsDict: TypeAlias = Mapping[str, Any]
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
+class WorkflowEfsInputFileLocationArgsDict(TypedDict):
+    """
+    Specifies the details for an EFS file.
+    """
+    file_system_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the EFS filesystem that contains the file.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
+    """
 
 @pulumi.input_type
 class WorkflowEfsInputFileLocationArgs:
@@ -1597,15 +1682,12 @@ class WorkflowEfsInputFileLocationArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class WorkflowInputFileLocationArgsDict(TypedDict):
-        """
-        Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
-        """
-        efs_file_location: NotRequired[pulumi.Input['WorkflowEfsInputFileLocationArgsDict']]
-        s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
-elif False:
-    WorkflowInputFileLocationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowInputFileLocationArgsDict(TypedDict):
+    """
+    Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
+    """
+    efs_file_location: NotRequired[pulumi.Input['WorkflowEfsInputFileLocationArgsDict']]
+    s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
 
 @pulumi.input_type
 class WorkflowInputFileLocationArgs:
@@ -1639,17 +1721,14 @@ class WorkflowInputFileLocationArgs:
         pulumi.set(self, "s3_file_location", value)
 
 
-if not MYPY:
-    class WorkflowS3FileLocationArgsDict(TypedDict):
-        """
-        Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
-        """
-        s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
-        """
-        Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
-        """
-elif False:
-    WorkflowS3FileLocationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowS3FileLocationArgsDict(TypedDict):
+    """
+    Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+    """
+    s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
+    """
+    Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
+    """
 
 @pulumi.input_type
 class WorkflowS3FileLocationArgs:
@@ -1675,21 +1754,18 @@ class WorkflowS3FileLocationArgs:
         pulumi.set(self, "s3_file_location", value)
 
 
-if not MYPY:
-    class WorkflowS3InputFileLocationArgsDict(TypedDict):
-        """
-        Specifies the details for a S3 file.
-        """
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the S3 bucket that contains the file.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
-        """
-elif False:
-    WorkflowS3InputFileLocationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowS3InputFileLocationArgsDict(TypedDict):
+    """
+    Specifies the details for a S3 file.
+    """
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the S3 bucket that contains the file.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+    """
 
 @pulumi.input_type
 class WorkflowS3InputFileLocationArgs:
@@ -1731,21 +1807,18 @@ class WorkflowS3InputFileLocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class WorkflowS3TagArgsDict(TypedDict):
-        """
-        Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The name assigned to the tag that you create.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds to the key.
-        """
-elif False:
-    WorkflowS3TagArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowS3TagArgsDict(TypedDict):
+    """
+    Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name assigned to the tag that you create.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value that corresponds to the key.
+    """
 
 @pulumi.input_type
 class WorkflowS3TagArgs:
@@ -1785,26 +1858,23 @@ class WorkflowS3TagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkflowStepCopyStepDetailsPropertiesArgsDict(TypedDict):
-        """
-        Details for a step that performs a file copy.
-        """
-        destination_file_location: NotRequired[pulumi.Input['WorkflowS3FileLocationArgsDict']]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the step, used as an identifier.
-        """
-        overwrite_existing: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]
-        """
-        A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
-        """
-        source_file_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies which file to use as input to the workflow step.
-        """
-elif False:
-    WorkflowStepCopyStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowStepCopyStepDetailsPropertiesArgsDict(TypedDict):
+    """
+    Details for a step that performs a file copy.
+    """
+    destination_file_location: NotRequired[pulumi.Input['WorkflowS3FileLocationArgsDict']]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the step, used as an identifier.
+    """
+    overwrite_existing: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]
+    """
+    A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+    """
+    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies which file to use as input to the workflow step.
+    """
 
 @pulumi.input_type
 class WorkflowStepCopyStepDetailsPropertiesArgs:
@@ -1874,29 +1944,26 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
         pulumi.set(self, "source_file_location", value)
 
 
-if not MYPY:
-    class WorkflowStepCustomStepDetailsPropertiesArgsDict(TypedDict):
-        """
-        Details for a step that invokes a lambda function.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the step, used as an identifier.
-        """
-        source_file_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies which file to use as input to the workflow step.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN for the lambda function that is being called.
-        """
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout, in seconds, for the step.
-        """
-elif False:
-    WorkflowStepCustomStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowStepCustomStepDetailsPropertiesArgsDict(TypedDict):
+    """
+    Details for a step that invokes a lambda function.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the step, used as an identifier.
+    """
+    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies which file to use as input to the workflow step.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN for the lambda function that is being called.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout, in seconds, for the step.
+    """
 
 @pulumi.input_type
 class WorkflowStepCustomStepDetailsPropertiesArgs:
@@ -1970,30 +2037,27 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
         pulumi.set(self, "timeout_seconds", value)
 
 
-if not MYPY:
-    class WorkflowStepDecryptStepDetailsPropertiesArgsDict(TypedDict):
-        """
-        Details for a step that performs a file decryption.
-        """
-        destination_file_location: pulumi.Input['WorkflowInputFileLocationArgsDict']
-        type: pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']
-        """
-        Specifies which encryption method to use.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the step, used as an identifier.
-        """
-        overwrite_existing: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]
-        """
-        A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
-        """
-        source_file_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies which file to use as input to the workflow step.
-        """
-elif False:
-    WorkflowStepDecryptStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowStepDecryptStepDetailsPropertiesArgsDict(TypedDict):
+    """
+    Details for a step that performs a file decryption.
+    """
+    destination_file_location: pulumi.Input['WorkflowInputFileLocationArgsDict']
+    type: pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']
+    """
+    Specifies which encryption method to use.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the step, used as an identifier.
+    """
+    overwrite_existing: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]
+    """
+    A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+    """
+    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies which file to use as input to the workflow step.
+    """
 
 @pulumi.input_type
 class WorkflowStepDecryptStepDetailsPropertiesArgs:
@@ -2077,21 +2141,18 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
         pulumi.set(self, "source_file_location", value)
 
 
-if not MYPY:
-    class WorkflowStepDeleteStepDetailsPropertiesArgsDict(TypedDict):
-        """
-        Details for a step that deletes the file.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the step, used as an identifier.
-        """
-        source_file_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies which file to use as input to the workflow step.
-        """
-elif False:
-    WorkflowStepDeleteStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowStepDeleteStepDetailsPropertiesArgsDict(TypedDict):
+    """
+    Details for a step that deletes the file.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the step, used as an identifier.
+    """
+    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies which file to use as input to the workflow step.
+    """
 
 @pulumi.input_type
 class WorkflowStepDeleteStepDetailsPropertiesArgs:
@@ -2133,25 +2194,22 @@ class WorkflowStepDeleteStepDetailsPropertiesArgs:
         pulumi.set(self, "source_file_location", value)
 
 
-if not MYPY:
-    class WorkflowStepTagStepDetailsPropertiesArgsDict(TypedDict):
-        """
-        Details for a step that creates one or more tags.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the step, used as an identifier.
-        """
-        source_file_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies which file to use as input to the workflow step.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgsDict']]]]
-        """
-        Array that contains from 1 to 10 key/value pairs.
-        """
-elif False:
-    WorkflowStepTagStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowStepTagStepDetailsPropertiesArgsDict(TypedDict):
+    """
+    Details for a step that creates one or more tags.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the step, used as an identifier.
+    """
+    source_file_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies which file to use as input to the workflow step.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgsDict']]]]
+    """
+    Array that contains from 1 to 10 key/value pairs.
+    """
 
 @pulumi.input_type
 class WorkflowStepTagStepDetailsPropertiesArgs:
@@ -2209,34 +2267,31 @@ class WorkflowStepTagStepDetailsPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class WorkflowStepArgsDict(TypedDict):
-        """
-        The basic building block of a workflow.
-        """
-        copy_step_details: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgsDict']]
-        """
-        Details for a step that performs a file copy.
-        """
-        custom_step_details: NotRequired[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgsDict']]
-        """
-        Details for a step that invokes a lambda function.
-        """
-        decrypt_step_details: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgsDict']]
-        """
-        Details for a step that performs a file decryption.
-        """
-        delete_step_details: NotRequired[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgsDict']]
-        """
-        Details for a step that deletes the file.
-        """
-        tag_step_details: NotRequired[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgsDict']]
-        """
-        Details for a step that creates one or more tags.
-        """
-        type: NotRequired[pulumi.Input['WorkflowStepType']]
-elif False:
-    WorkflowStepArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowStepArgsDict(TypedDict):
+    """
+    The basic building block of a workflow.
+    """
+    copy_step_details: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgsDict']]
+    """
+    Details for a step that performs a file copy.
+    """
+    custom_step_details: NotRequired[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgsDict']]
+    """
+    Details for a step that invokes a lambda function.
+    """
+    decrypt_step_details: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgsDict']]
+    """
+    Details for a step that performs a file decryption.
+    """
+    delete_step_details: NotRequired[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgsDict']]
+    """
+    Details for a step that deletes the file.
+    """
+    tag_step_details: NotRequired[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgsDict']]
+    """
+    Details for a step that creates one or more tags.
+    """
+    type: NotRequired[pulumi.Input['WorkflowStepType']]
 
 @pulumi.input_type
 class WorkflowStepArgs:

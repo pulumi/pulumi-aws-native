@@ -23,20 +23,15 @@ __all__ = [
     'InvestigationGroupEncryptionConfigMapArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class InvestigationGroupChatbotNotificationChannelArgsDict(TypedDict):
-        chat_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
-        """
-        sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Returns the ARN of an Amazon  topic used for third-party chat integrations.
-        """
-elif False:
-    InvestigationGroupChatbotNotificationChannelArgsDict: TypeAlias = Mapping[str, Any]
+class InvestigationGroupChatbotNotificationChannelArgsDict(TypedDict):
+    chat_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
+    """
+    sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Returns the ARN of an Amazon  topic used for third-party chat integrations.
+    """
 
 @pulumi.input_type
 class InvestigationGroupChatbotNotificationChannelArgs:
@@ -77,14 +72,11 @@ class InvestigationGroupChatbotNotificationChannelArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-if not MYPY:
-    class InvestigationGroupCrossAccountConfigurationArgsDict(TypedDict):
-        source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an existing role which will be used to do investigations on your behalf.
-        """
-elif False:
-    InvestigationGroupCrossAccountConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class InvestigationGroupCrossAccountConfigurationArgsDict(TypedDict):
+    source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an existing role which will be used to do investigations on your behalf.
+    """
 
 @pulumi.input_type
 class InvestigationGroupCrossAccountConfigurationArgs:
@@ -109,18 +101,15 @@ class InvestigationGroupCrossAccountConfigurationArgs:
         pulumi.set(self, "source_role_arn", value)
 
 
-if not MYPY:
-    class InvestigationGroupEncryptionConfigMapArgsDict(TypedDict):
-        encryption_configuration_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
-        """
-elif False:
-    InvestigationGroupEncryptionConfigMapArgsDict: TypeAlias = Mapping[str, Any]
+class InvestigationGroupEncryptionConfigMapArgsDict(TypedDict):
+    encryption_configuration_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+    """
 
 @pulumi.input_type
 class InvestigationGroupEncryptionConfigMapArgs:

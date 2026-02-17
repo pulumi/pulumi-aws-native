@@ -4052,6 +4052,8 @@ const (
 	ObjectTypeKeyStandardIdentifiersItemLoyalty            = ObjectTypeKeyStandardIdentifiersItem("LOYALTY")
 	ObjectTypeKeyStandardIdentifiersItemLoyaltyTransaction = ObjectTypeKeyStandardIdentifiersItem("LOYALTY_TRANSACTION")
 	ObjectTypeKeyStandardIdentifiersItemLoyaltyPromotion   = ObjectTypeKeyStandardIdentifiersItem("LOYALTY_PROMOTION")
+	ObjectTypeKeyStandardIdentifiersItemWebAnalytics       = ObjectTypeKeyStandardIdentifiersItem("WEB_ANALYTICS")
+	ObjectTypeKeyStandardIdentifiersItemDevice             = ObjectTypeKeyStandardIdentifiersItem("DEVICE")
 )
 
 func (ObjectTypeKeyStandardIdentifiersItem) ElementType() reflect.Type {
@@ -4193,6 +4195,8 @@ func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutputWithCont
 //	ObjectTypeKeyStandardIdentifiersItemLoyalty
 //	ObjectTypeKeyStandardIdentifiersItemLoyaltyTransaction
 //	ObjectTypeKeyStandardIdentifiersItemLoyaltyPromotion
+//	ObjectTypeKeyStandardIdentifiersItemWebAnalytics
+//	ObjectTypeKeyStandardIdentifiersItemDevice
 type ObjectTypeKeyStandardIdentifiersItemInput interface {
 	pulumi.Input
 

@@ -149,7 +149,7 @@
     },
     "VcfVersion" : {
       "type" : "string",
-      "enum" : [ "VCF-5.2.1" ]
+      "enum" : [ "VCF-5.2.1", "VCF-5.2.2" ]
     },
     "TermsAccepted" : {
       "type" : "boolean"

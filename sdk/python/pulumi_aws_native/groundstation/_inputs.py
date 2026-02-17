@@ -36,10 +36,16 @@ __all__ = [
     'ConfigFrequencyBandwidthArgsDict',
     'ConfigFrequencyArgs',
     'ConfigFrequencyArgsDict',
+    'ConfigKinesisDataStreamDataArgs',
+    'ConfigKinesisDataStreamDataArgsDict',
     'ConfigS3RecordingConfigArgs',
     'ConfigS3RecordingConfigArgsDict',
     'ConfigSpectrumConfigArgs',
     'ConfigSpectrumConfigArgsDict',
+    'ConfigTelemetrySinkConfigArgs',
+    'ConfigTelemetrySinkConfigArgsDict',
+    'ConfigTelemetrySinkDataArgs',
+    'ConfigTelemetrySinkDataArgsDict',
     'ConfigTrackingConfigArgs',
     'ConfigTrackingConfigArgsDict',
     'ConfigUplinkEchoConfigArgs',
@@ -94,16 +100,11 @@ __all__ = [
     'MissionProfileStreamsKmsKeyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigAntennaDownlinkConfigArgsDict(TypedDict):
-        spectrum_config: NotRequired[pulumi.Input['ConfigSpectrumConfigArgsDict']]
-        """
-        Defines the spectrum configuration.
-        """
-elif False:
-    ConfigAntennaDownlinkConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigAntennaDownlinkConfigArgsDict(TypedDict):
+    spectrum_config: NotRequired[pulumi.Input['ConfigSpectrumConfigArgsDict']]
+    """
+    Defines the spectrum configuration.
+    """
 
 @pulumi.input_type
 class ConfigAntennaDownlinkConfigArgs:
@@ -128,22 +129,19 @@ class ConfigAntennaDownlinkConfigArgs:
         pulumi.set(self, "spectrum_config", value)
 
 
-if not MYPY:
-    class ConfigAntennaDownlinkDemodDecodeConfigArgsDict(TypedDict):
-        decode_config: NotRequired[pulumi.Input['ConfigDecodeConfigArgsDict']]
-        """
-        Defines how the RF signal will be decoded.
-        """
-        demodulation_config: NotRequired[pulumi.Input['ConfigDemodulationConfigArgsDict']]
-        """
-        Defines how the RF signal will be demodulated.
-        """
-        spectrum_config: NotRequired[pulumi.Input['ConfigSpectrumConfigArgsDict']]
-        """
-        Defines the spectrum configuration.
-        """
-elif False:
-    ConfigAntennaDownlinkDemodDecodeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigAntennaDownlinkDemodDecodeConfigArgsDict(TypedDict):
+    decode_config: NotRequired[pulumi.Input['ConfigDecodeConfigArgsDict']]
+    """
+    Defines how the RF signal will be decoded.
+    """
+    demodulation_config: NotRequired[pulumi.Input['ConfigDemodulationConfigArgsDict']]
+    """
+    Defines how the RF signal will be demodulated.
+    """
+    spectrum_config: NotRequired[pulumi.Input['ConfigSpectrumConfigArgsDict']]
+    """
+    Defines the spectrum configuration.
+    """
 
 @pulumi.input_type
 class ConfigAntennaDownlinkDemodDecodeConfigArgs:
@@ -200,22 +198,19 @@ class ConfigAntennaDownlinkDemodDecodeConfigArgs:
         pulumi.set(self, "spectrum_config", value)
 
 
-if not MYPY:
-    class ConfigAntennaUplinkConfigArgsDict(TypedDict):
-        spectrum_config: NotRequired[pulumi.Input['ConfigUplinkSpectrumConfigArgsDict']]
-        """
-        Defines the spectrum configuration.
-        """
-        target_eirp: NotRequired[pulumi.Input['ConfigEirpArgsDict']]
-        """
-        The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
-        """
-        transmit_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not uplink transmit is disabled.
-        """
-elif False:
-    ConfigAntennaUplinkConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigAntennaUplinkConfigArgsDict(TypedDict):
+    spectrum_config: NotRequired[pulumi.Input['ConfigUplinkSpectrumConfigArgsDict']]
+    """
+    Defines the spectrum configuration.
+    """
+    target_eirp: NotRequired[pulumi.Input['ConfigEirpArgsDict']]
+    """
+    The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
+    """
+    transmit_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not uplink transmit is disabled.
+    """
 
 @pulumi.input_type
 class ConfigAntennaUplinkConfigArgs:
@@ -272,18 +267,15 @@ class ConfigAntennaUplinkConfigArgs:
         pulumi.set(self, "transmit_disabled", value)
 
 
-if not MYPY:
-    class ConfigDataflowEndpointConfigArgsDict(TypedDict):
-        dataflow_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the dataflow endpoint to use during contacts.
-        """
-        dataflow_endpoint_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
-        """
-elif False:
-    ConfigDataflowEndpointConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDataflowEndpointConfigArgsDict(TypedDict):
+    dataflow_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the dataflow endpoint to use during contacts.
+    """
+    dataflow_endpoint_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The region of the dataflow endpoint to use during contacts. When omitted, Ground Station will use the region of the contact.
+    """
 
 @pulumi.input_type
 class ConfigDataflowEndpointConfigArgs:
@@ -324,38 +316,36 @@ class ConfigDataflowEndpointConfigArgs:
         pulumi.set(self, "dataflow_endpoint_region", value)
 
 
-if not MYPY:
-    class ConfigDataArgsDict(TypedDict):
-        antenna_downlink_config: NotRequired[pulumi.Input['ConfigAntennaDownlinkConfigArgsDict']]
-        """
-        Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
-        """
-        antenna_downlink_demod_decode_config: NotRequired[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgsDict']]
-        """
-        Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
-        """
-        antenna_uplink_config: NotRequired[pulumi.Input['ConfigAntennaUplinkConfigArgsDict']]
-        """
-        Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
-        """
-        dataflow_endpoint_config: NotRequired[pulumi.Input['ConfigDataflowEndpointConfigArgsDict']]
-        """
-        Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
-        """
-        s3_recording_config: NotRequired[pulumi.Input['ConfigS3RecordingConfigArgsDict']]
-        """
-        Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
-        """
-        tracking_config: NotRequired[pulumi.Input['ConfigTrackingConfigArgsDict']]
-        """
-        Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
-        """
-        uplink_echo_config: NotRequired[pulumi.Input['ConfigUplinkEchoConfigArgsDict']]
-        """
-        Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
-        """
-elif False:
-    ConfigDataArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDataArgsDict(TypedDict):
+    antenna_downlink_config: NotRequired[pulumi.Input['ConfigAntennaDownlinkConfigArgsDict']]
+    """
+    Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
+    """
+    antenna_downlink_demod_decode_config: NotRequired[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgsDict']]
+    """
+    Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
+    """
+    antenna_uplink_config: NotRequired[pulumi.Input['ConfigAntennaUplinkConfigArgsDict']]
+    """
+    Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
+    """
+    dataflow_endpoint_config: NotRequired[pulumi.Input['ConfigDataflowEndpointConfigArgsDict']]
+    """
+    Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
+    """
+    s3_recording_config: NotRequired[pulumi.Input['ConfigS3RecordingConfigArgsDict']]
+    """
+    Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
+    """
+    telemetry_sink_config: NotRequired[pulumi.Input['ConfigTelemetrySinkConfigArgsDict']]
+    tracking_config: NotRequired[pulumi.Input['ConfigTrackingConfigArgsDict']]
+    """
+    Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
+    """
+    uplink_echo_config: NotRequired[pulumi.Input['ConfigUplinkEchoConfigArgsDict']]
+    """
+    Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
+    """
 
 @pulumi.input_type
 class ConfigDataArgs:
@@ -365,6 +355,7 @@ class ConfigDataArgs:
                  antenna_uplink_config: Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']] = None,
                  dataflow_endpoint_config: Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']] = None,
                  s3_recording_config: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']] = None,
+                 telemetry_sink_config: Optional[pulumi.Input['ConfigTelemetrySinkConfigArgs']] = None,
                  tracking_config: Optional[pulumi.Input['ConfigTrackingConfigArgs']] = None,
                  uplink_echo_config: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']] = None):
         """
@@ -386,6 +377,8 @@ class ConfigDataArgs:
             pulumi.set(__self__, "dataflow_endpoint_config", dataflow_endpoint_config)
         if s3_recording_config is not None:
             pulumi.set(__self__, "s3_recording_config", s3_recording_config)
+        if telemetry_sink_config is not None:
+            pulumi.set(__self__, "telemetry_sink_config", telemetry_sink_config)
         if tracking_config is not None:
             pulumi.set(__self__, "tracking_config", tracking_config)
         if uplink_echo_config is not None:
@@ -452,6 +445,15 @@ class ConfigDataArgs:
         pulumi.set(self, "s3_recording_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="telemetrySinkConfig")
+    def telemetry_sink_config(self) -> Optional[pulumi.Input['ConfigTelemetrySinkConfigArgs']]:
+        return pulumi.get(self, "telemetry_sink_config")
+
+    @telemetry_sink_config.setter
+    def telemetry_sink_config(self, value: Optional[pulumi.Input['ConfigTelemetrySinkConfigArgs']]):
+        pulumi.set(self, "telemetry_sink_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="trackingConfig")
     def tracking_config(self) -> Optional[pulumi.Input['ConfigTrackingConfigArgs']]:
         """
@@ -476,14 +478,11 @@ class ConfigDataArgs:
         pulumi.set(self, "uplink_echo_config", value)
 
 
-if not MYPY:
-    class ConfigDecodeConfigArgsDict(TypedDict):
-        unvalidated_json: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The decoding settings are in JSON format and define a set of steps to perform to decode the data.
-        """
-elif False:
-    ConfigDecodeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDecodeConfigArgsDict(TypedDict):
+    unvalidated_json: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The decoding settings are in JSON format and define a set of steps to perform to decode the data.
+    """
 
 @pulumi.input_type
 class ConfigDecodeConfigArgs:
@@ -508,14 +507,11 @@ class ConfigDecodeConfigArgs:
         pulumi.set(self, "unvalidated_json", value)
 
 
-if not MYPY:
-    class ConfigDemodulationConfigArgsDict(TypedDict):
-        unvalidated_json: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
-        """
-elif False:
-    ConfigDemodulationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDemodulationConfigArgsDict(TypedDict):
+    unvalidated_json: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
+    """
 
 @pulumi.input_type
 class ConfigDemodulationConfigArgs:
@@ -540,18 +536,15 @@ class ConfigDemodulationConfigArgs:
         pulumi.set(self, "unvalidated_json", value)
 
 
-if not MYPY:
-    class ConfigEirpArgsDict(TypedDict):
-        units: NotRequired[pulumi.Input['ConfigEirpUnits']]
-        """
-        The units of the EIRP.
-        """
-        value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
-        """
-elif False:
-    ConfigEirpArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigEirpArgsDict(TypedDict):
+    units: NotRequired[pulumi.Input['ConfigEirpUnits']]
+    """
+    The units of the EIRP.
+    """
+    value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
+    """
 
 @pulumi.input_type
 class ConfigEirpArgs:
@@ -592,22 +585,19 @@ class ConfigEirpArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConfigFrequencyBandwidthArgsDict(TypedDict):
-        units: NotRequired[pulumi.Input['ConfigBandwidthUnits']]
-        """
-        The units of the bandwidth.
-        """
-        value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations: 
+class ConfigFrequencyBandwidthArgsDict(TypedDict):
+    units: NotRequired[pulumi.Input['ConfigBandwidthUnits']]
+    """
+    The units of the bandwidth.
+    """
+    value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations: 
 
-        - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
-        - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
-        - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
-        """
-elif False:
-    ConfigFrequencyBandwidthArgsDict: TypeAlias = Mapping[str, Any]
+    - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+    - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+    - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
+    """
 
 @pulumi.input_type
 class ConfigFrequencyBandwidthArgs:
@@ -656,18 +646,15 @@ class ConfigFrequencyBandwidthArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConfigFrequencyArgsDict(TypedDict):
-        units: NotRequired[pulumi.Input['ConfigFrequencyUnits']]
-        """
-        The units of the frequency.
-        """
-        value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-        """
-elif False:
-    ConfigFrequencyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigFrequencyArgsDict(TypedDict):
+    units: NotRequired[pulumi.Input['ConfigFrequencyUnits']]
+    """
+    The units of the frequency.
+    """
+    value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of the frequency. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
+    """
 
 @pulumi.input_type
 class ConfigFrequencyArgs:
@@ -708,24 +695,52 @@ class ConfigFrequencyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConfigS3RecordingConfigArgsDict(TypedDict):
-        bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+class ConfigKinesisDataStreamDataArgsDict(TypedDict):
+    kinesis_data_stream_arn: pulumi.Input[_builtins.str]
+    kinesis_role_arn: pulumi.Input[_builtins.str]
 
-        *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines the ARN of the role assumed for putting archives to S3.
-        """
-elif False:
-    ConfigS3RecordingConfigArgsDict: TypeAlias = Mapping[str, Any]
+@pulumi.input_type
+class ConfigKinesisDataStreamDataArgs:
+    def __init__(__self__, *,
+                 kinesis_data_stream_arn: pulumi.Input[_builtins.str],
+                 kinesis_role_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "kinesis_data_stream_arn", kinesis_data_stream_arn)
+        pulumi.set(__self__, "kinesis_role_arn", kinesis_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamArn")
+    def kinesis_data_stream_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "kinesis_data_stream_arn")
+
+    @kinesis_data_stream_arn.setter
+    def kinesis_data_stream_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kinesis_data_stream_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisRoleArn")
+    def kinesis_role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "kinesis_role_arn")
+
+    @kinesis_role_arn.setter
+    def kinesis_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kinesis_role_arn", value)
+
+
+class ConfigS3RecordingConfigArgsDict(TypedDict):
+    bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 Bucket where the data is written. The name of the S3 Bucket provided must begin with `aws-groundstation` .
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix of the S3 data object. If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
+
+    *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines the ARN of the role assumed for putting archives to S3.
+    """
 
 @pulumi.input_type
 class ConfigS3RecordingConfigArgs:
@@ -786,26 +801,23 @@ class ConfigS3RecordingConfigArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class ConfigSpectrumConfigArgsDict(TypedDict):
-        bandwidth: NotRequired[pulumi.Input['ConfigFrequencyBandwidthArgsDict']]
-        """
-        The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations: 
+class ConfigSpectrumConfigArgsDict(TypedDict):
+    bandwidth: NotRequired[pulumi.Input['ConfigFrequencyBandwidthArgsDict']]
+    """
+    The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations: 
 
-        - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
-        - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
-        - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
-        """
-        center_frequency: NotRequired[pulumi.Input['ConfigFrequencyArgsDict']]
-        """
-        The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-        """
-        polarization: NotRequired[pulumi.Input['ConfigPolarization']]
-        """
-        The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
-        """
-elif False:
-    ConfigSpectrumConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+    - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+    - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
+    """
+    center_frequency: NotRequired[pulumi.Input['ConfigFrequencyArgsDict']]
+    """
+    The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
+    """
+    polarization: NotRequired[pulumi.Input['ConfigPolarization']]
+    """
+    The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
+    """
 
 @pulumi.input_type
 class ConfigSpectrumConfigArgs:
@@ -870,14 +882,62 @@ class ConfigSpectrumConfigArgs:
         pulumi.set(self, "polarization", value)
 
 
-if not MYPY:
-    class ConfigTrackingConfigArgsDict(TypedDict):
-        autotrack: NotRequired[pulumi.Input['ConfigTrackingConfigAutotrack']]
-        """
-        Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
-        """
-elif False:
-    ConfigTrackingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigTelemetrySinkConfigArgsDict(TypedDict):
+    telemetry_sink_data: pulumi.Input['ConfigTelemetrySinkDataArgsDict']
+    telemetry_sink_type: pulumi.Input['ConfigTelemetrySinkType']
+
+@pulumi.input_type
+class ConfigTelemetrySinkConfigArgs:
+    def __init__(__self__, *,
+                 telemetry_sink_data: pulumi.Input['ConfigTelemetrySinkDataArgs'],
+                 telemetry_sink_type: pulumi.Input['ConfigTelemetrySinkType']):
+        pulumi.set(__self__, "telemetry_sink_data", telemetry_sink_data)
+        pulumi.set(__self__, "telemetry_sink_type", telemetry_sink_type)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkData")
+    def telemetry_sink_data(self) -> pulumi.Input['ConfigTelemetrySinkDataArgs']:
+        return pulumi.get(self, "telemetry_sink_data")
+
+    @telemetry_sink_data.setter
+    def telemetry_sink_data(self, value: pulumi.Input['ConfigTelemetrySinkDataArgs']):
+        pulumi.set(self, "telemetry_sink_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkType")
+    def telemetry_sink_type(self) -> pulumi.Input['ConfigTelemetrySinkType']:
+        return pulumi.get(self, "telemetry_sink_type")
+
+    @telemetry_sink_type.setter
+    def telemetry_sink_type(self, value: pulumi.Input['ConfigTelemetrySinkType']):
+        pulumi.set(self, "telemetry_sink_type", value)
+
+
+class ConfigTelemetrySinkDataArgsDict(TypedDict):
+    kinesis_data_stream_data: NotRequired[pulumi.Input['ConfigKinesisDataStreamDataArgsDict']]
+
+@pulumi.input_type
+class ConfigTelemetrySinkDataArgs:
+    def __init__(__self__, *,
+                 kinesis_data_stream_data: Optional[pulumi.Input['ConfigKinesisDataStreamDataArgs']] = None):
+        if kinesis_data_stream_data is not None:
+            pulumi.set(__self__, "kinesis_data_stream_data", kinesis_data_stream_data)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamData")
+    def kinesis_data_stream_data(self) -> Optional[pulumi.Input['ConfigKinesisDataStreamDataArgs']]:
+        return pulumi.get(self, "kinesis_data_stream_data")
+
+    @kinesis_data_stream_data.setter
+    def kinesis_data_stream_data(self, value: Optional[pulumi.Input['ConfigKinesisDataStreamDataArgs']]):
+        pulumi.set(self, "kinesis_data_stream_data", value)
+
+
+class ConfigTrackingConfigArgsDict(TypedDict):
+    autotrack: NotRequired[pulumi.Input['ConfigTrackingConfigAutotrack']]
+    """
+    Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
+    """
 
 @pulumi.input_type
 class ConfigTrackingConfigArgs:
@@ -902,18 +962,15 @@ class ConfigTrackingConfigArgs:
         pulumi.set(self, "autotrack", value)
 
 
-if not MYPY:
-    class ConfigUplinkEchoConfigArgsDict(TypedDict):
-        antenna_uplink_config_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines the ARN of the uplink config to echo back to a dataflow endpoint.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not uplink echo is enabled.
-        """
-elif False:
-    ConfigUplinkEchoConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigUplinkEchoConfigArgsDict(TypedDict):
+    antenna_uplink_config_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines the ARN of the uplink config to echo back to a dataflow endpoint.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not uplink echo is enabled.
+    """
 
 @pulumi.input_type
 class ConfigUplinkEchoConfigArgs:
@@ -954,18 +1011,15 @@ class ConfigUplinkEchoConfigArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ConfigUplinkSpectrumConfigArgsDict(TypedDict):
-        center_frequency: NotRequired[pulumi.Input['ConfigFrequencyArgsDict']]
-        """
-        The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-        """
-        polarization: NotRequired[pulumi.Input['ConfigPolarization']]
-        """
-        The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
-        """
-elif False:
-    ConfigUplinkSpectrumConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigUplinkSpectrumConfigArgsDict(TypedDict):
+    center_frequency: NotRequired[pulumi.Input['ConfigFrequencyArgsDict']]
+    """
+    The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
+    """
+    polarization: NotRequired[pulumi.Input['ConfigPolarization']]
+    """
+    The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
+    """
 
 @pulumi.input_type
 class ConfigUplinkSpectrumConfigArgs:
@@ -1006,33 +1060,30 @@ class ConfigUplinkSpectrumConfigArgs:
         pulumi.set(self, "polarization", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupAwsGroundStationAgentEndpointArgsDict(TypedDict):
-        """
-        Information about AwsGroundStationAgentEndpoint.
-        """
-        agent_status: NotRequired[pulumi.Input['DataflowEndpointGroupAgentStatus']]
-        """
-        The status of AgentEndpoint.
-        """
-        audit_results: NotRequired[pulumi.Input['DataflowEndpointGroupAuditResults']]
-        """
-        The results of the audit.
-        """
-        egress_address: NotRequired[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgsDict']]
-        """
-        The egress address of AgentEndpoint.
-        """
-        ingress_address: NotRequired[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgsDict']]
-        """
-        The ingress address of AgentEndpoint.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
-        """
-elif False:
-    DataflowEndpointGroupAwsGroundStationAgentEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupAwsGroundStationAgentEndpointArgsDict(TypedDict):
+    """
+    Information about AwsGroundStationAgentEndpoint.
+    """
+    agent_status: NotRequired[pulumi.Input['DataflowEndpointGroupAgentStatus']]
+    """
+    The status of AgentEndpoint.
+    """
+    audit_results: NotRequired[pulumi.Input['DataflowEndpointGroupAuditResults']]
+    """
+    The results of the audit.
+    """
+    egress_address: NotRequired[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgsDict']]
+    """
+    The egress address of AgentEndpoint.
+    """
+    ingress_address: NotRequired[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgsDict']]
+    """
+    The ingress address of AgentEndpoint.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
@@ -1122,21 +1173,18 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupConnectionDetailsArgsDict(TypedDict):
-        """
-        Egress address of AgentEndpoint with an optional mtu.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-        """
-        socket_address: NotRequired[pulumi.Input['DataflowEndpointGroupSocketAddressArgsDict']]
-        """
-        A socket address.
-        """
-elif False:
-    DataflowEndpointGroupConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupConnectionDetailsArgsDict(TypedDict):
+    """
+    Egress address of AgentEndpoint with an optional mtu.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+    """
+    socket_address: NotRequired[pulumi.Input['DataflowEndpointGroupSocketAddressArgsDict']]
+    """
+    A socket address.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupConnectionDetailsArgs:
@@ -1178,24 +1226,21 @@ class DataflowEndpointGroupConnectionDetailsArgs:
         pulumi.set(self, "socket_address", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupDataflowEndpointArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input['DataflowEndpointGroupSocketAddressArgsDict']]
-        """
-        The address and port of an endpoint.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint name.
+class DataflowEndpointGroupDataflowEndpointArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input['DataflowEndpointGroupSocketAddressArgsDict']]
+    """
+    The address and port of an endpoint.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum transmission unit (MTU) size in bytes of a dataflow endpoint. Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint name.
 
-        When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
-        """
-elif False:
-    DataflowEndpointGroupDataflowEndpointArgsDict: TypeAlias = Mapping[str, Any]
+    When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupDataflowEndpointArgs:
@@ -1256,22 +1301,19 @@ class DataflowEndpointGroupDataflowEndpointArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupEndpointDetailsArgsDict(TypedDict):
-        aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgsDict']]
-        """
-        An agent endpoint.
-        """
-        endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgsDict']]
-        """
-        Information about the endpoint such as name and the endpoint address.
-        """
-        security_details: NotRequired[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgsDict']]
-        """
-        The role ARN, and IDs for security groups and subnets.
-        """
-elif False:
-    DataflowEndpointGroupEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupEndpointDetailsArgsDict(TypedDict):
+    aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgsDict']]
+    """
+    An agent endpoint.
+    """
+    endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgsDict']]
+    """
+    Information about the endpoint such as name and the endpoint address.
+    """
+    security_details: NotRequired[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgsDict']]
+    """
+    The role ARN, and IDs for security groups and subnets.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupEndpointDetailsArgs:
@@ -1328,21 +1370,18 @@ class DataflowEndpointGroupEndpointDetailsArgs:
         pulumi.set(self, "security_details", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupIntegerRangeArgsDict(TypedDict):
-        """
-        An integer range that has a minimum and maximum value.
-        """
-        maximum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A maximum value.
-        """
-        minimum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A minimum value.
-        """
-elif False:
-    DataflowEndpointGroupIntegerRangeArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupIntegerRangeArgsDict(TypedDict):
+    """
+    An integer range that has a minimum and maximum value.
+    """
+    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A maximum value.
+    """
+    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A minimum value.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupIntegerRangeArgs:
@@ -1384,21 +1423,18 @@ class DataflowEndpointGroupIntegerRangeArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupRangedConnectionDetailsArgsDict(TypedDict):
-        """
-        Ingress address of AgentEndpoint with a port range and an optional mtu.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-        """
-        socket_address: NotRequired[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgsDict']]
-        """
-        A ranged socket address.
-        """
-elif False:
-    DataflowEndpointGroupRangedConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupRangedConnectionDetailsArgsDict(TypedDict):
+    """
+    Ingress address of AgentEndpoint with a port range and an optional mtu.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+    """
+    socket_address: NotRequired[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgsDict']]
+    """
+    A ranged socket address.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupRangedConnectionDetailsArgs:
@@ -1440,21 +1476,18 @@ class DataflowEndpointGroupRangedConnectionDetailsArgs:
         pulumi.set(self, "socket_address", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupRangedSocketAddressArgsDict(TypedDict):
-        """
-        A socket address with a port range.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv4 socket address.
-        """
-        port_range: NotRequired[pulumi.Input['DataflowEndpointGroupIntegerRangeArgsDict']]
-        """
-        Port range of a socket address.
-        """
-elif False:
-    DataflowEndpointGroupRangedSocketAddressArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupRangedSocketAddressArgsDict(TypedDict):
+    """
+    A socket address with a port range.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv4 socket address.
+    """
+    port_range: NotRequired[pulumi.Input['DataflowEndpointGroupIntegerRangeArgsDict']]
+    """
+    Port range of a socket address.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupRangedSocketAddressArgs:
@@ -1496,24 +1529,21 @@ class DataflowEndpointGroupRangedSocketAddressArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupSecurityDetailsArgsDict(TypedDict):
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
+class DataflowEndpointGroupSecurityDetailsArgsDict(TypedDict):
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
 
-        Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The security group Ids of the security role, such as `sg-1234567890abcdef0` .
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The subnet Ids of the security details, such as `subnet-12345678` .
-        """
-elif False:
-    DataflowEndpointGroupSecurityDetailsArgsDict: TypeAlias = Mapping[str, Any]
+    Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The security group Ids of the security role, such as `sg-1234567890abcdef0` .
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The subnet Ids of the security details, such as `subnet-12345678` .
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupSecurityDetailsArgs:
@@ -1574,18 +1604,15 @@ class DataflowEndpointGroupSecurityDetailsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupSocketAddressArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the endpoint, such as `Endpoint 1` .
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port of the endpoint, such as `55888` .
-        """
-elif False:
-    DataflowEndpointGroupSocketAddressArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupSocketAddressArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the endpoint, such as `Endpoint 1` .
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port of the endpoint, such as `55888` .
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupSocketAddressArgs:
@@ -1626,21 +1653,18 @@ class DataflowEndpointGroupSocketAddressArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2ConnectionDetailsArgsDict(TypedDict):
-        """
-        Socket address of an uplink or downlink agent endpoint with an optional mtu.
-        """
-        socket_address: pulumi.Input['DataflowEndpointGroupV2SocketAddressArgsDict']
-        """
-        A socket address.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-        """
-elif False:
-    DataflowEndpointGroupV2ConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2ConnectionDetailsArgsDict(TypedDict):
+    """
+    Socket address of an uplink or downlink agent endpoint with an optional mtu.
+    """
+    socket_address: pulumi.Input['DataflowEndpointGroupV2SocketAddressArgsDict']
+    """
+    A socket address.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2ConnectionDetailsArgs:
@@ -1681,18 +1705,15 @@ class DataflowEndpointGroupV2ConnectionDetailsArgs:
         pulumi.set(self, "mtu", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2CreateEndpointDetailsArgsDict(TypedDict):
-        downlink_aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict']]
-        """
-        Definition for a downlink agent endpoint
-        """
-        uplink_aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict']]
-        """
-        Definition for an uplink agent endpoint
-        """
-elif False:
-    DataflowEndpointGroupV2CreateEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2CreateEndpointDetailsArgsDict(TypedDict):
+    downlink_aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict']]
+    """
+    Definition for a downlink agent endpoint
+    """
+    uplink_aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict']]
+    """
+    Definition for an uplink agent endpoint
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2CreateEndpointDetailsArgs:
@@ -1733,21 +1754,18 @@ class DataflowEndpointGroupV2CreateEndpointDetailsArgs:
         pulumi.set(self, "uplink_aws_ground_station_agent_endpoint", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict(TypedDict):
-        """
-        Information about DownlinkAwsGroundStationAgentEndpoint used for create
-        """
-        dataflow_details: pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict']
-        """
-        Dataflow details for the downlink endpoint
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Downlink dataflow endpoint name
-        """
-elif False:
-    DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict(TypedDict):
+    """
+    Information about DownlinkAwsGroundStationAgentEndpoint used for create
+    """
+    dataflow_details: pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict']
+    """
+    Dataflow details for the downlink endpoint
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Downlink dataflow endpoint name
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs:
@@ -1787,21 +1805,18 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict(TypedDict):
-        """
-        Connection details for downlink, from ground station to agent, and customer to agent
-        """
-        agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgsDict']
-        """
-        Agent IP and port address for the downlink connection.
-        """
-        egress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgsDict']
-        """
-        Egress address and port for the downlink connection.
-        """
-elif False:
-    DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict(TypedDict):
+    """
+    Connection details for downlink, from ground station to agent, and customer to agent
+    """
+    agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgsDict']
+    """
+    Agent IP and port address for the downlink connection.
+    """
+    egress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgsDict']
+    """
+    Egress address and port for the downlink connection.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2DownlinkConnectionDetailsArgs:
@@ -1841,17 +1856,14 @@ class DataflowEndpointGroupV2DownlinkConnectionDetailsArgs:
         pulumi.set(self, "egress_address_and_port", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict(TypedDict):
-        """
-        Dataflow details for downlink
-        """
-        agent_connection_details: NotRequired[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict']]
-        """
-        Downlink connection details for customer to Agent and Agent to Ground Station
-        """
-elif False:
-    DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict(TypedDict):
+    """
+    Dataflow details for downlink
+    """
+    agent_connection_details: NotRequired[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict']]
+    """
+    Downlink connection details for customer to Agent and Agent to Ground Station
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2DownlinkDataflowDetailsArgs:
@@ -1877,21 +1889,18 @@ class DataflowEndpointGroupV2DownlinkDataflowDetailsArgs:
         pulumi.set(self, "agent_connection_details", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2IntegerRangeArgsDict(TypedDict):
-        """
-        An integer range that has a minimum and maximum value.
-        """
-        maximum: pulumi.Input[_builtins.int]
-        """
-        A maximum value.
-        """
-        minimum: pulumi.Input[_builtins.int]
-        """
-        A minimum value.
-        """
-elif False:
-    DataflowEndpointGroupV2IntegerRangeArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2IntegerRangeArgsDict(TypedDict):
+    """
+    An integer range that has a minimum and maximum value.
+    """
+    maximum: pulumi.Input[_builtins.int]
+    """
+    A maximum value.
+    """
+    minimum: pulumi.Input[_builtins.int]
+    """
+    A minimum value.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2IntegerRangeArgs:
@@ -1931,21 +1940,18 @@ class DataflowEndpointGroupV2IntegerRangeArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2RangedConnectionDetailsArgsDict(TypedDict):
-        """
-        Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
-        """
-        socket_address: pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgsDict']
-        """
-        A ranged socket address.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-        """
-elif False:
-    DataflowEndpointGroupV2RangedConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2RangedConnectionDetailsArgsDict(TypedDict):
+    """
+    Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+    """
+    socket_address: pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgsDict']
+    """
+    A ranged socket address.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2RangedConnectionDetailsArgs:
@@ -1986,21 +1992,18 @@ class DataflowEndpointGroupV2RangedConnectionDetailsArgs:
         pulumi.set(self, "mtu", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2RangedSocketAddressArgsDict(TypedDict):
-        """
-        A socket address with a port range.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        IPv4 socket address.
-        """
-        port_range: pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgsDict']
-        """
-        Port range of a socket address.
-        """
-elif False:
-    DataflowEndpointGroupV2RangedSocketAddressArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2RangedSocketAddressArgsDict(TypedDict):
+    """
+    A socket address with a port range.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    IPv4 socket address.
+    """
+    port_range: pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgsDict']
+    """
+    Port range of a socket address.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2RangedSocketAddressArgs:
@@ -2040,18 +2043,15 @@ class DataflowEndpointGroupV2RangedSocketAddressArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2SocketAddressArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        IPv4 socket address.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port of a socket address.
-        """
-elif False:
-    DataflowEndpointGroupV2SocketAddressArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2SocketAddressArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    IPv4 socket address.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port of a socket address.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2SocketAddressArgs:
@@ -2090,21 +2090,18 @@ class DataflowEndpointGroupV2SocketAddressArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict(TypedDict):
-        """
-        Information about UplinkAwsGroundStationAgentEndpoint used for create
-        """
-        dataflow_details: pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict']
-        """
-        Dataflow details for the uplink endpoint
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Uplink dataflow endpoint name
-        """
-elif False:
-    DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict(TypedDict):
+    """
+    Information about UplinkAwsGroundStationAgentEndpoint used for create
+    """
+    dataflow_details: pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict']
+    """
+    Dataflow details for the uplink endpoint
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Uplink dataflow endpoint name
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs:
@@ -2144,21 +2141,18 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict(TypedDict):
-        """
-        Connection details for uplink, from ground station to agent, and customer to agent
-        """
-        agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgsDict']
-        """
-        Agent IP and port address for the uplink connection.
-        """
-        ingress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgsDict']
-        """
-        Ingress address and port for the uplink connection.
-        """
-elif False:
-    DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict(TypedDict):
+    """
+    Connection details for uplink, from ground station to agent, and customer to agent
+    """
+    agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgsDict']
+    """
+    Agent IP and port address for the uplink connection.
+    """
+    ingress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgsDict']
+    """
+    Ingress address and port for the uplink connection.
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2UplinkConnectionDetailsArgs:
@@ -2198,17 +2192,14 @@ class DataflowEndpointGroupV2UplinkConnectionDetailsArgs:
         pulumi.set(self, "ingress_address_and_port", value)
 
 
-if not MYPY:
-    class DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict(TypedDict):
-        """
-        Dataflow details for uplink
-        """
-        agent_connection_details: NotRequired[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict']]
-        """
-        Uplink connection details for customer to Agent and Agent to Ground Station
-        """
-elif False:
-    DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict(TypedDict):
+    """
+    Dataflow details for uplink
+    """
+    agent_connection_details: NotRequired[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict']]
+    """
+    Uplink connection details for customer to Agent and Agent to Ground Station
+    """
 
 @pulumi.input_type
 class DataflowEndpointGroupV2UplinkDataflowDetailsArgs:
@@ -2234,18 +2225,15 @@ class DataflowEndpointGroupV2UplinkDataflowDetailsArgs:
         pulumi.set(self, "agent_connection_details", value)
 
 
-if not MYPY:
-    class MissionProfileDataflowEdgeArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
-        """
-elif False:
-    MissionProfileDataflowEdgeArgsDict: TypeAlias = Mapping[str, Any]
+class MissionProfileDataflowEdgeArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
+    """
 
 @pulumi.input_type
 class MissionProfileDataflowEdgeArgs:
@@ -2286,22 +2274,19 @@ class MissionProfileDataflowEdgeArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class MissionProfileStreamsKmsKeyArgsDict(TypedDict):
-        kms_alias_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Alias Arn.
-        """
-        kms_alias_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Alias Name.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS Key Arn.
-        """
-elif False:
-    MissionProfileStreamsKmsKeyArgsDict: TypeAlias = Mapping[str, Any]
+class MissionProfileStreamsKmsKeyArgsDict(TypedDict):
+    kms_alias_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Alias Arn.
+    """
+    kms_alias_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Alias Name.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS Key Arn.
+    """
 
 @pulumi.input_type
 class MissionProfileStreamsKmsKeyArgs:

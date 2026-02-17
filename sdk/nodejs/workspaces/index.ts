@@ -15,10 +15,20 @@ export const getConnectionAlias: typeof import("./getConnectionAlias").getConnec
 export const getConnectionAliasOutput: typeof import("./getConnectionAlias").getConnectionAliasOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectionAlias","getConnectionAliasOutput"], () => require("./getConnectionAlias"));
 
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
 export { GetWorkspacesPoolArgs, GetWorkspacesPoolResult, GetWorkspacesPoolOutputArgs } from "./getWorkspacesPool";
 export const getWorkspacesPool: typeof import("./getWorkspacesPool").getWorkspacesPool = null as any;
 export const getWorkspacesPoolOutput: typeof import("./getWorkspacesPool").getWorkspacesPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspacesPool","getWorkspacesPoolOutput"], () => require("./getWorkspacesPool"));
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 export { WorkspacesPoolArgs } from "./workspacesPool";
 export type WorkspacesPool = import("./workspacesPool").WorkspacesPool;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:workspaces:ConnectionAlias":
                 return new ConnectionAlias(name, <any>undefined, { urn })
+            case "aws-native:workspaces:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
             case "aws-native:workspaces:WorkspacesPool":
                 return new WorkspacesPool(name, <any>undefined, { urn })
             default:

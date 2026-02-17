@@ -1662,6 +1662,56 @@
       "required" : [ "CustomVocabularyItems" ],
       "additionalProperties" : false
     },
+    "SpeechModelPreference" : {
+      "type" : "string",
+      "enum" : [ "Standard", "Neural", "Deepgram" ]
+    },
+    "DeepgramModelId" : {
+      "type" : "string",
+      "minLength" : 4,
+      "maxLength" : 32,
+      "pattern" : "[A-Za-z0-9-_]+"
+    },
+    "SecretsManagerSecretArn" : {
+      "type" : "string",
+      "minLength" : 20,
+      "maxLength" : 2048,
+      "pattern" : "^arn:aws[A-Za-z-]*:secretsmanager:[a-z0-9-]{1,20}:[0-9]{12}:secret:[A-Za-z0-9/_+=.@-]{1,512}-[A-Za-z0-9]{6}$"
+    },
+    "DeepgramSpeechModelConfig" : {
+      "type" : "object",
+      "properties" : {
+        "ApiTokenSecretArn" : {
+          "$ref" : "#/definitions/SecretsManagerSecretArn"
+        },
+        "ModelId" : {
+          "$ref" : "#/definitions/DeepgramModelId"
+        }
+      },
+      "required" : [ "ApiTokenSecretArn" ],
+      "additionalProperties" : false
+    },
+    "SpeechModelConfig" : {
+      "type" : "object",
+      "properties" : {
+        "DeepgramConfig" : {
+          "$ref" : "#/definitions/DeepgramSpeechModelConfig"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "SpeechRecognitionSettings" : {
+      "type" : "object",
+      "properties" : {
+        "SpeechModelPreference" : {
+          "$ref" : "#/definitions/SpeechModelPreference"
+        },
+        "SpeechModelConfig" : {
+          "$ref" : "#/definitions/SpeechModelConfig"
+        }
+      },
+      "additionalProperties" : false
+    },
     "SlotDefaultValue" : {
       "type" : "object",
       "properties" : {
@@ -1809,6 +1859,9 @@
         },
         "SpeechDetectionSensitivity" : {
           "$ref" : "#/definitions/SpeechDetectionSensitivity"
+        },
+        "SpeechRecognitionSettings" : {
+          "$ref" : "#/definitions/SpeechRecognitionSettings"
         },
         "Intents" : {
           "type" : "array",

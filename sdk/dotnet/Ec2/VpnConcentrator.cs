@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::VPNConcentrator
+    /// Describes a VPN concentrator.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:VpnConcentrator")]
     public partial class VpnConcentrator : global::Pulumi.CustomResource
@@ -22,25 +22,25 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the transit gateway attachment
+        /// The ID of the transit gateway attachment for the VPN concentrator.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the transit gateway
+        /// The ID of the transit gateway associated with the VPN concentrator.
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of VPN concentrator
+        /// The type of VPN concentrator.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN concentrator to associate with the VPN connection.
         /// </summary>
         [Output("vpnConcentratorId")]
         public Output<string> VpnConcentratorId { get; private set; } = null!;
@@ -108,13 +108,13 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         /// <summary>
-        /// The ID of the transit gateway
+        /// The ID of the transit gateway associated with the VPN concentrator.
         /// </summary>
         [Input("transitGatewayId", required: true)]
         public Input<string> TransitGatewayId { get; set; } = null!;
 
         /// <summary>
-        /// The type of VPN concentrator
+        /// The type of VPN concentrator.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("inboundCalls", required: true)]
         public Input<bool> InboundCalls { get; set; } = null!;
 
+        [Input("messageStreaming")]
+        public Input<bool>? MessageStreaming { get; set; }
+
         [Input("multiPartyChatConference")]
         public Input<bool>? MultiPartyChatConference { get; set; }
 

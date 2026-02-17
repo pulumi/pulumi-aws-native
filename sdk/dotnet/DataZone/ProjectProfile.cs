@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("status")]
         public Output<Pulumi.AwsNative.DataZone.ProjectProfileStatus?> Status { get; private set; } = null!;
 
+        [Output("useDefaultConfigurations")]
+        public Output<bool?> UseDefaultConfigurations { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ProjectProfile resource with the given unique name, arguments, and options.
@@ -119,6 +122,7 @@ namespace Pulumi.AwsNative.DataZone
                 ReplaceOnChanges =
                 {
                     "domainIdentifier",
+                    "useDefaultConfigurations",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,6 +187,9 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.DataZone.ProjectProfileStatus>? Status { get; set; }
+
+        [Input("useDefaultConfigurations")]
+        public Input<bool>? UseDefaultConfigurations { get; set; }
 
         public ProjectProfileArgs()
         {

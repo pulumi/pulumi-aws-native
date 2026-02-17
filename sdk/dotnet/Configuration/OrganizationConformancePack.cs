@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// Resource schema for AWS::Config::OrganizationConformancePack.
+    /// Resource Type definition for AWS::Config::OrganizationConformancePack.
     /// 
     /// ## Example Usage
     /// ### Example

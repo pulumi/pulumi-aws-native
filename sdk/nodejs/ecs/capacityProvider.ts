@@ -234,7 +234,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupProvider.autoScalingGroupArn", "clusterName", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupProvider.autoScalingGroupArn", "clusterName", "managedInstancesProvider.instanceLaunchTemplate.fipsEnabled", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityProvider.__pulumiType, name, resourceInputs, opts);
     }

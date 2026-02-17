@@ -90,20 +90,15 @@ __all__ = [
     'TemplateValidityPeriodArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectorVpcInformationArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
-        """
-        ip_address_type: NotRequired[pulumi.Input['ConnectorVpcInformationIpAddressType']]
-        """
-        The VPC IP address type.
-        """
-elif False:
-    ConnectorVpcInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorVpcInformationArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+    """
+    ip_address_type: NotRequired[pulumi.Input['ConnectorVpcInformationIpAddressType']]
+    """
+    The VPC IP address type.
+    """
 
 @pulumi.input_type
 class ConnectorVpcInformationArgs:
@@ -143,12 +138,9 @@ class ConnectorVpcInformationArgs:
         pulumi.set(self, "ip_address_type", value)
 
 
-if not MYPY:
-    class TemplateApplicationPoliciesArgsDict(TypedDict):
-        policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgsDict', 'TemplateApplicationPolicy1PropertiesArgsDict']]]]
-        critical: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateApplicationPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateApplicationPoliciesArgsDict(TypedDict):
+    policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgsDict', 'TemplateApplicationPolicy1PropertiesArgsDict']]]]
+    critical: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateApplicationPoliciesArgs:
@@ -178,11 +170,8 @@ class TemplateApplicationPoliciesArgs:
         pulumi.set(self, "critical", value)
 
 
-if not MYPY:
-    class TemplateApplicationPolicy0PropertiesArgsDict(TypedDict):
-        policy_type: pulumi.Input['TemplateApplicationPolicyType']
-elif False:
-    TemplateApplicationPolicy0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateApplicationPolicy0PropertiesArgsDict(TypedDict):
+    policy_type: pulumi.Input['TemplateApplicationPolicyType']
 
 @pulumi.input_type
 class TemplateApplicationPolicy0PropertiesArgs:
@@ -200,11 +189,8 @@ class TemplateApplicationPolicy0PropertiesArgs:
         pulumi.set(self, "policy_type", value)
 
 
-if not MYPY:
-    class TemplateApplicationPolicy1PropertiesArgsDict(TypedDict):
-        policy_object_identifier: pulumi.Input[_builtins.str]
-elif False:
-    TemplateApplicationPolicy1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateApplicationPolicy1PropertiesArgsDict(TypedDict):
+    policy_object_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TemplateApplicationPolicy1PropertiesArgs:
@@ -222,12 +208,9 @@ class TemplateApplicationPolicy1PropertiesArgs:
         pulumi.set(self, "policy_object_identifier", value)
 
 
-if not MYPY:
-    class TemplateCertificateValidityArgsDict(TypedDict):
-        renewal_period: pulumi.Input['TemplateValidityPeriodArgsDict']
-        validity_period: pulumi.Input['TemplateValidityPeriodArgsDict']
-elif False:
-    TemplateCertificateValidityArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateCertificateValidityArgsDict(TypedDict):
+    renewal_period: pulumi.Input['TemplateValidityPeriodArgsDict']
+    validity_period: pulumi.Input['TemplateValidityPeriodArgsDict']
 
 @pulumi.input_type
 class TemplateCertificateValidityArgs:
@@ -256,11 +239,8 @@ class TemplateCertificateValidityArgs:
         pulumi.set(self, "validity_period", value)
 
 
-if not MYPY:
-    class TemplateDefinition0PropertiesArgsDict(TypedDict):
-        template_v2: pulumi.Input['TemplateV2ArgsDict']
-elif False:
-    TemplateDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateDefinition0PropertiesArgsDict(TypedDict):
+    template_v2: pulumi.Input['TemplateV2ArgsDict']
 
 @pulumi.input_type
 class TemplateDefinition0PropertiesArgs:
@@ -278,11 +258,8 @@ class TemplateDefinition0PropertiesArgs:
         pulumi.set(self, "template_v2", value)
 
 
-if not MYPY:
-    class TemplateDefinition1PropertiesArgsDict(TypedDict):
-        template_v3: pulumi.Input['TemplateV3ArgsDict']
-elif False:
-    TemplateDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateDefinition1PropertiesArgsDict(TypedDict):
+    template_v3: pulumi.Input['TemplateV3ArgsDict']
 
 @pulumi.input_type
 class TemplateDefinition1PropertiesArgs:
@@ -300,11 +277,8 @@ class TemplateDefinition1PropertiesArgs:
         pulumi.set(self, "template_v3", value)
 
 
-if not MYPY:
-    class TemplateDefinition2PropertiesArgsDict(TypedDict):
-        template_v4: pulumi.Input['TemplateV4ArgsDict']
-elif False:
-    TemplateDefinition2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateDefinition2PropertiesArgsDict(TypedDict):
+    template_v4: pulumi.Input['TemplateV4ArgsDict']
 
 @pulumi.input_type
 class TemplateDefinition2PropertiesArgs:
@@ -322,15 +296,12 @@ class TemplateDefinition2PropertiesArgs:
         pulumi.set(self, "template_v4", value)
 
 
-if not MYPY:
-    class TemplateEnrollmentFlagsV2ArgsDict(TypedDict):
-        enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
-        include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
-        no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
-        remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
-        user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateEnrollmentFlagsV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateEnrollmentFlagsV2ArgsDict(TypedDict):
+    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
+    include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
+    no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
+    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
+    user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateEnrollmentFlagsV2Args:
@@ -397,15 +368,12 @@ class TemplateEnrollmentFlagsV2Args:
         pulumi.set(self, "user_interaction_required", value)
 
 
-if not MYPY:
-    class TemplateEnrollmentFlagsV3ArgsDict(TypedDict):
-        enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
-        include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
-        no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
-        remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
-        user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateEnrollmentFlagsV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateEnrollmentFlagsV3ArgsDict(TypedDict):
+    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
+    include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
+    no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
+    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
+    user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateEnrollmentFlagsV3Args:
@@ -472,15 +440,12 @@ class TemplateEnrollmentFlagsV3Args:
         pulumi.set(self, "user_interaction_required", value)
 
 
-if not MYPY:
-    class TemplateEnrollmentFlagsV4ArgsDict(TypedDict):
-        enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
-        include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
-        no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
-        remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
-        user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateEnrollmentFlagsV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateEnrollmentFlagsV4ArgsDict(TypedDict):
+    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
+    include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
+    no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
+    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
+    user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateEnrollmentFlagsV4Args:
@@ -547,12 +512,9 @@ class TemplateEnrollmentFlagsV4Args:
         pulumi.set(self, "user_interaction_required", value)
 
 
-if not MYPY:
-    class TemplateExtensionsV2ArgsDict(TypedDict):
-        key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
-        application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
-elif False:
-    TemplateExtensionsV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateExtensionsV2ArgsDict(TypedDict):
+    key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
+    application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
 
 @pulumi.input_type
 class TemplateExtensionsV2Args:
@@ -582,12 +544,9 @@ class TemplateExtensionsV2Args:
         pulumi.set(self, "application_policies", value)
 
 
-if not MYPY:
-    class TemplateExtensionsV3ArgsDict(TypedDict):
-        key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
-        application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
-elif False:
-    TemplateExtensionsV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateExtensionsV3ArgsDict(TypedDict):
+    key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
+    application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
 
 @pulumi.input_type
 class TemplateExtensionsV3Args:
@@ -617,12 +576,9 @@ class TemplateExtensionsV3Args:
         pulumi.set(self, "application_policies", value)
 
 
-if not MYPY:
-    class TemplateExtensionsV4ArgsDict(TypedDict):
-        key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
-        application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
-elif False:
-    TemplateExtensionsV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateExtensionsV4ArgsDict(TypedDict):
+    key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
+    application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
 
 @pulumi.input_type
 class TemplateExtensionsV4Args:
@@ -652,12 +608,9 @@ class TemplateExtensionsV4Args:
         pulumi.set(self, "application_policies", value)
 
 
-if not MYPY:
-    class TemplateGeneralFlagsV2ArgsDict(TypedDict):
-        auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
-        machine_type: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateGeneralFlagsV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateGeneralFlagsV2ArgsDict(TypedDict):
+    auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
+    machine_type: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateGeneralFlagsV2Args:
@@ -688,12 +641,9 @@ class TemplateGeneralFlagsV2Args:
         pulumi.set(self, "machine_type", value)
 
 
-if not MYPY:
-    class TemplateGeneralFlagsV3ArgsDict(TypedDict):
-        auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
-        machine_type: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateGeneralFlagsV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateGeneralFlagsV3ArgsDict(TypedDict):
+    auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
+    machine_type: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateGeneralFlagsV3Args:
@@ -724,12 +674,9 @@ class TemplateGeneralFlagsV3Args:
         pulumi.set(self, "machine_type", value)
 
 
-if not MYPY:
-    class TemplateGeneralFlagsV4ArgsDict(TypedDict):
-        auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
-        machine_type: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateGeneralFlagsV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateGeneralFlagsV4ArgsDict(TypedDict):
+    auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
+    machine_type: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateGeneralFlagsV4Args:
@@ -760,18 +707,15 @@ class TemplateGeneralFlagsV4Args:
         pulumi.set(self, "machine_type", value)
 
 
-if not MYPY:
-    class TemplateGroupAccessControlEntryAccessRightsArgsDict(TypedDict):
-        auto_enroll: NotRequired[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]
-        """
-        Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
-        """
-        enroll: NotRequired[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]
-        """
-        Allow or deny an Active Directory group from enrolling certificates issued against a template.
-        """
-elif False:
-    TemplateGroupAccessControlEntryAccessRightsArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateGroupAccessControlEntryAccessRightsArgsDict(TypedDict):
+    auto_enroll: NotRequired[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]
+    """
+    Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
+    """
+    enroll: NotRequired[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]
+    """
+    Allow or deny an Active Directory group from enrolling certificates issued against a template.
+    """
 
 @pulumi.input_type
 class TemplateGroupAccessControlEntryAccessRightsArgs:
@@ -812,15 +756,12 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
         pulumi.set(self, "enroll", value)
 
 
-if not MYPY:
-    class TemplateKeyUsageFlagsArgsDict(TypedDict):
-        data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-        digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
-        key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
-        key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-        non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateKeyUsageFlagsArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateKeyUsageFlagsArgsDict(TypedDict):
+    data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
+    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
+    key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateKeyUsageFlagsArgs:
@@ -887,11 +828,8 @@ class TemplateKeyUsageFlagsArgs:
         pulumi.set(self, "non_repudiation", value)
 
 
-if not MYPY:
-    class TemplateKeyUsageProperty0PropertiesArgsDict(TypedDict):
-        property_type: pulumi.Input['TemplateKeyUsagePropertyType']
-elif False:
-    TemplateKeyUsageProperty0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateKeyUsageProperty0PropertiesArgsDict(TypedDict):
+    property_type: pulumi.Input['TemplateKeyUsagePropertyType']
 
 @pulumi.input_type
 class TemplateKeyUsageProperty0PropertiesArgs:
@@ -909,11 +847,8 @@ class TemplateKeyUsageProperty0PropertiesArgs:
         pulumi.set(self, "property_type", value)
 
 
-if not MYPY:
-    class TemplateKeyUsageProperty1PropertiesArgsDict(TypedDict):
-        property_flags: pulumi.Input['TemplateKeyUsagePropertyFlagsArgsDict']
-elif False:
-    TemplateKeyUsageProperty1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateKeyUsageProperty1PropertiesArgsDict(TypedDict):
+    property_flags: pulumi.Input['TemplateKeyUsagePropertyFlagsArgsDict']
 
 @pulumi.input_type
 class TemplateKeyUsageProperty1PropertiesArgs:
@@ -931,13 +866,10 @@ class TemplateKeyUsageProperty1PropertiesArgs:
         pulumi.set(self, "property_flags", value)
 
 
-if not MYPY:
-    class TemplateKeyUsagePropertyFlagsArgsDict(TypedDict):
-        decrypt: NotRequired[pulumi.Input[_builtins.bool]]
-        key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
-        sign: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateKeyUsagePropertyFlagsArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateKeyUsagePropertyFlagsArgsDict(TypedDict):
+    decrypt: NotRequired[pulumi.Input[_builtins.bool]]
+    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
+    sign: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateKeyUsagePropertyFlagsArgs:
@@ -980,12 +912,9 @@ class TemplateKeyUsagePropertyFlagsArgs:
         pulumi.set(self, "sign", value)
 
 
-if not MYPY:
-    class TemplateKeyUsageArgsDict(TypedDict):
-        usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgsDict']
-        critical: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateKeyUsageArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateKeyUsageArgsDict(TypedDict):
+    usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgsDict']
+    critical: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateKeyUsageArgs:
@@ -1015,13 +944,10 @@ class TemplateKeyUsageArgs:
         pulumi.set(self, "critical", value)
 
 
-if not MYPY:
-    class TemplatePrivateKeyAttributesV2ArgsDict(TypedDict):
-        key_spec: pulumi.Input['TemplateKeySpec']
-        minimal_key_length: pulumi.Input[_builtins.float]
-        crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    TemplatePrivateKeyAttributesV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplatePrivateKeyAttributesV2ArgsDict(TypedDict):
+    key_spec: pulumi.Input['TemplateKeySpec']
+    minimal_key_length: pulumi.Input[_builtins.float]
+    crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyAttributesV2Args:
@@ -1062,15 +988,12 @@ class TemplatePrivateKeyAttributesV2Args:
         pulumi.set(self, "crypto_providers", value)
 
 
-if not MYPY:
-    class TemplatePrivateKeyAttributesV3ArgsDict(TypedDict):
-        algorithm: pulumi.Input['TemplatePrivateKeyAlgorithm']
-        key_spec: pulumi.Input['TemplateKeySpec']
-        key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]
-        minimal_key_length: pulumi.Input[_builtins.float]
-        crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    TemplatePrivateKeyAttributesV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplatePrivateKeyAttributesV3ArgsDict(TypedDict):
+    algorithm: pulumi.Input['TemplatePrivateKeyAlgorithm']
+    key_spec: pulumi.Input['TemplateKeySpec']
+    key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]
+    minimal_key_length: pulumi.Input[_builtins.float]
+    crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyAttributesV3Args:
@@ -1133,15 +1056,12 @@ class TemplatePrivateKeyAttributesV3Args:
         pulumi.set(self, "crypto_providers", value)
 
 
-if not MYPY:
-    class TemplatePrivateKeyAttributesV4ArgsDict(TypedDict):
-        key_spec: pulumi.Input['TemplateKeySpec']
-        minimal_key_length: pulumi.Input[_builtins.float]
-        algorithm: NotRequired[pulumi.Input['TemplatePrivateKeyAlgorithm']]
-        crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        key_usage_property: NotRequired[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]]
-elif False:
-    TemplatePrivateKeyAttributesV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplatePrivateKeyAttributesV4ArgsDict(TypedDict):
+    key_spec: pulumi.Input['TemplateKeySpec']
+    minimal_key_length: pulumi.Input[_builtins.float]
+    algorithm: NotRequired[pulumi.Input['TemplatePrivateKeyAlgorithm']]
+    crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    key_usage_property: NotRequired[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]]
 
 @pulumi.input_type
 class TemplatePrivateKeyAttributesV4Args:
@@ -1206,13 +1126,10 @@ class TemplatePrivateKeyAttributesV4Args:
         pulumi.set(self, "key_usage_property", value)
 
 
-if not MYPY:
-    class TemplatePrivateKeyFlagsV2ArgsDict(TypedDict):
-        client_version: pulumi.Input['TemplateClientCompatibilityV2']
-        exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
-        strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplatePrivateKeyFlagsV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplatePrivateKeyFlagsV2ArgsDict(TypedDict):
+    client_version: pulumi.Input['TemplateClientCompatibilityV2']
+    exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
+    strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplatePrivateKeyFlagsV2Args:
@@ -1254,14 +1171,11 @@ class TemplatePrivateKeyFlagsV2Args:
         pulumi.set(self, "strong_key_protection_required", value)
 
 
-if not MYPY:
-    class TemplatePrivateKeyFlagsV3ArgsDict(TypedDict):
-        client_version: pulumi.Input['TemplateClientCompatibilityV3']
-        exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
-        require_alternate_signature_algorithm: NotRequired[pulumi.Input[_builtins.bool]]
-        strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplatePrivateKeyFlagsV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplatePrivateKeyFlagsV3ArgsDict(TypedDict):
+    client_version: pulumi.Input['TemplateClientCompatibilityV3']
+    exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
+    require_alternate_signature_algorithm: NotRequired[pulumi.Input[_builtins.bool]]
+    strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplatePrivateKeyFlagsV3Args:
@@ -1315,16 +1229,13 @@ class TemplatePrivateKeyFlagsV3Args:
         pulumi.set(self, "strong_key_protection_required", value)
 
 
-if not MYPY:
-    class TemplatePrivateKeyFlagsV4ArgsDict(TypedDict):
-        client_version: pulumi.Input['TemplateClientCompatibilityV4']
-        exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
-        require_alternate_signature_algorithm: NotRequired[pulumi.Input[_builtins.bool]]
-        require_same_key_renewal: NotRequired[pulumi.Input[_builtins.bool]]
-        strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
-        use_legacy_provider: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplatePrivateKeyFlagsV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplatePrivateKeyFlagsV4ArgsDict(TypedDict):
+    client_version: pulumi.Input['TemplateClientCompatibilityV4']
+    exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
+    require_alternate_signature_algorithm: NotRequired[pulumi.Input[_builtins.bool]]
+    require_same_key_renewal: NotRequired[pulumi.Input[_builtins.bool]]
+    strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
+    use_legacy_provider: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplatePrivateKeyFlagsV4Args:
@@ -1402,20 +1313,17 @@ class TemplatePrivateKeyFlagsV4Args:
         pulumi.set(self, "use_legacy_provider", value)
 
 
-if not MYPY:
-    class TemplateSubjectNameFlagsV2ArgsDict(TypedDict):
-        require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
-        require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
-        require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
-        require_email: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateSubjectNameFlagsV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateSubjectNameFlagsV2ArgsDict(TypedDict):
+    require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
+    require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
+    require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
+    require_email: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateSubjectNameFlagsV2Args:
@@ -1542,20 +1450,17 @@ class TemplateSubjectNameFlagsV2Args:
         pulumi.set(self, "san_require_upn", value)
 
 
-if not MYPY:
-    class TemplateSubjectNameFlagsV3ArgsDict(TypedDict):
-        require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
-        require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
-        require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
-        require_email: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateSubjectNameFlagsV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateSubjectNameFlagsV3ArgsDict(TypedDict):
+    require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
+    require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
+    require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
+    require_email: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateSubjectNameFlagsV3Args:
@@ -1682,20 +1587,17 @@ class TemplateSubjectNameFlagsV3Args:
         pulumi.set(self, "san_require_upn", value)
 
 
-if not MYPY:
-    class TemplateSubjectNameFlagsV4ArgsDict(TypedDict):
-        require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
-        require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
-        require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
-        require_email: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
-        san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TemplateSubjectNameFlagsV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateSubjectNameFlagsV4ArgsDict(TypedDict):
+    require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
+    require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
+    require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
+    require_email: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
+    san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TemplateSubjectNameFlagsV4Args:
@@ -1822,18 +1724,15 @@ class TemplateSubjectNameFlagsV4Args:
         pulumi.set(self, "san_require_upn", value)
 
 
-if not MYPY:
-    class TemplateV2ArgsDict(TypedDict):
-        certificate_validity: pulumi.Input['TemplateCertificateValidityArgsDict']
-        enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV2ArgsDict']
-        extensions: pulumi.Input['TemplateExtensionsV2ArgsDict']
-        general_flags: pulumi.Input['TemplateGeneralFlagsV2ArgsDict']
-        private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV2ArgsDict']
-        private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2ArgsDict']
-        subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2ArgsDict']
-        superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    TemplateV2ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateV2ArgsDict(TypedDict):
+    certificate_validity: pulumi.Input['TemplateCertificateValidityArgsDict']
+    enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV2ArgsDict']
+    extensions: pulumi.Input['TemplateExtensionsV2ArgsDict']
+    general_flags: pulumi.Input['TemplateGeneralFlagsV2ArgsDict']
+    private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV2ArgsDict']
+    private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2ArgsDict']
+    subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2ArgsDict']
+    superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TemplateV2Args:
@@ -1929,19 +1828,16 @@ class TemplateV2Args:
         pulumi.set(self, "superseded_templates", value)
 
 
-if not MYPY:
-    class TemplateV3ArgsDict(TypedDict):
-        certificate_validity: pulumi.Input['TemplateCertificateValidityArgsDict']
-        enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV3ArgsDict']
-        extensions: pulumi.Input['TemplateExtensionsV3ArgsDict']
-        general_flags: pulumi.Input['TemplateGeneralFlagsV3ArgsDict']
-        hash_algorithm: pulumi.Input['TemplateHashAlgorithm']
-        private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV3ArgsDict']
-        private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3ArgsDict']
-        subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3ArgsDict']
-        superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    TemplateV3ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateV3ArgsDict(TypedDict):
+    certificate_validity: pulumi.Input['TemplateCertificateValidityArgsDict']
+    enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV3ArgsDict']
+    extensions: pulumi.Input['TemplateExtensionsV3ArgsDict']
+    general_flags: pulumi.Input['TemplateGeneralFlagsV3ArgsDict']
+    hash_algorithm: pulumi.Input['TemplateHashAlgorithm']
+    private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV3ArgsDict']
+    private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3ArgsDict']
+    subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3ArgsDict']
+    superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TemplateV3Args:
@@ -2048,19 +1944,16 @@ class TemplateV3Args:
         pulumi.set(self, "superseded_templates", value)
 
 
-if not MYPY:
-    class TemplateV4ArgsDict(TypedDict):
-        certificate_validity: pulumi.Input['TemplateCertificateValidityArgsDict']
-        enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV4ArgsDict']
-        extensions: pulumi.Input['TemplateExtensionsV4ArgsDict']
-        general_flags: pulumi.Input['TemplateGeneralFlagsV4ArgsDict']
-        private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV4ArgsDict']
-        private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV4ArgsDict']
-        subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4ArgsDict']
-        hash_algorithm: NotRequired[pulumi.Input['TemplateHashAlgorithm']]
-        superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    TemplateV4ArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateV4ArgsDict(TypedDict):
+    certificate_validity: pulumi.Input['TemplateCertificateValidityArgsDict']
+    enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV4ArgsDict']
+    extensions: pulumi.Input['TemplateExtensionsV4ArgsDict']
+    general_flags: pulumi.Input['TemplateGeneralFlagsV4ArgsDict']
+    private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV4ArgsDict']
+    private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV4ArgsDict']
+    subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4ArgsDict']
+    hash_algorithm: NotRequired[pulumi.Input['TemplateHashAlgorithm']]
+    superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TemplateV4Args:
@@ -2168,12 +2061,9 @@ class TemplateV4Args:
         pulumi.set(self, "superseded_templates", value)
 
 
-if not MYPY:
-    class TemplateValidityPeriodArgsDict(TypedDict):
-        period: pulumi.Input[_builtins.float]
-        period_type: pulumi.Input['TemplateValidityPeriodType']
-elif False:
-    TemplateValidityPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateValidityPeriodArgsDict(TypedDict):
+    period: pulumi.Input[_builtins.float]
+    period_type: pulumi.Input['TemplateValidityPeriodType']
 
 @pulumi.input_type
 class TemplateValidityPeriodArgs:

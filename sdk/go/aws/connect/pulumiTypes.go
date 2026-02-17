@@ -1114,6 +1114,326 @@ func (o EvaluationFormBaseItemArrayOutput) Index(i pulumi.IntInput) EvaluationFo
 	}).(EvaluationFormBaseItemOutput)
 }
 
+type EvaluationFormEvaluationReviewConfiguration struct {
+	// Number of days during which a request for review can be submitted for evaluations created from this form.
+	EligibilityDays *int `pulumi:"eligibilityDays"`
+	// List of recipients who should be notified when a review is requested.
+	ReviewNotificationRecipients []EvaluationFormEvaluationReviewNotificationRecipient `pulumi:"reviewNotificationRecipients"`
+}
+
+// EvaluationFormEvaluationReviewConfigurationInput is an input type that accepts EvaluationFormEvaluationReviewConfigurationArgs and EvaluationFormEvaluationReviewConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewConfigurationInput` via:
+//
+//	EvaluationFormEvaluationReviewConfigurationArgs{...}
+type EvaluationFormEvaluationReviewConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewConfigurationOutput() EvaluationFormEvaluationReviewConfigurationOutput
+	ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(context.Context) EvaluationFormEvaluationReviewConfigurationOutput
+}
+
+type EvaluationFormEvaluationReviewConfigurationArgs struct {
+	// Number of days during which a request for review can be submitted for evaluations created from this form.
+	EligibilityDays pulumi.IntPtrInput `pulumi:"eligibilityDays"`
+	// List of recipients who should be notified when a review is requested.
+	ReviewNotificationRecipients EvaluationFormEvaluationReviewNotificationRecipientArrayInput `pulumi:"reviewNotificationRecipients"`
+}
+
+func (EvaluationFormEvaluationReviewConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationOutput() EvaluationFormEvaluationReviewConfigurationOutput {
+	return i.ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationOutput)
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return i.ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewConfigurationArgs) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationOutput).ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormEvaluationReviewConfigurationPtrInput is an input type that accepts EvaluationFormEvaluationReviewConfigurationArgs, EvaluationFormEvaluationReviewConfigurationPtr and EvaluationFormEvaluationReviewConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewConfigurationPtrInput` via:
+//
+//	        EvaluationFormEvaluationReviewConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormEvaluationReviewConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput
+	ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput
+}
+
+type evaluationFormEvaluationReviewConfigurationPtrType EvaluationFormEvaluationReviewConfigurationArgs
+
+func EvaluationFormEvaluationReviewConfigurationPtr(v *EvaluationFormEvaluationReviewConfigurationArgs) EvaluationFormEvaluationReviewConfigurationPtrInput {
+	return (*evaluationFormEvaluationReviewConfigurationPtrType)(v)
+}
+
+func (*evaluationFormEvaluationReviewConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationFormEvaluationReviewConfigurationPtrType) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return i.ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormEvaluationReviewConfigurationPtrType) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationPtrOutput)
+}
+
+type EvaluationFormEvaluationReviewConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationOutput() EvaluationFormEvaluationReviewConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o.ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormEvaluationReviewConfiguration) *EvaluationFormEvaluationReviewConfiguration {
+		return &v
+	}).(EvaluationFormEvaluationReviewConfigurationPtrOutput)
+}
+
+// Number of days during which a request for review can be submitted for evaluations created from this form.
+func (o EvaluationFormEvaluationReviewConfigurationOutput) EligibilityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewConfiguration) *int { return v.EligibilityDays }).(pulumi.IntPtrOutput)
+}
+
+// List of recipients who should be notified when a review is requested.
+func (o EvaluationFormEvaluationReviewConfigurationOutput) ReviewNotificationRecipients() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewConfiguration) []EvaluationFormEvaluationReviewNotificationRecipient {
+		return v.ReviewNotificationRecipients
+	}).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
+}
+
+type EvaluationFormEvaluationReviewConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormEvaluationReviewConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutput() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ToEvaluationFormEvaluationReviewConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) Elem() EvaluationFormEvaluationReviewConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewConfiguration) EvaluationFormEvaluationReviewConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormEvaluationReviewConfiguration
+		return ret
+	}).(EvaluationFormEvaluationReviewConfigurationOutput)
+}
+
+// Number of days during which a request for review can be submitted for evaluations created from this form.
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) EligibilityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EligibilityDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of recipients who should be notified when a review is requested.
+func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ReviewNotificationRecipients() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewConfiguration) []EvaluationFormEvaluationReviewNotificationRecipient {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewNotificationRecipients
+	}).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipient struct {
+	// The type of notification recipient.
+	Type EvaluationFormEvaluationReviewNotificationRecipientType `pulumi:"type"`
+	// The value associated with the notification recipient type.
+	Value EvaluationFormEvaluationReviewNotificationRecipientValue `pulumi:"value"`
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientInput is an input type that accepts EvaluationFormEvaluationReviewNotificationRecipientArgs and EvaluationFormEvaluationReviewNotificationRecipientOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientInput` via:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientArgs{...}
+type EvaluationFormEvaluationReviewNotificationRecipientInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientOutput() EvaluationFormEvaluationReviewNotificationRecipientOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientArgs struct {
+	// The type of notification recipient.
+	Type EvaluationFormEvaluationReviewNotificationRecipientTypeInput `pulumi:"type"`
+	// The value associated with the notification recipient type.
+	Value EvaluationFormEvaluationReviewNotificationRecipientValueInput `pulumi:"value"`
+}
+
+func (EvaluationFormEvaluationReviewNotificationRecipientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArgs) ToEvaluationFormEvaluationReviewNotificationRecipientOutput() EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return i.ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArgs) ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientOutput)
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientArrayInput is an input type that accepts EvaluationFormEvaluationReviewNotificationRecipientArray and EvaluationFormEvaluationReviewNotificationRecipientArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientArrayInput` via:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientArray{ EvaluationFormEvaluationReviewNotificationRecipientArgs{...} }
+type EvaluationFormEvaluationReviewNotificationRecipientArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutput() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientArrayOutput
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientArray []EvaluationFormEvaluationReviewNotificationRecipientInput
+
+func (EvaluationFormEvaluationReviewNotificationRecipientArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArray) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutput() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return i.ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientArray) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) ToEvaluationFormEvaluationReviewNotificationRecipientOutput() EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return o
+}
+
+// The type of notification recipient.
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) Type() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewNotificationRecipient) EvaluationFormEvaluationReviewNotificationRecipientType {
+		return v.Type
+	}).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+// The value associated with the notification recipient type.
+func (o EvaluationFormEvaluationReviewNotificationRecipientOutput) Value() EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewNotificationRecipient) EvaluationFormEvaluationReviewNotificationRecipientValue {
+		return v.Value
+	}).(EvaluationFormEvaluationReviewNotificationRecipientValueOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormEvaluationReviewNotificationRecipient)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutput() EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) ToEvaluationFormEvaluationReviewNotificationRecipientArrayOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientArrayOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) Index(i pulumi.IntInput) EvaluationFormEvaluationReviewNotificationRecipientOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormEvaluationReviewNotificationRecipient {
+		return vs[0].([]EvaluationFormEvaluationReviewNotificationRecipient)[vs[1].(int)]
+	}).(EvaluationFormEvaluationReviewNotificationRecipientOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientValue struct {
+	// The user identifier for the notification recipient.
+	UserId *string `pulumi:"userId"`
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientValueInput is an input type that accepts EvaluationFormEvaluationReviewNotificationRecipientValueArgs and EvaluationFormEvaluationReviewNotificationRecipientValueOutput values.
+// You can construct a concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientValueInput` via:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientValueArgs{...}
+type EvaluationFormEvaluationReviewNotificationRecipientValueInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientValueOutput() EvaluationFormEvaluationReviewNotificationRecipientValueOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientValueArgs struct {
+	// The user identifier for the notification recipient.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientValue)(nil)).Elem()
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutput() EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return i.ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientValueOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientValueOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientValue)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutput() EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput {
+	return o
+}
+
+// The user identifier for the notification recipient.
+func (o EvaluationFormEvaluationReviewNotificationRecipientValueOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationFormEvaluationReviewNotificationRecipientValue) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
 // Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 type EvaluationFormItem struct {
 	// The information of the question.
@@ -7207,6 +7527,7 @@ type InstanceAttributes struct {
 	EnhancedContactMonitoring *bool `pulumi:"enhancedContactMonitoring"`
 	HighVolumeOutBound        *bool `pulumi:"highVolumeOutBound"`
 	InboundCalls              bool  `pulumi:"inboundCalls"`
+	MessageStreaming          *bool `pulumi:"messageStreaming"`
 	MultiPartyChatConference  *bool `pulumi:"multiPartyChatConference"`
 	MultiPartyConference      *bool `pulumi:"multiPartyConference"`
 	OutboundCalls             bool  `pulumi:"outboundCalls"`
@@ -7233,6 +7554,7 @@ type InstanceAttributesArgs struct {
 	EnhancedContactMonitoring pulumi.BoolPtrInput `pulumi:"enhancedContactMonitoring"`
 	HighVolumeOutBound        pulumi.BoolPtrInput `pulumi:"highVolumeOutBound"`
 	InboundCalls              pulumi.BoolInput    `pulumi:"inboundCalls"`
+	MessageStreaming          pulumi.BoolPtrInput `pulumi:"messageStreaming"`
 	MultiPartyChatConference  pulumi.BoolPtrInput `pulumi:"multiPartyChatConference"`
 	MultiPartyConference      pulumi.BoolPtrInput `pulumi:"multiPartyConference"`
 	OutboundCalls             pulumi.BoolInput    `pulumi:"outboundCalls"`
@@ -7295,6 +7617,10 @@ func (o InstanceAttributesOutput) HighVolumeOutBound() pulumi.BoolPtrOutput {
 
 func (o InstanceAttributesOutput) InboundCalls() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceAttributes) bool { return v.InboundCalls }).(pulumi.BoolOutput)
+}
+
+func (o InstanceAttributesOutput) MessageStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.MessageStreaming }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesOutput) MultiPartyChatConference() pulumi.BoolPtrOutput {
@@ -7406,6 +7732,15 @@ func (o InstanceAttributesPtrOutput) InboundCalls() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return &v.InboundCalls
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) MessageStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MessageStreaming
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -8330,6 +8665,249 @@ func (o LockVersionPropertiesPtrOutput) DataTable() pulumi.StringPtrOutput {
 		}
 		return v.DataTable
 	}).(pulumi.StringPtrOutput)
+}
+
+// The content of a notification
+type NotificationContent struct {
+	DeDe *string `pulumi:"deDe"`
+	EnUs *string `pulumi:"enUs"`
+	EsEs *string `pulumi:"esEs"`
+	FrFr *string `pulumi:"frFr"`
+	IdId *string `pulumi:"idId"`
+	ItIt *string `pulumi:"itIt"`
+	JaJp *string `pulumi:"jaJp"`
+	KoKr *string `pulumi:"koKr"`
+	PtBr *string `pulumi:"ptBr"`
+	ZhCn *string `pulumi:"zhCn"`
+	ZhTw *string `pulumi:"zhTw"`
+}
+
+// NotificationContentInput is an input type that accepts NotificationContentArgs and NotificationContentOutput values.
+// You can construct a concrete instance of `NotificationContentInput` via:
+//
+//	NotificationContentArgs{...}
+type NotificationContentInput interface {
+	pulumi.Input
+
+	ToNotificationContentOutput() NotificationContentOutput
+	ToNotificationContentOutputWithContext(context.Context) NotificationContentOutput
+}
+
+// The content of a notification
+type NotificationContentArgs struct {
+	DeDe pulumi.StringPtrInput `pulumi:"deDe"`
+	EnUs pulumi.StringPtrInput `pulumi:"enUs"`
+	EsEs pulumi.StringPtrInput `pulumi:"esEs"`
+	FrFr pulumi.StringPtrInput `pulumi:"frFr"`
+	IdId pulumi.StringPtrInput `pulumi:"idId"`
+	ItIt pulumi.StringPtrInput `pulumi:"itIt"`
+	JaJp pulumi.StringPtrInput `pulumi:"jaJp"`
+	KoKr pulumi.StringPtrInput `pulumi:"koKr"`
+	PtBr pulumi.StringPtrInput `pulumi:"ptBr"`
+	ZhCn pulumi.StringPtrInput `pulumi:"zhCn"`
+	ZhTw pulumi.StringPtrInput `pulumi:"zhTw"`
+}
+
+func (NotificationContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationContent)(nil)).Elem()
+}
+
+func (i NotificationContentArgs) ToNotificationContentOutput() NotificationContentOutput {
+	return i.ToNotificationContentOutputWithContext(context.Background())
+}
+
+func (i NotificationContentArgs) ToNotificationContentOutputWithContext(ctx context.Context) NotificationContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationContentOutput)
+}
+
+// The content of a notification
+type NotificationContentOutput struct{ *pulumi.OutputState }
+
+func (NotificationContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationContent)(nil)).Elem()
+}
+
+func (o NotificationContentOutput) ToNotificationContentOutput() NotificationContentOutput {
+	return o
+}
+
+func (o NotificationContentOutput) ToNotificationContentOutputWithContext(ctx context.Context) NotificationContentOutput {
+	return o
+}
+
+func (o NotificationContentOutput) DeDe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.DeDe }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) EnUs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.EnUs }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) EsEs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.EsEs }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) FrFr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.FrFr }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) IdId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.IdId }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) ItIt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.ItIt }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) JaJp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.JaJp }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) KoKr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.KoKr }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) PtBr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.PtBr }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) ZhCn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.ZhCn }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentOutput) ZhTw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationContent) *string { return v.ZhTw }).(pulumi.StringPtrOutput)
+}
+
+type NotificationContentPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationContent)(nil)).Elem()
+}
+
+func (o NotificationContentPtrOutput) ToNotificationContentPtrOutput() NotificationContentPtrOutput {
+	return o
+}
+
+func (o NotificationContentPtrOutput) ToNotificationContentPtrOutputWithContext(ctx context.Context) NotificationContentPtrOutput {
+	return o
+}
+
+func (o NotificationContentPtrOutput) Elem() NotificationContentOutput {
+	return o.ApplyT(func(v *NotificationContent) NotificationContent {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationContent
+		return ret
+	}).(NotificationContentOutput)
+}
+
+func (o NotificationContentPtrOutput) DeDe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeDe
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) EnUs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnUs
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) EsEs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EsEs
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) FrFr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FrFr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) IdId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) ItIt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ItIt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) JaJp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JaJp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) KoKr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KoKr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) PtBr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PtBr
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) ZhCn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZhCn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationContentPtrOutput) ZhTw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZhTw
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type NotificationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 // A key-value pair to associate with a resource.
@@ -12550,6 +13128,364 @@ type TrafficDistributionGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+// After Contact Work configuration.
+type UserAfterContactWorkConfig struct {
+	AfterContactWorkTimeLimit *int `pulumi:"afterContactWorkTimeLimit"`
+}
+
+// UserAfterContactWorkConfigInput is an input type that accepts UserAfterContactWorkConfigArgs and UserAfterContactWorkConfigOutput values.
+// You can construct a concrete instance of `UserAfterContactWorkConfigInput` via:
+//
+//	UserAfterContactWorkConfigArgs{...}
+type UserAfterContactWorkConfigInput interface {
+	pulumi.Input
+
+	ToUserAfterContactWorkConfigOutput() UserAfterContactWorkConfigOutput
+	ToUserAfterContactWorkConfigOutputWithContext(context.Context) UserAfterContactWorkConfigOutput
+}
+
+// After Contact Work configuration.
+type UserAfterContactWorkConfigArgs struct {
+	AfterContactWorkTimeLimit pulumi.IntPtrInput `pulumi:"afterContactWorkTimeLimit"`
+}
+
+func (UserAfterContactWorkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAfterContactWorkConfig)(nil)).Elem()
+}
+
+func (i UserAfterContactWorkConfigArgs) ToUserAfterContactWorkConfigOutput() UserAfterContactWorkConfigOutput {
+	return i.ToUserAfterContactWorkConfigOutputWithContext(context.Background())
+}
+
+func (i UserAfterContactWorkConfigArgs) ToUserAfterContactWorkConfigOutputWithContext(ctx context.Context) UserAfterContactWorkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAfterContactWorkConfigOutput)
+}
+
+func (i UserAfterContactWorkConfigArgs) ToUserAfterContactWorkConfigPtrOutput() UserAfterContactWorkConfigPtrOutput {
+	return i.ToUserAfterContactWorkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserAfterContactWorkConfigArgs) ToUserAfterContactWorkConfigPtrOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAfterContactWorkConfigOutput).ToUserAfterContactWorkConfigPtrOutputWithContext(ctx)
+}
+
+// UserAfterContactWorkConfigPtrInput is an input type that accepts UserAfterContactWorkConfigArgs, UserAfterContactWorkConfigPtr and UserAfterContactWorkConfigPtrOutput values.
+// You can construct a concrete instance of `UserAfterContactWorkConfigPtrInput` via:
+//
+//	        UserAfterContactWorkConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserAfterContactWorkConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserAfterContactWorkConfigPtrOutput() UserAfterContactWorkConfigPtrOutput
+	ToUserAfterContactWorkConfigPtrOutputWithContext(context.Context) UserAfterContactWorkConfigPtrOutput
+}
+
+type userAfterContactWorkConfigPtrType UserAfterContactWorkConfigArgs
+
+func UserAfterContactWorkConfigPtr(v *UserAfterContactWorkConfigArgs) UserAfterContactWorkConfigPtrInput {
+	return (*userAfterContactWorkConfigPtrType)(v)
+}
+
+func (*userAfterContactWorkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAfterContactWorkConfig)(nil)).Elem()
+}
+
+func (i *userAfterContactWorkConfigPtrType) ToUserAfterContactWorkConfigPtrOutput() UserAfterContactWorkConfigPtrOutput {
+	return i.ToUserAfterContactWorkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userAfterContactWorkConfigPtrType) ToUserAfterContactWorkConfigPtrOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAfterContactWorkConfigPtrOutput)
+}
+
+// After Contact Work configuration.
+type UserAfterContactWorkConfigOutput struct{ *pulumi.OutputState }
+
+func (UserAfterContactWorkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAfterContactWorkConfig)(nil)).Elem()
+}
+
+func (o UserAfterContactWorkConfigOutput) ToUserAfterContactWorkConfigOutput() UserAfterContactWorkConfigOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigOutput) ToUserAfterContactWorkConfigOutputWithContext(ctx context.Context) UserAfterContactWorkConfigOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigOutput) ToUserAfterContactWorkConfigPtrOutput() UserAfterContactWorkConfigPtrOutput {
+	return o.ToUserAfterContactWorkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserAfterContactWorkConfigOutput) ToUserAfterContactWorkConfigPtrOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAfterContactWorkConfig) *UserAfterContactWorkConfig {
+		return &v
+	}).(UserAfterContactWorkConfigPtrOutput)
+}
+
+func (o UserAfterContactWorkConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserAfterContactWorkConfig) *int { return v.AfterContactWorkTimeLimit }).(pulumi.IntPtrOutput)
+}
+
+type UserAfterContactWorkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserAfterContactWorkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAfterContactWorkConfig)(nil)).Elem()
+}
+
+func (o UserAfterContactWorkConfigPtrOutput) ToUserAfterContactWorkConfigPtrOutput() UserAfterContactWorkConfigPtrOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigPtrOutput) ToUserAfterContactWorkConfigPtrOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPtrOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigPtrOutput) Elem() UserAfterContactWorkConfigOutput {
+	return o.ApplyT(func(v *UserAfterContactWorkConfig) UserAfterContactWorkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserAfterContactWorkConfig
+		return ret
+	}).(UserAfterContactWorkConfigOutput)
+}
+
+func (o UserAfterContactWorkConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserAfterContactWorkConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AfterContactWorkTimeLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// After Contact Work configuration per channel.
+type UserAfterContactWorkConfigPerChannel struct {
+	AfterContactWorkConfig                   UserAfterContactWorkConfig  `pulumi:"afterContactWorkConfig"`
+	AgentFirstCallbackAfterContactWorkConfig *UserAfterContactWorkConfig `pulumi:"agentFirstCallbackAfterContactWorkConfig"`
+	Channel                                  UserChannel                 `pulumi:"channel"`
+}
+
+// UserAfterContactWorkConfigPerChannelInput is an input type that accepts UserAfterContactWorkConfigPerChannelArgs and UserAfterContactWorkConfigPerChannelOutput values.
+// You can construct a concrete instance of `UserAfterContactWorkConfigPerChannelInput` via:
+//
+//	UserAfterContactWorkConfigPerChannelArgs{...}
+type UserAfterContactWorkConfigPerChannelInput interface {
+	pulumi.Input
+
+	ToUserAfterContactWorkConfigPerChannelOutput() UserAfterContactWorkConfigPerChannelOutput
+	ToUserAfterContactWorkConfigPerChannelOutputWithContext(context.Context) UserAfterContactWorkConfigPerChannelOutput
+}
+
+// After Contact Work configuration per channel.
+type UserAfterContactWorkConfigPerChannelArgs struct {
+	AfterContactWorkConfig                   UserAfterContactWorkConfigInput    `pulumi:"afterContactWorkConfig"`
+	AgentFirstCallbackAfterContactWorkConfig UserAfterContactWorkConfigPtrInput `pulumi:"agentFirstCallbackAfterContactWorkConfig"`
+	Channel                                  UserChannelInput                   `pulumi:"channel"`
+}
+
+func (UserAfterContactWorkConfigPerChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAfterContactWorkConfigPerChannel)(nil)).Elem()
+}
+
+func (i UserAfterContactWorkConfigPerChannelArgs) ToUserAfterContactWorkConfigPerChannelOutput() UserAfterContactWorkConfigPerChannelOutput {
+	return i.ToUserAfterContactWorkConfigPerChannelOutputWithContext(context.Background())
+}
+
+func (i UserAfterContactWorkConfigPerChannelArgs) ToUserAfterContactWorkConfigPerChannelOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPerChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAfterContactWorkConfigPerChannelOutput)
+}
+
+// UserAfterContactWorkConfigPerChannelArrayInput is an input type that accepts UserAfterContactWorkConfigPerChannelArray and UserAfterContactWorkConfigPerChannelArrayOutput values.
+// You can construct a concrete instance of `UserAfterContactWorkConfigPerChannelArrayInput` via:
+//
+//	UserAfterContactWorkConfigPerChannelArray{ UserAfterContactWorkConfigPerChannelArgs{...} }
+type UserAfterContactWorkConfigPerChannelArrayInput interface {
+	pulumi.Input
+
+	ToUserAfterContactWorkConfigPerChannelArrayOutput() UserAfterContactWorkConfigPerChannelArrayOutput
+	ToUserAfterContactWorkConfigPerChannelArrayOutputWithContext(context.Context) UserAfterContactWorkConfigPerChannelArrayOutput
+}
+
+type UserAfterContactWorkConfigPerChannelArray []UserAfterContactWorkConfigPerChannelInput
+
+func (UserAfterContactWorkConfigPerChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAfterContactWorkConfigPerChannel)(nil)).Elem()
+}
+
+func (i UserAfterContactWorkConfigPerChannelArray) ToUserAfterContactWorkConfigPerChannelArrayOutput() UserAfterContactWorkConfigPerChannelArrayOutput {
+	return i.ToUserAfterContactWorkConfigPerChannelArrayOutputWithContext(context.Background())
+}
+
+func (i UserAfterContactWorkConfigPerChannelArray) ToUserAfterContactWorkConfigPerChannelArrayOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPerChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAfterContactWorkConfigPerChannelArrayOutput)
+}
+
+// After Contact Work configuration per channel.
+type UserAfterContactWorkConfigPerChannelOutput struct{ *pulumi.OutputState }
+
+func (UserAfterContactWorkConfigPerChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAfterContactWorkConfigPerChannel)(nil)).Elem()
+}
+
+func (o UserAfterContactWorkConfigPerChannelOutput) ToUserAfterContactWorkConfigPerChannelOutput() UserAfterContactWorkConfigPerChannelOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigPerChannelOutput) ToUserAfterContactWorkConfigPerChannelOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPerChannelOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigPerChannelOutput) AfterContactWorkConfig() UserAfterContactWorkConfigOutput {
+	return o.ApplyT(func(v UserAfterContactWorkConfigPerChannel) UserAfterContactWorkConfig {
+		return v.AfterContactWorkConfig
+	}).(UserAfterContactWorkConfigOutput)
+}
+
+func (o UserAfterContactWorkConfigPerChannelOutput) AgentFirstCallbackAfterContactWorkConfig() UserAfterContactWorkConfigPtrOutput {
+	return o.ApplyT(func(v UserAfterContactWorkConfigPerChannel) *UserAfterContactWorkConfig {
+		return v.AgentFirstCallbackAfterContactWorkConfig
+	}).(UserAfterContactWorkConfigPtrOutput)
+}
+
+func (o UserAfterContactWorkConfigPerChannelOutput) Channel() UserChannelOutput {
+	return o.ApplyT(func(v UserAfterContactWorkConfigPerChannel) UserChannel { return v.Channel }).(UserChannelOutput)
+}
+
+type UserAfterContactWorkConfigPerChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (UserAfterContactWorkConfigPerChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAfterContactWorkConfigPerChannel)(nil)).Elem()
+}
+
+func (o UserAfterContactWorkConfigPerChannelArrayOutput) ToUserAfterContactWorkConfigPerChannelArrayOutput() UserAfterContactWorkConfigPerChannelArrayOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigPerChannelArrayOutput) ToUserAfterContactWorkConfigPerChannelArrayOutputWithContext(ctx context.Context) UserAfterContactWorkConfigPerChannelArrayOutput {
+	return o
+}
+
+func (o UserAfterContactWorkConfigPerChannelArrayOutput) Index(i pulumi.IntInput) UserAfterContactWorkConfigPerChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAfterContactWorkConfigPerChannel {
+		return vs[0].([]UserAfterContactWorkConfigPerChannel)[vs[1].(int)]
+	}).(UserAfterContactWorkConfigPerChannelOutput)
+}
+
+// Auto-accept configuration per channel.
+type UserAutoAcceptConfig struct {
+	AgentFirstCallbackAutoAccept *bool       `pulumi:"agentFirstCallbackAutoAccept"`
+	AutoAccept                   bool        `pulumi:"autoAccept"`
+	Channel                      UserChannel `pulumi:"channel"`
+}
+
+// UserAutoAcceptConfigInput is an input type that accepts UserAutoAcceptConfigArgs and UserAutoAcceptConfigOutput values.
+// You can construct a concrete instance of `UserAutoAcceptConfigInput` via:
+//
+//	UserAutoAcceptConfigArgs{...}
+type UserAutoAcceptConfigInput interface {
+	pulumi.Input
+
+	ToUserAutoAcceptConfigOutput() UserAutoAcceptConfigOutput
+	ToUserAutoAcceptConfigOutputWithContext(context.Context) UserAutoAcceptConfigOutput
+}
+
+// Auto-accept configuration per channel.
+type UserAutoAcceptConfigArgs struct {
+	AgentFirstCallbackAutoAccept pulumi.BoolPtrInput `pulumi:"agentFirstCallbackAutoAccept"`
+	AutoAccept                   pulumi.BoolInput    `pulumi:"autoAccept"`
+	Channel                      UserChannelInput    `pulumi:"channel"`
+}
+
+func (UserAutoAcceptConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAutoAcceptConfig)(nil)).Elem()
+}
+
+func (i UserAutoAcceptConfigArgs) ToUserAutoAcceptConfigOutput() UserAutoAcceptConfigOutput {
+	return i.ToUserAutoAcceptConfigOutputWithContext(context.Background())
+}
+
+func (i UserAutoAcceptConfigArgs) ToUserAutoAcceptConfigOutputWithContext(ctx context.Context) UserAutoAcceptConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAutoAcceptConfigOutput)
+}
+
+// UserAutoAcceptConfigArrayInput is an input type that accepts UserAutoAcceptConfigArray and UserAutoAcceptConfigArrayOutput values.
+// You can construct a concrete instance of `UserAutoAcceptConfigArrayInput` via:
+//
+//	UserAutoAcceptConfigArray{ UserAutoAcceptConfigArgs{...} }
+type UserAutoAcceptConfigArrayInput interface {
+	pulumi.Input
+
+	ToUserAutoAcceptConfigArrayOutput() UserAutoAcceptConfigArrayOutput
+	ToUserAutoAcceptConfigArrayOutputWithContext(context.Context) UserAutoAcceptConfigArrayOutput
+}
+
+type UserAutoAcceptConfigArray []UserAutoAcceptConfigInput
+
+func (UserAutoAcceptConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAutoAcceptConfig)(nil)).Elem()
+}
+
+func (i UserAutoAcceptConfigArray) ToUserAutoAcceptConfigArrayOutput() UserAutoAcceptConfigArrayOutput {
+	return i.ToUserAutoAcceptConfigArrayOutputWithContext(context.Background())
+}
+
+func (i UserAutoAcceptConfigArray) ToUserAutoAcceptConfigArrayOutputWithContext(ctx context.Context) UserAutoAcceptConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAutoAcceptConfigArrayOutput)
+}
+
+// Auto-accept configuration per channel.
+type UserAutoAcceptConfigOutput struct{ *pulumi.OutputState }
+
+func (UserAutoAcceptConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAutoAcceptConfig)(nil)).Elem()
+}
+
+func (o UserAutoAcceptConfigOutput) ToUserAutoAcceptConfigOutput() UserAutoAcceptConfigOutput {
+	return o
+}
+
+func (o UserAutoAcceptConfigOutput) ToUserAutoAcceptConfigOutputWithContext(ctx context.Context) UserAutoAcceptConfigOutput {
+	return o
+}
+
+func (o UserAutoAcceptConfigOutput) AgentFirstCallbackAutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserAutoAcceptConfig) *bool { return v.AgentFirstCallbackAutoAccept }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserAutoAcceptConfigOutput) AutoAccept() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserAutoAcceptConfig) bool { return v.AutoAccept }).(pulumi.BoolOutput)
+}
+
+func (o UserAutoAcceptConfigOutput) Channel() UserChannelOutput {
+	return o.ApplyT(func(v UserAutoAcceptConfig) UserChannel { return v.Channel }).(UserChannelOutput)
+}
+
+type UserAutoAcceptConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (UserAutoAcceptConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAutoAcceptConfig)(nil)).Elem()
+}
+
+func (o UserAutoAcceptConfigArrayOutput) ToUserAutoAcceptConfigArrayOutput() UserAutoAcceptConfigArrayOutput {
+	return o
+}
+
+func (o UserAutoAcceptConfigArrayOutput) ToUserAutoAcceptConfigArrayOutputWithContext(ctx context.Context) UserAutoAcceptConfigArrayOutput {
+	return o
+}
+
+func (o UserAutoAcceptConfigArrayOutput) Index(i pulumi.IntInput) UserAutoAcceptConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAutoAcceptConfig {
+		return vs[0].([]UserAutoAcceptConfig)[vs[1].(int)]
+	}).(UserAutoAcceptConfigOutput)
+}
+
 // A key-value pair to associate with a resource.
 type UserHierarchyGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -13880,6 +14816,109 @@ func (o UserIdentityInfoPtrOutput) SecondaryEmail() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Persistent Connection configuration per channel.
+type UserPersistentConnectionConfig struct {
+	Channel              UserChannel `pulumi:"channel"`
+	PersistentConnection bool        `pulumi:"persistentConnection"`
+}
+
+// UserPersistentConnectionConfigInput is an input type that accepts UserPersistentConnectionConfigArgs and UserPersistentConnectionConfigOutput values.
+// You can construct a concrete instance of `UserPersistentConnectionConfigInput` via:
+//
+//	UserPersistentConnectionConfigArgs{...}
+type UserPersistentConnectionConfigInput interface {
+	pulumi.Input
+
+	ToUserPersistentConnectionConfigOutput() UserPersistentConnectionConfigOutput
+	ToUserPersistentConnectionConfigOutputWithContext(context.Context) UserPersistentConnectionConfigOutput
+}
+
+// Persistent Connection configuration per channel.
+type UserPersistentConnectionConfigArgs struct {
+	Channel              UserChannelInput `pulumi:"channel"`
+	PersistentConnection pulumi.BoolInput `pulumi:"persistentConnection"`
+}
+
+func (UserPersistentConnectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPersistentConnectionConfig)(nil)).Elem()
+}
+
+func (i UserPersistentConnectionConfigArgs) ToUserPersistentConnectionConfigOutput() UserPersistentConnectionConfigOutput {
+	return i.ToUserPersistentConnectionConfigOutputWithContext(context.Background())
+}
+
+func (i UserPersistentConnectionConfigArgs) ToUserPersistentConnectionConfigOutputWithContext(ctx context.Context) UserPersistentConnectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPersistentConnectionConfigOutput)
+}
+
+// UserPersistentConnectionConfigArrayInput is an input type that accepts UserPersistentConnectionConfigArray and UserPersistentConnectionConfigArrayOutput values.
+// You can construct a concrete instance of `UserPersistentConnectionConfigArrayInput` via:
+//
+//	UserPersistentConnectionConfigArray{ UserPersistentConnectionConfigArgs{...} }
+type UserPersistentConnectionConfigArrayInput interface {
+	pulumi.Input
+
+	ToUserPersistentConnectionConfigArrayOutput() UserPersistentConnectionConfigArrayOutput
+	ToUserPersistentConnectionConfigArrayOutputWithContext(context.Context) UserPersistentConnectionConfigArrayOutput
+}
+
+type UserPersistentConnectionConfigArray []UserPersistentConnectionConfigInput
+
+func (UserPersistentConnectionConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPersistentConnectionConfig)(nil)).Elem()
+}
+
+func (i UserPersistentConnectionConfigArray) ToUserPersistentConnectionConfigArrayOutput() UserPersistentConnectionConfigArrayOutput {
+	return i.ToUserPersistentConnectionConfigArrayOutputWithContext(context.Background())
+}
+
+func (i UserPersistentConnectionConfigArray) ToUserPersistentConnectionConfigArrayOutputWithContext(ctx context.Context) UserPersistentConnectionConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPersistentConnectionConfigArrayOutput)
+}
+
+// Persistent Connection configuration per channel.
+type UserPersistentConnectionConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPersistentConnectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPersistentConnectionConfig)(nil)).Elem()
+}
+
+func (o UserPersistentConnectionConfigOutput) ToUserPersistentConnectionConfigOutput() UserPersistentConnectionConfigOutput {
+	return o
+}
+
+func (o UserPersistentConnectionConfigOutput) ToUserPersistentConnectionConfigOutputWithContext(ctx context.Context) UserPersistentConnectionConfigOutput {
+	return o
+}
+
+func (o UserPersistentConnectionConfigOutput) Channel() UserChannelOutput {
+	return o.ApplyT(func(v UserPersistentConnectionConfig) UserChannel { return v.Channel }).(UserChannelOutput)
+}
+
+func (o UserPersistentConnectionConfigOutput) PersistentConnection() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserPersistentConnectionConfig) bool { return v.PersistentConnection }).(pulumi.BoolOutput)
+}
+
+type UserPersistentConnectionConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (UserPersistentConnectionConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPersistentConnectionConfig)(nil)).Elem()
+}
+
+func (o UserPersistentConnectionConfigArrayOutput) ToUserPersistentConnectionConfigArrayOutput() UserPersistentConnectionConfigArrayOutput {
+	return o
+}
+
+func (o UserPersistentConnectionConfigArrayOutput) ToUserPersistentConnectionConfigArrayOutputWithContext(ctx context.Context) UserPersistentConnectionConfigArrayOutput {
+	return o
+}
+
+func (o UserPersistentConnectionConfigArrayOutput) Index(i pulumi.IntInput) UserPersistentConnectionConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPersistentConnectionConfig {
+		return vs[0].([]UserPersistentConnectionConfig)[vs[1].(int)]
+	}).(UserPersistentConnectionConfigOutput)
+}
+
 // Contains information about the phone configuration settings for a user.
 type UserPhoneConfig struct {
 	// The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
@@ -13893,7 +14932,7 @@ type UserPhoneConfig struct {
 	// The persistent connection setting for the user.
 	PersistentConnection *bool `pulumi:"persistentConnection"`
 	// The phone type.
-	PhoneType UserPhoneType `pulumi:"phoneType"`
+	PhoneType *UserPhoneType `pulumi:"phoneType"`
 }
 
 // UserPhoneConfigInput is an input type that accepts UserPhoneConfigArgs and UserPhoneConfigOutput values.
@@ -13920,7 +14959,7 @@ type UserPhoneConfigArgs struct {
 	// The persistent connection setting for the user.
 	PersistentConnection pulumi.BoolPtrInput `pulumi:"persistentConnection"`
 	// The phone type.
-	PhoneType UserPhoneTypeInput `pulumi:"phoneType"`
+	PhoneType UserPhoneTypePtrInput `pulumi:"phoneType"`
 }
 
 func (UserPhoneConfigArgs) ElementType() reflect.Type {
@@ -13933,6 +14972,47 @@ func (i UserPhoneConfigArgs) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
 
 func (i UserPhoneConfigArgs) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput)
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput).ToUserPhoneConfigPtrOutputWithContext(ctx)
+}
+
+// UserPhoneConfigPtrInput is an input type that accepts UserPhoneConfigArgs, UserPhoneConfigPtr and UserPhoneConfigPtrOutput values.
+// You can construct a concrete instance of `UserPhoneConfigPtrInput` via:
+//
+//	        UserPhoneConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPhoneConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput
+	ToUserPhoneConfigPtrOutputWithContext(context.Context) UserPhoneConfigPtrOutput
+}
+
+type userPhoneConfigPtrType UserPhoneConfigArgs
+
+func UserPhoneConfigPtr(v *UserPhoneConfigArgs) UserPhoneConfigPtrInput {
+	return (*userPhoneConfigPtrType)(v)
+}
+
+func (*userPhoneConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
+}
+
+func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigPtrOutput)
 }
 
 // Contains information about the phone configuration settings for a user.
@@ -13948,6 +15028,16 @@ func (o UserPhoneConfigOutput) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
 
 func (o UserPhoneConfigOutput) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
 	return o
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return o.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPhoneConfig) *UserPhoneConfig {
+		return &v
+	}).(UserPhoneConfigPtrOutput)
 }
 
 // The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
@@ -13973,8 +15063,8 @@ func (o UserPhoneConfigOutput) PersistentConnection() pulumi.BoolPtrOutput {
 }
 
 // The phone type.
-func (o UserPhoneConfigOutput) PhoneType() UserPhoneTypeOutput {
-	return o.ApplyT(func(v UserPhoneConfig) UserPhoneType { return v.PhoneType }).(UserPhoneTypeOutput)
+func (o UserPhoneConfigOutput) PhoneType() UserPhoneTypePtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *UserPhoneType { return v.PhoneType }).(UserPhoneTypePtrOutput)
 }
 
 type UserPhoneConfigPtrOutput struct{ *pulumi.OutputState }
@@ -14049,8 +15139,117 @@ func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PhoneType
+		return v.PhoneType
 	}).(UserPhoneTypePtrOutput)
+}
+
+// Phone Number configuration per channel.
+type UserPhoneNumberConfig struct {
+	Channel     UserChannel   `pulumi:"channel"`
+	PhoneNumber *string       `pulumi:"phoneNumber"`
+	PhoneType   UserPhoneType `pulumi:"phoneType"`
+}
+
+// UserPhoneNumberConfigInput is an input type that accepts UserPhoneNumberConfigArgs and UserPhoneNumberConfigOutput values.
+// You can construct a concrete instance of `UserPhoneNumberConfigInput` via:
+//
+//	UserPhoneNumberConfigArgs{...}
+type UserPhoneNumberConfigInput interface {
+	pulumi.Input
+
+	ToUserPhoneNumberConfigOutput() UserPhoneNumberConfigOutput
+	ToUserPhoneNumberConfigOutputWithContext(context.Context) UserPhoneNumberConfigOutput
+}
+
+// Phone Number configuration per channel.
+type UserPhoneNumberConfigArgs struct {
+	Channel     UserChannelInput      `pulumi:"channel"`
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	PhoneType   UserPhoneTypeInput    `pulumi:"phoneType"`
+}
+
+func (UserPhoneNumberConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneNumberConfig)(nil)).Elem()
+}
+
+func (i UserPhoneNumberConfigArgs) ToUserPhoneNumberConfigOutput() UserPhoneNumberConfigOutput {
+	return i.ToUserPhoneNumberConfigOutputWithContext(context.Background())
+}
+
+func (i UserPhoneNumberConfigArgs) ToUserPhoneNumberConfigOutputWithContext(ctx context.Context) UserPhoneNumberConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumberConfigOutput)
+}
+
+// UserPhoneNumberConfigArrayInput is an input type that accepts UserPhoneNumberConfigArray and UserPhoneNumberConfigArrayOutput values.
+// You can construct a concrete instance of `UserPhoneNumberConfigArrayInput` via:
+//
+//	UserPhoneNumberConfigArray{ UserPhoneNumberConfigArgs{...} }
+type UserPhoneNumberConfigArrayInput interface {
+	pulumi.Input
+
+	ToUserPhoneNumberConfigArrayOutput() UserPhoneNumberConfigArrayOutput
+	ToUserPhoneNumberConfigArrayOutputWithContext(context.Context) UserPhoneNumberConfigArrayOutput
+}
+
+type UserPhoneNumberConfigArray []UserPhoneNumberConfigInput
+
+func (UserPhoneNumberConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPhoneNumberConfig)(nil)).Elem()
+}
+
+func (i UserPhoneNumberConfigArray) ToUserPhoneNumberConfigArrayOutput() UserPhoneNumberConfigArrayOutput {
+	return i.ToUserPhoneNumberConfigArrayOutputWithContext(context.Background())
+}
+
+func (i UserPhoneNumberConfigArray) ToUserPhoneNumberConfigArrayOutputWithContext(ctx context.Context) UserPhoneNumberConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumberConfigArrayOutput)
+}
+
+// Phone Number configuration per channel.
+type UserPhoneNumberConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneNumberConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneNumberConfig)(nil)).Elem()
+}
+
+func (o UserPhoneNumberConfigOutput) ToUserPhoneNumberConfigOutput() UserPhoneNumberConfigOutput {
+	return o
+}
+
+func (o UserPhoneNumberConfigOutput) ToUserPhoneNumberConfigOutputWithContext(ctx context.Context) UserPhoneNumberConfigOutput {
+	return o
+}
+
+func (o UserPhoneNumberConfigOutput) Channel() UserChannelOutput {
+	return o.ApplyT(func(v UserPhoneNumberConfig) UserChannel { return v.Channel }).(UserChannelOutput)
+}
+
+func (o UserPhoneNumberConfigOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPhoneNumberConfig) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPhoneNumberConfigOutput) PhoneType() UserPhoneTypeOutput {
+	return o.ApplyT(func(v UserPhoneNumberConfig) UserPhoneType { return v.PhoneType }).(UserPhoneTypeOutput)
+}
+
+type UserPhoneNumberConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneNumberConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPhoneNumberConfig)(nil)).Elem()
+}
+
+func (o UserPhoneNumberConfigArrayOutput) ToUserPhoneNumberConfigArrayOutput() UserPhoneNumberConfigArrayOutput {
+	return o
+}
+
+func (o UserPhoneNumberConfigArrayOutput) ToUserPhoneNumberConfigArrayOutputWithContext(ctx context.Context) UserPhoneNumberConfigArrayOutput {
+	return o
+}
+
+func (o UserPhoneNumberConfigArrayOutput) Index(i pulumi.IntInput) UserPhoneNumberConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPhoneNumberConfig {
+		return vs[0].([]UserPhoneNumberConfig)[vs[1].(int)]
+	}).(UserPhoneNumberConfigOutput)
 }
 
 // Proficiency of a user.
@@ -14177,6 +15376,109 @@ type UserTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+// Voice Enhancement configuration per channel.
+type UserVoiceEnhancementConfig struct {
+	Channel              UserChannel              `pulumi:"channel"`
+	VoiceEnhancementMode UserVoiceEnhancementMode `pulumi:"voiceEnhancementMode"`
+}
+
+// UserVoiceEnhancementConfigInput is an input type that accepts UserVoiceEnhancementConfigArgs and UserVoiceEnhancementConfigOutput values.
+// You can construct a concrete instance of `UserVoiceEnhancementConfigInput` via:
+//
+//	UserVoiceEnhancementConfigArgs{...}
+type UserVoiceEnhancementConfigInput interface {
+	pulumi.Input
+
+	ToUserVoiceEnhancementConfigOutput() UserVoiceEnhancementConfigOutput
+	ToUserVoiceEnhancementConfigOutputWithContext(context.Context) UserVoiceEnhancementConfigOutput
+}
+
+// Voice Enhancement configuration per channel.
+type UserVoiceEnhancementConfigArgs struct {
+	Channel              UserChannelInput              `pulumi:"channel"`
+	VoiceEnhancementMode UserVoiceEnhancementModeInput `pulumi:"voiceEnhancementMode"`
+}
+
+func (UserVoiceEnhancementConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserVoiceEnhancementConfig)(nil)).Elem()
+}
+
+func (i UserVoiceEnhancementConfigArgs) ToUserVoiceEnhancementConfigOutput() UserVoiceEnhancementConfigOutput {
+	return i.ToUserVoiceEnhancementConfigOutputWithContext(context.Background())
+}
+
+func (i UserVoiceEnhancementConfigArgs) ToUserVoiceEnhancementConfigOutputWithContext(ctx context.Context) UserVoiceEnhancementConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserVoiceEnhancementConfigOutput)
+}
+
+// UserVoiceEnhancementConfigArrayInput is an input type that accepts UserVoiceEnhancementConfigArray and UserVoiceEnhancementConfigArrayOutput values.
+// You can construct a concrete instance of `UserVoiceEnhancementConfigArrayInput` via:
+//
+//	UserVoiceEnhancementConfigArray{ UserVoiceEnhancementConfigArgs{...} }
+type UserVoiceEnhancementConfigArrayInput interface {
+	pulumi.Input
+
+	ToUserVoiceEnhancementConfigArrayOutput() UserVoiceEnhancementConfigArrayOutput
+	ToUserVoiceEnhancementConfigArrayOutputWithContext(context.Context) UserVoiceEnhancementConfigArrayOutput
+}
+
+type UserVoiceEnhancementConfigArray []UserVoiceEnhancementConfigInput
+
+func (UserVoiceEnhancementConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserVoiceEnhancementConfig)(nil)).Elem()
+}
+
+func (i UserVoiceEnhancementConfigArray) ToUserVoiceEnhancementConfigArrayOutput() UserVoiceEnhancementConfigArrayOutput {
+	return i.ToUserVoiceEnhancementConfigArrayOutputWithContext(context.Background())
+}
+
+func (i UserVoiceEnhancementConfigArray) ToUserVoiceEnhancementConfigArrayOutputWithContext(ctx context.Context) UserVoiceEnhancementConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserVoiceEnhancementConfigArrayOutput)
+}
+
+// Voice Enhancement configuration per channel.
+type UserVoiceEnhancementConfigOutput struct{ *pulumi.OutputState }
+
+func (UserVoiceEnhancementConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserVoiceEnhancementConfig)(nil)).Elem()
+}
+
+func (o UserVoiceEnhancementConfigOutput) ToUserVoiceEnhancementConfigOutput() UserVoiceEnhancementConfigOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementConfigOutput) ToUserVoiceEnhancementConfigOutputWithContext(ctx context.Context) UserVoiceEnhancementConfigOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementConfigOutput) Channel() UserChannelOutput {
+	return o.ApplyT(func(v UserVoiceEnhancementConfig) UserChannel { return v.Channel }).(UserChannelOutput)
+}
+
+func (o UserVoiceEnhancementConfigOutput) VoiceEnhancementMode() UserVoiceEnhancementModeOutput {
+	return o.ApplyT(func(v UserVoiceEnhancementConfig) UserVoiceEnhancementMode { return v.VoiceEnhancementMode }).(UserVoiceEnhancementModeOutput)
+}
+
+type UserVoiceEnhancementConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (UserVoiceEnhancementConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserVoiceEnhancementConfig)(nil)).Elem()
+}
+
+func (o UserVoiceEnhancementConfigArrayOutput) ToUserVoiceEnhancementConfigArrayOutput() UserVoiceEnhancementConfigArrayOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementConfigArrayOutput) ToUserVoiceEnhancementConfigArrayOutputWithContext(ctx context.Context) UserVoiceEnhancementConfigArrayOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementConfigArrayOutput) Index(i pulumi.IntInput) UserVoiceEnhancementConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserVoiceEnhancementConfig {
+		return vs[0].([]UserVoiceEnhancementConfig)[vs[1].(int)]
+	}).(UserVoiceEnhancementConfigOutput)
 }
 
 // The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
@@ -16485,6 +17787,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormAutomaticFailConfigurationPtrInput)(nil)).Elem(), EvaluationFormAutomaticFailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormBaseItemInput)(nil)).Elem(), EvaluationFormBaseItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormBaseItemArrayInput)(nil)).Elem(), EvaluationFormBaseItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewConfigurationInput)(nil)).Elem(), EvaluationFormEvaluationReviewConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewConfigurationPtrInput)(nil)).Elem(), EvaluationFormEvaluationReviewConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientArrayInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientValueInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemInput)(nil)).Elem(), EvaluationFormItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemArrayInput)(nil)).Elem(), EvaluationFormItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionInput)(nil)).Elem(), EvaluationFormItemEnablementConditionArgs{})
@@ -16574,6 +17881,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisVideoStreamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationContentInput)(nil)).Elem(), NotificationContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigPtrInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
@@ -16639,6 +17947,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateReadOnlyFieldInfoArrayInput)(nil)).Elem(), TaskTemplateReadOnlyFieldInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoArrayInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigInput)(nil)).Elem(), UserAfterContactWorkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigPtrInput)(nil)).Elem(), UserAfterContactWorkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigPerChannelInput)(nil)).Elem(), UserAfterContactWorkConfigPerChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigPerChannelArrayInput)(nil)).Elem(), UserAfterContactWorkConfigPerChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAutoAcceptConfigInput)(nil)).Elem(), UserAutoAcceptConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAutoAcceptConfigArrayInput)(nil)).Elem(), UserAutoAcceptConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFiveInput)(nil)).Elem(), UserHierarchyStructureLevelFiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFivePtrInput)(nil)).Elem(), UserHierarchyStructureLevelFiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFourInput)(nil)).Elem(), UserHierarchyStructureLevelFourArgs{})
@@ -16653,9 +17967,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructurePropertiesPtrInput)(nil)).Elem(), UserHierarchyStructurePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPersistentConnectionConfigInput)(nil)).Elem(), UserPersistentConnectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPersistentConnectionConfigArrayInput)(nil)).Elem(), UserPersistentConnectionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigPtrInput)(nil)).Elem(), UserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneNumberConfigInput)(nil)).Elem(), UserPhoneNumberConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneNumberConfigArrayInput)(nil)).Elem(), UserPhoneNumberConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyInput)(nil)).Elem(), UserProficiencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyArrayInput)(nil)).Elem(), UserProficiencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementConfigInput)(nil)).Elem(), UserVoiceEnhancementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementConfigArrayInput)(nil)).Elem(), UserVoiceEnhancementConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesInput)(nil)).Elem(), ValidationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesPtrInput)(nil)).Elem(), ValidationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesEnumPropertiesInput)(nil)).Elem(), ValidationPropertiesEnumPropertiesArgs{})
@@ -16698,6 +18019,11 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormAutomaticFailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormBaseItemOutput{})
 	pulumi.RegisterOutputType(EvaluationFormBaseItemArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientValueOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemArrayOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOutput{})
@@ -16790,6 +18116,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LockVersionPropertiesOutput{})
 	pulumi.RegisterOutputType(LockVersionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NotificationContentOutput{})
+	pulumi.RegisterOutputType(NotificationContentPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundEmailConfigOutput{})
@@ -16857,6 +18185,12 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateReadOnlyFieldInfoArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoOutput{})
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoArrayOutput{})
+	pulumi.RegisterOutputType(UserAfterContactWorkConfigOutput{})
+	pulumi.RegisterOutputType(UserAfterContactWorkConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserAfterContactWorkConfigPerChannelOutput{})
+	pulumi.RegisterOutputType(UserAfterContactWorkConfigPerChannelArrayOutput{})
+	pulumi.RegisterOutputType(UserAutoAcceptConfigOutput{})
+	pulumi.RegisterOutputType(UserAutoAcceptConfigArrayOutput{})
 	pulumi.RegisterOutputType(UserHierarchyStructureLevelFiveOutput{})
 	pulumi.RegisterOutputType(UserHierarchyStructureLevelFivePtrOutput{})
 	pulumi.RegisterOutputType(UserHierarchyStructureLevelFourOutput{})
@@ -16871,10 +18205,16 @@ func init() {
 	pulumi.RegisterOutputType(UserHierarchyStructurePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
+	pulumi.RegisterOutputType(UserPersistentConnectionConfigOutput{})
+	pulumi.RegisterOutputType(UserPersistentConnectionConfigArrayOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserPhoneNumberConfigOutput{})
+	pulumi.RegisterOutputType(UserPhoneNumberConfigArrayOutput{})
 	pulumi.RegisterOutputType(UserProficiencyOutput{})
 	pulumi.RegisterOutputType(UserProficiencyArrayOutput{})
+	pulumi.RegisterOutputType(UserVoiceEnhancementConfigOutput{})
+	pulumi.RegisterOutputType(UserVoiceEnhancementConfigArrayOutput{})
 	pulumi.RegisterOutputType(ValidationPropertiesOutput{})
 	pulumi.RegisterOutputType(ValidationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ValidationPropertiesEnumPropertiesOutput{})

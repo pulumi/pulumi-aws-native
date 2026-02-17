@@ -501,6 +501,139 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Mode() GlobalTable
 	}).(GlobalTableContributorInsightsSpecificationModePtrOutput)
 }
 
+type GlobalTableGlobalReadProvisionedThroughputSettings struct {
+	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
+}
+
+// GlobalTableGlobalReadProvisionedThroughputSettingsInput is an input type that accepts GlobalTableGlobalReadProvisionedThroughputSettingsArgs and GlobalTableGlobalReadProvisionedThroughputSettingsOutput values.
+// You can construct a concrete instance of `GlobalTableGlobalReadProvisionedThroughputSettingsInput` via:
+//
+//	GlobalTableGlobalReadProvisionedThroughputSettingsArgs{...}
+type GlobalTableGlobalReadProvisionedThroughputSettingsInput interface {
+	pulumi.Input
+
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsOutput() GlobalTableGlobalReadProvisionedThroughputSettingsOutput
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsOutput
+}
+
+type GlobalTableGlobalReadProvisionedThroughputSettingsArgs struct {
+	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
+}
+
+func (GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutput() GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return i.ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(context.Background())
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalReadProvisionedThroughputSettingsOutput)
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return i.ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableGlobalReadProvisionedThroughputSettingsArgs) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalReadProvisionedThroughputSettingsOutput).ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx)
+}
+
+// GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput is an input type that accepts GlobalTableGlobalReadProvisionedThroughputSettingsArgs, GlobalTableGlobalReadProvisionedThroughputSettingsPtr and GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput values.
+// You can construct a concrete instance of `GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput` via:
+//
+//	        GlobalTableGlobalReadProvisionedThroughputSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput
+	ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput
+}
+
+type globalTableGlobalReadProvisionedThroughputSettingsPtrType GlobalTableGlobalReadProvisionedThroughputSettingsArgs
+
+func GlobalTableGlobalReadProvisionedThroughputSettingsPtr(v *GlobalTableGlobalReadProvisionedThroughputSettingsArgs) GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput {
+	return (*globalTableGlobalReadProvisionedThroughputSettingsPtrType)(v)
+}
+
+func (*globalTableGlobalReadProvisionedThroughputSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (i *globalTableGlobalReadProvisionedThroughputSettingsPtrType) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return i.ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableGlobalReadProvisionedThroughputSettingsPtrType) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
+}
+
+type GlobalTableGlobalReadProvisionedThroughputSettingsOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutput() GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableGlobalReadProvisionedThroughputSettings) *GlobalTableGlobalReadProvisionedThroughputSettings {
+		return &v
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalTableGlobalReadProvisionedThroughputSettings) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+type GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableGlobalReadProvisionedThroughputSettings)(nil)).Elem()
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ToGlobalTableGlobalReadProvisionedThroughputSettingsPtrOutputWithContext(ctx context.Context) GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) Elem() GlobalTableGlobalReadProvisionedThroughputSettingsOutput {
+	return o.ApplyT(func(v *GlobalTableGlobalReadProvisionedThroughputSettings) GlobalTableGlobalReadProvisionedThroughputSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableGlobalReadProvisionedThroughputSettings
+		return ret
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsOutput)
+}
+
+func (o GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalTableGlobalReadProvisionedThroughputSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
 type GlobalTableGlobalSecondaryIndex struct {
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
@@ -514,7 +647,9 @@ type GlobalTableGlobalSecondaryIndex struct {
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection GlobalTableProjection `pulumi:"projection"`
+	Projection                        GlobalTableProjection                               `pulumi:"projection"`
+	ReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings          `pulumi:"readOnDemandThroughputSettings"`
+	ReadProvisionedThroughputSettings *GlobalTableGlobalReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
 	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
@@ -547,7 +682,9 @@ type GlobalTableGlobalSecondaryIndexArgs struct {
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection GlobalTableProjectionInput `pulumi:"projection"`
+	Projection                        GlobalTableProjectionInput                                 `pulumi:"projection"`
+	ReadOnDemandThroughputSettings    GlobalTableReadOnDemandThroughputSettingsPtrInput          `pulumi:"readOnDemandThroughputSettings"`
+	ReadProvisionedThroughputSettings GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
 	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
 	WarmThroughput GlobalTableWarmThroughputPtrInput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
@@ -627,6 +764,18 @@ func (o GlobalTableGlobalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaA
 // Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o GlobalTableGlobalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
+}
+
+func (o GlobalTableGlobalSecondaryIndexOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableReadOnDemandThroughputSettings {
+		return v.ReadOnDemandThroughputSettings
+	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
+}
+
+func (o GlobalTableGlobalSecondaryIndexOutput) ReadProvisionedThroughputSettings() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableGlobalReadProvisionedThroughputSettings {
+		return v.ReadProvisionedThroughputSettings
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
 }
 
 // Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
@@ -1761,7 +1910,8 @@ type GlobalTableReplicaSpecification struct {
 	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Defines additional settings for the global secondary indexes of this replica.
-	GlobalSecondaryIndexes []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes             []GlobalTableReplicaGlobalSecondaryIndexSpecification              `pulumi:"globalSecondaryIndexes"`
+	GlobalTableSettingsReplicationMode *GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode `pulumi:"globalTableSettingsReplicationMode"`
 	// Defines the Kinesis Data Streams configuration for the specified replica.
 	KinesisStreamSpecification *GlobalTableKinesisStreamSpecification `pulumi:"kinesisStreamSpecification"`
 	// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
@@ -1805,7 +1955,8 @@ type GlobalTableReplicaSpecificationArgs struct {
 	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 	DeletionProtectionEnabled pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
 	// Defines additional settings for the global secondary indexes of this replica.
-	GlobalSecondaryIndexes GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes             GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput             `pulumi:"globalSecondaryIndexes"`
+	GlobalTableSettingsReplicationMode GlobalTableReplicaSpecificationGlobalTableSettingsReplicationModePtrInput `pulumi:"globalTableSettingsReplicationMode"`
 	// Defines the Kinesis Data Streams configuration for the specified replica.
 	KinesisStreamSpecification GlobalTableKinesisStreamSpecificationPtrInput `pulumi:"kinesisStreamSpecification"`
 	// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
@@ -1900,6 +2051,12 @@ func (o GlobalTableReplicaSpecificationOutput) GlobalSecondaryIndexes() GlobalTa
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableReplicaGlobalSecondaryIndexSpecification {
 		return v.GlobalSecondaryIndexes
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) GlobalTableSettingsReplicationMode() GlobalTableReplicaSpecificationGlobalTableSettingsReplicationModePtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode {
+		return v.GlobalTableSettingsReplicationMode
+	}).(GlobalTableReplicaSpecificationGlobalTableSettingsReplicationModePtrOutput)
 }
 
 // Defines the Kinesis Data Streams configuration for the specified replica.
@@ -6762,6 +6919,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableCapacityAutoScalingSettingsPtrInput)(nil)).Elem(), GlobalTableCapacityAutoScalingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableContributorInsightsSpecificationInput)(nil)).Elem(), GlobalTableContributorInsightsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableContributorInsightsSpecificationPtrInput)(nil)).Elem(), GlobalTableContributorInsightsSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettingsInput)(nil)).Elem(), GlobalTableGlobalReadProvisionedThroughputSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalReadProvisionedThroughputSettingsPtrInput)(nil)).Elem(), GlobalTableGlobalReadProvisionedThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalSecondaryIndexInput)(nil)).Elem(), GlobalTableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableGlobalSecondaryIndexArrayInput)(nil)).Elem(), GlobalTableGlobalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKeySchemaInput)(nil)).Elem(), GlobalTableKeySchemaArgs{})
@@ -6848,6 +7007,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableCapacityAutoScalingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableGlobalReadProvisionedThroughputSettingsOutput{})
+	pulumi.RegisterOutputType(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GlobalTableGlobalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableKeySchemaOutput{})

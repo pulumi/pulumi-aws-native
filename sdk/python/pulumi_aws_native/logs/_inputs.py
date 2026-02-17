@@ -26,6 +26,10 @@ __all__ = [
     'MetricFilterMetricTransformationArgsDict',
     'ResourceConfigPropertiesArgs',
     'ResourceConfigPropertiesArgsDict',
+    'ScheduledQueryDestinationConfigurationArgs',
+    'ScheduledQueryDestinationConfigurationArgsDict',
+    'ScheduledQueryS3ConfigurationArgs',
+    'ScheduledQueryS3ConfigurationArgsDict',
     'TransformerAddKeyEntryArgs',
     'TransformerAddKeyEntryArgsDict',
     'TransformerCopyValueEntryArgs',
@@ -90,20 +94,15 @@ __all__ = [
     'TransformerTypeConverterEntryArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DeliveryDestinationDestinationPolicyArgsDict(TypedDict):
-        delivery_destination_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the delivery destination to assign this policy to
-        """
-        delivery_destination_policy: NotRequired[Any]
-        """
-        The contents of the policy attached to the delivery destination
-        """
-elif False:
-    DeliveryDestinationDestinationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class DeliveryDestinationDestinationPolicyArgsDict(TypedDict):
+    delivery_destination_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the delivery destination to assign this policy to
+    """
+    delivery_destination_policy: NotRequired[Any]
+    """
+    The contents of the policy attached to the delivery destination
+    """
 
 @pulumi.input_type
 class DeliveryDestinationDestinationPolicyArgs:
@@ -144,32 +143,29 @@ class DeliveryDestinationDestinationPolicyArgs:
         pulumi.set(self, "delivery_destination_policy", value)
 
 
-if not MYPY:
-    class IntegrationOpenSearchResourceConfigArgsDict(TypedDict):
-        dashboard_viewer_principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
+class IntegrationOpenSearchResourceConfigArgsDict(TypedDict):
+    dashboard_viewer_principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 
-        > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
-        """
-        data_source_role_arn: pulumi.Input[_builtins.str]
-        """
-        Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
-        """
-        application_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
-        """
-        retention_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
-        """
-elif False:
-    IntegrationOpenSearchResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+    """
+    data_source_role_arn: pulumi.Input[_builtins.str]
+    """
+    Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
+    """
+    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
+    """
+    retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
+    """
 
 @pulumi.input_type
 class IntegrationOpenSearchResourceConfigArgs:
@@ -260,27 +256,24 @@ class IntegrationOpenSearchResourceConfigArgs:
         pulumi.set(self, "retention_days", value)
 
 
-if not MYPY:
-    class MetricFilterDimensionArgsDict(TypedDict):
-        """
-        Specifies the CW metric dimensions to publish with this metric.
-          Because dimensions are part of the unique identifier for a metric, whenever a unique dimension name/value pair is extracted from your logs, you are creating a new variation of that metric.
-         For more information about publishing dimensions with metrics created by metric filters, see [Publishing dimensions with metrics from values in JSON or space-delimited log events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html#logs-metric-filters-dimensions).
-          Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
-         To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.
-         You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The name for the CW metric dimension that the metric filter creates.
-         Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
-        """
-elif False:
-    MetricFilterDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class MetricFilterDimensionArgsDict(TypedDict):
+    """
+    Specifies the CW metric dimensions to publish with this metric.
+      Because dimensions are part of the unique identifier for a metric, whenever a unique dimension name/value pair is extracted from your logs, you are creating a new variation of that metric.
+     For more information about publishing dimensions with metrics created by metric filters, see [Publishing dimensions with metrics from values in JSON or space-delimited log events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html#logs-metric-filters-dimensions).
+      Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
+     To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.
+     You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name for the CW metric dimension that the metric filter creates.
+     Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
+    """
 
 @pulumi.input_type
 class MetricFilterDimensionArgs:
@@ -327,40 +320,37 @@ class MetricFilterDimensionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class MetricFilterMetricTransformationArgsDict(TypedDict):
-        """
-        ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the CloudWatch metric.
-        """
-        metric_namespace: pulumi.Input[_builtins.str]
-        """
-        A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
-        """
-        metric_value: pulumi.Input[_builtins.str]
-        """
-        The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgsDict']]]]
-        """
-        The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
-          Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
-         CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.
-         You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
-        """
-        unit: NotRequired[pulumi.Input['MetricFilterMetricTransformationUnit']]
-        """
-        The unit to assign to the metric. If you omit this, the unit is set as ``None``.
-        """
-elif False:
-    MetricFilterMetricTransformationArgsDict: TypeAlias = Mapping[str, Any]
+class MetricFilterMetricTransformationArgsDict(TypedDict):
+    """
+    ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch metric.
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
+    """
+    metric_value: pulumi.Input[_builtins.str]
+    """
+    The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
+    """
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgsDict']]]]
+    """
+    The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
+      Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
+     CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.
+     You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
+    """
+    unit: NotRequired[pulumi.Input['MetricFilterMetricTransformationUnit']]
+    """
+    The unit to assign to the metric. If you omit this, the unit is set as ``None``.
+    """
 
 @pulumi.input_type
 class MetricFilterMetricTransformationArgs:
@@ -469,17 +459,14 @@ class MetricFilterMetricTransformationArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class ResourceConfigPropertiesArgsDict(TypedDict):
-        """
-        OpenSearchResourceConfig for the given Integration
-        """
-        open_search_resource_config: NotRequired[pulumi.Input['IntegrationOpenSearchResourceConfigArgsDict']]
-        """
-        This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
-        """
-elif False:
-    ResourceConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceConfigPropertiesArgsDict(TypedDict):
+    """
+    OpenSearchResourceConfig for the given Integration
+    """
+    open_search_resource_config: NotRequired[pulumi.Input['IntegrationOpenSearchResourceConfigArgsDict']]
+    """
+    This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
+    """
 
 @pulumi.input_type
 class ResourceConfigPropertiesArgs:
@@ -505,22 +492,70 @@ class ResourceConfigPropertiesArgs:
         pulumi.set(self, "open_search_resource_config", value)
 
 
-if not MYPY:
-    class TransformerAddKeyEntryArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the new entry to be added to the log event
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the new entry to be added to the log event
-        """
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to overwrite the value if the key already exists in the log event. If you omit this, the default is `false` .
-        """
-elif False:
-    TransformerAddKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledQueryDestinationConfigurationArgsDict(TypedDict):
+    s3_configuration: NotRequired[pulumi.Input['ScheduledQueryS3ConfigurationArgsDict']]
+
+@pulumi.input_type
+class ScheduledQueryDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 s3_configuration: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']] = None):
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']]:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+class ScheduledQueryS3ConfigurationArgsDict(TypedDict):
+    destination_identifier: pulumi.Input[_builtins.str]
+    role_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ScheduledQueryS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_identifier: pulumi.Input[_builtins.str],
+                 role_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "destination_identifier", destination_identifier)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIdentifier")
+    def destination_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "destination_identifier")
+
+    @destination_identifier.setter
+    def destination_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+
+class TransformerAddKeyEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the new entry to be added to the log event
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the new entry to be added to the log event
+    """
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to overwrite the value if the key already exists in the log event. If you omit this, the default is `false` .
+    """
 
 @pulumi.input_type
 class TransformerAddKeyEntryArgs:
@@ -575,13 +610,10 @@ class TransformerAddKeyEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class TransformerCopyValueEntryArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        target: pulumi.Input[_builtins.str]
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TransformerCopyValueEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerCopyValueEntryArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    target: pulumi.Input[_builtins.str]
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TransformerCopyValueEntryArgs:
@@ -622,13 +654,10 @@ class TransformerCopyValueEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class TransformerMoveKeyEntryArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        target: pulumi.Input[_builtins.str]
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TransformerMoveKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerMoveKeyEntryArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    target: pulumi.Input[_builtins.str]
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TransformerMoveKeyEntryArgs:
@@ -669,14 +698,11 @@ class TransformerMoveKeyEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class TransformerParseCloudfrontArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
-        """
-elif False:
-    TransformerParseCloudfrontArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerParseCloudfrontArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
+    """
 
 @pulumi.input_type
 class TransformerParseCloudfrontArgs:
@@ -701,14 +727,11 @@ class TransformerParseCloudfrontArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerParsePostgresArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
-        """
-elif False:
-    TransformerParsePostgresArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerParsePostgresArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
+    """
 
 @pulumi.input_type
 class TransformerParsePostgresArgs:
@@ -733,14 +756,11 @@ class TransformerParsePostgresArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerParseRoute53ArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
-        """
-elif False:
-    TransformerParseRoute53ArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerParseRoute53ArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
+    """
 
 @pulumi.input_type
 class TransformerParseRoute53Args:
@@ -765,26 +785,23 @@ class TransformerParseRoute53Args:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerParseToOcsfArgsDict(TypedDict):
-        event_source: pulumi.Input['TransformerEventSource']
-        """
-        Specify the service or process that produces the log events that will be converted with this processor.
-        """
-        ocsf_version: pulumi.Input['TransformerOcsfVersion']
-        """
-        Specify which version of the OCSF schema to use for the transformed log events.
-        """
-        mapping_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the OCSF mapping to use for parsing log data.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
-        """
-elif False:
-    TransformerParseToOcsfArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerParseToOcsfArgsDict(TypedDict):
+    event_source: pulumi.Input['TransformerEventSource']
+    """
+    Specify the service or process that produces the log events that will be converted with this processor.
+    """
+    ocsf_version: pulumi.Input['TransformerOcsfVersion']
+    """
+    Specify which version of the OCSF schema to use for the transformed log events.
+    """
+    mapping_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the OCSF mapping to use for parsing log data.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+    """
 
 @pulumi.input_type
 class TransformerParseToOcsfArgs:
@@ -855,14 +872,11 @@ class TransformerParseToOcsfArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerParseVpcArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
-        """
-elif False:
-    TransformerParseVpcArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerParseVpcArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
+    """
 
 @pulumi.input_type
 class TransformerParseVpcArgs:
@@ -887,14 +901,11 @@ class TransformerParseVpcArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerParseWafArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
-        """
-elif False:
-    TransformerParseWafArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerParseWafArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
+    """
 
 @pulumi.input_type
 class TransformerParseWafArgs:
@@ -919,14 +930,11 @@ class TransformerParseWafArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerProcessorAddKeysPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerAddKeyEntryArgsDict']]]
-elif False:
-    TransformerProcessorAddKeysPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorAddKeysPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerAddKeyEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorAddKeysPropertiesArgs:
@@ -947,14 +955,11 @@ class TransformerProcessorAddKeysPropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorCopyValuePropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerCopyValueEntryArgsDict']]]
-elif False:
-    TransformerProcessorCopyValuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorCopyValuePropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerCopyValueEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorCopyValuePropertiesArgs:
@@ -975,17 +980,14 @@ class TransformerProcessorCopyValuePropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorCsvPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
-        """
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        quote_character: NotRequired[pulumi.Input[_builtins.str]]
-        source: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TransformerProcessorCsvPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorCsvPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
+    """
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    quote_character: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TransformerProcessorCsvPropertiesArgs:
@@ -1043,20 +1045,17 @@ class TransformerProcessorCsvPropertiesArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerProcessorDateTimeConverterPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
-        """
-        match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        source: pulumi.Input[_builtins.str]
-        target: pulumi.Input[_builtins.str]
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-        source_timezone: NotRequired[pulumi.Input[_builtins.str]]
-        target_format: NotRequired[pulumi.Input[_builtins.str]]
-        target_timezone: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TransformerProcessorDateTimeConverterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorDateTimeConverterPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
+    """
+    match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    source: pulumi.Input[_builtins.str]
+    target: pulumi.Input[_builtins.str]
+    locale: NotRequired[pulumi.Input[_builtins.str]]
+    source_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    target_format: NotRequired[pulumi.Input[_builtins.str]]
+    target_timezone: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TransformerProcessorDateTimeConverterPropertiesArgs:
@@ -1147,14 +1146,11 @@ class TransformerProcessorDateTimeConverterPropertiesArgs:
         pulumi.set(self, "target_timezone", value)
 
 
-if not MYPY:
-    class TransformerProcessorDeleteKeysPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [deleteKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys) processor in your transformer.
-        """
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    TransformerProcessorDeleteKeysPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorDeleteKeysPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [deleteKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys) processor in your transformer.
+    """
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorDeleteKeysPropertiesArgs:
@@ -1175,15 +1171,12 @@ class TransformerProcessorDeleteKeysPropertiesArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class TransformerProcessorGrokPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
-        """
-        match: pulumi.Input[_builtins.str]
-        source: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TransformerProcessorGrokPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorGrokPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
+    """
+    match: pulumi.Input[_builtins.str]
+    source: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TransformerProcessorGrokPropertiesArgs:
@@ -1216,19 +1209,16 @@ class TransformerProcessorGrokPropertiesArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerProcessorListToMapPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
-        """
-        key: pulumi.Input[_builtins.str]
-        source: pulumi.Input[_builtins.str]
-        flatten: NotRequired[pulumi.Input[_builtins.bool]]
-        flattened_element: NotRequired[pulumi.Input['TransformerProcessorListToMapPropertiesFlattenedElement']]
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        value_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TransformerProcessorListToMapPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorListToMapPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
+    """
+    key: pulumi.Input[_builtins.str]
+    source: pulumi.Input[_builtins.str]
+    flatten: NotRequired[pulumi.Input[_builtins.bool]]
+    flattened_element: NotRequired[pulumi.Input['TransformerProcessorListToMapPropertiesFlattenedElement']]
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    value_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TransformerProcessorListToMapPropertiesArgs:
@@ -1308,14 +1298,11 @@ class TransformerProcessorListToMapPropertiesArgs:
         pulumi.set(self, "value_key", value)
 
 
-if not MYPY:
-    class TransformerProcessorLowerCaseStringPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
-        """
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    TransformerProcessorLowerCaseStringPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorLowerCaseStringPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
+    """
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorLowerCaseStringPropertiesArgs:
@@ -1336,14 +1323,11 @@ class TransformerProcessorLowerCaseStringPropertiesArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class TransformerProcessorMoveKeysPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerMoveKeyEntryArgsDict']]]
-elif False:
-    TransformerProcessorMoveKeysPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorMoveKeysPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerMoveKeyEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorMoveKeysPropertiesArgs:
@@ -1364,15 +1348,12 @@ class TransformerProcessorMoveKeysPropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorParseJsonPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        source: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TransformerProcessorParseJsonPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorParseJsonPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TransformerProcessorParseJsonPropertiesArgs:
@@ -1406,20 +1387,17 @@ class TransformerProcessorParseJsonPropertiesArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerProcessorParseKeyValuePropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        key_value_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        non_match_value: NotRequired[pulumi.Input[_builtins.str]]
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        source: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TransformerProcessorParseKeyValuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorParseKeyValuePropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_value_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    non_match_value: NotRequired[pulumi.Input[_builtins.str]]
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    source: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TransformerProcessorParseKeyValuePropertiesArgs:
@@ -1513,14 +1491,11 @@ class TransformerProcessorParseKeyValuePropertiesArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerProcessorRenameKeysPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [renameKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerRenameKeyEntryArgsDict']]]
-elif False:
-    TransformerProcessorRenameKeysPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorRenameKeysPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [renameKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerRenameKeyEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorRenameKeysPropertiesArgs:
@@ -1541,14 +1516,11 @@ class TransformerProcessorRenameKeysPropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorSplitStringPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerSplitStringEntryArgsDict']]]
-elif False:
-    TransformerProcessorSplitStringPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorSplitStringPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerSplitStringEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorSplitStringPropertiesArgs:
@@ -1569,14 +1541,11 @@ class TransformerProcessorSplitStringPropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorSubstituteStringPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerSubstituteStringEntryArgsDict']]]
-elif False:
-    TransformerProcessorSubstituteStringPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorSubstituteStringPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerSubstituteStringEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorSubstituteStringPropertiesArgs:
@@ -1597,14 +1566,11 @@ class TransformerProcessorSubstituteStringPropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorTrimStringPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
-        """
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    TransformerProcessorTrimStringPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorTrimStringPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
+    """
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorTrimStringPropertiesArgs:
@@ -1625,14 +1591,11 @@ class TransformerProcessorTrimStringPropertiesArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class TransformerProcessorTypeConverterPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
-        """
-        entries: pulumi.Input[Sequence[pulumi.Input['TransformerTypeConverterEntryArgsDict']]]
-elif False:
-    TransformerProcessorTypeConverterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorTypeConverterPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
+    """
+    entries: pulumi.Input[Sequence[pulumi.Input['TransformerTypeConverterEntryArgsDict']]]
 
 @pulumi.input_type
 class TransformerProcessorTypeConverterPropertiesArgs:
@@ -1653,14 +1616,11 @@ class TransformerProcessorTypeConverterPropertiesArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class TransformerProcessorUpperCaseStringPropertiesArgsDict(TypedDict):
-        """
-        Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
-        """
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    TransformerProcessorUpperCaseStringPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerProcessorUpperCaseStringPropertiesArgsDict(TypedDict):
+    """
+    Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
+    """
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class TransformerProcessorUpperCaseStringPropertiesArgs:
@@ -1681,115 +1641,112 @@ class TransformerProcessorUpperCaseStringPropertiesArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class TransformerProcessorArgsDict(TypedDict):
-        """
-        Individual processor configuration
-        """
-        add_keys: NotRequired[pulumi.Input['TransformerProcessorAddKeysPropertiesArgsDict']]
-        """
-        Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
-        """
-        copy_value: NotRequired[pulumi.Input['TransformerProcessorCopyValuePropertiesArgsDict']]
-        """
-        Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
-        """
-        csv: NotRequired[pulumi.Input['TransformerProcessorCsvPropertiesArgsDict']]
-        """
-        Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
-        """
-        date_time_converter: NotRequired[pulumi.Input['TransformerProcessorDateTimeConverterPropertiesArgsDict']]
-        """
-        Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
-        """
-        delete_keys: NotRequired[pulumi.Input['TransformerProcessorDeleteKeysPropertiesArgsDict']]
-        """
-        Use this parameter to include the [deleteKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys) processor in your transformer.
-        """
-        grok: NotRequired[pulumi.Input['TransformerProcessorGrokPropertiesArgsDict']]
-        """
-        Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
-        """
-        list_to_map: NotRequired[pulumi.Input['TransformerProcessorListToMapPropertiesArgsDict']]
-        """
-        Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
-        """
-        lower_case_string: NotRequired[pulumi.Input['TransformerProcessorLowerCaseStringPropertiesArgsDict']]
-        """
-        Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
-        """
-        move_keys: NotRequired[pulumi.Input['TransformerProcessorMoveKeysPropertiesArgsDict']]
-        """
-        Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
-        """
-        parse_cloudfront: NotRequired[pulumi.Input['TransformerParseCloudfrontArgsDict']]
-        """
-        Use this parameter to include the [parseCloudfront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseCloudfront) processor in your transformer.
+class TransformerProcessorArgsDict(TypedDict):
+    """
+    Individual processor configuration
+    """
+    add_keys: NotRequired[pulumi.Input['TransformerProcessorAddKeysPropertiesArgsDict']]
+    """
+    Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
+    """
+    copy_value: NotRequired[pulumi.Input['TransformerProcessorCopyValuePropertiesArgsDict']]
+    """
+    Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
+    """
+    csv: NotRequired[pulumi.Input['TransformerProcessorCsvPropertiesArgsDict']]
+    """
+    Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.
+    """
+    date_time_converter: NotRequired[pulumi.Input['TransformerProcessorDateTimeConverterPropertiesArgsDict']]
+    """
+    Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
+    """
+    delete_keys: NotRequired[pulumi.Input['TransformerProcessorDeleteKeysPropertiesArgsDict']]
+    """
+    Use this parameter to include the [deleteKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys) processor in your transformer.
+    """
+    grok: NotRequired[pulumi.Input['TransformerProcessorGrokPropertiesArgsDict']]
+    """
+    Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
+    """
+    list_to_map: NotRequired[pulumi.Input['TransformerProcessorListToMapPropertiesArgsDict']]
+    """
+    Use this parameter to include the [listToMap](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap) processor in your transformer.
+    """
+    lower_case_string: NotRequired[pulumi.Input['TransformerProcessorLowerCaseStringPropertiesArgsDict']]
+    """
+    Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
+    """
+    move_keys: NotRequired[pulumi.Input['TransformerProcessorMoveKeysPropertiesArgsDict']]
+    """
+    Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
+    """
+    parse_cloudfront: NotRequired[pulumi.Input['TransformerParseCloudfrontArgsDict']]
+    """
+    Use this parameter to include the [parseCloudfront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseCloudfront) processor in your transformer.
 
-        If you use this processor, it must be the first processor in your transformer.
-        """
-        parse_json: NotRequired[pulumi.Input['TransformerProcessorParseJsonPropertiesArgsDict']]
-        """
-        Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
-        """
-        parse_key_value: NotRequired[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgsDict']]
-        """
-        Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
-        """
-        parse_postgres: NotRequired[pulumi.Input['TransformerParsePostgresArgsDict']]
-        """
-        Use this parameter to include the [parsePostGres](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres) processor in your transformer.
+    If you use this processor, it must be the first processor in your transformer.
+    """
+    parse_json: NotRequired[pulumi.Input['TransformerProcessorParseJsonPropertiesArgsDict']]
+    """
+    Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
+    """
+    parse_key_value: NotRequired[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgsDict']]
+    """
+    Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
+    """
+    parse_postgres: NotRequired[pulumi.Input['TransformerParsePostgresArgsDict']]
+    """
+    Use this parameter to include the [parsePostGres](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres) processor in your transformer.
 
-        If you use this processor, it must be the first processor in your transformer.
-        """
-        parse_route53: NotRequired[pulumi.Input['TransformerParseRoute53ArgsDict']]
-        """
-        Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
+    If you use this processor, it must be the first processor in your transformer.
+    """
+    parse_route53: NotRequired[pulumi.Input['TransformerParseRoute53ArgsDict']]
+    """
+    Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
 
-        If you use this processor, it must be the first processor in your transformer.
-        """
-        parse_to_ocsf: NotRequired[pulumi.Input['TransformerParseToOcsfArgsDict']]
-        """
-        Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
-        """
-        parse_vpc: NotRequired[pulumi.Input['TransformerParseVpcArgsDict']]
-        """
-        Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
+    If you use this processor, it must be the first processor in your transformer.
+    """
+    parse_to_ocsf: NotRequired[pulumi.Input['TransformerParseToOcsfArgsDict']]
+    """
+    Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+    """
+    parse_vpc: NotRequired[pulumi.Input['TransformerParseVpcArgsDict']]
+    """
+    Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
 
-        If you use this processor, it must be the first processor in your transformer.
-        """
-        parse_waf: NotRequired[pulumi.Input['TransformerParseWafArgsDict']]
-        """
-        Use this parameter to include the [parseWAF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseWAF) processor in your transformer.
+    If you use this processor, it must be the first processor in your transformer.
+    """
+    parse_waf: NotRequired[pulumi.Input['TransformerParseWafArgsDict']]
+    """
+    Use this parameter to include the [parseWAF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseWAF) processor in your transformer.
 
-        If you use this processor, it must be the first processor in your transformer.
-        """
-        rename_keys: NotRequired[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgsDict']]
-        """
-        Use this parameter to include the [renameKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys) processor in your transformer.
-        """
-        split_string: NotRequired[pulumi.Input['TransformerProcessorSplitStringPropertiesArgsDict']]
-        """
-        Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
-        """
-        substitute_string: NotRequired[pulumi.Input['TransformerProcessorSubstituteStringPropertiesArgsDict']]
-        """
-        Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
-        """
-        trim_string: NotRequired[pulumi.Input['TransformerProcessorTrimStringPropertiesArgsDict']]
-        """
-        Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
-        """
-        type_converter: NotRequired[pulumi.Input['TransformerProcessorTypeConverterPropertiesArgsDict']]
-        """
-        Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
-        """
-        upper_case_string: NotRequired[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgsDict']]
-        """
-        Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
-        """
-elif False:
-    TransformerProcessorArgsDict: TypeAlias = Mapping[str, Any]
+    If you use this processor, it must be the first processor in your transformer.
+    """
+    rename_keys: NotRequired[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgsDict']]
+    """
+    Use this parameter to include the [renameKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys) processor in your transformer.
+    """
+    split_string: NotRequired[pulumi.Input['TransformerProcessorSplitStringPropertiesArgsDict']]
+    """
+    Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
+    """
+    substitute_string: NotRequired[pulumi.Input['TransformerProcessorSubstituteStringPropertiesArgsDict']]
+    """
+    Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
+    """
+    trim_string: NotRequired[pulumi.Input['TransformerProcessorTrimStringPropertiesArgsDict']]
+    """
+    Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
+    """
+    type_converter: NotRequired[pulumi.Input['TransformerProcessorTypeConverterPropertiesArgsDict']]
+    """
+    Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
+    """
+    upper_case_string: NotRequired[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgsDict']]
+    """
+    Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
+    """
 
 @pulumi.input_type
 class TransformerProcessorArgs:
@@ -2187,13 +2144,10 @@ class TransformerProcessorArgs:
         pulumi.set(self, "upper_case_string", value)
 
 
-if not MYPY:
-    class TransformerRenameKeyEntryArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        rename_to: pulumi.Input[_builtins.str]
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    TransformerRenameKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerRenameKeyEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    rename_to: pulumi.Input[_builtins.str]
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class TransformerRenameKeyEntryArgs:
@@ -2234,12 +2188,9 @@ class TransformerRenameKeyEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class TransformerSplitStringEntryArgsDict(TypedDict):
-        delimiter: pulumi.Input[_builtins.str]
-        source: pulumi.Input[_builtins.str]
-elif False:
-    TransformerSplitStringEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerSplitStringEntryArgsDict(TypedDict):
+    delimiter: pulumi.Input[_builtins.str]
+    source: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TransformerSplitStringEntryArgs:
@@ -2268,13 +2219,10 @@ class TransformerSplitStringEntryArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class TransformerSubstituteStringEntryArgsDict(TypedDict):
-        from_: pulumi.Input[_builtins.str]
-        source: pulumi.Input[_builtins.str]
-        to: pulumi.Input[_builtins.str]
-elif False:
-    TransformerSubstituteStringEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerSubstituteStringEntryArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.str]
+    source: pulumi.Input[_builtins.str]
+    to: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TransformerSubstituteStringEntryArgs:
@@ -2314,12 +2262,9 @@ class TransformerSubstituteStringEntryArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class TransformerTypeConverterEntryArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        type: pulumi.Input['TransformerTypeConverterEntryType']
-elif False:
-    TransformerTypeConverterEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerTypeConverterEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    type: pulumi.Input['TransformerTypeConverterEntryType']
 
 @pulumi.input_type
 class TransformerTypeConverterEntryArgs:

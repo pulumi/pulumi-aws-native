@@ -3869,7 +3869,7 @@ func (in *stackSetRegionConcurrencyTypePtr) ToStackSetRegionConcurrencyTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(StackSetRegionConcurrencyTypePtrOutput)
 }
 
-// Current status of the stack.
+// Returns a success or failure message associated with the stack status.
 type StackStatus string
 
 const (

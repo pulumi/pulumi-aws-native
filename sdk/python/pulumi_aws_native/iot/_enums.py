@@ -15,6 +15,9 @@ __all__ = [
     'CertificateProviderOperation',
     'CertificateStatus',
     'CommandNamespace',
+    'CommandOutputFormat',
+    'CommandParameterType',
+    'CommandParameterValueComparisonOperator',
     'CustomMetricMetricType',
     'DimensionType',
     'DomainConfigurationApplicationProtocol',
@@ -29,6 +32,7 @@ __all__ = [
     'JobTemplateFailureType',
     'JobTemplateJobRetryFailureType',
     'LoggingDefaultLogLevel',
+    'LoggingEventConfigurationLogLevel',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCaCertificateParamsAction',
@@ -135,6 +139,37 @@ class CommandNamespace(_builtins.str, Enum):
     """
     AWS_IO_T = "AWS-IoT"
     AWS_IO_T_FLEET_WISE = "AWS-IoT-FleetWise"
+
+
+@pulumi.type_token("aws-native:iot:CommandOutputFormat")
+class CommandOutputFormat(_builtins.str, Enum):
+    JSON = "JSON"
+    CBOR = "CBOR"
+
+
+@pulumi.type_token("aws-native:iot:CommandParameterType")
+class CommandParameterType(_builtins.str, Enum):
+    STRING = "STRING"
+    INTEGER = "INTEGER"
+    DOUBLE = "DOUBLE"
+    LONG = "LONG"
+    UNSIGNEDLONG = "UNSIGNEDLONG"
+    BOOLEAN = "BOOLEAN"
+    BINARY = "BINARY"
+
+
+@pulumi.type_token("aws-native:iot:CommandParameterValueComparisonOperator")
+class CommandParameterValueComparisonOperator(_builtins.str, Enum):
+    EQUALS = "EQUALS"
+    NOT_EQUALS = "NOT_EQUALS"
+    LESS_THAN = "LESS_THAN"
+    LESS_THAN_EQUALS = "LESS_THAN_EQUALS"
+    GREATER_THAN = "GREATER_THAN"
+    GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS"
+    IN_SET = "IN_SET"
+    NOT_IN_SET = "NOT_IN_SET"
+    IN_RANGE = "IN_RANGE"
+    NOT_IN_RANGE = "NOT_IN_RANGE"
 
 
 @pulumi.type_token("aws-native:iot:CustomMetricMetricType")
@@ -263,6 +298,18 @@ class JobTemplateJobRetryFailureType(_builtins.str, Enum):
 class LoggingDefaultLogLevel(_builtins.str, Enum):
     """
     The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+    """
+    ERROR = "ERROR"
+    WARN = "WARN"
+    INFO = "INFO"
+    DEBUG = "DEBUG"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:iot:LoggingEventConfigurationLogLevel")
+class LoggingEventConfigurationLogLevel(_builtins.str, Enum):
+    """
+    The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
     """
     ERROR = "ERROR"
     WARN = "WARN"

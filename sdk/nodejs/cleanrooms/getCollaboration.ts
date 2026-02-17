@@ -49,6 +49,7 @@ export interface GetCollaborationResult {
      * A description of the collaboration provided by the collaboration owner.
      */
     readonly description?: string;
+    readonly isMetricsEnabled?: boolean;
     /**
      * A human-readable identifier provided by the collaboration owner. Display names are not unique.
      */

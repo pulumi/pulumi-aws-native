@@ -49,6 +49,7 @@ __all__ = [
     'BotCustomPayload',
     'BotCustomVocabulary',
     'BotCustomVocabularyItem',
+    'BotDeepgramSpeechModelConfig',
     'BotDefaultConditionalBranch',
     'BotDialogAction',
     'BotDialogCodeHookInvocationSetting',
@@ -120,6 +121,8 @@ __all__ = [
     'BotSlotValueRegexFilter',
     'BotSlotValueSelectionSetting',
     'BotSpecifications',
+    'BotSpeechModelConfig',
+    'BotSpeechRecognitionSettings',
     'BotSsmlMessage',
     'BotStillWaitingResponseSpecification',
     'BotSubSlotSetting',
@@ -1419,6 +1422,45 @@ class BotCustomVocabularyItem(dict):
     @pulumi.getter
     def weight(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class BotDeepgramSpeechModelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiTokenSecretArn":
+            suggest = "api_token_secret_arn"
+        elif key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotDeepgramSpeechModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotDeepgramSpeechModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotDeepgramSpeechModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token_secret_arn: _builtins.str,
+                 model_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "api_token_secret_arn", api_token_secret_arn)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenSecretArn")
+    def api_token_secret_arn(self) -> _builtins.str:
+        return pulumi.get(self, "api_token_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "model_id")
 
 
 @pulumi.output_type
@@ -3310,6 +3352,8 @@ class BotLocale(dict):
             suggest = "slot_types"
         elif key == "speechDetectionSensitivity":
             suggest = "speech_detection_sensitivity"
+        elif key == "speechRecognitionSettings":
+            suggest = "speech_recognition_settings"
         elif key == "unifiedSpeechSettings":
             suggest = "unified_speech_settings"
         elif key == "voiceSettings":
@@ -3335,6 +3379,7 @@ class BotLocale(dict):
                  intents: Optional[Sequence['outputs.BotIntent']] = None,
                  slot_types: Optional[Sequence['outputs.BotSlotType']] = None,
                  speech_detection_sensitivity: Optional['BotSpeechDetectionSensitivity'] = None,
+                 speech_recognition_settings: Optional['outputs.BotSpeechRecognitionSettings'] = None,
                  unified_speech_settings: Optional['outputs.BotUnifiedSpeechSettings'] = None,
                  voice_settings: Optional['outputs.BotVoiceSettings'] = None):
         """
@@ -3367,6 +3412,8 @@ class BotLocale(dict):
             pulumi.set(__self__, "slot_types", slot_types)
         if speech_detection_sensitivity is not None:
             pulumi.set(__self__, "speech_detection_sensitivity", speech_detection_sensitivity)
+        if speech_recognition_settings is not None:
+            pulumi.set(__self__, "speech_recognition_settings", speech_recognition_settings)
         if unified_speech_settings is not None:
             pulumi.set(__self__, "unified_speech_settings", unified_speech_settings)
         if voice_settings is not None:
@@ -3429,6 +3476,11 @@ class BotLocale(dict):
     @pulumi.getter(name="speechDetectionSensitivity")
     def speech_detection_sensitivity(self) -> Optional['BotSpeechDetectionSensitivity']:
         return pulumi.get(self, "speech_detection_sensitivity")
+
+    @_builtins.property
+    @pulumi.getter(name="speechRecognitionSettings")
+    def speech_recognition_settings(self) -> Optional['outputs.BotSpeechRecognitionSettings']:
+        return pulumi.get(self, "speech_recognition_settings")
 
     @_builtins.property
     @pulumi.getter(name="unifiedSpeechSettings")
@@ -5697,6 +5749,76 @@ class BotSpecifications(dict):
     @pulumi.getter(name="slotTypeName")
     def slot_type_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "slot_type_name")
+
+
+@pulumi.output_type
+class BotSpeechModelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deepgramConfig":
+            suggest = "deepgram_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSpeechModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSpeechModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSpeechModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deepgram_config: Optional['outputs.BotDeepgramSpeechModelConfig'] = None):
+        if deepgram_config is not None:
+            pulumi.set(__self__, "deepgram_config", deepgram_config)
+
+    @_builtins.property
+    @pulumi.getter(name="deepgramConfig")
+    def deepgram_config(self) -> Optional['outputs.BotDeepgramSpeechModelConfig']:
+        return pulumi.get(self, "deepgram_config")
+
+
+@pulumi.output_type
+class BotSpeechRecognitionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "speechModelConfig":
+            suggest = "speech_model_config"
+        elif key == "speechModelPreference":
+            suggest = "speech_model_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSpeechRecognitionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSpeechRecognitionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSpeechRecognitionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 speech_model_config: Optional['outputs.BotSpeechModelConfig'] = None,
+                 speech_model_preference: Optional['BotSpeechModelPreference'] = None):
+        if speech_model_config is not None:
+            pulumi.set(__self__, "speech_model_config", speech_model_config)
+        if speech_model_preference is not None:
+            pulumi.set(__self__, "speech_model_preference", speech_model_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="speechModelConfig")
+    def speech_model_config(self) -> Optional['outputs.BotSpeechModelConfig']:
+        return pulumi.get(self, "speech_model_config")
+
+    @_builtins.property
+    @pulumi.getter(name="speechModelPreference")
+    def speech_model_preference(self) -> Optional['BotSpeechModelPreference']:
+        return pulumi.get(self, "speech_model_preference")
 
 
 @pulumi.output_type

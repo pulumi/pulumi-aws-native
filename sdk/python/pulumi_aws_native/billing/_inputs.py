@@ -26,17 +26,12 @@ __all__ = [
     'DataFilterExpressionPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataFilterExpressionPropertiesDimensionsPropertiesArgsDict(TypedDict):
-        """
-        The specific `Dimension` to use for `Expression` .
-        """
-        key: NotRequired[pulumi.Input['BillingViewDimensionKey']]
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    DataFilterExpressionPropertiesDimensionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataFilterExpressionPropertiesDimensionsPropertiesArgsDict(TypedDict):
+    """
+    The specific `Dimension` to use for `Expression` .
+    """
+    key: NotRequired[pulumi.Input['BillingViewDimensionKey']]
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class DataFilterExpressionPropertiesDimensionsPropertiesArgs:
@@ -70,15 +65,12 @@ class DataFilterExpressionPropertiesDimensionsPropertiesArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DataFilterExpressionPropertiesTagsPropertiesArgsDict(TypedDict):
-        """
-        The specific `Tag` to use for `Expression` .
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    DataFilterExpressionPropertiesTagsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataFilterExpressionPropertiesTagsPropertiesArgsDict(TypedDict):
+    """
+    The specific `Tag` to use for `Expression` .
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class DataFilterExpressionPropertiesTagsPropertiesArgs:
@@ -112,12 +104,9 @@ class DataFilterExpressionPropertiesTagsPropertiesArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DataFilterExpressionPropertiesTimeRangePropertiesArgsDict(TypedDict):
-        begin_date_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-        end_date_inclusive: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DataFilterExpressionPropertiesTimeRangePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataFilterExpressionPropertiesTimeRangePropertiesArgsDict(TypedDict):
+    begin_date_inclusive: NotRequired[pulumi.Input[_builtins.str]]
+    end_date_inclusive: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DataFilterExpressionPropertiesTimeRangePropertiesArgs:
@@ -148,22 +137,19 @@ class DataFilterExpressionPropertiesTimeRangePropertiesArgs:
         pulumi.set(self, "end_date_inclusive", value)
 
 
-if not MYPY:
-    class DataFilterExpressionPropertiesArgsDict(TypedDict):
-        """
-        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
-        """
-        dimensions: NotRequired[pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgsDict']]
-        """
-        The specific `Dimension` to use for `Expression` .
-        """
-        tags: NotRequired[pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgsDict']]
-        """
-        The specific `Tag` to use for `Expression` .
-        """
-        time_range: NotRequired[pulumi.Input['DataFilterExpressionPropertiesTimeRangePropertiesArgsDict']]
-elif False:
-    DataFilterExpressionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataFilterExpressionPropertiesArgsDict(TypedDict):
+    """
+    See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+    """
+    dimensions: NotRequired[pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgsDict']]
+    """
+    The specific `Dimension` to use for `Expression` .
+    """
+    tags: NotRequired[pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgsDict']]
+    """
+    The specific `Tag` to use for `Expression` .
+    """
+    time_range: NotRequired[pulumi.Input['DataFilterExpressionPropertiesTimeRangePropertiesArgsDict']]
 
 @pulumi.input_type
 class DataFilterExpressionPropertiesArgs:

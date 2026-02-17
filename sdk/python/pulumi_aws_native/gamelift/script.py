@@ -25,18 +25,22 @@ class ScriptArgs:
     def __init__(__self__, *,
                  storage_location: pulumi.Input['ScriptS3LocationArgs'],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_js_version: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Script resource.
         :param pulumi.Input['ScriptS3LocationArgs'] storage_location: The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with a script. Script names do not need to be unique.
+        :param pulumi.Input[_builtins.str] node_js_version: The Node.js version used for execution of the Realtime script.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] version: The version that is associated with a script. Version strings do not need to be unique.
         """
         pulumi.set(__self__, "storage_location", storage_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if node_js_version is not None:
+            pulumi.set(__self__, "node_js_version", node_js_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -65,6 +69,18 @@ class ScriptArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeJsVersion")
+    def node_js_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Node.js version used for execution of the Realtime script.
+        """
+        return pulumi.get(self, "node_js_version")
+
+    @node_js_version.setter
+    def node_js_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "node_js_version", value)
 
     @_builtins.property
     @pulumi.getter
@@ -98,6 +114,7 @@ class Script(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_js_version: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['ScriptS3LocationArgs', 'ScriptS3LocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
@@ -108,6 +125,7 @@ class Script(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with a script. Script names do not need to be unique.
+        :param pulumi.Input[_builtins.str] node_js_version: The Node.js version used for execution of the Realtime script.
         :param pulumi.Input[Union['ScriptS3LocationArgs', 'ScriptS3LocationArgsDict']] storage_location: The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] version: The version that is associated with a script. Version strings do not need to be unique.
@@ -137,6 +155,7 @@ class Script(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_js_version: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['ScriptS3LocationArgs', 'ScriptS3LocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
@@ -150,6 +169,7 @@ class Script(pulumi.CustomResource):
             __props__ = ScriptArgs.__new__(ScriptArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["node_js_version"] = node_js_version
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location
@@ -159,6 +179,8 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["size_on_disk"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["nodeJsVersion"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Script, __self__).__init__(
             'aws-native:gamelift:Script',
             resource_name,
@@ -185,6 +207,7 @@ class Script(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["node_js_version"] = None
         __props__.__dict__["size_on_disk"] = None
         __props__.__dict__["storage_location"] = None
         __props__.__dict__["tags"] = None
@@ -222,6 +245,14 @@ class Script(pulumi.CustomResource):
         A descriptive label that is associated with a script. Script names do not need to be unique.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeJsVersion")
+    def node_js_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Node.js version used for execution of the Realtime script.
+        """
+        return pulumi.get(self, "node_js_version")
 
     @_builtins.property
     @pulumi.getter(name="sizeOnDisk")

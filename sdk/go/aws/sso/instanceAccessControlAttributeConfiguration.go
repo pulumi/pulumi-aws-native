@@ -88,7 +88,7 @@ import (
 type InstanceAccessControlAttributeConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+	// Lists the attributes that are configured for ABAC in the specified  instance.
 	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput `pulumi:"accessControlAttributes"`
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
 	InstanceAccessControlAttributeConfiguration InstanceAccessControlAttributeConfigurationPropertiesPtrOutput `pulumi:"instanceAccessControlAttributeConfiguration"`
@@ -143,7 +143,7 @@ func (InstanceAccessControlAttributeConfigurationState) ElementType() reflect.Ty
 }
 
 type instanceAccessControlAttributeConfigurationArgs struct {
-	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+	// Lists the attributes that are configured for ABAC in the specified  instance.
 	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
 	InstanceAccessControlAttributeConfiguration *InstanceAccessControlAttributeConfigurationProperties `pulumi:"instanceAccessControlAttributeConfiguration"`
@@ -153,7 +153,7 @@ type instanceAccessControlAttributeConfigurationArgs struct {
 
 // The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
 type InstanceAccessControlAttributeConfigurationArgs struct {
-	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+	// Lists the attributes that are configured for ABAC in the specified  instance.
 	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
 	InstanceAccessControlAttributeConfiguration InstanceAccessControlAttributeConfigurationPropertiesPtrInput
@@ -198,7 +198,7 @@ func (o InstanceAccessControlAttributeConfigurationOutput) ToInstanceAccessContr
 	return o
 }
 
-// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+// Lists the attributes that are configured for ABAC in the specified  instance.
 func (o InstanceAccessControlAttributeConfigurationOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributeConfiguration) InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
 		return v.AccessControlAttributes

@@ -47,6 +47,10 @@ type LookupGlobalTableResult struct {
 	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
+	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
+	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Specifies the consistency mode for a new global table.
 	//
 	// You can specify one of the following consistency modes:
@@ -55,7 +59,9 @@ type LookupGlobalTableResult struct {
 	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
 	//
 	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
-	MultiRegionConsistency *GlobalTableMultiRegionConsistency `pulumi:"multiRegionConsistency"`
+	MultiRegionConsistency            *GlobalTableMultiRegionConsistency                  `pulumi:"multiRegionConsistency"`
+	ReadOnDemandThroughputSettings    *GlobalTableReadOnDemandThroughputSettings          `pulumi:"readOnDemandThroughputSettings"`
+	ReadProvisionedThroughputSettings *GlobalTableGlobalReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -150,6 +156,16 @@ func (o LookupGlobalTableResultOutput) GlobalTableWitnesses() GlobalTableWitness
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableWitness { return v.GlobalTableWitnesses }).(GlobalTableWitnessArrayOutput)
 }
 
+// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+func (o LookupGlobalTableResultOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
+}
+
+// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+func (o LookupGlobalTableResultOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableLocalSecondaryIndex { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
+}
+
 // Specifies the consistency mode for a new global table.
 //
 // You can specify one of the following consistency modes:
@@ -160,6 +176,18 @@ func (o LookupGlobalTableResultOutput) GlobalTableWitnesses() GlobalTableWitness
 // If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
 func (o LookupGlobalTableResultOutput) MultiRegionConsistency() GlobalTableMultiRegionConsistencyPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableMultiRegionConsistency { return v.MultiRegionConsistency }).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
+func (o LookupGlobalTableResultOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableReadOnDemandThroughputSettings {
+		return v.ReadOnDemandThroughputSettings
+	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
+}
+
+func (o LookupGlobalTableResultOutput) ReadProvisionedThroughputSettings() GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableGlobalReadProvisionedThroughputSettings {
+		return v.ReadProvisionedThroughputSettings
+	}).(GlobalTableGlobalReadProvisionedThroughputSettingsPtrOutput)
 }
 
 // Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.

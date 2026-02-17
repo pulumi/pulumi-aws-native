@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class VpcPeeringConnection : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+        /// </summary>
+        [Output("assumeRoleRegion")]
+        public Output<string?> AssumeRoleRegion { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the peering connection.
         /// </summary>
         [Output("awsId")]
@@ -82,6 +88,7 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "assumeRoleRegion",
                     "peerOwnerId",
                     "peerRegion",
                     "peerRoleArn",
@@ -110,6 +117,12 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class VpcPeeringConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+        /// </summary>
+        [Input("assumeRoleRegion")]
+        public Input<string>? AssumeRoleRegion { get; set; }
+
         /// <summary>
         /// The AWS account ID of the owner of the accepter VPC.
         /// </summary>

@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Replicator{}
 	case "aws-native:msk:ServerlessCluster":
 		r = &ServerlessCluster{}
+	case "aws-native:msk:Topic":
+		r = &Topic{}
 	case "aws-native:msk:VpcConnection":
 		r = &VpcConnection{}
 	default:

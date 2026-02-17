@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DataSourceCredentialPair? CredentialPair;
         /// <summary>
+        /// The credentials for connecting using key-pair.
+        /// </summary>
+        public readonly Outputs.DataSourceKeyPairCredentials? KeyPairCredentials;
+        /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.&lt;/p&gt;
         /// </summary>
         public readonly string? SecretArn;
@@ -39,10 +43,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DataSourceCredentialPair? credentialPair,
 
+            Outputs.DataSourceKeyPairCredentials? keyPairCredentials,
+
             string? secretArn)
         {
             CopySourceArn = copySourceArn;
             CredentialPair = credentialPair;
+            KeyPairCredentials = keyPairCredentials;
             SecretArn = secretArn;
         }
     }

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
     public sealed class TableSchemaField
     {
         /// <summary>
+        /// The unique identifier for the field
+        /// </summary>
+        public readonly int? Id;
+        /// <summary>
         /// The name of the field
         /// </summary>
         public readonly string Name;
@@ -31,12 +35,15 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
 
         [OutputConstructor]
         private TableSchemaField(
+            int? id,
+
             string name,
 
             bool? required,
 
             string type)
         {
+            Id = id;
             Name = name;
             Required = required;
             Type = type;

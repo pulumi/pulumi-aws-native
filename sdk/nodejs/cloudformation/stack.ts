@@ -75,11 +75,11 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly capabilities: pulumi.Output<enums.cloudformation.StackCapabilitiesItem[] | undefined>;
     /**
-     * The unique ID of the change set.
+     * Returns the unique identifier of the change set.
      */
     declare public /*out*/ readonly changeSetId: pulumi.Output<string>;
     /**
-     * The time at which the stack was created.
+     * Returns the time the stack was created.
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly enableTerminationProtection: pulumi.Output<boolean | undefined>;
     /**
-     * The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+     * Returns the time the stack was last updated. This will only be returned if the stack has been updated at least once.
      */
     declare public /*out*/ readonly lastUpdateTime: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly notificationArns: pulumi.Output<string[] | undefined>;
     /**
-     * A list of output structures.
+     * Returns a list of output structures.
      */
     declare public /*out*/ readonly outputs: pulumi.Output<outputs.cloudformation.StackOutput[]>;
     /**
@@ -121,9 +121,7 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
-     *
-     * For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     * For nested stacks, returns the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
      */
     declare public /*out*/ readonly parentId: pulumi.Output<string>;
     /**
@@ -133,13 +131,11 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
-     * For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
-     *
-     * For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     * For nested stacks, returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
      */
     declare public /*out*/ readonly rootId: pulumi.Output<string>;
     /**
-     * Unique identifier of the stack.
+     * Returns the unique identifier of the stack.
      */
     declare public /*out*/ readonly stackId: pulumi.Output<string>;
     /**
@@ -159,7 +155,7 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly stackPolicyUrl: pulumi.Output<string | undefined>;
     /**
-     * Current status of the stack.
+     * Returns a success or failure message associated with the stack status.
      */
     declare public /*out*/ readonly stackStatus: pulumi.Output<enums.cloudformation.StackStatus>;
     /**

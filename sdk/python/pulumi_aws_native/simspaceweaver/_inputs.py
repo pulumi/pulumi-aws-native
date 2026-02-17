@@ -19,20 +19,15 @@ __all__ = [
     'SimulationS3LocationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SimulationS3LocationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Schema S3 bucket name.
-        """
-        object_key: pulumi.Input[_builtins.str]
-        """
-        This is the schema S3 object key, which includes the full path of "folders" from the bucket root to the schema.
-        """
-elif False:
-    SimulationS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class SimulationS3LocationArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Schema S3 bucket name.
+    """
+    object_key: pulumi.Input[_builtins.str]
+    """
+    This is the schema S3 object key, which includes the full path of "folders" from the bucket root to the schema.
+    """
 
 @pulumi.input_type
 class SimulationS3LocationArgs:

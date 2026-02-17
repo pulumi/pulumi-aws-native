@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,7 +18,7 @@ type License struct {
 	pulumi.CustomResourceState
 
 	// Beneficiary of the license.
-	Beneficiary pulumi.StringPtrOutput `pulumi:"beneficiary"`
+	Beneficiary pulumi.StringOutput `pulumi:"beneficiary"`
 	// Configuration for consumption of the license.
 	ConsumptionConfiguration LicenseConsumptionConfigurationOutput `pulumi:"consumptionConfiguration"`
 	// License entitlements.
@@ -35,9 +36,11 @@ type License struct {
 	// Product name for the created license.
 	ProductName pulumi.StringOutput `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSku pulumi.StringPtrOutput `pulumi:"productSku"`
+	ProductSku pulumi.StringOutput `pulumi:"productSku"`
 	// License status.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// A list of tags to attach.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
 	Validity LicenseValidityDateFormatOutput `pulumi:"validity"`
 	// The version of the license.
@@ -51,6 +54,9 @@ func NewLicense(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Beneficiary == nil {
+		return nil, errors.New("invalid value for required argument 'Beneficiary'")
+	}
 	if args.ConsumptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ConsumptionConfiguration'")
 	}
@@ -65,6 +71,9 @@ func NewLicense(ctx *pulumi.Context,
 	}
 	if args.ProductName == nil {
 		return nil, errors.New("invalid value for required argument 'ProductName'")
+	}
+	if args.ProductSku == nil {
+		return nil, errors.New("invalid value for required argument 'ProductSku'")
 	}
 	if args.Validity == nil {
 		return nil, errors.New("invalid value for required argument 'Validity'")
@@ -103,7 +112,7 @@ func (LicenseState) ElementType() reflect.Type {
 
 type licenseArgs struct {
 	// Beneficiary of the license.
-	Beneficiary *string `pulumi:"beneficiary"`
+	Beneficiary string `pulumi:"beneficiary"`
 	// Configuration for consumption of the license.
 	ConsumptionConfiguration LicenseConsumptionConfiguration `pulumi:"consumptionConfiguration"`
 	// License entitlements.
@@ -119,9 +128,11 @@ type licenseArgs struct {
 	// Product name for the created license.
 	ProductName string `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSku *string `pulumi:"productSku"`
+	ProductSku string `pulumi:"productSku"`
 	// License status.
 	Status *string `pulumi:"status"`
+	// A list of tags to attach.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
 	Validity LicenseValidityDateFormat `pulumi:"validity"`
 }
@@ -129,7 +140,7 @@ type licenseArgs struct {
 // The set of arguments for constructing a License resource.
 type LicenseArgs struct {
 	// Beneficiary of the license.
-	Beneficiary pulumi.StringPtrInput
+	Beneficiary pulumi.StringInput
 	// Configuration for consumption of the license.
 	ConsumptionConfiguration LicenseConsumptionConfigurationInput
 	// License entitlements.
@@ -145,9 +156,11 @@ type LicenseArgs struct {
 	// Product name for the created license.
 	ProductName pulumi.StringInput
 	// ProductSKU of the license.
-	ProductSku pulumi.StringPtrInput
+	ProductSku pulumi.StringInput
 	// License status.
 	Status pulumi.StringPtrInput
+	// A list of tags to attach.
+	Tags aws.TagArrayInput
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
 	Validity LicenseValidityDateFormatInput
 }
@@ -190,8 +203,8 @@ func (o LicenseOutput) ToLicenseOutputWithContext(ctx context.Context) LicenseOu
 }
 
 // Beneficiary of the license.
-func (o LicenseOutput) Beneficiary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Beneficiary }).(pulumi.StringPtrOutput)
+func (o LicenseOutput) Beneficiary() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.Beneficiary }).(pulumi.StringOutput)
 }
 
 // Configuration for consumption of the license.
@@ -235,13 +248,18 @@ func (o LicenseOutput) ProductName() pulumi.StringOutput {
 }
 
 // ProductSKU of the license.
-func (o LicenseOutput) ProductSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.ProductSku }).(pulumi.StringPtrOutput)
+func (o LicenseOutput) ProductSku() pulumi.StringOutput {
+	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.ProductSku }).(pulumi.StringOutput)
 }
 
 // License status.
 func (o LicenseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to attach.
+func (o LicenseOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *License) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Date and time range during which the license is valid, in ISO8601-UTC format.

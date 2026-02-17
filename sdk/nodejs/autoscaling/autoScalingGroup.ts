@@ -51,11 +51,11 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      */
     declare public readonly autoScalingGroupName: pulumi.Output<string | undefined>;
     /**
-     * The instance capacity distribution across Availability Zones.
+     * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
     declare public readonly availabilityZoneDistribution: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
     /**
-     * The Availability Zone impairment policy.
+     * The Availability Zone impairment policy for the Auto Scaling group.
      */
     declare public readonly availabilityZoneImpairmentPolicy: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy | undefined>;
     /**
@@ -67,7 +67,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      */
     declare public readonly capacityRebalance: pulumi.Output<boolean | undefined>;
     /**
-     * The capacity reservation specification.
+     * The capacity reservation specification for the Auto Scaling group.
      */
     declare public readonly capacityReservationSpecification: pulumi.Output<outputs.autoscaling.AutoScalingGroupCapacityReservationSpecification | undefined>;
     /**
@@ -87,6 +87,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *   Default: None
      */
     declare public readonly defaultInstanceWarmup: pulumi.Output<number | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<string | undefined>;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
      *  The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
@@ -234,6 +235,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["context"] = args?.context;
             resourceInputs["cooldown"] = args?.cooldown;
             resourceInputs["defaultInstanceWarmup"] = args?.defaultInstanceWarmup;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["desiredCapacity"] = args?.desiredCapacity;
             resourceInputs["desiredCapacityType"] = args?.desiredCapacityType;
             resourceInputs["healthCheckGracePeriod"] = args?.healthCheckGracePeriod;
@@ -273,6 +275,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["context"] = undefined /*out*/;
             resourceInputs["cooldown"] = undefined /*out*/;
             resourceInputs["defaultInstanceWarmup"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["desiredCapacity"] = undefined /*out*/;
             resourceInputs["desiredCapacityType"] = undefined /*out*/;
             resourceInputs["healthCheckGracePeriod"] = undefined /*out*/;
@@ -319,11 +322,11 @@ export interface AutoScalingGroupArgs {
      */
     autoScalingGroupName?: pulumi.Input<string>;
     /**
-     * The instance capacity distribution across Availability Zones.
+     * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
     /**
-     * The Availability Zone impairment policy.
+     * The Availability Zone impairment policy for the Auto Scaling group.
      */
     availabilityZoneImpairmentPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>;
     /**
@@ -335,7 +338,7 @@ export interface AutoScalingGroupArgs {
      */
     capacityRebalance?: pulumi.Input<boolean>;
     /**
-     * The capacity reservation specification.
+     * The capacity reservation specification for the Auto Scaling group.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupCapacityReservationSpecificationArgs>;
     /**
@@ -355,6 +358,7 @@ export interface AutoScalingGroupArgs {
      *   Default: None
      */
     defaultInstanceWarmup?: pulumi.Input<number>;
+    deletionProtection?: pulumi.Input<string>;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
      *  The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.

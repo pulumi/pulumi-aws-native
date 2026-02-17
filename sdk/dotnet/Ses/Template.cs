@@ -79,6 +79,12 @@ namespace Pulumi.AwsNative.Ses
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The tags (keys and values) associated with the email template.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The content of the email, composed of a subject line and either an HTML part or a text-only part.
         /// </summary>
         [Output("template")]
@@ -133,6 +139,18 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags (keys and values) associated with the email template.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The content of the email, composed of a subject line and either an HTML part or a text-only part.
         /// </summary>

@@ -37,7 +37,7 @@ type ModelPackage struct {
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification ModelPackageInferenceSpecificationPtrOutput `pulumi:"inferenceSpecification"`
 	// The last time the model package was modified.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties ModelPackageMetadataPropertiesPtrOutput `pulumi:"metadataProperties"`
 	// The approval status of the model. This can be one of the following values.
@@ -164,8 +164,6 @@ type modelPackageArgs struct {
 	DriftCheckBaselines *ModelPackageDriftCheckBaselines `pulumi:"driftCheckBaselines"`
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification *ModelPackageInferenceSpecification `pulumi:"inferenceSpecification"`
-	// The last time the model package was modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties *ModelPackageMetadataProperties `pulumi:"metadataProperties"`
 	// The approval status of the model. This can be one of the following values.
@@ -228,8 +226,6 @@ type ModelPackageArgs struct {
 	DriftCheckBaselines ModelPackageDriftCheckBaselinesPtrInput
 	// Defines how to perform inference generation after a training job is run.
 	InferenceSpecification ModelPackageInferenceSpecificationPtrInput
-	// The last time the model package was modified.
-	LastModifiedTime pulumi.StringPtrInput
 	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties ModelPackageMetadataPropertiesPtrInput
 	// The approval status of the model. This can be one of the following values.
@@ -366,8 +362,8 @@ func (o ModelPackageOutput) InferenceSpecification() ModelPackageInferenceSpecif
 }
 
 // The last time the model package was modified.
-func (o ModelPackageOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+func (o ModelPackageOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelPackage) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
 // Metadata properties of the tracking entity, trial, or trial component.

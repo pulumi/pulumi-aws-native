@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::Config::OrganizationConformancePack.
+ * Resource Type definition for AWS::Config::OrganizationConformancePack.
  */
 export function getOrganizationConformancePack(args: GetOrganizationConformancePackArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConformancePackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface GetOrganizationConformancePackResult {
     readonly excludedAccounts?: string[];
 }
 /**
- * Resource schema for AWS::Config::OrganizationConformancePack.
+ * Resource Type definition for AWS::Config::OrganizationConformancePack.
  */
 export function getOrganizationConformancePackOutput(args: GetOrganizationConformancePackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationConformancePackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

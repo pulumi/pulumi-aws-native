@@ -31,7 +31,8 @@ type EvaluationForm struct {
 	//  *Maximum size*: 100
 	Items EvaluationFormBaseItemArrayOutput `pulumi:"items"`
 	// Configuration for language settings of this evaluation form.
-	LanguageConfiguration EvaluationFormLanguageConfigurationPtrOutput `pulumi:"languageConfiguration"`
+	LanguageConfiguration EvaluationFormLanguageConfigurationPtrOutput         `pulumi:"languageConfiguration"`
+	ReviewConfiguration   EvaluationFormEvaluationReviewConfigurationPtrOutput `pulumi:"reviewConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrOutput `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
@@ -109,7 +110,8 @@ type evaluationFormArgs struct {
 	//  *Maximum size*: 100
 	Items []EvaluationFormBaseItem `pulumi:"items"`
 	// Configuration for language settings of this evaluation form.
-	LanguageConfiguration *EvaluationFormLanguageConfiguration `pulumi:"languageConfiguration"`
+	LanguageConfiguration *EvaluationFormLanguageConfiguration         `pulumi:"languageConfiguration"`
+	ReviewConfiguration   *EvaluationFormEvaluationReviewConfiguration `pulumi:"reviewConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
@@ -138,6 +140,7 @@ type EvaluationFormArgs struct {
 	Items EvaluationFormBaseItemArrayInput
 	// Configuration for language settings of this evaluation form.
 	LanguageConfiguration EvaluationFormLanguageConfigurationPtrInput
+	ReviewConfiguration   EvaluationFormEvaluationReviewConfigurationPtrInput
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrInput
 	// The status of the evaluation form.
@@ -223,6 +226,12 @@ func (o EvaluationFormOutput) Items() EvaluationFormBaseItemArrayOutput {
 // Configuration for language settings of this evaluation form.
 func (o EvaluationFormOutput) LanguageConfiguration() EvaluationFormLanguageConfigurationPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormLanguageConfigurationPtrOutput { return v.LanguageConfiguration }).(EvaluationFormLanguageConfigurationPtrOutput)
+}
+
+func (o EvaluationFormOutput) ReviewConfiguration() EvaluationFormEvaluationReviewConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationForm) EvaluationFormEvaluationReviewConfigurationPtrOutput {
+		return v.ReviewConfiguration
+	}).(EvaluationFormEvaluationReviewConfigurationPtrOutput)
 }
 
 // A scoring strategy of the evaluation form.

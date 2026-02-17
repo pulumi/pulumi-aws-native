@@ -87,7 +87,7 @@ class GetCollectionResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the AWS KMS key used to encrypt the collection.
+        Key Management Service key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 

@@ -24,23 +24,18 @@ __all__ = [
     'SafetyRuleRuleConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SafetyRuleAssertionRuleArgsDict(TypedDict):
-        """
-        An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
-        """
-        asserted_controls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
-        """
-        wait_period_ms: pulumi.Input[_builtins.int]
-        """
-        An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
-        """
-elif False:
-    SafetyRuleAssertionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class SafetyRuleAssertionRuleArgsDict(TypedDict):
+    """
+    An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
+    """
+    asserted_controls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
+    """
+    wait_period_ms: pulumi.Input[_builtins.int]
+    """
+    An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+    """
 
 @pulumi.input_type
 class SafetyRuleAssertionRuleArgs:
@@ -80,26 +75,23 @@ class SafetyRuleAssertionRuleArgs:
         pulumi.set(self, "wait_period_ms", value)
 
 
-if not MYPY:
-    class SafetyRuleGatingRuleArgsDict(TypedDict):
-        """
-        A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
-        """
-        gating_controls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-        """
-        target_controls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three AWS Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true. 
-        In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
-        """
-        wait_period_ms: pulumi.Input[_builtins.int]
-        """
-        An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
-        """
-elif False:
-    SafetyRuleGatingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class SafetyRuleGatingRuleArgsDict(TypedDict):
+    """
+    A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
+    """
+    gating_controls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+    """
+    target_controls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three AWS Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true. 
+    In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
+    """
+    wait_period_ms: pulumi.Input[_builtins.int]
+    """
+    An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+    """
 
 @pulumi.input_type
 class SafetyRuleGatingRuleArgs:
@@ -156,25 +148,22 @@ class SafetyRuleGatingRuleArgs:
         pulumi.set(self, "wait_period_ms", value)
 
 
-if not MYPY:
-    class SafetyRuleRuleConfigArgsDict(TypedDict):
-        """
-        The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
-        """
-        inverted: pulumi.Input[_builtins.bool]
-        """
-        Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
-        """
-        threshold: pulumi.Input[_builtins.int]
-        """
-        The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
-        """
-        type: pulumi.Input['SafetyRuleRuleType']
-        """
-        A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
-        """
-elif False:
-    SafetyRuleRuleConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SafetyRuleRuleConfigArgsDict(TypedDict):
+    """
+    The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
+    """
+    inverted: pulumi.Input[_builtins.bool]
+    """
+    Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
+    """
+    threshold: pulumi.Input[_builtins.int]
+    """
+    The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
+    """
+    type: pulumi.Input['SafetyRuleRuleType']
+    """
+    A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
+    """
 
 @pulumi.input_type
 class SafetyRuleRuleConfigArgs:

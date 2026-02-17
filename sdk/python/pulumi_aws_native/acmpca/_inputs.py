@@ -71,24 +71,19 @@ __all__ = [
     'CertificateValidityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CertificateApiPassthroughArgsDict(TypedDict):
-        """
-        Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
-         If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
-        """
-        extensions: NotRequired[pulumi.Input['CertificateExtensionsArgsDict']]
-        """
-        Specifies X.509 extension information for a certificate.
-        """
-        subject: NotRequired[pulumi.Input['CertificateSubjectArgsDict']]
-        """
-        Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
-        """
-elif False:
-    CertificateApiPassthroughArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateApiPassthroughArgsDict(TypedDict):
+    """
+    Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
+     If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
+    """
+    extensions: NotRequired[pulumi.Input['CertificateExtensionsArgsDict']]
+    """
+    Specifies X.509 extension information for a certificate.
+    """
+    subject: NotRequired[pulumi.Input['CertificateSubjectArgsDict']]
+    """
+    Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+    """
 
 @pulumi.input_type
 class CertificateApiPassthroughArgs:
@@ -131,15 +126,12 @@ class CertificateApiPassthroughArgs:
         pulumi.set(self, "subject", value)
 
 
-if not MYPY:
-    class CertificateAuthorityAccessDescriptionArgsDict(TypedDict):
-        """
-        Structure that contains X.509 AccessDescription information.
-        """
-        access_location: pulumi.Input['CertificateAuthorityGeneralNameArgsDict']
-        access_method: pulumi.Input['CertificateAuthorityAccessMethodArgsDict']
-elif False:
-    CertificateAuthorityAccessDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityAccessDescriptionArgsDict(TypedDict):
+    """
+    Structure that contains X.509 AccessDescription information.
+    """
+    access_location: pulumi.Input['CertificateAuthorityGeneralNameArgsDict']
+    access_method: pulumi.Input['CertificateAuthorityAccessMethodArgsDict']
 
 @pulumi.input_type
 class CertificateAuthorityAccessDescriptionArgs:
@@ -171,15 +163,12 @@ class CertificateAuthorityAccessDescriptionArgs:
         pulumi.set(self, "access_method", value)
 
 
-if not MYPY:
-    class CertificateAuthorityAccessMethodArgsDict(TypedDict):
-        """
-        Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
-        """
-        access_method_type: NotRequired[pulumi.Input[_builtins.str]]
-        custom_object_identifier: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertificateAuthorityAccessMethodArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityAccessMethodArgsDict(TypedDict):
+    """
+    Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
+    """
+    access_method_type: NotRequired[pulumi.Input[_builtins.str]]
+    custom_object_identifier: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertificateAuthorityAccessMethodArgs:
@@ -213,60 +202,57 @@ class CertificateAuthorityAccessMethodArgs:
         pulumi.set(self, "custom_object_identifier", value)
 
 
-if not MYPY:
-    class CertificateAuthorityCrlConfigurationArgsDict(TypedDict):
-        """
-        Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
-        """
-        crl_distribution_point_extension_configuration: NotRequired[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict']]
-        """
-        Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
-        """
-        crl_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
+class CertificateAuthorityCrlConfigurationArgsDict(TypedDict):
+    """
+    Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
+    """
+    crl_distribution_point_extension_configuration: NotRequired[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict']]
+    """
+    Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
+    """
+    crl_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
 
-        - `COMPLETE` - The default setting. AWS Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason. Each certificate that AWS Private CA issues is bound to a specific CRL through the CRL distribution point (CDP) defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
-        - `PARTITIONED` - Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue.
+    - `COMPLETE` - The default setting. AWS Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason. Each certificate that AWS Private CA issues is bound to a specific CRL through the CRL distribution point (CDP) defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
+    - `PARTITIONED` - Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue.
 
-        > When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
-        """
-        custom_cname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+    > When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
+    """
+    custom_cname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 
-        > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-        """
-        custom_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
-        """
-        expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Validity period of the CRL in days.
-        """
-        s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+    > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+    """
+    custom_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
+    """
+    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Validity period of the CRL in days.
+    """
+    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
 
-        > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
-        """
-        s3_object_acl: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+    > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
+    """
+    s3_object_acl: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
 
-        If no value is specified, the default is PUBLIC_READ.
+    If no value is specified, the default is PUBLIC_READ.
 
-        *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+    *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
 
-        For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
-        """
-elif False:
-    CertificateAuthorityCrlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
+    """
 
 @pulumi.input_type
 class CertificateAuthorityCrlConfigurationArgs:
@@ -433,21 +419,18 @@ class CertificateAuthorityCrlConfigurationArgs:
         pulumi.set(self, "s3_object_acl", value)
 
 
-if not MYPY:
-    class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict(TypedDict):
-        """
-        Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
-        """
-        omit_extension: pulumi.Input[_builtins.bool]
-        """
-        Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict(TypedDict):
+    """
+    Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+    """
+    omit_extension: pulumi.Input[_builtins.bool]
+    """
+    Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
 
-        > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
-        > 
-        > This configuration cannot be enabled with a custom CNAME set.
-        """
-elif False:
-    CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+    > 
+    > This configuration cannot be enabled with a custom CNAME set.
+    """
 
 @pulumi.input_type
 class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs:
@@ -480,21 +463,18 @@ class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs:
         pulumi.set(self, "omit_extension", value)
 
 
-if not MYPY:
-    class CertificateAuthorityCsrExtensionsArgsDict(TypedDict):
-        """
-        Structure that contains CSR pass though extensions information.
-        """
-        key_usage: NotRequired[pulumi.Input['CertificateAuthorityKeyUsageArgsDict']]
-        """
-        Indicates the purpose of the certificate and of the key contained in the certificate.
-        """
-        subject_information_access: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgsDict']]]]
-        """
-        For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
-        """
-elif False:
-    CertificateAuthorityCsrExtensionsArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityCsrExtensionsArgsDict(TypedDict):
+    """
+    Structure that contains CSR pass though extensions information.
+    """
+    key_usage: NotRequired[pulumi.Input['CertificateAuthorityKeyUsageArgsDict']]
+    """
+    Indicates the purpose of the certificate and of the key contained in the certificate.
+    """
+    subject_information_access: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgsDict']]]]
+    """
+    For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
+    """
 
 @pulumi.input_type
 class CertificateAuthorityCsrExtensionsArgs:
@@ -536,15 +516,12 @@ class CertificateAuthorityCsrExtensionsArgs:
         pulumi.set(self, "subject_information_access", value)
 
 
-if not MYPY:
-    class CertificateAuthorityCustomAttributeArgsDict(TypedDict):
-        """
-        Structure that contains X.500 attribute type and value.
-        """
-        object_identifier: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    CertificateAuthorityCustomAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityCustomAttributeArgsDict(TypedDict):
+    """
+    Structure that contains X.500 attribute type and value.
+    """
+    object_identifier: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class CertificateAuthorityCustomAttributeArgs:
@@ -576,15 +553,12 @@ class CertificateAuthorityCustomAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CertificateAuthorityEdiPartyNameArgsDict(TypedDict):
-        """
-        Structure that contains X.509 EdiPartyName information.
-        """
-        party_name: pulumi.Input[_builtins.str]
-        name_assigner: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertificateAuthorityEdiPartyNameArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityEdiPartyNameArgsDict(TypedDict):
+    """
+    Structure that contains X.509 EdiPartyName information.
+    """
+    party_name: pulumi.Input[_builtins.str]
+    name_assigner: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertificateAuthorityEdiPartyNameArgs:
@@ -617,21 +591,18 @@ class CertificateAuthorityEdiPartyNameArgs:
         pulumi.set(self, "name_assigner", value)
 
 
-if not MYPY:
-    class CertificateAuthorityGeneralNameArgsDict(TypedDict):
-        """
-        Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
-        """
-        directory_name: NotRequired[pulumi.Input['CertificateAuthoritySubjectArgsDict']]
-        dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        edi_party_name: NotRequired[pulumi.Input['CertificateAuthorityEdiPartyNameArgsDict']]
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        other_name: NotRequired[pulumi.Input['CertificateAuthorityOtherNameArgsDict']]
-        registered_id: NotRequired[pulumi.Input[_builtins.str]]
-        rfc822_name: NotRequired[pulumi.Input[_builtins.str]]
-        uniform_resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertificateAuthorityGeneralNameArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityGeneralNameArgsDict(TypedDict):
+    """
+    Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
+    """
+    directory_name: NotRequired[pulumi.Input['CertificateAuthoritySubjectArgsDict']]
+    dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    edi_party_name: NotRequired[pulumi.Input['CertificateAuthorityEdiPartyNameArgsDict']]
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    other_name: NotRequired[pulumi.Input['CertificateAuthorityOtherNameArgsDict']]
+    registered_id: NotRequired[pulumi.Input[_builtins.str]]
+    rfc822_name: NotRequired[pulumi.Input[_builtins.str]]
+    uniform_resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertificateAuthorityGeneralNameArgs:
@@ -737,49 +708,46 @@ class CertificateAuthorityGeneralNameArgs:
         pulumi.set(self, "uniform_resource_identifier", value)
 
 
-if not MYPY:
-    class CertificateAuthorityKeyUsageArgsDict(TypedDict):
-        """
-        Structure that contains X.509 KeyUsage information.
-        """
-        crl_sign: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to sign CRLs.
-        """
-        data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to decipher data.
-        """
-        decipher_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used only to decipher data.
-        """
-        digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used for digital signing.
-        """
-        encipher_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used only to encipher data.
-        """
-        key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used in a key-agreement protocol.
-        """
-        key_cert_sign: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to sign certificates.
-        """
-        key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to encipher data.
-        """
-        non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used for non-repudiation.
-        """
-elif False:
-    CertificateAuthorityKeyUsageArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityKeyUsageArgsDict(TypedDict):
+    """
+    Structure that contains X.509 KeyUsage information.
+    """
+    crl_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to sign CRLs.
+    """
+    data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to decipher data.
+    """
+    decipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used only to decipher data.
+    """
+    digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used for digital signing.
+    """
+    encipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used only to encipher data.
+    """
+    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used in a key-agreement protocol.
+    """
+    key_cert_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to sign certificates.
+    """
+    key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to encipher data.
+    """
+    non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used for non-repudiation.
+    """
 
 @pulumi.input_type
 class CertificateAuthorityKeyUsageArgs:
@@ -933,23 +901,20 @@ class CertificateAuthorityKeyUsageArgs:
         pulumi.set(self, "non_repudiation", value)
 
 
-if not MYPY:
-    class CertificateAuthorityOcspConfigurationArgsDict(TypedDict):
-        """
-        Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
-        """
-        ocsp_custom_cname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+class CertificateAuthorityOcspConfigurationArgsDict(TypedDict):
+    """
+    Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+    """
+    ocsp_custom_cname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 
-        > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-        """
-elif False:
-    CertificateAuthorityOcspConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+    """
 
 @pulumi.input_type
 class CertificateAuthorityOcspConfigurationArgs:
@@ -994,15 +959,12 @@ class CertificateAuthorityOcspConfigurationArgs:
         pulumi.set(self, "ocsp_custom_cname", value)
 
 
-if not MYPY:
-    class CertificateAuthorityOtherNameArgsDict(TypedDict):
-        """
-        Structure that contains X.509 OtherName information.
-        """
-        type_id: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    CertificateAuthorityOtherNameArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityOtherNameArgsDict(TypedDict):
+    """
+    Structure that contains X.509 OtherName information.
+    """
+    type_id: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class CertificateAuthorityOtherNameArgs:
@@ -1034,21 +996,18 @@ class CertificateAuthorityOtherNameArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
-        """
-        Certificate Authority revocation information.
-        """
-        crl_configuration: NotRequired[pulumi.Input['CertificateAuthorityCrlConfigurationArgsDict']]
-        """
-        Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
-        """
-        ocsp_configuration: NotRequired[pulumi.Input['CertificateAuthorityOcspConfigurationArgsDict']]
-        """
-        Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
-        """
-elif False:
-    CertificateAuthorityRevocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
+    """
+    Certificate Authority revocation information.
+    """
+    crl_configuration: NotRequired[pulumi.Input['CertificateAuthorityCrlConfigurationArgsDict']]
+    """
+    Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+    """
+    ocsp_configuration: NotRequired[pulumi.Input['CertificateAuthorityOcspConfigurationArgsDict']]
+    """
+    Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
+    """
 
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationArgs:
@@ -1090,28 +1049,25 @@ class CertificateAuthorityRevocationConfigurationArgs:
         pulumi.set(self, "ocsp_configuration", value)
 
 
-if not MYPY:
-    class CertificateAuthoritySubjectArgsDict(TypedDict):
-        """
-        Structure that contains X.500 distinguished name information for your CA.
-        """
-        common_name: NotRequired[pulumi.Input[_builtins.str]]
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgsDict']]]]
-        distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        given_name: NotRequired[pulumi.Input[_builtins.str]]
-        initials: NotRequired[pulumi.Input[_builtins.str]]
-        locality: NotRequired[pulumi.Input[_builtins.str]]
-        organization: NotRequired[pulumi.Input[_builtins.str]]
-        organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-        pseudonym: NotRequired[pulumi.Input[_builtins.str]]
-        serial_number: NotRequired[pulumi.Input[_builtins.str]]
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        surname: NotRequired[pulumi.Input[_builtins.str]]
-        title: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertificateAuthoritySubjectArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthoritySubjectArgsDict(TypedDict):
+    """
+    Structure that contains X.500 distinguished name information for your CA.
+    """
+    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgsDict']]]]
+    distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    given_name: NotRequired[pulumi.Input[_builtins.str]]
+    initials: NotRequired[pulumi.Input[_builtins.str]]
+    locality: NotRequired[pulumi.Input[_builtins.str]]
+    organization: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    pseudonym: NotRequired[pulumi.Input[_builtins.str]]
+    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    surname: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertificateAuthoritySubjectArgs:
@@ -1301,21 +1257,18 @@ class CertificateAuthoritySubjectArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class CertificateCustomAttributeArgsDict(TypedDict):
-        """
-        Defines the X.500 relative distinguished name (RDN).
-        """
-        object_identifier: pulumi.Input[_builtins.str]
-        """
-        Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the attribute value of relative distinguished name (RDN).
-        """
-elif False:
-    CertificateCustomAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateCustomAttributeArgsDict(TypedDict):
+    """
+    Defines the X.500 relative distinguished name (RDN).
+    """
+    object_identifier: pulumi.Input[_builtins.str]
+    """
+    Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the attribute value of relative distinguished name (RDN).
+    """
 
 @pulumi.input_type
 class CertificateCustomAttributeArgs:
@@ -1355,26 +1308,23 @@ class CertificateCustomAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CertificateCustomExtensionArgsDict(TypedDict):
-        """
-        Specifies the X.509 extension information for a certificate.
-         Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
-        """
-        object_identifier: pulumi.Input[_builtins.str]
-        """
-        Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the base64-encoded value of the X.509 extension.
-        """
-        critical: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies the critical flag of the X.509 extension.
-        """
-elif False:
-    CertificateCustomExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateCustomExtensionArgsDict(TypedDict):
+    """
+    Specifies the X.509 extension information for a certificate.
+     Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+    """
+    object_identifier: pulumi.Input[_builtins.str]
+    """
+    Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the base64-encoded value of the X.509 extension.
+    """
+    critical: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies the critical flag of the X.509 extension.
+    """
 
 @pulumi.input_type
 class CertificateCustomExtensionArgs:
@@ -1431,21 +1381,18 @@ class CertificateCustomExtensionArgs:
         pulumi.set(self, "critical", value)
 
 
-if not MYPY:
-    class CertificateEdiPartyNameArgsDict(TypedDict):
-        """
-        Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
-        """
-        name_assigner: pulumi.Input[_builtins.str]
-        """
-        Specifies the name assigner.
-        """
-        party_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the party name.
-        """
-elif False:
-    CertificateEdiPartyNameArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateEdiPartyNameArgsDict(TypedDict):
+    """
+    Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
+    """
+    name_assigner: pulumi.Input[_builtins.str]
+    """
+    Specifies the name assigner.
+    """
+    party_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the party name.
+    """
 
 @pulumi.input_type
 class CertificateEdiPartyNameArgs:
@@ -1485,21 +1432,18 @@ class CertificateEdiPartyNameArgs:
         pulumi.set(self, "party_name", value)
 
 
-if not MYPY:
-    class CertificateExtendedKeyUsageArgsDict(TypedDict):
-        """
-        Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
-        """
-        extended_key_usage_object_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
-        """
-        extended_key_usage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
-        """
-elif False:
-    CertificateExtendedKeyUsageArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateExtendedKeyUsageArgsDict(TypedDict):
+    """
+    Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+    """
+    extended_key_usage_object_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
+    """
+    extended_key_usage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+    """
 
 @pulumi.input_type
 class CertificateExtendedKeyUsageArgs:
@@ -1541,34 +1485,31 @@ class CertificateExtendedKeyUsageArgs:
         pulumi.set(self, "extended_key_usage_type", value)
 
 
-if not MYPY:
-    class CertificateExtensionsArgsDict(TypedDict):
-        """
-        Contains X.509 extension information for a certificate.
-        """
-        certificate_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgsDict']]]]
-        """
-        Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
-         In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
-        """
-        custom_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgsDict']]]]
-        """
-        Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
-        """
-        extended_key_usage: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgsDict']]]]
-        """
-        Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
-        """
-        key_usage: NotRequired[pulumi.Input['CertificateKeyUsageArgsDict']]
-        """
-        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
-        """
-        subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgsDict']]]]
-        """
-        The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
-        """
-elif False:
-    CertificateExtensionsArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateExtensionsArgsDict(TypedDict):
+    """
+    Contains X.509 extension information for a certificate.
+    """
+    certificate_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgsDict']]]]
+    """
+    Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+     In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
+    """
+    custom_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgsDict']]]]
+    """
+    Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+    """
+    extended_key_usage: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgsDict']]]]
+    """
+    Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+    """
+    key_usage: NotRequired[pulumi.Input['CertificateKeyUsageArgsDict']]
+    """
+    Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+    """
+    subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgsDict']]]]
+    """
+    The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
+    """
 
 @pulumi.input_type
 class CertificateExtensionsArgs:
@@ -1660,45 +1601,42 @@ class CertificateExtensionsArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
-if not MYPY:
-    class CertificateGeneralNameArgsDict(TypedDict):
-        """
-        Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
-        """
-        directory_name: NotRequired[pulumi.Input['CertificateSubjectArgsDict']]
-        """
-        Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-        """
-        dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents ``GeneralName`` as a DNS name.
-        """
-        edi_party_name: NotRequired[pulumi.Input['CertificateEdiPartyNameArgsDict']]
-        """
-        Represents ``GeneralName`` as an ``EdiPartyName`` object.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents ``GeneralName`` as an IPv4 or IPv6 address.
-        """
-        other_name: NotRequired[pulumi.Input['CertificateOtherNameArgsDict']]
-        """
-        Represents ``GeneralName`` using an ``OtherName`` object.
-        """
-        registered_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents ``GeneralName`` as an object identifier (OID).
-        """
-        rfc822_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
-        """
-        uniform_resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents ``GeneralName`` as a URI.
-        """
-elif False:
-    CertificateGeneralNameArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateGeneralNameArgsDict(TypedDict):
+    """
+    Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
+    """
+    directory_name: NotRequired[pulumi.Input['CertificateSubjectArgsDict']]
+    """
+    Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+    """
+    dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents ``GeneralName`` as a DNS name.
+    """
+    edi_party_name: NotRequired[pulumi.Input['CertificateEdiPartyNameArgsDict']]
+    """
+    Represents ``GeneralName`` as an ``EdiPartyName`` object.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents ``GeneralName`` as an IPv4 or IPv6 address.
+    """
+    other_name: NotRequired[pulumi.Input['CertificateOtherNameArgsDict']]
+    """
+    Represents ``GeneralName`` using an ``OtherName`` object.
+    """
+    registered_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents ``GeneralName`` as an object identifier (OID).
+    """
+    rfc822_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
+    """
+    uniform_resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents ``GeneralName`` as a URI.
+    """
 
 @pulumi.input_type
 class CertificateGeneralNameArgs:
@@ -1836,49 +1774,46 @@ class CertificateGeneralNameArgs:
         pulumi.set(self, "uniform_resource_identifier", value)
 
 
-if not MYPY:
-    class CertificateKeyUsageArgsDict(TypedDict):
-        """
-        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
-        """
-        crl_sign: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to sign CRLs.
-        """
-        data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to decipher data.
-        """
-        decipher_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used only to decipher data.
-        """
-        digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used for digital signing.
-        """
-        encipher_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used only to encipher data.
-        """
-        key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used in a key-agreement protocol.
-        """
-        key_cert_sign: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to sign certificates.
-        """
-        key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used to encipher data.
-        """
-        non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Key can be used for non-repudiation.
-        """
-elif False:
-    CertificateKeyUsageArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateKeyUsageArgsDict(TypedDict):
+    """
+    Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+    """
+    crl_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to sign CRLs.
+    """
+    data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to decipher data.
+    """
+    decipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used only to decipher data.
+    """
+    digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used for digital signing.
+    """
+    encipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used only to encipher data.
+    """
+    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used in a key-agreement protocol.
+    """
+    key_cert_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to sign certificates.
+    """
+    key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used to encipher data.
+    """
+    non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Key can be used for non-repudiation.
+    """
 
 @pulumi.input_type
 class CertificateKeyUsageArgs:
@@ -2032,21 +1967,18 @@ class CertificateKeyUsageArgs:
         pulumi.set(self, "non_repudiation", value)
 
 
-if not MYPY:
-    class CertificateOtherNameArgsDict(TypedDict):
-        """
-        Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
-        """
-        type_id: pulumi.Input[_builtins.str]
-        """
-        Specifies an OID.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies an OID value.
-        """
-elif False:
-    CertificateOtherNameArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateOtherNameArgsDict(TypedDict):
+    """
+    Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+    """
+    type_id: pulumi.Input[_builtins.str]
+    """
+    Specifies an OID.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies an OID value.
+    """
 
 @pulumi.input_type
 class CertificateOtherNameArgs:
@@ -2086,21 +2018,18 @@ class CertificateOtherNameArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CertificatePolicyInformationArgsDict(TypedDict):
-        """
-        Defines the X.509 ``CertificatePolicies`` extension.
-        """
-        cert_policy_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
-        """
-        policy_qualifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgsDict']]]]
-        """
-        Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
-        """
-elif False:
-    CertificatePolicyInformationArgsDict: TypeAlias = Mapping[str, Any]
+class CertificatePolicyInformationArgsDict(TypedDict):
+    """
+    Defines the X.509 ``CertificatePolicies`` extension.
+    """
+    cert_policy_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+    """
+    policy_qualifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgsDict']]]]
+    """
+    Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+    """
 
 @pulumi.input_type
 class CertificatePolicyInformationArgs:
@@ -2141,21 +2070,18 @@ class CertificatePolicyInformationArgs:
         pulumi.set(self, "policy_qualifiers", value)
 
 
-if not MYPY:
-    class CertificatePolicyQualifierInfoArgsDict(TypedDict):
-        """
-        Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
-        """
-        policy_qualifier_id: pulumi.Input[_builtins.str]
-        """
-        Identifies the qualifier modifying a ``CertPolicyId``.
-        """
-        qualifier: pulumi.Input['CertificateQualifierArgsDict']
-        """
-        Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
-        """
-elif False:
-    CertificatePolicyQualifierInfoArgsDict: TypeAlias = Mapping[str, Any]
+class CertificatePolicyQualifierInfoArgsDict(TypedDict):
+    """
+    Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+    """
+    policy_qualifier_id: pulumi.Input[_builtins.str]
+    """
+    Identifies the qualifier modifying a ``CertPolicyId``.
+    """
+    qualifier: pulumi.Input['CertificateQualifierArgsDict']
+    """
+    Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+    """
 
 @pulumi.input_type
 class CertificatePolicyQualifierInfoArgs:
@@ -2195,17 +2121,14 @@ class CertificatePolicyQualifierInfoArgs:
         pulumi.set(self, "qualifier", value)
 
 
-if not MYPY:
-    class CertificateQualifierArgsDict(TypedDict):
-        """
-        Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
-        """
-        cps_uri: pulumi.Input[_builtins.str]
-        """
-        Contains a pointer to a certification practice statement (CPS) published by the CA.
-        """
-elif False:
-    CertificateQualifierArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateQualifierArgsDict(TypedDict):
+    """
+    Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+    """
+    cps_uri: pulumi.Input[_builtins.str]
+    """
+    Contains a pointer to a certification practice statement (CPS) published by the CA.
+    """
 
 @pulumi.input_type
 class CertificateQualifierArgs:
@@ -2230,75 +2153,72 @@ class CertificateQualifierArgs:
         pulumi.set(self, "cps_uri", value)
 
 
-if not MYPY:
-    class CertificateSubjectArgsDict(TypedDict):
-        """
-        Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
-        """
-        common_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
-         Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
-        """
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Two-digit code that specifies the country in which the certificate subject located.
-        """
-        custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgsDict']]]]
-        """
-        Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
-          Custom attributes cannot be used in combination with standard attributes.
-        """
-        distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Disambiguating information for the certificate subject.
-        """
-        generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        """
-        given_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name.
-        """
-        initials: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
-        """
-        locality: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The locality (such as a city or town) in which the certificate subject is located.
-        """
-        organization: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Legal name of the organization with which the certificate subject is affiliated.
-        """
-        organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        """
-        pseudonym: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        """
-        serial_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The certificate serial number.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State in which the subject of the certificate is located.
-        """
-        surname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-        """
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
-        """
-elif False:
-    CertificateSubjectArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateSubjectArgsDict(TypedDict):
+    """
+    Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+    """
+    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
+     Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
+    """
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Two-digit code that specifies the country in which the certificate subject located.
+    """
+    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgsDict']]]]
+    """
+    Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+      Custom attributes cannot be used in combination with standard attributes.
+    """
+    distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Disambiguating information for the certificate subject.
+    """
+    generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+    """
+    given_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name.
+    """
+    initials: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
+    """
+    locality: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The locality (such as a city or town) in which the certificate subject is located.
+    """
+    organization: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Legal name of the organization with which the certificate subject is affiliated.
+    """
+    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+    """
+    pseudonym: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+    """
+    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The certificate serial number.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    State in which the subject of the certificate is located.
+    """
+    surname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+    """
 
 @pulumi.input_type
 class CertificateSubjectArgs:
@@ -2552,21 +2472,18 @@ class CertificateSubjectArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class CertificateValidityArgsDict(TypedDict):
-        """
-        Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies whether the ``Value`` parameter represents days, months, or years.
-        """
-        value: pulumi.Input[_builtins.float]
-        """
-        A long integer interpreted according to the value of ``Type``, below.
-        """
-elif False:
-    CertificateValidityArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateValidityArgsDict(TypedDict):
+    """
+    Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies whether the ``Value`` parameter represents days, months, or years.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    A long integer interpreted according to the value of ``Type``, below.
+    """
 
 @pulumi.input_type
 class CertificateValidityArgs:

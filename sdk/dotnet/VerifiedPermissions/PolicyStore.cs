@@ -62,6 +62,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("encryptionSettings")]
+        public Output<Outputs.PolicyStoreEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
+
+        [Output("encryptionState")]
+        public Output<Union<Outputs.EncryptionState0Properties, Outputs.EncryptionState1Properties>> EncryptionState { get; private set; } = null!;
+
         /// <summary>
         /// The unique ID of the new or updated policy store.
         /// </summary>
@@ -148,6 +154,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("encryptionSettings")]
+        public Input<Inputs.PolicyStoreEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
         /// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.

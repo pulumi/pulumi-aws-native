@@ -33,7 +33,7 @@ type LookupDataSetArgs struct {
 type LookupDataSetResult struct {
 	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn *string `pulumi:"arn"`
-	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	// <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
 	// <p>A set of one or more definitions of a <code>
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
@@ -117,7 +117,7 @@ func (o LookupDataSetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+// <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
 func (o LookupDataSetResultOutput) ColumnGroups() DataSetColumnGroupArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetColumnGroup { return v.ColumnGroups }).(DataSetColumnGroupArrayOutput)
 }

@@ -94,13 +94,7 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly collectionEndpoint: pulumi.Output<string>;
     /**
-     * The name of the collection group.
-     *
-     * The name must meet the following criteria:
-     * Unique to your account and AWS Region
-     * Starts with a lowercase letter
-     * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-     * Contains between 3 and 32 characters
+     * The name of the collection group to associate with the collection.
      */
     declare public readonly collectionGroupName: pulumi.Output<string | undefined>;
     /**
@@ -113,7 +107,7 @@ export class Collection extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public readonly encryptionConfig: pulumi.Output<outputs.opensearchserverless.CollectionEncryptionConfig | undefined>;
     /**
-     * The ARN of the AWS KMS key used to encrypt the collection.
+     * Key Management Service key used to encrypt the collection.
      */
     declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
@@ -188,13 +182,7 @@ export class Collection extends pulumi.CustomResource {
  */
 export interface CollectionArgs {
     /**
-     * The name of the collection group.
-     *
-     * The name must meet the following criteria:
-     * Unique to your account and AWS Region
-     * Starts with a lowercase letter
-     * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-     * Contains between 3 and 32 characters
+     * The name of the collection group to associate with the collection.
      */
     collectionGroupName?: pulumi.Input<string>;
     /**

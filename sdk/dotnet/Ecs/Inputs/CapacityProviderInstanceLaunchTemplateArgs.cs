@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("ec2InstanceProfileArn", required: true)]
         public Input<string> Ec2InstanceProfileArn { get; set; } = null!;
 
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
         /// <summary>
         /// The instance requirements. You can specify:
         /// 

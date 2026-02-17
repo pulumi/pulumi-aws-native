@@ -56,14 +56,9 @@ __all__ = [
     'ResponderGatewayTrustStoreConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class InboundExternalLinkLinkAttributesArgsDict(TypedDict):
-        customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
-        responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
-elif False:
-    InboundExternalLinkLinkAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class InboundExternalLinkLinkAttributesArgsDict(TypedDict):
+    customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
+    responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
 
 @pulumi.input_type
 class InboundExternalLinkLinkAttributesArgs:
@@ -94,12 +89,9 @@ class InboundExternalLinkLinkAttributesArgs:
         pulumi.set(self, "responder_error_masking", value)
 
 
-if not MYPY:
-    class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
-        error_log: pulumi.Input[_builtins.float]
-        filter_log: pulumi.Input[_builtins.float]
-elif False:
-    InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
+    error_log: pulumi.Input[_builtins.float]
+    filter_log: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs:
@@ -128,11 +120,8 @@ class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplication
         pulumi.set(self, "filter_log", value)
 
 
-if not MYPY:
-    class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
-        link_application_log_sampling: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
-elif False:
-    InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+    link_application_log_sampling: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
 
 @pulumi.input_type
 class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
@@ -150,11 +139,8 @@ class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
         pulumi.set(self, "link_application_log_sampling", value)
 
 
-if not MYPY:
-    class InboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
-        application_logs: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
-elif False:
-    InboundExternalLinkLinkLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class InboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
+    application_logs: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
 
 @pulumi.input_type
 class InboundExternalLinkLinkLogSettingsArgs:
@@ -172,14 +158,11 @@ class InboundExternalLinkLinkLogSettingsArgs:
         pulumi.set(self, "application_logs", value)
 
 
-if not MYPY:
-    class InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
-        action: pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeAction']
-        http_code: pulumi.Input[_builtins.str]
-        logging_types: pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingLoggingType']]]
-        response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict: TypeAlias = Mapping[str, Any]
+class InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
+    action: pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeAction']
+    http_code: pulumi.Input[_builtins.str]
+    logging_types: pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingLoggingType']]]
+    response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class InboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
@@ -231,18 +214,15 @@ class InboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
         pulumi.set(self, "response_logging_percentage", value)
 
 
-if not MYPY:
-    class LinkAttributesArgsDict(TypedDict):
-        customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The customer-provided unique identifier of the link.
-        """
-        responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgsDict']]]]
-        """
-        Describes the masking for HTTP error codes.
-        """
-elif False:
-    LinkAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class LinkAttributesArgsDict(TypedDict):
+    customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The customer-provided unique identifier of the link.
+    """
+    responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgsDict']]]]
+    """
+    Describes the masking for HTTP error codes.
+    """
 
 @pulumi.input_type
 class LinkAttributesArgs:
@@ -283,12 +263,9 @@ class LinkAttributesArgs:
         pulumi.set(self, "responder_error_masking", value)
 
 
-if not MYPY:
-    class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
-        error_log: pulumi.Input[_builtins.float]
-        filter_log: pulumi.Input[_builtins.float]
-elif False:
-    LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
+    error_log: pulumi.Input[_builtins.float]
+    filter_log: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs:
@@ -317,14 +294,11 @@ class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperti
         pulumi.set(self, "filter_log", value)
 
 
-if not MYPY:
-    class LinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
-        """
-        Describes the configuration of a link application log.
-        """
-        link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
-elif False:
-    LinkLogSettingsApplicationLogsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+    """
+    Describes the configuration of a link application log.
+    """
+    link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
 
 @pulumi.input_type
 class LinkLogSettingsApplicationLogsPropertiesArgs:
@@ -345,14 +319,11 @@ class LinkLogSettingsApplicationLogsPropertiesArgs:
         pulumi.set(self, "link_application_log_sampling", value)
 
 
-if not MYPY:
-    class LinkLogSettingsArgsDict(TypedDict):
-        application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgsDict']
-        """
-        Describes the configuration of a link application log.
-        """
-elif False:
-    LinkLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LinkLogSettingsArgsDict(TypedDict):
+    application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgsDict']
+    """
+    Describes the configuration of a link application log.
+    """
 
 @pulumi.input_type
 class LinkLogSettingsArgs:
@@ -376,14 +347,11 @@ class LinkLogSettingsArgs:
         pulumi.set(self, "application_logs", value)
 
 
-if not MYPY:
-    class LinkModuleConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        module_parameters: NotRequired[pulumi.Input['LinkModuleParametersArgsDict']]
-        version: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    LinkModuleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LinkModuleConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    module_parameters: NotRequired[pulumi.Input['LinkModuleParametersArgsDict']]
+    version: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class LinkModuleConfigurationArgs:
@@ -437,11 +405,8 @@ class LinkModuleConfigurationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class LinkModuleParametersArgsDict(TypedDict):
-        pass
-elif False:
-    LinkModuleParametersArgsDict: TypeAlias = Mapping[str, Any]
+class LinkModuleParametersArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class LinkModuleParametersArgs:
@@ -449,26 +414,23 @@ class LinkModuleParametersArgs:
         pass
 
 
-if not MYPY:
-    class LinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
-        action: pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction']
-        """
-        The action for the error..
-        """
-        http_code: pulumi.Input[_builtins.str]
-        """
-        The HTTP error code.
-        """
-        logging_types: pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]]
-        """
-        The error log type.
-        """
-        response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The percentage of response logging.
-        """
-elif False:
-    LinkResponderErrorMaskingForHttpCodeArgsDict: TypeAlias = Mapping[str, Any]
+class LinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
+    action: pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction']
+    """
+    The action for the error..
+    """
+    http_code: pulumi.Input[_builtins.str]
+    """
+    The HTTP error code.
+    """
+    logging_types: pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]]
+    """
+    The error log type.
+    """
+    response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The percentage of response logging.
+    """
 
 @pulumi.input_type
 class LinkResponderErrorMaskingForHttpCodeArgs:
@@ -538,12 +500,9 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
         pulumi.set(self, "response_logging_percentage", value)
 
 
-if not MYPY:
-    class OutboundExternalLinkLinkAttributesArgsDict(TypedDict):
-        customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
-        responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
-elif False:
-    OutboundExternalLinkLinkAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundExternalLinkLinkAttributesArgsDict(TypedDict):
+    customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
+    responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
 
 @pulumi.input_type
 class OutboundExternalLinkLinkAttributesArgs:
@@ -574,12 +533,9 @@ class OutboundExternalLinkLinkAttributesArgs:
         pulumi.set(self, "responder_error_masking", value)
 
 
-if not MYPY:
-    class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
-        error_log: pulumi.Input[_builtins.float]
-        filter_log: pulumi.Input[_builtins.float]
-elif False:
-    OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
+    error_log: pulumi.Input[_builtins.float]
+    filter_log: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs:
@@ -608,11 +564,8 @@ class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicatio
         pulumi.set(self, "filter_log", value)
 
 
-if not MYPY:
-    class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
-        link_application_log_sampling: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
-elif False:
-    OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+    link_application_log_sampling: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
 
 @pulumi.input_type
 class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
@@ -630,11 +583,8 @@ class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
         pulumi.set(self, "link_application_log_sampling", value)
 
 
-if not MYPY:
-    class OutboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
-        application_logs: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
-elif False:
-    OutboundExternalLinkLinkLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
+    application_logs: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
 
 @pulumi.input_type
 class OutboundExternalLinkLinkLogSettingsArgs:
@@ -652,14 +602,11 @@ class OutboundExternalLinkLinkLogSettingsArgs:
         pulumi.set(self, "application_logs", value)
 
 
-if not MYPY:
-    class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
-        action: pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeAction']
-        http_code: pulumi.Input[_builtins.str]
-        logging_types: pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingLoggingType']]]
-        response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
+    action: pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeAction']
+    http_code: pulumi.Input[_builtins.str]
+    logging_types: pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingLoggingType']]]
+    response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
@@ -711,11 +658,8 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
         pulumi.set(self, "response_logging_percentage", value)
 
 
-if not MYPY:
-    class ResponderGatewayManagedEndpointConfigurationArgsDict(TypedDict):
-        pass
-elif False:
-    ResponderGatewayManagedEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResponderGatewayManagedEndpointConfigurationArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ResponderGatewayManagedEndpointConfigurationArgs:
@@ -723,14 +667,11 @@ class ResponderGatewayManagedEndpointConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class ResponderGatewayTrustStoreConfigurationArgsDict(TypedDict):
-        certificate_authority_certificates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The certificate authority certificate.
-        """
-elif False:
-    ResponderGatewayTrustStoreConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResponderGatewayTrustStoreConfigurationArgsDict(TypedDict):
+    certificate_authority_certificates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The certificate authority certificate.
+    """
 
 @pulumi.input_type
 class ResponderGatewayTrustStoreConfigurationArgs:

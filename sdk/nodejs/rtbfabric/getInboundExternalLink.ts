@@ -24,6 +24,7 @@ export interface GetInboundExternalLinkArgs {
 export interface GetInboundExternalLinkResult {
     readonly arn?: string;
     readonly createdTimestamp?: string;
+    readonly domainName?: string;
     readonly gatewayId?: string;
     readonly linkAttributes?: outputs.rtbfabric.InboundExternalLinkLinkAttributes;
     readonly linkId?: string;

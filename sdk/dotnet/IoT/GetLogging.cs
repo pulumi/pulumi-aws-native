@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly Pulumi.AwsNative.IoT.LoggingDefaultLogLevel? DefaultLogLevel;
         /// <summary>
+        /// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LoggingEventConfiguration> EventConfigurations;
+        /// <summary>
         /// The ARN of the role that allows IoT to write to Cloudwatch logs.
         /// </summary>
         public readonly string? RoleArn;
@@ -76,9 +80,12 @@ namespace Pulumi.AwsNative.IoT
         private GetLoggingResult(
             Pulumi.AwsNative.IoT.LoggingDefaultLogLevel? defaultLogLevel,
 
+            ImmutableArray<Outputs.LoggingEventConfiguration> eventConfigurations,
+
             string? roleArn)
         {
             DefaultLogLevel = defaultLogLevel;
+            EventConfigurations = eventConfigurations;
             RoleArn = roleArn;
         }
     }

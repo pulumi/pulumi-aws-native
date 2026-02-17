@@ -19,23 +19,18 @@ __all__ = [
     'MultiRegionPropertiesPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MultiRegionPropertiesPropertiesArgsDict(TypedDict):
-        """
-        The Multi-region properties associated to this cluster.
-        """
-        clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
-        """
-        witness_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The witness region in a multi-region cluster.
-        """
-elif False:
-    MultiRegionPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionPropertiesPropertiesArgsDict(TypedDict):
+    """
+    The Multi-region properties associated to this cluster.
+    """
+    clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
+    """
+    witness_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The witness region in a multi-region cluster.
+    """
 
 @pulumi.input_type
 class MultiRegionPropertiesPropertiesArgs:

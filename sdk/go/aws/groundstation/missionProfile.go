@@ -119,6 +119,8 @@ type MissionProfile struct {
 	StreamsKmsRole pulumi.StringPtrOutput `pulumi:"streamsKmsRole"`
 	// Tags assigned to the mission profile.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	TelemetrySinkConfigArn pulumi.StringPtrOutput `pulumi:"telemetrySinkConfigArn"`
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn pulumi.StringOutput `pulumi:"trackingConfigArn"`
 }
@@ -188,6 +190,8 @@ type missionProfileArgs struct {
 	StreamsKmsRole *string `pulumi:"streamsKmsRole"`
 	// Tags assigned to the mission profile.
 	Tags []aws.Tag `pulumi:"tags"`
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	TelemetrySinkConfigArn *string `pulumi:"telemetrySinkConfigArn"`
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn string `pulumi:"trackingConfigArn"`
 }
@@ -210,6 +214,8 @@ type MissionProfileArgs struct {
 	StreamsKmsRole pulumi.StringPtrInput
 	// Tags assigned to the mission profile.
 	Tags aws.TagArrayInput
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	TelemetrySinkConfigArn pulumi.StringPtrInput
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn pulumi.StringInput
 }
@@ -304,6 +310,11 @@ func (o MissionProfileOutput) StreamsKmsRole() pulumi.StringPtrOutput {
 // Tags assigned to the mission profile.
 func (o MissionProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *MissionProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+func (o MissionProfileOutput) TelemetrySinkConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringPtrOutput { return v.TelemetrySinkConfigArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.

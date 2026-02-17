@@ -41,7 +41,7 @@ type LookupPortalResult struct {
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+	// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType *PortalAuthenticationType `pulumi:"authenticationType"`
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
@@ -62,7 +62,8 @@ type LookupPortalResult struct {
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
 	// The ARN of the web portal.
-	PortalArn *string `pulumi:"portalArn"`
+	PortalArn          *string `pulumi:"portalArn"`
+	PortalCustomDomain *string `pulumi:"portalCustomDomain"`
 	// The endpoint URL of the web portal that users access in order to start streaming sessions.
 	PortalEndpoint *string `pulumi:"portalEndpoint"`
 	// The status of the web portal.
@@ -129,7 +130,7 @@ func (o LookupPortalResultOutput) ToLookupPortalResultOutputWithContext(ctx cont
 //
 // 4. Add an `IdentityProvider` resource to your CloudFormation template.
 //
-// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 func (o LookupPortalResultOutput) AuthenticationType() PortalAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *PortalAuthenticationType { return v.AuthenticationType }).(PortalAuthenticationTypePtrOutput)
 }
@@ -182,6 +183,10 @@ func (o LookupPortalResultOutput) NetworkSettingsArn() pulumi.StringPtrOutput {
 // The ARN of the web portal.
 func (o LookupPortalResultOutput) PortalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPortalResultOutput) PortalCustomDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalCustomDomain }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint URL of the web portal that users access in order to start streaming sessions.

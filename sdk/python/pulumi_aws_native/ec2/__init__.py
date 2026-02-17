@@ -42,6 +42,7 @@ from .get_ipam import *
 from .get_ipam_allocation import *
 from .get_ipam_pool import *
 from .get_ipam_pool_cidr import *
+from .get_ipam_prefix_list_resolver import *
 from .get_ipam_resource_discovery import *
 from .get_ipam_resource_discovery_association import *
 from .get_ipam_scope import *
@@ -123,6 +124,7 @@ from .ipam import *
 from .ipam_allocation import *
 from .ipam_pool import *
 from .ipam_pool_cidr import *
+from .ipam_prefix_list_resolver import *
 from .ipam_resource_discovery import *
 from .ipam_resource_discovery_association import *
 from .ipam_scope import *

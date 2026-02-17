@@ -107,6 +107,34 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode : IEquatable<GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode>
+    {
+        private readonly string _value;
+
+        private GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode Enabled { get; } = new GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode("ENABLED");
+        public static GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode Disabled { get; } = new GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode("DISABLED");
+
+        public static bool operator ==(GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode left, GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode right) => left.Equals(right);
+        public static bool operator !=(GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode left, GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode other && Equals(other);
+        public bool Equals(GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
     /// </summary>

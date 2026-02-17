@@ -100,6 +100,55 @@ func TestConfigure(t *testing.T) {
 		_, err := provider.Configure(ctx, req)
 		assert.ErrorContains(t, err, "failed to unmarshal 'autoNaming' config")
 	})
+
+	t.Run("S3UsePathStyle config", func(t *testing.T) {
+		req := &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:skipCredentialsValidation": "true",
+				"aws-native:config:s3UsePathStyle":            "true",
+				"aws-native:config:region":                    "us-west-2",
+			},
+		}
+
+		_, err := provider.Configure(ctx, req)
+		assert.NoError(t, err)
+	})
+}
+
+func TestCheckConfig(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	mockCustomResource := resources.NewMockCustomResource(ctrl)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name:            "test-provider",
+		resourceMap:     &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{}},
+		customResources: map[string]resources.CustomResource{"custom:resource": mockCustomResource},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+
+	t.Run("s3UsePathStyle is accepted", func(t *testing.T) {
+		news, err := plugin.MarshalProperties(resource.PropertyMap{
+			"s3UsePathStyle": resource.NewBoolProperty(true),
+			"region":         resource.NewStringProperty("us-west-2"),
+		}, plugin.MarshalOptions{})
+		require.NoError(t, err)
+
+		req := &pulumirpc.CheckRequest{
+			News: news,
+		}
+
+		resp, err := provider.CheckConfig(ctx, req)
+		assert.NoError(t, err)
+		assert.Nil(t, resp.Failures)
+	})
 }
 
 func TestEngineAutonaming(t *testing.T) {

@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+        /// </summary>
+        [Output("deletionProtectionEnabled")]
+        public Output<bool?> DeletionProtectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
         ///  You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CWL Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
         ///  Currently, this array supports only one field index policy object.
@@ -144,6 +150,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("dataProtectionPolicy")]
         public Input<object>? DataProtectionPolicy { get; set; }
+
+        /// <summary>
+        /// Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         [Input("fieldIndexPolicies")]
         private InputList<object>? _fieldIndexPolicies;

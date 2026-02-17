@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.S3Vectors
         public Output<Outputs.VectorBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// User tags (key-value pairs) to associate with the vector bucket.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
         /// 
         /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
@@ -102,6 +108,18 @@ namespace Pulumi.AwsNative.S3Vectors
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.VectorBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the vector bucket.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.

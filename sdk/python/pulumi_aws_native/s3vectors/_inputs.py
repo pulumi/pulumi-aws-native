@@ -26,23 +26,18 @@ __all__ = [
     'VectorBucketPolicyPolicyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IndexEncryptionConfigurationArgsDict(TypedDict):
-        """
-        The encryption configuration for the index.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
-        """
-        sse_type: NotRequired[pulumi.Input['IndexEncryptionConfigurationSseType']]
-        """
-        Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
-        """
-elif False:
-    IndexEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IndexEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption configuration for the index.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+    """
+    sse_type: NotRequired[pulumi.Input['IndexEncryptionConfigurationSseType']]
+    """
+    Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+    """
 
 @pulumi.input_type
 class IndexEncryptionConfigurationArgs:
@@ -84,17 +79,14 @@ class IndexEncryptionConfigurationArgs:
         pulumi.set(self, "sse_type", value)
 
 
-if not MYPY:
-    class IndexMetadataConfigurationArgsDict(TypedDict):
-        """
-        The metadata configuration for the vector index.
-        """
-        non_filterable_metadata_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
-        """
-elif False:
-    IndexMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IndexMetadataConfigurationArgsDict(TypedDict):
+    """
+    The metadata configuration for the vector index.
+    """
+    non_filterable_metadata_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
+    """
 
 @pulumi.input_type
 class IndexMetadataConfigurationArgs:
@@ -120,21 +112,18 @@ class IndexMetadataConfigurationArgs:
         pulumi.set(self, "non_filterable_metadata_keys", value)
 
 
-if not MYPY:
-    class VectorBucketEncryptionConfigurationArgsDict(TypedDict):
-        """
-        The encryption configuration for the vector bucket.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
-        """
-        sse_type: NotRequired[pulumi.Input['VectorBucketEncryptionConfigurationSseType']]
-        """
-        The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
-        """
-elif False:
-    VectorBucketEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VectorBucketEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption configuration for the vector bucket.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+    """
+    sse_type: NotRequired[pulumi.Input['VectorBucketEncryptionConfigurationSseType']]
+    """
+    The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
+    """
 
 @pulumi.input_type
 class VectorBucketEncryptionConfigurationArgs:
@@ -176,14 +165,11 @@ class VectorBucketEncryptionConfigurationArgs:
         pulumi.set(self, "sse_type", value)
 
 
-if not MYPY:
-    class VectorBucketPolicyPolicyArgsDict(TypedDict):
-        """
-        A policy document containing permissions to add to the specified vector bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-        """
-        pass
-elif False:
-    VectorBucketPolicyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VectorBucketPolicyPolicyArgsDict(TypedDict):
+    """
+    A policy document containing permissions to add to the specified vector bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+    """
+    pass
 
 @pulumi.input_type
 class VectorBucketPolicyPolicyArgs:

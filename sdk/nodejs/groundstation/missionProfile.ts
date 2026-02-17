@@ -134,6 +134,10 @@ export class MissionProfile extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+     */
+    declare public readonly telemetrySinkConfigArn: pulumi.Output<string | undefined>;
+    /**
      * The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
      */
     declare public readonly trackingConfigArn: pulumi.Output<string>;
@@ -166,6 +170,7 @@ export class MissionProfile extends pulumi.CustomResource {
             resourceInputs["streamsKmsKey"] = args?.streamsKmsKey;
             resourceInputs["streamsKmsRole"] = args?.streamsKmsRole;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["telemetrySinkConfigArn"] = args?.telemetrySinkConfigArn;
             resourceInputs["trackingConfigArn"] = args?.trackingConfigArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -182,6 +187,7 @@ export class MissionProfile extends pulumi.CustomResource {
             resourceInputs["streamsKmsKey"] = undefined /*out*/;
             resourceInputs["streamsKmsRole"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["telemetrySinkConfigArn"] = undefined /*out*/;
             resourceInputs["trackingConfigArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -225,6 +231,10 @@ export interface MissionProfileArgs {
      * Tags assigned to the mission profile.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+     */
+    telemetrySinkConfigArn?: pulumi.Input<string>;
     /**
      * The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
      */

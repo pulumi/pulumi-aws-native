@@ -32,6 +32,8 @@ type EnvironmentBlueprintConfiguration struct {
 	EnvironmentBlueprintIdentifier pulumi.StringOutput `pulumi:"environmentBlueprintIdentifier"`
 	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary pulumi.StringPtrOutput `pulumi:"environmentRolePermissionBoundary"`
+	// Region-agnostic environment blueprint parameters.
+	GlobalParameters pulumi.StringMapOutput `pulumi:"globalParameters"`
 	// The ARN of the manage access role.
 	ManageAccessRoleArn pulumi.StringPtrOutput `pulumi:"manageAccessRoleArn"`
 	// The provisioning configuration of a blueprint.
@@ -108,6 +110,8 @@ type environmentBlueprintConfigurationArgs struct {
 	EnvironmentBlueprintIdentifier string `pulumi:"environmentBlueprintIdentifier"`
 	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary *string `pulumi:"environmentRolePermissionBoundary"`
+	// Region-agnostic environment blueprint parameters.
+	GlobalParameters map[string]string `pulumi:"globalParameters"`
 	// The ARN of the manage access role.
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// The provisioning configuration of a blueprint.
@@ -130,6 +134,8 @@ type EnvironmentBlueprintConfigurationArgs struct {
 	EnvironmentBlueprintIdentifier pulumi.StringInput
 	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary pulumi.StringPtrInput
+	// Region-agnostic environment blueprint parameters.
+	GlobalParameters pulumi.StringMapInput
 	// The ARN of the manage access role.
 	ManageAccessRoleArn pulumi.StringPtrInput
 	// The provisioning configuration of a blueprint.
@@ -216,6 +222,11 @@ func (o EnvironmentBlueprintConfigurationOutput) EnvironmentRolePermissionBounda
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput {
 		return v.EnvironmentRolePermissionBoundary
 	}).(pulumi.StringPtrOutput)
+}
+
+// Region-agnostic environment blueprint parameters.
+func (o EnvironmentBlueprintConfigurationOutput) GlobalParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringMapOutput { return v.GlobalParameters }).(pulumi.StringMapOutput)
 }
 
 // The ARN of the manage access role.

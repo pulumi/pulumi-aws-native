@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetInboundExternalLinkResult:
-    def __init__(__self__, arn=None, created_timestamp=None, gateway_id=None, link_attributes=None, link_id=None, link_log_settings=None, link_status=None, tags=None, updated_timestamp=None):
+    def __init__(__self__, arn=None, created_timestamp=None, domain_name=None, gateway_id=None, link_attributes=None, link_id=None, link_log_settings=None, link_status=None, tags=None, updated_timestamp=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        pulumi.set(__self__, "domain_name", domain_name)
         if gateway_id and not isinstance(gateway_id, str):
             raise TypeError("Expected argument 'gateway_id' to be a str")
         pulumi.set(__self__, "gateway_id", gateway_id)
@@ -64,6 +67,11 @@ class GetInboundExternalLinkResult:
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "created_timestamp")
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
@@ -109,6 +117,7 @@ class AwaitableGetInboundExternalLinkResult(GetInboundExternalLinkResult):
         return GetInboundExternalLinkResult(
             arn=self.arn,
             created_timestamp=self.created_timestamp,
+            domain_name=self.domain_name,
             gateway_id=self.gateway_id,
             link_attributes=self.link_attributes,
             link_id=self.link_id,
@@ -131,6 +140,7 @@ def get_inbound_external_link(arn: Optional[_builtins.str] = None,
     return AwaitableGetInboundExternalLinkResult(
         arn=pulumi.get(__ret__, 'arn'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
         gateway_id=pulumi.get(__ret__, 'gateway_id'),
         link_attributes=pulumi.get(__ret__, 'link_attributes'),
         link_id=pulumi.get(__ret__, 'link_id'),
@@ -150,6 +160,7 @@ def get_inbound_external_link_output(arn: Optional[pulumi.Input[_builtins.str]] 
     return __ret__.apply(lambda __response__: GetInboundExternalLinkResult(
         arn=pulumi.get(__response__, 'arn'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
         gateway_id=pulumi.get(__response__, 'gateway_id'),
         link_attributes=pulumi.get(__response__, 'link_attributes'),
         link_id=pulumi.get(__response__, 'link_id'),

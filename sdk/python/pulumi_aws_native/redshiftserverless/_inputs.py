@@ -32,24 +32,19 @@ __all__ = [
     'WorkgroupArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class NamespaceSnapshotCopyConfigurationArgsDict(TypedDict):
-        destination_region: pulumi.Input[_builtins.str]
-        """
-        The destination AWS Region to copy snapshots to.
-        """
-        destination_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
-        """
-        snapshot_retention_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The retention period of snapshots that are copied to the destination AWS Region .
-        """
-elif False:
-    NamespaceSnapshotCopyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceSnapshotCopyConfigurationArgsDict(TypedDict):
+    destination_region: pulumi.Input[_builtins.str]
+    """
+    The destination AWS Region to copy snapshots to.
+    """
+    destination_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
+    """
+    snapshot_retention_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The retention period of snapshots that are copied to the destination AWS Region .
+    """
 
 @pulumi.input_type
 class NamespaceSnapshotCopyConfigurationArgs:
@@ -105,18 +100,15 @@ class NamespaceSnapshotCopyConfigurationArgs:
         pulumi.set(self, "snapshot_retention_period", value)
 
 
-if not MYPY:
-    class WorkgroupConfigParameterArgsDict(TypedDict):
-        parameter_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
-        """
-        parameter_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the parameter to set.
-        """
-elif False:
-    WorkgroupConfigParameterArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigParameterArgsDict(TypedDict):
+    parameter_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
+    """
+    parameter_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the parameter to set.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigParameterArgs:
@@ -157,22 +149,19 @@ class WorkgroupConfigParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class WorkgroupEndpointArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS address of the VPC endpoint.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
-        vpc_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupVpcEndpointArgsDict']]]]
-        """
-        An array of `VpcEndpoint` objects.
-        """
-elif False:
-    WorkgroupEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupEndpointArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS address of the VPC endpoint.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port that Amazon Redshift Serverless listens on.
+    """
+    vpc_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupVpcEndpointArgsDict']]]]
+    """
+    An array of `VpcEndpoint` objects.
+    """
 
 @pulumi.input_type
 class WorkgroupEndpointArgs:
@@ -229,26 +218,23 @@ class WorkgroupEndpointArgs:
         pulumi.set(self, "vpc_endpoints", value)
 
 
-if not MYPY:
-    class WorkgroupNetworkInterfaceArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The availability Zone.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the network interface.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the subnet.
-        """
-elif False:
-    WorkgroupNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupNetworkInterfaceArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The availability Zone.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the network interface.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of the network interface within the subnet.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the subnet.
+    """
 
 @pulumi.input_type
 class WorkgroupNetworkInterfaceArgs:
@@ -321,18 +307,15 @@ class WorkgroupNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class WorkgroupPerformanceTargetArgsDict(TypedDict):
-        level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
-        """
-        status: NotRequired[pulumi.Input['WorkgroupPerformanceTargetStatus']]
-        """
-        Whether the price performance target is enabled for the workgroup.
-        """
-elif False:
-    WorkgroupPerformanceTargetArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupPerformanceTargetArgsDict(TypedDict):
+    level: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+    """
+    status: NotRequired[pulumi.Input['WorkgroupPerformanceTargetStatus']]
+    """
+    Whether the price performance target is enabled for the workgroup.
+    """
 
 @pulumi.input_type
 class WorkgroupPerformanceTargetArgs:
@@ -373,22 +356,19 @@ class WorkgroupPerformanceTargetArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class WorkgroupVpcEndpointArgsDict(TypedDict):
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupNetworkInterfaceArgsDict']]]]
-        """
-        One or more network interfaces of the endpoint. Also known as an interface endpoint.
-        """
-        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connection endpoint ID for connecting to Amazon Redshift Serverless.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VPC identifier that the endpoint is associated with.
-        """
-elif False:
-    WorkgroupVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupVpcEndpointArgsDict(TypedDict):
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupNetworkInterfaceArgsDict']]]]
+    """
+    One or more network interfaces of the endpoint. Also known as an interface endpoint.
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection endpoint ID for connecting to Amazon Redshift Serverless.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The VPC identifier that the endpoint is associated with.
+    """
 
 @pulumi.input_type
 class WorkgroupVpcEndpointArgs:
@@ -445,74 +425,71 @@ class WorkgroupVpcEndpointArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class WorkgroupArgsDict(TypedDict):
-        base_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        """
-        config_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgsDict']]]]
-        """
-        An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
-        """
-        creation_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The creation date of the workgroup.
-        """
-        endpoint: NotRequired[pulumi.Input['WorkgroupEndpointArgsDict']]
-        """
-        The endpoint that is created from the workgroup.
-        """
-        enhanced_vpc_routing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
-        """
-        max_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
-        """
-        namespace_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace the workgroup is associated with.
-        """
-        price_performance_target: NotRequired[pulumi.Input['WorkgroupPerformanceTargetArgsDict']]
-        """
-        An object that represents the price performance target settings for the workgroup.
-        """
-        publicly_accessible: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A value that specifies whether the workgroup can be accessible from a public network.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of security group IDs to associate with the workgroup.
-        """
-        status: NotRequired[pulumi.Input['WorkgroupStatus']]
-        """
-        The status of the workgroup.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of subnet IDs the workgroup is associated with.
-        """
-        track_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the track for the workgroup.
-        """
-        workgroup_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) that links to the workgroup.
-        """
-        workgroup_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the workgroup.
-        """
-        workgroup_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the workgroup.
-        """
-elif False:
-    WorkgroupArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupArgsDict(TypedDict):
+    base_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+    """
+    config_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgsDict']]]]
+    """
+    An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
+    """
+    creation_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The creation date of the workgroup.
+    """
+    endpoint: NotRequired[pulumi.Input['WorkgroupEndpointArgsDict']]
+    """
+    The endpoint that is created from the workgroup.
+    """
+    enhanced_vpc_routing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+    """
+    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
+    """
+    namespace_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace the workgroup is associated with.
+    """
+    price_performance_target: NotRequired[pulumi.Input['WorkgroupPerformanceTargetArgsDict']]
+    """
+    An object that represents the price performance target settings for the workgroup.
+    """
+    publicly_accessible: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A value that specifies whether the workgroup can be accessible from a public network.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of security group IDs to associate with the workgroup.
+    """
+    status: NotRequired[pulumi.Input['WorkgroupStatus']]
+    """
+    The status of the workgroup.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of subnet IDs the workgroup is associated with.
+    """
+    track_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the track for the workgroup.
+    """
+    workgroup_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) that links to the workgroup.
+    """
+    workgroup_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the workgroup.
+    """
+    workgroup_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the workgroup.
+    """
 
 @pulumi.input_type
 class WorkgroupArgs:

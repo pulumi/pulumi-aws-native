@@ -99,7 +99,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public readonly transportTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
     /**
-     * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+     * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
      */
     declare public readonly tunnelBandwidth: pulumi.Output<enums.ec2.VpnConnectionTunnelBandwidth | undefined>;
     /**
@@ -187,7 +187,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId", "vpnTunnelOptionsSpecifications[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -256,7 +256,7 @@ export interface VpnConnectionArgs {
      */
     transportTransitGatewayAttachmentId?: pulumi.Input<string>;
     /**
-     * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+     * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
      */
     tunnelBandwidth?: pulumi.Input<enums.ec2.VpnConnectionTunnelBandwidth>;
     /**

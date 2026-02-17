@@ -218,6 +218,10 @@ namespace Pulumi.AwsNative.Connect
         }
 
         public static DataTableValueLockLevel None { get; } = new DataTableValueLockLevel("NONE");
+        public static DataTableValueLockLevel DataTable { get; } = new DataTableValueLockLevel("DATA_TABLE");
+        public static DataTableValueLockLevel PrimaryValue { get; } = new DataTableValueLockLevel("PRIMARY_VALUE");
+        public static DataTableValueLockLevel Attribute { get; } = new DataTableValueLockLevel("ATTRIBUTE");
+        public static DataTableValueLockLevel Value { get; } = new DataTableValueLockLevel("VALUE");
 
         public static bool operator ==(DataTableValueLockLevel left, DataTableValueLockLevel right) => left.Equals(right);
         public static bool operator !=(DataTableValueLockLevel left, DataTableValueLockLevel right) => !left.Equals(right);
@@ -227,6 +231,36 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataTableValueLockLevel other && Equals(other);
         public bool Equals(DataTableValueLockLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of notification recipient.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormEvaluationReviewNotificationRecipientType : IEquatable<EvaluationFormEvaluationReviewNotificationRecipientType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormEvaluationReviewNotificationRecipientType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormEvaluationReviewNotificationRecipientType UserId { get; } = new EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID");
+
+        public static bool operator ==(EvaluationFormEvaluationReviewNotificationRecipientType left, EvaluationFormEvaluationReviewNotificationRecipientType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormEvaluationReviewNotificationRecipientType left, EvaluationFormEvaluationReviewNotificationRecipientType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormEvaluationReviewNotificationRecipientType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormEvaluationReviewNotificationRecipientType other && Equals(other);
+        public bool Equals(EvaluationFormEvaluationReviewNotificationRecipientType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1131,6 +1165,7 @@ namespace Pulumi.AwsNative.Connect
         public static IntegrationAssociationIntegrationType LexBot { get; } = new IntegrationAssociationIntegrationType("LEX_BOT");
         public static IntegrationAssociationIntegrationType LambdaFunction { get; } = new IntegrationAssociationIntegrationType("LAMBDA_FUNCTION");
         public static IntegrationAssociationIntegrationType Application { get; } = new IntegrationAssociationIntegrationType("APPLICATION");
+        public static IntegrationAssociationIntegrationType CasesDomain { get; } = new IntegrationAssociationIntegrationType("CASES_DOMAIN");
 
         public static bool operator ==(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => left.Equals(right);
         public static bool operator !=(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => !left.Equals(right);
@@ -1140,6 +1175,37 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntegrationAssociationIntegrationType other && Equals(other);
         public bool Equals(IntegrationAssociationIntegrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationPriority : IEquatable<NotificationPriority>
+    {
+        private readonly string _value;
+
+        private NotificationPriority(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationPriority High { get; } = new NotificationPriority("HIGH");
+        public static NotificationPriority Low { get; } = new NotificationPriority("LOW");
+
+        public static bool operator ==(NotificationPriority left, NotificationPriority right) => left.Equals(right);
+        public static bool operator !=(NotificationPriority left, NotificationPriority right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationPriority value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationPriority other && Equals(other);
+        public bool Equals(NotificationPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1646,6 +1712,39 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The channels that agents can handle in the Contact Control Panel (CCP).
+    /// </summary>
+    [EnumType]
+    public readonly struct UserChannel : IEquatable<UserChannel>
+    {
+        private readonly string _value;
+
+        private UserChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserChannel Voice { get; } = new UserChannel("VOICE");
+        public static UserChannel Chat { get; } = new UserChannel("CHAT");
+        public static UserChannel Task { get; } = new UserChannel("TASK");
+        public static UserChannel Email { get; } = new UserChannel("EMAIL");
+
+        public static bool operator ==(UserChannel left, UserChannel right) => left.Equals(right);
+        public static bool operator !=(UserChannel left, UserChannel right) => !left.Equals(right);
+
+        public static explicit operator string(UserChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserChannel other && Equals(other);
+        public bool Equals(UserChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The phone type.
     /// </summary>
     [EnumType]
@@ -1669,6 +1768,38 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserPhoneType other && Equals(other);
         public bool Equals(UserPhoneType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Voice Enhancement Mode setting.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserVoiceEnhancementMode : IEquatable<UserVoiceEnhancementMode>
+    {
+        private readonly string _value;
+
+        private UserVoiceEnhancementMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserVoiceEnhancementMode None { get; } = new UserVoiceEnhancementMode("NONE");
+        public static UserVoiceEnhancementMode VoiceIsolation { get; } = new UserVoiceEnhancementMode("VOICE_ISOLATION");
+        public static UserVoiceEnhancementMode NoiseSuppression { get; } = new UserVoiceEnhancementMode("NOISE_SUPPRESSION");
+
+        public static bool operator ==(UserVoiceEnhancementMode left, UserVoiceEnhancementMode right) => left.Equals(right);
+        public static bool operator !=(UserVoiceEnhancementMode left, UserVoiceEnhancementMode right) => !left.Equals(right);
+
+        public static explicit operator string(UserVoiceEnhancementMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserVoiceEnhancementMode other && Equals(other);
+        public bool Equals(UserVoiceEnhancementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

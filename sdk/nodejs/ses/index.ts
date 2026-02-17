@@ -20,6 +20,11 @@ export type ContactList = import("./contactList").ContactList;
 export const ContactList: typeof import("./contactList").ContactList = null as any;
 utilities.lazyLoad(exports, ["ContactList"], () => require("./contactList"));
 
+export { CustomVerificationEmailTemplateArgs } from "./customVerificationEmailTemplate";
+export type CustomVerificationEmailTemplate = import("./customVerificationEmailTemplate").CustomVerificationEmailTemplate;
+export const CustomVerificationEmailTemplate: typeof import("./customVerificationEmailTemplate").CustomVerificationEmailTemplate = null as any;
+utilities.lazyLoad(exports, ["CustomVerificationEmailTemplate"], () => require("./customVerificationEmailTemplate"));
+
 export { DedicatedIpPoolArgs } from "./dedicatedIpPool";
 export type DedicatedIpPool = import("./dedicatedIpPool").DedicatedIpPool;
 export const DedicatedIpPool: typeof import("./dedicatedIpPool").DedicatedIpPool = null as any;
@@ -44,6 +49,11 @@ export { GetContactListArgs, GetContactListResult, GetContactListOutputArgs } fr
 export const getContactList: typeof import("./getContactList").getContactList = null as any;
 export const getContactListOutput: typeof import("./getContactList").getContactListOutput = null as any;
 utilities.lazyLoad(exports, ["getContactList","getContactListOutput"], () => require("./getContactList"));
+
+export { GetCustomVerificationEmailTemplateArgs, GetCustomVerificationEmailTemplateResult, GetCustomVerificationEmailTemplateOutputArgs } from "./getCustomVerificationEmailTemplate";
+export const getCustomVerificationEmailTemplate: typeof import("./getCustomVerificationEmailTemplate").getCustomVerificationEmailTemplate = null as any;
+export const getCustomVerificationEmailTemplateOutput: typeof import("./getCustomVerificationEmailTemplate").getCustomVerificationEmailTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomVerificationEmailTemplate","getCustomVerificationEmailTemplateOutput"], () => require("./getCustomVerificationEmailTemplate"));
 
 export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
 export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
@@ -189,6 +199,8 @@ const _module = {
                 return new ConfigurationSetEventDestination(name, <any>undefined, { urn })
             case "aws-native:ses:ContactList":
                 return new ContactList(name, <any>undefined, { urn })
+            case "aws-native:ses:CustomVerificationEmailTemplate":
+                return new CustomVerificationEmailTemplate(name, <any>undefined, { urn })
             case "aws-native:ses:DedicatedIpPool":
                 return new DedicatedIpPool(name, <any>undefined, { urn })
             case "aws-native:ses:EmailIdentity":

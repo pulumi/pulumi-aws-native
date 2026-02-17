@@ -24,7 +24,11 @@ __all__ = [
     'TableBucketUnreferencedFileRemoval',
     'TableCompaction',
     'TableIcebergMetadata',
+    'TableIcebergPartitionField',
+    'TableIcebergPartitionSpec',
     'TableIcebergSchema',
+    'TableIcebergSortField',
+    'TableIcebergSortOrder',
     'TablePolicyResourcePolicy',
     'TableSchemaField',
     'TableSnapshotManagement',
@@ -288,6 +292,12 @@ class TableIcebergMetadata(dict):
         suggest = None
         if key == "icebergSchema":
             suggest = "iceberg_schema"
+        elif key == "icebergPartitionSpec":
+            suggest = "iceberg_partition_spec"
+        elif key == "icebergSortOrder":
+            suggest = "iceberg_sort_order"
+        elif key == "tableProperties":
+            suggest = "table_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableIcebergMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -301,12 +311,21 @@ class TableIcebergMetadata(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 iceberg_schema: 'outputs.TableIcebergSchema'):
+                 iceberg_schema: 'outputs.TableIcebergSchema',
+                 iceberg_partition_spec: Optional['outputs.TableIcebergPartitionSpec'] = None,
+                 iceberg_sort_order: Optional['outputs.TableIcebergSortOrder'] = None,
+                 table_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Contains details about the metadata for an Iceberg table.
         :param 'TableIcebergSchema' iceberg_schema: The schema for an Iceberg table.
         """
         pulumi.set(__self__, "iceberg_schema", iceberg_schema)
+        if iceberg_partition_spec is not None:
+            pulumi.set(__self__, "iceberg_partition_spec", iceberg_partition_spec)
+        if iceberg_sort_order is not None:
+            pulumi.set(__self__, "iceberg_sort_order", iceberg_sort_order)
+        if table_properties is not None:
+            pulumi.set(__self__, "table_properties", table_properties)
 
     @_builtins.property
     @pulumi.getter(name="icebergSchema")
@@ -315,6 +334,147 @@ class TableIcebergMetadata(dict):
         The schema for an Iceberg table.
         """
         return pulumi.get(self, "iceberg_schema")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergPartitionSpec")
+    def iceberg_partition_spec(self) -> Optional['outputs.TableIcebergPartitionSpec']:
+        return pulumi.get(self, "iceberg_partition_spec")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergSortOrder")
+    def iceberg_sort_order(self) -> Optional['outputs.TableIcebergSortOrder']:
+        return pulumi.get(self, "iceberg_sort_order")
+
+    @_builtins.property
+    @pulumi.getter(name="tableProperties")
+    def table_properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "table_properties")
+
+
+@pulumi.output_type
+class TableIcebergPartitionField(dict):
+    """
+    A partition field specification for an Iceberg table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceId":
+            suggest = "source_id"
+        elif key == "fieldId":
+            suggest = "field_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergPartitionField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergPartitionField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergPartitionField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 source_id: _builtins.int,
+                 transform: _builtins.str,
+                 field_id: Optional[_builtins.int] = None):
+        """
+        A partition field specification for an Iceberg table
+        :param _builtins.str name: The name of the partition field
+        :param _builtins.int source_id: The source column ID to partition on
+        :param _builtins.str transform: The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+        :param _builtins.int field_id: The partition field ID (auto-assigned starting from 1000 if not specified)
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the partition field
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        """
+        The source column ID to partition on
+        """
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        """
+        The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+        """
+        return pulumi.get(self, "transform")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        """
+        The partition field ID (auto-assigned starting from 1000 if not specified)
+        """
+        return pulumi.get(self, "field_id")
+
+
+@pulumi.output_type
+class TableIcebergPartitionSpec(dict):
+    """
+    Partition specification for an Iceberg table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.TableIcebergPartitionField'],
+                 spec_id: Optional[_builtins.int] = None):
+        """
+        Partition specification for an Iceberg table
+        :param Sequence['TableIcebergPartitionField'] fields: List of partition fields
+        :param _builtins.int spec_id: The partition spec ID (defaults to 0 if not specified)
+        """
+        pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.TableIcebergPartitionField']:
+        """
+        List of partition fields
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        """
+        The partition spec ID (defaults to 0 if not specified)
+        """
+        return pulumi.get(self, "spec_id")
 
 
 @pulumi.output_type
@@ -357,6 +517,131 @@ class TableIcebergSchema(dict):
 
 
 @pulumi.output_type
+class TableIcebergSortField(dict):
+    """
+    A sort field specification for an Iceberg table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullOrder":
+            suggest = "null_order"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSortField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSortField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSortField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direction: 'TableIcebergSortFieldDirection',
+                 null_order: 'TableIcebergSortFieldNullOrder',
+                 source_id: _builtins.int,
+                 transform: _builtins.str):
+        """
+        A sort field specification for an Iceberg table
+        :param 'TableIcebergSortFieldDirection' direction: Sort direction (asc or desc)
+        :param 'TableIcebergSortFieldNullOrder' null_order: Null value ordering (nulls-first or nulls-last)
+        :param _builtins.int source_id: The source column ID to sort on
+        :param _builtins.str transform: The sort transform function
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "null_order", null_order)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> 'TableIcebergSortFieldDirection':
+        """
+        Sort direction (asc or desc)
+        """
+        return pulumi.get(self, "direction")
+
+    @_builtins.property
+    @pulumi.getter(name="nullOrder")
+    def null_order(self) -> 'TableIcebergSortFieldNullOrder':
+        """
+        Null value ordering (nulls-first or nulls-last)
+        """
+        return pulumi.get(self, "null_order")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        """
+        The source column ID to sort on
+        """
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        """
+        The sort transform function
+        """
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class TableIcebergSortOrder(dict):
+    """
+    Sort order specification for an Iceberg table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orderId":
+            suggest = "order_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSortOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSortOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSortOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.TableIcebergSortField'],
+                 order_id: Optional[_builtins.int] = None):
+        """
+        Sort order specification for an Iceberg table
+        :param Sequence['TableIcebergSortField'] fields: List of sort fields
+        :param _builtins.int order_id: The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+        """
+        pulumi.set(__self__, "fields", fields)
+        if order_id is not None:
+            pulumi.set(__self__, "order_id", order_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.TableIcebergSortField']:
+        """
+        List of sort fields
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> Optional[_builtins.int]:
+        """
+        The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+        """
+        return pulumi.get(self, "order_id")
+
+
+@pulumi.output_type
 class TablePolicyResourcePolicy(dict):
     """
     A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
@@ -376,15 +661,19 @@ class TableSchemaField(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: _builtins.str,
+                 id: Optional[_builtins.int] = None,
                  required: Optional[_builtins.bool] = None):
         """
         Contains details about the schema for an Iceberg table
         :param _builtins.str name: The name of the field
         :param _builtins.str type: The field type
+        :param _builtins.int id: The unique identifier for the field
         :param _builtins.bool required: A Boolean value that specifies whether values are required for each row in this field
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if required is not None:
             pulumi.set(__self__, "required", required)
 
@@ -403,6 +692,14 @@ class TableSchemaField(dict):
         The field type
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        """
+        The unique identifier for the field
+        """
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter

@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.Logs
         public Output<bool?> ApplyOnTransformedLogs { get; private set; } = null!;
 
         /// <summary>
-        /// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        /// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
         /// </summary>
         [Output("emitSystemFieldDimensions")]
         public Output<ImmutableArray<string>> EmitSystemFieldDimensions { get; private set; } = null!;
 
         /// <summary>
-        /// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        /// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
         /// </summary>
         [Output("fieldSelectionCriteria")]
         public Output<string?> FieldSelectionCriteria { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.Logs
         private InputList<string>? _emitSystemFieldDimensions;
 
         /// <summary>
-        /// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        /// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
         /// </summary>
         public InputList<string> EmitSystemFieldDimensions
         {
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.Logs
         }
 
         /// <summary>
-        /// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        /// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
         /// </summary>
         [Input("fieldSelectionCriteria")]
         public Input<string>? FieldSelectionCriteria { get; set; }

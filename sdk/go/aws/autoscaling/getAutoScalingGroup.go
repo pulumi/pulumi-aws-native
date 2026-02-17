@@ -36,15 +36,15 @@ type LookupAutoScalingGroupArgs struct {
 type LookupAutoScalingGroupResult struct {
 	// The Amazon Resource Name (ARN) of the Auto Scaling group.
 	AutoScalingGroupArn *string `pulumi:"autoScalingGroupArn"`
-	// The instance capacity distribution across Availability Zones.
+	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
-	// The Availability Zone impairment policy.
+	// The Availability Zone impairment policy for the Auto Scaling group.
 	AvailabilityZoneImpairmentPolicy *AutoScalingGroupAvailabilityZoneImpairmentPolicy `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
-	// The capacity reservation specification.
+	// The capacity reservation specification for the Auto Scaling group.
 	CapacityReservationSpecification *AutoScalingGroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
@@ -56,7 +56,8 @@ type LookupAutoScalingGroupResult struct {
 	//  During an instance refresh, Amazon EC2 Auto Scaling waits for the warm-up period after it replaces an instance before it moves on to replacing the next instance. Amazon EC2 Auto Scaling also waits for the warm-up period before aggregating the metrics for new instances with existing instances in the Amazon CloudWatch metrics that are used for scaling, resulting in more reliable usage data. For more information, see [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//   To manage various warm-up settings at the group level, we recommend that you set the default instance warmup, *even if it is set to 0 seconds*. To remove a value that you previously set, include the property but specify ``-1`` for the value. However, we strongly recommend keeping the default instance warmup enabled by specifying a value of ``0`` or other nominal value.
 	//   Default: None
-	DefaultInstanceWarmup *int `pulumi:"defaultInstanceWarmup"`
+	DefaultInstanceWarmup *int    `pulumi:"defaultInstanceWarmup"`
+	DeletionProtection    *string `pulumi:"deletionProtection"`
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
 	//  The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
 	//  CloudFormation marks the Auto Scaling group as successful (by setting its status to CREATE_COMPLETE) when the desired capacity is reached. However, if a maximum Spot price is set in the launch template or launch configuration that you specified, then desired capacity is not used as a criteria for success. Whether your request is fulfilled depends on Spot Instance capacity and your maximum price.
@@ -164,14 +165,14 @@ func (o LookupAutoScalingGroupResultOutput) AutoScalingGroupArn() pulumi.StringP
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.AutoScalingGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The instance capacity distribution across Availability Zones.
+// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneDistribution() AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupAvailabilityZoneDistribution {
 		return v.AvailabilityZoneDistribution
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
-// The Availability Zone impairment policy.
+// The Availability Zone impairment policy for the Auto Scaling group.
 func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneImpairmentPolicy() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupAvailabilityZoneImpairmentPolicy {
 		return v.AvailabilityZoneImpairmentPolicy
@@ -188,7 +189,7 @@ func (o LookupAutoScalingGroupResultOutput) CapacityRebalance() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *bool { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
 }
 
-// The capacity reservation specification.
+// The capacity reservation specification for the Auto Scaling group.
 func (o LookupAutoScalingGroupResultOutput) CapacityReservationSpecification() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupCapacityReservationSpecification {
 		return v.CapacityReservationSpecification
@@ -215,6 +216,10 @@ func (o LookupAutoScalingGroupResultOutput) Cooldown() pulumi.StringPtrOutput {
 //	 Default: None
 func (o LookupAutoScalingGroupResultOutput) DefaultInstanceWarmup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *int { return v.DefaultInstanceWarmup }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupAutoScalingGroupResultOutput) DeletionProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.DeletionProtection }).(pulumi.StringPtrOutput)
 }
 
 // The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.

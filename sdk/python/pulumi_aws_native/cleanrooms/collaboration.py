@@ -34,6 +34,7 @@ class CollaborationArgs:
                  creator_ml_member_abilities: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']] = None,
                  creator_payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None,
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
+                 is_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -80,6 +81,8 @@ class CollaborationArgs:
             pulumi.set(__self__, "creator_payment_configuration", creator_payment_configuration)
         if data_encryption_metadata is not None:
             pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
+        if is_metrics_enabled is not None:
+            pulumi.set(__self__, "is_metrics_enabled", is_metrics_enabled)
         if job_log_status is not None:
             pulumi.set(__self__, "job_log_status", job_log_status)
         if members is not None:
@@ -216,6 +219,15 @@ class CollaborationArgs:
         pulumi.set(self, "data_encryption_metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="isMetricsEnabled")
+    def is_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_metrics_enabled")
+
+    @is_metrics_enabled.setter
+    def is_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="jobLogStatus")
     def job_log_status(self) -> Optional[pulumi.Input['CollaborationJobLogStatus']]:
         """
@@ -281,6 +293,7 @@ class Collaboration(pulumi.CustomResource):
                  creator_payment_configuration: Optional[pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -348,6 +361,7 @@ class Collaboration(pulumi.CustomResource):
                  creator_payment_configuration: Optional[pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -375,6 +389,7 @@ class Collaboration(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            __props__.__dict__["is_metrics_enabled"] = is_metrics_enabled
             __props__.__dict__["job_log_status"] = job_log_status
             __props__.__dict__["members"] = members
             __props__.__dict__["name"] = name
@@ -419,6 +434,7 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["creator_payment_configuration"] = None
         __props__.__dict__["data_encryption_metadata"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["is_metrics_enabled"] = None
         __props__.__dict__["job_log_status"] = None
         __props__.__dict__["members"] = None
         __props__.__dict__["name"] = None
@@ -521,6 +537,11 @@ class Collaboration(pulumi.CustomResource):
         A description of the collaboration provided by the collaboration owner.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="isMetricsEnabled")
+    def is_metrics_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_metrics_enabled")
 
     @_builtins.property
     @pulumi.getter(name="jobLogStatus")

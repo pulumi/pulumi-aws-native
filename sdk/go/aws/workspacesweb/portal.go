@@ -30,7 +30,7 @@ type Portal struct {
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+	// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType PortalAuthenticationTypePtrOutput `pulumi:"authenticationType"`
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn pulumi.StringPtrOutput `pulumi:"browserSettingsArn"`
@@ -55,7 +55,8 @@ type Portal struct {
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrOutput `pulumi:"networkSettingsArn"`
 	// The ARN of the web portal.
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
+	PortalArn          pulumi.StringOutput    `pulumi:"portalArn"`
+	PortalCustomDomain pulumi.StringPtrOutput `pulumi:"portalCustomDomain"`
 	// The endpoint URL of the web portal that users access in order to start streaming sessions.
 	PortalEndpoint pulumi.StringOutput `pulumi:"portalEndpoint"`
 	// The status of the web portal.
@@ -137,7 +138,7 @@ type portalArgs struct {
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+	// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType *PortalAuthenticationType `pulumi:"authenticationType"`
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
@@ -157,6 +158,7 @@ type portalArgs struct {
 	MaxConcurrentSessions *float64 `pulumi:"maxConcurrentSessions"`
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
+	PortalCustomDomain *string `pulumi:"portalCustomDomain"`
 	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
 	// The tags to add to the web portal. A tag is a key-value pair.
@@ -185,7 +187,7 @@ type PortalArgs struct {
 	//
 	// 4. Add an `IdentityProvider` resource to your CloudFormation template.
 	//
-	// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+	// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 	AuthenticationType PortalAuthenticationTypePtrInput
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn pulumi.StringPtrInput
@@ -205,6 +207,7 @@ type PortalArgs struct {
 	MaxConcurrentSessions pulumi.Float64PtrInput
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrInput
+	PortalCustomDomain pulumi.StringPtrInput
 	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn pulumi.StringPtrInput
 	// The tags to add to the web portal. A tag is a key-value pair.
@@ -271,7 +274,7 @@ func (o PortalOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 //
 // 4. Add an `IdentityProvider` resource to your CloudFormation template.
 //
-// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+// `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
 func (o PortalOutput) AuthenticationType() PortalAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v *Portal) PortalAuthenticationTypePtrOutput { return v.AuthenticationType }).(PortalAuthenticationTypePtrOutput)
 }
@@ -331,6 +334,10 @@ func (o PortalOutput) NetworkSettingsArn() pulumi.StringPtrOutput {
 // The ARN of the web portal.
 func (o PortalOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
+}
+
+func (o PortalOutput) PortalCustomDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.PortalCustomDomain }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint URL of the web portal that users access in order to start streaming sessions.

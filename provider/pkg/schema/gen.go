@@ -19,8 +19,8 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema/docs"
+	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
@@ -144,8 +144,8 @@ func GatherPackage(
 						Ref:  "#/types/aws-native:index/region:Region",
 					},
 				},
-				"s3ForcePathStyle": {
-					Description: "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
+				"s3UsePathStyle": {
+					Description: "Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"secretKey": {
@@ -246,8 +246,8 @@ func GatherPackage(
 							Ref:  "#/types/aws-native:index/region:Region",
 						},
 					},
-					"s3ForcePathStyle": {
-						Description: "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
+					"s3UsePathStyle": {
+						Description: "Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
 					"sharedCredentialsFile": {
@@ -344,8 +344,8 @@ func GatherPackage(
 						Ref:  "#/types/aws-native:index/region:Region",
 					},
 				},
-				"s3ForcePathStyle": {
-					Description: "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
+				"s3UsePathStyle": {
+					Description: "Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"secretKey": {

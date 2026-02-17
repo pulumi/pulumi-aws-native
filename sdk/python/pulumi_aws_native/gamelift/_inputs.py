@@ -34,6 +34,8 @@ __all__ = [
     'ContainerFleetLocationConfigurationArgsDict',
     'ContainerFleetLogConfigurationArgs',
     'ContainerFleetLogConfigurationArgsDict',
+    'ContainerFleetManagedCapacityConfigurationArgs',
+    'ContainerFleetManagedCapacityConfigurationArgsDict',
     'ContainerFleetScalingPolicyArgs',
     'ContainerFleetScalingPolicyArgsDict',
     'ContainerFleetTargetConfigurationArgs',
@@ -64,6 +66,8 @@ __all__ = [
     'FleetLocationCapacityArgsDict',
     'FleetLocationConfigurationArgs',
     'FleetLocationConfigurationArgsDict',
+    'FleetManagedCapacityConfigurationArgs',
+    'FleetManagedCapacityConfigurationArgsDict',
     'FleetResourceCreationLimitPolicyArgs',
     'FleetResourceCreationLimitPolicyArgsDict',
     'FleetRuntimeConfigurationArgs',
@@ -96,24 +100,19 @@ __all__ = [
     'ScriptS3LocationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AliasRoutingStrategyArgsDict(TypedDict):
-        type: pulumi.Input['AliasRoutingStrategyType']
-        """
-        Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
-        """
-        fleet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
-        """
-elif False:
-    AliasRoutingStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class AliasRoutingStrategyArgsDict(TypedDict):
+    type: pulumi.Input['AliasRoutingStrategyType']
+    """
+    Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
+    """
+    fleet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
+    """
 
 @pulumi.input_type
 class AliasRoutingStrategyArgs:
@@ -169,26 +168,23 @@ class AliasRoutingStrategyArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class BuildStorageLocationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        An Amazon S3 bucket identifier. This is the name of the S3 bucket.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the zip file that contains the build files or script files.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
-        """
-        object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
-        """
-elif False:
-    BuildStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+class BuildStorageLocationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the zip file that contains the build files or script files.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+    """
+    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+    """
 
 @pulumi.input_type
 class BuildStorageLocationArgs:
@@ -258,21 +254,18 @@ class BuildStorageLocationArgs:
         pulumi.set(self, "object_version", value)
 
 
-if not MYPY:
-    class ContainerFleetConnectionPortRangeArgsDict(TypedDict):
-        """
-        Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
-        """
-        from_port: pulumi.Input[_builtins.int]
-        """
-        A starting value for a range of allowed port numbers.
-        """
-        to_port: pulumi.Input[_builtins.int]
-        """
-        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
-        """
-elif False:
-    ContainerFleetConnectionPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerFleetConnectionPortRangeArgsDict(TypedDict):
+    """
+    Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+    """
+    from_port: pulumi.Input[_builtins.int]
+    """
+    A starting value for a range of allowed port numbers.
+    """
+    to_port: pulumi.Input[_builtins.int]
+    """
+    An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+    """
 
 @pulumi.input_type
 class ContainerFleetConnectionPortRangeArgs:
@@ -312,25 +305,22 @@ class ContainerFleetConnectionPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class ContainerFleetDeploymentConfigurationArgsDict(TypedDict):
-        """
-        Provides details about how to drain old tasks and replace them with new updated tasks.
-        """
-        impairment_strategy: NotRequired[pulumi.Input['ContainerFleetDeploymentConfigurationImpairmentStrategy']]
-        """
-        The strategy to apply in case of impairment; defaults to MAINTAIN.
-        """
-        minimum_healthy_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum percentage of healthy required; defaults to 75.
-        """
-        protection_strategy: NotRequired[pulumi.Input['ContainerFleetDeploymentConfigurationProtectionStrategy']]
-        """
-        The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
-        """
-elif False:
-    ContainerFleetDeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerFleetDeploymentConfigurationArgsDict(TypedDict):
+    """
+    Provides details about how to drain old tasks and replace them with new updated tasks.
+    """
+    impairment_strategy: NotRequired[pulumi.Input['ContainerFleetDeploymentConfigurationImpairmentStrategy']]
+    """
+    The strategy to apply in case of impairment; defaults to MAINTAIN.
+    """
+    minimum_healthy_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum percentage of healthy required; defaults to 75.
+    """
+    protection_strategy: NotRequired[pulumi.Input['ContainerFleetDeploymentConfigurationProtectionStrategy']]
+    """
+    The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+    """
 
 @pulumi.input_type
 class ContainerFleetDeploymentConfigurationArgs:
@@ -388,23 +378,20 @@ class ContainerFleetDeploymentConfigurationArgs:
         pulumi.set(self, "protection_strategy", value)
 
 
-if not MYPY:
-    class ContainerFleetGameSessionCreationLimitPolicyArgsDict(TypedDict):
-        """
-        A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+class ContainerFleetGameSessionCreationLimitPolicyArgsDict(TypedDict):
+    """
+    A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
 
-        The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
-        """
-        new_game_sessions_per_creator: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of game sessions that an individual can create during the policy period.
-        """
-        policy_period_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time span used in evaluating the resource creation limit policy.
-        """
-elif False:
-    ContainerFleetGameSessionCreationLimitPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+    """
+    new_game_sessions_per_creator: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of game sessions that an individual can create during the policy period.
+    """
+    policy_period_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time span used in evaluating the resource creation limit policy.
+    """
 
 @pulumi.input_type
 class ContainerFleetGameSessionCreationLimitPolicyArgs:
@@ -448,29 +435,26 @@ class ContainerFleetGameSessionCreationLimitPolicyArgs:
         pulumi.set(self, "policy_period_in_minutes", value)
 
 
-if not MYPY:
-    class ContainerFleetIpPermissionArgsDict(TypedDict):
-        """
-        A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
-        """
-        from_port: pulumi.Input[_builtins.int]
-        """
-        A starting value for a range of allowed port numbers.
-        """
-        ip_range: pulumi.Input[_builtins.str]
-        """
-        A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
-        """
-        protocol: pulumi.Input['ContainerFleetIpPermissionProtocol']
-        """
-        The network communication protocol used by the fleet.
-        """
-        to_port: pulumi.Input[_builtins.int]
-        """
-        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
-        """
-elif False:
-    ContainerFleetIpPermissionArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerFleetIpPermissionArgsDict(TypedDict):
+    """
+    A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+    """
+    from_port: pulumi.Input[_builtins.int]
+    """
+    A starting value for a range of allowed port numbers.
+    """
+    ip_range: pulumi.Input[_builtins.str]
+    """
+    A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+    """
+    protocol: pulumi.Input['ContainerFleetIpPermissionProtocol']
+    """
+    The network communication protocol used by the fleet.
+    """
+    to_port: pulumi.Input[_builtins.int]
+    """
+    An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+    """
 
 @pulumi.input_type
 class ContainerFleetIpPermissionArgs:
@@ -540,42 +524,48 @@ class ContainerFleetIpPermissionArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class ContainerFleetLocationCapacityArgsDict(TypedDict):
-        """
-        Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
-        """
-        max_size: pulumi.Input[_builtins.int]
-        """
-        The maximum value that is allowed for the fleet's instance count for a location.
-        """
-        min_size: pulumi.Input[_builtins.int]
-        """
-        The minimum value allowed for the fleet's instance count for a location.
-        """
-        desired_ec2_instances: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
-        """
-elif False:
-    ContainerFleetLocationCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerFleetLocationCapacityArgsDict(TypedDict):
+    """
+    Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+    """
+    max_size: pulumi.Input[_builtins.int]
+    """
+    The maximum value that is allowed for the fleet's instance count for a location.
+    """
+    desired_ec2_instances: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+    """
+    managed_capacity_configuration: NotRequired[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgsDict']]
+    """
+    Configuration options for Amazon GameLift Servers-managed capacity behavior.
+    """
+    min_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum value allowed for the fleet's instance count for a location.
+    """
 
 @pulumi.input_type
 class ContainerFleetLocationCapacityArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.int],
-                 min_size: pulumi.Input[_builtins.int],
-                 desired_ec2_instances: Optional[pulumi.Input[_builtins.int]] = None):
+                 desired_ec2_instances: Optional[pulumi.Input[_builtins.int]] = None,
+                 managed_capacity_configuration: Optional[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs']] = None,
+                 min_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
         :param pulumi.Input[_builtins.int] max_size: The maximum value that is allowed for the fleet's instance count for a location.
-        :param pulumi.Input[_builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location.
         :param pulumi.Input[_builtins.int] desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+        :param pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs'] managed_capacity_configuration: Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        :param pulumi.Input[_builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location.
         """
         pulumi.set(__self__, "max_size", max_size)
-        pulumi.set(__self__, "min_size", min_size)
         if desired_ec2_instances is not None:
             pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+        if managed_capacity_configuration is not None:
+            pulumi.set(__self__, "managed_capacity_configuration", managed_capacity_configuration)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
@@ -590,18 +580,6 @@ class ContainerFleetLocationCapacityArgs:
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
-    @pulumi.getter(name="minSize")
-    def min_size(self) -> pulumi.Input[_builtins.int]:
-        """
-        The minimum value allowed for the fleet's instance count for a location.
-        """
-        return pulumi.get(self, "min_size")
-
-    @min_size.setter
-    def min_size(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "min_size", value)
-
-    @_builtins.property
     @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -613,20 +591,41 @@ class ContainerFleetLocationCapacityArgs:
     def desired_ec2_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "desired_ec2_instances", value)
 
+    @_builtins.property
+    @pulumi.getter(name="managedCapacityConfiguration")
+    def managed_capacity_configuration(self) -> Optional[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs']]:
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
+        return pulumi.get(self, "managed_capacity_configuration")
 
-if not MYPY:
-    class ContainerFleetLocationConfigurationArgsDict(TypedDict):
+    @managed_capacity_configuration.setter
+    def managed_capacity_configuration(self, value: Optional[pulumi.Input['ContainerFleetManagedCapacityConfigurationArgs']]):
+        pulumi.set(self, "managed_capacity_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+        The minimum value allowed for the fleet's instance count for a location.
         """
-        location: pulumi.Input[_builtins.str]
-        """
-        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
-        """
-        location_capacity: NotRequired[pulumi.Input['ContainerFleetLocationCapacityArgsDict']]
-        stopped_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerFleetStoppedActionsItem']]]]
-elif False:
-    ContainerFleetLocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_size", value)
+
+
+class ContainerFleetLocationConfigurationArgsDict(TypedDict):
+    """
+    A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+    """
+    location_capacity: NotRequired[pulumi.Input['ContainerFleetLocationCapacityArgsDict']]
+    stopped_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerFleetStoppedActionsItem']]]]
 
 @pulumi.input_type
 class ContainerFleetLocationConfigurationArgs:
@@ -675,29 +674,26 @@ class ContainerFleetLocationConfigurationArgs:
         pulumi.set(self, "stopped_actions", value)
 
 
-if not MYPY:
-    class ContainerFleetLogConfigurationArgsDict(TypedDict):
-        """
-        A policy the location and provider of logs from the fleet.
-        """
-        log_destination: NotRequired[pulumi.Input['ContainerFleetLogDestination']]
-        """
-        The type of log collection to use for a fleet.
+class ContainerFleetLogConfigurationArgsDict(TypedDict):
+    """
+    A policy the location and provider of logs from the fleet.
+    """
+    log_destination: NotRequired[pulumi.Input['ContainerFleetLogDestination']]
+    """
+    The type of log collection to use for a fleet.
 
-        - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
-        - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
-        - `NONE` -- Don't collect container logs.
-        """
-        log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
-        """
-        s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the S3 bucket to pull logs from if S3 is the LogDestination
-        """
-elif False:
-    ContainerFleetLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+    - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
+    - `NONE` -- Don't collect container logs.
+    """
+    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+    """
+    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the S3 bucket to pull logs from if S3 is the LogDestination
+    """
 
 @pulumi.input_type
 class ContainerFleetLogConfigurationArgs:
@@ -763,49 +759,98 @@ class ContainerFleetLogConfigurationArgs:
         pulumi.set(self, "s3_bucket_name", value)
 
 
-if not MYPY:
-    class ContainerFleetScalingPolicyArgsDict(TypedDict):
+class ContainerFleetManagedCapacityConfigurationArgsDict(TypedDict):
+    """
+    Configuration options for Amazon GameLift Servers managed capacity behavior.
+    """
+    zero_capacity_strategy: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']
+    """
+    The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+    """
+    scale_in_after_inactivity_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+    """
+
+@pulumi.input_type
+class ContainerFleetManagedCapacityConfigurationArgs:
+    def __init__(__self__, *,
+                 zero_capacity_strategy: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy'],
+                 scale_in_after_inactivity_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+        Configuration options for Amazon GameLift Servers managed capacity behavior.
+        :param pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy'] zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        :param pulumi.Input[_builtins.int] scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
         """
-        metric_name: pulumi.Input['ContainerFleetScalingPolicyMetricName']
+        pulumi.set(__self__, "zero_capacity_strategy", zero_capacity_strategy)
+        if scale_in_after_inactivity_minutes is not None:
+            pulumi.set(__self__, "scale_in_after_inactivity_minutes", scale_in_after_inactivity_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="zeroCapacityStrategy")
+    def zero_capacity_strategy(self) -> pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']:
         """
-        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
         """
-        name: pulumi.Input[_builtins.str]
+        return pulumi.get(self, "zero_capacity_strategy")
+
+    @zero_capacity_strategy.setter
+    def zero_capacity_strategy(self, value: pulumi.Input['ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy']):
+        pulumi.set(self, "zero_capacity_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfterInactivityMinutes")
+    def scale_in_after_inactivity_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+        Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
         """
-        comparison_operator: NotRequired[pulumi.Input['ContainerFleetScalingPolicyComparisonOperator']]
-        """
-        Comparison operator to use when measuring a metric against the threshold value.
-        """
-        evaluation_periods: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
-        """
-        policy_type: NotRequired[pulumi.Input['ContainerFleetScalingPolicyPolicyType']]
-        """
-        The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
-        """
-        scaling_adjustment: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of adjustment to make, based on the scaling adjustment type.
-        """
-        scaling_adjustment_type: NotRequired[pulumi.Input['ContainerFleetScalingPolicyScalingAdjustmentType']]
-        """
-        The type of adjustment to make to a fleet's instance count.
-        """
-        target_configuration: NotRequired[pulumi.Input['ContainerFleetTargetConfigurationArgsDict']]
-        """
-        An object that contains settings for a target-based scaling policy.
-        """
-        threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Metric value used to trigger a scaling event.
-        """
-elif False:
-    ContainerFleetScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+        return pulumi.get(self, "scale_in_after_inactivity_minutes")
+
+    @scale_in_after_inactivity_minutes.setter
+    def scale_in_after_inactivity_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "scale_in_after_inactivity_minutes", value)
+
+
+class ContainerFleetScalingPolicyArgsDict(TypedDict):
+    """
+    Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+    """
+    metric_name: pulumi.Input['ContainerFleetScalingPolicyMetricName']
+    """
+    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+    """
+    comparison_operator: NotRequired[pulumi.Input['ContainerFleetScalingPolicyComparisonOperator']]
+    """
+    Comparison operator to use when measuring a metric against the threshold value.
+    """
+    evaluation_periods: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+    """
+    policy_type: NotRequired[pulumi.Input['ContainerFleetScalingPolicyPolicyType']]
+    """
+    The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+    """
+    scaling_adjustment: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of adjustment to make, based on the scaling adjustment type.
+    """
+    scaling_adjustment_type: NotRequired[pulumi.Input['ContainerFleetScalingPolicyScalingAdjustmentType']]
+    """
+    The type of adjustment to make to a fleet's instance count.
+    """
+    target_configuration: NotRequired[pulumi.Input['ContainerFleetTargetConfigurationArgsDict']]
+    """
+    An object that contains settings for a target-based scaling policy.
+    """
+    threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Metric value used to trigger a scaling event.
+    """
 
 @pulumi.input_type
 class ContainerFleetScalingPolicyArgs:
@@ -957,17 +1002,14 @@ class ContainerFleetScalingPolicyArgs:
         pulumi.set(self, "threshold", value)
 
 
-if not MYPY:
-    class ContainerFleetTargetConfigurationArgsDict(TypedDict):
-        """
-        Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
-        """
-        target_value: pulumi.Input[_builtins.float]
-        """
-        Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
-        """
-elif False:
-    ContainerFleetTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerFleetTargetConfigurationArgsDict(TypedDict):
+    """
+    Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+    """
+    target_value: pulumi.Input[_builtins.float]
+    """
+    Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+    """
 
 @pulumi.input_type
 class ContainerFleetTargetConfigurationArgs:
@@ -992,21 +1034,18 @@ class ContainerFleetTargetConfigurationArgs:
         pulumi.set(self, "target_value", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionContainerDependencyArgsDict(TypedDict):
-        """
-        A dependency that impacts a container's startup and shutdown.
-        """
-        condition: pulumi.Input['ContainerGroupDefinitionContainerDependencyCondition']
-        """
-        The type of dependency.
-        """
-        container_name: pulumi.Input[_builtins.str]
-        """
-        A descriptive label for the container definition. The container being defined depends on this container's condition.
-        """
-elif False:
-    ContainerGroupDefinitionContainerDependencyArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionContainerDependencyArgsDict(TypedDict):
+    """
+    A dependency that impacts a container's startup and shutdown.
+    """
+    condition: pulumi.Input['ContainerGroupDefinitionContainerDependencyCondition']
+    """
+    The type of dependency.
+    """
+    container_name: pulumi.Input[_builtins.str]
+    """
+    A descriptive label for the container definition. The container being defined depends on this container's condition.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionContainerDependencyArgs:
@@ -1046,21 +1085,18 @@ class ContainerGroupDefinitionContainerDependencyArgs:
         pulumi.set(self, "container_name", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionContainerEnvironmentArgsDict(TypedDict):
-        """
-        An environment variable to set inside a container, in the form of a key-value pair.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The environment variable name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The environment variable value.
-        """
-elif False:
-    ContainerGroupDefinitionContainerEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionContainerEnvironmentArgsDict(TypedDict):
+    """
+    An environment variable to set inside a container, in the form of a key-value pair.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The environment variable name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The environment variable value.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionContainerEnvironmentArgs:
@@ -1100,33 +1136,30 @@ class ContainerGroupDefinitionContainerEnvironmentArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionContainerHealthCheckArgsDict(TypedDict):
-        """
-        Specifies how the process manager checks the health of containers.
-        """
-        command: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A string array representing the command that the container runs to determine if it is healthy.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often (in seconds) the health is checked.
-        """
-        retries: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
-        """
-        start_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How many seconds the process manager allows the command to run before canceling it.
-        """
-elif False:
-    ContainerGroupDefinitionContainerHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionContainerHealthCheckArgsDict(TypedDict):
+    """
+    Specifies how the process manager checks the health of containers.
+    """
+    command: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A string array representing the command that the container runs to determine if it is healthy.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often (in seconds) the health is checked.
+    """
+    retries: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+    """
+    start_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How many seconds the process manager allows the command to run before canceling it.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionContainerHealthCheckArgs:
@@ -1215,25 +1248,22 @@ class ContainerGroupDefinitionContainerHealthCheckArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionContainerMountPointArgsDict(TypedDict):
-        """
-        Defines the mount point configuration within a container.
-        """
-        instance_path: pulumi.Input[_builtins.str]
-        """
-        The path on the host that will be mounted in the container.
-        """
-        access_level: NotRequired[pulumi.Input['ContainerGroupDefinitionContainerMountPointAccessLevel']]
-        """
-        The access permissions for the mounted path.
-        """
-        container_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path inside the container where the mount is accessible.
-        """
-elif False:
-    ContainerGroupDefinitionContainerMountPointArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionContainerMountPointArgsDict(TypedDict):
+    """
+    Defines the mount point configuration within a container.
+    """
+    instance_path: pulumi.Input[_builtins.str]
+    """
+    The path on the host that will be mounted in the container.
+    """
+    access_level: NotRequired[pulumi.Input['ContainerGroupDefinitionContainerMountPointAccessLevel']]
+    """
+    The access permissions for the mounted path.
+    """
+    container_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path inside the container where the mount is accessible.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionContainerMountPointArgs:
@@ -1290,25 +1320,22 @@ class ContainerGroupDefinitionContainerMountPointArgs:
         pulumi.set(self, "container_path", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionContainerPortRangeArgsDict(TypedDict):
-        """
-        A set of one or more port numbers that can be opened on the container.
-        """
-        from_port: pulumi.Input[_builtins.int]
-        """
-        A starting value for the range of allowed port numbers.
-        """
-        protocol: pulumi.Input['ContainerGroupDefinitionContainerPortRangeProtocol']
-        """
-        Defines the protocol of these ports.
-        """
-        to_port: pulumi.Input[_builtins.int]
-        """
-        An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
-        """
-elif False:
-    ContainerGroupDefinitionContainerPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionContainerPortRangeArgsDict(TypedDict):
+    """
+    A set of one or more port numbers that can be opened on the container.
+    """
+    from_port: pulumi.Input[_builtins.int]
+    """
+    A starting value for the range of allowed port numbers.
+    """
+    protocol: pulumi.Input['ContainerGroupDefinitionContainerPortRangeProtocol']
+    """
+    Defines the protocol of these ports.
+    """
+    to_port: pulumi.Input[_builtins.int]
+    """
+    An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionContainerPortRangeArgs:
@@ -1363,45 +1390,42 @@ class ContainerGroupDefinitionContainerPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionGameServerContainerDefinitionArgsDict(TypedDict):
-        """
-        Specifies the information required to run game servers with this container group
-        """
-        container_name: pulumi.Input[_builtins.str]
-        """
-        A descriptive label for the container definition. Container definition names must be unique with a container group definition.
-        """
-        image_uri: pulumi.Input[_builtins.str]
-        """
-        Specifies the image URI of this container.
-        """
-        server_sdk_version: pulumi.Input[_builtins.str]
-        """
-        The version of the server SDK used in this container group
-        """
-        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgsDict']]]]
-        """
-        A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
-        """
-        environment_override: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgsDict']]]]
-        """
-        The environment variables to pass to a container.
-        """
-        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgsDict']]]]
-        """
-        A list of mount point configurations to be used in a container.
-        """
-        port_configuration: NotRequired[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgsDict']]
-        """
-        Defines the ports on the container.
-        """
-        resolved_image_digest: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The digest of the container image.
-        """
-elif False:
-    ContainerGroupDefinitionGameServerContainerDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionGameServerContainerDefinitionArgsDict(TypedDict):
+    """
+    Specifies the information required to run game servers with this container group
+    """
+    container_name: pulumi.Input[_builtins.str]
+    """
+    A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+    """
+    image_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies the image URI of this container.
+    """
+    server_sdk_version: pulumi.Input[_builtins.str]
+    """
+    The version of the server SDK used in this container group
+    """
+    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgsDict']]]]
+    """
+    A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+    """
+    environment_override: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgsDict']]]]
+    """
+    The environment variables to pass to a container.
+    """
+    mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgsDict']]]]
+    """
+    A list of mount point configurations to be used in a container.
+    """
+    port_configuration: NotRequired[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgsDict']]
+    """
+    Defines the ports on the container.
+    """
+    resolved_image_digest: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The digest of the container image.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
@@ -1536,17 +1560,14 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
         pulumi.set(self, "resolved_image_digest", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionPortConfigurationArgsDict(TypedDict):
-        """
-        Defines the ports on a container.
-        """
-        container_port_ranges: pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerPortRangeArgsDict']]]
-        """
-        Specifies one or more ranges of ports on a container.
-        """
-elif False:
-    ContainerGroupDefinitionPortConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionPortConfigurationArgsDict(TypedDict):
+    """
+    Defines the ports on a container.
+    """
+    container_port_ranges: pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerPortRangeArgsDict']]]
+    """
+    Specifies one or more ranges of ports on a container.
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionPortConfigurationArgs:
@@ -1571,57 +1592,54 @@ class ContainerGroupDefinitionPortConfigurationArgs:
         pulumi.set(self, "container_port_ranges", value)
 
 
-if not MYPY:
-    class ContainerGroupDefinitionSupportContainerDefinitionArgsDict(TypedDict):
-        """
-        Supports the function of the main container group
-        """
-        container_name: pulumi.Input[_builtins.str]
-        """
-        A descriptive label for the container definition.
-        """
-        image_uri: pulumi.Input[_builtins.str]
-        """
-        Specifies the image URI of this container.
-        """
-        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgsDict']]]]
-        """
-        A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
-        """
-        environment_override: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgsDict']]]]
-        """
-        The environment variables to pass to a container.
-        """
-        essential: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
-        """
-        health_check: NotRequired[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgsDict']]
-        """
-        Specifies how the health of the containers will be checked.
-        """
-        memory_hard_limit_mebibytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The total memory limit of container groups following this definition in MiB
-        """
-        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgsDict']]]]
-        """
-        A list of mount point configurations to be used in a container.
-        """
-        port_configuration: NotRequired[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgsDict']]
-        """
-        Defines the ports on the container.
-        """
-        resolved_image_digest: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The digest of the container image.
-        """
-        vcpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of virtual CPUs to give to the support group
-        """
-elif False:
-    ContainerGroupDefinitionSupportContainerDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupDefinitionSupportContainerDefinitionArgsDict(TypedDict):
+    """
+    Supports the function of the main container group
+    """
+    container_name: pulumi.Input[_builtins.str]
+    """
+    A descriptive label for the container definition.
+    """
+    image_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies the image URI of this container.
+    """
+    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgsDict']]]]
+    """
+    A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+    """
+    environment_override: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgsDict']]]]
+    """
+    The environment variables to pass to a container.
+    """
+    essential: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+    """
+    health_check: NotRequired[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgsDict']]
+    """
+    Specifies how the health of the containers will be checked.
+    """
+    memory_hard_limit_mebibytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The total memory limit of container groups following this definition in MiB
+    """
+    mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgsDict']]]]
+    """
+    A list of mount point configurations to be used in a container.
+    """
+    port_configuration: NotRequired[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgsDict']]
+    """
+    Defines the ports on the container.
+    """
+    resolved_image_digest: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The digest of the container image.
+    """
+    vcpu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of virtual CPUs to give to the support group
+    """
 
 @pulumi.input_type
 class ContainerGroupDefinitionSupportContainerDefinitionArgs:
@@ -1805,17 +1823,14 @@ class ContainerGroupDefinitionSupportContainerDefinitionArgs:
         pulumi.set(self, "vcpu", value)
 
 
-if not MYPY:
-    class FleetAnywhereConfigurationArgsDict(TypedDict):
-        """
-        Configuration for Anywhere fleet.
-        """
-        cost: pulumi.Input[_builtins.str]
-        """
-        Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
-        """
-elif False:
-    FleetAnywhereConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetAnywhereConfigurationArgsDict(TypedDict):
+    """
+    Configuration for Anywhere fleet.
+    """
+    cost: pulumi.Input[_builtins.str]
+    """
+    Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+    """
 
 @pulumi.input_type
 class FleetAnywhereConfigurationArgs:
@@ -1840,22 +1855,19 @@ class FleetAnywhereConfigurationArgs:
         pulumi.set(self, "cost", value)
 
 
-if not MYPY:
-    class FleetCertificateConfigurationArgsDict(TypedDict):
-        """
-        Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
-        """
-        certificate_type: pulumi.Input['FleetCertificateConfigurationCertificateType']
-        """
-        Indicates whether a TLS/SSL certificate is generated for a fleet.
+class FleetCertificateConfigurationArgsDict(TypedDict):
+    """
+    Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
+    """
+    certificate_type: pulumi.Input['FleetCertificateConfigurationCertificateType']
+    """
+    Indicates whether a TLS/SSL certificate is generated for a fleet.
 
-        Valid values include:
+    Valid values include:
 
-        - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-        - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
-        """
-elif False:
-    FleetCertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+    - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+    """
 
 @pulumi.input_type
 class FleetCertificateConfigurationArgs:
@@ -1890,29 +1902,26 @@ class FleetCertificateConfigurationArgs:
         pulumi.set(self, "certificate_type", value)
 
 
-if not MYPY:
-    class FleetIpPermissionArgsDict(TypedDict):
-        """
-        A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
-        """
-        from_port: pulumi.Input[_builtins.int]
-        """
-        A starting value for a range of allowed port numbers.
-        """
-        ip_range: pulumi.Input[_builtins.str]
-        """
-        A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
-        """
-        protocol: pulumi.Input['FleetIpPermissionProtocol']
-        """
-        The network communication protocol used by the fleet.
-        """
-        to_port: pulumi.Input[_builtins.int]
-        """
-        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
-        """
-elif False:
-    FleetIpPermissionArgsDict: TypeAlias = Mapping[str, Any]
+class FleetIpPermissionArgsDict(TypedDict):
+    """
+    A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+    """
+    from_port: pulumi.Input[_builtins.int]
+    """
+    A starting value for a range of allowed port numbers.
+    """
+    ip_range: pulumi.Input[_builtins.str]
+    """
+    A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+    """
+    protocol: pulumi.Input['FleetIpPermissionProtocol']
+    """
+    The network communication protocol used by the fleet.
+    """
+    to_port: pulumi.Input[_builtins.int]
+    """
+    An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+    """
 
 @pulumi.input_type
 class FleetIpPermissionArgs:
@@ -1982,42 +1991,48 @@ class FleetIpPermissionArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class FleetLocationCapacityArgsDict(TypedDict):
-        """
-        Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
-        """
-        max_size: pulumi.Input[_builtins.int]
-        """
-        The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
-        """
-        min_size: pulumi.Input[_builtins.int]
-        """
-        The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
-        """
-        desired_ec2_instances: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-        """
-elif False:
-    FleetLocationCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class FleetLocationCapacityArgsDict(TypedDict):
+    """
+    Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+    """
+    max_size: pulumi.Input[_builtins.int]
+    """
+    The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+    """
+    desired_ec2_instances: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+    """
+    managed_capacity_configuration: NotRequired[pulumi.Input['FleetManagedCapacityConfigurationArgsDict']]
+    """
+    Configuration options for Amazon GameLift Servers-managed capacity behavior.
+    """
+    min_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+    """
 
 @pulumi.input_type
 class FleetLocationCapacityArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.int],
-                 min_size: pulumi.Input[_builtins.int],
-                 desired_ec2_instances: Optional[pulumi.Input[_builtins.int]] = None):
+                 desired_ec2_instances: Optional[pulumi.Input[_builtins.int]] = None,
+                 managed_capacity_configuration: Optional[pulumi.Input['FleetManagedCapacityConfigurationArgs']] = None,
+                 min_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
         :param pulumi.Input[_builtins.int] max_size: The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
-        :param pulumi.Input[_builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         :param pulumi.Input[_builtins.int] desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        :param pulumi.Input['FleetManagedCapacityConfigurationArgs'] managed_capacity_configuration: Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        :param pulumi.Input[_builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
         pulumi.set(__self__, "max_size", max_size)
-        pulumi.set(__self__, "min_size", min_size)
         if desired_ec2_instances is not None:
             pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+        if managed_capacity_configuration is not None:
+            pulumi.set(__self__, "managed_capacity_configuration", managed_capacity_configuration)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
@@ -2032,18 +2047,6 @@ class FleetLocationCapacityArgs:
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
-    @pulumi.getter(name="minSize")
-    def min_size(self) -> pulumi.Input[_builtins.int]:
-        """
-        The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
-        """
-        return pulumi.get(self, "min_size")
-
-    @min_size.setter
-    def min_size(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "min_size", value)
-
-    @_builtins.property
     @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -2055,24 +2058,45 @@ class FleetLocationCapacityArgs:
     def desired_ec2_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "desired_ec2_instances", value)
 
+    @_builtins.property
+    @pulumi.getter(name="managedCapacityConfiguration")
+    def managed_capacity_configuration(self) -> Optional[pulumi.Input['FleetManagedCapacityConfigurationArgs']]:
+        """
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        """
+        return pulumi.get(self, "managed_capacity_configuration")
 
-if not MYPY:
-    class FleetLocationConfigurationArgsDict(TypedDict):
-        """
-        A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
-        """
-        location_capacity: NotRequired[pulumi.Input['FleetLocationCapacityArgsDict']]
-        """
-        Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+    @managed_capacity_configuration.setter
+    def managed_capacity_configuration(self, value: Optional[pulumi.Input['FleetManagedCapacityConfigurationArgs']]):
+        pulumi.set(self, "managed_capacity_configuration", value)
 
-        *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+    @_builtins.property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-elif False:
-    FleetLocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+        The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+        """
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_size", value)
+
+
+class FleetLocationConfigurationArgsDict(TypedDict):
+    """
+    A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+    """
+    location_capacity: NotRequired[pulumi.Input['FleetLocationCapacityArgsDict']]
+    """
+    Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+
+    *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+    """
 
 @pulumi.input_type
 class FleetLocationConfigurationArgs:
@@ -2117,23 +2141,72 @@ class FleetLocationConfigurationArgs:
         pulumi.set(self, "location_capacity", value)
 
 
-if not MYPY:
-    class FleetResourceCreationLimitPolicyArgsDict(TypedDict):
-        """
-        A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+class FleetManagedCapacityConfigurationArgsDict(TypedDict):
+    """
+    Configuration options for Amazon GameLift Servers-managed capacity behavior.
+    """
+    zero_capacity_strategy: pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy']
+    """
+    The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+    """
+    scale_in_after_inactivity_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+    """
 
-        The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+@pulumi.input_type
+class FleetManagedCapacityConfigurationArgs:
+    def __init__(__self__, *,
+                 zero_capacity_strategy: pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy'],
+                 scale_in_after_inactivity_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        new_game_sessions_per_creator: NotRequired[pulumi.Input[_builtins.int]]
+        Configuration options for Amazon GameLift Servers-managed capacity behavior.
+        :param pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy'] zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+        :param pulumi.Input[_builtins.int] scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
         """
-        The maximum number of game sessions that an individual can create during the policy period.
+        pulumi.set(__self__, "zero_capacity_strategy", zero_capacity_strategy)
+        if scale_in_after_inactivity_minutes is not None:
+            pulumi.set(__self__, "scale_in_after_inactivity_minutes", scale_in_after_inactivity_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="zeroCapacityStrategy")
+    def zero_capacity_strategy(self) -> pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy']:
         """
-        policy_period_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+        The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
         """
-        The time span used in evaluating the resource creation limit policy.
+        return pulumi.get(self, "zero_capacity_strategy")
+
+    @zero_capacity_strategy.setter
+    def zero_capacity_strategy(self, value: pulumi.Input['FleetManagedCapacityConfigurationZeroCapacityStrategy']):
+        pulumi.set(self, "zero_capacity_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfterInactivityMinutes")
+    def scale_in_after_inactivity_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-elif False:
-    FleetResourceCreationLimitPolicyArgsDict: TypeAlias = Mapping[str, Any]
+        Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+        """
+        return pulumi.get(self, "scale_in_after_inactivity_minutes")
+
+    @scale_in_after_inactivity_minutes.setter
+    def scale_in_after_inactivity_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "scale_in_after_inactivity_minutes", value)
+
+
+class FleetResourceCreationLimitPolicyArgsDict(TypedDict):
+    """
+    A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+
+    The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+    """
+    new_game_sessions_per_creator: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of game sessions that an individual can create during the policy period.
+    """
+    policy_period_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time span used in evaluating the resource creation limit policy.
+    """
 
 @pulumi.input_type
 class FleetResourceCreationLimitPolicyArgs:
@@ -2177,29 +2250,26 @@ class FleetResourceCreationLimitPolicyArgs:
         pulumi.set(self, "policy_period_in_minutes", value)
 
 
-if not MYPY:
-    class FleetRuntimeConfigurationArgsDict(TypedDict):
-        """
-        A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+class FleetRuntimeConfigurationArgsDict(TypedDict):
+    """
+    A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
 
-        The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
+    The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
 
-        An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
-        """
-        game_session_activation_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
-        """
-        max_concurrent_game_session_activations: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
-        """
-        server_processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetServerProcessArgsDict']]]]
-        """
-        A collection of server process configurations that describe which server processes to run on each instance in a fleet.
-        """
-elif False:
-    FleetRuntimeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
+    """
+    game_session_activation_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
+    """
+    max_concurrent_game_session_activations: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
+    """
+    server_processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetServerProcessArgsDict']]]]
+    """
+    A collection of server process configurations that describe which server processes to run on each instance in a fleet.
+    """
 
 @pulumi.input_type
 class FleetRuntimeConfigurationArgs:
@@ -2261,61 +2331,58 @@ class FleetRuntimeConfigurationArgs:
         pulumi.set(self, "server_processes", value)
 
 
-if not MYPY:
-    class FleetScalingPolicyArgsDict(TypedDict):
-        """
-        Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
-        """
-        metric_name: pulumi.Input['FleetScalingPolicyMetricName']
-        """
-        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
-        """
-        comparison_operator: NotRequired[pulumi.Input['FleetScalingPolicyComparisonOperator']]
-        """
-        Comparison operator to use when measuring a metric against the threshold value.
-        """
-        evaluation_periods: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fleet location.
-        """
-        policy_type: NotRequired[pulumi.Input['FleetScalingPolicyPolicyType']]
-        """
-        The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
-        """
-        scaling_adjustment: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of adjustment to make, based on the scaling adjustment type.
-        """
-        scaling_adjustment_type: NotRequired[pulumi.Input['FleetScalingPolicyScalingAdjustmentType']]
-        """
-        The type of adjustment to make to a fleet's instance count.
-        """
-        status: NotRequired[pulumi.Input['FleetScalingPolicyStatus']]
-        """
-        Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
-        """
-        target_configuration: NotRequired[pulumi.Input['FleetTargetConfigurationArgsDict']]
-        """
-        An object that contains settings for a target-based scaling policy.
-        """
-        threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Metric value used to trigger a scaling event.
-        """
-        update_status: NotRequired[pulumi.Input['FleetScalingPolicyUpdateStatus']]
-        """
-        The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
-        """
-elif False:
-    FleetScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class FleetScalingPolicyArgsDict(TypedDict):
+    """
+    Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+    """
+    metric_name: pulumi.Input['FleetScalingPolicyMetricName']
+    """
+    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+    """
+    comparison_operator: NotRequired[pulumi.Input['FleetScalingPolicyComparisonOperator']]
+    """
+    Comparison operator to use when measuring a metric against the threshold value.
+    """
+    evaluation_periods: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fleet location.
+    """
+    policy_type: NotRequired[pulumi.Input['FleetScalingPolicyPolicyType']]
+    """
+    The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+    """
+    scaling_adjustment: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of adjustment to make, based on the scaling adjustment type.
+    """
+    scaling_adjustment_type: NotRequired[pulumi.Input['FleetScalingPolicyScalingAdjustmentType']]
+    """
+    The type of adjustment to make to a fleet's instance count.
+    """
+    status: NotRequired[pulumi.Input['FleetScalingPolicyStatus']]
+    """
+    Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+    """
+    target_configuration: NotRequired[pulumi.Input['FleetTargetConfigurationArgsDict']]
+    """
+    An object that contains settings for a target-based scaling policy.
+    """
+    threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Metric value used to trigger a scaling event.
+    """
+    update_status: NotRequired[pulumi.Input['FleetScalingPolicyUpdateStatus']]
+    """
+    The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+    """
 
 @pulumi.input_type
 class FleetScalingPolicyArgs:
@@ -2515,29 +2582,26 @@ class FleetScalingPolicyArgs:
         pulumi.set(self, "update_status", value)
 
 
-if not MYPY:
-    class FleetServerProcessArgsDict(TypedDict):
-        """
-        A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
-        """
-        concurrent_executions: pulumi.Input[_builtins.int]
-        """
-        The number of server processes that use this configuration to run concurrently on an instance.
-        """
-        launch_path: pulumi.Input[_builtins.str]
-        """
-        The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+class FleetServerProcessArgsDict(TypedDict):
+    """
+    A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
+    """
+    concurrent_executions: pulumi.Input[_builtins.int]
+    """
+    The number of server processes that use this configuration to run concurrently on an instance.
+    """
+    launch_path: pulumi.Input[_builtins.str]
+    """
+    The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
 
-        Windows (for custom game builds only): C:\\game. Example: "C:\\game\\MyGame\\server.exe"
+    Windows (for custom game builds only): C:\\game. Example: "C:\\game\\MyGame\\server.exe"
 
-        Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
-        """
-        parameters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional list of parameters to pass to the server executable or Realtime script on launch.
-        """
-elif False:
-    FleetServerProcessArgsDict: TypeAlias = Mapping[str, Any]
+    Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
+    """
+    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional list of parameters to pass to the server executable or Realtime script on launch.
+    """
 
 @pulumi.input_type
 class FleetServerProcessArgs:
@@ -2601,17 +2665,14 @@ class FleetServerProcessArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class FleetTargetConfigurationArgsDict(TypedDict):
-        """
-        Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
-        """
-        target_value: pulumi.Input[_builtins.float]
-        """
-        Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
-        """
-elif False:
-    FleetTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FleetTargetConfigurationArgsDict(TypedDict):
+    """
+    Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+    """
+    target_value: pulumi.Input[_builtins.float]
+    """
+    Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+    """
 
 @pulumi.input_type
 class FleetTargetConfigurationArgs:
@@ -2636,21 +2697,18 @@ class FleetTargetConfigurationArgs:
         pulumi.set(self, "target_value", value)
 
 
-if not MYPY:
-    class GameServerGroupAutoScalingPolicyArgsDict(TypedDict):
-        """
-        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
-        """
-        target_tracking_configuration: pulumi.Input['GameServerGroupTargetTrackingConfigurationArgsDict']
-        """
-        Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
-        """
-        estimated_instance_warmup: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift Servers FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
-        """
-elif False:
-    GameServerGroupAutoScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GameServerGroupAutoScalingPolicyArgsDict(TypedDict):
+    """
+    Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+    """
+    target_tracking_configuration: pulumi.Input['GameServerGroupTargetTrackingConfigurationArgsDict']
+    """
+    Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+    """
+    estimated_instance_warmup: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift Servers FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+    """
 
 @pulumi.input_type
 class GameServerGroupAutoScalingPolicyArgs:
@@ -2691,15 +2749,12 @@ class GameServerGroupAutoScalingPolicyArgs:
         pulumi.set(self, "estimated_instance_warmup", value)
 
 
-if not MYPY:
-    class GameServerGroupInstanceDefinitionArgsDict(TypedDict):
-        """
-        An allowed instance type for your game server group.
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        weighted_capacity: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    GameServerGroupInstanceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class GameServerGroupInstanceDefinitionArgsDict(TypedDict):
+    """
+    An allowed instance type for your game server group.
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    weighted_capacity: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class GameServerGroupInstanceDefinitionArgs:
@@ -2732,25 +2787,22 @@ class GameServerGroupInstanceDefinitionArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
-if not MYPY:
-    class GameServerGroupLaunchTemplateArgsDict(TypedDict):
-        """
-        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
-        """
-        launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier for an existing Amazon EC2 launch template.
-        """
-        launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A readable identifier for an existing Amazon EC2 launch template.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
-        """
-elif False:
-    GameServerGroupLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class GameServerGroupLaunchTemplateArgsDict(TypedDict):
+    """
+    The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+    """
+    launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for an existing Amazon EC2 launch template.
+    """
+    launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A readable identifier for an existing Amazon EC2 launch template.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
+    """
 
 @pulumi.input_type
 class GameServerGroupLaunchTemplateArgs:
@@ -2808,17 +2860,14 @@ class GameServerGroupLaunchTemplateArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class GameServerGroupTargetTrackingConfigurationArgsDict(TypedDict):
-        """
-        Settings for a target-based scaling policy applied to Auto Scaling group.
-        """
-        target_value: pulumi.Input[_builtins.float]
-        """
-        Desired value to use with a game server group target-based scaling policy.
-        """
-elif False:
-    GameServerGroupTargetTrackingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GameServerGroupTargetTrackingConfigurationArgsDict(TypedDict):
+    """
+    Settings for a target-based scaling policy applied to Auto Scaling group.
+    """
+    target_value: pulumi.Input[_builtins.float]
+    """
+    Desired value to use with a game server group target-based scaling policy.
+    """
 
 @pulumi.input_type
 class GameServerGroupTargetTrackingConfigurationArgs:
@@ -2843,17 +2892,14 @@ class GameServerGroupTargetTrackingConfigurationArgs:
         pulumi.set(self, "target_value", value)
 
 
-if not MYPY:
-    class GameSessionQueueDestinationArgsDict(TypedDict):
-        """
-        A fleet or alias designated in a game session queue.
-        """
-        destination_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
-        """
-elif False:
-    GameSessionQueueDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class GameSessionQueueDestinationArgsDict(TypedDict):
+    """
+    A fleet or alias designated in a game session queue.
+    """
+    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+    """
 
 @pulumi.input_type
 class GameSessionQueueDestinationArgs:
@@ -2879,14 +2925,11 @@ class GameSessionQueueDestinationArgs:
         pulumi.set(self, "destination_arn", value)
 
 
-if not MYPY:
-    class GameSessionQueueFilterConfigurationArgsDict(TypedDict):
-        allowed_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
-        """
-elif False:
-    GameSessionQueueFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GameSessionQueueFilterConfigurationArgsDict(TypedDict):
+    allowed_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
+    """
 
 @pulumi.input_type
 class GameSessionQueueFilterConfigurationArgs:
@@ -2911,21 +2954,18 @@ class GameSessionQueueFilterConfigurationArgs:
         pulumi.set(self, "allowed_locations", value)
 
 
-if not MYPY:
-    class GameSessionQueuePlayerLatencyPolicyArgsDict(TypedDict):
-        """
-        Sets a latency cap for individual players when placing a game session.
-        """
-        maximum_individual_player_latency_milliseconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
-        """
-        policy_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The length of time, in seconds, that the policy is enforced while placing a new game session.
-        """
-elif False:
-    GameSessionQueuePlayerLatencyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GameSessionQueuePlayerLatencyPolicyArgsDict(TypedDict):
+    """
+    Sets a latency cap for individual players when placing a game session.
+    """
+    maximum_individual_player_latency_milliseconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+    """
+    policy_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The length of time, in seconds, that the policy is enforced while placing a new game session.
+    """
 
 @pulumi.input_type
 class GameSessionQueuePlayerLatencyPolicyArgs:
@@ -2967,23 +3007,20 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
         pulumi.set(self, "policy_duration_seconds", value)
 
 
-if not MYPY:
-    class GameSessionQueuePriorityConfigurationArgsDict(TypedDict):
-        location_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift Servers service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
-        """
-        priority_order: NotRequired[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]]
-        """
-        A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
+class GameSessionQueuePriorityConfigurationArgsDict(TypedDict):
+    location_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift Servers service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+    """
+    priority_order: NotRequired[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]]
+    """
+    A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
 
-        - `LATENCY` -- Amazon GameLift Servers prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
-        - `COST` -- Amazon GameLift Servers prioritizes queue destinations with the lowest current hosting costs. Cost is evaluated based on the destination's location, instance type, and fleet type (Spot or On-Demand).
-        - `DESTINATION` -- Amazon GameLift Servers prioritizes based on the list order of destinations in the queue configuration.
-        - `LOCATION` -- Amazon GameLift Servers prioritizes based on the provided order of locations, as defined in `LocationOrder` .
-        """
-elif False:
-    GameSessionQueuePriorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - `LATENCY` -- Amazon GameLift Servers prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
+    - `COST` -- Amazon GameLift Servers prioritizes queue destinations with the lowest current hosting costs. Cost is evaluated based on the destination's location, instance type, and fleet type (Spot or On-Demand).
+    - `DESTINATION` -- Amazon GameLift Servers prioritizes based on the list order of destinations in the queue configuration.
+    - `LOCATION` -- Amazon GameLift Servers prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+    """
 
 @pulumi.input_type
 class GameSessionQueuePriorityConfigurationArgs:
@@ -3034,21 +3071,18 @@ class GameSessionQueuePriorityConfigurationArgs:
         pulumi.set(self, "priority_order", value)
 
 
-if not MYPY:
-    class MatchmakingConfigurationGamePropertyArgsDict(TypedDict):
-        """
-        A key-value pair that contains information about a game session.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The game property identifier.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The game property value.
-        """
-elif False:
-    MatchmakingConfigurationGamePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class MatchmakingConfigurationGamePropertyArgsDict(TypedDict):
+    """
+    A key-value pair that contains information about a game session.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The game property identifier.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The game property value.
+    """
 
 @pulumi.input_type
 class MatchmakingConfigurationGamePropertyArgs:
@@ -3088,26 +3122,23 @@ class MatchmakingConfigurationGamePropertyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ScriptS3LocationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        An Amazon S3 bucket identifier. This is the name of the S3 bucket.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the zip file that contains the script files.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
-        """
-        object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
-        """
-elif False:
-    ScriptS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class ScriptS3LocationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the zip file that contains the script files.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+    """
+    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+    """
 
 @pulumi.input_type
 class ScriptS3LocationArgs:

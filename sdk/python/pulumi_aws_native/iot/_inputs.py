@@ -38,12 +38,22 @@ __all__ = [
     'BillingGroupPropertiesPropertiesArgsDict',
     'CaCertificateRegistrationConfigArgs',
     'CaCertificateRegistrationConfigArgsDict',
+    'CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs',
+    'CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict',
+    'CommandParameterValueComparisonOperandArgs',
+    'CommandParameterValueComparisonOperandArgsDict',
+    'CommandParameterValueConditionArgs',
+    'CommandParameterValueConditionArgsDict',
+    'CommandParameterValueNumberRangeArgs',
+    'CommandParameterValueNumberRangeArgsDict',
     'CommandParameterValueArgs',
     'CommandParameterValueArgsDict',
     'CommandParameterArgs',
     'CommandParameterArgsDict',
     'CommandPayloadArgs',
     'CommandPayloadArgsDict',
+    'CommandPreprocessorArgs',
+    'CommandPreprocessorArgsDict',
     'DomainConfigurationAuthorizerConfigArgs',
     'DomainConfigurationAuthorizerConfigArgsDict',
     'DomainConfigurationClientCertificateConfigArgs',
@@ -68,6 +78,8 @@ __all__ = [
     'JobTemplateRateIncreaseCriteriaArgsDict',
     'JobTemplateRetryCriteriaArgs',
     'JobTemplateRetryCriteriaArgsDict',
+    'LoggingEventConfigurationArgs',
+    'LoggingEventConfigurationArgsDict',
     'MetricsExportConfigPropertiesArgs',
     'MetricsExportConfigPropertiesArgsDict',
     'MitigationActionActionParamsArgs',
@@ -208,19 +220,14 @@ __all__ = [
     'TopicRuleUserPropertyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AbortConfigPropertiesArgsDict(TypedDict):
-        """
-        The criteria that determine when and how a job abort takes place.
-        """
-        criteria_list: pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgsDict']]]
-        """
-        The list of criteria that determine when and how to abort the job.
-        """
-elif False:
-    AbortConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AbortConfigPropertiesArgsDict(TypedDict):
+    """
+    The criteria that determine when and how a job abort takes place.
+    """
+    criteria_list: pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgsDict']]]
+    """
+    The list of criteria that determine when and how to abort the job.
+    """
 
 @pulumi.input_type
 class AbortConfigPropertiesArgs:
@@ -245,81 +252,78 @@ class AbortConfigPropertiesArgs:
         pulumi.set(self, "criteria_list", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationAuditCheckConfigurationsArgsDict(TypedDict):
-        """
-        Specifies which audit checks are enabled and disabled for this account.
-        """
-        authenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
-        """
-        ca_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
-        """
-        ca_certificate_key_quality_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
-        """
-        conflicting_client_ids_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if multiple devices connect using the same client ID.
-        """
-        device_certificate_age_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict']]
-        """
-        Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
-        """
-        device_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
-        """
-        device_certificate_key_quality_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
-        """
-        device_certificate_shared_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
-        """
-        intermediate_ca_revoked_for_active_device_certificates_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if device certificates are still active despite being revoked by an intermediate CA.
-        """
-        io_t_policy_potential_mis_configuration_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
-        """
-        iot_policy_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
-        """
-        iot_role_alias_allows_access_to_unused_services_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
-        """
-        iot_role_alias_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
-        """
-        logging_disabled_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if AWS IoT logs are disabled.
-        """
-        revoked_ca_certificate_still_active_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if a revoked CA certificate is still active.
-        """
-        revoked_device_certificate_still_active_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if a revoked device certificate is still active.
-        """
-        unauthenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
-        """
-        Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
-        """
-elif False:
-    AccountAuditConfigurationAuditCheckConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationAuditCheckConfigurationsArgsDict(TypedDict):
+    """
+    Specifies which audit checks are enabled and disabled for this account.
+    """
+    authenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+    """
+    ca_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
+    """
+    ca_certificate_key_quality_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
+    """
+    conflicting_client_ids_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if multiple devices connect using the same client ID.
+    """
+    device_certificate_age_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict']]
+    """
+    Checks when a device certificate has been active for a number of days greater than or equal to the number you specify.
+    """
+    device_certificate_expiring_check: NotRequired[pulumi.Input['AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if a device certificate is expiring. By default, this check applies to device certificates expiring within 30 days or that have expired. You can modify this threshold by configuring the DeviceCertExpirationAuditCheckConfiguration.
+    """
+    device_certificate_key_quality_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
+    """
+    device_certificate_shared_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
+    """
+    intermediate_ca_revoked_for_active_device_certificates_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if device certificates are still active despite being revoked by an intermediate CA.
+    """
+    io_t_policy_potential_mis_configuration_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
+    """
+    iot_policy_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
+    """
+    iot_role_alias_allows_access_to_unused_services_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
+    """
+    iot_role_alias_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
+    """
+    logging_disabled_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if AWS IoT logs are disabled.
+    """
+    revoked_ca_certificate_still_active_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if a revoked CA certificate is still active.
+    """
+    revoked_device_certificate_still_active_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if a revoked device certificate is still active.
+    """
+    unauthenticated_cognito_role_overly_permissive_check: NotRequired[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgsDict']]
+    """
+    Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationAuditCheckConfigurationsArgs:
@@ -601,17 +605,14 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
         pulumi.set(self, "unauthenticated_cognito_role_overly_permissive_check", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationAuditCheckConfigurationArgsDict(TypedDict):
-        """
-        The configuration for a specific audit check.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the check is enabled.
-        """
-elif False:
-    AccountAuditConfigurationAuditCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationAuditCheckConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a specific audit check.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the check is enabled.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationAuditCheckConfigurationArgs:
@@ -637,17 +638,14 @@ class AccountAuditConfigurationAuditCheckConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict(TypedDict):
-        """
-        Information about the targets to which audit notifications are sent.
-        """
-        sns: NotRequired[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgsDict']]
-        """
-        The `Sns` notification target.
-        """
-elif False:
-    AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict(TypedDict):
+    """
+    Information about the targets to which audit notifications are sent.
+    """
+    sns: NotRequired[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgsDict']]
+    """
+    The `Sns` notification target.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
@@ -673,22 +671,19 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
         pulumi.set(self, "sns", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationAuditNotificationTargetArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if notifications to the target are enabled.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role that grants permission to send notifications to the target.
-        """
-        target_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the target (SNS topic) to which audit notifications are sent.
-        """
-elif False:
-    AccountAuditConfigurationAuditNotificationTargetArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationAuditNotificationTargetArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if notifications to the target are enabled.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role that grants permission to send notifications to the target.
+    """
+    target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the target (SNS topic) to which audit notifications are sent.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationAuditNotificationTargetArgs:
@@ -745,17 +740,14 @@ class AccountAuditConfigurationAuditNotificationTargetArgs:
         pulumi.set(self, "target_arn", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict(TypedDict):
-        """
-        A structure containing the configName and corresponding configValue for configuring audit checks.
-        """
-        cert_age_threshold_in_days: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
-        """
-elif False:
-    AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict(TypedDict):
+    """
+    A structure containing the configName and corresponding configValue for configuring audit checks.
+    """
+    cert_age_threshold_in_days: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs:
@@ -781,17 +773,14 @@ class AccountAuditConfigurationCertAgeCheckCustomConfigurationArgs:
         pulumi.set(self, "cert_age_threshold_in_days", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict(TypedDict):
-        """
-        A structure containing the configName and corresponding configValue for configuring audit checks.
-        """
-        cert_expiration_threshold_in_days: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
-        """
-elif False:
-    AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict(TypedDict):
+    """
+    A structure containing the configName and corresponding configValue for configuring audit checks.
+    """
+    cert_expiration_threshold_in_days: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs:
@@ -817,21 +806,18 @@ class AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgs:
         pulumi.set(self, "cert_expiration_threshold_in_days", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict(TypedDict):
-        """
-        A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
-        """
-        configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict']]
-        """
-        Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the check is enabled.
-        """
-elif False:
-    AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgsDict(TypedDict):
+    """
+    A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+    """
+    configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertAgeCheckCustomConfigurationArgsDict']]
+    """
+    Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the check is enabled.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs:
@@ -873,21 +859,18 @@ class AccountAuditConfigurationDeviceCertAgeAuditCheckConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict(TypedDict):
-        """
-        A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
-        """
-        configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict']]
-        """
-        Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the check is enabled.
-        """
-elif False:
-    AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgsDict(TypedDict):
+    """
+    A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+    """
+    configuration: NotRequired[pulumi.Input['AccountAuditConfigurationCertExpirationCheckCustomConfigurationArgsDict']]
+    """
+    Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the check is enabled.
+    """
 
 @pulumi.input_type
 class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs:
@@ -929,17 +912,14 @@ class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class BillingGroupPropertiesPropertiesArgsDict(TypedDict):
-        """
-        The properties of the billing group.
-        """
-        billing_group_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the billing group.
-        """
-elif False:
-    BillingGroupPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BillingGroupPropertiesPropertiesArgsDict(TypedDict):
+    """
+    The properties of the billing group.
+    """
+    billing_group_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the billing group.
+    """
 
 @pulumi.input_type
 class BillingGroupPropertiesPropertiesArgs:
@@ -965,22 +945,19 @@ class BillingGroupPropertiesPropertiesArgs:
         pulumi.set(self, "billing_group_description", value)
 
 
-if not MYPY:
-    class CaCertificateRegistrationConfigArgsDict(TypedDict):
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role.
-        """
-        template_body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The template body.
-        """
-        template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the provisioning template.
-        """
-elif False:
-    CaCertificateRegistrationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CaCertificateRegistrationConfigArgsDict(TypedDict):
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role.
+    """
+    template_body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The template body.
+    """
+    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the provisioning template.
+    """
 
 @pulumi.input_type
 class CaCertificateRegistrationConfigArgs:
@@ -1037,17 +1014,167 @@ class CaCertificateRegistrationConfigArgs:
         pulumi.set(self, "template_name", value)
 
 
-if not MYPY:
-    class CommandParameterValueArgsDict(TypedDict):
-        b: NotRequired[pulumi.Input[_builtins.bool]]
-        bin: NotRequired[pulumi.Input[_builtins.str]]
-        d: NotRequired[pulumi.Input[_builtins.float]]
-        i: NotRequired[pulumi.Input[_builtins.int]]
-        l: NotRequired[pulumi.Input[_builtins.str]]
-        s: NotRequired[pulumi.Input[_builtins.str]]
-        ul: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CommandParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+class CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict(TypedDict):
+    output_format: pulumi.Input['CommandOutputFormat']
+
+@pulumi.input_type
+class CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs:
+    def __init__(__self__, *,
+                 output_format: pulumi.Input['CommandOutputFormat']):
+        pulumi.set(__self__, "output_format", output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> pulumi.Input['CommandOutputFormat']:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: pulumi.Input['CommandOutputFormat']):
+        pulumi.set(self, "output_format", value)
+
+
+class CommandParameterValueComparisonOperandArgsDict(TypedDict):
+    number: NotRequired[pulumi.Input[_builtins.str]]
+    number_range: NotRequired[pulumi.Input['CommandParameterValueNumberRangeArgsDict']]
+    numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    string: NotRequired[pulumi.Input[_builtins.str]]
+    strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class CommandParameterValueComparisonOperandArgs:
+    def __init__(__self__, *,
+                 number: Optional[pulumi.Input[_builtins.str]] = None,
+                 number_range: Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']] = None,
+                 numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 string: Optional[pulumi.Input[_builtins.str]] = None,
+                 strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if number is not None:
+            pulumi.set(__self__, "number", number)
+        if number_range is not None:
+            pulumi.set(__self__, "number_range", number_range)
+        if numbers is not None:
+            pulumi.set(__self__, "numbers", numbers)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if strings is not None:
+            pulumi.set(__self__, "strings", strings)
+
+    @_builtins.property
+    @pulumi.getter
+    def number(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "number")
+
+    @number.setter
+    def number(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberRange")
+    def number_range(self) -> Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']]:
+        return pulumi.get(self, "number_range")
+
+    @number_range.setter
+    def number_range(self, value: Optional[pulumi.Input['CommandParameterValueNumberRangeArgs']]):
+        pulumi.set(self, "number_range", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "numbers")
+
+    @numbers.setter
+    def numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "numbers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "string")
+
+    @string.setter
+    def string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "string", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "strings")
+
+    @strings.setter
+    def strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "strings", value)
+
+
+class CommandParameterValueConditionArgsDict(TypedDict):
+    comparison_operator: pulumi.Input['CommandParameterValueComparisonOperator']
+    operand: pulumi.Input['CommandParameterValueComparisonOperandArgsDict']
+
+@pulumi.input_type
+class CommandParameterValueConditionArgs:
+    def __init__(__self__, *,
+                 comparison_operator: pulumi.Input['CommandParameterValueComparisonOperator'],
+                 operand: pulumi.Input['CommandParameterValueComparisonOperandArgs']):
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "operand", operand)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> pulumi.Input['CommandParameterValueComparisonOperator']:
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: pulumi.Input['CommandParameterValueComparisonOperator']):
+        pulumi.set(self, "comparison_operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operand(self) -> pulumi.Input['CommandParameterValueComparisonOperandArgs']:
+        return pulumi.get(self, "operand")
+
+    @operand.setter
+    def operand(self, value: pulumi.Input['CommandParameterValueComparisonOperandArgs']):
+        pulumi.set(self, "operand", value)
+
+
+class CommandParameterValueNumberRangeArgsDict(TypedDict):
+    max: pulumi.Input[_builtins.str]
+    min: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class CommandParameterValueNumberRangeArgs:
+    def __init__(__self__, *,
+                 max: pulumi.Input[_builtins.str],
+                 min: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "max", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "min", value)
+
+
+class CommandParameterValueArgsDict(TypedDict):
+    b: NotRequired[pulumi.Input[_builtins.bool]]
+    bin: NotRequired[pulumi.Input[_builtins.str]]
+    d: NotRequired[pulumi.Input[_builtins.float]]
+    i: NotRequired[pulumi.Input[_builtins.int]]
+    l: NotRequired[pulumi.Input[_builtins.str]]
+    s: NotRequired[pulumi.Input[_builtins.str]]
+    ul: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CommandParameterValueArgs:
@@ -1138,14 +1265,13 @@ class CommandParameterValueArgs:
         pulumi.set(self, "ul", value)
 
 
-if not MYPY:
-    class CommandParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        default_value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
-elif False:
-    CommandParameterArgsDict: TypeAlias = Mapping[str, Any]
+class CommandParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    default_value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input['CommandParameterType']]
+    value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
+    value_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgsDict']]]]
 
 @pulumi.input_type
 class CommandParameterArgs:
@@ -1153,14 +1279,20 @@ class CommandParameterArgs:
                  name: pulumi.Input[_builtins.str],
                  default_value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input['CommandParameterValueArgs']] = None):
+                 type: Optional[pulumi.Input['CommandParameterType']] = None,
+                 value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
+                 value_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]] = None):
         pulumi.set(__self__, "name", name)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_conditions is not None:
+            pulumi.set(__self__, "value_conditions", value_conditions)
 
     @_builtins.property
     @pulumi.getter
@@ -1191,6 +1323,15 @@ class CommandParameterArgs:
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['CommandParameterType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['CommandParameterType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input['CommandParameterValueArgs']]:
         return pulumi.get(self, "value")
 
@@ -1198,13 +1339,19 @@ class CommandParameterArgs:
     def value(self, value: Optional[pulumi.Input['CommandParameterValueArgs']]):
         pulumi.set(self, "value", value)
 
+    @_builtins.property
+    @pulumi.getter(name="valueConditions")
+    def value_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]:
+        return pulumi.get(self, "value_conditions")
 
-if not MYPY:
-    class CommandPayloadArgsDict(TypedDict):
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CommandPayloadArgsDict: TypeAlias = Mapping[str, Any]
+    @value_conditions.setter
+    def value_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterValueConditionArgs']]]]):
+        pulumi.set(self, "value_conditions", value)
+
+
+class CommandPayloadArgsDict(TypedDict):
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CommandPayloadArgs:
@@ -1235,18 +1382,35 @@ class CommandPayloadArgs:
         pulumi.set(self, "content_type", value)
 
 
-if not MYPY:
-    class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
-        allow_authorizer_override: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-        """
-        default_authorizer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the authorization service for a domain configuration.
-        """
-elif False:
-    DomainConfigurationAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CommandPreprocessorArgsDict(TypedDict):
+    aws_json_substitution: NotRequired[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgsDict']]
+
+@pulumi.input_type
+class CommandPreprocessorArgs:
+    def __init__(__self__, *,
+                 aws_json_substitution: Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']] = None):
+        if aws_json_substitution is not None:
+            pulumi.set(__self__, "aws_json_substitution", aws_json_substitution)
+
+    @_builtins.property
+    @pulumi.getter(name="awsJsonSubstitution")
+    def aws_json_substitution(self) -> Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]:
+        return pulumi.get(self, "aws_json_substitution")
+
+    @aws_json_substitution.setter
+    def aws_json_substitution(self, value: Optional[pulumi.Input['CommandAwsJsonSubstitutionCommandPreprocessorConfigArgs']]):
+        pulumi.set(self, "aws_json_substitution", value)
+
+
+class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
+    allow_authorizer_override: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+    """
+    default_authorizer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the authorization service for a domain configuration.
+    """
 
 @pulumi.input_type
 class DomainConfigurationAuthorizerConfigArgs:
@@ -1287,14 +1451,11 @@ class DomainConfigurationAuthorizerConfigArgs:
         pulumi.set(self, "default_authorizer_name", value)
 
 
-if not MYPY:
-    class DomainConfigurationClientCertificateConfigArgsDict(TypedDict):
-        client_certificate_callback_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-        """
-elif False:
-    DomainConfigurationClientCertificateConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConfigurationClientCertificateConfigArgsDict(TypedDict):
+    client_certificate_callback_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+    """
 
 @pulumi.input_type
 class DomainConfigurationClientCertificateConfigArgs:
@@ -1319,22 +1480,19 @@ class DomainConfigurationClientCertificateConfigArgs:
         pulumi.set(self, "client_certificate_callback_arn", value)
 
 
-if not MYPY:
-    class DomainConfigurationServerCertificateConfigArgsDict(TypedDict):
-        enable_ocsp_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
-        """
-        ocsp_authorized_responder_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
-        """
-        ocsp_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
-        """
-elif False:
-    DomainConfigurationServerCertificateConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConfigurationServerCertificateConfigArgsDict(TypedDict):
+    enable_ocsp_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+    """
+    ocsp_authorized_responder_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
+    """
+    ocsp_lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
+    """
 
 @pulumi.input_type
 class DomainConfigurationServerCertificateConfigArgs:
@@ -1391,14 +1549,11 @@ class DomainConfigurationServerCertificateConfigArgs:
         pulumi.set(self, "ocsp_lambda_arn", value)
 
 
-if not MYPY:
-    class DomainConfigurationTlsConfigArgsDict(TypedDict):
-        security_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
-        """
-elif False:
-    DomainConfigurationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConfigurationTlsConfigArgsDict(TypedDict):
+    security_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
+    """
 
 @pulumi.input_type
 class DomainConfigurationTlsConfigArgs:
@@ -1423,21 +1578,18 @@ class DomainConfigurationTlsConfigArgs:
         pulumi.set(self, "security_policy", value)
 
 
-if not MYPY:
-    class FleetMetricAggregationTypeArgsDict(TypedDict):
-        """
-        Aggregation types supported by Fleet Indexing
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Fleet Indexing aggregation type values
-        """
-elif False:
-    FleetMetricAggregationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class FleetMetricAggregationTypeArgsDict(TypedDict):
+    """
+    Aggregation types supported by Fleet Indexing
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Fleet Indexing aggregation type values
+    """
 
 @pulumi.input_type
 class FleetMetricAggregationTypeArgs:
@@ -1477,17 +1629,14 @@ class FleetMetricAggregationTypeArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class JobExecutionsRetryConfigPropertiesArgsDict(TypedDict):
-        """
-        Allows you to create the criteria to retry a job.
-        """
-        retry_criteria_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgsDict']]]]
-        """
-        The list of criteria that determines how many retries are allowed for each failure type for a job.
-        """
-elif False:
-    JobExecutionsRetryConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class JobExecutionsRetryConfigPropertiesArgsDict(TypedDict):
+    """
+    Allows you to create the criteria to retry a job.
+    """
+    retry_criteria_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgsDict']]]]
+    """
+    The list of criteria that determines how many retries are allowed for each failure type for a job.
+    """
 
 @pulumi.input_type
 class JobExecutionsRetryConfigPropertiesArgs:
@@ -1513,21 +1662,18 @@ class JobExecutionsRetryConfigPropertiesArgs:
         pulumi.set(self, "retry_criteria_list", value)
 
 
-if not MYPY:
-    class JobExecutionsRolloutConfigPropertiesArgsDict(TypedDict):
-        """
-        Allows you to create a staged rollout of a job.
-        """
-        exponential_rollout_rate: NotRequired[pulumi.Input['JobTemplateExponentialRolloutRateArgsDict']]
-        """
-        The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
-        """
-        maximum_per_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
-        """
-elif False:
-    JobExecutionsRolloutConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class JobExecutionsRolloutConfigPropertiesArgsDict(TypedDict):
+    """
+    Allows you to create a staged rollout of a job.
+    """
+    exponential_rollout_rate: NotRequired[pulumi.Input['JobTemplateExponentialRolloutRateArgsDict']]
+    """
+    The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+    """
+    maximum_per_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+    """
 
 @pulumi.input_type
 class JobExecutionsRolloutConfigPropertiesArgs:
@@ -1569,29 +1715,26 @@ class JobExecutionsRolloutConfigPropertiesArgs:
         pulumi.set(self, "maximum_per_minute", value)
 
 
-if not MYPY:
-    class JobTemplateAbortCriteriaArgsDict(TypedDict):
-        """
-        The criteria that determine when and how a job abort takes place.
-        """
-        action: pulumi.Input['JobTemplateAction']
-        """
-        The type of job action to take to initiate the job abort.
-        """
-        failure_type: pulumi.Input['JobTemplateFailureType']
-        """
-        The type of job execution failures that can initiate a job abort.
-        """
-        min_number_of_executed_things: pulumi.Input[_builtins.int]
-        """
-        The minimum number of things which must receive job execution notifications before the job can be aborted.
-        """
-        threshold_percentage: pulumi.Input[_builtins.float]
-        """
-        The minimum percentage of job execution failures that must occur to initiate the job abort.
-        """
-elif False:
-    JobTemplateAbortCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateAbortCriteriaArgsDict(TypedDict):
+    """
+    The criteria that determine when and how a job abort takes place.
+    """
+    action: pulumi.Input['JobTemplateAction']
+    """
+    The type of job action to take to initiate the job abort.
+    """
+    failure_type: pulumi.Input['JobTemplateFailureType']
+    """
+    The type of job execution failures that can initiate a job abort.
+    """
+    min_number_of_executed_things: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things which must receive job execution notifications before the job can be aborted.
+    """
+    threshold_percentage: pulumi.Input[_builtins.float]
+    """
+    The minimum percentage of job execution failures that must occur to initiate the job abort.
+    """
 
 @pulumi.input_type
 class JobTemplateAbortCriteriaArgs:
@@ -1661,25 +1804,22 @@ class JobTemplateAbortCriteriaArgs:
         pulumi.set(self, "threshold_percentage", value)
 
 
-if not MYPY:
-    class JobTemplateExponentialRolloutRateArgsDict(TypedDict):
-        """
-        Allows you to create an exponential rate of rollout for a job.
-        """
-        base_rate_per_minute: pulumi.Input[_builtins.int]
-        """
-        The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
-        """
-        increment_factor: pulumi.Input[_builtins.float]
-        """
-        The exponential factor to increase the rate of rollout for a job.
-        """
-        rate_increase_criteria: pulumi.Input['JobTemplateRateIncreaseCriteriaArgsDict']
-        """
-        The criteria to initiate the increase in rate of rollout for a job.
-        """
-elif False:
-    JobTemplateExponentialRolloutRateArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateExponentialRolloutRateArgsDict(TypedDict):
+    """
+    Allows you to create an exponential rate of rollout for a job.
+    """
+    base_rate_per_minute: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
+    """
+    increment_factor: pulumi.Input[_builtins.float]
+    """
+    The exponential factor to increase the rate of rollout for a job.
+    """
+    rate_increase_criteria: pulumi.Input['JobTemplateRateIncreaseCriteriaArgsDict']
+    """
+    The criteria to initiate the increase in rate of rollout for a job.
+    """
 
 @pulumi.input_type
 class JobTemplateExponentialRolloutRateArgs:
@@ -1734,21 +1874,18 @@ class JobTemplateExponentialRolloutRateArgs:
         pulumi.set(self, "rate_increase_criteria", value)
 
 
-if not MYPY:
-    class JobTemplateMaintenanceWindowArgsDict(TypedDict):
-        """
-        Specifies a start time and duration for a scheduled Job.
-        """
-        duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Displays the duration of the next maintenance window.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Displays the start time of the next maintenance window.
-        """
-elif False:
-    JobTemplateMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateMaintenanceWindowArgsDict(TypedDict):
+    """
+    Specifies a start time and duration for a scheduled Job.
+    """
+    duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Displays the duration of the next maintenance window.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Displays the start time of the next maintenance window.
+    """
 
 @pulumi.input_type
 class JobTemplateMaintenanceWindowArgs:
@@ -1790,18 +1927,15 @@ class JobTemplateMaintenanceWindowArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class JobTemplateRateIncreaseCriteriaArgsDict(TypedDict):
-        number_of_notified_things: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The threshold for number of notified things that will initiate the increase in rate of rollout.
-        """
-        number_of_succeeded_things: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The threshold for number of succeeded things that will initiate the increase in rate of rollout.
-        """
-elif False:
-    JobTemplateRateIncreaseCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateRateIncreaseCriteriaArgsDict(TypedDict):
+    number_of_notified_things: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The threshold for number of notified things that will initiate the increase in rate of rollout.
+    """
+    number_of_succeeded_things: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+    """
 
 @pulumi.input_type
 class JobTemplateRateIncreaseCriteriaArgs:
@@ -1842,21 +1976,18 @@ class JobTemplateRateIncreaseCriteriaArgs:
         pulumi.set(self, "number_of_succeeded_things", value)
 
 
-if not MYPY:
-    class JobTemplateRetryCriteriaArgsDict(TypedDict):
-        """
-        Specifies how many times a failure type should be retried.
-        """
-        failure_type: NotRequired[pulumi.Input['JobTemplateJobRetryFailureType']]
-        """
-        The type of job execution failures that can initiate a job retry.
-        """
-        number_of_retries: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of retries allowed for a failure type for the job.
-        """
-elif False:
-    JobTemplateRetryCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateRetryCriteriaArgsDict(TypedDict):
+    """
+    Specifies how many times a failure type should be retried.
+    """
+    failure_type: NotRequired[pulumi.Input['JobTemplateJobRetryFailureType']]
+    """
+    The type of job execution failures that can initiate a job retry.
+    """
+    number_of_retries: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of retries allowed for a failure type for the job.
+    """
 
 @pulumi.input_type
 class JobTemplateRetryCriteriaArgs:
@@ -1898,21 +2029,90 @@ class JobTemplateRetryCriteriaArgs:
         pulumi.set(self, "number_of_retries", value)
 
 
-if not MYPY:
-    class MetricsExportConfigPropertiesArgsDict(TypedDict):
+class LoggingEventConfigurationArgsDict(TypedDict):
+    """
+    Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+    """
+    event_type: pulumi.Input[_builtins.str]
+    """
+    The type of event to log. These include event types like Connect, Publish, and Disconnect.
+    """
+    log_destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+    """
+    log_level: NotRequired[pulumi.Input['LoggingEventConfigurationLogLevel']]
+    """
+    The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+    """
+
+@pulumi.input_type
+class LoggingEventConfigurationArgs:
+    def __init__(__self__, *,
+                 event_type: pulumi.Input[_builtins.str],
+                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_level: Optional[pulumi.Input['LoggingEventConfigurationLogLevel']] = None):
         """
-        A structure containing the mqtt topic for metrics export.
+        Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+        :param pulumi.Input[_builtins.str] event_type: The type of event to log. These include event types like Connect, Publish, and Disconnect.
+        :param pulumi.Input[_builtins.str] log_destination: CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+        :param pulumi.Input['LoggingEventConfigurationLogLevel'] log_level: The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
         """
-        mqtt_topic: pulumi.Input[_builtins.str]
+        pulumi.set(__self__, "event_type", event_type)
+        if log_destination is not None:
+            pulumi.set(__self__, "log_destination", log_destination)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The topic for metrics export.
+        The type of event to log. These include event types like Connect, Publish, and Disconnect.
         """
-        role_arn: pulumi.Input[_builtins.str]
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the role that grants permission to publish to mqtt topic.
+        CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
         """
-elif False:
-    MetricsExportConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+        return pulumi.get(self, "log_destination")
+
+    @log_destination.setter
+    def log_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[pulumi.Input['LoggingEventConfigurationLogLevel']]:
+        """
+        The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+        """
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: Optional[pulumi.Input['LoggingEventConfigurationLogLevel']]):
+        pulumi.set(self, "log_level", value)
+
+
+class MetricsExportConfigPropertiesArgsDict(TypedDict):
+    """
+    A structure containing the mqtt topic for metrics export.
+    """
+    mqtt_topic: pulumi.Input[_builtins.str]
+    """
+    The topic for metrics export.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants permission to publish to mqtt topic.
+    """
 
 @pulumi.input_type
 class MetricsExportConfigPropertiesArgs:
@@ -1952,37 +2152,34 @@ class MetricsExportConfigPropertiesArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class MitigationActionActionParamsArgsDict(TypedDict):
-        """
-        The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
-        """
-        add_things_to_thing_group_params: NotRequired[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgsDict']]
-        """
-        Specifies the group to which you want to add the devices.
-        """
-        enable_io_t_logging_params: NotRequired[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgsDict']]
-        """
-        Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
-        """
-        publish_finding_to_sns_params: NotRequired[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgsDict']]
-        """
-        Specifies the topic to which the finding should be published.
-        """
-        replace_default_policy_version_params: NotRequired[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgsDict']]
-        """
-        Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
-        """
-        update_ca_certificate_params: NotRequired[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgsDict']]
-        """
-        Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
-        """
-        update_device_certificate_params: NotRequired[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgsDict']]
-        """
-        Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
-        """
-elif False:
-    MitigationActionActionParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionActionParamsArgsDict(TypedDict):
+    """
+    The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
+    """
+    add_things_to_thing_group_params: NotRequired[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgsDict']]
+    """
+    Specifies the group to which you want to add the devices.
+    """
+    enable_io_t_logging_params: NotRequired[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgsDict']]
+    """
+    Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+    """
+    publish_finding_to_sns_params: NotRequired[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgsDict']]
+    """
+    Specifies the topic to which the finding should be published.
+    """
+    replace_default_policy_version_params: NotRequired[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgsDict']]
+    """
+    Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
+    """
+    update_ca_certificate_params: NotRequired[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgsDict']]
+    """
+    Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+    """
+    update_device_certificate_params: NotRequired[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgsDict']]
+    """
+    Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
+    """
 
 @pulumi.input_type
 class MitigationActionActionParamsArgs:
@@ -2088,21 +2285,18 @@ class MitigationActionActionParamsArgs:
         pulumi.set(self, "update_device_certificate_params", value)
 
 
-if not MYPY:
-    class MitigationActionAddThingsToThingGroupParamsArgsDict(TypedDict):
-        """
-        Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
-        """
-        thing_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of groups to which you want to add the things that triggered the mitigation action.
-        """
-        override_dynamic_groups: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
-        """
-elif False:
-    MitigationActionAddThingsToThingGroupParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionAddThingsToThingGroupParamsArgsDict(TypedDict):
+    """
+    Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
+    """
+    thing_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of groups to which you want to add the things that triggered the mitigation action.
+    """
+    override_dynamic_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
+    """
 
 @pulumi.input_type
 class MitigationActionAddThingsToThingGroupParamsArgs:
@@ -2143,21 +2337,18 @@ class MitigationActionAddThingsToThingGroupParamsArgs:
         pulumi.set(self, "override_dynamic_groups", value)
 
 
-if not MYPY:
-    class MitigationActionEnableIoTLoggingParamsArgsDict(TypedDict):
-        """
-        Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
-        """
-        log_level: pulumi.Input['MitigationActionEnableIoTLoggingParamsLogLevel']
-        """
-         Specifies which types of information are logged.
-        """
-        role_arn_for_logging: pulumi.Input[_builtins.str]
-        """
-         The ARN of the IAM role used for logging.
-        """
-elif False:
-    MitigationActionEnableIoTLoggingParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionEnableIoTLoggingParamsArgsDict(TypedDict):
+    """
+    Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
+    """
+    log_level: pulumi.Input['MitigationActionEnableIoTLoggingParamsLogLevel']
+    """
+     Specifies which types of information are logged.
+    """
+    role_arn_for_logging: pulumi.Input[_builtins.str]
+    """
+     The ARN of the IAM role used for logging.
+    """
 
 @pulumi.input_type
 class MitigationActionEnableIoTLoggingParamsArgs:
@@ -2197,17 +2388,14 @@ class MitigationActionEnableIoTLoggingParamsArgs:
         pulumi.set(self, "role_arn_for_logging", value)
 
 
-if not MYPY:
-    class MitigationActionPublishFindingToSnsParamsArgsDict(TypedDict):
-        """
-        Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-        """
-        topic_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the topic to which you want to publish the findings.
-        """
-elif False:
-    MitigationActionPublishFindingToSnsParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionPublishFindingToSnsParamsArgsDict(TypedDict):
+    """
+    Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+    """
+    topic_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the topic to which you want to publish the findings.
+    """
 
 @pulumi.input_type
 class MitigationActionPublishFindingToSnsParamsArgs:
@@ -2232,17 +2420,14 @@ class MitigationActionPublishFindingToSnsParamsArgs:
         pulumi.set(self, "topic_arn", value)
 
 
-if not MYPY:
-    class MitigationActionReplaceDefaultPolicyVersionParamsArgsDict(TypedDict):
-        """
-        Parameters to define a mitigation action that adds a blank policy to restrict permissions.
-        """
-        template_name: pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsTemplateName']
-        """
-        The name of the template to be applied. The only supported value is `BLANK_POLICY` .
-        """
-elif False:
-    MitigationActionReplaceDefaultPolicyVersionParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionReplaceDefaultPolicyVersionParamsArgsDict(TypedDict):
+    """
+    Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+    """
+    template_name: pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsTemplateName']
+    """
+    The name of the template to be applied. The only supported value is `BLANK_POLICY` .
+    """
 
 @pulumi.input_type
 class MitigationActionReplaceDefaultPolicyVersionParamsArgs:
@@ -2267,17 +2452,14 @@ class MitigationActionReplaceDefaultPolicyVersionParamsArgs:
         pulumi.set(self, "template_name", value)
 
 
-if not MYPY:
-    class MitigationActionUpdateCaCertificateParamsArgsDict(TypedDict):
-        """
-        Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-        """
-        action: pulumi.Input['MitigationActionUpdateCaCertificateParamsAction']
-        """
-        The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
-        """
-elif False:
-    MitigationActionUpdateCaCertificateParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionUpdateCaCertificateParamsArgsDict(TypedDict):
+    """
+    Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+    """
+    action: pulumi.Input['MitigationActionUpdateCaCertificateParamsAction']
+    """
+    The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
+    """
 
 @pulumi.input_type
 class MitigationActionUpdateCaCertificateParamsArgs:
@@ -2302,17 +2484,14 @@ class MitigationActionUpdateCaCertificateParamsArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class MitigationActionUpdateDeviceCertificateParamsArgsDict(TypedDict):
-        """
-        Parameters to define a mitigation action that changes the state of the device certificate to inactive.
-        """
-        action: pulumi.Input['MitigationActionUpdateDeviceCertificateParamsAction']
-        """
-        The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
-        """
-elif False:
-    MitigationActionUpdateDeviceCertificateParamsArgsDict: TypeAlias = Mapping[str, Any]
+class MitigationActionUpdateDeviceCertificateParamsArgsDict(TypedDict):
+    """
+    Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+    """
+    action: pulumi.Input['MitigationActionUpdateDeviceCertificateParamsAction']
+    """
+    The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
+    """
 
 @pulumi.input_type
 class MitigationActionUpdateDeviceCertificateParamsArgs:
@@ -2337,23 +2516,20 @@ class MitigationActionUpdateDeviceCertificateParamsArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class PresignedUrlConfigPropertiesArgsDict(TypedDict):
-        """
-        Configuration for pre-signed S3 URLs.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+class PresignedUrlConfigPropertiesArgsDict(TypedDict):
+    """
+    Configuration for pre-signed S3 URLs.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
 
-        > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
-        """
-        expires_in_sec: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
-        """
-elif False:
-    PresignedUrlConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
+    """
+    expires_in_sec: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
+    """
 
 @pulumi.input_type
 class PresignedUrlConfigPropertiesArgs:
@@ -2398,18 +2574,15 @@ class PresignedUrlConfigPropertiesArgs:
         pulumi.set(self, "expires_in_sec", value)
 
 
-if not MYPY:
-    class ProvisioningTemplateProvisioningHookArgsDict(TypedDict):
-        payload_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
-        """
-        target_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the target function.
-        """
-elif False:
-    ProvisioningTemplateProvisioningHookArgsDict: TypeAlias = Mapping[str, Any]
+class ProvisioningTemplateProvisioningHookArgsDict(TypedDict):
+    payload_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
+    """
+    target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the target function.
+    """
 
 @pulumi.input_type
 class ProvisioningTemplateProvisioningHookArgs:
@@ -2450,21 +2623,18 @@ class ProvisioningTemplateProvisioningHookArgs:
         pulumi.set(self, "target_arn", value)
 
 
-if not MYPY:
-    class SecurityProfileAlertTargetArgsDict(TypedDict):
-        """
-        A structure containing the alert target ARN and the role ARN.
-        """
-        alert_target_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the notification target to which alerts are sent.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants permission to send alerts to the notification target.
-        """
-elif False:
-    SecurityProfileAlertTargetArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileAlertTargetArgsDict(TypedDict):
+    """
+    A structure containing the alert target ARN and the role ARN.
+    """
+    alert_target_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the notification target to which alerts are sent.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants permission to send alerts to the notification target.
+    """
 
 @pulumi.input_type
 class SecurityProfileAlertTargetArgs:
@@ -2504,41 +2674,38 @@ class SecurityProfileAlertTargetArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class SecurityProfileBehaviorCriteriaArgsDict(TypedDict):
-        """
-        The criteria by which the behavior is determined to be normal.
-        """
-        comparison_operator: NotRequired[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']]
-        """
-        The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
-        """
-        consecutive_datapoints_to_alarm: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
-        """
-        consecutive_datapoints_to_clear: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
-        """
-        duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Use this to specify the time duration over which the behavior is evaluated.
-        """
-        ml_detection_config: NotRequired[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgsDict']]
-        """
-        The confidence level of the detection model.
-        """
-        statistical_threshold: NotRequired[pulumi.Input['SecurityProfileStatisticalThresholdArgsDict']]
-        """
-        A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-        """
-        value: NotRequired[pulumi.Input['SecurityProfileMetricValueArgsDict']]
-        """
-        The value to be compared with the `metric` .
-        """
-elif False:
-    SecurityProfileBehaviorCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileBehaviorCriteriaArgsDict(TypedDict):
+    """
+    The criteria by which the behavior is determined to be normal.
+    """
+    comparison_operator: NotRequired[pulumi.Input['SecurityProfileBehaviorCriteriaComparisonOperator']]
+    """
+    The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
+    """
+    consecutive_datapoints_to_alarm: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
+    """
+    consecutive_datapoints_to_clear: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
+    """
+    duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Use this to specify the time duration over which the behavior is evaluated.
+    """
+    ml_detection_config: NotRequired[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgsDict']]
+    """
+    The confidence level of the detection model.
+    """
+    statistical_threshold: NotRequired[pulumi.Input['SecurityProfileStatisticalThresholdArgsDict']]
+    """
+    A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+    """
+    value: NotRequired[pulumi.Input['SecurityProfileMetricValueArgsDict']]
+    """
+    The value to be compared with the `metric` .
+    """
 
 @pulumi.input_type
 class SecurityProfileBehaviorCriteriaArgs:
@@ -2660,39 +2827,36 @@ class SecurityProfileBehaviorCriteriaArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SecurityProfileBehaviorArgsDict(TypedDict):
-        """
-        A security profile behavior.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name for the behavior.
-        """
-        criteria: NotRequired[pulumi.Input['SecurityProfileBehaviorCriteriaArgsDict']]
-        """
-        The criteria that determine if a device is behaving normally in regard to the `metric` .
+class SecurityProfileBehaviorArgsDict(TypedDict):
+    """
+    A security profile behavior.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name for the behavior.
+    """
+    criteria: NotRequired[pulumi.Input['SecurityProfileBehaviorCriteriaArgsDict']]
+    """
+    The criteria that determine if a device is behaving normally in regard to the `metric` .
 
-        > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
-        """
-        export_metric: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Value indicates exporting metrics related to the behavior when it is true.
-        """
-        metric: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        What is measured by the behavior.
-        """
-        metric_dimension: NotRequired[pulumi.Input['SecurityProfileMetricDimensionArgsDict']]
-        """
-        The dimension of the metric.
-        """
-        suppress_alerts: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
-        """
-elif False:
-    SecurityProfileBehaviorArgsDict: TypeAlias = Mapping[str, Any]
+    > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
+    """
+    export_metric: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Value indicates exporting metrics related to the behavior when it is true.
+    """
+    metric: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    What is measured by the behavior.
+    """
+    metric_dimension: NotRequired[pulumi.Input['SecurityProfileMetricDimensionArgsDict']]
+    """
+    The dimension of the metric.
+    """
+    suppress_alerts: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
+    """
 
 @pulumi.input_type
 class SecurityProfileBehaviorArgs:
@@ -2801,17 +2965,14 @@ class SecurityProfileBehaviorArgs:
         pulumi.set(self, "suppress_alerts", value)
 
 
-if not MYPY:
-    class SecurityProfileMachineLearningDetectionConfigArgsDict(TypedDict):
-        """
-        The configuration of an ML Detect Security Profile.
-        """
-        confidence_level: NotRequired[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]
-        """
-        The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
-        """
-elif False:
-    SecurityProfileMachineLearningDetectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileMachineLearningDetectionConfigArgsDict(TypedDict):
+    """
+    The configuration of an ML Detect Security Profile.
+    """
+    confidence_level: NotRequired[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']]
+    """
+    The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
+    """
 
 @pulumi.input_type
 class SecurityProfileMachineLearningDetectionConfigArgs:
@@ -2837,21 +2998,18 @@ class SecurityProfileMachineLearningDetectionConfigArgs:
         pulumi.set(self, "confidence_level", value)
 
 
-if not MYPY:
-    class SecurityProfileMetricDimensionArgsDict(TypedDict):
-        """
-        The dimension of a metric.
-        """
-        dimension_name: pulumi.Input[_builtins.str]
-        """
-        A unique identifier for the dimension.
-        """
-        operator: NotRequired[pulumi.Input['SecurityProfileMetricDimensionOperator']]
-        """
-        Defines how the dimensionValues of a dimension are interpreted.
-        """
-elif False:
-    SecurityProfileMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileMetricDimensionArgsDict(TypedDict):
+    """
+    The dimension of a metric.
+    """
+    dimension_name: pulumi.Input[_builtins.str]
+    """
+    A unique identifier for the dimension.
+    """
+    operator: NotRequired[pulumi.Input['SecurityProfileMetricDimensionOperator']]
+    """
+    Defines how the dimensionValues of a dimension are interpreted.
+    """
 
 @pulumi.input_type
 class SecurityProfileMetricDimensionArgs:
@@ -2892,25 +3050,22 @@ class SecurityProfileMetricDimensionArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class SecurityProfileMetricToRetainArgsDict(TypedDict):
-        """
-        The metric you want to retain. Dimensions are optional.
-        """
-        metric: pulumi.Input[_builtins.str]
-        """
-        What is measured by the behavior.
-        """
-        export_metric: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value indicates exporting metrics related to the `MetricToRetain` when it's true.
-        """
-        metric_dimension: NotRequired[pulumi.Input['SecurityProfileMetricDimensionArgsDict']]
-        """
-        The dimension of the metric.
-        """
-elif False:
-    SecurityProfileMetricToRetainArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileMetricToRetainArgsDict(TypedDict):
+    """
+    The metric you want to retain. Dimensions are optional.
+    """
+    metric: pulumi.Input[_builtins.str]
+    """
+    What is measured by the behavior.
+    """
+    export_metric: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value indicates exporting metrics related to the `MetricToRetain` when it's true.
+    """
+    metric_dimension: NotRequired[pulumi.Input['SecurityProfileMetricDimensionArgsDict']]
+    """
+    The dimension of the metric.
+    """
 
 @pulumi.input_type
 class SecurityProfileMetricToRetainArgs:
@@ -2967,37 +3122,34 @@ class SecurityProfileMetricToRetainArgs:
         pulumi.set(self, "metric_dimension", value)
 
 
-if not MYPY:
-    class SecurityProfileMetricValueArgsDict(TypedDict):
-        """
-        The value to be compared with the metric.
-        """
-        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
-        """
-        count: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
-        """
-        number: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The numeral value of a metric.
-        """
-        numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
-        """
-        The numeral values of a metric.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
-        """
-        strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The string values of a metric.
-        """
-elif False:
-    SecurityProfileMetricValueArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileMetricValueArgsDict(TypedDict):
+    """
+    The value to be compared with the metric.
+    """
+    cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
+    """
+    count: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
+    """
+    number: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The numeral value of a metric.
+    """
+    numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    """
+    The numeral values of a metric.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
+    """
+    strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The string values of a metric.
+    """
 
 @pulumi.input_type
 class SecurityProfileMetricValueArgs:
@@ -3103,17 +3255,14 @@ class SecurityProfileMetricValueArgs:
         pulumi.set(self, "strings", value)
 
 
-if not MYPY:
-    class SecurityProfileStatisticalThresholdArgsDict(TypedDict):
-        """
-        A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-        """
-        statistic: NotRequired[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']]
-        """
-        The percentile which resolves to a threshold value by which compliance with a behavior is determined
-        """
-elif False:
-    SecurityProfileStatisticalThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileStatisticalThresholdArgsDict(TypedDict):
+    """
+    A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+    """
+    statistic: NotRequired[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']]
+    """
+    The percentile which resolves to a threshold value by which compliance with a behavior is determined
+    """
 
 @pulumi.input_type
 class SecurityProfileStatisticalThresholdArgs:
@@ -3139,14 +3288,11 @@ class SecurityProfileStatisticalThresholdArgs:
         pulumi.set(self, "statistic", value)
 
 
-if not MYPY:
-    class SoftwarePackageVersionPackageVersionArtifactArgsDict(TypedDict):
-        """
-        The artifact location of the package version
-        """
-        s3_location: pulumi.Input['SoftwarePackageVersionS3LocationArgsDict']
-elif False:
-    SoftwarePackageVersionPackageVersionArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class SoftwarePackageVersionPackageVersionArtifactArgsDict(TypedDict):
+    """
+    The artifact location of the package version
+    """
+    s3_location: pulumi.Input['SoftwarePackageVersionS3LocationArgsDict']
 
 @pulumi.input_type
 class SoftwarePackageVersionPackageVersionArtifactArgs:
@@ -3167,25 +3313,22 @@ class SoftwarePackageVersionPackageVersionArtifactArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class SoftwarePackageVersionS3LocationArgsDict(TypedDict):
-        """
-        The Amazon S3 location
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The S3 key
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The S3 version
-        """
-elif False:
-    SoftwarePackageVersionS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class SoftwarePackageVersionS3LocationArgsDict(TypedDict):
+    """
+    The Amazon S3 location
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The S3 key
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The S3 version
+    """
 
 @pulumi.input_type
 class SoftwarePackageVersionS3LocationArgs:
@@ -3240,14 +3383,11 @@ class SoftwarePackageVersionS3LocationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SoftwarePackageVersionSbomArgsDict(TypedDict):
-        """
-        The sbom zip archive location of the package version
-        """
-        s3_location: pulumi.Input['SoftwarePackageVersionS3LocationArgsDict']
-elif False:
-    SoftwarePackageVersionSbomArgsDict: TypeAlias = Mapping[str, Any]
+class SoftwarePackageVersionSbomArgsDict(TypedDict):
+    """
+    The sbom zip archive location of the package version
+    """
+    s3_location: pulumi.Input['SoftwarePackageVersionS3LocationArgsDict']
 
 @pulumi.input_type
 class SoftwarePackageVersionSbomArgs:
@@ -3268,16 +3408,13 @@ class SoftwarePackageVersionSbomArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class ThingAttributePayloadArgsDict(TypedDict):
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A JSON string containing up to three key-value pair in JSON format. For example:
+class ThingAttributePayloadArgsDict(TypedDict):
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A JSON string containing up to three key-value pair in JSON format. For example:
 
-        `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
-        """
-elif False:
-    ThingAttributePayloadArgsDict: TypeAlias = Mapping[str, Any]
+    `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
+    """
 
 @pulumi.input_type
 class ThingAttributePayloadArgs:
@@ -3306,16 +3443,13 @@ class ThingAttributePayloadArgs:
         pulumi.set(self, "attributes", value)
 
 
-if not MYPY:
-    class ThingGroupAttributePayloadArgsDict(TypedDict):
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A JSON string containing up to three key-value pair in JSON format. For example:
+class ThingGroupAttributePayloadArgsDict(TypedDict):
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A JSON string containing up to three key-value pair in JSON format. For example:
 
-        `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
-        """
-elif False:
-    ThingGroupAttributePayloadArgsDict: TypeAlias = Mapping[str, Any]
+    `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
+    """
 
 @pulumi.input_type
 class ThingGroupAttributePayloadArgs:
@@ -3344,21 +3478,18 @@ class ThingGroupAttributePayloadArgs:
         pulumi.set(self, "attributes", value)
 
 
-if not MYPY:
-    class ThingGroupPropertiesPropertiesArgsDict(TypedDict):
-        """
-        Thing group properties.
-        """
-        attribute_payload: NotRequired[pulumi.Input['ThingGroupAttributePayloadArgsDict']]
-        """
-        The thing group attributes in JSON format.
-        """
-        thing_group_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thing group description.
-        """
-elif False:
-    ThingGroupPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ThingGroupPropertiesPropertiesArgsDict(TypedDict):
+    """
+    Thing group properties.
+    """
+    attribute_payload: NotRequired[pulumi.Input['ThingGroupAttributePayloadArgsDict']]
+    """
+    The thing group attributes in JSON format.
+    """
+    thing_group_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thing group description.
+    """
 
 @pulumi.input_type
 class ThingGroupPropertiesPropertiesArgs:
@@ -3400,22 +3531,19 @@ class ThingGroupPropertiesPropertiesArgs:
         pulumi.set(self, "thing_group_description", value)
 
 
-if not MYPY:
-    class ThingTypePropagatingAttributeArgsDict(TypedDict):
-        user_property_key: pulumi.Input[_builtins.str]
-        """
-        The key of the MQTT 5 user property, which is a key-value pair.
-        """
-        connection_attribute: NotRequired[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]
-        """
-        The attribute associated with the connection details.
-        """
-        thing_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thing attribute that is propagating for MQTT 5 message enrichment.
-        """
-elif False:
-    ThingTypePropagatingAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class ThingTypePropagatingAttributeArgsDict(TypedDict):
+    user_property_key: pulumi.Input[_builtins.str]
+    """
+    The key of the MQTT 5 user property, which is a key-value pair.
+    """
+    connection_attribute: NotRequired[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]
+    """
+    The attribute associated with the connection details.
+    """
+    thing_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thing attribute that is propagating for MQTT 5 message enrichment.
+    """
 
 @pulumi.input_type
 class ThingTypePropagatingAttributeArgs:
@@ -3471,14 +3599,11 @@ class ThingTypePropagatingAttributeArgs:
         pulumi.set(self, "thing_attribute", value)
 
 
-if not MYPY:
-    class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration to add user-defined properties to enrich MQTT 5 messages.
-        """
-        propagating_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgsDict']]]]
-elif False:
-    ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The configuration to add user-defined properties to enrich MQTT 5 messages.
+    """
+    propagating_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgsDict']]]]
 
 @pulumi.input_type
 class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
@@ -3500,25 +3625,22 @@ class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
         pulumi.set(self, "propagating_attributes", value)
 
 
-if not MYPY:
-    class ThingTypePropertiesPropertiesArgsDict(TypedDict):
-        """
-        The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
-        """
-        mqtt5_configuration: NotRequired[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict']]
-        """
-        The configuration to add user-defined properties to enrich MQTT 5 messages.
-        """
-        searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of searchable thing attribute names.
-        """
-        thing_type_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the thing type.
-        """
-elif False:
-    ThingTypePropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ThingTypePropertiesPropertiesArgsDict(TypedDict):
+    """
+    The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
+    """
+    mqtt5_configuration: NotRequired[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict']]
+    """
+    The configuration to add user-defined properties to enrich MQTT 5 messages.
+    """
+    searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of searchable thing attribute names.
+    """
+    thing_type_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the thing type.
+    """
 
 @pulumi.input_type
 class ThingTypePropertiesPropertiesArgs:
@@ -3576,17 +3698,14 @@ class ThingTypePropertiesPropertiesArgs:
         pulumi.set(self, "thing_type_description", value)
 
 
-if not MYPY:
-    class TimeoutConfigPropertiesArgsDict(TypedDict):
-        """
-        Specifies the amount of time each device has to finish its execution of the job.
-        """
-        in_progress_timeout_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
-        """
-elif False:
-    TimeoutConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TimeoutConfigPropertiesArgsDict(TypedDict):
+    """
+    Specifies the amount of time each device has to finish its execution of the job.
+    """
+    in_progress_timeout_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
+    """
 
 @pulumi.input_type
 class TimeoutConfigPropertiesArgs:
@@ -3611,100 +3730,97 @@ class TimeoutConfigPropertiesArgs:
         pulumi.set(self, "in_progress_timeout_in_minutes", value)
 
 
-if not MYPY:
-    class TopicRuleActionArgsDict(TypedDict):
-        cloudwatch_alarm: NotRequired[pulumi.Input['TopicRuleCloudwatchAlarmActionArgsDict']]
-        """
-        Change the state of a CloudWatch alarm.
-        """
-        cloudwatch_logs: NotRequired[pulumi.Input['TopicRuleCloudwatchLogsActionArgsDict']]
-        """
-        Sends data to CloudWatch.
-        """
-        cloudwatch_metric: NotRequired[pulumi.Input['TopicRuleCloudwatchMetricActionArgsDict']]
-        """
-        Capture a CloudWatch metric.
-        """
-        dynamo_d_bv2: NotRequired[pulumi.Input['TopicRuleDynamoDBv2ActionArgsDict']]
-        """
-        Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
-        """
-        dynamo_db: NotRequired[pulumi.Input['TopicRuleDynamoDbActionArgsDict']]
-        """
-        Write to a DynamoDB table.
-        """
-        elasticsearch: NotRequired[pulumi.Input['TopicRuleElasticsearchActionArgsDict']]
-        """
-        Write data to an Amazon OpenSearch Service domain.
+class TopicRuleActionArgsDict(TypedDict):
+    cloudwatch_alarm: NotRequired[pulumi.Input['TopicRuleCloudwatchAlarmActionArgsDict']]
+    """
+    Change the state of a CloudWatch alarm.
+    """
+    cloudwatch_logs: NotRequired[pulumi.Input['TopicRuleCloudwatchLogsActionArgsDict']]
+    """
+    Sends data to CloudWatch.
+    """
+    cloudwatch_metric: NotRequired[pulumi.Input['TopicRuleCloudwatchMetricActionArgsDict']]
+    """
+    Capture a CloudWatch metric.
+    """
+    dynamo_d_bv2: NotRequired[pulumi.Input['TopicRuleDynamoDBv2ActionArgsDict']]
+    """
+    Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+    """
+    dynamo_db: NotRequired[pulumi.Input['TopicRuleDynamoDbActionArgsDict']]
+    """
+    Write to a DynamoDB table.
+    """
+    elasticsearch: NotRequired[pulumi.Input['TopicRuleElasticsearchActionArgsDict']]
+    """
+    Write data to an Amazon OpenSearch Service domain.
 
-        > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
-        """
-        firehose: NotRequired[pulumi.Input['TopicRuleFirehoseActionArgsDict']]
-        """
-        Write to an Amazon Kinesis Firehose stream.
-        """
-        http: NotRequired[pulumi.Input['TopicRuleHttpActionArgsDict']]
-        """
-        Send data to an HTTPS endpoint.
-        """
-        iot_analytics: NotRequired[pulumi.Input['TopicRuleIotAnalyticsActionArgsDict']]
-        """
-        Sends message data to an AWS IoT Analytics channel.
-        """
-        iot_events: NotRequired[pulumi.Input['TopicRuleIotEventsActionArgsDict']]
-        """
-        Sends an input to an AWS IoT Events detector.
-        """
-        iot_site_wise: NotRequired[pulumi.Input['TopicRuleIotSiteWiseActionArgsDict']]
-        """
-        Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
-        """
-        kafka: NotRequired[pulumi.Input['TopicRuleKafkaActionArgsDict']]
-        """
-        Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
-        """
-        kinesis: NotRequired[pulumi.Input['TopicRuleKinesisActionArgsDict']]
-        """
-        Write data to an Amazon Kinesis stream.
-        """
-        lambda_: NotRequired[pulumi.Input['TopicRuleLambdaActionArgsDict']]
-        """
-        Invoke a Lambda function.
-        """
-        location: NotRequired[pulumi.Input['TopicRuleLocationActionArgsDict']]
-        """
-        Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
-        """
-        open_search: NotRequired[pulumi.Input['TopicRuleOpenSearchActionArgsDict']]
-        """
-        Write data to an Amazon OpenSearch Service domain.
-        """
-        republish: NotRequired[pulumi.Input['TopicRuleRepublishActionArgsDict']]
-        """
-        Publish to another MQTT topic.
-        """
-        s3: NotRequired[pulumi.Input['TopicRuleS3ActionArgsDict']]
-        """
-        Write to an Amazon S3 bucket.
-        """
-        sns: NotRequired[pulumi.Input['TopicRuleSnsActionArgsDict']]
-        """
-        Publish to an Amazon SNS topic.
-        """
-        sqs: NotRequired[pulumi.Input['TopicRuleSqsActionArgsDict']]
-        """
-        Publish to an Amazon SQS queue.
-        """
-        step_functions: NotRequired[pulumi.Input['TopicRuleStepFunctionsActionArgsDict']]
-        """
-        Starts execution of a Step Functions state machine.
-        """
-        timestream: NotRequired[pulumi.Input['TopicRuleTimestreamActionArgsDict']]
-        """
-        Writes attributes from an MQTT message.
-        """
-elif False:
-    TopicRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+    > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
+    """
+    firehose: NotRequired[pulumi.Input['TopicRuleFirehoseActionArgsDict']]
+    """
+    Write to an Amazon Kinesis Firehose stream.
+    """
+    http: NotRequired[pulumi.Input['TopicRuleHttpActionArgsDict']]
+    """
+    Send data to an HTTPS endpoint.
+    """
+    iot_analytics: NotRequired[pulumi.Input['TopicRuleIotAnalyticsActionArgsDict']]
+    """
+    Sends message data to an AWS IoT Analytics channel.
+    """
+    iot_events: NotRequired[pulumi.Input['TopicRuleIotEventsActionArgsDict']]
+    """
+    Sends an input to an AWS IoT Events detector.
+    """
+    iot_site_wise: NotRequired[pulumi.Input['TopicRuleIotSiteWiseActionArgsDict']]
+    """
+    Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+    """
+    kafka: NotRequired[pulumi.Input['TopicRuleKafkaActionArgsDict']]
+    """
+    Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+    """
+    kinesis: NotRequired[pulumi.Input['TopicRuleKinesisActionArgsDict']]
+    """
+    Write data to an Amazon Kinesis stream.
+    """
+    lambda_: NotRequired[pulumi.Input['TopicRuleLambdaActionArgsDict']]
+    """
+    Invoke a Lambda function.
+    """
+    location: NotRequired[pulumi.Input['TopicRuleLocationActionArgsDict']]
+    """
+    Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+    """
+    open_search: NotRequired[pulumi.Input['TopicRuleOpenSearchActionArgsDict']]
+    """
+    Write data to an Amazon OpenSearch Service domain.
+    """
+    republish: NotRequired[pulumi.Input['TopicRuleRepublishActionArgsDict']]
+    """
+    Publish to another MQTT topic.
+    """
+    s3: NotRequired[pulumi.Input['TopicRuleS3ActionArgsDict']]
+    """
+    Write to an Amazon S3 bucket.
+    """
+    sns: NotRequired[pulumi.Input['TopicRuleSnsActionArgsDict']]
+    """
+    Publish to an Amazon SNS topic.
+    """
+    sqs: NotRequired[pulumi.Input['TopicRuleSqsActionArgsDict']]
+    """
+    Publish to an Amazon SQS queue.
+    """
+    step_functions: NotRequired[pulumi.Input['TopicRuleStepFunctionsActionArgsDict']]
+    """
+    Starts execution of a Step Functions state machine.
+    """
+    timestream: NotRequired[pulumi.Input['TopicRuleTimestreamActionArgsDict']]
+    """
+    Writes attributes from an MQTT message.
+    """
 
 @pulumi.input_type
 class TopicRuleActionArgs:
@@ -4069,18 +4185,15 @@ class TopicRuleActionArgs:
         pulumi.set(self, "timestream", value)
 
 
-if not MYPY:
-    class TopicRuleAssetPropertyTimestampArgsDict(TypedDict):
-        time_in_seconds: pulumi.Input[_builtins.str]
-        """
-        A string that contains the time in seconds since epoch. Accepts substitution templates.
-        """
-        offset_in_nanos: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
-        """
-elif False:
-    TopicRuleAssetPropertyTimestampArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleAssetPropertyTimestampArgsDict(TypedDict):
+    time_in_seconds: pulumi.Input[_builtins.str]
+    """
+    A string that contains the time in seconds since epoch. Accepts substitution templates.
+    """
+    offset_in_nanos: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+    """
 
 @pulumi.input_type
 class TopicRuleAssetPropertyTimestampArgs:
@@ -4120,22 +4233,19 @@ class TopicRuleAssetPropertyTimestampArgs:
         pulumi.set(self, "offset_in_nanos", value)
 
 
-if not MYPY:
-    class TopicRuleAssetPropertyValueArgsDict(TypedDict):
-        timestamp: pulumi.Input['TopicRuleAssetPropertyTimestampArgsDict']
-        """
-        The asset property value timestamp.
-        """
-        value: pulumi.Input['TopicRuleAssetPropertyVariantArgsDict']
-        """
-        The value of the asset property.
-        """
-        quality: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
-        """
-elif False:
-    TopicRuleAssetPropertyValueArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleAssetPropertyValueArgsDict(TypedDict):
+    timestamp: pulumi.Input['TopicRuleAssetPropertyTimestampArgsDict']
+    """
+    The asset property value timestamp.
+    """
+    value: pulumi.Input['TopicRuleAssetPropertyVariantArgsDict']
+    """
+    The value of the asset property.
+    """
+    quality: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+    """
 
 @pulumi.input_type
 class TopicRuleAssetPropertyValueArgs:
@@ -4190,26 +4300,23 @@ class TopicRuleAssetPropertyValueArgs:
         pulumi.set(self, "quality", value)
 
 
-if not MYPY:
-    class TopicRuleAssetPropertyVariantArgsDict(TypedDict):
-        boolean_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
-        """
-        double_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. A string that contains the double value of the value entry. Accepts substitution templates.
-        """
-        integer_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
-        """
-        string_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. The string value of the value entry. Accepts substitution templates.
-        """
-elif False:
-    TopicRuleAssetPropertyVariantArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleAssetPropertyVariantArgsDict(TypedDict):
+    boolean_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
+    """
+    double_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+    """
+    integer_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+    """
+    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. The string value of the value entry. Accepts substitution templates.
+    """
 
 @pulumi.input_type
 class TopicRuleAssetPropertyVariantArgs:
@@ -4282,13 +4389,10 @@ class TopicRuleAssetPropertyVariantArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class TopicRuleBatchConfigArgsDict(TypedDict):
-        max_batch_open_ms: NotRequired[pulumi.Input[_builtins.int]]
-        max_batch_size: NotRequired[pulumi.Input[_builtins.int]]
-        max_batch_size_bytes: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    TopicRuleBatchConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleBatchConfigArgsDict(TypedDict):
+    max_batch_open_ms: NotRequired[pulumi.Input[_builtins.int]]
+    max_batch_size: NotRequired[pulumi.Input[_builtins.int]]
+    max_batch_size_bytes: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class TopicRuleBatchConfigArgs:
@@ -4331,26 +4435,23 @@ class TopicRuleBatchConfigArgs:
         pulumi.set(self, "max_batch_size_bytes", value)
 
 
-if not MYPY:
-    class TopicRuleCloudwatchAlarmActionArgsDict(TypedDict):
-        alarm_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch alarm name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role that allows access to the CloudWatch alarm.
-        """
-        state_reason: pulumi.Input[_builtins.str]
-        """
-        The reason for the alarm change.
-        """
-        state_value: pulumi.Input[_builtins.str]
-        """
-        The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        """
-elif False:
-    TopicRuleCloudwatchAlarmActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleCloudwatchAlarmActionArgsDict(TypedDict):
+    alarm_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch alarm name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role that allows access to the CloudWatch alarm.
+    """
+    state_reason: pulumi.Input[_builtins.str]
+    """
+    The reason for the alarm change.
+    """
+    state_value: pulumi.Input[_builtins.str]
+    """
+    The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+    """
 
 @pulumi.input_type
 class TopicRuleCloudwatchAlarmActionArgs:
@@ -4419,22 +4520,19 @@ class TopicRuleCloudwatchAlarmActionArgs:
         pulumi.set(self, "state_value", value)
 
 
-if not MYPY:
-    class TopicRuleCloudwatchLogsActionArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch log name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role that allows access to the CloudWatch log.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
-        """
-elif False:
-    TopicRuleCloudwatchLogsActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleCloudwatchLogsActionArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch log name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role that allows access to the CloudWatch log.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+    """
 
 @pulumi.input_type
 class TopicRuleCloudwatchLogsActionArgs:
@@ -4489,34 +4587,31 @@ class TopicRuleCloudwatchLogsActionArgs:
         pulumi.set(self, "batch_mode", value)
 
 
-if not MYPY:
-    class TopicRuleCloudwatchMetricActionArgsDict(TypedDict):
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric name.
-        """
-        metric_namespace: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric namespace name.
-        """
-        metric_unit: pulumi.Input[_builtins.str]
-        """
-        The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
-        """
-        metric_value: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric value.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role that allows access to the CloudWatch metric.
-        """
-        metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
-        """
-elif False:
-    TopicRuleCloudwatchMetricActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleCloudwatchMetricActionArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric name.
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric namespace name.
+    """
+    metric_unit: pulumi.Input[_builtins.str]
+    """
+    The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
+    """
+    metric_value: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric value.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role that allows access to the CloudWatch metric.
+    """
+    metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
+    """
 
 @pulumi.input_type
 class TopicRuleCloudwatchMetricActionArgs:
@@ -4616,14 +4711,11 @@ class TopicRuleCloudwatchMetricActionArgs:
         pulumi.set(self, "metric_timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleDestinationHttpUrlDestinationSummaryArgsDict(TypedDict):
-        confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL used to confirm the HTTP topic rule destination URL.
-        """
-elif False:
-    TopicRuleDestinationHttpUrlDestinationSummaryArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDestinationHttpUrlDestinationSummaryArgsDict(TypedDict):
+    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL used to confirm the HTTP topic rule destination URL.
+    """
 
 @pulumi.input_type
 class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
@@ -4648,26 +4740,23 @@ class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
         pulumi.set(self, "confirmation_url", value)
 
 
-if not MYPY:
-    class TopicRuleDestinationVpcDestinationPropertiesArgsDict(TypedDict):
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The security groups of the VPC destination.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The subnet IDs of the VPC destination.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the VPC.
-        """
-elif False:
-    TopicRuleDestinationVpcDestinationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDestinationVpcDestinationPropertiesArgsDict(TypedDict):
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The security groups of the VPC destination.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The subnet IDs of the VPC destination.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the VPC.
+    """
 
 @pulumi.input_type
 class TopicRuleDestinationVpcDestinationPropertiesArgs:
@@ -4740,22 +4829,19 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class TopicRuleDynamoDBv2ActionArgsDict(TypedDict):
-        put_item: NotRequired[pulumi.Input['TopicRulePutItemInputArgsDict']]
-        """
-        Specifies the DynamoDB table to which the message data will be written. For example:
+class TopicRuleDynamoDBv2ActionArgsDict(TypedDict):
+    put_item: NotRequired[pulumi.Input['TopicRulePutItemInputArgsDict']]
+    """
+    Specifies the DynamoDB table to which the message data will be written. For example:
 
-        `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+    `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
 
-        Each attribute in the message payload will be written to a separate column in the DynamoDB database.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role that grants access to the DynamoDB table.
-        """
-elif False:
-    TopicRuleDynamoDBv2ActionArgsDict: TypeAlias = Mapping[str, Any]
+    Each attribute in the message payload will be written to a separate column in the DynamoDB database.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM role that grants access to the DynamoDB table.
+    """
 
 @pulumi.input_type
 class TopicRuleDynamoDBv2ActionArgs:
@@ -4804,46 +4890,43 @@ class TopicRuleDynamoDBv2ActionArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class TopicRuleDynamoDbActionArgsDict(TypedDict):
-        hash_key_field: pulumi.Input[_builtins.str]
-        """
-        The hash key name.
-        """
-        hash_key_value: pulumi.Input[_builtins.str]
-        """
-        The hash key value.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the DynamoDB table.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the DynamoDB table.
-        """
-        hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hash key type. Valid values are "STRING" or "NUMBER"
-        """
-        payload_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action payload. This name can be customized.
-        """
-        range_key_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key name.
-        """
-        range_key_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key type. Valid values are "STRING" or "NUMBER"
-        """
-        range_key_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key value.
-        """
-elif False:
-    TopicRuleDynamoDbActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDynamoDbActionArgsDict(TypedDict):
+    hash_key_field: pulumi.Input[_builtins.str]
+    """
+    The hash key name.
+    """
+    hash_key_value: pulumi.Input[_builtins.str]
+    """
+    The hash key value.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the DynamoDB table.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the DynamoDB table.
+    """
+    hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hash key type. Valid values are "STRING" or "NUMBER"
+    """
+    payload_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action payload. This name can be customized.
+    """
+    range_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key name.
+    """
+    range_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key type. Valid values are "STRING" or "NUMBER"
+    """
+    range_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key value.
+    """
 
 @pulumi.input_type
 class TopicRuleDynamoDbActionArgs:
@@ -4992,30 +5075,27 @@ class TopicRuleDynamoDbActionArgs:
         pulumi.set(self, "range_key_value", value)
 
 
-if not MYPY:
-    class TopicRuleElasticsearchActionArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint of your OpenSearch domain.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the document you are storing.
-        """
-        index: pulumi.Input[_builtins.str]
-        """
-        The index where you want to store your data.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that has access to OpenSearch.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of document you are storing.
-        """
-elif False:
-    TopicRuleElasticsearchActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleElasticsearchActionArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint of your OpenSearch domain.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the document you are storing.
+    """
+    index: pulumi.Input[_builtins.str]
+    """
+    The index where you want to store your data.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that has access to OpenSearch.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of document you are storing.
+    """
 
 @pulumi.input_type
 class TopicRuleElasticsearchActionArgs:
@@ -5099,28 +5179,25 @@ class TopicRuleElasticsearchActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TopicRuleFirehoseActionArgsDict(TypedDict):
-        delivery_stream_name: pulumi.Input[_builtins.str]
-        """
-        The delivery stream name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role that grants access to the Amazon Kinesis Firehose stream.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+class TopicRuleFirehoseActionArgsDict(TypedDict):
+    delivery_stream_name: pulumi.Input[_builtins.str]
+    """
+    The delivery stream name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role that grants access to the Amazon Kinesis Firehose stream.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
 
-        When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
-        """
-        separator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
-        """
-elif False:
-    TopicRuleFirehoseActionArgsDict: TypeAlias = Mapping[str, Any]
+    When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
+    """
+    separator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
+    """
 
 @pulumi.input_type
 class TopicRuleFirehoseActionArgs:
@@ -5195,18 +5272,15 @@ class TopicRuleFirehoseActionArgs:
         pulumi.set(self, "separator", value)
 
 
-if not MYPY:
-    class TopicRuleHttpActionHeaderArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The HTTP header key.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP header value. Substitution templates are supported.
-        """
-elif False:
-    TopicRuleHttpActionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleHttpActionHeaderArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The HTTP header key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP header value. Substitution templates are supported.
+    """
 
 @pulumi.input_type
 class TopicRuleHttpActionHeaderArgs:
@@ -5245,28 +5319,25 @@ class TopicRuleHttpActionHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleHttpActionArgsDict(TypedDict):
-        url: pulumi.Input[_builtins.str]
-        """
-        The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
-        """
-        auth: NotRequired[pulumi.Input['TopicRuleHttpAuthorizationArgsDict']]
-        """
-        The authentication method to use when sending data to an HTTPS endpoint.
-        """
-        batch_config: NotRequired[pulumi.Input['TopicRuleBatchConfigArgsDict']]
-        confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
-        """
-        enable_batching: NotRequired[pulumi.Input[_builtins.bool]]
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgsDict']]]]
-        """
-        The HTTP headers to send with the message data.
-        """
-elif False:
-    TopicRuleHttpActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleHttpActionArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
+    """
+    auth: NotRequired[pulumi.Input['TopicRuleHttpAuthorizationArgsDict']]
+    """
+    The authentication method to use when sending data to an HTTPS endpoint.
+    """
+    batch_config: NotRequired[pulumi.Input['TopicRuleBatchConfigArgsDict']]
+    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
+    """
+    enable_batching: NotRequired[pulumi.Input[_builtins.bool]]
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgsDict']]]]
+    """
+    The HTTP headers to send with the message data.
+    """
 
 @pulumi.input_type
 class TopicRuleHttpActionArgs:
@@ -5362,14 +5433,11 @@ class TopicRuleHttpActionArgs:
         pulumi.set(self, "headers", value)
 
 
-if not MYPY:
-    class TopicRuleHttpAuthorizationArgsDict(TypedDict):
-        sigv4: NotRequired[pulumi.Input['TopicRuleSigV4AuthorizationArgsDict']]
-        """
-        Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
-        """
-elif False:
-    TopicRuleHttpAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleHttpAuthorizationArgsDict(TypedDict):
+    sigv4: NotRequired[pulumi.Input['TopicRuleSigV4AuthorizationArgsDict']]
+    """
+    Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+    """
 
 @pulumi.input_type
 class TopicRuleHttpAuthorizationArgs:
@@ -5394,24 +5462,21 @@ class TopicRuleHttpAuthorizationArgs:
         pulumi.set(self, "sigv4", value)
 
 
-if not MYPY:
-    class TopicRuleIotAnalyticsActionArgsDict(TypedDict):
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The name of the IoT Analytics channel to which message data will be sent.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to process the action as a batch. The default value is `false` .
+class TopicRuleIotAnalyticsActionArgsDict(TypedDict):
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The name of the IoT Analytics channel to which message data will be sent.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to process the action as a batch. The default value is `false` .
 
-        When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
-        """
-elif False:
-    TopicRuleIotAnalyticsActionArgsDict: TypeAlias = Mapping[str, Any]
+    When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
+    """
 
 @pulumi.input_type
 class TopicRuleIotAnalyticsActionArgs:
@@ -5470,34 +5535,31 @@ class TopicRuleIotAnalyticsActionArgs:
         pulumi.set(self, "batch_mode", value)
 
 
-if not MYPY:
-    class TopicRuleIotEventsActionArgsDict(TypedDict):
-        input_name: pulumi.Input[_builtins.str]
-        """
-        The name of the AWS IoT Events input.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to process the event actions as a batch. The default value is `false` .
+class TopicRuleIotEventsActionArgsDict(TypedDict):
+    input_name: pulumi.Input[_builtins.str]
+    """
+    The name of the AWS IoT Events input.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to process the event actions as a batch. The default value is `false` .
 
-        When `batchMode` is `true` , you can't specify a `messageId` .
+    When `batchMode` is `true` , you can't specify a `messageId` .
 
-        When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
-        """
-        message_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the message. The default `messageId` is a new UUID value.
+    When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
+    """
+    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the message. The default `messageId` is a new UUID value.
 
-        When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+    When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
 
-        Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
-        """
-elif False:
-    TopicRuleIotEventsActionArgsDict: TypeAlias = Mapping[str, Any]
+    Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
+    """
 
 @pulumi.input_type
 class TopicRuleIotEventsActionArgs:
@@ -5584,18 +5646,15 @@ class TopicRuleIotEventsActionArgs:
         pulumi.set(self, "message_id", value)
 
 
-if not MYPY:
-    class TopicRuleIotSiteWiseActionArgsDict(TypedDict):
-        put_asset_property_value_entries: pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgsDict']]]
-        """
-        A list of asset property value entries.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
-        """
-elif False:
-    TopicRuleIotSiteWiseActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleIotSiteWiseActionArgsDict(TypedDict):
+    put_asset_property_value_entries: pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgsDict']]]
+    """
+    A list of asset property value entries.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
+    """
 
 @pulumi.input_type
 class TopicRuleIotSiteWiseActionArgs:
@@ -5634,18 +5693,15 @@ class TopicRuleIotSiteWiseActionArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class TopicRuleKafkaActionHeaderArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the Kafka header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Kafka header.
-        """
-elif False:
-    TopicRuleKafkaActionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleKafkaActionHeaderArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the Kafka header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Kafka header.
+    """
 
 @pulumi.input_type
 class TopicRuleKafkaActionHeaderArgs:
@@ -5684,34 +5740,31 @@ class TopicRuleKafkaActionHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleKafkaActionArgsDict(TypedDict):
-        client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Properties of the Apache Kafka producer client.
-        """
-        destination_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of Kafka action's VPC `TopicRuleDestination` .
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The Kafka topic for messages to be sent to the Kafka broker.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgsDict']]]]
-        """
-        The list of Kafka headers that you specify.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka message key.
-        """
-        partition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka message partition.
-        """
-elif False:
-    TopicRuleKafkaActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleKafkaActionArgsDict(TypedDict):
+    client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Properties of the Apache Kafka producer client.
+    """
+    destination_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of Kafka action's VPC `TopicRuleDestination` .
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The Kafka topic for messages to be sent to the Kafka broker.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgsDict']]]]
+    """
+    The list of Kafka headers that you specify.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka message key.
+    """
+    partition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka message partition.
+    """
 
 @pulumi.input_type
 class TopicRuleKafkaActionArgs:
@@ -5813,22 +5866,19 @@ class TopicRuleKafkaActionArgs:
         pulumi.set(self, "partition", value)
 
 
-if not MYPY:
-    class TopicRuleKinesisActionArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        """
-        stream_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon Kinesis stream.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The partition key.
-        """
-elif False:
-    TopicRuleKinesisActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleKinesisActionArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon Kinesis stream.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The partition key.
+    """
 
 @pulumi.input_type
 class TopicRuleKinesisActionArgs:
@@ -5883,14 +5933,11 @@ class TopicRuleKinesisActionArgs:
         pulumi.set(self, "partition_key", value)
 
 
-if not MYPY:
-    class TopicRuleLambdaActionArgsDict(TypedDict):
-        function_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Lambda function.
-        """
-elif False:
-    TopicRuleLambdaActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleLambdaActionArgsDict(TypedDict):
+    function_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Lambda function.
+    """
 
 @pulumi.input_type
 class TopicRuleLambdaActionArgs:
@@ -5915,34 +5962,31 @@ class TopicRuleLambdaActionArgs:
         pulumi.set(self, "function_arn", value)
 
 
-if not MYPY:
-    class TopicRuleLocationActionArgsDict(TypedDict):
-        device_id: pulumi.Input[_builtins.str]
-        """
-        The unique ID of the device providing the location data.
-        """
-        latitude: pulumi.Input[_builtins.str]
-        """
-        A string that evaluates to a double value that represents the latitude of the device's location.
-        """
-        longitude: pulumi.Input[_builtins.str]
-        """
-        A string that evaluates to a double value that represents the longitude of the device's location.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role that grants permission to write to the Amazon Location resource.
-        """
-        tracker_name: pulumi.Input[_builtins.str]
-        """
-        The name of the tracker resource in Amazon Location in which the location is updated.
-        """
-        timestamp: NotRequired[pulumi.Input['TopicRuleTimestampArgsDict']]
-        """
-        The time that the location data was sampled. The default value is the time the MQTT message was processed.
-        """
-elif False:
-    TopicRuleLocationActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleLocationActionArgsDict(TypedDict):
+    device_id: pulumi.Input[_builtins.str]
+    """
+    The unique ID of the device providing the location data.
+    """
+    latitude: pulumi.Input[_builtins.str]
+    """
+    A string that evaluates to a double value that represents the latitude of the device's location.
+    """
+    longitude: pulumi.Input[_builtins.str]
+    """
+    A string that evaluates to a double value that represents the longitude of the device's location.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role that grants permission to write to the Amazon Location resource.
+    """
+    tracker_name: pulumi.Input[_builtins.str]
+    """
+    The name of the tracker resource in Amazon Location in which the location is updated.
+    """
+    timestamp: NotRequired[pulumi.Input['TopicRuleTimestampArgsDict']]
+    """
+    The time that the location data was sampled. The default value is the time the MQTT message was processed.
+    """
 
 @pulumi.input_type
 class TopicRuleLocationActionArgs:
@@ -6042,30 +6086,27 @@ class TopicRuleLocationActionArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleOpenSearchActionArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint of your OpenSearch domain.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the document you are storing.
-        """
-        index: pulumi.Input[_builtins.str]
-        """
-        The OpenSearch index where you want to store your data.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that has access to OpenSearch.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of document you are storing.
-        """
-elif False:
-    TopicRuleOpenSearchActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleOpenSearchActionArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint of your OpenSearch domain.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the document you are storing.
+    """
+    index: pulumi.Input[_builtins.str]
+    """
+    The OpenSearch index where you want to store your data.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that has access to OpenSearch.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of document you are storing.
+    """
 
 @pulumi.input_type
 class TopicRuleOpenSearchActionArgs:
@@ -6149,36 +6190,33 @@ class TopicRuleOpenSearchActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TopicRulePayloadArgsDict(TypedDict):
-        actions: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgsDict']]]
-        """
-        The actions associated with the rule.
-        """
-        sql: pulumi.Input[_builtins.str]
-        """
-        The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
-        """
-        aws_iot_sql_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the SQL rules engine to use when evaluating the rule.
+class TopicRulePayloadArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgsDict']]]
+    """
+    The actions associated with the rule.
+    """
+    sql: pulumi.Input[_builtins.str]
+    """
+    The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+    """
+    aws_iot_sql_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the SQL rules engine to use when evaluating the rule.
 
-        The default value is 2015-10-08.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the rule.
-        """
-        error_action: NotRequired[pulumi.Input['TopicRuleActionArgsDict']]
-        """
-        The action to take when an error occurs.
-        """
-        rule_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the rule is disabled.
-        """
-elif False:
-    TopicRulePayloadArgsDict: TypeAlias = Mapping[str, Any]
+    The default value is 2015-10-08.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the rule.
+    """
+    error_action: NotRequired[pulumi.Input['TopicRuleActionArgsDict']]
+    """
+    The action to take when an error occurs.
+    """
+    rule_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the rule is disabled.
+    """
 
 @pulumi.input_type
 class TopicRulePayloadArgs:
@@ -6285,30 +6323,27 @@ class TopicRulePayloadArgs:
         pulumi.set(self, "rule_disabled", value)
 
 
-if not MYPY:
-    class TopicRulePutAssetPropertyValueEntryArgsDict(TypedDict):
-        property_values: pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgsDict']]]
-        """
-        A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
-        """
-        asset_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-        """
-        entry_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
-        """
-        property_alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-        """
-        property_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-        """
-elif False:
-    TopicRulePutAssetPropertyValueEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRulePutAssetPropertyValueEntryArgsDict(TypedDict):
+    property_values: pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgsDict']]]
+    """
+    A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+    """
+    asset_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+    """
+    entry_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+    """
+    property_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+    """
+    property_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+    """
 
 @pulumi.input_type
 class TopicRulePutAssetPropertyValueEntryArgs:
@@ -6396,14 +6431,11 @@ class TopicRulePutAssetPropertyValueEntryArgs:
         pulumi.set(self, "property_id", value)
 
 
-if not MYPY:
-    class TopicRulePutItemInputArgsDict(TypedDict):
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The table where the message data will be written.
-        """
-elif False:
-    TopicRulePutItemInputArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRulePutItemInputArgsDict(TypedDict):
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The table where the message data will be written.
+    """
 
 @pulumi.input_type
 class TopicRulePutItemInputArgs:
@@ -6427,56 +6459,53 @@ class TopicRulePutItemInputArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A UTF-8 encoded string that describes the content of the publishing message.
+class TopicRuleRepublishActionHeadersArgsDict(TypedDict):
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A UTF-8 encoded string that describes the content of the publishing message.
 
-        For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+    For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
 
-        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
-        """
-        correlation_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+    Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+    """
+    correlation_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
 
-        For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+    For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
 
-        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+    Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 
-        > This binary data must be base64-encoded.
-        """
-        message_expiry: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+    > This binary data must be base64-encoded.
+    """
+    message_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
 
-        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
-        """
-        payload_format_indicator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+    Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+    """
+    payload_format_indicator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An `Enum` string value that indicates whether the payload is formatted as UTF-8.
 
-        Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+    Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
 
-        For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+    For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
 
-        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
-        """
-        response_topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+    Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+    """
+    response_topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
 
-        For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+    For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
 
-        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
-        """
-        user_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgsDict']]]]
-        """
-        An array of key-value pairs that you define in the MQTT5 header.
-        """
-elif False:
-    TopicRuleRepublishActionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+    Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+    """
+    user_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgsDict']]]]
+    """
+    An array of key-value pairs that you define in the MQTT5 header.
+    """
 
 @pulumi.input_type
 class TopicRuleRepublishActionHeadersArgs:
@@ -6625,26 +6654,23 @@ class TopicRuleRepublishActionHeadersArgs:
         pulumi.set(self, "user_properties", value)
 
 
-if not MYPY:
-    class TopicRuleRepublishActionArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The name of the MQTT topic.
-        """
-        headers: NotRequired[pulumi.Input['TopicRuleRepublishActionHeadersArgsDict']]
-        """
-        MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
-        """
-elif False:
-    TopicRuleRepublishActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleRepublishActionArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The name of the MQTT topic.
+    """
+    headers: NotRequired[pulumi.Input['TopicRuleRepublishActionHeadersArgsDict']]
+    """
+    MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+    """
 
 @pulumi.input_type
 class TopicRuleRepublishActionArgs:
@@ -6715,26 +6741,23 @@ class TopicRuleRepublishActionArgs:
         pulumi.set(self, "qos", value)
 
 
-if not MYPY:
-    class TopicRuleS3ActionArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        canned_acl: NotRequired[pulumi.Input['TopicRuleCannedAccessControlList']]
-        """
-        The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
-        """
-elif False:
-    TopicRuleS3ActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleS3ActionArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    canned_acl: NotRequired[pulumi.Input['TopicRuleCannedAccessControlList']]
+    """
+    The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+    """
 
 @pulumi.input_type
 class TopicRuleS3ActionArgs:
@@ -6804,22 +6827,19 @@ class TopicRuleS3ActionArgs:
         pulumi.set(self, "canned_acl", value)
 
 
-if not MYPY:
-    class TopicRuleSigV4AuthorizationArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the signing role.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The service name to use while signing with Sig V4.
-        """
-        signing_region: pulumi.Input[_builtins.str]
-        """
-        The signing region.
-        """
-elif False:
-    TopicRuleSigV4AuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleSigV4AuthorizationArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the signing role.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The service name to use while signing with Sig V4.
+    """
+    signing_region: pulumi.Input[_builtins.str]
+    """
+    The signing region.
+    """
 
 @pulumi.input_type
 class TopicRuleSigV4AuthorizationArgs:
@@ -6873,22 +6893,19 @@ class TopicRuleSigV4AuthorizationArgs:
         pulumi.set(self, "signing_region", value)
 
 
-if not MYPY:
-    class TopicRuleSnsActionArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        target_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic.
-        """
-        message_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
-        """
-elif False:
-    TopicRuleSnsActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleSnsActionArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    target_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the SNS topic.
+    """
+    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
+    """
 
 @pulumi.input_type
 class TopicRuleSnsActionArgs:
@@ -6943,22 +6960,19 @@ class TopicRuleSnsActionArgs:
         pulumi.set(self, "message_format", value)
 
 
-if not MYPY:
-    class TopicRuleSqsActionArgsDict(TypedDict):
-        queue_url: pulumi.Input[_builtins.str]
-        """
-        The URL of the Amazon SQS queue.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        use_base64: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to use Base64 encoding.
-        """
-elif False:
-    TopicRuleSqsActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleSqsActionArgsDict(TypedDict):
+    queue_url: pulumi.Input[_builtins.str]
+    """
+    The URL of the Amazon SQS queue.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    use_base64: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to use Base64 encoding.
+    """
 
 @pulumi.input_type
 class TopicRuleSqsActionArgs:
@@ -7013,22 +7027,19 @@ class TopicRuleSqsActionArgs:
         pulumi.set(self, "use_base64", value)
 
 
-if not MYPY:
-    class TopicRuleStepFunctionsActionArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
-        """
-        state_machine_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Step Functions state machine whose execution will be started.
-        """
-        execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
-        """
-elif False:
-    TopicRuleStepFunctionsActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleStepFunctionsActionArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+    """
+    state_machine_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Step Functions state machine whose execution will be started.
+    """
+    execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
+    """
 
 @pulumi.input_type
 class TopicRuleStepFunctionsActionArgs:
@@ -7083,18 +7094,15 @@ class TopicRuleStepFunctionsActionArgs:
         pulumi.set(self, "execution_name_prefix", value)
 
 
-if not MYPY:
-    class TopicRuleTimestampArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        An expression that returns a long epoch time value.
-        """
-        unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The precision of the timestamp value that results from the expression described in `value` .
-        """
-elif False:
-    TopicRuleTimestampArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestampArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    An expression that returns a long epoch time value.
+    """
+    unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The precision of the timestamp value that results from the expression described in `value` .
+    """
 
 @pulumi.input_type
 class TopicRuleTimestampArgs:
@@ -7134,30 +7142,27 @@ class TopicRuleTimestampArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class TopicRuleTimestreamActionArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of an Amazon Timestream database that has the table to write records into.
-        """
-        dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgsDict']]]
-        """
-        Metadata attributes of the time series that are written in each measure record.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The table where the message data will be written.
-        """
-        timestamp: NotRequired[pulumi.Input['TopicRuleTimestreamTimestampArgsDict']]
-        """
-        The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
-        """
-elif False:
-    TopicRuleTimestreamActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestreamActionArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of an Amazon Timestream database that has the table to write records into.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgsDict']]]
+    """
+    Metadata attributes of the time series that are written in each measure record.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The table where the message data will be written.
+    """
+    timestamp: NotRequired[pulumi.Input['TopicRuleTimestreamTimestampArgsDict']]
+    """
+    The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
+    """
 
 @pulumi.input_type
 class TopicRuleTimestreamActionArgs:
@@ -7242,12 +7247,9 @@ class TopicRuleTimestreamActionArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleTimestreamDimensionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    TopicRuleTimestreamDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestreamDimensionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TopicRuleTimestreamDimensionArgs:
@@ -7276,18 +7278,15 @@ class TopicRuleTimestreamDimensionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleTimestreamTimestampArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        The precision of the timestamp value that results from the expression described in `value` .
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        An expression that returns a long epoch time value.
-        """
-elif False:
-    TopicRuleTimestreamTimestampArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestreamTimestampArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    The precision of the timestamp value that results from the expression described in `value` .
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    An expression that returns a long epoch time value.
+    """
 
 @pulumi.input_type
 class TopicRuleTimestreamTimestampArgs:
@@ -7326,12 +7325,9 @@ class TopicRuleTimestreamTimestampArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleUserPropertyArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    TopicRuleUserPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleUserPropertyArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TopicRuleUserPropertyArgs:

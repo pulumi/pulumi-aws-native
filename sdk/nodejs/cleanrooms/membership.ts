@@ -67,6 +67,7 @@ export class Membership extends pulumi.CustomResource {
      * The default protected query result configuration as specified by the member who can receive results.
      */
     declare public readonly defaultResultConfiguration: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
+    declare public readonly isMetricsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *
@@ -114,6 +115,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["collaborationIdentifier"] = args?.collaborationIdentifier;
             resourceInputs["defaultJobResultConfiguration"] = args?.defaultJobResultConfiguration;
             resourceInputs["defaultResultConfiguration"] = args?.defaultResultConfiguration;
+            resourceInputs["isMetricsEnabled"] = args?.isMetricsEnabled;
             resourceInputs["jobLogStatus"] = args?.jobLogStatus;
             resourceInputs["paymentConfiguration"] = args?.paymentConfiguration;
             resourceInputs["queryLogStatus"] = args?.queryLogStatus;
@@ -129,6 +131,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["defaultJobResultConfiguration"] = undefined /*out*/;
             resourceInputs["defaultResultConfiguration"] = undefined /*out*/;
+            resourceInputs["isMetricsEnabled"] = undefined /*out*/;
             resourceInputs["jobLogStatus"] = undefined /*out*/;
             resourceInputs["membershipIdentifier"] = undefined /*out*/;
             resourceInputs["paymentConfiguration"] = undefined /*out*/;
@@ -158,6 +161,7 @@ export interface MembershipArgs {
      * The default protected query result configuration as specified by the member who can receive results.
      */
     defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
+    isMetricsEnabled?: pulumi.Input<boolean>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *

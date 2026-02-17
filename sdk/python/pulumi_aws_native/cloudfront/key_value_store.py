@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['KeyValueStoreArgs', 'KeyValueStore']
@@ -23,7 +25,8 @@ class KeyValueStoreArgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  import_source: Optional[pulumi.Input['KeyValueStoreImportSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyValueStore resource.
         :param pulumi.Input[_builtins.str] comment: A comment for the key value store.
@@ -36,6 +39,8 @@ class KeyValueStoreArgs:
             pulumi.set(__self__, "import_source", import_source)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -73,6 +78,15 @@ class KeyValueStoreArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:cloudfront:KeyValueStore")
 class KeyValueStore(pulumi.CustomResource):
@@ -83,6 +97,7 @@ class KeyValueStore(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  import_source: Optional[pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
@@ -120,6 +135,7 @@ class KeyValueStore(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  import_source: Optional[pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -132,6 +148,7 @@ class KeyValueStore(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["import_source"] = import_source
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["status"] = None
@@ -165,6 +182,7 @@ class KeyValueStore(pulumi.CustomResource):
         __props__.__dict__["import_source"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         return KeyValueStore(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -214,4 +232,9 @@ class KeyValueStore(pulumi.CustomResource):
         The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 

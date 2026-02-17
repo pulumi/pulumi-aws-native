@@ -20,13 +20,8 @@ __all__ = [
     'ConnectorMobileDeviceManagementArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectorMobileDeviceManagementArgsDict(TypedDict):
-        pass
-elif False:
-    ConnectorMobileDeviceManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorMobileDeviceManagementArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ConnectorMobileDeviceManagementArgs:

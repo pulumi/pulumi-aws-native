@@ -453,22 +453,22 @@ func (in *organizationFeatureSetPtr) ToOrganizationFeatureSetPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationFeatureSetPtrOutput)
 }
 
-// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY, S3_POLICY, INSPECTOR_POLICY, BEDROCK_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, UPGRADE_ROLLOUT_POLICY
+// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
 type PolicyType string
 
 const (
-	PolicyTypeServiceControlPolicy          = PolicyType("SERVICE_CONTROL_POLICY")
 	PolicyTypeAiservicesOptOutPolicy        = PolicyType("AISERVICES_OPT_OUT_POLICY")
 	PolicyTypeBackupPolicy                  = PolicyType("BACKUP_POLICY")
-	PolicyTypeTagPolicy                     = PolicyType("TAG_POLICY")
-	PolicyTypeChatbotPolicy                 = PolicyType("CHATBOT_POLICY")
-	PolicyTypeResourceControlPolicy         = PolicyType("RESOURCE_CONTROL_POLICY")
-	PolicyTypeDeclarativePolicyEc2          = PolicyType("DECLARATIVE_POLICY_EC2")
-	PolicyTypeSecurityhubPolicy             = PolicyType("SECURITYHUB_POLICY")
-	PolicyTypeS3Policy                      = PolicyType("S3_POLICY")
-	PolicyTypeInspectorPolicy               = PolicyType("INSPECTOR_POLICY")
 	PolicyTypeBedrockPolicy                 = PolicyType("BEDROCK_POLICY")
+	PolicyTypeChatbotPolicy                 = PolicyType("CHATBOT_POLICY")
+	PolicyTypeDeclarativePolicyEc2          = PolicyType("DECLARATIVE_POLICY_EC2")
+	PolicyTypeInspectorPolicy               = PolicyType("INSPECTOR_POLICY")
 	PolicyTypeNetworkSecurityDirectorPolicy = PolicyType("NETWORK_SECURITY_DIRECTOR_POLICY")
+	PolicyTypeResourceControlPolicy         = PolicyType("RESOURCE_CONTROL_POLICY")
+	PolicyTypeS3Policy                      = PolicyType("S3_POLICY")
+	PolicyTypeSecurityhubPolicy             = PolicyType("SECURITYHUB_POLICY")
+	PolicyTypeServiceControlPolicy          = PolicyType("SERVICE_CONTROL_POLICY")
+	PolicyTypeTagPolicy                     = PolicyType("TAG_POLICY")
 	PolicyTypeUpgradeRolloutPolicy          = PolicyType("UPGRADE_ROLLOUT_POLICY")
 )
 
@@ -594,18 +594,18 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // PolicyTypeInput is an input type that accepts values of the PolicyType enum
 // A concrete instance of `PolicyTypeInput` can be one of the following:
 //
-//	PolicyTypeServiceControlPolicy
 //	PolicyTypeAiservicesOptOutPolicy
 //	PolicyTypeBackupPolicy
-//	PolicyTypeTagPolicy
-//	PolicyTypeChatbotPolicy
-//	PolicyTypeResourceControlPolicy
-//	PolicyTypeDeclarativePolicyEc2
-//	PolicyTypeSecurityhubPolicy
-//	PolicyTypeS3Policy
-//	PolicyTypeInspectorPolicy
 //	PolicyTypeBedrockPolicy
+//	PolicyTypeChatbotPolicy
+//	PolicyTypeDeclarativePolicyEc2
+//	PolicyTypeInspectorPolicy
 //	PolicyTypeNetworkSecurityDirectorPolicy
+//	PolicyTypeResourceControlPolicy
+//	PolicyTypeS3Policy
+//	PolicyTypeSecurityhubPolicy
+//	PolicyTypeServiceControlPolicy
+//	PolicyTypeTagPolicy
 //	PolicyTypeUpgradeRolloutPolicy
 type PolicyTypeInput interface {
 	pulumi.Input
@@ -644,8 +644,8 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationFeatureSetInput)(nil)).Elem(), OrganizationFeatureSet("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationFeatureSetPtrInput)(nil)).Elem(), OrganizationFeatureSet("ALL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("SERVICE_CONTROL_POLICY"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("SERVICE_CONTROL_POLICY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("AISERVICES_OPT_OUT_POLICY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("AISERVICES_OPT_OUT_POLICY"))
 	pulumi.RegisterOutputType(AccountJoinedMethodOutput{})
 	pulumi.RegisterOutputType(AccountJoinedMethodPtrOutput{})
 	pulumi.RegisterOutputType(AccountStateEnumOutput{})

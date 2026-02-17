@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public readonly string? LicenseArn;
         /// <summary>
+        /// A list of tags to attach.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The version of the grant.
         /// </summary>
         public readonly string? Version;
@@ -94,12 +98,15 @@ namespace Pulumi.AwsNative.LicenseManager
 
             string? licenseArn,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? version)
         {
             GrantArn = grantArn;
             GrantName = grantName;
             HomeRegion = homeRegion;
             LicenseArn = licenseArn;
+            Tags = tags;
             Version = version;
         }
     }

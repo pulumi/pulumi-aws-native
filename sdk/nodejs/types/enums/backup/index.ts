@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BackupPlanMalwareScanner = {
+    Guardduty: "GUARDDUTY",
+} as const;
+
+export type BackupPlanMalwareScanner = (typeof BackupPlanMalwareScanner)[keyof typeof BackupPlanMalwareScanner];
+
+export const BackupPlanScanMode = {
+    FullScan: "FULL_SCAN",
+    IncrementalScan: "INCREMENTAL_SCAN",
+} as const;
+
+export type BackupPlanScanMode = (typeof BackupPlanScanMode)[keyof typeof BackupPlanScanMode];
+
 export const RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm = {
     LatestWithinWindow: "LATEST_WITHIN_WINDOW",
     RandomWithinWindow: "RANDOM_WITHIN_WINDOW",

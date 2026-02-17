@@ -70,16 +70,11 @@ __all__ = [
     'WorkspaceQueryLoggingConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AnomalyDetectorConfigurationArgsDict(TypedDict):
-        random_cut_forest: pulumi.Input['AnomalyDetectorRandomCutForestConfigurationArgsDict']
-        """
-        The Random Cut Forest algorithm configuration for anomaly detection.
-        """
-elif False:
-    AnomalyDetectorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AnomalyDetectorConfigurationArgsDict(TypedDict):
+    random_cut_forest: pulumi.Input['AnomalyDetectorRandomCutForestConfigurationArgsDict']
+    """
+    The Random Cut Forest algorithm configuration for anomaly detection.
+    """
 
 @pulumi.input_type
 class AnomalyDetectorConfigurationArgs:
@@ -103,12 +98,9 @@ class AnomalyDetectorConfigurationArgs:
         pulumi.set(self, "random_cut_forest", value)
 
 
-if not MYPY:
-    class AnomalyDetectorIgnoreNearExpectedArgsDict(TypedDict):
-        amount: NotRequired[pulumi.Input[_builtins.float]]
-        ratio: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    AnomalyDetectorIgnoreNearExpectedArgsDict: TypeAlias = Mapping[str, Any]
+class AnomalyDetectorIgnoreNearExpectedArgsDict(TypedDict):
+    amount: NotRequired[pulumi.Input[_builtins.float]]
+    ratio: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class AnomalyDetectorIgnoreNearExpectedArgs:
@@ -139,21 +131,18 @@ class AnomalyDetectorIgnoreNearExpectedArgs:
         pulumi.set(self, "ratio", value)
 
 
-if not MYPY:
-    class AnomalyDetectorLabelArgsDict(TypedDict):
-        """
-        A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    AnomalyDetectorLabelArgsDict: TypeAlias = Mapping[str, Any]
+class AnomalyDetectorLabelArgsDict(TypedDict):
+    """
+    A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
 
 @pulumi.input_type
 class AnomalyDetectorLabelArgs:
@@ -193,12 +182,9 @@ class AnomalyDetectorLabelArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AnomalyDetectorMissingDataActionArgsDict(TypedDict):
-        mark_as_anomaly: NotRequired[pulumi.Input[_builtins.bool]]
-        skip: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AnomalyDetectorMissingDataActionArgsDict: TypeAlias = Mapping[str, Any]
+class AnomalyDetectorMissingDataActionArgsDict(TypedDict):
+    mark_as_anomaly: NotRequired[pulumi.Input[_builtins.bool]]
+    skip: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AnomalyDetectorMissingDataActionArgs:
@@ -229,34 +215,31 @@ class AnomalyDetectorMissingDataActionArgs:
         pulumi.set(self, "skip", value)
 
 
-if not MYPY:
-    class AnomalyDetectorRandomCutForestConfigurationArgsDict(TypedDict):
-        query: pulumi.Input[_builtins.str]
-        """
-        The Prometheus query used to retrieve the time-series data for anomaly detection.
+class AnomalyDetectorRandomCutForestConfigurationArgsDict(TypedDict):
+    query: pulumi.Input[_builtins.str]
+    """
+    The Prometheus query used to retrieve the time-series data for anomaly detection.
 
-        > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
-        > 
-        > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
-        """
-        ignore_near_expected_from_above: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
-        """
-        Configuration for ignoring values that are near expected values from above during anomaly detection.
-        """
-        ignore_near_expected_from_below: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
-        """
-        Configuration for ignoring values that are near expected values from below during anomaly detection.
-        """
-        sample_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
-        """
-        shingle_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
-        """
-elif False:
-    AnomalyDetectorRandomCutForestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+    > 
+    > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+    """
+    ignore_near_expected_from_above: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
+    """
+    Configuration for ignoring values that are near expected values from above during anomaly detection.
+    """
+    ignore_near_expected_from_below: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
+    """
+    Configuration for ignoring values that are near expected values from below during anomaly detection.
+    """
+    sample_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+    """
+    shingle_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+    """
 
 @pulumi.input_type
 class AnomalyDetectorRandomCutForestConfigurationArgs:
@@ -352,17 +335,14 @@ class AnomalyDetectorRandomCutForestConfigurationArgs:
         pulumi.set(self, "shingle_size", value)
 
 
-if not MYPY:
-    class ScraperCloudWatchLogDestinationArgsDict(TypedDict):
-        """
-        Represents a cloudwatch logs destination for scraper logging
-        """
-        log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the CloudWatch log group
-        """
-elif False:
-    ScraperCloudWatchLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperCloudWatchLogDestinationArgsDict(TypedDict):
+    """
+    Represents a cloudwatch logs destination for scraper logging
+    """
+    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the CloudWatch log group
+    """
 
 @pulumi.input_type
 class ScraperCloudWatchLogDestinationArgs:
@@ -388,14 +368,11 @@ class ScraperCloudWatchLogDestinationArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class ScraperComponentConfigArgsDict(TypedDict):
-        options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Configuration options for the scraper component.
-        """
-elif False:
-    ScraperComponentConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperComponentConfigArgsDict(TypedDict):
+    options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Configuration options for the scraper component.
+    """
 
 @pulumi.input_type
 class ScraperComponentConfigArgs:
@@ -420,18 +397,15 @@ class ScraperComponentConfigArgs:
         pulumi.set(self, "options", value)
 
 
-if not MYPY:
-    class ScraperComponentArgsDict(TypedDict):
-        type: pulumi.Input['ScraperComponentType']
-        """
-        The type of the scraper component.
-        """
-        config: NotRequired[pulumi.Input['ScraperComponentConfigArgsDict']]
-        """
-        The configuration settings for the scraper component.
-        """
-elif False:
-    ScraperComponentArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperComponentArgsDict(TypedDict):
+    type: pulumi.Input['ScraperComponentType']
+    """
+    The type of the scraper component.
+    """
+    config: NotRequired[pulumi.Input['ScraperComponentConfigArgsDict']]
+    """
+    The configuration settings for the scraper component.
+    """
 
 @pulumi.input_type
 class ScraperComponentArgs:
@@ -471,17 +445,14 @@ class ScraperComponentArgs:
         pulumi.set(self, "config", value)
 
 
-if not MYPY:
-    class ScraperDestinationAmpConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Configuration for Amazon Managed Prometheus metrics destination
-        """
-        workspace_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of an Amazon Managed Prometheus workspace
-        """
-elif False:
-    ScraperDestinationAmpConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperDestinationAmpConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration for Amazon Managed Prometheus metrics destination
+    """
+    workspace_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of an Amazon Managed Prometheus workspace
+    """
 
 @pulumi.input_type
 class ScraperDestinationAmpConfigurationPropertiesArgs:
@@ -506,17 +477,14 @@ class ScraperDestinationAmpConfigurationPropertiesArgs:
         pulumi.set(self, "workspace_arn", value)
 
 
-if not MYPY:
-    class ScraperDestinationArgsDict(TypedDict):
-        """
-        Scraper metrics destination
-        """
-        amp_configuration: NotRequired[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgsDict']]
-        """
-        Configuration for Amazon Managed Prometheus metrics destination
-        """
-elif False:
-    ScraperDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperDestinationArgsDict(TypedDict):
+    """
+    Scraper metrics destination
+    """
+    amp_configuration: NotRequired[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgsDict']]
+    """
+    Configuration for Amazon Managed Prometheus metrics destination
+    """
 
 @pulumi.input_type
 class ScraperDestinationArgs:
@@ -542,15 +510,12 @@ class ScraperDestinationArgs:
         pulumi.set(self, "amp_configuration", value)
 
 
-if not MYPY:
-    class ScraperLoggingConfigurationArgsDict(TypedDict):
-        """
-        Configuration for scraper logging
-        """
-        logging_destination: pulumi.Input['ScraperLoggingDestinationArgsDict']
-        scraper_components: pulumi.Input[Sequence[pulumi.Input['ScraperComponentArgsDict']]]
-elif False:
-    ScraperLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperLoggingConfigurationArgsDict(TypedDict):
+    """
+    Configuration for scraper logging
+    """
+    logging_destination: pulumi.Input['ScraperLoggingDestinationArgsDict']
+    scraper_components: pulumi.Input[Sequence[pulumi.Input['ScraperComponentArgsDict']]]
 
 @pulumi.input_type
 class ScraperLoggingConfigurationArgs:
@@ -582,17 +547,14 @@ class ScraperLoggingConfigurationArgs:
         pulumi.set(self, "scraper_components", value)
 
 
-if not MYPY:
-    class ScraperLoggingDestinationArgsDict(TypedDict):
-        """
-        Destination for scraper logging
-        """
-        cloud_watch_logs: NotRequired[pulumi.Input['ScraperCloudWatchLogDestinationArgsDict']]
-        """
-        The CloudWatch Logs configuration for the scraper logging destination.
-        """
-elif False:
-    ScraperLoggingDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperLoggingDestinationArgsDict(TypedDict):
+    """
+    Destination for scraper logging
+    """
+    cloud_watch_logs: NotRequired[pulumi.Input['ScraperCloudWatchLogDestinationArgsDict']]
+    """
+    The CloudWatch Logs configuration for the scraper logging destination.
+    """
 
 @pulumi.input_type
 class ScraperLoggingDestinationArgs:
@@ -618,21 +580,18 @@ class ScraperLoggingDestinationArgs:
         pulumi.set(self, "cloud_watch_logs", value)
 
 
-if not MYPY:
-    class ScraperRoleConfigurationArgsDict(TypedDict):
-        """
-        Role configuration
-        """
-        source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IAM Role in source account
-        """
-        target_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IAM Role in the target account
-        """
-elif False:
-    ScraperRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperRoleConfigurationArgsDict(TypedDict):
+    """
+    Role configuration
+    """
+    source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IAM Role in source account
+    """
+    target_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IAM Role in the target account
+    """
 
 @pulumi.input_type
 class ScraperRoleConfigurationArgs:
@@ -674,17 +633,14 @@ class ScraperRoleConfigurationArgs:
         pulumi.set(self, "target_role_arn", value)
 
 
-if not MYPY:
-    class ScraperScrapeConfigurationArgsDict(TypedDict):
-        """
-        Scraper configuration
-        """
-        configuration_blob: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prometheus compatible scrape configuration in base64 encoded blob format
-        """
-elif False:
-    ScraperScrapeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperScrapeConfigurationArgsDict(TypedDict):
+    """
+    Scraper configuration
+    """
+    configuration_blob: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prometheus compatible scrape configuration in base64 encoded blob format
+    """
 
 @pulumi.input_type
 class ScraperScrapeConfigurationArgs:
@@ -710,25 +666,22 @@ class ScraperScrapeConfigurationArgs:
         pulumi.set(self, "configuration_blob", value)
 
 
-if not MYPY:
-    class ScraperSourceEksConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Configuration for EKS metrics source
-        """
-        cluster_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of an EKS cluster
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of subnet IDs
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of security group IDs
-        """
-elif False:
-    ScraperSourceEksConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperSourceEksConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration for EKS metrics source
+    """
+    cluster_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of an EKS cluster
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of subnet IDs
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of security group IDs
+    """
 
 @pulumi.input_type
 class ScraperSourceEksConfigurationPropertiesArgs:
@@ -784,21 +737,18 @@ class ScraperSourceEksConfigurationPropertiesArgs:
         pulumi.set(self, "security_group_ids", value)
 
 
-if not MYPY:
-    class ScraperSourceVpcConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Configuration for VPC metrics source
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of security group IDs
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of subnet IDs
-        """
-elif False:
-    ScraperSourceVpcConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperSourceVpcConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration for VPC metrics source
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of security group IDs
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of subnet IDs
+    """
 
 @pulumi.input_type
 class ScraperSourceVpcConfigurationPropertiesArgs:
@@ -838,21 +788,18 @@ class ScraperSourceVpcConfigurationPropertiesArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class ScraperSourceArgsDict(TypedDict):
-        """
-        Scraper metrics source
-        """
-        eks_configuration: NotRequired[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgsDict']]
-        """
-        Configuration for EKS metrics source
-        """
-        vpc_configuration: NotRequired[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgsDict']]
-        """
-        Configuration for VPC metrics source
-        """
-elif False:
-    ScraperSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperSourceArgsDict(TypedDict):
+    """
+    Scraper metrics source
+    """
+    eks_configuration: NotRequired[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgsDict']]
+    """
+    Configuration for EKS metrics source
+    """
+    vpc_configuration: NotRequired[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgsDict']]
+    """
+    Configuration for VPC metrics source
+    """
 
 @pulumi.input_type
 class ScraperSourceArgs:
@@ -894,17 +841,14 @@ class ScraperSourceArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
-if not MYPY:
-    class WorkspaceCloudWatchLogDestinationArgsDict(TypedDict):
-        """
-        Represents a cloudwatch logs destination for query logging
-        """
-        log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch Logs log group
-        """
-elif False:
-    WorkspaceCloudWatchLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceCloudWatchLogDestinationArgsDict(TypedDict):
+    """
+    Represents a cloudwatch logs destination for query logging
+    """
+    log_group_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the CloudWatch Logs log group
+    """
 
 @pulumi.input_type
 class WorkspaceCloudWatchLogDestinationArgs:
@@ -929,21 +873,18 @@ class WorkspaceCloudWatchLogDestinationArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class WorkspaceConfigurationArgsDict(TypedDict):
-        """
-        Workspace configuration
-        """
-        limits_per_label_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgsDict']]]]
-        """
-        An array of label set and associated limits
-        """
-        retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How many days that metrics are retained in the workspace
-        """
-elif False:
-    WorkspaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceConfigurationArgsDict(TypedDict):
+    """
+    Workspace configuration
+    """
+    limits_per_label_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgsDict']]]]
+    """
+    An array of label set and associated limits
+    """
+    retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How many days that metrics are retained in the workspace
+    """
 
 @pulumi.input_type
 class WorkspaceConfigurationArgs:
@@ -985,21 +926,18 @@ class WorkspaceConfigurationArgs:
         pulumi.set(self, "retention_period_in_days", value)
 
 
-if not MYPY:
-    class WorkspaceLabelArgsDict(TypedDict):
-        """
-        Series label
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the label
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of the label
-        """
-elif False:
-    WorkspaceLabelArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLabelArgsDict(TypedDict):
+    """
+    Series label
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the label
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of the label
+    """
 
 @pulumi.input_type
 class WorkspaceLabelArgs:
@@ -1039,17 +977,14 @@ class WorkspaceLabelArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class WorkspaceLimitsPerLabelSetEntryArgsDict(TypedDict):
-        """
-        Limits that can be applied to a label set
-        """
-        max_series: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of active series that can be ingested for this label set
-        """
-elif False:
-    WorkspaceLimitsPerLabelSetEntryArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLimitsPerLabelSetEntryArgsDict(TypedDict):
+    """
+    Limits that can be applied to a label set
+    """
+    max_series: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of active series that can be ingested for this label set
+    """
 
 @pulumi.input_type
 class WorkspaceLimitsPerLabelSetEntryArgs:
@@ -1075,21 +1010,18 @@ class WorkspaceLimitsPerLabelSetEntryArgs:
         pulumi.set(self, "max_series", value)
 
 
-if not MYPY:
-    class WorkspaceLimitsPerLabelSetArgsDict(TypedDict):
-        """
-        Label set and its associated limits
-        """
-        label_set: pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgsDict']]]
-        """
-        An array of series labels
-        """
-        limits: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgsDict']
-        """
-        This structure contains the information about the limits that apply to time series that match this label set.
-        """
-elif False:
-    WorkspaceLimitsPerLabelSetArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLimitsPerLabelSetArgsDict(TypedDict):
+    """
+    Label set and its associated limits
+    """
+    label_set: pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgsDict']]]
+    """
+    An array of series labels
+    """
+    limits: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgsDict']
+    """
+    This structure contains the information about the limits that apply to time series that match this label set.
+    """
 
 @pulumi.input_type
 class WorkspaceLimitsPerLabelSetArgs:
@@ -1129,17 +1061,14 @@ class WorkspaceLimitsPerLabelSetArgs:
         pulumi.set(self, "limits", value)
 
 
-if not MYPY:
-    class WorkspaceLoggingConfigurationArgsDict(TypedDict):
-        """
-        Logging configuration
-        """
-        log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CloudWatch log group ARN
-        """
-elif False:
-    WorkspaceLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLoggingConfigurationArgsDict(TypedDict):
+    """
+    Logging configuration
+    """
+    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CloudWatch log group ARN
+    """
 
 @pulumi.input_type
 class WorkspaceLoggingConfigurationArgs:
@@ -1165,21 +1094,18 @@ class WorkspaceLoggingConfigurationArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class WorkspaceLoggingDestinationArgsDict(TypedDict):
-        """
-        Destinations for query logging
-        """
-        cloud_watch_logs: pulumi.Input['WorkspaceCloudWatchLogDestinationArgsDict']
-        """
-        Configuration details for logging to CloudWatch Logs.
-        """
-        filters: pulumi.Input['WorkspaceLoggingFilterArgsDict']
-        """
-        Filtering criteria that determine which queries are logged.
-        """
-elif False:
-    WorkspaceLoggingDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLoggingDestinationArgsDict(TypedDict):
+    """
+    Destinations for query logging
+    """
+    cloud_watch_logs: pulumi.Input['WorkspaceCloudWatchLogDestinationArgsDict']
+    """
+    Configuration details for logging to CloudWatch Logs.
+    """
+    filters: pulumi.Input['WorkspaceLoggingFilterArgsDict']
+    """
+    Filtering criteria that determine which queries are logged.
+    """
 
 @pulumi.input_type
 class WorkspaceLoggingDestinationArgs:
@@ -1219,17 +1145,14 @@ class WorkspaceLoggingDestinationArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class WorkspaceLoggingFilterArgsDict(TypedDict):
-        """
-        Filters for logging
-        """
-        qsp_threshold: pulumi.Input[_builtins.int]
-        """
-        Query logs with QSP above this limit are vended
-        """
-elif False:
-    WorkspaceLoggingFilterArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLoggingFilterArgsDict(TypedDict):
+    """
+    Filters for logging
+    """
+    qsp_threshold: pulumi.Input[_builtins.int]
+    """
+    Query logs with QSP above this limit are vended
+    """
 
 @pulumi.input_type
 class WorkspaceLoggingFilterArgs:
@@ -1254,17 +1177,14 @@ class WorkspaceLoggingFilterArgs:
         pulumi.set(self, "qsp_threshold", value)
 
 
-if not MYPY:
-    class WorkspaceQueryLoggingConfigurationArgsDict(TypedDict):
-        """
-        Query logging configuration
-        """
-        destinations: pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgsDict']]]
-        """
-        The destinations configuration for query logging
-        """
-elif False:
-    WorkspaceQueryLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceQueryLoggingConfigurationArgsDict(TypedDict):
+    """
+    Query logging configuration
+    """
+    destinations: pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgsDict']]]
+    """
+    The destinations configuration for query logging
+    """
 
 @pulumi.input_type
 class WorkspaceQueryLoggingConfigurationArgs:

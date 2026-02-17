@@ -84,23 +84,18 @@ __all__ = [
     'PackagingGroupLogConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssetEgressEndpointArgsDict(TypedDict):
-        """
-        The endpoint URL used to access an Asset using one PackagingConfiguration.
-        """
-        packaging_configuration_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the PackagingConfiguration being applied to the Asset.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        The URL of the parent manifest for the repackaged Asset.
-        """
-elif False:
-    AssetEgressEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class AssetEgressEndpointArgsDict(TypedDict):
+    """
+    The endpoint URL used to access an Asset using one PackagingConfiguration.
+    """
+    packaging_configuration_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the PackagingConfiguration being applied to the Asset.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The URL of the parent manifest for the repackaged Asset.
+    """
 
 @pulumi.input_type
 class AssetEgressEndpointArgs:
@@ -140,17 +135,14 @@ class AssetEgressEndpointArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ChannelHlsIngestArgsDict(TypedDict):
-        """
-        An HTTP Live Streaming (HLS) ingest resource configuration.
-        """
-        ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelIngestEndpointArgsDict']]]]
-        """
-        A list of endpoints to which the source stream should be sent.
-        """
-elif False:
-    ChannelHlsIngestArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelHlsIngestArgsDict(TypedDict):
+    """
+    An HTTP Live Streaming (HLS) ingest resource configuration.
+    """
+    ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelIngestEndpointArgsDict']]]]
+    """
+    A list of endpoints to which the source stream should be sent.
+    """
 
 @pulumi.input_type
 class ChannelHlsIngestArgs:
@@ -176,29 +168,26 @@ class ChannelHlsIngestArgs:
         pulumi.set(self, "ingest_endpoints", value)
 
 
-if not MYPY:
-    class ChannelIngestEndpointArgsDict(TypedDict):
-        """
-        An endpoint for ingesting source content for a Channel.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The system generated unique identifier for the IngestEndpoint
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        The system generated password for ingest authentication.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        The ingest URL to which the source stream should be sent.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The system generated username for ingest authentication.
-        """
-elif False:
-    ChannelIngestEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelIngestEndpointArgsDict(TypedDict):
+    """
+    An endpoint for ingesting source content for a Channel.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The system generated unique identifier for the IngestEndpoint
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    The system generated password for ingest authentication.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The ingest URL to which the source stream should be sent.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The system generated username for ingest authentication.
+    """
 
 @pulumi.input_type
 class ChannelIngestEndpointArgs:
@@ -268,14 +257,11 @@ class ChannelIngestEndpointArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ChannelLogConfigurationArgsDict(TypedDict):
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
-        """
-elif False:
-    ChannelLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelLogConfigurationArgsDict(TypedDict):
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
+    """
 
 @pulumi.input_type
 class ChannelLogConfigurationArgs:
@@ -300,21 +286,18 @@ class ChannelLogConfigurationArgs:
         pulumi.set(self, "log_group_name", value)
 
 
-if not MYPY:
-    class OriginEndpointAuthorizationArgsDict(TypedDict):
-        """
-        CDN Authorization credentials
-        """
-        cdn_identifier_secret: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
-        """
-        secrets_role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
-        """
-elif False:
-    OriginEndpointAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointAuthorizationArgsDict(TypedDict):
+    """
+    CDN Authorization credentials
+    """
+    cdn_identifier_secret: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
+    """
+    secrets_role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+    """
 
 @pulumi.input_type
 class OriginEndpointAuthorizationArgs:
@@ -354,29 +337,26 @@ class OriginEndpointAuthorizationArgs:
         pulumi.set(self, "secrets_role_arn", value)
 
 
-if not MYPY:
-    class OriginEndpointCmafEncryptionArgsDict(TypedDict):
-        """
-        A Common Media Application Format (CMAF) encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-        constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
-        """
-        encryption_method: NotRequired[pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod']]
-        """
-        The encryption method used
-        """
-        key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time (in seconds) between each encryption key rotation.
-        """
-elif False:
-    OriginEndpointCmafEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointCmafEncryptionArgsDict(TypedDict):
+    """
+    A Common Media Application Format (CMAF) encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+    """
+    encryption_method: NotRequired[pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod']]
+    """
+    The encryption method used
+    """
+    key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time (in seconds) between each encryption key rotation.
+    """
 
 @pulumi.input_type
 class OriginEndpointCmafEncryptionArgs:
@@ -449,33 +429,30 @@ class OriginEndpointCmafEncryptionArgs:
         pulumi.set(self, "key_rotation_interval_seconds", value)
 
 
-if not MYPY:
-    class OriginEndpointCmafPackageArgsDict(TypedDict):
-        """
-        A Common Media Application Format (CMAF) packaging configuration.
-        """
-        encryption: NotRequired[pulumi.Input['OriginEndpointCmafEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        hls_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestArgsDict']]]]
-        """
-        A list of HLS manifest configurations
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
-        """
-        segment_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
-        """
-        stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
-        """
-        Limitations for outputs from the endpoint, based on the video bitrate.
-        """
-elif False:
-    OriginEndpointCmafPackageArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointCmafPackageArgsDict(TypedDict):
+    """
+    A Common Media Application Format (CMAF) packaging configuration.
+    """
+    encryption: NotRequired[pulumi.Input['OriginEndpointCmafEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    hls_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestArgsDict']]]]
+    """
+    A list of HLS manifest configurations
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
+    """
+    segment_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
+    """
+    stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
+    """
+    Limitations for outputs from the endpoint, based on the video bitrate.
+    """
 
 @pulumi.input_type
 class OriginEndpointCmafPackageArgs:
@@ -565,21 +542,18 @@ class OriginEndpointCmafPackageArgs:
         pulumi.set(self, "stream_selection", value)
 
 
-if not MYPY:
-    class OriginEndpointDashEncryptionArgsDict(TypedDict):
-        """
-        A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-        key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time (in seconds) between each encryption key rotation.
-        """
-elif False:
-    OriginEndpointDashEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointDashEncryptionArgsDict(TypedDict):
+    """
+    A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
+    key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time (in seconds) between each encryption key rotation.
+    """
 
 @pulumi.input_type
 class OriginEndpointDashEncryptionArgs:
@@ -620,77 +594,74 @@ class OriginEndpointDashEncryptionArgs:
         pulumi.set(self, "key_rotation_interval_seconds", value)
 
 
-if not MYPY:
-    class OriginEndpointDashPackageArgsDict(TypedDict):
-        """
-        A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-        """
-        ad_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]]]
-        """
-        A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-        """
-        ads_on_delivery_restrictions: NotRequired[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]
-        """
-        The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-        """
-        encryption: NotRequired[pulumi.Input['OriginEndpointDashEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, an I-Frame only stream will be included in the output.
-        """
-        manifest_layout: NotRequired[pulumi.Input['OriginEndpointDashPackageManifestLayout']]
-        """
-        Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-        """
-        manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time window (in seconds) contained in each manifest.
-        """
-        min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum duration (in seconds) that a player will buffer media before starting the presentation.
-        """
-        min_update_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
-        """
-        period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackagePeriodTriggersItem']]]]
-        """
-        A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-        """
-        profile: NotRequired[pulumi.Input['OriginEndpointDashPackageProfile']]
-        """
-        The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
-        """
-        segment_template_format: NotRequired[pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat']]
-        """
-        Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-        """
-        stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
-        """
-        Limitations for outputs from the endpoint, based on the video bitrate.
-        """
-        suggested_presentation_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) to delay live content before presentation.
-        """
-        utc_timing: NotRequired[pulumi.Input['OriginEndpointDashPackageUtcTiming']]
-        """
-        Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-        """
-        utc_timing_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
-        """
-elif False:
-    OriginEndpointDashPackageArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointDashPackageArgsDict(TypedDict):
+    """
+    A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+    """
+    ad_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]]]
+    """
+    A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+    """
+    ads_on_delivery_restrictions: NotRequired[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]
+    """
+    The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+    """
+    encryption: NotRequired[pulumi.Input['OriginEndpointDashEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, an I-Frame only stream will be included in the output.
+    """
+    manifest_layout: NotRequired[pulumi.Input['OriginEndpointDashPackageManifestLayout']]
+    """
+    Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+    """
+    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time window (in seconds) contained in each manifest.
+    """
+    min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+    """
+    min_update_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
+    """
+    period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackagePeriodTriggersItem']]]]
+    """
+    A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
+    """
+    profile: NotRequired[pulumi.Input['OriginEndpointDashPackageProfile']]
+    """
+    The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
+    """
+    segment_template_format: NotRequired[pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat']]
+    """
+    Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+    """
+    stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
+    """
+    Limitations for outputs from the endpoint, based on the video bitrate.
+    """
+    suggested_presentation_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) to delay live content before presentation.
+    """
+    utc_timing: NotRequired[pulumi.Input['OriginEndpointDashPackageUtcTiming']]
+    """
+    Determines the type of UTCTiming included in the Media Presentation Description (MPD)
+    """
+    utc_timing_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
+    """
 
 @pulumi.input_type
 class OriginEndpointDashPackageArgs:
@@ -956,21 +927,18 @@ class OriginEndpointDashPackageArgs:
         pulumi.set(self, "utc_timing_uri", value)
 
 
-if not MYPY:
-    class OriginEndpointEncryptionContractConfigurationArgsDict(TypedDict):
-        """
-        The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
-        """
-        preset_speke20_audio: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio']
-        """
-        A collection of audio encryption presets.
-        """
-        preset_speke20_video: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video']
-        """
-        A collection of video encryption presets.
-        """
-elif False:
-    OriginEndpointEncryptionContractConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointEncryptionContractConfigurationArgsDict(TypedDict):
+    """
+    The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+    """
+    preset_speke20_audio: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio']
+    """
+    A collection of audio encryption presets.
+    """
+    preset_speke20_video: pulumi.Input['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video']
+    """
+    A collection of video encryption presets.
+    """
 
 @pulumi.input_type
 class OriginEndpointEncryptionContractConfigurationArgs:
@@ -1010,33 +978,30 @@ class OriginEndpointEncryptionContractConfigurationArgs:
         pulumi.set(self, "preset_speke20_video", value)
 
 
-if not MYPY:
-    class OriginEndpointHlsEncryptionArgsDict(TypedDict):
-        """
-        An HTTP Live Streaming (HLS) encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-        constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
-        """
-        encryption_method: NotRequired[pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod']]
-        """
-        The encryption method to use.
-        """
-        key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval (in seconds) between each encryption key rotation.
-        """
-        repeat_ext_x_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-        """
-elif False:
-    OriginEndpointHlsEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointHlsEncryptionArgsDict(TypedDict):
+    """
+    An HTTP Live Streaming (HLS) encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
+    """
+    encryption_method: NotRequired[pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod']]
+    """
+    The encryption method to use.
+    """
+    key_rotation_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval (in seconds) between each encryption key rotation.
+    """
+    repeat_ext_x_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+    """
 
 @pulumi.input_type
 class OriginEndpointHlsEncryptionArgs:
@@ -1125,53 +1090,50 @@ class OriginEndpointHlsEncryptionArgs:
         pulumi.set(self, "repeat_ext_x_key", value)
 
 
-if not MYPY:
-    class OriginEndpointHlsManifestArgsDict(TypedDict):
-        """
-        A HTTP Live Streaming (HLS) manifest configuration.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
-        """
-        ad_markers: NotRequired[pulumi.Input['OriginEndpointHlsManifestAdMarkers']]
-        """
-        This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-        """
-        ad_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestAdTriggersItem']]]]
-        """
-        A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-        """
-        ads_on_delivery_restrictions: NotRequired[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]
-        """
-        The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-        """
-        include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, an I-Frame only stream will be included in the output.
-        """
-        manifest_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
-        """
-        playlist_type: NotRequired[pulumi.Input['OriginEndpointHlsManifestPlaylistType']]
-        """
-        The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-        """
-        playlist_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time window (in seconds) contained in each parent manifest.
-        """
-        program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the packaged OriginEndpoint for consumption.
-        """
-elif False:
-    OriginEndpointHlsManifestArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointHlsManifestArgsDict(TypedDict):
+    """
+    A HTTP Live Streaming (HLS) manifest configuration.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
+    """
+    ad_markers: NotRequired[pulumi.Input['OriginEndpointHlsManifestAdMarkers']]
+    """
+    This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
+    """
+    ad_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestAdTriggersItem']]]]
+    """
+    A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+    """
+    ads_on_delivery_restrictions: NotRequired[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]
+    """
+    The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+    """
+    include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, an I-Frame only stream will be included in the output.
+    """
+    manifest_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+    """
+    playlist_type: NotRequired[pulumi.Input['OriginEndpointHlsManifestPlaylistType']]
+    """
+    The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
+    """
+    playlist_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time window (in seconds) contained in each parent manifest.
+    """
+    program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the packaged OriginEndpoint for consumption.
+    """
 
 @pulumi.input_type
 class OriginEndpointHlsManifestArgs:
@@ -1340,61 +1302,58 @@ class OriginEndpointHlsManifestArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class OriginEndpointHlsPackageArgsDict(TypedDict):
-        """
-        An HTTP Live Streaming (HLS) packaging configuration.
-        """
-        ad_markers: NotRequired[pulumi.Input['OriginEndpointHlsPackageAdMarkers']]
-        """
-        This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-        """
-        ad_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]]]
-        """
-        A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-        """
-        ads_on_delivery_restrictions: NotRequired[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]
-        """
-        The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-        """
-        encryption: NotRequired[pulumi.Input['OriginEndpointHlsEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        include_dvb_subtitles: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
-        """
-        include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, an I-Frame only stream will be included in the output.
-        """
-        playlist_type: NotRequired[pulumi.Input['OriginEndpointHlsPackagePlaylistType']]
-        """
-        The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-        """
-        playlist_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time window (in seconds) contained in each parent manifest.
-        """
-        program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
-        """
-        stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
-        """
-        Limitations for outputs from the endpoint, based on the video bitrate.
-        """
-        use_audio_rendition_group: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, audio streams will be placed in rendition groups in the output.
-        """
-elif False:
-    OriginEndpointHlsPackageArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointHlsPackageArgsDict(TypedDict):
+    """
+    An HTTP Live Streaming (HLS) packaging configuration.
+    """
+    ad_markers: NotRequired[pulumi.Input['OriginEndpointHlsPackageAdMarkers']]
+    """
+    This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
+    """
+    ad_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]]]
+    """
+    A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+    """
+    ads_on_delivery_restrictions: NotRequired[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]
+    """
+    The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+    """
+    encryption: NotRequired[pulumi.Input['OriginEndpointHlsEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    include_dvb_subtitles: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+    """
+    include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, an I-Frame only stream will be included in the output.
+    """
+    playlist_type: NotRequired[pulumi.Input['OriginEndpointHlsPackagePlaylistType']]
+    """
+    The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
+    """
+    playlist_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time window (in seconds) contained in each parent manifest.
+    """
+    program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
+    """
+    stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
+    """
+    Limitations for outputs from the endpoint, based on the video bitrate.
+    """
+    use_audio_rendition_group: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, audio streams will be placed in rendition groups in the output.
+    """
 
 @pulumi.input_type
 class OriginEndpointHlsPackageArgs:
@@ -1596,17 +1555,14 @@ class OriginEndpointHlsPackageArgs:
         pulumi.set(self, "use_audio_rendition_group", value)
 
 
-if not MYPY:
-    class OriginEndpointMssEncryptionArgsDict(TypedDict):
-        """
-        A Microsoft Smooth Streaming (MSS) encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-elif False:
-    OriginEndpointMssEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointMssEncryptionArgsDict(TypedDict):
+    """
+    A Microsoft Smooth Streaming (MSS) encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
 
 @pulumi.input_type
 class OriginEndpointMssEncryptionArgs:
@@ -1631,29 +1587,26 @@ class OriginEndpointMssEncryptionArgs:
         pulumi.set(self, "speke_key_provider", value)
 
 
-if not MYPY:
-    class OriginEndpointMssPackageArgsDict(TypedDict):
-        """
-        A Microsoft Smooth Streaming (MSS) packaging configuration.
-        """
-        encryption: NotRequired[pulumi.Input['OriginEndpointMssEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time window (in seconds) contained in each manifest.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration (in seconds) of each segment.
-        """
-        stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
-        """
-        Limitations for outputs from the endpoint, based on the video bitrate.
-        """
-elif False:
-    OriginEndpointMssPackageArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointMssPackageArgsDict(TypedDict):
+    """
+    A Microsoft Smooth Streaming (MSS) packaging configuration.
+    """
+    encryption: NotRequired[pulumi.Input['OriginEndpointMssEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time window (in seconds) contained in each manifest.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration (in seconds) of each segment.
+    """
+    stream_selection: NotRequired[pulumi.Input['OriginEndpointStreamSelectionArgsDict']]
+    """
+    Limitations for outputs from the endpoint, based on the video bitrate.
+    """
 
 @pulumi.input_type
 class OriginEndpointMssPackageArgs:
@@ -1727,37 +1680,34 @@ class OriginEndpointMssPackageArgs:
         pulumi.set(self, "stream_selection", value)
 
 
-if not MYPY:
-    class OriginEndpointSpekeKeyProviderArgsDict(TypedDict):
-        """
-        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID to include in key requests.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
-        """
-        system_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The system IDs to include in key requests.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        The URL of the external key provider service.
-        """
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
-        """
-        encryption_contract_configuration: NotRequired[pulumi.Input['OriginEndpointEncryptionContractConfigurationArgsDict']]
-        """
-        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
-        """
-elif False:
-    OriginEndpointSpekeKeyProviderArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointSpekeKeyProviderArgsDict(TypedDict):
+    """
+    A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID to include in key requests.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
+    """
+    system_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The system IDs to include in key requests.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The URL of the external key provider service.
+    """
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
+    """
+    encryption_contract_configuration: NotRequired[pulumi.Input['OriginEndpointEncryptionContractConfigurationArgsDict']]
+    """
+    Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+    """
 
 @pulumi.input_type
 class OriginEndpointSpekeKeyProviderArgs:
@@ -1859,25 +1809,22 @@ class OriginEndpointSpekeKeyProviderArgs:
         pulumi.set(self, "encryption_contract_configuration", value)
 
 
-if not MYPY:
-    class OriginEndpointStreamSelectionArgsDict(TypedDict):
-        """
-        A StreamSelection configuration.
-        """
-        max_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum video bitrate (bps) to include in output.
-        """
-        min_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum video bitrate (bps) to include in output.
-        """
-        stream_order: NotRequired[pulumi.Input['OriginEndpointStreamSelectionStreamOrder']]
-        """
-        A directive that determines the order of streams in the output.
-        """
-elif False:
-    OriginEndpointStreamSelectionArgsDict: TypeAlias = Mapping[str, Any]
+class OriginEndpointStreamSelectionArgsDict(TypedDict):
+    """
+    A StreamSelection configuration.
+    """
+    max_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum video bitrate (bps) to include in output.
+    """
+    min_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum video bitrate (bps) to include in output.
+    """
+    stream_order: NotRequired[pulumi.Input['OriginEndpointStreamSelectionStreamOrder']]
+    """
+    A directive that determines the order of streams in the output.
+    """
 
 @pulumi.input_type
 class OriginEndpointStreamSelectionArgs:
@@ -1935,17 +1882,14 @@ class OriginEndpointStreamSelectionArgs:
         pulumi.set(self, "stream_order", value)
 
 
-if not MYPY:
-    class PackagingConfigurationCmafEncryptionArgsDict(TypedDict):
-        """
-        A CMAF encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-elif False:
-    PackagingConfigurationCmafEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationCmafEncryptionArgsDict(TypedDict):
+    """
+    A CMAF encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationCmafEncryptionArgs:
@@ -1970,29 +1914,26 @@ class PackagingConfigurationCmafEncryptionArgs:
         pulumi.set(self, "speke_key_provider", value)
 
 
-if not MYPY:
-    class PackagingConfigurationCmafPackageArgsDict(TypedDict):
-        """
-        A CMAF packaging configuration.
-        """
-        hls_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgsDict']]]
-        """
-        A list of HLS manifest configurations.
-        """
-        encryption: NotRequired[pulumi.Input['PackagingConfigurationCmafEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        include_encoder_configuration_in_segments: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
-        """
-elif False:
-    PackagingConfigurationCmafPackageArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationCmafPackageArgsDict(TypedDict):
+    """
+    A CMAF packaging configuration.
+    """
+    hls_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgsDict']]]
+    """
+    A list of HLS manifest configurations.
+    """
+    encryption: NotRequired[pulumi.Input['PackagingConfigurationCmafEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    include_encoder_configuration_in_segments: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationCmafPackageArgs:
@@ -2065,17 +2006,14 @@ class PackagingConfigurationCmafPackageArgs:
         pulumi.set(self, "segment_duration_seconds", value)
 
 
-if not MYPY:
-    class PackagingConfigurationDashEncryptionArgsDict(TypedDict):
-        """
-        A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-elif False:
-    PackagingConfigurationDashEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationDashEncryptionArgsDict(TypedDict):
+    """
+    A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationDashEncryptionArgs:
@@ -2100,37 +2038,34 @@ class PackagingConfigurationDashEncryptionArgs:
         pulumi.set(self, "speke_key_provider", value)
 
 
-if not MYPY:
-    class PackagingConfigurationDashManifestArgsDict(TypedDict):
-        """
-        A DASH manifest configuration.
-        """
-        manifest_layout: NotRequired[pulumi.Input['PackagingConfigurationDashManifestManifestLayout']]
-        """
-        Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-        """
-        manifest_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-        """
-        min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum duration (in seconds) that a player will buffer media before starting the presentation.
-        """
-        profile: NotRequired[pulumi.Input['PackagingConfigurationDashManifestProfile']]
-        """
-        The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-        """
-        scte_markers_source: NotRequired[pulumi.Input['PackagingConfigurationDashManifestScteMarkersSource']]
-        """
-        The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
-        """
-        stream_selection: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionArgsDict']]
-        """
-        Limitations for outputs from the endpoint, based on the video bitrate.
-        """
-elif False:
-    PackagingConfigurationDashManifestArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationDashManifestArgsDict(TypedDict):
+    """
+    A DASH manifest configuration.
+    """
+    manifest_layout: NotRequired[pulumi.Input['PackagingConfigurationDashManifestManifestLayout']]
+    """
+    Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+    """
+    manifest_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+    """
+    min_buffer_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+    """
+    profile: NotRequired[pulumi.Input['PackagingConfigurationDashManifestProfile']]
+    """
+    The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+    """
+    scte_markers_source: NotRequired[pulumi.Input['PackagingConfigurationDashManifestScteMarkersSource']]
+    """
+    The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+    """
+    stream_selection: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionArgsDict']]
+    """
+    Limitations for outputs from the endpoint, based on the video bitrate.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationDashManifestArgs:
@@ -2236,41 +2171,38 @@ class PackagingConfigurationDashManifestArgs:
         pulumi.set(self, "stream_selection", value)
 
 
-if not MYPY:
-    class PackagingConfigurationDashPackageArgsDict(TypedDict):
-        """
-        A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-        """
-        dash_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgsDict']]]
-        """
-        A list of DASH manifest configurations.
-        """
-        encryption: NotRequired[pulumi.Input['PackagingConfigurationDashEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        include_encoder_configuration_in_segments: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-        """
-        include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, an I-Frame only stream will be included in the output.
-        """
-        period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]]]
-        """
-        A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
-        """
-        segment_template_format: NotRequired[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']]
-        """
-        Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-        """
-elif False:
-    PackagingConfigurationDashPackageArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationDashPackageArgsDict(TypedDict):
+    """
+    A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+    """
+    dash_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgsDict']]]
+    """
+    A list of DASH manifest configurations.
+    """
+    encryption: NotRequired[pulumi.Input['PackagingConfigurationDashEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    include_encoder_configuration_in_segments: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+    """
+    include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, an I-Frame only stream will be included in the output.
+    """
+    period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]]]
+    """
+    A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.
+    """
+    segment_template_format: NotRequired[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']]
+    """
+    Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationDashPackageArgs:
@@ -2391,21 +2323,18 @@ class PackagingConfigurationDashPackageArgs:
         pulumi.set(self, "segment_template_format", value)
 
 
-if not MYPY:
-    class PackagingConfigurationEncryptionContractConfigurationArgsDict(TypedDict):
-        """
-        The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
-        """
-        preset_speke20_audio: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio']
-        """
-        A collection of audio encryption presets.
-        """
-        preset_speke20_video: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video']
-        """
-        A collection of video encryption presets.
-        """
-elif False:
-    PackagingConfigurationEncryptionContractConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationEncryptionContractConfigurationArgsDict(TypedDict):
+    """
+    The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+    """
+    preset_speke20_audio: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio']
+    """
+    A collection of audio encryption presets.
+    """
+    preset_speke20_video: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video']
+    """
+    A collection of video encryption presets.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationEncryptionContractConfigurationArgs:
@@ -2445,25 +2374,22 @@ class PackagingConfigurationEncryptionContractConfigurationArgs:
         pulumi.set(self, "preset_speke20_video", value)
 
 
-if not MYPY:
-    class PackagingConfigurationHlsEncryptionArgsDict(TypedDict):
-        """
-        An HTTP Live Streaming (HLS) encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-        constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An HTTP Live Streaming (HLS) encryption configuration.
-        """
-        encryption_method: NotRequired[pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod']]
-        """
-        The encryption method to use.
-        """
-elif False:
-    PackagingConfigurationHlsEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationHlsEncryptionArgsDict(TypedDict):
+    """
+    An HTTP Live Streaming (HLS) encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An HTTP Live Streaming (HLS) encryption configuration.
+    """
+    encryption_method: NotRequired[pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod']]
+    """
+    The encryption method to use.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationHlsEncryptionArgs:
@@ -2520,37 +2446,34 @@ class PackagingConfigurationHlsEncryptionArgs:
         pulumi.set(self, "encryption_method", value)
 
 
-if not MYPY:
-    class PackagingConfigurationHlsManifestArgsDict(TypedDict):
-        """
-        An HTTP Live Streaming (HLS) manifest configuration.
-        """
-        ad_markers: NotRequired[pulumi.Input['PackagingConfigurationHlsManifestAdMarkers']]
-        """
-        This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
-        """
-        include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, an I-Frame only stream will be included in the output.
-        """
-        manifest_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-        """
-        program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
-        """
-        repeat_ext_x_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-        """
-        stream_selection: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionArgsDict']]
-        """
-        Video bitrate limitations for outputs from this packaging configuration.
-        """
-elif False:
-    PackagingConfigurationHlsManifestArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationHlsManifestArgsDict(TypedDict):
+    """
+    An HTTP Live Streaming (HLS) manifest configuration.
+    """
+    ad_markers: NotRequired[pulumi.Input['PackagingConfigurationHlsManifestAdMarkers']]
+    """
+    This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
+    """
+    include_iframe_only_stream: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, an I-Frame only stream will be included in the output.
+    """
+    manifest_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+    """
+    program_date_time_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
+    """
+    repeat_ext_x_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+    """
+    stream_selection: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionArgsDict']]
+    """
+    Video bitrate limitations for outputs from this packaging configuration.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationHlsManifestArgs:
@@ -2656,33 +2579,30 @@ class PackagingConfigurationHlsManifestArgs:
         pulumi.set(self, "stream_selection", value)
 
 
-if not MYPY:
-    class PackagingConfigurationHlsPackageArgsDict(TypedDict):
-        """
-        An HTTP Live Streaming (HLS) packaging configuration.
-        """
-        hls_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgsDict']]]
-        """
-        A list of HLS manifest configurations.
-        """
-        encryption: NotRequired[pulumi.Input['PackagingConfigurationHlsEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        include_dvb_subtitles: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
-        """
-        use_audio_rendition_group: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When enabled, audio streams will be placed in rendition groups in the output.
-        """
-elif False:
-    PackagingConfigurationHlsPackageArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationHlsPackageArgsDict(TypedDict):
+    """
+    An HTTP Live Streaming (HLS) packaging configuration.
+    """
+    hls_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgsDict']]]
+    """
+    A list of HLS manifest configurations.
+    """
+    encryption: NotRequired[pulumi.Input['PackagingConfigurationHlsEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    include_dvb_subtitles: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+    """
+    use_audio_rendition_group: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, audio streams will be placed in rendition groups in the output.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationHlsPackageArgs:
@@ -2771,17 +2691,14 @@ class PackagingConfigurationHlsPackageArgs:
         pulumi.set(self, "use_audio_rendition_group", value)
 
 
-if not MYPY:
-    class PackagingConfigurationMssEncryptionArgsDict(TypedDict):
-        """
-        A CMAF encryption configuration.
-        """
-        speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
-        """
-        Parameters for the SPEKE key provider.
-        """
-elif False:
-    PackagingConfigurationMssEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationMssEncryptionArgsDict(TypedDict):
+    """
+    A CMAF encryption configuration.
+    """
+    speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgsDict']
+    """
+    Parameters for the SPEKE key provider.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationMssEncryptionArgs:
@@ -2806,21 +2723,18 @@ class PackagingConfigurationMssEncryptionArgs:
         pulumi.set(self, "speke_key_provider", value)
 
 
-if not MYPY:
-    class PackagingConfigurationMssManifestArgsDict(TypedDict):
-        """
-        A Microsoft Smooth Streaming (MSS) manifest configuration.
-        """
-        manifest_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-        """
-        stream_selection: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionArgsDict']]
-        """
-        Video bitrate limitations for outputs from this packaging configuration.
-        """
-elif False:
-    PackagingConfigurationMssManifestArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationMssManifestArgsDict(TypedDict):
+    """
+    A Microsoft Smooth Streaming (MSS) manifest configuration.
+    """
+    manifest_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+    """
+    stream_selection: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionArgsDict']]
+    """
+    Video bitrate limitations for outputs from this packaging configuration.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationMssManifestArgs:
@@ -2862,25 +2776,22 @@ class PackagingConfigurationMssManifestArgs:
         pulumi.set(self, "stream_selection", value)
 
 
-if not MYPY:
-    class PackagingConfigurationMssPackageArgsDict(TypedDict):
-        """
-        A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
-        """
-        mss_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationMssManifestArgsDict']]]
-        """
-        A list of MSS manifest configurations.
-        """
-        encryption: NotRequired[pulumi.Input['PackagingConfigurationMssEncryptionArgsDict']]
-        """
-        Parameters for encrypting content.
-        """
-        segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
-        """
-elif False:
-    PackagingConfigurationMssPackageArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationMssPackageArgsDict(TypedDict):
+    """
+    A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+    """
+    mss_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationMssManifestArgsDict']]]
+    """
+    A list of MSS manifest configurations.
+    """
+    encryption: NotRequired[pulumi.Input['PackagingConfigurationMssEncryptionArgsDict']]
+    """
+    Parameters for encrypting content.
+    """
+    segment_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationMssPackageArgs:
@@ -2937,29 +2848,26 @@ class PackagingConfigurationMssPackageArgs:
         pulumi.set(self, "segment_duration_seconds", value)
 
 
-if not MYPY:
-    class PackagingConfigurationSpekeKeyProviderArgsDict(TypedDict):
-        """
-        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
-        """
-        system_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The system IDs to include in key requests.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        The URL of the external key provider service.
-        """
-        encryption_contract_configuration: NotRequired[pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgsDict']]
-        """
-        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
-        """
-elif False:
-    PackagingConfigurationSpekeKeyProviderArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationSpekeKeyProviderArgsDict(TypedDict):
+    """
+    A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
+    """
+    system_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The system IDs to include in key requests.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The URL of the external key provider service.
+    """
+    encryption_contract_configuration: NotRequired[pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgsDict']]
+    """
+    Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationSpekeKeyProviderArgs:
@@ -3030,25 +2938,22 @@ class PackagingConfigurationSpekeKeyProviderArgs:
         pulumi.set(self, "encryption_contract_configuration", value)
 
 
-if not MYPY:
-    class PackagingConfigurationStreamSelectionArgsDict(TypedDict):
-        """
-        A StreamSelection configuration.
-        """
-        max_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum video bitrate (bps) to include in output.
-        """
-        min_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum video bitrate (bps) to include in output.
-        """
-        stream_order: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionStreamOrder']]
-        """
-        A directive that determines the order of streams in the output.
-        """
-elif False:
-    PackagingConfigurationStreamSelectionArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingConfigurationStreamSelectionArgsDict(TypedDict):
+    """
+    A StreamSelection configuration.
+    """
+    max_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum video bitrate (bps) to include in output.
+    """
+    min_video_bits_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum video bitrate (bps) to include in output.
+    """
+    stream_order: NotRequired[pulumi.Input['PackagingConfigurationStreamSelectionStreamOrder']]
+    """
+    A directive that determines the order of streams in the output.
+    """
 
 @pulumi.input_type
 class PackagingConfigurationStreamSelectionArgs:
@@ -3106,18 +3011,15 @@ class PackagingConfigurationStreamSelectionArgs:
         pulumi.set(self, "stream_order", value)
 
 
-if not MYPY:
-    class PackagingGroupAuthorizationArgsDict(TypedDict):
-        cdn_identifier_secret: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
-        """
-        secrets_role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
-        """
-elif False:
-    PackagingGroupAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingGroupAuthorizationArgsDict(TypedDict):
+    cdn_identifier_secret: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
+    """
+    secrets_role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+    """
 
 @pulumi.input_type
 class PackagingGroupAuthorizationArgs:
@@ -3156,14 +3058,11 @@ class PackagingGroupAuthorizationArgs:
         pulumi.set(self, "secrets_role_arn", value)
 
 
-if not MYPY:
-    class PackagingGroupLogConfigurationArgsDict(TypedDict):
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
-        """
-elif False:
-    PackagingGroupLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PackagingGroupLogConfigurationArgsDict(TypedDict):
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
+    """
 
 @pulumi.input_type
 class PackagingGroupLogConfigurationArgs:

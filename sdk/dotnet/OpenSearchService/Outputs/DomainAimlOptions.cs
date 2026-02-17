@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     public sealed class DomainAimlOptions
     {
         public readonly Outputs.DomainS3VectorsEngine? S3VectorsEngine;
+        public readonly Outputs.DomainServerlessVectorAcceleration? ServerlessVectorAcceleration;
 
         [OutputConstructor]
-        private DomainAimlOptions(Outputs.DomainS3VectorsEngine? s3VectorsEngine)
+        private DomainAimlOptions(
+            Outputs.DomainS3VectorsEngine? s3VectorsEngine,
+
+            Outputs.DomainServerlessVectorAcceleration? serverlessVectorAcceleration)
         {
             S3VectorsEngine = s3VectorsEngine;
+            ServerlessVectorAcceleration = serverlessVectorAcceleration;
         }
     }
 }

@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        [Input("ebsCardIndex")]
+        public Input<int>? EbsCardIndex { get; set; }
+
         /// <summary>
         /// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
         /// </summary>

@@ -71,7 +71,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["profile"] = (args?.profile) ?? utilities.getEnv("AWS_PROFILE");
             resourceInputs["region"] = (args?.region) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             resourceInputs["roleArn"] = args?.roleArn;
-            resourceInputs["s3ForcePathStyle"] = pulumi.output(args?.s3ForcePathStyle).apply(JSON.stringify);
+            resourceInputs["s3UsePathStyle"] = pulumi.output(args?.s3UsePathStyle).apply(JSON.stringify);
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
             resourceInputs["sharedCredentialsFile"] = (args?.sharedCredentialsFile) ?? utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args?.skipCredentialsValidation) ?? true).apply(JSON.stringify);
@@ -143,9 +143,9 @@ export interface ProviderArgs {
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+     * Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
      */
-    s3ForcePathStyle?: pulumi.Input<boolean>;
+    s3UsePathStyle?: pulumi.Input<boolean>;
     /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */

@@ -48,6 +48,10 @@ export class VectorBucket extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3vectors.VectorBucketEncryptionConfiguration | undefined>;
     /**
+     * User tags (key-value pairs) to associate with the vector bucket.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * Returns the Amazon Resource Name (ARN) of the specified vector bucket.
      *
      * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
@@ -74,12 +78,14 @@ export class VectorBucket extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vectorBucketName"] = args?.vectorBucketName;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["vectorBucketArn"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vectorBucketArn"] = undefined /*out*/;
             resourceInputs["vectorBucketName"] = undefined /*out*/;
         }
@@ -98,6 +104,10 @@ export interface VectorBucketArgs {
      * The encryption configuration for the vector bucket.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3vectors.VectorBucketEncryptionConfigurationArgs>;
+    /**
+     * User tags (key-value pairs) to associate with the vector bucket.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
      *

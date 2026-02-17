@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.DirectoryService
         [Output("size")]
         public Output<string> Size { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
         /// <summary>
         /// VPC settings of the Simple AD directory server in AWS.
         /// </summary>
@@ -177,6 +180,14 @@ namespace Pulumi.AwsNative.DirectoryService
         /// </summary>
         [Input("size", required: true)]
         public Input<string> Size { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// VPC settings of the Simple AD directory server in AWS.

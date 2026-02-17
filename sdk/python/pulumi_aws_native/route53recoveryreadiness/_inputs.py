@@ -27,35 +27,30 @@ __all__ = [
     'ResourceSetTargetResourceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ResourceSetDnsTargetResourceArgsDict(TypedDict):
-        """
-        A component for DNS/routing control readiness checks.
-        """
-        domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain name that acts as an ingress point to a portion of the customer application.
-        """
-        hosted_zone_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
-        """
-        record_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
-        """
-        record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of DNS record of the target resource.
-        """
-        target_resource: NotRequired[pulumi.Input['ResourceSetTargetResourceArgsDict']]
-        """
-        The target resource that the Route 53 record points to.
-        """
-elif False:
-    ResourceSetDnsTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetDnsTargetResourceArgsDict(TypedDict):
+    """
+    A component for DNS/routing control readiness checks.
+    """
+    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain name that acts as an ingress point to a portion of the customer application.
+    """
+    hosted_zone_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
+    """
+    record_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
+    """
+    record_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of DNS record of the target resource.
+    """
+    target_resource: NotRequired[pulumi.Input['ResourceSetTargetResourceArgsDict']]
+    """
+    The target resource that the Route 53 record points to.
+    """
 
 @pulumi.input_type
 class ResourceSetDnsTargetResourceArgs:
@@ -145,17 +140,14 @@ class ResourceSetDnsTargetResourceArgs:
         pulumi.set(self, "target_resource", value)
 
 
-if not MYPY:
-    class ResourceSetNlbResourceArgsDict(TypedDict):
-        """
-        The Network Load Balancer resource that a DNS target resource points to.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A Network Load Balancer resource Amazon Resource Name (ARN).
-        """
-elif False:
-    ResourceSetNlbResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetNlbResourceArgsDict(TypedDict):
+    """
+    The Network Load Balancer resource that a DNS target resource points to.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A Network Load Balancer resource Amazon Resource Name (ARN).
+    """
 
 @pulumi.input_type
 class ResourceSetNlbResourceArgs:
@@ -181,21 +173,18 @@ class ResourceSetNlbResourceArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class ResourceSetR53ResourceRecordArgsDict(TypedDict):
-        """
-        The Route 53 resource that a DNS target resource record points to.
-        """
-        domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS target domain name.
-        """
-        record_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Resource Record set id.
-        """
-elif False:
-    ResourceSetR53ResourceRecordArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetR53ResourceRecordArgsDict(TypedDict):
+    """
+    The Route 53 resource that a DNS target resource record points to.
+    """
+    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS target domain name.
+    """
+    record_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Resource Record set id.
+    """
 
 @pulumi.input_type
 class ResourceSetR53ResourceRecordArgs:
@@ -237,29 +226,26 @@ class ResourceSetR53ResourceRecordArgs:
         pulumi.set(self, "record_set_id", value)
 
 
-if not MYPY:
-    class ResourceSetResourceArgsDict(TypedDict):
-        """
-        The resource element of a ResourceSet
-        """
-        component_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The component identifier of the resource, generated when DNS target resource is used.
-        """
-        dns_target_resource: NotRequired[pulumi.Input['ResourceSetDnsTargetResourceArgsDict']]
-        """
-        A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
-        """
-        readiness_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
-        """
-        resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the AWS resource.
-        """
-elif False:
-    ResourceSetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceArgsDict(TypedDict):
+    """
+    The resource element of a ResourceSet
+    """
+    component_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The component identifier of the resource, generated when DNS target resource is used.
+    """
+    dns_target_resource: NotRequired[pulumi.Input['ResourceSetDnsTargetResourceArgsDict']]
+    """
+    A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
+    """
+    readiness_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
+    """
+    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the AWS resource.
+    """
 
 @pulumi.input_type
 class ResourceSetResourceArgs:
@@ -333,21 +319,18 @@ class ResourceSetResourceArgs:
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ResourceSetTargetResourceArgsDict(TypedDict):
-        """
-        The target resource that the Route 53 record points to.
-        """
-        nlb_resource: NotRequired[pulumi.Input['ResourceSetNlbResourceArgsDict']]
-        """
-        The Network Load Balancer resource that a DNS target resource points to.
-        """
-        r53_resource: NotRequired[pulumi.Input['ResourceSetR53ResourceRecordArgsDict']]
-        """
-        The Route 53 resource that a DNS target resource record points to.
-        """
-elif False:
-    ResourceSetTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetTargetResourceArgsDict(TypedDict):
+    """
+    The target resource that the Route 53 record points to.
+    """
+    nlb_resource: NotRequired[pulumi.Input['ResourceSetNlbResourceArgsDict']]
+    """
+    The Network Load Balancer resource that a DNS target resource points to.
+    """
+    r53_resource: NotRequired[pulumi.Input['ResourceSetR53ResourceRecordArgsDict']]
+    """
+    The Route 53 resource that a DNS target resource record points to.
+    """
 
 @pulumi.input_type
 class ResourceSetTargetResourceArgs:

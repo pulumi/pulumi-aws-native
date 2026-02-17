@@ -75,6 +75,10 @@ export interface GetMissionProfileResult {
      */
     readonly tags?: outputs.Tag[];
     /**
+     * ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+     */
+    readonly telemetrySinkConfigArn?: string;
+    /**
      * The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
      */
     readonly trackingConfigArn?: string;

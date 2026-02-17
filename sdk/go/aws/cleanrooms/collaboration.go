@@ -46,7 +46,8 @@ type Collaboration struct {
 	// The settings for client-side encryption for cryptographic computing.
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
 	// A description of the collaboration provided by the collaboration owner.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description      pulumi.StringOutput  `pulumi:"description"`
+	IsMetricsEnabled pulumi.BoolPtrOutput `pulumi:"isMetricsEnabled"`
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -146,7 +147,8 @@ type collaborationArgs struct {
 	// The settings for client-side encryption for cryptographic computing.
 	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
 	// A description of the collaboration provided by the collaboration owner.
-	Description string `pulumi:"description"`
+	Description      string `pulumi:"description"`
+	IsMetricsEnabled *bool  `pulumi:"isMetricsEnabled"`
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -186,7 +188,8 @@ type CollaborationArgs struct {
 	// The settings for client-side encryption for cryptographic computing.
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
 	// A description of the collaboration provided by the collaboration owner.
-	Description pulumi.StringInput
+	Description      pulumi.StringInput
+	IsMetricsEnabled pulumi.BoolPtrInput
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -305,6 +308,10 @@ func (o CollaborationOutput) DataEncryptionMetadata() CollaborationDataEncryptio
 // A description of the collaboration provided by the collaboration owner.
 func (o CollaborationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o CollaborationOutput) IsMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Collaboration) pulumi.BoolPtrOutput { return v.IsMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An indicator as to whether job logging has been enabled or disabled for the collaboration.

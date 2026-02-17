@@ -3696,6 +3696,154 @@ func (o BotCustomVocabularyItemArrayOutput) Index(i pulumi.IntInput) BotCustomVo
 	}).(BotCustomVocabularyItemOutput)
 }
 
+type BotDeepgramSpeechModelConfig struct {
+	ApiTokenSecretArn string  `pulumi:"apiTokenSecretArn"`
+	ModelId           *string `pulumi:"modelId"`
+}
+
+// BotDeepgramSpeechModelConfigInput is an input type that accepts BotDeepgramSpeechModelConfigArgs and BotDeepgramSpeechModelConfigOutput values.
+// You can construct a concrete instance of `BotDeepgramSpeechModelConfigInput` via:
+//
+//	BotDeepgramSpeechModelConfigArgs{...}
+type BotDeepgramSpeechModelConfigInput interface {
+	pulumi.Input
+
+	ToBotDeepgramSpeechModelConfigOutput() BotDeepgramSpeechModelConfigOutput
+	ToBotDeepgramSpeechModelConfigOutputWithContext(context.Context) BotDeepgramSpeechModelConfigOutput
+}
+
+type BotDeepgramSpeechModelConfigArgs struct {
+	ApiTokenSecretArn pulumi.StringInput    `pulumi:"apiTokenSecretArn"`
+	ModelId           pulumi.StringPtrInput `pulumi:"modelId"`
+}
+
+func (BotDeepgramSpeechModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotDeepgramSpeechModelConfig)(nil)).Elem()
+}
+
+func (i BotDeepgramSpeechModelConfigArgs) ToBotDeepgramSpeechModelConfigOutput() BotDeepgramSpeechModelConfigOutput {
+	return i.ToBotDeepgramSpeechModelConfigOutputWithContext(context.Background())
+}
+
+func (i BotDeepgramSpeechModelConfigArgs) ToBotDeepgramSpeechModelConfigOutputWithContext(ctx context.Context) BotDeepgramSpeechModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotDeepgramSpeechModelConfigOutput)
+}
+
+func (i BotDeepgramSpeechModelConfigArgs) ToBotDeepgramSpeechModelConfigPtrOutput() BotDeepgramSpeechModelConfigPtrOutput {
+	return i.ToBotDeepgramSpeechModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i BotDeepgramSpeechModelConfigArgs) ToBotDeepgramSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotDeepgramSpeechModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotDeepgramSpeechModelConfigOutput).ToBotDeepgramSpeechModelConfigPtrOutputWithContext(ctx)
+}
+
+// BotDeepgramSpeechModelConfigPtrInput is an input type that accepts BotDeepgramSpeechModelConfigArgs, BotDeepgramSpeechModelConfigPtr and BotDeepgramSpeechModelConfigPtrOutput values.
+// You can construct a concrete instance of `BotDeepgramSpeechModelConfigPtrInput` via:
+//
+//	        BotDeepgramSpeechModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotDeepgramSpeechModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToBotDeepgramSpeechModelConfigPtrOutput() BotDeepgramSpeechModelConfigPtrOutput
+	ToBotDeepgramSpeechModelConfigPtrOutputWithContext(context.Context) BotDeepgramSpeechModelConfigPtrOutput
+}
+
+type botDeepgramSpeechModelConfigPtrType BotDeepgramSpeechModelConfigArgs
+
+func BotDeepgramSpeechModelConfigPtr(v *BotDeepgramSpeechModelConfigArgs) BotDeepgramSpeechModelConfigPtrInput {
+	return (*botDeepgramSpeechModelConfigPtrType)(v)
+}
+
+func (*botDeepgramSpeechModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotDeepgramSpeechModelConfig)(nil)).Elem()
+}
+
+func (i *botDeepgramSpeechModelConfigPtrType) ToBotDeepgramSpeechModelConfigPtrOutput() BotDeepgramSpeechModelConfigPtrOutput {
+	return i.ToBotDeepgramSpeechModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *botDeepgramSpeechModelConfigPtrType) ToBotDeepgramSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotDeepgramSpeechModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotDeepgramSpeechModelConfigPtrOutput)
+}
+
+type BotDeepgramSpeechModelConfigOutput struct{ *pulumi.OutputState }
+
+func (BotDeepgramSpeechModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotDeepgramSpeechModelConfig)(nil)).Elem()
+}
+
+func (o BotDeepgramSpeechModelConfigOutput) ToBotDeepgramSpeechModelConfigOutput() BotDeepgramSpeechModelConfigOutput {
+	return o
+}
+
+func (o BotDeepgramSpeechModelConfigOutput) ToBotDeepgramSpeechModelConfigOutputWithContext(ctx context.Context) BotDeepgramSpeechModelConfigOutput {
+	return o
+}
+
+func (o BotDeepgramSpeechModelConfigOutput) ToBotDeepgramSpeechModelConfigPtrOutput() BotDeepgramSpeechModelConfigPtrOutput {
+	return o.ToBotDeepgramSpeechModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o BotDeepgramSpeechModelConfigOutput) ToBotDeepgramSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotDeepgramSpeechModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotDeepgramSpeechModelConfig) *BotDeepgramSpeechModelConfig {
+		return &v
+	}).(BotDeepgramSpeechModelConfigPtrOutput)
+}
+
+func (o BotDeepgramSpeechModelConfigOutput) ApiTokenSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotDeepgramSpeechModelConfig) string { return v.ApiTokenSecretArn }).(pulumi.StringOutput)
+}
+
+func (o BotDeepgramSpeechModelConfigOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotDeepgramSpeechModelConfig) *string { return v.ModelId }).(pulumi.StringPtrOutput)
+}
+
+type BotDeepgramSpeechModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (BotDeepgramSpeechModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotDeepgramSpeechModelConfig)(nil)).Elem()
+}
+
+func (o BotDeepgramSpeechModelConfigPtrOutput) ToBotDeepgramSpeechModelConfigPtrOutput() BotDeepgramSpeechModelConfigPtrOutput {
+	return o
+}
+
+func (o BotDeepgramSpeechModelConfigPtrOutput) ToBotDeepgramSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotDeepgramSpeechModelConfigPtrOutput {
+	return o
+}
+
+func (o BotDeepgramSpeechModelConfigPtrOutput) Elem() BotDeepgramSpeechModelConfigOutput {
+	return o.ApplyT(func(v *BotDeepgramSpeechModelConfig) BotDeepgramSpeechModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret BotDeepgramSpeechModelConfig
+		return ret
+	}).(BotDeepgramSpeechModelConfigOutput)
+}
+
+func (o BotDeepgramSpeechModelConfigPtrOutput) ApiTokenSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotDeepgramSpeechModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiTokenSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotDeepgramSpeechModelConfigPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotDeepgramSpeechModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
 type BotDefaultConditionalBranch struct {
 	// The next step in the conversation.
 	NextStep *BotDialogState `pulumi:"nextStep"`
@@ -8952,6 +9100,7 @@ type BotLocale struct {
 	// One or more slot types defined for the locale.
 	SlotTypes                  []BotSlotType                  `pulumi:"slotTypes"`
 	SpeechDetectionSensitivity *BotSpeechDetectionSensitivity `pulumi:"speechDetectionSensitivity"`
+	SpeechRecognitionSettings  *BotSpeechRecognitionSettings  `pulumi:"speechRecognitionSettings"`
 	UnifiedSpeechSettings      *BotUnifiedSpeechSettings      `pulumi:"unifiedSpeechSettings"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
@@ -8990,6 +9139,7 @@ type BotLocaleArgs struct {
 	// One or more slot types defined for the locale.
 	SlotTypes                  BotSlotTypeArrayInput                 `pulumi:"slotTypes"`
 	SpeechDetectionSensitivity BotSpeechDetectionSensitivityPtrInput `pulumi:"speechDetectionSensitivity"`
+	SpeechRecognitionSettings  BotSpeechRecognitionSettingsPtrInput  `pulumi:"speechRecognitionSettings"`
 	UnifiedSpeechSettings      BotUnifiedSpeechSettingsPtrInput      `pulumi:"unifiedSpeechSettings"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
@@ -9089,6 +9239,10 @@ func (o BotLocaleOutput) SlotTypes() BotSlotTypeArrayOutput {
 
 func (o BotLocaleOutput) SpeechDetectionSensitivity() BotSpeechDetectionSensitivityPtrOutput {
 	return o.ApplyT(func(v BotLocale) *BotSpeechDetectionSensitivity { return v.SpeechDetectionSensitivity }).(BotSpeechDetectionSensitivityPtrOutput)
+}
+
+func (o BotLocaleOutput) SpeechRecognitionSettings() BotSpeechRecognitionSettingsPtrOutput {
+	return o.ApplyT(func(v BotLocale) *BotSpeechRecognitionSettings { return v.SpeechRecognitionSettings }).(BotSpeechRecognitionSettingsPtrOutput)
 }
 
 func (o BotLocaleOutput) UnifiedSpeechSettings() BotUnifiedSpeechSettingsPtrOutput {
@@ -15155,6 +15309,287 @@ func (o BotSpecificationsMapOutput) MapIndex(k pulumi.StringInput) BotSpecificat
 	}).(BotSpecificationsOutput)
 }
 
+type BotSpeechModelConfig struct {
+	DeepgramConfig *BotDeepgramSpeechModelConfig `pulumi:"deepgramConfig"`
+}
+
+// BotSpeechModelConfigInput is an input type that accepts BotSpeechModelConfigArgs and BotSpeechModelConfigOutput values.
+// You can construct a concrete instance of `BotSpeechModelConfigInput` via:
+//
+//	BotSpeechModelConfigArgs{...}
+type BotSpeechModelConfigInput interface {
+	pulumi.Input
+
+	ToBotSpeechModelConfigOutput() BotSpeechModelConfigOutput
+	ToBotSpeechModelConfigOutputWithContext(context.Context) BotSpeechModelConfigOutput
+}
+
+type BotSpeechModelConfigArgs struct {
+	DeepgramConfig BotDeepgramSpeechModelConfigPtrInput `pulumi:"deepgramConfig"`
+}
+
+func (BotSpeechModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSpeechModelConfig)(nil)).Elem()
+}
+
+func (i BotSpeechModelConfigArgs) ToBotSpeechModelConfigOutput() BotSpeechModelConfigOutput {
+	return i.ToBotSpeechModelConfigOutputWithContext(context.Background())
+}
+
+func (i BotSpeechModelConfigArgs) ToBotSpeechModelConfigOutputWithContext(ctx context.Context) BotSpeechModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSpeechModelConfigOutput)
+}
+
+func (i BotSpeechModelConfigArgs) ToBotSpeechModelConfigPtrOutput() BotSpeechModelConfigPtrOutput {
+	return i.ToBotSpeechModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i BotSpeechModelConfigArgs) ToBotSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotSpeechModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSpeechModelConfigOutput).ToBotSpeechModelConfigPtrOutputWithContext(ctx)
+}
+
+// BotSpeechModelConfigPtrInput is an input type that accepts BotSpeechModelConfigArgs, BotSpeechModelConfigPtr and BotSpeechModelConfigPtrOutput values.
+// You can construct a concrete instance of `BotSpeechModelConfigPtrInput` via:
+//
+//	        BotSpeechModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotSpeechModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToBotSpeechModelConfigPtrOutput() BotSpeechModelConfigPtrOutput
+	ToBotSpeechModelConfigPtrOutputWithContext(context.Context) BotSpeechModelConfigPtrOutput
+}
+
+type botSpeechModelConfigPtrType BotSpeechModelConfigArgs
+
+func BotSpeechModelConfigPtr(v *BotSpeechModelConfigArgs) BotSpeechModelConfigPtrInput {
+	return (*botSpeechModelConfigPtrType)(v)
+}
+
+func (*botSpeechModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSpeechModelConfig)(nil)).Elem()
+}
+
+func (i *botSpeechModelConfigPtrType) ToBotSpeechModelConfigPtrOutput() BotSpeechModelConfigPtrOutput {
+	return i.ToBotSpeechModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *botSpeechModelConfigPtrType) ToBotSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotSpeechModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSpeechModelConfigPtrOutput)
+}
+
+type BotSpeechModelConfigOutput struct{ *pulumi.OutputState }
+
+func (BotSpeechModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSpeechModelConfig)(nil)).Elem()
+}
+
+func (o BotSpeechModelConfigOutput) ToBotSpeechModelConfigOutput() BotSpeechModelConfigOutput {
+	return o
+}
+
+func (o BotSpeechModelConfigOutput) ToBotSpeechModelConfigOutputWithContext(ctx context.Context) BotSpeechModelConfigOutput {
+	return o
+}
+
+func (o BotSpeechModelConfigOutput) ToBotSpeechModelConfigPtrOutput() BotSpeechModelConfigPtrOutput {
+	return o.ToBotSpeechModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o BotSpeechModelConfigOutput) ToBotSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotSpeechModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSpeechModelConfig) *BotSpeechModelConfig {
+		return &v
+	}).(BotSpeechModelConfigPtrOutput)
+}
+
+func (o BotSpeechModelConfigOutput) DeepgramConfig() BotDeepgramSpeechModelConfigPtrOutput {
+	return o.ApplyT(func(v BotSpeechModelConfig) *BotDeepgramSpeechModelConfig { return v.DeepgramConfig }).(BotDeepgramSpeechModelConfigPtrOutput)
+}
+
+type BotSpeechModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (BotSpeechModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSpeechModelConfig)(nil)).Elem()
+}
+
+func (o BotSpeechModelConfigPtrOutput) ToBotSpeechModelConfigPtrOutput() BotSpeechModelConfigPtrOutput {
+	return o
+}
+
+func (o BotSpeechModelConfigPtrOutput) ToBotSpeechModelConfigPtrOutputWithContext(ctx context.Context) BotSpeechModelConfigPtrOutput {
+	return o
+}
+
+func (o BotSpeechModelConfigPtrOutput) Elem() BotSpeechModelConfigOutput {
+	return o.ApplyT(func(v *BotSpeechModelConfig) BotSpeechModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret BotSpeechModelConfig
+		return ret
+	}).(BotSpeechModelConfigOutput)
+}
+
+func (o BotSpeechModelConfigPtrOutput) DeepgramConfig() BotDeepgramSpeechModelConfigPtrOutput {
+	return o.ApplyT(func(v *BotSpeechModelConfig) *BotDeepgramSpeechModelConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DeepgramConfig
+	}).(BotDeepgramSpeechModelConfigPtrOutput)
+}
+
+type BotSpeechRecognitionSettings struct {
+	SpeechModelConfig     *BotSpeechModelConfig     `pulumi:"speechModelConfig"`
+	SpeechModelPreference *BotSpeechModelPreference `pulumi:"speechModelPreference"`
+}
+
+// BotSpeechRecognitionSettingsInput is an input type that accepts BotSpeechRecognitionSettingsArgs and BotSpeechRecognitionSettingsOutput values.
+// You can construct a concrete instance of `BotSpeechRecognitionSettingsInput` via:
+//
+//	BotSpeechRecognitionSettingsArgs{...}
+type BotSpeechRecognitionSettingsInput interface {
+	pulumi.Input
+
+	ToBotSpeechRecognitionSettingsOutput() BotSpeechRecognitionSettingsOutput
+	ToBotSpeechRecognitionSettingsOutputWithContext(context.Context) BotSpeechRecognitionSettingsOutput
+}
+
+type BotSpeechRecognitionSettingsArgs struct {
+	SpeechModelConfig     BotSpeechModelConfigPtrInput     `pulumi:"speechModelConfig"`
+	SpeechModelPreference BotSpeechModelPreferencePtrInput `pulumi:"speechModelPreference"`
+}
+
+func (BotSpeechRecognitionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSpeechRecognitionSettings)(nil)).Elem()
+}
+
+func (i BotSpeechRecognitionSettingsArgs) ToBotSpeechRecognitionSettingsOutput() BotSpeechRecognitionSettingsOutput {
+	return i.ToBotSpeechRecognitionSettingsOutputWithContext(context.Background())
+}
+
+func (i BotSpeechRecognitionSettingsArgs) ToBotSpeechRecognitionSettingsOutputWithContext(ctx context.Context) BotSpeechRecognitionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSpeechRecognitionSettingsOutput)
+}
+
+func (i BotSpeechRecognitionSettingsArgs) ToBotSpeechRecognitionSettingsPtrOutput() BotSpeechRecognitionSettingsPtrOutput {
+	return i.ToBotSpeechRecognitionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotSpeechRecognitionSettingsArgs) ToBotSpeechRecognitionSettingsPtrOutputWithContext(ctx context.Context) BotSpeechRecognitionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSpeechRecognitionSettingsOutput).ToBotSpeechRecognitionSettingsPtrOutputWithContext(ctx)
+}
+
+// BotSpeechRecognitionSettingsPtrInput is an input type that accepts BotSpeechRecognitionSettingsArgs, BotSpeechRecognitionSettingsPtr and BotSpeechRecognitionSettingsPtrOutput values.
+// You can construct a concrete instance of `BotSpeechRecognitionSettingsPtrInput` via:
+//
+//	        BotSpeechRecognitionSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotSpeechRecognitionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotSpeechRecognitionSettingsPtrOutput() BotSpeechRecognitionSettingsPtrOutput
+	ToBotSpeechRecognitionSettingsPtrOutputWithContext(context.Context) BotSpeechRecognitionSettingsPtrOutput
+}
+
+type botSpeechRecognitionSettingsPtrType BotSpeechRecognitionSettingsArgs
+
+func BotSpeechRecognitionSettingsPtr(v *BotSpeechRecognitionSettingsArgs) BotSpeechRecognitionSettingsPtrInput {
+	return (*botSpeechRecognitionSettingsPtrType)(v)
+}
+
+func (*botSpeechRecognitionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSpeechRecognitionSettings)(nil)).Elem()
+}
+
+func (i *botSpeechRecognitionSettingsPtrType) ToBotSpeechRecognitionSettingsPtrOutput() BotSpeechRecognitionSettingsPtrOutput {
+	return i.ToBotSpeechRecognitionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botSpeechRecognitionSettingsPtrType) ToBotSpeechRecognitionSettingsPtrOutputWithContext(ctx context.Context) BotSpeechRecognitionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotSpeechRecognitionSettingsPtrOutput)
+}
+
+type BotSpeechRecognitionSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotSpeechRecognitionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSpeechRecognitionSettings)(nil)).Elem()
+}
+
+func (o BotSpeechRecognitionSettingsOutput) ToBotSpeechRecognitionSettingsOutput() BotSpeechRecognitionSettingsOutput {
+	return o
+}
+
+func (o BotSpeechRecognitionSettingsOutput) ToBotSpeechRecognitionSettingsOutputWithContext(ctx context.Context) BotSpeechRecognitionSettingsOutput {
+	return o
+}
+
+func (o BotSpeechRecognitionSettingsOutput) ToBotSpeechRecognitionSettingsPtrOutput() BotSpeechRecognitionSettingsPtrOutput {
+	return o.ToBotSpeechRecognitionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotSpeechRecognitionSettingsOutput) ToBotSpeechRecognitionSettingsPtrOutputWithContext(ctx context.Context) BotSpeechRecognitionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSpeechRecognitionSettings) *BotSpeechRecognitionSettings {
+		return &v
+	}).(BotSpeechRecognitionSettingsPtrOutput)
+}
+
+func (o BotSpeechRecognitionSettingsOutput) SpeechModelConfig() BotSpeechModelConfigPtrOutput {
+	return o.ApplyT(func(v BotSpeechRecognitionSettings) *BotSpeechModelConfig { return v.SpeechModelConfig }).(BotSpeechModelConfigPtrOutput)
+}
+
+func (o BotSpeechRecognitionSettingsOutput) SpeechModelPreference() BotSpeechModelPreferencePtrOutput {
+	return o.ApplyT(func(v BotSpeechRecognitionSettings) *BotSpeechModelPreference { return v.SpeechModelPreference }).(BotSpeechModelPreferencePtrOutput)
+}
+
+type BotSpeechRecognitionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotSpeechRecognitionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSpeechRecognitionSettings)(nil)).Elem()
+}
+
+func (o BotSpeechRecognitionSettingsPtrOutput) ToBotSpeechRecognitionSettingsPtrOutput() BotSpeechRecognitionSettingsPtrOutput {
+	return o
+}
+
+func (o BotSpeechRecognitionSettingsPtrOutput) ToBotSpeechRecognitionSettingsPtrOutputWithContext(ctx context.Context) BotSpeechRecognitionSettingsPtrOutput {
+	return o
+}
+
+func (o BotSpeechRecognitionSettingsPtrOutput) Elem() BotSpeechRecognitionSettingsOutput {
+	return o.ApplyT(func(v *BotSpeechRecognitionSettings) BotSpeechRecognitionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotSpeechRecognitionSettings
+		return ret
+	}).(BotSpeechRecognitionSettingsOutput)
+}
+
+func (o BotSpeechRecognitionSettingsPtrOutput) SpeechModelConfig() BotSpeechModelConfigPtrOutput {
+	return o.ApplyT(func(v *BotSpeechRecognitionSettings) *BotSpeechModelConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SpeechModelConfig
+	}).(BotSpeechModelConfigPtrOutput)
+}
+
+func (o BotSpeechRecognitionSettingsPtrOutput) SpeechModelPreference() BotSpeechModelPreferencePtrOutput {
+	return o.ApplyT(func(v *BotSpeechRecognitionSettings) *BotSpeechModelPreference {
+		if v == nil {
+			return nil
+		}
+		return v.SpeechModelPreference
+	}).(BotSpeechModelPreferencePtrOutput)
+}
+
 type BotSsmlMessage struct {
 	Value string `pulumi:"value"`
 }
@@ -17825,6 +18260,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyPtrInput)(nil)).Elem(), BotCustomVocabularyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyItemInput)(nil)).Elem(), BotCustomVocabularyItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotCustomVocabularyItemArrayInput)(nil)).Elem(), BotCustomVocabularyItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotDeepgramSpeechModelConfigInput)(nil)).Elem(), BotDeepgramSpeechModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotDeepgramSpeechModelConfigPtrInput)(nil)).Elem(), BotDeepgramSpeechModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDefaultConditionalBranchInput)(nil)).Elem(), BotDefaultConditionalBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDefaultConditionalBranchPtrInput)(nil)).Elem(), BotDefaultConditionalBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionInput)(nil)).Elem(), BotDialogActionArgs{})
@@ -17966,6 +18403,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueSelectionSettingPtrInput)(nil)).Elem(), BotSlotValueSelectionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSpecificationsInput)(nil)).Elem(), BotSpecificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSpecificationsMapInput)(nil)).Elem(), BotSpecificationsMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechModelConfigInput)(nil)).Elem(), BotSpeechModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechModelConfigPtrInput)(nil)).Elem(), BotSpeechModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechRecognitionSettingsInput)(nil)).Elem(), BotSpeechRecognitionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechRecognitionSettingsPtrInput)(nil)).Elem(), BotSpeechRecognitionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSsmlMessageInput)(nil)).Elem(), BotSsmlMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSsmlMessagePtrInput)(nil)).Elem(), BotSsmlMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotStillWaitingResponseSpecificationInput)(nil)).Elem(), BotStillWaitingResponseSpecificationArgs{})
@@ -18058,6 +18499,8 @@ func init() {
 	pulumi.RegisterOutputType(BotCustomVocabularyPtrOutput{})
 	pulumi.RegisterOutputType(BotCustomVocabularyItemOutput{})
 	pulumi.RegisterOutputType(BotCustomVocabularyItemArrayOutput{})
+	pulumi.RegisterOutputType(BotDeepgramSpeechModelConfigOutput{})
+	pulumi.RegisterOutputType(BotDeepgramSpeechModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(BotDefaultConditionalBranchOutput{})
 	pulumi.RegisterOutputType(BotDefaultConditionalBranchPtrOutput{})
 	pulumi.RegisterOutputType(BotDialogActionOutput{})
@@ -18199,6 +18642,10 @@ func init() {
 	pulumi.RegisterOutputType(BotSlotValueSelectionSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotSpecificationsOutput{})
 	pulumi.RegisterOutputType(BotSpecificationsMapOutput{})
+	pulumi.RegisterOutputType(BotSpeechModelConfigOutput{})
+	pulumi.RegisterOutputType(BotSpeechModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(BotSpeechRecognitionSettingsOutput{})
+	pulumi.RegisterOutputType(BotSpeechRecognitionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotSsmlMessageOutput{})
 	pulumi.RegisterOutputType(BotSsmlMessagePtrOutput{})
 	pulumi.RegisterOutputType(BotStillWaitingResponseSpecificationOutput{})

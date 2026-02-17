@@ -31,7 +31,8 @@ class MissionProfileArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  streams_kms_key: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']] = None,
                  streams_kms_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
         :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
@@ -43,6 +44,7 @@ class MissionProfileArgs:
         :param pulumi.Input['MissionProfileStreamsKmsKeyArgs'] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         :param pulumi.Input[_builtins.str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to the mission profile.
+        :param pulumi.Input[_builtins.str] telemetry_sink_config_arn: ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
         """
         pulumi.set(__self__, "dataflow_edges", dataflow_edges)
         pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
@@ -59,6 +61,8 @@ class MissionProfileArgs:
             pulumi.set(__self__, "streams_kms_role", streams_kms_role)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if telemetry_sink_config_arn is not None:
+            pulumi.set(__self__, "telemetry_sink_config_arn", telemetry_sink_config_arn)
 
     @_builtins.property
     @pulumi.getter(name="dataflowEdges")
@@ -168,6 +172,18 @@ class MissionProfileArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkConfigArn")
+    def telemetry_sink_config_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+        """
+        return pulumi.get(self, "telemetry_sink_config_arn")
+
+    @telemetry_sink_config_arn.setter
+    def telemetry_sink_config_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "telemetry_sink_config_arn", value)
+
 
 @pulumi.type_token("aws-native:groundstation:MissionProfile")
 class MissionProfile(pulumi.CustomResource):
@@ -183,6 +199,7 @@ class MissionProfile(pulumi.CustomResource):
                  streams_kms_key: Optional[pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
                  streams_kms_role: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tracking_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -248,6 +265,7 @@ class MissionProfile(pulumi.CustomResource):
         :param pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         :param pulumi.Input[_builtins.str] streams_kms_role: The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the mission profile.
+        :param pulumi.Input[_builtins.str] telemetry_sink_config_arn: ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
         :param pulumi.Input[_builtins.str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         """
         ...
@@ -332,6 +350,7 @@ class MissionProfile(pulumi.CustomResource):
                  streams_kms_key: Optional[pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
                  streams_kms_role: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tracking_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -354,6 +373,7 @@ class MissionProfile(pulumi.CustomResource):
             __props__.__dict__["streams_kms_key"] = streams_kms_key
             __props__.__dict__["streams_kms_role"] = streams_kms_role
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["telemetry_sink_config_arn"] = telemetry_sink_config_arn
             if tracking_config_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'tracking_config_arn'")
             __props__.__dict__["tracking_config_arn"] = tracking_config_arn
@@ -393,6 +413,7 @@ class MissionProfile(pulumi.CustomResource):
         __props__.__dict__["streams_kms_key"] = None
         __props__.__dict__["streams_kms_role"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["telemetry_sink_config_arn"] = None
         __props__.__dict__["tracking_config_arn"] = None
         return MissionProfile(resource_name, opts=opts, __props__=__props__)
 
@@ -483,6 +504,14 @@ class MissionProfile(pulumi.CustomResource):
         Tags assigned to the mission profile.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySinkConfigArn")
+    def telemetry_sink_config_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+        """
+        return pulumi.get(self, "telemetry_sink_config_arn")
 
     @_builtins.property
     @pulumi.getter(name="trackingConfigArn")

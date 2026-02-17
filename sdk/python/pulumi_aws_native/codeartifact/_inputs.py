@@ -24,16 +24,11 @@ __all__ = [
     'PackageGroupRestrictionsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PackageGroupOriginConfigurationArgsDict(TypedDict):
-        restrictions: pulumi.Input['PackageGroupRestrictionsArgsDict']
-        """
-        The origin configuration that is applied to the package group.
-        """
-elif False:
-    PackageGroupOriginConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PackageGroupOriginConfigurationArgsDict(TypedDict):
+    restrictions: pulumi.Input['PackageGroupRestrictionsArgsDict']
+    """
+    The origin configuration that is applied to the package group.
+    """
 
 @pulumi.input_type
 class PackageGroupOriginConfigurationArgs:
@@ -57,12 +52,9 @@ class PackageGroupOriginConfigurationArgs:
         pulumi.set(self, "restrictions", value)
 
 
-if not MYPY:
-    class PackageGroupRestrictionTypeArgsDict(TypedDict):
-        restriction_mode: pulumi.Input['PackageGroupRestrictionTypeRestrictionMode']
-        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    PackageGroupRestrictionTypeArgsDict: TypeAlias = Mapping[str, Any]
+class PackageGroupRestrictionTypeArgsDict(TypedDict):
+    restriction_mode: pulumi.Input['PackageGroupRestrictionTypeRestrictionMode']
+    repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class PackageGroupRestrictionTypeArgs:
@@ -92,22 +84,19 @@ class PackageGroupRestrictionTypeArgs:
         pulumi.set(self, "repositories", value)
 
 
-if not MYPY:
-    class PackageGroupRestrictionsArgsDict(TypedDict):
-        external_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
-        """
-        The external upstream restriction determines if new package versions can be ingested or retained from external connections.
-        """
-        internal_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
-        """
-        The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
-        """
-        publish: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
-        """
-        The publish restriction determines if new package versions can be published.
-        """
-elif False:
-    PackageGroupRestrictionsArgsDict: TypeAlias = Mapping[str, Any]
+class PackageGroupRestrictionsArgsDict(TypedDict):
+    external_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
+    """
+    The external upstream restriction determines if new package versions can be ingested or retained from external connections.
+    """
+    internal_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
+    """
+    The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
+    """
+    publish: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
+    """
+    The publish restriction determines if new package versions can be published.
+    """
 
 @pulumi.input_type
 class PackageGroupRestrictionsArgs:

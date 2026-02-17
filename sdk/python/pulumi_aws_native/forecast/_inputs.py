@@ -24,20 +24,15 @@ __all__ = [
     'SchemaPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatasetAttributesItemPropertiesArgsDict(TypedDict):
-        attribute_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the dataset field
-        """
-        attribute_type: NotRequired[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]
-        """
-        Data type of the field
-        """
-elif False:
-    DatasetAttributesItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetAttributesItemPropertiesArgsDict(TypedDict):
+    attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the dataset field
+    """
+    attribute_type: NotRequired[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]
+    """
+    Data type of the field
+    """
 
 @pulumi.input_type
 class DatasetAttributesItemPropertiesArgs:
@@ -78,23 +73,20 @@ class DatasetAttributesItemPropertiesArgs:
         pulumi.set(self, "attribute_type", value)
 
 
-if not MYPY:
-    class EncryptionConfigPropertiesArgsDict(TypedDict):
-        """
-        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the KMS key.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
+class EncryptionConfigPropertiesArgsDict(TypedDict):
+    """
+    A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the KMS key.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 
-        Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
-        """
-elif False:
-    EncryptionConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+    """
 
 @pulumi.input_type
 class EncryptionConfigPropertiesArgs:
@@ -140,17 +132,14 @@ class EncryptionConfigPropertiesArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class SchemaPropertiesArgsDict(TypedDict):
-        """
-        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
-        """
-        attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgsDict']]]]
-        """
-        An array of attributes specifying the name and type of each field in a dataset.
-        """
-elif False:
-    SchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaPropertiesArgsDict(TypedDict):
+    """
+    The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+    """
+    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgsDict']]]]
+    """
+    An array of attributes specifying the name and type of each field in a dataset.
+    """
 
 @pulumi.input_type
 class SchemaPropertiesArgs:

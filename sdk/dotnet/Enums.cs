@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region EuWest3 { get; } = new Region("eu-west-3");
         /// <summary>
-        /// EU (Germany)
+        /// AWS European Sovereign Cloud (Germany)
         /// </summary>
         public static Region EuscDeEast1 { get; } = new Region("eusc-de-east-1");
         /// <summary>

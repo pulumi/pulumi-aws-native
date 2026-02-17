@@ -62,6 +62,8 @@ __all__ = [
     'UserPoolDomainCustomDomainConfigTypeArgsDict',
     'UserPoolEmailConfigurationArgs',
     'UserPoolEmailConfigurationArgsDict',
+    'UserPoolInboundFederationArgs',
+    'UserPoolInboundFederationArgsDict',
     'UserPoolInviteMessageTemplateArgs',
     'UserPoolInviteMessageTemplateArgsDict',
     'UserPoolLambdaConfigArgs',
@@ -112,28 +114,23 @@ __all__ = [
     'UserPoolVerificationMessageTemplateArgsDict',
 ]
 
-MYPY = False
+class IdentityPoolCognitoIdentityProviderArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID for the Amazon Cognito user pool.
+    """
+    provider_name: pulumi.Input[_builtins.str]
+    """
+    The provider name for an Amazon Cognito user pool. For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
+    """
+    server_side_token_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    TRUE if server-side token validation is enabled for the identity provider’s token.
 
-if not MYPY:
-    class IdentityPoolCognitoIdentityProviderArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID for the Amazon Cognito user pool.
-        """
-        provider_name: pulumi.Input[_builtins.str]
-        """
-        The provider name for an Amazon Cognito user pool. For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
-        """
-        server_side_token_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        TRUE if server-side token validation is enabled for the identity provider’s token.
+    After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
 
-        After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
-
-        If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
-        """
-elif False:
-    IdentityPoolCognitoIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+    If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
+    """
 
 @pulumi.input_type
 class IdentityPoolCognitoIdentityProviderArgs:
@@ -196,22 +193,19 @@ class IdentityPoolCognitoIdentityProviderArgs:
         pulumi.set(self, "server_side_token_check", value)
 
 
-if not MYPY:
-    class IdentityPoolCognitoStreamsArgsDict(TypedDict):
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
-        """
-        stream_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
-        """
-        streaming_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
-        """
-elif False:
-    IdentityPoolCognitoStreamsArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPoolCognitoStreamsArgsDict(TypedDict):
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
+    """
+    stream_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
+    """
+    streaming_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
+    """
 
 @pulumi.input_type
 class IdentityPoolCognitoStreamsArgs:
@@ -268,18 +262,15 @@ class IdentityPoolCognitoStreamsArgs:
         pulumi.set(self, "streaming_status", value)
 
 
-if not MYPY:
-    class IdentityPoolPushSyncArgsDict(TypedDict):
-        application_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ARNs of the Amazon SNS platform applications that could be used by clients.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
-        """
-elif False:
-    IdentityPoolPushSyncArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPoolPushSyncArgsDict(TypedDict):
+    application_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ARNs of the Amazon SNS platform applications that could be used by clients.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
+    """
 
 @pulumi.input_type
 class IdentityPoolPushSyncArgs:
@@ -320,14 +311,11 @@ class IdentityPoolPushSyncArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class IdentityPoolRoleAttachmentMappingRuleArgsDict(TypedDict):
-        claim: pulumi.Input[_builtins.str]
-        match_type: pulumi.Input[_builtins.str]
-        role_arn: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    IdentityPoolRoleAttachmentMappingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPoolRoleAttachmentMappingRuleArgsDict(TypedDict):
+    claim: pulumi.Input[_builtins.str]
+    match_type: pulumi.Input[_builtins.str]
+    role_arn: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class IdentityPoolRoleAttachmentMappingRuleArgs:
@@ -378,14 +366,11 @@ class IdentityPoolRoleAttachmentMappingRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class IdentityPoolRoleAttachmentRoleMappingArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        ambiguous_role_resolution: NotRequired[pulumi.Input[_builtins.str]]
-        identity_provider: NotRequired[pulumi.Input[_builtins.str]]
-        rules_configuration: NotRequired[pulumi.Input['IdentityPoolRoleAttachmentRulesConfigurationTypeArgsDict']]
-elif False:
-    IdentityPoolRoleAttachmentRoleMappingArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPoolRoleAttachmentRoleMappingArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    ambiguous_role_resolution: NotRequired[pulumi.Input[_builtins.str]]
+    identity_provider: NotRequired[pulumi.Input[_builtins.str]]
+    rules_configuration: NotRequired[pulumi.Input['IdentityPoolRoleAttachmentRulesConfigurationTypeArgsDict']]
 
 @pulumi.input_type
 class IdentityPoolRoleAttachmentRoleMappingArgs:
@@ -439,11 +424,8 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
         pulumi.set(self, "rules_configuration", value)
 
 
-if not MYPY:
-    class IdentityPoolRoleAttachmentRulesConfigurationTypeArgsDict(TypedDict):
-        rules: pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentMappingRuleArgsDict']]]
-elif False:
-    IdentityPoolRoleAttachmentRulesConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPoolRoleAttachmentRulesConfigurationTypeArgsDict(TypedDict):
+    rules: pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentMappingRuleArgsDict']]]
 
 @pulumi.input_type
 class IdentityPoolRoleAttachmentRulesConfigurationTypeArgs:
@@ -461,11 +443,8 @@ class IdentityPoolRoleAttachmentRulesConfigurationTypeArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class LogDeliveryConfigurationCloudWatchLogsConfigurationArgsDict(TypedDict):
-        log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    LogDeliveryConfigurationCloudWatchLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LogDeliveryConfigurationCloudWatchLogsConfigurationArgsDict(TypedDict):
+    log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class LogDeliveryConfigurationCloudWatchLogsConfigurationArgs:
@@ -484,11 +463,8 @@ class LogDeliveryConfigurationCloudWatchLogsConfigurationArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class LogDeliveryConfigurationFirehoseConfigurationArgsDict(TypedDict):
-        stream_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    LogDeliveryConfigurationFirehoseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LogDeliveryConfigurationFirehoseConfigurationArgsDict(TypedDict):
+    stream_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class LogDeliveryConfigurationFirehoseConfigurationArgs:
@@ -507,15 +483,12 @@ class LogDeliveryConfigurationFirehoseConfigurationArgs:
         pulumi.set(self, "stream_arn", value)
 
 
-if not MYPY:
-    class LogDeliveryConfigurationLogConfigurationArgsDict(TypedDict):
-        cloud_watch_logs_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgsDict']]
-        event_source: NotRequired[pulumi.Input[_builtins.str]]
-        firehose_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationFirehoseConfigurationArgsDict']]
-        log_level: NotRequired[pulumi.Input[_builtins.str]]
-        s3_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationS3ConfigurationArgsDict']]
-elif False:
-    LogDeliveryConfigurationLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LogDeliveryConfigurationLogConfigurationArgsDict(TypedDict):
+    cloud_watch_logs_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgsDict']]
+    event_source: NotRequired[pulumi.Input[_builtins.str]]
+    firehose_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationFirehoseConfigurationArgsDict']]
+    log_level: NotRequired[pulumi.Input[_builtins.str]]
+    s3_configuration: NotRequired[pulumi.Input['LogDeliveryConfigurationS3ConfigurationArgsDict']]
 
 @pulumi.input_type
 class LogDeliveryConfigurationLogConfigurationArgs:
@@ -582,11 +555,8 @@ class LogDeliveryConfigurationLogConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
 
-if not MYPY:
-    class LogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
-        bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    LogDeliveryConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
+    bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class LogDeliveryConfigurationS3ConfigurationArgs:
@@ -605,15 +575,12 @@ class LogDeliveryConfigurationS3ConfigurationArgs:
         pulumi.set(self, "bucket_arn", value)
 
 
-if not MYPY:
-    class ManagedLoginBrandingAssetTypeArgsDict(TypedDict):
-        category: pulumi.Input['ManagedLoginBrandingCategoryType']
-        color_mode: pulumi.Input['ManagedLoginBrandingColorModeType']
-        extension: pulumi.Input['ManagedLoginBrandingExtensionType']
-        bytes: NotRequired[pulumi.Input[_builtins.str]]
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ManagedLoginBrandingAssetTypeArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedLoginBrandingAssetTypeArgsDict(TypedDict):
+    category: pulumi.Input['ManagedLoginBrandingCategoryType']
+    color_mode: pulumi.Input['ManagedLoginBrandingColorModeType']
+    extension: pulumi.Input['ManagedLoginBrandingExtensionType']
+    bytes: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ManagedLoginBrandingAssetTypeArgs:
@@ -677,14 +644,11 @@ class ManagedLoginBrandingAssetTypeArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class UserPoolAccountRecoverySettingArgsDict(TypedDict):
-        recovery_mechanisms: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserPoolRecoveryOptionArgsDict']]]]
-        """
-        The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.
-        """
-elif False:
-    UserPoolAccountRecoverySettingArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolAccountRecoverySettingArgsDict(TypedDict):
+    recovery_mechanisms: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserPoolRecoveryOptionArgsDict']]]]
+    """
+    The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.
+    """
 
 @pulumi.input_type
 class UserPoolAccountRecoverySettingArgs:
@@ -709,18 +673,15 @@ class UserPoolAccountRecoverySettingArgs:
         pulumi.set(self, "recovery_mechanisms", value)
 
 
-if not MYPY:
-    class UserPoolAddOnsArgsDict(TypedDict):
-        advanced_security_additional_flows: NotRequired[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgsDict']]
-        """
-        Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
-        """
-        advanced_security_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
-        """
-elif False:
-    UserPoolAddOnsArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolAddOnsArgsDict(TypedDict):
+    advanced_security_additional_flows: NotRequired[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgsDict']]
+    """
+    Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
+    """
+    advanced_security_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+    """
 
 @pulumi.input_type
 class UserPoolAddOnsArgs:
@@ -761,28 +722,25 @@ class UserPoolAddOnsArgs:
         pulumi.set(self, "advanced_security_mode", value)
 
 
-if not MYPY:
-    class UserPoolAdminCreateUserConfigArgsDict(TypedDict):
-        allow_admin_create_user_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
-        """
-        invite_message_template: NotRequired[pulumi.Input['UserPoolInviteMessageTemplateArgsDict']]
-        """
-        The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
+class UserPoolAdminCreateUserConfigArgsDict(TypedDict):
+    allow_admin_create_user_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
+    """
+    invite_message_template: NotRequired[pulumi.Input['UserPoolInviteMessageTemplateArgsDict']]
+    """
+    The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 
-        See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
-        """
-        unused_account_validity_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        This parameter is no longer in use.
+    See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
+    """
+    unused_account_validity_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    This parameter is no longer in use.
 
-        The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
+    The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 
-        The default value for this parameter is 7.
-        """
-elif False:
-    UserPoolAdminCreateUserConfigArgsDict: TypeAlias = Mapping[str, Any]
+    The default value for this parameter is 7.
+    """
 
 @pulumi.input_type
 class UserPoolAdminCreateUserConfigArgs:
@@ -851,14 +809,11 @@ class UserPoolAdminCreateUserConfigArgs:
         pulumi.set(self, "unused_account_validity_days", value)
 
 
-if not MYPY:
-    class UserPoolAdvancedSecurityAdditionalFlowsArgsDict(TypedDict):
-        custom_auth_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-        """
-elif False:
-    UserPoolAdvancedSecurityAdditionalFlowsArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolAdvancedSecurityAdditionalFlowsArgsDict(TypedDict):
+    custom_auth_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+    """
 
 @pulumi.input_type
 class UserPoolAdvancedSecurityAdditionalFlowsArgs:
@@ -883,30 +838,27 @@ class UserPoolAdvancedSecurityAdditionalFlowsArgs:
         pulumi.set(self, "custom_auth_mode", value)
 
 
-if not MYPY:
-    class UserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
-        application_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of an Amazon Pinpoint project that you want to connect to your user pool app client. Amazon Cognito publishes events to the Amazon Pinpoint project that `ApplicationArn` declares. You can also configure your application to pass an endpoint ID in the `AnalyticsMetadata` parameter of sign-in operations. The endpoint ID is information about the destination for push notifications
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Your Amazon Pinpoint project ID.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an AWS Identity and Access Management role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
-        """
-        user_data_shared: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
-        """
-elif False:
-    UserPoolClientAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
+    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of an Amazon Pinpoint project that you want to connect to your user pool app client. Amazon Cognito publishes events to the Amazon Pinpoint project that `ApplicationArn` declares. You can also configure your application to pass an endpoint ID in the `AnalyticsMetadata` parameter of sign-in operations. The endpoint ID is information about the destination for push notifications
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Your Amazon Pinpoint project ID.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an AWS Identity and Access Management role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
+    """
+    user_data_shared: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
+    """
 
 @pulumi.input_type
 class UserPoolClientAnalyticsConfigurationArgs:
@@ -995,18 +947,15 @@ class UserPoolClientAnalyticsConfigurationArgs:
         pulumi.set(self, "user_data_shared", value)
 
 
-if not MYPY:
-    class UserPoolClientRefreshTokenRotationArgsDict(TypedDict):
-        feature: NotRequired[pulumi.Input['UserPoolClientRefreshTokenRotationFeature']]
-        """
-        The state of refresh token rotation for the current app client.
-        """
-        retry_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
-        """
-elif False:
-    UserPoolClientRefreshTokenRotationArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolClientRefreshTokenRotationArgsDict(TypedDict):
+    feature: NotRequired[pulumi.Input['UserPoolClientRefreshTokenRotationFeature']]
+    """
+    The state of refresh token rotation for the current app client.
+    """
+    retry_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+    """
 
 @pulumi.input_type
 class UserPoolClientRefreshTokenRotationArgs:
@@ -1047,22 +996,19 @@ class UserPoolClientRefreshTokenRotationArgs:
         pulumi.set(self, "retry_grace_period_seconds", value)
 
 
-if not MYPY:
-    class UserPoolClientTokenValidityUnitsArgsDict(TypedDict):
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
-        """
-        id_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A time unit for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is `hours` . `IdTokenValidity` duration can range from five minutes to one day.
-        """
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A time unit for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is `days` . `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
-        """
-elif False:
-    UserPoolClientTokenValidityUnitsArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolClientTokenValidityUnitsArgsDict(TypedDict):
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
+    """
+    id_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A time unit for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is `hours` . `IdTokenValidity` duration can range from five minutes to one day.
+    """
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A time unit for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is `days` . `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
+    """
 
 @pulumi.input_type
 class UserPoolClientTokenValidityUnitsArgs:
@@ -1119,20 +1065,17 @@ class UserPoolClientTokenValidityUnitsArgs:
         pulumi.set(self, "refresh_token", value)
 
 
-if not MYPY:
-    class UserPoolCustomEmailSenderArgsDict(TypedDict):
-        lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
-        """
-        lambda_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+class UserPoolCustomEmailSenderArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+    """
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
 
-        You must use a `LambdaVersion` of `V1_0` with a custom sender function.
-        """
-elif False:
-    UserPoolCustomEmailSenderArgsDict: TypeAlias = Mapping[str, Any]
+    You must use a `LambdaVersion` of `V1_0` with a custom sender function.
+    """
 
 @pulumi.input_type
 class UserPoolCustomEmailSenderArgs:
@@ -1177,20 +1120,17 @@ class UserPoolCustomEmailSenderArgs:
         pulumi.set(self, "lambda_version", value)
 
 
-if not MYPY:
-    class UserPoolCustomSmsSenderArgsDict(TypedDict):
-        lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
-        """
-        lambda_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+class UserPoolCustomSmsSenderArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+    """
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
 
-        You must use a `LambdaVersion` of `V1_0` with a custom sender function.
-        """
-elif False:
-    UserPoolCustomSmsSenderArgsDict: TypeAlias = Mapping[str, Any]
+    You must use a `LambdaVersion` of `V1_0` with a custom sender function.
+    """
 
 @pulumi.input_type
 class UserPoolCustomSmsSenderArgs:
@@ -1235,22 +1175,19 @@ class UserPoolCustomSmsSenderArgs:
         pulumi.set(self, "lambda_version", value)
 
 
-if not MYPY:
-    class UserPoolDeviceConfigurationArgsDict(TypedDict):
-        challenge_required_on_new_device: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
+class UserPoolDeviceConfigurationArgsDict(TypedDict):
+    challenge_required_on_new_device: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
 
-        > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
-        """
-        device_only_remembered_on_user_prompt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
+    > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
+    """
+    device_only_remembered_on_user_prompt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 
-        When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
-        """
-elif False:
-    UserPoolDeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
+    """
 
 @pulumi.input_type
 class UserPoolDeviceConfigurationArgs:
@@ -1299,14 +1236,11 @@ class UserPoolDeviceConfigurationArgs:
         pulumi.set(self, "device_only_remembered_on_user_prompt", value)
 
 
-if not MYPY:
-    class UserPoolDomainCustomDomainConfigTypeArgsDict(TypedDict):
-        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
-        """
-elif False:
-    UserPoolDomainCustomDomainConfigTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolDomainCustomDomainConfigTypeArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+    """
 
 @pulumi.input_type
 class UserPoolDomainCustomDomainConfigTypeArgs:
@@ -1331,49 +1265,46 @@ class UserPoolDomainCustomDomainConfigTypeArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class UserPoolEmailConfigurationArgsDict(TypedDict):
-        configuration_set: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+class UserPoolEmailConfigurationArgsDict(TypedDict):
+    configuration_set: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
 
-        - **Event publishing** - Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as and Amazon CloudWatch
-        - **IP pool management** - When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
-        """
-        email_sending_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
+    - **Event publishing** - Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as and Amazon CloudWatch
+    - **IP pool management** - When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
+    """
+    email_sending_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
 
-        - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+    - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
 
-        To look up the email delivery limit for the default option, see [Limits](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
+    To look up the email delivery limit for the default option, see [Limits](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
 
-        The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
-        - **DEVELOPER** - When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account .
+    The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
+    - **DEVELOPER** - When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account .
 
-        If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
+    If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
 
-        Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
-        """
-        from_: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Either the sender’s email address or the sender’s name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
-        """
-        reply_to_email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination to which the receiver of the email should reply.
-        """
-        source_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
+    Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
+    """
+    from_: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Either the sender’s email address or the sender’s name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
+    """
+    reply_to_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination to which the receiver of the email should reply.
+    """
+    source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
 
-        - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
-        - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
+    - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
+    - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
 
-        The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
-        """
-elif False:
-    UserPoolEmailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
+    """
 
 @pulumi.input_type
 class UserPoolEmailConfigurationArgs:
@@ -1500,22 +1431,52 @@ class UserPoolEmailConfigurationArgs:
         pulumi.set(self, "source_arn", value)
 
 
-if not MYPY:
-    class UserPoolInviteMessageTemplateArgsDict(TypedDict):
-        email_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-        """
-        email_subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
-        """
-        sms_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message template for SMS messages.
-        """
-elif False:
-    UserPoolInviteMessageTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolInboundFederationArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolInboundFederationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 lambda_version: Optional[pulumi.Input[_builtins.str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_version", value)
+
+
+class UserPoolInviteMessageTemplateArgsDict(TypedDict):
+    email_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+    """
+    email_subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
+    """
+    sms_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message template for SMS messages.
+    """
 
 @pulumi.input_type
 class UserPoolInviteMessageTemplateArgs:
@@ -1572,68 +1533,66 @@ class UserPoolInviteMessageTemplateArgs:
         pulumi.set(self, "sms_message", value)
 
 
-if not MYPY:
-    class UserPoolLambdaConfigArgsDict(TypedDict):
-        create_auth_challenge: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-        """
-        custom_email_sender: NotRequired[pulumi.Input['UserPoolCustomEmailSenderArgsDict']]
-        """
-        The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.
-        """
-        custom_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A custom message Lambda trigger. This trigger is an opportunity to customize all SMS and email messages from your user pool. When a custom message trigger is active, your user pool routes all messages to a Lambda function that returns a runtime-customized message subject and body for your user pool to deliver to a user.
-        """
-        custom_sms_sender: NotRequired[pulumi.Input['UserPoolCustomSmsSenderArgsDict']]
-        """
-        The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
-        """
-        define_auth_challenge: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
-        """
-        post_authentication: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
-        """
-        post_confirmation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a [post confirmation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html) in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.
-        """
-        pre_authentication: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a [pre authentication trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html) in a user pool. This trigger can evaluate and modify user sign-in events.
-        """
-        pre_sign_up: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a [pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) in a user pool. This trigger evaluates new users and can bypass confirmation, [link a federated user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html) , or block sign-up requests.
-        """
-        pre_token_generation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The legacy configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool.
+class UserPoolLambdaConfigArgsDict(TypedDict):
+    create_auth_challenge: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+    """
+    custom_email_sender: NotRequired[pulumi.Input['UserPoolCustomEmailSenderArgsDict']]
+    """
+    The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.
+    """
+    custom_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A custom message Lambda trigger. This trigger is an opportunity to customize all SMS and email messages from your user pool. When a custom message trigger is active, your user pool routes all messages to a Lambda function that returns a runtime-customized message subject and body for your user pool to deliver to a user.
+    """
+    custom_sms_sender: NotRequired[pulumi.Input['UserPoolCustomSmsSenderArgsDict']]
+    """
+    The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
+    """
+    define_auth_challenge: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+    """
+    inbound_federation: NotRequired[pulumi.Input['UserPoolInboundFederationArgsDict']]
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
+    """
+    post_authentication: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
+    """
+    post_confirmation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a [post confirmation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html) in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.
+    """
+    pre_authentication: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a [pre authentication trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html) in a user pool. This trigger can evaluate and modify user sign-in events.
+    """
+    pre_sign_up: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a [pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) in a user pool. This trigger evaluates new users and can bypass confirmation, [link a federated user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html) , or block sign-up requests.
+    """
+    pre_token_generation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The legacy configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool.
 
-        Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
-        """
-        pre_token_generation_config: NotRequired[pulumi.Input['UserPoolPreTokenGenerationConfigArgsDict']]
-        """
-        The detailed configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
-        """
-        user_migration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a [migrate user Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html) in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.
-        """
-        verify_auth_challenge_response: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-        """
-elif False:
-    UserPoolLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+    Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
+    """
+    pre_token_generation_config: NotRequired[pulumi.Input['UserPoolPreTokenGenerationConfigArgsDict']]
+    """
+    The detailed configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
+    """
+    user_migration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a [migrate user Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html) in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.
+    """
+    verify_auth_challenge_response: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+    """
 
 @pulumi.input_type
 class UserPoolLambdaConfigArgs:
@@ -1643,6 +1602,7 @@ class UserPoolLambdaConfigArgs:
                  custom_message: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_sms_sender: Optional[pulumi.Input['UserPoolCustomSmsSenderArgs']] = None,
                  define_auth_challenge: Optional[pulumi.Input[_builtins.str]] = None,
+                 inbound_federation: Optional[pulumi.Input['UserPoolInboundFederationArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  post_authentication: Optional[pulumi.Input[_builtins.str]] = None,
                  post_confirmation: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1680,6 +1640,8 @@ class UserPoolLambdaConfigArgs:
             pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
             pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        if inbound_federation is not None:
+            pulumi.set(__self__, "inbound_federation", inbound_federation)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if post_authentication is not None:
@@ -1758,6 +1720,15 @@ class UserPoolLambdaConfigArgs:
     @define_auth_challenge.setter
     def define_auth_challenge(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "define_auth_challenge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundFederation")
+    def inbound_federation(self) -> Optional[pulumi.Input['UserPoolInboundFederationArgs']]:
+        return pulumi.get(self, "inbound_federation")
+
+    @inbound_federation.setter
+    def inbound_federation(self, value: Optional[pulumi.Input['UserPoolInboundFederationArgs']]):
+        pulumi.set(self, "inbound_federation", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
@@ -1870,18 +1841,15 @@ class UserPoolLambdaConfigArgs:
         pulumi.set(self, "verify_auth_challenge_response", value)
 
 
-if not MYPY:
-    class UserPoolNumberAttributeConstraintsArgsDict(TypedDict):
-        max_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum length of a number attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
-        """
-        min_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The minimum value of an attribute that is of the number data type.
-        """
-elif False:
-    UserPoolNumberAttributeConstraintsArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolNumberAttributeConstraintsArgsDict(TypedDict):
+    max_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum length of a number attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
+    """
+    min_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The minimum value of an attribute that is of the number data type.
+    """
 
 @pulumi.input_type
 class UserPoolNumberAttributeConstraintsArgs:
@@ -1922,40 +1890,37 @@ class UserPoolNumberAttributeConstraintsArgs:
         pulumi.set(self, "min_value", value)
 
 
-if not MYPY:
-    class UserPoolPasswordPolicyArgsDict(TypedDict):
-        minimum_length: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum length of the password in the policy that you have set. This value can't be less than 6.
-        """
-        password_history_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
-        """
-        require_lowercase: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The requirement in a password policy that users must include at least one lowercase letter in their password.
-        """
-        require_numbers: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The requirement in a password policy that users must include at least one number in their password.
-        """
-        require_symbols: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The requirement in a password policy that users must include at least one symbol in their password.
-        """
-        require_uppercase: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The requirement in a password policy that users must include at least one uppercase letter in their password.
-        """
-        temporary_password_validity_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
+class UserPoolPasswordPolicyArgsDict(TypedDict):
+    minimum_length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum length of the password in the policy that you have set. This value can't be less than 6.
+    """
+    password_history_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+    """
+    require_lowercase: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The requirement in a password policy that users must include at least one lowercase letter in their password.
+    """
+    require_numbers: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The requirement in a password policy that users must include at least one number in their password.
+    """
+    require_symbols: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The requirement in a password policy that users must include at least one symbol in their password.
+    """
+    require_uppercase: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The requirement in a password policy that users must include at least one uppercase letter in their password.
+    """
+    temporary_password_validity_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
 
-        > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
-        """
-elif False:
-    UserPoolPasswordPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
+    """
 
 @pulumi.input_type
 class UserPoolPasswordPolicyArgs:
@@ -2080,18 +2045,15 @@ class UserPoolPasswordPolicyArgs:
         pulumi.set(self, "temporary_password_validity_days", value)
 
 
-if not MYPY:
-    class UserPoolPoliciesArgsDict(TypedDict):
-        password_policy: NotRequired[pulumi.Input['UserPoolPasswordPolicyArgsDict']]
-        """
-        The password policy settings for a user pool, including complexity, history, and length requirements.
-        """
-        sign_in_policy: NotRequired[pulumi.Input['UserPoolSignInPolicyArgsDict']]
-        """
-        The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-        """
-elif False:
-    UserPoolPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolPoliciesArgsDict(TypedDict):
+    password_policy: NotRequired[pulumi.Input['UserPoolPasswordPolicyArgsDict']]
+    """
+    The password policy settings for a user pool, including complexity, history, and length requirements.
+    """
+    sign_in_policy: NotRequired[pulumi.Input['UserPoolSignInPolicyArgsDict']]
+    """
+    The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+    """
 
 @pulumi.input_type
 class UserPoolPoliciesArgs:
@@ -2132,20 +2094,17 @@ class UserPoolPoliciesArgs:
         pulumi.set(self, "sign_in_policy", value)
 
 
-if not MYPY:
-    class UserPoolPreTokenGenerationConfigArgsDict(TypedDict):
-        lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+class UserPoolPreTokenGenerationConfigArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
 
-        This parameter and the `PreTokenGeneration` property of `LambdaConfig` have the same value. For new instances of pre token generation triggers, set `LambdaArn` .
-        """
-        lambda_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
-        """
-elif False:
-    UserPoolPreTokenGenerationConfigArgsDict: TypeAlias = Mapping[str, Any]
+    This parameter and the `PreTokenGeneration` property of `LambdaConfig` have the same value. For new instances of pre token generation triggers, set `LambdaArn` .
+    """
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+    """
 
 @pulumi.input_type
 class UserPoolPreTokenGenerationConfigArgs:
@@ -2190,18 +2149,15 @@ class UserPoolPreTokenGenerationConfigArgs:
         pulumi.set(self, "lambda_version", value)
 
 
-if not MYPY:
-    class UserPoolRecoveryOptionArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The recovery method that this object sets a recovery option for.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Your priority preference for using the specified attribute in account recovery. The highest priority is `1` .
-        """
-elif False:
-    UserPoolRecoveryOptionArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRecoveryOptionArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The recovery method that this object sets a recovery option for.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Your priority preference for using the specified attribute in account recovery. The highest priority is `1` .
+    """
 
 @pulumi.input_type
 class UserPoolRecoveryOptionArgs:
@@ -2242,18 +2198,15 @@ class UserPoolRecoveryOptionArgs:
         pulumi.set(self, "priority", value)
 
 
-if not MYPY:
-    class UserPoolResourceServerResourceServerScopeTypeArgsDict(TypedDict):
-        scope_description: pulumi.Input[_builtins.str]
-        """
-        A friendly description of a custom scope.
-        """
-        scope_name: pulumi.Input[_builtins.str]
-        """
-        The name of the scope. Amazon Cognito renders custom scopes in the format `resourceServerIdentifier/ScopeName` . For example, if this parameter is `exampleScope` in the resource server with the identifier `exampleResourceServer` , you request and receive the scope `exampleResourceServer/exampleScope` .
-        """
-elif False:
-    UserPoolResourceServerResourceServerScopeTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolResourceServerResourceServerScopeTypeArgsDict(TypedDict):
+    scope_description: pulumi.Input[_builtins.str]
+    """
+    A friendly description of a custom scope.
+    """
+    scope_name: pulumi.Input[_builtins.str]
+    """
+    The name of the scope. Amazon Cognito renders custom scopes in the format `resourceServerIdentifier/ScopeName` . For example, if this parameter is `exampleScope` in the resource server with the identifier `exampleResourceServer` , you request and receive the scope `exampleResourceServer/exampleScope` .
+    """
 
 @pulumi.input_type
 class UserPoolResourceServerResourceServerScopeTypeArgs:
@@ -2292,23 +2245,20 @@ class UserPoolResourceServerResourceServerScopeTypeArgs:
         pulumi.set(self, "scope_name", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict(TypedDict):
-        event_action: pulumi.Input[_builtins.str]
-        """
-        The action to take for the attempted account takeover action for the associated risk level. Valid values are as follows:
+class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict(TypedDict):
+    event_action: pulumi.Input[_builtins.str]
+    """
+    The action to take for the attempted account takeover action for the associated risk level. Valid values are as follows:
 
-        - `BLOCK` : Block the request.
-        - `MFA_IF_CONFIGURED` : Present an MFA challenge if possible. MFA is possible if the user pool has active MFA methods that the user can set up. For example, if the user pool only supports SMS message MFA but the user doesn't have a phone number attribute, MFA setup isn't possible. If MFA setup isn't possible, allow the request.
-        - `MFA_REQUIRED` : Present an MFA challenge if possible. Block the request if a user hasn't set up MFA. To sign in with required MFA, users must have an email address or phone number attribute, or a registered TOTP factor.
-        - `NO_ACTION` : Take no action. Permit sign-in.
-        """
-        notify: pulumi.Input[_builtins.bool]
-        """
-        Determines whether Amazon Cognito sends a user a notification message when your user pools assesses a user's session at the associated risk level.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` : Block the request.
+    - `MFA_IF_CONFIGURED` : Present an MFA challenge if possible. MFA is possible if the user pool has active MFA methods that the user can set up. For example, if the user pool only supports SMS message MFA but the user doesn't have a phone number attribute, MFA setup isn't possible. If MFA setup isn't possible, allow the request.
+    - `MFA_REQUIRED` : Present an MFA challenge if possible. Block the request if a user hasn't set up MFA. To sign in with required MFA, users must have an email address or phone number attribute, or a registered TOTP factor.
+    - `NO_ACTION` : Take no action. Permit sign-in.
+    """
+    notify: pulumi.Input[_builtins.bool]
+    """
+    Determines whether Amazon Cognito sends a user a notification message when your user pools assesses a user's session at the associated risk level.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs:
@@ -2357,22 +2307,19 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs:
         pulumi.set(self, "notify", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict(TypedDict):
-        high_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
-        """
-        The action that you assign to a high-risk assessment by threat protection.
-        """
-        low_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
-        """
-        The action that you assign to a low-risk assessment by threat protection.
-        """
-        medium_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
-        """
-        The action that you assign to a medium-risk assessment by threat protection.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict(TypedDict):
+    high_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
+    """
+    The action that you assign to a high-risk assessment by threat protection.
+    """
+    low_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
+    """
+    The action that you assign to a low-risk assessment by threat protection.
+    """
+    medium_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
+    """
+    The action that you assign to a medium-risk assessment by threat protection.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
@@ -2429,18 +2376,15 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
         pulumi.set(self, "medium_action", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict(TypedDict):
-        actions: pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict']
-        """
-        A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
-        """
-        notify_configuration: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgsDict']]
-        """
-        The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict(TypedDict):
+    actions: pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict']
+    """
+    A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
+    """
+    notify_configuration: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgsDict']]
+    """
+    The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs:
@@ -2480,14 +2424,11 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArg
         pulumi.set(self, "notify_configuration", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgsDict(TypedDict):
-        event_action: pulumi.Input[_builtins.str]
-        """
-        The action that Amazon Cognito takes when it detects compromised credentials.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgsDict(TypedDict):
+    event_action: pulumi.Input[_builtins.str]
+    """
+    The action that Amazon Cognito takes when it detects compromised credentials.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs:
@@ -2511,18 +2452,15 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs:
         pulumi.set(self, "event_action", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict(TypedDict):
-        actions: pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgsDict']
-        """
-        Settings for the actions that you want your user pool to take when Amazon Cognito detects compromised credentials.
-        """
-        event_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Settings for the sign-in activity where you want to configure compromised-credentials actions. Defaults to all events.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict(TypedDict):
+    actions: pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgsDict']
+    """
+    Settings for the actions that you want your user pool to take when Amazon Cognito detects compromised credentials.
+    """
+    event_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Settings for the sign-in activity where you want to configure compromised-credentials actions. Defaults to all events.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs:
@@ -2562,34 +2500,31 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
         pulumi.set(self, "event_filter", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgsDict(TypedDict):
-        source_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
-        """
-        block_email: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict']]
-        """
-        The template for the email message that your user pool sends when a detected risk event is blocked.
-        """
-        from_: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        """
-        mfa_email: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict']]
-        """
-        The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
-        """
-        no_action_email: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict']]
-        """
-        The template for the email message that your user pool sends when no action is taken in response to a detected risk.
-        """
-        reply_to: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgsDict(TypedDict):
+    source_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
+    """
+    block_email: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict']]
+    """
+    The template for the email message that your user pool sends when a detected risk event is blocked.
+    """
+    from_: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+    """
+    mfa_email: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict']]
+    """
+    The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
+    """
+    no_action_email: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict']]
+    """
+    The template for the email message that your user pool sends when no action is taken in response to a detected risk.
+    """
+    reply_to: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs:
@@ -2693,22 +2628,19 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs:
         pulumi.set(self, "reply_to", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict(TypedDict):
-        subject: pulumi.Input[_builtins.str]
-        """
-        The subject of the threat protection email notification.
-        """
-        html_body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The body of an email notification formatted in HTML. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
-        """
-        text_body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The body of an email notification formatted in plaintext. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgsDict(TypedDict):
+    subject: pulumi.Input[_builtins.str]
+    """
+    The subject of the threat protection email notification.
+    """
+    html_body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The body of an email notification formatted in HTML. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
+    """
+    text_body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The body of an email notification formatted in plaintext. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs:
@@ -2764,18 +2696,15 @@ class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs:
         pulumi.set(self, "text_body", value)
 
 
-if not MYPY:
-    class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict(TypedDict):
-        blocked_ip_range_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An always-block IP address list. Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
-        """
-        skipped_ip_range_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An always-allow IP address list. Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
-        """
-elif False:
-    UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict(TypedDict):
+    blocked_ip_range_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An always-block IP address list. Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
+    """
+    skipped_ip_range_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An always-allow IP address list. Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
+    """
 
 @pulumi.input_type
 class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs:
@@ -2816,42 +2745,39 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs:
         pulumi.set(self, "skipped_ip_range_list", value)
 
 
-if not MYPY:
-    class UserPoolSchemaAttributeArgsDict(TypedDict):
-        attribute_data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data format of the values for your attribute. When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
-        """
-        developer_only_attribute: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        > You should use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` . 
+class UserPoolSchemaAttributeArgsDict(TypedDict):
+    attribute_data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data format of the values for your attribute. When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
+    """
+    developer_only_attribute: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    > You should use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` . 
 
-        Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users won't be able to modify this attribute using their access token. For example, `DeveloperOnlyAttribute` can be modified using AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.
-        """
-        mutable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the value of the attribute can be changed.
+    Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users won't be able to modify this attribute using their access token. For example, `DeveloperOnlyAttribute` can be modified using AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.
+    """
+    mutable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the value of the attribute can be changed.
 
-        Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
-        """
-        number_attribute_constraints: NotRequired[pulumi.Input['UserPoolNumberAttributeConstraintsArgsDict']]
-        """
-        Specifies the constraints for an attribute of the number type.
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
-        """
-        string_attribute_constraints: NotRequired[pulumi.Input['UserPoolStringAttributeConstraintsArgsDict']]
-        """
-        Specifies the constraints for an attribute of the string type.
-        """
-elif False:
-    UserPoolSchemaAttributeArgsDict: TypeAlias = Mapping[str, Any]
+    Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
+    """
+    number_attribute_constraints: NotRequired[pulumi.Input['UserPoolNumberAttributeConstraintsArgsDict']]
+    """
+    Specifies the constraints for an attribute of the number type.
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
+    """
+    string_attribute_constraints: NotRequired[pulumi.Input['UserPoolStringAttributeConstraintsArgsDict']]
+    """
+    Specifies the constraints for an attribute of the string type.
+    """
 
 @pulumi.input_type
 class UserPoolSchemaAttributeArgs:
@@ -2980,16 +2906,13 @@ class UserPoolSchemaAttributeArgs:
         pulumi.set(self, "string_attribute_constraints", value)
 
 
-if not MYPY:
-    class UserPoolSignInPolicyArgsDict(TypedDict):
-        allowed_first_auth_factors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+class UserPoolSignInPolicyArgsDict(TypedDict):
+    allowed_first_auth_factors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
 
-        Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
-        """
-elif False:
-    UserPoolSignInPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
+    """
 
 @pulumi.input_type
 class UserPoolSignInPolicyArgs:
@@ -3018,26 +2941,23 @@ class UserPoolSignInPolicyArgs:
         pulumi.set(self, "allowed_first_auth_factors", value)
 
 
-if not MYPY:
-    class UserPoolSmsConfigurationArgsDict(TypedDict):
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
+class UserPoolSmsConfigurationArgsDict(TypedDict):
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
 
-        For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
-        """
-        sns_caller_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
-        """
-        sns_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
+    For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
+    """
+    sns_caller_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
+    """
+    sns_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
 
-        Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
-        """
-elif False:
-    UserPoolSmsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+    """
 
 @pulumi.input_type
 class UserPoolSmsConfigurationArgs:
@@ -3102,18 +3022,15 @@ class UserPoolSmsConfigurationArgs:
         pulumi.set(self, "sns_region", value)
 
 
-if not MYPY:
-    class UserPoolStringAttributeConstraintsArgsDict(TypedDict):
-        max_length: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
-        """
-        min_length: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The minimum length of a string attribute value.
-        """
-elif False:
-    UserPoolStringAttributeConstraintsArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolStringAttributeConstraintsArgsDict(TypedDict):
+    max_length: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
+    """
+    min_length: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The minimum length of a string attribute value.
+    """
 
 @pulumi.input_type
 class UserPoolStringAttributeConstraintsArgs:
@@ -3154,18 +3071,15 @@ class UserPoolStringAttributeConstraintsArgs:
         pulumi.set(self, "min_length", value)
 
 
-if not MYPY:
-    class UserPoolUserAttributeTypeArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the attribute.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the attribute.
-        """
-elif False:
-    UserPoolUserAttributeTypeArgsDict: TypeAlias = Mapping[str, Any]
+class UserPoolUserAttributeTypeArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the attribute.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the attribute.
+    """
 
 @pulumi.input_type
 class UserPoolUserAttributeTypeArgs:
@@ -3206,16 +3120,13 @@ class UserPoolUserAttributeTypeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class UserPoolUserAttributeUpdateSettingsArgsDict(TypedDict):
-        attributes_require_verification_before_update: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
+class UserPoolUserAttributeUpdateSettingsArgsDict(TypedDict):
+    attributes_require_verification_before_update: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 
-        When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
-        """
-elif False:
-    UserPoolUserAttributeUpdateSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
+    """
 
 @pulumi.input_type
 class UserPoolUserAttributeUpdateSettingsArgs:
@@ -3243,19 +3154,16 @@ class UserPoolUserAttributeUpdateSettingsArgs:
         pulumi.set(self, "attributes_require_verification_before_update", value)
 
 
-if not MYPY:
-    class UserPoolUsernameConfigurationArgsDict(TypedDict):
-        case_sensitive: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs. For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
+class UserPoolUsernameConfigurationArgsDict(TypedDict):
+    case_sensitive: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs. For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
 
-        Valid values include:
+    Valid values include:
 
-        - **true** - Enables case sensitivity for all username input. When this option is set to `true` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
-        - **false** - Enables case insensitivity for all username input. For example, when this option is set to `false` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
-        """
-elif False:
-    UserPoolUsernameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - **true** - Enables case sensitivity for all username input. When this option is set to `true` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+    - **false** - Enables case insensitivity for all username input. For example, when this option is set to `false` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
+    """
 
 @pulumi.input_type
 class UserPoolUsernameConfigurationArgs:
@@ -3290,36 +3198,33 @@ class UserPoolUsernameConfigurationArgs:
         pulumi.set(self, "case_sensitive", value)
 
 
-if not MYPY:
-    class UserPoolVerificationMessageTemplateArgsDict(TypedDict):
-        default_email_option: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration of verification emails to contain a clickable link or a verification code.
+class UserPoolVerificationMessageTemplateArgsDict(TypedDict):
+    default_email_option: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration of verification emails to contain a clickable link or a verification code.
 
-        For link, your template body must contain link text in the format `{##Click here##}` . "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format `{####}` .
-        """
-        email_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
-        """
-        email_message_by_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
-        """
-        email_subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
-        """
-        email_subject_by_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
-        """
-        sms_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The template for SMS messages that Amazon Cognito sends to your users.
-        """
-elif False:
-    UserPoolVerificationMessageTemplateArgsDict: TypeAlias = Mapping[str, Any]
+    For link, your template body must contain link text in the format `{##Click here##}` . "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format `{####}` .
+    """
+    email_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+    """
+    email_message_by_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+    """
+    email_subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+    """
+    email_subject_by_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+    """
+    sms_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The template for SMS messages that Amazon Cognito sends to your users.
+    """
 
 @pulumi.input_type
 class UserPoolVerificationMessageTemplateArgs:

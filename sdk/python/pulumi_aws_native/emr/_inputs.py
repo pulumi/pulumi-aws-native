@@ -22,28 +22,23 @@ __all__ = [
     'StepKeyValueArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StepHadoopJarStepConfigArgsDict(TypedDict):
-        jar: pulumi.Input[_builtins.str]
-        """
-        A path to a JAR file run during the step.
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of command line arguments passed to the JAR file's main function when executed.
-        """
-        main_class: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-        """
-        step_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgsDict']]]]
-        """
-        A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
-elif False:
-    StepHadoopJarStepConfigArgsDict: TypeAlias = Mapping[str, Any]
+class StepHadoopJarStepConfigArgsDict(TypedDict):
+    jar: pulumi.Input[_builtins.str]
+    """
+    A path to a JAR file run during the step.
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of command line arguments passed to the JAR file's main function when executed.
+    """
+    main_class: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+    """
+    step_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgsDict']]]]
+    """
+    A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+    """
 
 @pulumi.input_type
 class StepHadoopJarStepConfigArgs:
@@ -115,18 +110,15 @@ class StepHadoopJarStepConfigArgs:
         pulumi.set(self, "step_properties", value)
 
 
-if not MYPY:
-    class StepKeyValueArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of a key-value pair.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value part of the identified key.
-        """
-elif False:
-    StepKeyValueArgsDict: TypeAlias = Mapping[str, Any]
+class StepKeyValueArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of a key-value pair.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value part of the identified key.
+    """
 
 @pulumi.input_type
 class StepKeyValueArgs:

@@ -126,16 +126,11 @@ __all__ = [
     'WebExperienceSamlProviderConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationAttachmentsConfigurationArgsDict(TypedDict):
-        attachments_control_mode: pulumi.Input['ApplicationAttachmentsControlMode']
-        """
-        Status information about whether file upload functionality is activated or deactivated for your end user.
-        """
-elif False:
-    ApplicationAttachmentsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAttachmentsConfigurationArgsDict(TypedDict):
+    attachments_control_mode: pulumi.Input['ApplicationAttachmentsControlMode']
+    """
+    Status information about whether file upload functionality is activated or deactivated for your end user.
+    """
 
 @pulumi.input_type
 class ApplicationAttachmentsConfigurationArgs:
@@ -159,18 +154,15 @@ class ApplicationAttachmentsConfigurationArgs:
         pulumi.set(self, "attachments_control_mode", value)
 
 
-if not MYPY:
-    class ApplicationAutoSubscriptionConfigurationArgsDict(TypedDict):
-        auto_subscribe: pulumi.Input['ApplicationAutoSubscriptionStatus']
-        """
-        Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
-        """
-        default_subscription_type: NotRequired[pulumi.Input['ApplicationSubscriptionType']]
-        """
-        Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
-        """
-elif False:
-    ApplicationAutoSubscriptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAutoSubscriptionConfigurationArgsDict(TypedDict):
+    auto_subscribe: pulumi.Input['ApplicationAutoSubscriptionStatus']
+    """
+    Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+    """
+    default_subscription_type: NotRequired[pulumi.Input['ApplicationSubscriptionType']]
+    """
+    Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+    """
 
 @pulumi.input_type
 class ApplicationAutoSubscriptionConfigurationArgs:
@@ -210,14 +202,11 @@ class ApplicationAutoSubscriptionConfigurationArgs:
         pulumi.set(self, "default_subscription_type", value)
 
 
-if not MYPY:
-    class ApplicationEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
-        """
-elif False:
-    ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
+    """
 
 @pulumi.input_type
 class ApplicationEncryptionConfigurationArgs:
@@ -242,14 +231,11 @@ class ApplicationEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ApplicationPersonalizationConfigurationArgsDict(TypedDict):
-        personalization_control_mode: pulumi.Input['ApplicationPersonalizationControlMode']
-        """
-        An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
-        """
-elif False:
-    ApplicationPersonalizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPersonalizationConfigurationArgsDict(TypedDict):
+    personalization_control_mode: pulumi.Input['ApplicationPersonalizationControlMode']
+    """
+    An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
+    """
 
 @pulumi.input_type
 class ApplicationPersonalizationConfigurationArgs:
@@ -273,14 +259,11 @@ class ApplicationPersonalizationConfigurationArgs:
         pulumi.set(self, "personalization_control_mode", value)
 
 
-if not MYPY:
-    class ApplicationQAppsConfigurationArgsDict(TypedDict):
-        q_apps_control_mode: pulumi.Input['ApplicationQAppsControlMode']
-        """
-        Status information about whether end users can create and use Amazon Q Apps in the web experience.
-        """
-elif False:
-    ApplicationQAppsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationQAppsConfigurationArgsDict(TypedDict):
+    q_apps_control_mode: pulumi.Input['ApplicationQAppsControlMode']
+    """
+    Status information about whether end users can create and use Amazon Q Apps in the web experience.
+    """
 
 @pulumi.input_type
 class ApplicationQAppsConfigurationArgs:
@@ -304,14 +287,11 @@ class ApplicationQAppsConfigurationArgs:
         pulumi.set(self, "q_apps_control_mode", value)
 
 
-if not MYPY:
-    class ApplicationQuickSightConfigurationArgsDict(TypedDict):
-        client_namespace: pulumi.Input[_builtins.str]
-        """
-        The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
-        """
-elif False:
-    ApplicationQuickSightConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationQuickSightConfigurationArgsDict(TypedDict):
+    client_namespace: pulumi.Input[_builtins.str]
+    """
+    The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+    """
 
 @pulumi.input_type
 class ApplicationQuickSightConfigurationArgs:
@@ -335,18 +315,15 @@ class ApplicationQuickSightConfigurationArgs:
         pulumi.set(self, "client_namespace", value)
 
 
-if not MYPY:
-    class DataAccessorActionConfigurationArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The Amazon Q Business action that is allowed.
-        """
-        filter_configuration: NotRequired[pulumi.Input['DataAccessorActionFilterConfigurationArgsDict']]
-        """
-        The filter configuration for the action, if any.
-        """
-elif False:
-    DataAccessorActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorActionConfigurationArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The Amazon Q Business action that is allowed.
+    """
+    filter_configuration: NotRequired[pulumi.Input['DataAccessorActionFilterConfigurationArgsDict']]
+    """
+    The filter configuration for the action, if any.
+    """
 
 @pulumi.input_type
 class DataAccessorActionConfigurationArgs:
@@ -386,14 +363,11 @@ class DataAccessorActionConfigurationArgs:
         pulumi.set(self, "filter_configuration", value)
 
 
-if not MYPY:
-    class DataAccessorActionFilterConfigurationArgsDict(TypedDict):
-        document_attribute_filter: pulumi.Input['DataAccessorAttributeFilterArgsDict']
-        """
-        Enables filtering of responses based on document attributes or metadata fields.
-        """
-elif False:
-    DataAccessorActionFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorActionFilterConfigurationArgsDict(TypedDict):
+    document_attribute_filter: pulumi.Input['DataAccessorAttributeFilterArgsDict']
+    """
+    Enables filtering of responses based on document attributes or metadata fields.
+    """
 
 @pulumi.input_type
 class DataAccessorActionFilterConfigurationArgs:
@@ -417,50 +391,47 @@ class DataAccessorActionFilterConfigurationArgs:
         pulumi.set(self, "document_attribute_filter", value)
 
 
-if not MYPY:
-    class DataAccessorAttributeFilterArgsDict(TypedDict):
-        and_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
-        """
-        Performs a logical `AND` operation on all supplied filters.
-        """
-        contains_all: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
-        """
-        contains_any: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
-        """
-        equals_to: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
-        """
-        greater_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
-        """
-        greater_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
-        """
-        less_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
-        """
-        less_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
-        """
-        Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
-        """
-        not_filter: NotRequired[pulumi.Input['DataAccessorAttributeFilterArgsDict']]
-        """
-        Performs a logical `NOT` operation on all supplied filters.
-        """
-        or_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
-        """
-        Performs a logical `OR` operation on all supplied filters.
-        """
-elif False:
-    DataAccessorAttributeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorAttributeFilterArgsDict(TypedDict):
+    and_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
+    """
+    Performs a logical `AND` operation on all supplied filters.
+    """
+    contains_all: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+    """
+    contains_any: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+    """
+    equals_to: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
+    """
+    greater_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+    """
+    greater_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+    """
+    less_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+    """
+    less_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+    """
+    Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+    """
+    not_filter: NotRequired[pulumi.Input['DataAccessorAttributeFilterArgsDict']]
+    """
+    Performs a logical `NOT` operation on all supplied filters.
+    """
+    or_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
+    """
+    Performs a logical `OR` operation on all supplied filters.
+    """
 
 @pulumi.input_type
 class DataAccessorAttributeFilterArgs:
@@ -629,11 +600,8 @@ class DataAccessorAttributeFilterArgs:
         pulumi.set(self, "or_all_filters", value)
 
 
-if not MYPY:
-    class DataAccessorAuthenticationConfigurationPropertiesArgsDict(TypedDict):
-        idc_trusted_token_issuer_configuration: pulumi.Input['DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict']
-elif False:
-    DataAccessorAuthenticationConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorAuthenticationConfigurationPropertiesArgsDict(TypedDict):
+    idc_trusted_token_issuer_configuration: pulumi.Input['DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict']
 
 @pulumi.input_type
 class DataAccessorAuthenticationConfigurationPropertiesArgs:
@@ -651,25 +619,22 @@ class DataAccessorAuthenticationConfigurationPropertiesArgs:
         pulumi.set(self, "idc_trusted_token_issuer_configuration", value)
 
 
-if not MYPY:
-    class DataAccessorAuthenticationDetailArgsDict(TypedDict):
-        authentication_type: pulumi.Input['DataAccessorAuthenticationType']
-        """
-        The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+class DataAccessorAuthenticationDetailArgsDict(TypedDict):
+    authentication_type: pulumi.Input['DataAccessorAuthenticationType']
+    """
+    The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
 
-        - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
-        - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
-        """
-        authentication_configuration: NotRequired[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgsDict']]
-        """
-        The specific authentication configuration based on the authentication type.
-        """
-        external_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
-        """
-elif False:
-    DataAccessorAuthenticationDetailArgsDict: TypeAlias = Mapping[str, Any]
+    - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+    - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+    """
+    authentication_configuration: NotRequired[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgsDict']]
+    """
+    The specific authentication configuration based on the authentication type.
+    """
+    external_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+    """
 
 @pulumi.input_type
 class DataAccessorAuthenticationDetailArgs:
@@ -731,11 +696,8 @@ class DataAccessorAuthenticationDetailArgs:
         pulumi.set(self, "external_ids", value)
 
 
-if not MYPY:
-    class DataAccessorDocumentAttributeValue0PropertiesArgsDict(TypedDict):
-        string_value: pulumi.Input[_builtins.str]
-elif False:
-    DataAccessorDocumentAttributeValue0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorDocumentAttributeValue0PropertiesArgsDict(TypedDict):
+    string_value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class DataAccessorDocumentAttributeValue0PropertiesArgs:
@@ -753,11 +715,8 @@ class DataAccessorDocumentAttributeValue0PropertiesArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class DataAccessorDocumentAttributeValue1PropertiesArgsDict(TypedDict):
-        string_list_value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    DataAccessorDocumentAttributeValue1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorDocumentAttributeValue1PropertiesArgsDict(TypedDict):
+    string_list_value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class DataAccessorDocumentAttributeValue1PropertiesArgs:
@@ -775,11 +734,8 @@ class DataAccessorDocumentAttributeValue1PropertiesArgs:
         pulumi.set(self, "string_list_value", value)
 
 
-if not MYPY:
-    class DataAccessorDocumentAttributeValue2PropertiesArgsDict(TypedDict):
-        long_value: pulumi.Input[_builtins.float]
-elif False:
-    DataAccessorDocumentAttributeValue2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorDocumentAttributeValue2PropertiesArgsDict(TypedDict):
+    long_value: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class DataAccessorDocumentAttributeValue2PropertiesArgs:
@@ -797,11 +753,8 @@ class DataAccessorDocumentAttributeValue2PropertiesArgs:
         pulumi.set(self, "long_value", value)
 
 
-if not MYPY:
-    class DataAccessorDocumentAttributeValue3PropertiesArgsDict(TypedDict):
-        date_value: pulumi.Input[_builtins.str]
-elif False:
-    DataAccessorDocumentAttributeValue3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorDocumentAttributeValue3PropertiesArgsDict(TypedDict):
+    date_value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class DataAccessorDocumentAttributeValue3PropertiesArgs:
@@ -819,18 +772,15 @@ class DataAccessorDocumentAttributeValue3PropertiesArgs:
         pulumi.set(self, "date_value", value)
 
 
-if not MYPY:
-    class DataAccessorDocumentAttributeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The identifier for the attribute.
-        """
-        value: pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgsDict', 'DataAccessorDocumentAttributeValue1PropertiesArgsDict', 'DataAccessorDocumentAttributeValue2PropertiesArgsDict', 'DataAccessorDocumentAttributeValue3PropertiesArgsDict']]
-        """
-        The value of the attribute.
-        """
-elif False:
-    DataAccessorDocumentAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorDocumentAttributeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The identifier for the attribute.
+    """
+    value: pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgsDict', 'DataAccessorDocumentAttributeValue1PropertiesArgsDict', 'DataAccessorDocumentAttributeValue2PropertiesArgsDict', 'DataAccessorDocumentAttributeValue3PropertiesArgsDict']]
+    """
+    The value of the attribute.
+    """
 
 @pulumi.input_type
 class DataAccessorDocumentAttributeArgs:
@@ -869,11 +819,8 @@ class DataAccessorDocumentAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict(TypedDict):
-        idc_trusted_token_issuer_arn: pulumi.Input[_builtins.str]
-elif False:
-    DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict(TypedDict):
+    idc_trusted_token_issuer_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class DataAccessorIdcTrustedTokenIssuerConfigurationArgs:
@@ -891,14 +838,11 @@ class DataAccessorIdcTrustedTokenIssuerConfigurationArgs:
         pulumi.set(self, "idc_trusted_token_issuer_arn", value)
 
 
-if not MYPY:
-    class DataSourceAudioExtractionConfigurationArgsDict(TypedDict):
-        audio_extraction_status: pulumi.Input['DataSourceAudioExtractionStatus']
-        """
-        The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
-        """
-elif False:
-    DataSourceAudioExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceAudioExtractionConfigurationArgsDict(TypedDict):
+    audio_extraction_status: pulumi.Input['DataSourceAudioExtractionStatus']
+    """
+    The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.
+    """
 
 @pulumi.input_type
 class DataSourceAudioExtractionConfigurationArgs:
@@ -922,30 +866,27 @@ class DataSourceAudioExtractionConfigurationArgs:
         pulumi.set(self, "audio_extraction_status", value)
 
 
-if not MYPY:
-    class DataSourceDocumentAttributeConditionArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The identifier of the document attribute used for the condition.
+class DataSourceDocumentAttributeConditionArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The identifier of the document attribute used for the condition.
 
-        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+    For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
 
-        Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
-        """
-        operator: pulumi.Input['DataSourceDocumentEnrichmentConditionOperator']
-        """
-        The identifier of the document attribute used for the condition.
+    Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+    """
+    operator: pulumi.Input['DataSourceDocumentEnrichmentConditionOperator']
+    """
+    The identifier of the document attribute used for the condition.
 
-        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+    For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
 
-        Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
-        """
-        value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
-        """
-        The value of a document attribute. You can only provide one value for a document attribute.
-        """
-elif False:
-    DataSourceDocumentAttributeConditionArgsDict: TypeAlias = Mapping[str, Any]
+    Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
+    """
+    value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
+    """
+    The value of a document attribute. You can only provide one value for a document attribute.
+    """
 
 @pulumi.input_type
 class DataSourceDocumentAttributeConditionArgs:
@@ -1016,22 +957,19 @@ class DataSourceDocumentAttributeConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DataSourceDocumentAttributeTargetArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-        """
-        attribute_value_operator: NotRequired[pulumi.Input['DataSourceAttributeValueOperator']]
-        """
-        `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
-        """
-        value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
-        """
-        The value of a document attribute. You can only provide one value for a document attribute.
-        """
-elif False:
-    DataSourceDocumentAttributeTargetArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDocumentAttributeTargetArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+    """
+    attribute_value_operator: NotRequired[pulumi.Input['DataSourceAttributeValueOperator']]
+    """
+    `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
+    """
+    value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
+    """
+    The value of a document attribute. You can only provide one value for a document attribute.
+    """
 
 @pulumi.input_type
 class DataSourceDocumentAttributeTargetArgs:
@@ -1087,11 +1025,8 @@ class DataSourceDocumentAttributeTargetArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DataSourceDocumentAttributeValue0PropertiesArgsDict(TypedDict):
-        string_value: pulumi.Input[_builtins.str]
-elif False:
-    DataSourceDocumentAttributeValue0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDocumentAttributeValue0PropertiesArgsDict(TypedDict):
+    string_value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeValue0PropertiesArgs:
@@ -1109,11 +1044,8 @@ class DataSourceDocumentAttributeValue0PropertiesArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class DataSourceDocumentAttributeValue1PropertiesArgsDict(TypedDict):
-        string_list_value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    DataSourceDocumentAttributeValue1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDocumentAttributeValue1PropertiesArgsDict(TypedDict):
+    string_list_value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeValue1PropertiesArgs:
@@ -1131,11 +1063,8 @@ class DataSourceDocumentAttributeValue1PropertiesArgs:
         pulumi.set(self, "string_list_value", value)
 
 
-if not MYPY:
-    class DataSourceDocumentAttributeValue2PropertiesArgsDict(TypedDict):
-        long_value: pulumi.Input[_builtins.float]
-elif False:
-    DataSourceDocumentAttributeValue2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDocumentAttributeValue2PropertiesArgsDict(TypedDict):
+    long_value: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeValue2PropertiesArgs:
@@ -1153,11 +1082,8 @@ class DataSourceDocumentAttributeValue2PropertiesArgs:
         pulumi.set(self, "long_value", value)
 
 
-if not MYPY:
-    class DataSourceDocumentAttributeValue3PropertiesArgsDict(TypedDict):
-        date_value: pulumi.Input[_builtins.str]
-elif False:
-    DataSourceDocumentAttributeValue3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDocumentAttributeValue3PropertiesArgsDict(TypedDict):
+    date_value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeValue3PropertiesArgs:
@@ -1175,22 +1101,19 @@ class DataSourceDocumentAttributeValue3PropertiesArgs:
         pulumi.set(self, "date_value", value)
 
 
-if not MYPY:
-    class DataSourceDocumentEnrichmentConfigurationArgsDict(TypedDict):
-        inline_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgsDict']]]]
-        """
-        Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
-        """
-        post_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
-        """
-        Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
-        """
-        pre_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
-        """
-        Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
-        """
-elif False:
-    DataSourceDocumentEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDocumentEnrichmentConfigurationArgsDict(TypedDict):
+    inline_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgsDict']]]]
+    """
+    Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+    """
+    post_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+    """
+    Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+    """
+    pre_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+    """
+    Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+    """
 
 @pulumi.input_type
 class DataSourceDocumentEnrichmentConfigurationArgs:
@@ -1247,28 +1170,25 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
         pulumi.set(self, "pre_extraction_hook_configuration", value)
 
 
-if not MYPY:
-    class DataSourceHookConfigurationArgsDict(TypedDict):
-        invocation_condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
-        """
-        The condition used for when a Lambda function should be invoked.
+class DataSourceHookConfigurationArgsDict(TypedDict):
+    invocation_condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+    """
+    The condition used for when a Lambda function should be invoked.
 
-        For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
-        """
-        lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
-        """
-        s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
-        """
-elif False:
-    DataSourceHookConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
+    """
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+    """
+    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+    """
 
 @pulumi.input_type
 class DataSourceHookConfigurationArgs:
@@ -1345,14 +1265,11 @@ class DataSourceHookConfigurationArgs:
         pulumi.set(self, "s3_bucket_name", value)
 
 
-if not MYPY:
-    class DataSourceImageExtractionConfigurationArgsDict(TypedDict):
-        image_extraction_status: pulumi.Input['DataSourceImageExtractionStatus']
-        """
-        Specify whether to extract semantic meaning from images and visuals from documents.
-        """
-elif False:
-    DataSourceImageExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceImageExtractionConfigurationArgsDict(TypedDict):
+    image_extraction_status: pulumi.Input['DataSourceImageExtractionStatus']
+    """
+    Specify whether to extract semantic meaning from images and visuals from documents.
+    """
 
 @pulumi.input_type
 class DataSourceImageExtractionConfigurationArgs:
@@ -1376,22 +1293,19 @@ class DataSourceImageExtractionConfigurationArgs:
         pulumi.set(self, "image_extraction_status", value)
 
 
-if not MYPY:
-    class DataSourceInlineDocumentEnrichmentConfigurationArgsDict(TypedDict):
-        condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
-        """
-        Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
-        """
-        document_content_operator: NotRequired[pulumi.Input['DataSourceDocumentContentOperator']]
-        """
-        `TRUE` to delete content if the condition used for the target attribute is met.
-        """
-        target: NotRequired[pulumi.Input['DataSourceDocumentAttributeTargetArgsDict']]
-        """
-        Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
-        """
-elif False:
-    DataSourceInlineDocumentEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceInlineDocumentEnrichmentConfigurationArgsDict(TypedDict):
+    condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+    """
+    Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+    """
+    document_content_operator: NotRequired[pulumi.Input['DataSourceDocumentContentOperator']]
+    """
+    `TRUE` to delete content if the condition used for the target attribute is met.
+    """
+    target: NotRequired[pulumi.Input['DataSourceDocumentAttributeTargetArgsDict']]
+    """
+    Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+    """
 
 @pulumi.input_type
 class DataSourceInlineDocumentEnrichmentConfigurationArgs:
@@ -1448,22 +1362,19 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
-        audio_extraction_configuration: NotRequired[pulumi.Input['DataSourceAudioExtractionConfigurationArgsDict']]
-        """
-        Configuration settings for extracting and processing audio content from media files.
-        """
-        image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
-        """
-        The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
-        """
-        video_extraction_configuration: NotRequired[pulumi.Input['DataSourceVideoExtractionConfigurationArgsDict']]
-        """
-        Configuration settings for extracting and processing video content from media files.
-        """
-elif False:
-    DataSourceMediaExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
+    audio_extraction_configuration: NotRequired[pulumi.Input['DataSourceAudioExtractionConfigurationArgsDict']]
+    """
+    Configuration settings for extracting and processing audio content from media files.
+    """
+    image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
+    """
+    The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
+    """
+    video_extraction_configuration: NotRequired[pulumi.Input['DataSourceVideoExtractionConfigurationArgsDict']]
+    """
+    Configuration settings for extracting and processing video content from media files.
+    """
 
 @pulumi.input_type
 class DataSourceMediaExtractionConfigurationArgs:
@@ -1520,14 +1431,11 @@ class DataSourceMediaExtractionConfigurationArgs:
         pulumi.set(self, "video_extraction_configuration", value)
 
 
-if not MYPY:
-    class DataSourceVideoExtractionConfigurationArgsDict(TypedDict):
-        video_extraction_status: pulumi.Input['DataSourceVideoExtractionStatus']
-        """
-        The status of video extraction (ENABLED or DISABLED) for processing video content from files.
-        """
-elif False:
-    DataSourceVideoExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceVideoExtractionConfigurationArgsDict(TypedDict):
+    video_extraction_status: pulumi.Input['DataSourceVideoExtractionStatus']
+    """
+    The status of video extraction (ENABLED or DISABLED) for processing video content from files.
+    """
 
 @pulumi.input_type
 class DataSourceVideoExtractionConfigurationArgs:
@@ -1551,18 +1459,15 @@ class DataSourceVideoExtractionConfigurationArgs:
         pulumi.set(self, "video_extraction_status", value)
 
 
-if not MYPY:
-    class DataSourceVpcConfigurationArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
-        """
-elif False:
-    DataSourceVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceVpcConfigurationArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+    """
 
 @pulumi.input_type
 class DataSourceVpcConfigurationArgs:
@@ -1601,14 +1506,11 @@ class DataSourceVpcConfigurationArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class IndexCapacityConfigurationArgsDict(TypedDict):
-        units: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of storage units configured for an Amazon Q Business index.
-        """
-elif False:
-    IndexCapacityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IndexCapacityConfigurationArgsDict(TypedDict):
+    units: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of storage units configured for an Amazon Q Business index.
+    """
 
 @pulumi.input_type
 class IndexCapacityConfigurationArgs:
@@ -1633,22 +1535,19 @@ class IndexCapacityConfigurationArgs:
         pulumi.set(self, "units", value)
 
 
-if not MYPY:
-    class IndexDocumentAttributeConfigurationArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the document attribute.
-        """
-        search: NotRequired[pulumi.Input['QBusinessIndexStatus']]
-        """
-        Information about whether the document attribute can be used by an end user to search for information on their web experience.
-        """
-        type: NotRequired[pulumi.Input['IndexAttributeType']]
-        """
-        The type of document attribute.
-        """
-elif False:
-    IndexDocumentAttributeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IndexDocumentAttributeConfigurationArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the document attribute.
+    """
+    search: NotRequired[pulumi.Input['QBusinessIndexStatus']]
+    """
+    Information about whether the document attribute can be used by an end user to search for information on their web experience.
+    """
+    type: NotRequired[pulumi.Input['IndexAttributeType']]
+    """
+    The type of document attribute.
+    """
 
 @pulumi.input_type
 class IndexDocumentAttributeConfigurationArgs:
@@ -1705,13 +1604,10 @@ class IndexDocumentAttributeConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PermissionConditionArgsDict(TypedDict):
-        condition_key: pulumi.Input[_builtins.str]
-        condition_operator: pulumi.Input['PermissionConditionConditionOperator']
-        condition_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    PermissionConditionArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionConditionArgsDict(TypedDict):
+    condition_key: pulumi.Input[_builtins.str]
+    condition_operator: pulumi.Input['PermissionConditionConditionOperator']
+    condition_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class PermissionConditionArgs:
@@ -1751,11 +1647,8 @@ class PermissionConditionArgs:
         pulumi.set(self, "condition_values", value)
 
 
-if not MYPY:
-    class PluginApiSchema0PropertiesArgsDict(TypedDict):
-        payload: pulumi.Input[_builtins.str]
-elif False:
-    PluginApiSchema0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PluginApiSchema0PropertiesArgsDict(TypedDict):
+    payload: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PluginApiSchema0PropertiesArgs:
@@ -1773,11 +1666,8 @@ class PluginApiSchema0PropertiesArgs:
         pulumi.set(self, "payload", value)
 
 
-if not MYPY:
-    class PluginApiSchema1PropertiesArgsDict(TypedDict):
-        s3: pulumi.Input['PluginS3ArgsDict']
-elif False:
-    PluginApiSchema1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PluginApiSchema1PropertiesArgsDict(TypedDict):
+    s3: pulumi.Input['PluginS3ArgsDict']
 
 @pulumi.input_type
 class PluginApiSchema1PropertiesArgs:
@@ -1795,11 +1685,8 @@ class PluginApiSchema1PropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class PluginAuthConfiguration0PropertiesArgsDict(TypedDict):
-        basic_auth_configuration: pulumi.Input['PluginBasicAuthConfigurationArgsDict']
-elif False:
-    PluginAuthConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PluginAuthConfiguration0PropertiesArgsDict(TypedDict):
+    basic_auth_configuration: pulumi.Input['PluginBasicAuthConfigurationArgsDict']
 
 @pulumi.input_type
 class PluginAuthConfiguration0PropertiesArgs:
@@ -1817,11 +1704,8 @@ class PluginAuthConfiguration0PropertiesArgs:
         pulumi.set(self, "basic_auth_configuration", value)
 
 
-if not MYPY:
-    class PluginAuthConfiguration1PropertiesArgsDict(TypedDict):
-        o_auth2_client_credential_configuration: pulumi.Input['PluginOAuth2ClientCredentialConfigurationArgsDict']
-elif False:
-    PluginAuthConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PluginAuthConfiguration1PropertiesArgsDict(TypedDict):
+    o_auth2_client_credential_configuration: pulumi.Input['PluginOAuth2ClientCredentialConfigurationArgsDict']
 
 @pulumi.input_type
 class PluginAuthConfiguration1PropertiesArgs:
@@ -1839,11 +1723,8 @@ class PluginAuthConfiguration1PropertiesArgs:
         pulumi.set(self, "o_auth2_client_credential_configuration", value)
 
 
-if not MYPY:
-    class PluginAuthConfiguration2PropertiesArgsDict(TypedDict):
-        no_auth_configuration: pulumi.Input['PluginNoAuthConfigurationArgsDict']
-elif False:
-    PluginAuthConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PluginAuthConfiguration2PropertiesArgsDict(TypedDict):
+    no_auth_configuration: pulumi.Input['PluginNoAuthConfigurationArgsDict']
 
 @pulumi.input_type
 class PluginAuthConfiguration2PropertiesArgs:
@@ -1861,12 +1742,9 @@ class PluginAuthConfiguration2PropertiesArgs:
         pulumi.set(self, "no_auth_configuration", value)
 
 
-if not MYPY:
-    class PluginBasicAuthConfigurationArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        secret_arn: pulumi.Input[_builtins.str]
-elif False:
-    PluginBasicAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PluginBasicAuthConfigurationArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    secret_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PluginBasicAuthConfigurationArgs:
@@ -1895,22 +1773,19 @@ class PluginBasicAuthConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class PluginCustomPluginConfigurationArgsDict(TypedDict):
-        api_schema: pulumi.Input[Union['PluginApiSchema0PropertiesArgsDict', 'PluginApiSchema1PropertiesArgsDict']]
-        """
-        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
-        """
-        api_schema_type: pulumi.Input['PluginApiSchemaType']
-        """
-        The type of OpenAPI schema to use.
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        A description for your custom plugin configuration.
-        """
-elif False:
-    PluginCustomPluginConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PluginCustomPluginConfigurationArgsDict(TypedDict):
+    api_schema: pulumi.Input[Union['PluginApiSchema0PropertiesArgsDict', 'PluginApiSchema1PropertiesArgsDict']]
+    """
+    Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+    """
+    api_schema_type: pulumi.Input['PluginApiSchemaType']
+    """
+    The type of OpenAPI schema to use.
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    A description for your custom plugin configuration.
+    """
 
 @pulumi.input_type
 class PluginCustomPluginConfigurationArgs:
@@ -1964,11 +1839,8 @@ class PluginCustomPluginConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PluginNoAuthConfigurationArgsDict(TypedDict):
-        pass
-elif False:
-    PluginNoAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PluginNoAuthConfigurationArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class PluginNoAuthConfigurationArgs:
@@ -1976,14 +1848,11 @@ class PluginNoAuthConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class PluginOAuth2ClientCredentialConfigurationArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        secret_arn: pulumi.Input[_builtins.str]
-        authorization_url: NotRequired[pulumi.Input[_builtins.str]]
-        token_url: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PluginOAuth2ClientCredentialConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PluginOAuth2ClientCredentialConfigurationArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    secret_arn: pulumi.Input[_builtins.str]
+    authorization_url: NotRequired[pulumi.Input[_builtins.str]]
+    token_url: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PluginOAuth2ClientCredentialConfigurationArgs:
@@ -2036,12 +1905,9 @@ class PluginOAuth2ClientCredentialConfigurationArgs:
         pulumi.set(self, "token_url", value)
 
 
-if not MYPY:
-    class PluginS3ArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        key: pulumi.Input[_builtins.str]
-elif False:
-    PluginS3ArgsDict: TypeAlias = Mapping[str, Any]
+class PluginS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    key: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PluginS3Args:
@@ -2070,11 +1936,8 @@ class PluginS3Args:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class RetrieverConfiguration0PropertiesArgsDict(TypedDict):
-        native_index_configuration: pulumi.Input['RetrieverNativeIndexConfigurationArgsDict']
-elif False:
-    RetrieverConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RetrieverConfiguration0PropertiesArgsDict(TypedDict):
+    native_index_configuration: pulumi.Input['RetrieverNativeIndexConfigurationArgsDict']
 
 @pulumi.input_type
 class RetrieverConfiguration0PropertiesArgs:
@@ -2092,11 +1955,8 @@ class RetrieverConfiguration0PropertiesArgs:
         pulumi.set(self, "native_index_configuration", value)
 
 
-if not MYPY:
-    class RetrieverConfiguration1PropertiesArgsDict(TypedDict):
-        kendra_index_configuration: pulumi.Input['RetrieverKendraIndexConfigurationArgsDict']
-elif False:
-    RetrieverConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RetrieverConfiguration1PropertiesArgsDict(TypedDict):
+    kendra_index_configuration: pulumi.Input['RetrieverKendraIndexConfigurationArgsDict']
 
 @pulumi.input_type
 class RetrieverConfiguration1PropertiesArgs:
@@ -2114,11 +1974,8 @@ class RetrieverConfiguration1PropertiesArgs:
         pulumi.set(self, "kendra_index_configuration", value)
 
 
-if not MYPY:
-    class RetrieverKendraIndexConfigurationArgsDict(TypedDict):
-        index_id: pulumi.Input[_builtins.str]
-elif False:
-    RetrieverKendraIndexConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RetrieverKendraIndexConfigurationArgsDict(TypedDict):
+    index_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class RetrieverKendraIndexConfigurationArgs:
@@ -2136,11 +1993,8 @@ class RetrieverKendraIndexConfigurationArgs:
         pulumi.set(self, "index_id", value)
 
 
-if not MYPY:
-    class RetrieverNativeIndexConfigurationArgsDict(TypedDict):
-        index_id: pulumi.Input[_builtins.str]
-elif False:
-    RetrieverNativeIndexConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RetrieverNativeIndexConfigurationArgsDict(TypedDict):
+    index_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class RetrieverNativeIndexConfigurationArgs:
@@ -2158,18 +2012,15 @@ class RetrieverNativeIndexConfigurationArgs:
         pulumi.set(self, "index_id", value)
 
 
-if not MYPY:
-    class WebExperienceBrowserExtensionConfigurationArgsDict(TypedDict):
-        enabled_browser_extensions: pulumi.Input[Sequence[pulumi.Input['WebExperienceBrowserExtension']]]
-        """
-        Specify the browser extensions allowed for your Amazon Q web experience.
+class WebExperienceBrowserExtensionConfigurationArgsDict(TypedDict):
+    enabled_browser_extensions: pulumi.Input[Sequence[pulumi.Input['WebExperienceBrowserExtension']]]
+    """
+    Specify the browser extensions allowed for your Amazon Q web experience.
 
-        - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
-        - `FIREFOX` — Enables the extension for Mozilla Firefox.
-        - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
-        """
-elif False:
-    WebExperienceBrowserExtensionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - `CHROME` — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft Edge, Opera, etc.).
+    - `FIREFOX` — Enables the extension for Mozilla Firefox.
+    - `CHROME` and `FIREFOX` — Enable the extension for Chromium-based browsers and Mozilla Firefox.
+    """
 
 @pulumi.input_type
 class WebExperienceBrowserExtensionConfigurationArgs:
@@ -2201,26 +2052,23 @@ class WebExperienceBrowserExtensionConfigurationArgs:
         pulumi.set(self, "enabled_browser_extensions", value)
 
 
-if not MYPY:
-    class WebExperienceCustomizationConfigurationArgsDict(TypedDict):
-        custom_css_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
-        """
-        favicon_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
-        """
-        font_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides the URL where the custom font file is hosted for an Amazon Q web experience.
-        """
-        logo_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
-        """
-elif False:
-    WebExperienceCustomizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WebExperienceCustomizationConfigurationArgsDict(TypedDict):
+    custom_css_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
+    """
+    favicon_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+    """
+    font_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+    """
+    logo_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+    """
 
 @pulumi.input_type
 class WebExperienceCustomizationConfigurationArgs:
@@ -2293,11 +2141,8 @@ class WebExperienceCustomizationConfigurationArgs:
         pulumi.set(self, "logo_url", value)
 
 
-if not MYPY:
-    class WebExperienceIdentityProviderConfiguration0PropertiesArgsDict(TypedDict):
-        saml_configuration: pulumi.Input['WebExperienceSamlProviderConfigurationArgsDict']
-elif False:
-    WebExperienceIdentityProviderConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WebExperienceIdentityProviderConfiguration0PropertiesArgsDict(TypedDict):
+    saml_configuration: pulumi.Input['WebExperienceSamlProviderConfigurationArgsDict']
 
 @pulumi.input_type
 class WebExperienceIdentityProviderConfiguration0PropertiesArgs:
@@ -2315,11 +2160,8 @@ class WebExperienceIdentityProviderConfiguration0PropertiesArgs:
         pulumi.set(self, "saml_configuration", value)
 
 
-if not MYPY:
-    class WebExperienceIdentityProviderConfiguration1PropertiesArgsDict(TypedDict):
-        open_id_connect_configuration: pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgsDict']
-elif False:
-    WebExperienceIdentityProviderConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WebExperienceIdentityProviderConfiguration1PropertiesArgsDict(TypedDict):
+    open_id_connect_configuration: pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgsDict']
 
 @pulumi.input_type
 class WebExperienceIdentityProviderConfiguration1PropertiesArgs:
@@ -2337,12 +2179,9 @@ class WebExperienceIdentityProviderConfiguration1PropertiesArgs:
         pulumi.set(self, "open_id_connect_configuration", value)
 
 
-if not MYPY:
-    class WebExperienceOpenIdConnectProviderConfigurationArgsDict(TypedDict):
-        secrets_arn: pulumi.Input[_builtins.str]
-        secrets_role: pulumi.Input[_builtins.str]
-elif False:
-    WebExperienceOpenIdConnectProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WebExperienceOpenIdConnectProviderConfigurationArgsDict(TypedDict):
+    secrets_arn: pulumi.Input[_builtins.str]
+    secrets_role: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class WebExperienceOpenIdConnectProviderConfigurationArgs:
@@ -2371,11 +2210,8 @@ class WebExperienceOpenIdConnectProviderConfigurationArgs:
         pulumi.set(self, "secrets_role", value)
 
 
-if not MYPY:
-    class WebExperienceSamlProviderConfigurationArgsDict(TypedDict):
-        authentication_url: pulumi.Input[_builtins.str]
-elif False:
-    WebExperienceSamlProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WebExperienceSamlProviderConfigurationArgsDict(TypedDict):
+    authentication_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class WebExperienceSamlProviderConfigurationArgs:

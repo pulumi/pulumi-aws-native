@@ -1217,8 +1217,8 @@ func (o HostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
 type HostedZoneFeatures struct {
-	// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
 	EnableAcceleratedRecovery *bool `pulumi:"enableAcceleratedRecovery"`
 }
 
@@ -1233,8 +1233,8 @@ type HostedZoneFeaturesInput interface {
 	ToHostedZoneFeaturesOutputWithContext(context.Context) HostedZoneFeaturesOutput
 }
 
+// Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
 type HostedZoneFeaturesArgs struct {
-	// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
 	EnableAcceleratedRecovery pulumi.BoolPtrInput `pulumi:"enableAcceleratedRecovery"`
 }
 
@@ -1291,6 +1291,7 @@ func (i *hostedZoneFeaturesPtrType) ToHostedZoneFeaturesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneFeaturesPtrOutput)
 }
 
+// Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
 type HostedZoneFeaturesOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneFeaturesOutput) ElementType() reflect.Type {
@@ -1315,7 +1316,6 @@ func (o HostedZoneFeaturesOutput) ToHostedZoneFeaturesPtrOutputWithContext(ctx c
 	}).(HostedZoneFeaturesPtrOutput)
 }
 
-// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
 func (o HostedZoneFeaturesOutput) EnableAcceleratedRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostedZoneFeatures) *bool { return v.EnableAcceleratedRecovery }).(pulumi.BoolPtrOutput)
 }
@@ -1344,7 +1344,6 @@ func (o HostedZoneFeaturesPtrOutput) Elem() HostedZoneFeaturesOutput {
 	}).(HostedZoneFeaturesOutput)
 }
 
-// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
 func (o HostedZoneFeaturesPtrOutput) EnableAcceleratedRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HostedZoneFeatures) *bool {
 		if v == nil {

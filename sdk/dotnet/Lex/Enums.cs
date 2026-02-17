@@ -328,6 +328,35 @@ namespace Pulumi.AwsNative.Lex
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct BotSpeechModelPreference : IEquatable<BotSpeechModelPreference>
+    {
+        private readonly string _value;
+
+        private BotSpeechModelPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotSpeechModelPreference Standard { get; } = new BotSpeechModelPreference("Standard");
+        public static BotSpeechModelPreference Neural { get; } = new BotSpeechModelPreference("Neural");
+        public static BotSpeechModelPreference Deepgram { get; } = new BotSpeechModelPreference("Deepgram");
+
+        public static bool operator ==(BotSpeechModelPreference left, BotSpeechModelPreference right) => left.Equals(right);
+        public static bool operator !=(BotSpeechModelPreference left, BotSpeechModelPreference right) => !left.Equals(right);
+
+        public static explicit operator string(BotSpeechModelPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotSpeechModelPreference other && Equals(other);
+        public bool Equals(BotSpeechModelPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
     /// 

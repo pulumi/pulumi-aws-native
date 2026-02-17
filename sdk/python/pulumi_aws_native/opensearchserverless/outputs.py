@@ -32,7 +32,7 @@ __all__ = [
 @pulumi.output_type
 class CollectionEncryptionConfig(dict):
     """
-    The configuration to encrypt the collection
+    Encryption settings for the collection
     """
     @staticmethod
     def __key_warning(key: str):
@@ -57,9 +57,9 @@ class CollectionEncryptionConfig(dict):
                  aws_owned_key: Optional[_builtins.bool] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
         """
-        The configuration to encrypt the collection
-        :param _builtins.bool aws_owned_key: The configuration to encrypt the collection with AWS owned key
-        :param _builtins.str kms_key_arn: The ARN of the KMS key to encrypt the collection with
+        Encryption settings for the collection
+        :param _builtins.bool aws_owned_key: Indicates whether to use an AWS owned key for encryption.
+        :param _builtins.str kms_key_arn: Key Management Service key used to encrypt the collection.
         """
         if aws_owned_key is not None:
             pulumi.set(__self__, "aws_owned_key", aws_owned_key)
@@ -70,7 +70,7 @@ class CollectionEncryptionConfig(dict):
     @pulumi.getter(name="awsOwnedKey")
     def aws_owned_key(self) -> Optional[_builtins.bool]:
         """
-        The configuration to encrypt the collection with AWS owned key
+        Indicates whether to use an AWS owned key for encryption.
         """
         return pulumi.get(self, "aws_owned_key")
 
@@ -78,7 +78,7 @@ class CollectionEncryptionConfig(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the KMS key to encrypt the collection with
+        Key Management Service key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 

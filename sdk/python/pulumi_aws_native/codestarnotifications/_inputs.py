@@ -20,24 +20,19 @@ __all__ = [
     'NotificationRuleTargetArgsDict',
 ]
 
-MYPY = False
+class NotificationRuleTargetArgsDict(TypedDict):
+    target_address: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the  topic or  client.
+    """
+    target_type: pulumi.Input[_builtins.str]
+    """
+    The target type. Can be an Amazon Simple Notification Service topic or  client.
 
-if not MYPY:
-    class NotificationRuleTargetArgsDict(TypedDict):
-        target_address: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the  topic or  client.
-        """
-        target_type: pulumi.Input[_builtins.str]
-        """
-        The target type. Can be an Amazon Simple Notification Service topic or  client.
-
-        - Amazon Simple Notification Service topics are specified as `SNS` .
-        - clients are specified as `AWSChatbotSlack` .
-        - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
-        """
-elif False:
-    NotificationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
+    - Amazon Simple Notification Service topics are specified as `SNS` .
+    - clients are specified as `AWSChatbotSlack` .
+    - clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+    """
 
 @pulumi.input_type
 class NotificationRuleTargetArgs:

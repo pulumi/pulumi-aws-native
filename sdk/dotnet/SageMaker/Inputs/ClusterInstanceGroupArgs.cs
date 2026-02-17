@@ -76,6 +76,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("scheduledUpdateConfig")]
         public Input<Inputs.ClusterScheduledUpdateConfigArgs>? ScheduledUpdateConfig { get; set; }
 
+        [Input("slurmConfig")]
+        public Input<Inputs.ClusterSlurmConfigArgs>? SlurmConfig { get; set; }
+
         /// <summary>
         /// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         /// </summary>

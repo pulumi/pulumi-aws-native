@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.LicenseManager
         /// Beneficiary of the license.
         /// </summary>
         [Output("beneficiary")]
-        public Output<string?> Beneficiary { get; private set; } = null!;
+        public Output<string> Beneficiary { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for consumption of the license.
@@ -73,13 +73,19 @@ namespace Pulumi.AwsNative.LicenseManager
         /// ProductSKU of the license.
         /// </summary>
         [Output("productSku")]
-        public Output<string?> ProductSku { get; private set; } = null!;
+        public Output<string> ProductSku { get; private set; } = null!;
 
         /// <summary>
         /// License status.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of tags to attach.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Date and time range during which the license is valid, in ISO8601-UTC format.
@@ -141,8 +147,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Beneficiary of the license.
         /// </summary>
-        [Input("beneficiary")]
-        public Input<string>? Beneficiary { get; set; }
+        [Input("beneficiary", required: true)]
+        public Input<string> Beneficiary { get; set; } = null!;
 
         /// <summary>
         /// Configuration for consumption of the license.
@@ -201,14 +207,26 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// ProductSKU of the license.
         /// </summary>
-        [Input("productSku")]
-        public Input<string>? ProductSku { get; set; }
+        [Input("productSku", required: true)]
+        public Input<string> ProductSku { get; set; } = null!;
 
         /// <summary>
         /// License status.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of tags to attach.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Date and time range during which the license is valid, in ISO8601-UTC format.

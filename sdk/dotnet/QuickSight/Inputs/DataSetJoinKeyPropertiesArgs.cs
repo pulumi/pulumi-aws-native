@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         /// <summary>
         /// &lt;p&gt;A value that indicates that a row in a table is uniquely identified by the columns in
-        ///             a join key. This is used by Amazon QuickSight to optimize query performance.&lt;/p&gt;
+        ///             a join key. This is used by Quick Suite to optimize query performance.&lt;/p&gt;
         /// </summary>
         [Input("uniqueKey")]
         public Input<bool>? UniqueKey { get; set; }

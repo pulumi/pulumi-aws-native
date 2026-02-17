@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
 {
 
     /// <summary>
-    /// The configuration to encrypt the collection
+    /// Encryption settings for the collection
     /// </summary>
     public sealed class CollectionEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration to encrypt the collection with AWS owned key
+        /// Indicates whether to use an AWS owned key for encryption.
         /// </summary>
         [Input("awsOwnedKey")]
         public Input<bool>? AwsOwnedKey { get; set; }
 
         /// <summary>
-        /// The ARN of the KMS key to encrypt the collection with
+        /// Key Management Service key used to encrypt the collection.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

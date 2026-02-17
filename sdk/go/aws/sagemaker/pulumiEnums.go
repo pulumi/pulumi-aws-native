@@ -1709,6 +1709,174 @@ func (in *clusterNodeRecoveryPtr) ToClusterNodeRecoveryPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterNodeRecoveryPtrOutput)
 }
 
+// The type of Slurm node for this instance group.
+type ClusterSlurmConfigNodeType string
+
+const (
+	ClusterSlurmConfigNodeTypeController = ClusterSlurmConfigNodeType("Controller")
+	ClusterSlurmConfigNodeTypeLogin      = ClusterSlurmConfigNodeType("Login")
+	ClusterSlurmConfigNodeTypeCompute    = ClusterSlurmConfigNodeType("Compute")
+)
+
+func (ClusterSlurmConfigNodeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSlurmConfigNodeType)(nil)).Elem()
+}
+
+func (e ClusterSlurmConfigNodeType) ToClusterSlurmConfigNodeTypeOutput() ClusterSlurmConfigNodeTypeOutput {
+	return pulumi.ToOutput(e).(ClusterSlurmConfigNodeTypeOutput)
+}
+
+func (e ClusterSlurmConfigNodeType) ToClusterSlurmConfigNodeTypeOutputWithContext(ctx context.Context) ClusterSlurmConfigNodeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSlurmConfigNodeTypeOutput)
+}
+
+func (e ClusterSlurmConfigNodeType) ToClusterSlurmConfigNodeTypePtrOutput() ClusterSlurmConfigNodeTypePtrOutput {
+	return e.ToClusterSlurmConfigNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSlurmConfigNodeType) ToClusterSlurmConfigNodeTypePtrOutputWithContext(ctx context.Context) ClusterSlurmConfigNodeTypePtrOutput {
+	return ClusterSlurmConfigNodeType(e).ToClusterSlurmConfigNodeTypeOutputWithContext(ctx).ToClusterSlurmConfigNodeTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterSlurmConfigNodeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSlurmConfigNodeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSlurmConfigNodeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSlurmConfigNodeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSlurmConfigNodeTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterSlurmConfigNodeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSlurmConfigNodeType)(nil)).Elem()
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToClusterSlurmConfigNodeTypeOutput() ClusterSlurmConfigNodeTypeOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToClusterSlurmConfigNodeTypeOutputWithContext(ctx context.Context) ClusterSlurmConfigNodeTypeOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToClusterSlurmConfigNodeTypePtrOutput() ClusterSlurmConfigNodeTypePtrOutput {
+	return o.ToClusterSlurmConfigNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToClusterSlurmConfigNodeTypePtrOutputWithContext(ctx context.Context) ClusterSlurmConfigNodeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSlurmConfigNodeType) *ClusterSlurmConfigNodeType {
+		return &v
+	}).(ClusterSlurmConfigNodeTypePtrOutput)
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSlurmConfigNodeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSlurmConfigNodeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSlurmConfigNodeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSlurmConfigNodeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSlurmConfigNodeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSlurmConfigNodeType)(nil)).Elem()
+}
+
+func (o ClusterSlurmConfigNodeTypePtrOutput) ToClusterSlurmConfigNodeTypePtrOutput() ClusterSlurmConfigNodeTypePtrOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigNodeTypePtrOutput) ToClusterSlurmConfigNodeTypePtrOutputWithContext(ctx context.Context) ClusterSlurmConfigNodeTypePtrOutput {
+	return o
+}
+
+func (o ClusterSlurmConfigNodeTypePtrOutput) Elem() ClusterSlurmConfigNodeTypeOutput {
+	return o.ApplyT(func(v *ClusterSlurmConfigNodeType) ClusterSlurmConfigNodeType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSlurmConfigNodeType
+		return ret
+	}).(ClusterSlurmConfigNodeTypeOutput)
+}
+
+func (o ClusterSlurmConfigNodeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSlurmConfigNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSlurmConfigNodeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSlurmConfigNodeTypeInput is an input type that accepts values of the ClusterSlurmConfigNodeType enum
+// A concrete instance of `ClusterSlurmConfigNodeTypeInput` can be one of the following:
+//
+//	ClusterSlurmConfigNodeTypeController
+//	ClusterSlurmConfigNodeTypeLogin
+//	ClusterSlurmConfigNodeTypeCompute
+type ClusterSlurmConfigNodeTypeInput interface {
+	pulumi.Input
+
+	ToClusterSlurmConfigNodeTypeOutput() ClusterSlurmConfigNodeTypeOutput
+	ToClusterSlurmConfigNodeTypeOutputWithContext(context.Context) ClusterSlurmConfigNodeTypeOutput
+}
+
+var clusterSlurmConfigNodeTypePtrType = reflect.TypeOf((**ClusterSlurmConfigNodeType)(nil)).Elem()
+
+type ClusterSlurmConfigNodeTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterSlurmConfigNodeTypePtrOutput() ClusterSlurmConfigNodeTypePtrOutput
+	ToClusterSlurmConfigNodeTypePtrOutputWithContext(context.Context) ClusterSlurmConfigNodeTypePtrOutput
+}
+
+type clusterSlurmConfigNodeTypePtr string
+
+func ClusterSlurmConfigNodeTypePtr(v string) ClusterSlurmConfigNodeTypePtrInput {
+	return (*clusterSlurmConfigNodeTypePtr)(&v)
+}
+
+func (*clusterSlurmConfigNodeTypePtr) ElementType() reflect.Type {
+	return clusterSlurmConfigNodeTypePtrType
+}
+
+func (in *clusterSlurmConfigNodeTypePtr) ToClusterSlurmConfigNodeTypePtrOutput() ClusterSlurmConfigNodeTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterSlurmConfigNodeTypePtrOutput)
+}
+
+func (in *clusterSlurmConfigNodeTypePtr) ToClusterSlurmConfigNodeTypePtrOutputWithContext(ctx context.Context) ClusterSlurmConfigNodeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSlurmConfigNodeTypePtrOutput)
+}
+
 // The status of the HyperPod Cluster.
 type ClusterStatus string
 
@@ -22648,6 +22816,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypeInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypePtrInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModeInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModePtrInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
@@ -22893,6 +23063,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSlurmConfigNodeTypeOutput{})
+	pulumi.RegisterOutputType(ClusterSlurmConfigNodeTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterStatusOutput{})
 	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigModeOutput{})

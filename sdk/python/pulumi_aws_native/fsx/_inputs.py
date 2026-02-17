@@ -44,25 +44,20 @@ __all__ = [
     'S3AccessPointAttachmentS3AccessPointArgsDict',
 ]
 
-MYPY = False
+class DataRepositoryAssociationAutoExportPolicyArgsDict(TypedDict):
+    """
+    Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+    """
+    events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
+    """
+    The `AutoExportPolicy` can have the following event values:
 
-if not MYPY:
-    class DataRepositoryAssociationAutoExportPolicyArgsDict(TypedDict):
-        """
-        Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
-        """
-        events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
-        """
-        The `AutoExportPolicy` can have the following event values:
+    - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+    - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+    - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
 
-        - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
-        - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
-        - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-
-        You can define any combination of event types for your `AutoExportPolicy` .
-        """
-elif False:
-    DataRepositoryAssociationAutoExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    You can define any combination of event types for your `AutoExportPolicy` .
+    """
 
 @pulumi.input_type
 class DataRepositoryAssociationAutoExportPolicyArgs:
@@ -99,23 +94,20 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
         pulumi.set(self, "events", value)
 
 
-if not MYPY:
-    class DataRepositoryAssociationAutoImportPolicyArgsDict(TypedDict):
-        """
-        Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
-        """
-        events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
-        """
-        The `AutoImportPolicy` can have the following event values:
+class DataRepositoryAssociationAutoImportPolicyArgsDict(TypedDict):
+    """
+    Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+    """
+    events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
+    """
+    The `AutoImportPolicy` can have the following event values:
 
-        - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
-        - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-        - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+    - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+    - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+    - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
 
-        You can define any combination of event types for your `AutoImportPolicy` .
-        """
-elif False:
-    DataRepositoryAssociationAutoImportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    You can define any combination of event types for your `AutoImportPolicy` .
+    """
 
 @pulumi.input_type
 class DataRepositoryAssociationAutoImportPolicyArgs:
@@ -152,25 +144,22 @@ class DataRepositoryAssociationAutoImportPolicyArgs:
         pulumi.set(self, "events", value)
 
 
-if not MYPY:
-    class DataRepositoryAssociationS3ArgsDict(TypedDict):
-        """
-        The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-        """
-        auto_export_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgsDict']]
-        """
-        Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+class DataRepositoryAssociationS3ArgsDict(TypedDict):
+    """
+    The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+    """
+    auto_export_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgsDict']]
+    """
+    Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
 
-        The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
-        """
-        auto_import_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgsDict']]
-        """
-        Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+    The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+    """
+    auto_import_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgsDict']]
+    """
+    Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
 
-        The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
-        """
-elif False:
-    DataRepositoryAssociationS3ArgsDict: TypeAlias = Mapping[str, Any]
+    The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+    """
 
 @pulumi.input_type
 class DataRepositoryAssociationS3Args:
@@ -220,14 +209,11 @@ class DataRepositoryAssociationS3Args:
         pulumi.set(self, "auto_import_policy", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentFileSystemGidArgsDict(TypedDict):
-        gid: pulumi.Input[_builtins.float]
-        """
-        The GID of the file system user.
-        """
-elif False:
-    S3AccessPointAttachmentFileSystemGidArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentFileSystemGidArgsDict(TypedDict):
+    gid: pulumi.Input[_builtins.float]
+    """
+    The GID of the file system user.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentFileSystemGidArgs:
@@ -251,22 +237,19 @@ class S3AccessPointAttachmentFileSystemGidArgs:
         pulumi.set(self, "gid", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentOntapFileSystemIdentityArgsDict(TypedDict):
-        type: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType']
-        """
-        Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
-        """
-        unix_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict']]
-        """
-        Specifies the properties of the file system UNIX user.
-        """
-        windows_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict']]
-        """
-        Specifies the properties of the file system Windows user.
-        """
-elif False:
-    S3AccessPointAttachmentOntapFileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentOntapFileSystemIdentityArgsDict(TypedDict):
+    type: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType']
+    """
+    Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+    """
+    unix_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict']]
+    """
+    Specifies the properties of the file system UNIX user.
+    """
+    windows_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict']]
+    """
+    Specifies the properties of the file system Windows user.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentOntapFileSystemIdentityArgs:
@@ -322,14 +305,11 @@ class S3AccessPointAttachmentOntapFileSystemIdentityArgs:
         pulumi.set(self, "windows_user", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the UNIX user.
-        """
-elif False:
-    S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the UNIX user.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentOntapUnixFileSystemUserArgs:
@@ -353,14 +333,11 @@ class S3AccessPointAttachmentOntapUnixFileSystemUserArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Windows user.
-        """
-elif False:
-    S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Windows user.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentOntapWindowsFileSystemUserArgs:
@@ -384,18 +361,15 @@ class S3AccessPointAttachmentOntapWindowsFileSystemUserArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict(TypedDict):
-        posix_user: pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict']
-        """
-        Specifies the UID and GIDs of the file system POSIX user.
-        """
-        type: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']
-        """
-        Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
-        """
-elif False:
-    S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict(TypedDict):
+    posix_user: pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict']
+    """
+    Specifies the UID and GIDs of the file system POSIX user.
+    """
+    type: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']
+    """
+    Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs:
@@ -434,22 +408,19 @@ class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict(TypedDict):
-        gid: pulumi.Input[_builtins.float]
-        """
-        The GID of the file system user.
-        """
-        uid: pulumi.Input[_builtins.float]
-        """
-        The UID of the file system user.
-        """
-        secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgsDict']]]]
-        """
-        The list of secondary GIDs for the file system user.
-        """
-elif False:
-    S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict(TypedDict):
+    gid: pulumi.Input[_builtins.float]
+    """
+    The GID of the file system user.
+    """
+    uid: pulumi.Input[_builtins.float]
+    """
+    The UID of the file system user.
+    """
+    secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgsDict']]]]
+    """
+    The list of secondary GIDs for the file system user.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs:
@@ -504,18 +475,15 @@ class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs:
         pulumi.set(self, "secondary_gids", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict(TypedDict):
-        file_system_identity: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgsDict']
-        """
-        The file system identity used to authorize file access requests made using the S3 access point.
-        """
-        volume_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the FSx for ONTAP volume that the S3 access point is attached to.
-        """
-elif False:
-    S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict(TypedDict):
+    file_system_identity: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgsDict']
+    """
+    The file system identity used to authorize file access requests made using the S3 access point.
+    """
+    volume_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs:
@@ -554,18 +522,15 @@ class S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs:
         pulumi.set(self, "volume_id", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict(TypedDict):
-        file_system_identity: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict']
-        """
-        The file system identity used to authorize file access requests made using the S3 access point.
-        """
-        volume_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
-        """
-elif False:
-    S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict(TypedDict):
+    file_system_identity: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict']
+    """
+    The file system identity used to authorize file access requests made using the S3 access point.
+    """
+    volume_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs:
@@ -604,14 +569,11 @@ class S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs:
         pulumi.set(self, "volume_id", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict(TypedDict):
-        vpc_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
-        """
-elif False:
-    S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict(TypedDict):
+    vpc_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
@@ -635,26 +597,23 @@ class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
-        alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 access point's alias.
-        """
-        policy: NotRequired[Any]
-        """
-        The S3 access point's policy.
-        """
-        resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 access point's ARN.
-        """
-        vpc_configuration: NotRequired[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict']]
-        """
-        The S3 access point's virtual private cloud (VPC) configuration.
-        """
-elif False:
-    S3AccessPointAttachmentS3AccessPointArgsDict: TypeAlias = Mapping[str, Any]
+class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
+    alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 access point's alias.
+    """
+    policy: NotRequired[Any]
+    """
+    The S3 access point's policy.
+    """
+    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 access point's ARN.
+    """
+    vpc_configuration: NotRequired[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict']]
+    """
+    The S3 access point's virtual private cloud (VPC) configuration.
+    """
 
 @pulumi.input_type
 class S3AccessPointAttachmentS3AccessPointArgs:

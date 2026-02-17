@@ -1032,7 +1032,11 @@ func (in *dataTableStatusPtr) ToDataTableStatusPtrOutputWithContext(ctx context.
 type DataTableValueLockLevel string
 
 const (
-	DataTableValueLockLevelNone = DataTableValueLockLevel("NONE")
+	DataTableValueLockLevelNone         = DataTableValueLockLevel("NONE")
+	DataTableValueLockLevelDataTable    = DataTableValueLockLevel("DATA_TABLE")
+	DataTableValueLockLevelPrimaryValue = DataTableValueLockLevel("PRIMARY_VALUE")
+	DataTableValueLockLevelAttribute    = DataTableValueLockLevel("ATTRIBUTE")
+	DataTableValueLockLevelValue        = DataTableValueLockLevel("VALUE")
 )
 
 func (DataTableValueLockLevel) ElementType() reflect.Type {
@@ -1158,6 +1162,10 @@ func (o DataTableValueLockLevelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 // A concrete instance of `DataTableValueLockLevelInput` can be one of the following:
 //
 //	DataTableValueLockLevelNone
+//	DataTableValueLockLevelDataTable
+//	DataTableValueLockLevelPrimaryValue
+//	DataTableValueLockLevelAttribute
+//	DataTableValueLockLevelValue
 type DataTableValueLockLevelInput interface {
 	pulumi.Input
 
@@ -1190,6 +1198,170 @@ func (in *dataTableValueLockLevelPtr) ToDataTableValueLockLevelPtrOutput() DataT
 
 func (in *dataTableValueLockLevelPtr) ToDataTableValueLockLevelPtrOutputWithContext(ctx context.Context) DataTableValueLockLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataTableValueLockLevelPtrOutput)
+}
+
+// The type of notification recipient.
+type EvaluationFormEvaluationReviewNotificationRecipientType string
+
+const (
+	EvaluationFormEvaluationReviewNotificationRecipientTypeUserId = EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID")
+)
+
+func (EvaluationFormEvaluationReviewNotificationRecipientType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutput() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return pulumi.ToOutput(e).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return e.ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return EvaluationFormEvaluationReviewNotificationRecipientType(e).ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(ctx).ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormEvaluationReviewNotificationRecipientType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientTypeOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutput() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o.ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormEvaluationReviewNotificationRecipientType) *EvaluationFormEvaluationReviewNotificationRecipientType {
+		return &v
+	}).(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput)
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormEvaluationReviewNotificationRecipientType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormEvaluationReviewNotificationRecipientType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) Elem() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v *EvaluationFormEvaluationReviewNotificationRecipientType) EvaluationFormEvaluationReviewNotificationRecipientType {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormEvaluationReviewNotificationRecipientType
+		return ret
+	}).(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput)
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormEvaluationReviewNotificationRecipientType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormEvaluationReviewNotificationRecipientTypeInput is an input type that accepts values of the EvaluationFormEvaluationReviewNotificationRecipientType enum
+// A concrete instance of `EvaluationFormEvaluationReviewNotificationRecipientTypeInput` can be one of the following:
+//
+//	EvaluationFormEvaluationReviewNotificationRecipientTypeUserId
+type EvaluationFormEvaluationReviewNotificationRecipientTypeInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutput() EvaluationFormEvaluationReviewNotificationRecipientTypeOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypeOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypeOutput
+}
+
+var evaluationFormEvaluationReviewNotificationRecipientTypePtrType = reflect.TypeOf((**EvaluationFormEvaluationReviewNotificationRecipientType)(nil)).Elem()
+
+type EvaluationFormEvaluationReviewNotificationRecipientTypePtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput
+	ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput
+}
+
+type evaluationFormEvaluationReviewNotificationRecipientTypePtr string
+
+func EvaluationFormEvaluationReviewNotificationRecipientTypePtr(v string) EvaluationFormEvaluationReviewNotificationRecipientTypePtrInput {
+	return (*evaluationFormEvaluationReviewNotificationRecipientTypePtr)(&v)
+}
+
+func (*evaluationFormEvaluationReviewNotificationRecipientTypePtr) ElementType() reflect.Type {
+	return evaluationFormEvaluationReviewNotificationRecipientTypePtrType
+}
+
+func (in *evaluationFormEvaluationReviewNotificationRecipientTypePtr) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput() EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput)
+}
+
+func (in *evaluationFormEvaluationReviewNotificationRecipientTypePtr) ToEvaluationFormEvaluationReviewNotificationRecipientTypePtrOutputWithContext(ctx context.Context) EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput)
 }
 
 // The operator to be used to be applied to operands if more than one provided.
@@ -5692,6 +5864,7 @@ const (
 	IntegrationAssociationIntegrationTypeLexBot         = IntegrationAssociationIntegrationType("LEX_BOT")
 	IntegrationAssociationIntegrationTypeLambdaFunction = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
 	IntegrationAssociationIntegrationTypeApplication    = IntegrationAssociationIntegrationType("APPLICATION")
+	IntegrationAssociationIntegrationTypeCasesDomain    = IntegrationAssociationIntegrationType("CASES_DOMAIN")
 )
 
 func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
@@ -5819,6 +5992,7 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithCon
 //	IntegrationAssociationIntegrationTypeLexBot
 //	IntegrationAssociationIntegrationTypeLambdaFunction
 //	IntegrationAssociationIntegrationTypeApplication
+//	IntegrationAssociationIntegrationTypeCasesDomain
 type IntegrationAssociationIntegrationTypeInput interface {
 	pulumi.Input
 
@@ -5851,6 +6025,172 @@ func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationInte
 
 func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationIntegrationTypePtrOutput)
+}
+
+// The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
+type NotificationPriority string
+
+const (
+	NotificationPriorityHigh = NotificationPriority("HIGH")
+	NotificationPriorityLow  = NotificationPriority("LOW")
+)
+
+func (NotificationPriority) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPriority)(nil)).Elem()
+}
+
+func (e NotificationPriority) ToNotificationPriorityOutput() NotificationPriorityOutput {
+	return pulumi.ToOutput(e).(NotificationPriorityOutput)
+}
+
+func (e NotificationPriority) ToNotificationPriorityOutputWithContext(ctx context.Context) NotificationPriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NotificationPriorityOutput)
+}
+
+func (e NotificationPriority) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return e.ToNotificationPriorityPtrOutputWithContext(context.Background())
+}
+
+func (e NotificationPriority) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return NotificationPriority(e).ToNotificationPriorityOutputWithContext(ctx).ToNotificationPriorityPtrOutputWithContext(ctx)
+}
+
+func (e NotificationPriority) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationPriority) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationPriority) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NotificationPriority) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NotificationPriorityOutput struct{ *pulumi.OutputState }
+
+func (NotificationPriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPriority)(nil)).Elem()
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityOutput() NotificationPriorityOutput {
+	return o
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityOutputWithContext(ctx context.Context) NotificationPriorityOutput {
+	return o
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return o.ToNotificationPriorityPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityOutput) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationPriority) *NotificationPriority {
+		return &v
+	}).(NotificationPriorityPtrOutput)
+}
+
+func (o NotificationPriorityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotificationPriority) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotificationPriorityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotificationPriority) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotificationPriorityPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationPriorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationPriority)(nil)).Elem()
+}
+
+func (o NotificationPriorityPtrOutput) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return o
+}
+
+func (o NotificationPriorityPtrOutput) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return o
+}
+
+func (o NotificationPriorityPtrOutput) Elem() NotificationPriorityOutput {
+	return o.ApplyT(func(v *NotificationPriority) NotificationPriority {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationPriority
+		return ret
+	}).(NotificationPriorityOutput)
+}
+
+func (o NotificationPriorityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationPriorityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotificationPriority) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NotificationPriorityInput is an input type that accepts values of the NotificationPriority enum
+// A concrete instance of `NotificationPriorityInput` can be one of the following:
+//
+//	NotificationPriorityHigh
+//	NotificationPriorityLow
+type NotificationPriorityInput interface {
+	pulumi.Input
+
+	ToNotificationPriorityOutput() NotificationPriorityOutput
+	ToNotificationPriorityOutputWithContext(context.Context) NotificationPriorityOutput
+}
+
+var notificationPriorityPtrType = reflect.TypeOf((**NotificationPriority)(nil)).Elem()
+
+type NotificationPriorityPtrInput interface {
+	pulumi.Input
+
+	ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput
+	ToNotificationPriorityPtrOutputWithContext(context.Context) NotificationPriorityPtrOutput
+}
+
+type notificationPriorityPtr string
+
+func NotificationPriorityPtr(v string) NotificationPriorityPtrInput {
+	return (*notificationPriorityPtr)(&v)
+}
+
+func (*notificationPriorityPtr) ElementType() reflect.Type {
+	return notificationPriorityPtrType
+}
+
+func (in *notificationPriorityPtr) ToNotificationPriorityPtrOutput() NotificationPriorityPtrOutput {
+	return pulumi.ToOutput(in).(NotificationPriorityPtrOutput)
+}
+
+func (in *notificationPriorityPtr) ToNotificationPriorityPtrOutputWithContext(ctx context.Context) NotificationPriorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NotificationPriorityPtrOutput)
 }
 
 // The status of the queue.
@@ -8255,6 +8595,176 @@ func (o TrafficDistributionGroupStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
+// The channels that agents can handle in the Contact Control Panel (CCP).
+type UserChannel string
+
+const (
+	UserChannelVoice = UserChannel("VOICE")
+	UserChannelChat  = UserChannel("CHAT")
+	UserChannelTask  = UserChannel("TASK")
+	UserChannelEmail = UserChannel("EMAIL")
+)
+
+func (UserChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserChannel)(nil)).Elem()
+}
+
+func (e UserChannel) ToUserChannelOutput() UserChannelOutput {
+	return pulumi.ToOutput(e).(UserChannelOutput)
+}
+
+func (e UserChannel) ToUserChannelOutputWithContext(ctx context.Context) UserChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserChannelOutput)
+}
+
+func (e UserChannel) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return e.ToUserChannelPtrOutputWithContext(context.Background())
+}
+
+func (e UserChannel) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return UserChannel(e).ToUserChannelOutputWithContext(ctx).ToUserChannelPtrOutputWithContext(ctx)
+}
+
+func (e UserChannel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserChannel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserChannel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserChannel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserChannelOutput struct{ *pulumi.OutputState }
+
+func (UserChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserChannel)(nil)).Elem()
+}
+
+func (o UserChannelOutput) ToUserChannelOutput() UserChannelOutput {
+	return o
+}
+
+func (o UserChannelOutput) ToUserChannelOutputWithContext(ctx context.Context) UserChannelOutput {
+	return o
+}
+
+func (o UserChannelOutput) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return o.ToUserChannelPtrOutputWithContext(context.Background())
+}
+
+func (o UserChannelOutput) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserChannel) *UserChannel {
+		return &v
+	}).(UserChannelPtrOutput)
+}
+
+func (o UserChannelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserChannelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserChannel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserChannelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserChannelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserChannel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserChannelPtrOutput struct{ *pulumi.OutputState }
+
+func (UserChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserChannel)(nil)).Elem()
+}
+
+func (o UserChannelPtrOutput) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return o
+}
+
+func (o UserChannelPtrOutput) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return o
+}
+
+func (o UserChannelPtrOutput) Elem() UserChannelOutput {
+	return o.ApplyT(func(v *UserChannel) UserChannel {
+		if v != nil {
+			return *v
+		}
+		var ret UserChannel
+		return ret
+	}).(UserChannelOutput)
+}
+
+func (o UserChannelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserChannelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserChannel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserChannelInput is an input type that accepts values of the UserChannel enum
+// A concrete instance of `UserChannelInput` can be one of the following:
+//
+//	UserChannelVoice
+//	UserChannelChat
+//	UserChannelTask
+//	UserChannelEmail
+type UserChannelInput interface {
+	pulumi.Input
+
+	ToUserChannelOutput() UserChannelOutput
+	ToUserChannelOutputWithContext(context.Context) UserChannelOutput
+}
+
+var userChannelPtrType = reflect.TypeOf((**UserChannel)(nil)).Elem()
+
+type UserChannelPtrInput interface {
+	pulumi.Input
+
+	ToUserChannelPtrOutput() UserChannelPtrOutput
+	ToUserChannelPtrOutputWithContext(context.Context) UserChannelPtrOutput
+}
+
+type userChannelPtr string
+
+func UserChannelPtr(v string) UserChannelPtrInput {
+	return (*userChannelPtr)(&v)
+}
+
+func (*userChannelPtr) ElementType() reflect.Type {
+	return userChannelPtrType
+}
+
+func (in *userChannelPtr) ToUserChannelPtrOutput() UserChannelPtrOutput {
+	return pulumi.ToOutput(in).(UserChannelPtrOutput)
+}
+
+func (in *userChannelPtr) ToUserChannelPtrOutputWithContext(ctx context.Context) UserChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserChannelPtrOutput)
+}
+
 // The phone type.
 type UserPhoneType string
 
@@ -8419,6 +8929,174 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutput() UserPhoneTypePtrOutput {
 
 func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Context) UserPhoneTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserPhoneTypePtrOutput)
+}
+
+// The Voice Enhancement Mode setting.
+type UserVoiceEnhancementMode string
+
+const (
+	UserVoiceEnhancementModeNone             = UserVoiceEnhancementMode("NONE")
+	UserVoiceEnhancementModeVoiceIsolation   = UserVoiceEnhancementMode("VOICE_ISOLATION")
+	UserVoiceEnhancementModeNoiseSuppression = UserVoiceEnhancementMode("NOISE_SUPPRESSION")
+)
+
+func (UserVoiceEnhancementMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserVoiceEnhancementMode)(nil)).Elem()
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModeOutput() UserVoiceEnhancementModeOutput {
+	return pulumi.ToOutput(e).(UserVoiceEnhancementModeOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModeOutputWithContext(ctx context.Context) UserVoiceEnhancementModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserVoiceEnhancementModeOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return e.ToUserVoiceEnhancementModePtrOutputWithContext(context.Background())
+}
+
+func (e UserVoiceEnhancementMode) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return UserVoiceEnhancementMode(e).ToUserVoiceEnhancementModeOutputWithContext(ctx).ToUserVoiceEnhancementModePtrOutputWithContext(ctx)
+}
+
+func (e UserVoiceEnhancementMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserVoiceEnhancementMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserVoiceEnhancementMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserVoiceEnhancementModeOutput struct{ *pulumi.OutputState }
+
+func (UserVoiceEnhancementModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserVoiceEnhancementMode)(nil)).Elem()
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModeOutput() UserVoiceEnhancementModeOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModeOutputWithContext(ctx context.Context) UserVoiceEnhancementModeOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return o.ToUserVoiceEnhancementModePtrOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModeOutput) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserVoiceEnhancementMode) *UserVoiceEnhancementMode {
+		return &v
+	}).(UserVoiceEnhancementModePtrOutput)
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserVoiceEnhancementMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserVoiceEnhancementMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserVoiceEnhancementModePtrOutput struct{ *pulumi.OutputState }
+
+func (UserVoiceEnhancementModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserVoiceEnhancementMode)(nil)).Elem()
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return o
+}
+
+func (o UserVoiceEnhancementModePtrOutput) Elem() UserVoiceEnhancementModeOutput {
+	return o.ApplyT(func(v *UserVoiceEnhancementMode) UserVoiceEnhancementMode {
+		if v != nil {
+			return *v
+		}
+		var ret UserVoiceEnhancementMode
+		return ret
+	}).(UserVoiceEnhancementModeOutput)
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserVoiceEnhancementModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserVoiceEnhancementMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserVoiceEnhancementModeInput is an input type that accepts values of the UserVoiceEnhancementMode enum
+// A concrete instance of `UserVoiceEnhancementModeInput` can be one of the following:
+//
+//	UserVoiceEnhancementModeNone
+//	UserVoiceEnhancementModeVoiceIsolation
+//	UserVoiceEnhancementModeNoiseSuppression
+type UserVoiceEnhancementModeInput interface {
+	pulumi.Input
+
+	ToUserVoiceEnhancementModeOutput() UserVoiceEnhancementModeOutput
+	ToUserVoiceEnhancementModeOutputWithContext(context.Context) UserVoiceEnhancementModeOutput
+}
+
+var userVoiceEnhancementModePtrType = reflect.TypeOf((**UserVoiceEnhancementMode)(nil)).Elem()
+
+type UserVoiceEnhancementModePtrInput interface {
+	pulumi.Input
+
+	ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput
+	ToUserVoiceEnhancementModePtrOutputWithContext(context.Context) UserVoiceEnhancementModePtrOutput
+}
+
+type userVoiceEnhancementModePtr string
+
+func UserVoiceEnhancementModePtr(v string) UserVoiceEnhancementModePtrInput {
+	return (*userVoiceEnhancementModePtr)(&v)
+}
+
+func (*userVoiceEnhancementModePtr) ElementType() reflect.Type {
+	return userVoiceEnhancementModePtrType
+}
+
+func (in *userVoiceEnhancementModePtr) ToUserVoiceEnhancementModePtrOutput() UserVoiceEnhancementModePtrOutput {
+	return pulumi.ToOutput(in).(UserVoiceEnhancementModePtrOutput)
+}
+
+func (in *userVoiceEnhancementModePtr) ToUserVoiceEnhancementModePtrOutputWithContext(ctx context.Context) UserVoiceEnhancementModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserVoiceEnhancementModePtrOutput)
 }
 
 type WorkspaceFontFamily string
@@ -8947,6 +9625,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableStatusPtrInput)(nil)).Elem(), DataTableStatus("PUBLISHED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableValueLockLevelInput)(nil)).Elem(), DataTableValueLockLevel("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableValueLockLevelPtrInput)(nil)).Elem(), DataTableValueLockLevel("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientTypeInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormEvaluationReviewNotificationRecipientTypePtrInput)(nil)).Elem(), EvaluationFormEvaluationReviewNotificationRecipientType("USER_ID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionOperatorInput)(nil)).Elem(), EvaluationFormItemEnablementConditionOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionOperatorPtrInput)(nil)).Elem(), EvaluationFormItemEnablementConditionOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConfigurationActionInput)(nil)).Elem(), EvaluationFormItemEnablementConfigurationAction("DISABLE"))
@@ -9001,6 +9681,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypeInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypePtrInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPriorityInput)(nil)).Elem(), NotificationPriority("HIGH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationPriorityPtrInput)(nil)).Elem(), NotificationPriority("HIGH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusInput)(nil)).Elem(), QueueStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusPtrInput)(nil)).Elem(), QueueStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
@@ -9027,8 +9709,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusPtrInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelInput)(nil)).Elem(), UserChannel("VOICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelPtrInput)(nil)).Elem(), UserChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementModeInput)(nil)).Elem(), UserVoiceEnhancementMode("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementModePtrInput)(nil)).Elem(), UserVoiceEnhancementMode("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyPtrInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaTypeInput)(nil)).Elem(), WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON"))
@@ -9049,6 +9735,8 @@ func init() {
 	pulumi.RegisterOutputType(DataTableStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataTableValueLockLevelOutput{})
 	pulumi.RegisterOutputType(DataTableValueLockLevelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientTypeOutput{})
+	pulumi.RegisterOutputType(EvaluationFormEvaluationReviewNotificationRecipientTypePtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOperatorOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConfigurationActionOutput{})
@@ -9105,6 +9793,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(NotificationPriorityOutput{})
+	pulumi.RegisterOutputType(NotificationPriorityPtrOutput{})
 	pulumi.RegisterOutputType(QueueStatusOutput{})
 	pulumi.RegisterOutputType(QueueStatusPtrOutput{})
 	pulumi.RegisterOutputType(QueueTypeOutput{})
@@ -9135,8 +9825,12 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateStatusPtrOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(UserChannelOutput{})
+	pulumi.RegisterOutputType(UserChannelPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypeOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypePtrOutput{})
+	pulumi.RegisterOutputType(UserVoiceEnhancementModeOutput{})
+	pulumi.RegisterOutputType(UserVoiceEnhancementModePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceFontFamilyOutput{})
 	pulumi.RegisterOutputType(WorkspaceFontFamilyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceMediaTypeOutput{})

@@ -1758,6 +1758,9 @@
         "$ref": "#/types/aws-native:cleanrooms:MembershipProtectedQueryResultConfiguration",
         "description": "The default protected query result configuration as specified by the member who can receive results."
       },
+      "isMetricsEnabled": {
+        "type": "boolean"
+      },
       "jobLogStatus": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipJobLogStatus",
         "description": "An indicator as to whether job logging has been enabled or disabled for the collaboration.\n\nWhen `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` ."
@@ -2708,6 +2711,9 @@
         "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration",
         "description": "Configuration for language settings of this evaluation form."
       },
+      "reviewConfiguration": {
+        "$ref": "#/types/aws-native:connect:EvaluationFormEvaluationReviewConfiguration"
+      },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
         "description": "A scoring strategy of the evaluation form."
@@ -2808,6 +2814,41 @@
       "integrationType": {
         "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType",
         "description": "Specifies the integration type to be associated with the instance.\n\n*Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`"
+      }
+    }
+  },
+  "aws-native:connect:Notification": {
+    "cfTypeName": "AWS::Connect::Notification",
+    "properties": {
+      "content": {
+        "$ref": "#/types/aws-native:connect:NotificationContent",
+        "description": "The content of the notification."
+      },
+      "expiresAt": {
+        "type": "string",
+        "description": "The time a notification will expire"
+      },
+      "instanceArn": {
+        "type": "string",
+        "description": "The identifier of the Amazon Connect instance."
+      },
+      "priority": {
+        "$ref": "#/types/aws-native:connect:NotificationPriority",
+        "description": "The priority of the notification."
+      },
+      "recipients": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The recipients of the notification."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags."
       }
     }
   },
@@ -3557,6 +3598,13 @@
         "type": "string",
         "description": "The environment role permission boundary."
       },
+      "globalParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Region-agnostic environment blueprint parameters."
+      },
       "manageAccessRoleArn": {
         "type": "string",
         "description": "The ARN of the manage access role."
@@ -4180,6 +4228,42 @@
       "targetEndpointArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration"
+      }
+    }
+  },
+  "aws-native:docdb:GlobalCluster": {
+    "cfTypeName": "AWS::DocDB::GlobalCluster",
+    "properties": {
+      "deletionProtection": {
+        "type": "boolean",
+        "description": "Indicates whether the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled."
+      },
+      "engine": {
+        "$ref": "#/types/aws-native:docdb:GlobalClusterEngine",
+        "description": "The database engine to use for this global cluster."
+      },
+      "engineVersion": {
+        "type": "string",
+        "description": "The engine version to use for this global cluster."
+      },
+      "globalClusterIdentifier": {
+        "type": "string",
+        "description": "The cluster identifier of the global cluster."
+      },
+      "sourceDbClusterIdentifier": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. You may also choose to instead specify the DBClusterIdentifier. If you provide a value for this parameter, don't specify values for the following settings because Amazon DocumentDB uses the values from the specified source DB cluster: Engine, EngineVersion, StorageEncrypted"
+      },
+      "storageEncrypted": {
+        "type": "boolean",
+        "description": "Indicates whether the global cluster has storage encryption enabled."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to be assigned to the Amazon DocumentDB resource."
       }
     }
   },
@@ -5132,6 +5216,36 @@
       }
     }
   },
+  "aws-native:ec2:IpamPrefixListResolver": {
+    "cfTypeName": "AWS::EC2::IPAMPrefixListResolver",
+    "properties": {
+      "addressFamily": {
+        "type": "string",
+        "description": "The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6."
+      },
+      "description": {
+        "type": "string"
+      },
+      "ipamId": {
+        "type": "string",
+        "description": "The Id of the IPAM this Prefix List Resolver is a part of."
+      },
+      "rules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:IpamPrefixListResolverRule"
+        },
+        "description": "Rules define the business logic for selecting CIDRs from IPAM."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
   "aws-native:ec2:IpamResourceDiscovery": {
     "cfTypeName": "AWS::EC2::IPAMResourceDiscovery",
     "properties": {
@@ -5388,14 +5502,14 @@
       },
       "availabilityMode": {
         "type": "string",
-        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n\nA zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*."
       },
       "availabilityZoneAddresses": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ec2:NatGatewayAvailabilityZoneAddress"
         },
-        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n\nA regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*."
       },
       "connectivityType": {
         "type": "string",
@@ -7026,6 +7140,9 @@
         "type": "string",
         "description": "The device name (for example, ``/dev/sdh`` or ``xvdh``)."
       },
+      "ebsCardIndex": {
+        "type": "integer"
+      },
       "instanceId": {
         "type": "string",
         "description": "The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance."
@@ -7387,6 +7504,10 @@
   "aws-native:ec2:VpcPeeringConnection": {
     "cfTypeName": "AWS::EC2::VPCPeeringConnection",
     "properties": {
+      "assumeRoleRegion": {
+        "type": "string",
+        "description": "The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided."
+      },
       "peerOwnerId": {
         "type": "string",
         "description": "The AWS account ID of the owner of the accepter VPC."
@@ -7441,11 +7562,11 @@
       },
       "transitGatewayId": {
         "type": "string",
-        "description": "The ID of the transit gateway"
+        "description": "The ID of the transit gateway associated with the VPN concentrator."
       },
       "type": {
         "type": "string",
-        "description": "The type of VPN concentrator"
+        "description": "The type of VPN concentrator."
       }
     }
   },
@@ -7505,7 +7626,7 @@
       },
       "tunnelBandwidth": {
         "$ref": "#/types/aws-native:ec2:VpnConnectionTunnelBandwidth",
-        "description": "The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` ."
+        "description": "The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``."
       },
       "tunnelInsideIpVersion": {
         "type": "string",
@@ -8093,6 +8214,10 @@
       "namespace": {
         "type": "string",
         "description": "The Kubernetes namespace that the pod identity association is created for."
+      },
+      "policy": {
+        "type": "string",
+        "description": "The policy of the pod identity association."
       },
       "roleArn": {
         "type": "string",
@@ -9540,9 +9665,17 @@
         "$ref": "#/types/aws-native:iot:CommandPayload",
         "description": "The payload associated with the command."
       },
+      "payloadTemplate": {
+        "type": "string",
+        "description": "The payload template associated with the command."
+      },
       "pendingDeletion": {
         "type": "boolean",
         "description": "A flag indicating whether the command is pending deletion."
+      },
+      "preprocessor": {
+        "$ref": "#/types/aws-native:iot:CommandPreprocessor",
+        "description": "The command preprocessor configuration."
       },
       "roleArn": {
         "type": "string",
@@ -9650,6 +9783,13 @@
       "defaultLogLevel": {
         "$ref": "#/types/aws-native:iot:LoggingDefaultLogLevel",
         "description": "The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+      },
+      "eventConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:iot:LoggingEventConfiguration"
+        },
+        "description": "Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event"
       },
       "roleArn": {
         "type": "string",
@@ -10568,6 +10708,26 @@
       "rotateMasterUserPassword": {
         "type": "boolean",
         "description": "When true, the master user password is changed to a new strong password generated by Lightsail. Use the get relational database master user password operation to get the new password."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:lightsail:DatabaseSnapshot": {
+    "cfTypeName": "AWS::Lightsail::DatabaseSnapshot",
+    "properties": {
+      "relationalDatabaseName": {
+        "type": "string",
+        "description": "The name of the database on which to base your new snapshot."
+      },
+      "relationalDatabaseSnapshotName": {
+        "type": "string",
+        "description": "The name for your new database snapshot."
       },
       "tags": {
         "type": "array",
@@ -13057,6 +13217,13 @@
   "aws-native:rds:DbInstance": {
     "cfTypeName": "AWS::RDS::DBInstance",
     "properties": {
+      "additionalStorageVolumes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:rds:DbInstanceAdditionalStorageVolume"
+        },
+        "description": "The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server."
+      },
       "allocatedStorage": {
         "type": "string",
         "description": "The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.\n  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). \n   *Amazon Aurora* \n Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.\n  *Db2* \n Constraints to the amount of storage for each storage type are the following:\n  +  General Purpose (SSD) storage (gp3): Must be an integer from 20 to 64000.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 64000.\n  \n  *MySQL* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 5 to 3072.\n  \n  *MariaDB* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 5 to 3072.\n  \n  *PostgreSQL* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 5 to 3072.\n  \n  *Oracle* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.\n  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.\n  +  Magnetic storage (standard): Must be an integer from 10 to 3072.\n  \n  *SQL Server* \n Constraints to the amount of storage for each storage type are the following: \n  +  General Purpose (SSD) storage (gp2):\n  +  Enterprise and Standard editions: Must be an integer from 20 to 16384.\n  +  Web and Express editions: Must be an integer from 20 to 16384.\n  \n  +  Provisioned IOPS storage (io1):\n  +  Enterprise and Standard editions: Must be an integer from 20 to 16384.\n  +  Web and Express editions: Must be an integer from 20 to 16384.\n  \n  +  Magnetic storage (standard):\n  +  Enterprise and Standard editions: Must be an integer from 20 to 1024.\n  +  Web and Express editions: Must be an integer from 20 to 1024."
@@ -15142,6 +15309,13 @@
   "aws-native:ses:Template": {
     "cfTypeName": "AWS::SES::Template",
     "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags (keys and values) associated with the email template."
+      },
       "template": {
         "$ref": "#/types/aws-native:ses:Template",
         "description": "The content of the email, composed of a subject line and either an HTML part or a text-only part.",
@@ -15694,7 +15868,7 @@
         "items": {
           "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationAccessControlAttribute"
         },
-        "description": "Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance."
+        "description": "Lists the attributes that are configured for ABAC in the specified  instance."
       },
       "instanceAccessControlAttributeConfiguration": {
         "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationProperties",
@@ -16102,6 +16276,9 @@
         "type": "string",
         "description": "The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value."
       },
+      "endpointDetails": {
+        "$ref": "#/types/aws-native:transfer:WebAppEndpointDetails"
+      },
       "identityProviderDetails": {
         "$ref": "#/types/aws-native:transfer:WebAppIdentityProviderDetails",
         "description": "You can provide a structure that contains the details for the identity provider to use with your web app.\n\nFor more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) ."
@@ -16211,6 +16388,9 @@
       "description": {
         "type": "string",
         "description": "Descriptive text that you can provide to help with identification of the current policy store."
+      },
+      "encryptionSettings": {
+        "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreEncryptionSettings"
       },
       "schema": {
         "oneOf": [
@@ -16552,6 +16732,46 @@
       }
     }
   },
+  "aws-native:workspaces:Workspace": {
+    "cfTypeName": "AWS::WorkSpaces::Workspace",
+    "properties": {
+      "bundleId": {
+        "type": "string",
+        "description": "The identifier of the bundle for the WorkSpace."
+      },
+      "directoryId": {
+        "type": "string",
+        "description": "The identifier of the Directory Service directory for the WorkSpace."
+      },
+      "rootVolumeEncryptionEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether the data stored on the root volume is encrypted."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the WorkSpace."
+      },
+      "userName": {
+        "type": "string",
+        "description": "The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace."
+      },
+      "userVolumeEncryptionEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether the data stored on the user volume is encrypted."
+      },
+      "volumeEncryptionKey": {
+        "type": "string",
+        "description": "The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys."
+      },
+      "workspaceProperties": {
+        "$ref": "#/types/aws-native:workspaces:WorkspaceProperties",
+        "description": "The WorkSpace properties."
+      }
+    }
+  },
   "aws-native:workspacesinstances:Volume": {
     "cfTypeName": "AWS::WorkspacesInstances::Volume",
     "properties": {
@@ -16777,7 +16997,7 @@
       },
       "authenticationType": {
         "$ref": "#/types/aws-native:workspacesweb:PortalAuthenticationType",
-        "description": "The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .\n\n`Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:\n\n1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.\n\n2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.\n\n3. Submit the data to your IdP.\n\n4. Add an `IdentityProvider` resource to your CloudFormation template.\n\n`IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation."
+        "description": "The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .\n\n`Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Secure Browser’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:\n\n1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.\n\n2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Secure Browser console, or by the calling the `GetPortalServiceProviderMetadata` API.\n\n3. Submit the data to your IdP.\n\n4. Add an `IdentityProvider` resource to your CloudFormation template.\n\n`SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation."
       },
       "browserSettingsArn": {
         "type": "string",
@@ -16810,6 +17030,9 @@
       "networkSettingsArn": {
         "type": "string",
         "description": "The ARN of the network settings that is associated with the web portal."
+      },
+      "portalCustomDomain": {
+        "type": "string"
       },
       "sessionLoggerArn": {
         "type": "string",

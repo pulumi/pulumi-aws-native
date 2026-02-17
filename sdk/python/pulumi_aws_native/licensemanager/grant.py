@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['GrantArgs', 'Grant']
 
@@ -24,7 +26,8 @@ class GrantArgs:
                  home_region: Optional[pulumi.Input[_builtins.str]] = None,
                  license_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Grant resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: Allowed operations for the grant.
@@ -39,6 +42,7 @@ class GrantArgs:
                
                - An organization, which will include all accounts across your organization.
         :param pulumi.Input[_builtins.str] status: Granted license status.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to attach.
         """
         if allowed_operations is not None:
             pulumi.set(__self__, "allowed_operations", allowed_operations)
@@ -52,6 +56,8 @@ class GrantArgs:
             pulumi.set(__self__, "principals", principals)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="allowedOperations")
@@ -131,6 +137,18 @@ class GrantArgs:
     def status(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "status", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of tags to attach.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:licensemanager:Grant")
 class Grant(pulumi.CustomResource):
@@ -144,6 +162,7 @@ class Grant(pulumi.CustomResource):
                  license_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -162,6 +181,7 @@ class Grant(pulumi.CustomResource):
                
                - An organization, which will include all accounts across your organization.
         :param pulumi.Input[_builtins.str] status: Granted license status.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach.
         """
         ...
     @overload
@@ -193,6 +213,7 @@ class Grant(pulumi.CustomResource):
                  license_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,6 +229,7 @@ class Grant(pulumi.CustomResource):
             __props__.__dict__["license_arn"] = license_arn
             __props__.__dict__["principals"] = principals
             __props__.__dict__["status"] = status
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["grant_arn"] = None
             __props__.__dict__["version"] = None
         super(Grant, __self__).__init__(
@@ -239,6 +261,7 @@ class Grant(pulumi.CustomResource):
         __props__.__dict__["license_arn"] = None
         __props__.__dict__["principals"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
         return Grant(resource_name, opts=opts, __props__=__props__)
 
@@ -303,6 +326,14 @@ class Grant(pulumi.CustomResource):
         Granted license status.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of tags to attach.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter

@@ -88,13 +88,8 @@ __all__ = [
     'TransformerX12ValidationRule2PropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CapabilityConfigurationPropertiesArgsDict(TypedDict):
-        edi: pulumi.Input['CapabilityEdiConfigurationArgsDict']
-elif False:
-    CapabilityConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityConfigurationPropertiesArgsDict(TypedDict):
+    edi: pulumi.Input['CapabilityEdiConfigurationArgsDict']
 
 @pulumi.input_type
 class CapabilityConfigurationPropertiesArgs:
@@ -112,15 +107,12 @@ class CapabilityConfigurationPropertiesArgs:
         pulumi.set(self, "edi", value)
 
 
-if not MYPY:
-    class CapabilityEdiConfigurationArgsDict(TypedDict):
-        input_location: pulumi.Input['CapabilityS3LocationArgsDict']
-        output_location: pulumi.Input['CapabilityS3LocationArgsDict']
-        transformer_id: pulumi.Input[_builtins.str]
-        type: pulumi.Input['CapabilityEdiTypePropertiesArgsDict']
-        capability_direction: NotRequired[pulumi.Input['CapabilityDirection']]
-elif False:
-    CapabilityEdiConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityEdiConfigurationArgsDict(TypedDict):
+    input_location: pulumi.Input['CapabilityS3LocationArgsDict']
+    output_location: pulumi.Input['CapabilityS3LocationArgsDict']
+    transformer_id: pulumi.Input[_builtins.str]
+    type: pulumi.Input['CapabilityEdiTypePropertiesArgsDict']
+    capability_direction: NotRequired[pulumi.Input['CapabilityDirection']]
 
 @pulumi.input_type
 class CapabilityEdiConfigurationArgs:
@@ -183,11 +175,8 @@ class CapabilityEdiConfigurationArgs:
         pulumi.set(self, "capability_direction", value)
 
 
-if not MYPY:
-    class CapabilityEdiTypePropertiesArgsDict(TypedDict):
-        x12_details: pulumi.Input['CapabilityX12DetailsArgsDict']
-elif False:
-    CapabilityEdiTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityEdiTypePropertiesArgsDict(TypedDict):
+    x12_details: pulumi.Input['CapabilityX12DetailsArgsDict']
 
 @pulumi.input_type
 class CapabilityEdiTypePropertiesArgs:
@@ -205,12 +194,9 @@ class CapabilityEdiTypePropertiesArgs:
         pulumi.set(self, "x12_details", value)
 
 
-if not MYPY:
-    class CapabilityS3LocationArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CapabilityS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityS3LocationArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CapabilityS3LocationArgs:
@@ -241,12 +227,9 @@ class CapabilityS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class CapabilityX12DetailsArgsDict(TypedDict):
-        transaction_set: NotRequired[pulumi.Input['CapabilityX12TransactionSet']]
-        version: NotRequired[pulumi.Input['CapabilityX12Version']]
-elif False:
-    CapabilityX12DetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityX12DetailsArgsDict(TypedDict):
+    transaction_set: NotRequired[pulumi.Input['CapabilityX12TransactionSet']]
+    version: NotRequired[pulumi.Input['CapabilityX12Version']]
 
 @pulumi.input_type
 class CapabilityX12DetailsArgs:
@@ -277,18 +260,15 @@ class CapabilityX12DetailsArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PartnershipCapabilityOptionsArgsDict(TypedDict):
-        inbound_edi: NotRequired[pulumi.Input['PartnershipInboundEdiOptionsArgsDict']]
-        """
-        A structure that contains the inbound EDI options for the capability.
-        """
-        outbound_edi: NotRequired[pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgsDict']]
-        """
-        A structure that contains the outbound EDI options.
-        """
-elif False:
-    PartnershipCapabilityOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipCapabilityOptionsArgsDict(TypedDict):
+    inbound_edi: NotRequired[pulumi.Input['PartnershipInboundEdiOptionsArgsDict']]
+    """
+    A structure that contains the inbound EDI options for the capability.
+    """
+    outbound_edi: NotRequired[pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgsDict']]
+    """
+    A structure that contains the outbound EDI options.
+    """
 
 @pulumi.input_type
 class PartnershipCapabilityOptionsArgs:
@@ -329,14 +309,11 @@ class PartnershipCapabilityOptionsArgs:
         pulumi.set(self, "outbound_edi", value)
 
 
-if not MYPY:
-    class PartnershipInboundEdiOptionsArgsDict(TypedDict):
-        x12: NotRequired[pulumi.Input['PartnershipX12InboundEdiOptionsArgsDict']]
-        """
-        A structure that contains X12-specific options for processing inbound X12 EDI files.
-        """
-elif False:
-    PartnershipInboundEdiOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipInboundEdiOptionsArgsDict(TypedDict):
+    x12: NotRequired[pulumi.Input['PartnershipX12InboundEdiOptionsArgsDict']]
+    """
+    A structure that contains X12-specific options for processing inbound X12 EDI files.
+    """
 
 @pulumi.input_type
 class PartnershipInboundEdiOptionsArgs:
@@ -361,11 +338,8 @@ class PartnershipInboundEdiOptionsArgs:
         pulumi.set(self, "x12", value)
 
 
-if not MYPY:
-    class PartnershipOutboundEdiOptionsPropertiesArgsDict(TypedDict):
-        x12: pulumi.Input['PartnershipX12EnvelopeArgsDict']
-elif False:
-    PartnershipOutboundEdiOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipOutboundEdiOptionsPropertiesArgsDict(TypedDict):
+    x12: pulumi.Input['PartnershipX12EnvelopeArgsDict']
 
 @pulumi.input_type
 class PartnershipOutboundEdiOptionsPropertiesArgs:
@@ -383,13 +357,10 @@ class PartnershipOutboundEdiOptionsPropertiesArgs:
         pulumi.set(self, "x12", value)
 
 
-if not MYPY:
-    class PartnershipWrapOptionsArgsDict(TypedDict):
-        line_length: NotRequired[pulumi.Input[_builtins.float]]
-        line_terminator: NotRequired[pulumi.Input['PartnershipLineTerminator']]
-        wrap_by: NotRequired[pulumi.Input['PartnershipWrapFormat']]
-elif False:
-    PartnershipWrapOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipWrapOptionsArgsDict(TypedDict):
+    line_length: NotRequired[pulumi.Input[_builtins.float]]
+    line_terminator: NotRequired[pulumi.Input['PartnershipLineTerminator']]
+    wrap_by: NotRequired[pulumi.Input['PartnershipWrapFormat']]
 
 @pulumi.input_type
 class PartnershipWrapOptionsArgs:
@@ -432,20 +403,17 @@ class PartnershipWrapOptionsArgs:
         pulumi.set(self, "wrap_by", value)
 
 
-if not MYPY:
-    class PartnershipX12AcknowledgmentOptionsArgsDict(TypedDict):
-        functional_acknowledgment: pulumi.Input['PartnershipX12FunctionalAcknowledgment']
-        """
-        Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+class PartnershipX12AcknowledgmentOptionsArgsDict(TypedDict):
+    functional_acknowledgment: pulumi.Input['PartnershipX12FunctionalAcknowledgment']
+    """
+    Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
 
-        If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
-        """
-        technical_acknowledgment: pulumi.Input['PartnershipX12TechnicalAcknowledgment']
-        """
-        Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
-        """
-elif False:
-    PartnershipX12AcknowledgmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+    If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
+    """
+    technical_acknowledgment: pulumi.Input['PartnershipX12TechnicalAcknowledgment']
+    """
+    Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+    """
 
 @pulumi.input_type
 class PartnershipX12AcknowledgmentOptionsArgs:
@@ -488,13 +456,10 @@ class PartnershipX12AcknowledgmentOptionsArgs:
         pulumi.set(self, "technical_acknowledgment", value)
 
 
-if not MYPY:
-    class PartnershipX12ControlNumbersArgsDict(TypedDict):
-        starting_functional_group_control_number: NotRequired[pulumi.Input[_builtins.float]]
-        starting_interchange_control_number: NotRequired[pulumi.Input[_builtins.float]]
-        starting_transaction_set_control_number: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    PartnershipX12ControlNumbersArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12ControlNumbersArgsDict(TypedDict):
+    starting_functional_group_control_number: NotRequired[pulumi.Input[_builtins.float]]
+    starting_interchange_control_number: NotRequired[pulumi.Input[_builtins.float]]
+    starting_transaction_set_control_number: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class PartnershipX12ControlNumbersArgs:
@@ -537,13 +502,10 @@ class PartnershipX12ControlNumbersArgs:
         pulumi.set(self, "starting_transaction_set_control_number", value)
 
 
-if not MYPY:
-    class PartnershipX12DelimitersArgsDict(TypedDict):
-        component_separator: NotRequired[pulumi.Input[_builtins.str]]
-        data_element_separator: NotRequired[pulumi.Input[_builtins.str]]
-        segment_terminator: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PartnershipX12DelimitersArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12DelimitersArgsDict(TypedDict):
+    component_separator: NotRequired[pulumi.Input[_builtins.str]]
+    data_element_separator: NotRequired[pulumi.Input[_builtins.str]]
+    segment_terminator: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PartnershipX12DelimitersArgs:
@@ -586,12 +548,9 @@ class PartnershipX12DelimitersArgs:
         pulumi.set(self, "segment_terminator", value)
 
 
-if not MYPY:
-    class PartnershipX12EnvelopeArgsDict(TypedDict):
-        common: NotRequired[pulumi.Input['PartnershipX12OutboundEdiHeadersArgsDict']]
-        wrap_options: NotRequired[pulumi.Input['PartnershipWrapOptionsArgsDict']]
-elif False:
-    PartnershipX12EnvelopeArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12EnvelopeArgsDict(TypedDict):
+    common: NotRequired[pulumi.Input['PartnershipX12OutboundEdiHeadersArgsDict']]
+    wrap_options: NotRequired[pulumi.Input['PartnershipWrapOptionsArgsDict']]
 
 @pulumi.input_type
 class PartnershipX12EnvelopeArgs:
@@ -622,13 +581,10 @@ class PartnershipX12EnvelopeArgs:
         pulumi.set(self, "wrap_options", value)
 
 
-if not MYPY:
-    class PartnershipX12FunctionalGroupHeadersArgsDict(TypedDict):
-        application_receiver_code: NotRequired[pulumi.Input[_builtins.str]]
-        application_sender_code: NotRequired[pulumi.Input[_builtins.str]]
-        responsible_agency_code: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PartnershipX12FunctionalGroupHeadersArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12FunctionalGroupHeadersArgsDict(TypedDict):
+    application_receiver_code: NotRequired[pulumi.Input[_builtins.str]]
+    application_sender_code: NotRequired[pulumi.Input[_builtins.str]]
+    responsible_agency_code: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PartnershipX12FunctionalGroupHeadersArgs:
@@ -671,14 +627,11 @@ class PartnershipX12FunctionalGroupHeadersArgs:
         pulumi.set(self, "responsible_agency_code", value)
 
 
-if not MYPY:
-    class PartnershipX12InboundEdiOptionsArgsDict(TypedDict):
-        acknowledgment_options: NotRequired[pulumi.Input['PartnershipX12AcknowledgmentOptionsArgsDict']]
-        """
-        Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
-        """
-elif False:
-    PartnershipX12InboundEdiOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12InboundEdiOptionsArgsDict(TypedDict):
+    acknowledgment_options: NotRequired[pulumi.Input['PartnershipX12AcknowledgmentOptionsArgsDict']]
+    """
+    Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+    """
 
 @pulumi.input_type
 class PartnershipX12InboundEdiOptionsArgs:
@@ -703,17 +656,14 @@ class PartnershipX12InboundEdiOptionsArgs:
         pulumi.set(self, "acknowledgment_options", value)
 
 
-if not MYPY:
-    class PartnershipX12InterchangeControlHeadersArgsDict(TypedDict):
-        acknowledgment_requested_code: NotRequired[pulumi.Input[_builtins.str]]
-        receiver_id: NotRequired[pulumi.Input[_builtins.str]]
-        receiver_id_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        repetition_separator: NotRequired[pulumi.Input[_builtins.str]]
-        sender_id: NotRequired[pulumi.Input[_builtins.str]]
-        sender_id_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        usage_indicator_code: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PartnershipX12InterchangeControlHeadersArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12InterchangeControlHeadersArgsDict(TypedDict):
+    acknowledgment_requested_code: NotRequired[pulumi.Input[_builtins.str]]
+    receiver_id: NotRequired[pulumi.Input[_builtins.str]]
+    receiver_id_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    repetition_separator: NotRequired[pulumi.Input[_builtins.str]]
+    sender_id: NotRequired[pulumi.Input[_builtins.str]]
+    sender_id_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    usage_indicator_code: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PartnershipX12InterchangeControlHeadersArgs:
@@ -804,16 +754,13 @@ class PartnershipX12InterchangeControlHeadersArgs:
         pulumi.set(self, "usage_indicator_code", value)
 
 
-if not MYPY:
-    class PartnershipX12OutboundEdiHeadersArgsDict(TypedDict):
-        control_numbers: NotRequired[pulumi.Input['PartnershipX12ControlNumbersArgsDict']]
-        delimiters: NotRequired[pulumi.Input['PartnershipX12DelimitersArgsDict']]
-        functional_group_headers: NotRequired[pulumi.Input['PartnershipX12FunctionalGroupHeadersArgsDict']]
-        gs05_time_format: NotRequired[pulumi.Input['PartnershipX12gs05TimeFormat']]
-        interchange_control_headers: NotRequired[pulumi.Input['PartnershipX12InterchangeControlHeadersArgsDict']]
-        validate_edi: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PartnershipX12OutboundEdiHeadersArgsDict: TypeAlias = Mapping[str, Any]
+class PartnershipX12OutboundEdiHeadersArgsDict(TypedDict):
+    control_numbers: NotRequired[pulumi.Input['PartnershipX12ControlNumbersArgsDict']]
+    delimiters: NotRequired[pulumi.Input['PartnershipX12DelimitersArgsDict']]
+    functional_group_headers: NotRequired[pulumi.Input['PartnershipX12FunctionalGroupHeadersArgsDict']]
+    gs05_time_format: NotRequired[pulumi.Input['PartnershipX12gs05TimeFormat']]
+    interchange_control_headers: NotRequired[pulumi.Input['PartnershipX12InterchangeControlHeadersArgsDict']]
+    validate_edi: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PartnershipX12OutboundEdiHeadersArgs:
@@ -892,14 +839,11 @@ class PartnershipX12OutboundEdiHeadersArgs:
         pulumi.set(self, "validate_edi", value)
 
 
-if not MYPY:
-    class TransformerAdvancedOptionsArgsDict(TypedDict):
-        x12: NotRequired[pulumi.Input['TransformerX12AdvancedOptionsArgsDict']]
-        """
-        A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
-        """
-elif False:
-    TransformerAdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerAdvancedOptionsArgsDict(TypedDict):
+    x12: NotRequired[pulumi.Input['TransformerX12AdvancedOptionsArgsDict']]
+    """
+    A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
+    """
 
 @pulumi.input_type
 class TransformerAdvancedOptionsArgs:
@@ -924,11 +868,8 @@ class TransformerAdvancedOptionsArgs:
         pulumi.set(self, "x12", value)
 
 
-if not MYPY:
-    class TransformerEdiTypePropertiesArgsDict(TypedDict):
-        x12_details: pulumi.Input['TransformerX12DetailsArgsDict']
-elif False:
-    TransformerEdiTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerEdiTypePropertiesArgsDict(TypedDict):
+    x12_details: pulumi.Input['TransformerX12DetailsArgsDict']
 
 @pulumi.input_type
 class TransformerEdiTypePropertiesArgs:
@@ -946,11 +887,8 @@ class TransformerEdiTypePropertiesArgs:
         pulumi.set(self, "x12_details", value)
 
 
-if not MYPY:
-    class TransformerFormatOptionsPropertiesArgsDict(TypedDict):
-        x12: pulumi.Input['TransformerX12DetailsArgsDict']
-elif False:
-    TransformerFormatOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerFormatOptionsPropertiesArgsDict(TypedDict):
+    x12: pulumi.Input['TransformerX12DetailsArgsDict']
 
 @pulumi.input_type
 class TransformerFormatOptionsPropertiesArgs:
@@ -968,22 +906,19 @@ class TransformerFormatOptionsPropertiesArgs:
         pulumi.set(self, "x12", value)
 
 
-if not MYPY:
-    class TransformerInputConversionArgsDict(TypedDict):
-        from_format: pulumi.Input['TransformerFromFormat']
-        """
-        The format for the transformer input: currently on `X12` is supported.
-        """
-        advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
-        """
-        Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
-        """
-        format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
-        """
-        A structure that contains the formatting options for an inbound transformer.
-        """
-elif False:
-    TransformerInputConversionArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerInputConversionArgsDict(TypedDict):
+    from_format: pulumi.Input['TransformerFromFormat']
+    """
+    The format for the transformer input: currently on `X12` is supported.
+    """
+    advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
+    """
+    Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+    """
+    format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
+    """
+    A structure that contains the formatting options for an inbound transformer.
+    """
 
 @pulumi.input_type
 class TransformerInputConversionArgs:
@@ -1039,18 +974,15 @@ class TransformerInputConversionArgs:
         pulumi.set(self, "format_options", value)
 
 
-if not MYPY:
-    class TransformerMappingArgsDict(TypedDict):
-        template_language: pulumi.Input['TransformerMappingTemplateLanguage']
-        """
-        The transformation language for the template, either XSLT or JSONATA.
-        """
-        template: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
-        """
-elif False:
-    TransformerMappingArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerMappingArgsDict(TypedDict):
+    template_language: pulumi.Input['TransformerMappingTemplateLanguage']
+    """
+    The transformation language for the template, either XSLT or JSONATA.
+    """
+    template: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+    """
 
 @pulumi.input_type
 class TransformerMappingArgs:
@@ -1090,19 +1022,16 @@ class TransformerMappingArgs:
         pulumi.set(self, "template", value)
 
 
-if not MYPY:
-    class TransformerOutputConversionArgsDict(TypedDict):
-        to_format: pulumi.Input['TransformerToFormat']
-        """
-        The format for the output from an outbound transformer: only X12 is currently supported.
-        """
-        advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
-        format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
-        """
-        A structure that contains the X12 transaction set and version for the transformer output.
-        """
-elif False:
-    TransformerOutputConversionArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerOutputConversionArgsDict(TypedDict):
+    to_format: pulumi.Input['TransformerToFormat']
+    """
+    The format for the output from an outbound transformer: only X12 is currently supported.
+    """
+    advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
+    format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
+    """
+    A structure that contains the X12 transaction set and version for the transformer output.
+    """
 
 @pulumi.input_type
 class TransformerOutputConversionArgs:
@@ -1154,18 +1083,15 @@ class TransformerOutputConversionArgs:
         pulumi.set(self, "format_options", value)
 
 
-if not MYPY:
-    class TransformerSampleDocumentKeysArgsDict(TypedDict):
-        input: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An array of keys for your input sample documents.
-        """
-        output: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An array of keys for your output sample documents.
-        """
-elif False:
-    TransformerSampleDocumentKeysArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerSampleDocumentKeysArgsDict(TypedDict):
+    input: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An array of keys for your input sample documents.
+    """
+    output: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An array of keys for your output sample documents.
+    """
 
 @pulumi.input_type
 class TransformerSampleDocumentKeysArgs:
@@ -1206,18 +1132,15 @@ class TransformerSampleDocumentKeysArgs:
         pulumi.set(self, "output", value)
 
 
-if not MYPY:
-    class TransformerSampleDocumentsArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Contains the Amazon S3 bucket that is used to hold your sample documents.
-        """
-        keys: pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgsDict']]]
-        """
-        Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
-        """
-elif False:
-    TransformerSampleDocumentsArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerSampleDocumentsArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Contains the Amazon S3 bucket that is used to hold your sample documents.
+    """
+    keys: pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgsDict']]]
+    """
+    Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+    """
 
 @pulumi.input_type
 class TransformerSampleDocumentsArgs:
@@ -1256,18 +1179,15 @@ class TransformerSampleDocumentsArgs:
         pulumi.set(self, "keys", value)
 
 
-if not MYPY:
-    class TransformerX12AdvancedOptionsArgsDict(TypedDict):
-        split_options: NotRequired[pulumi.Input['TransformerX12SplitOptionsArgsDict']]
-        """
-        Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
-        """
-        validation_options: NotRequired[pulumi.Input['TransformerX12ValidationOptionsArgsDict']]
-        """
-        Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
-        """
-elif False:
-    TransformerX12AdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12AdvancedOptionsArgsDict(TypedDict):
+    split_options: NotRequired[pulumi.Input['TransformerX12SplitOptionsArgsDict']]
+    """
+    Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+    """
+    validation_options: NotRequired[pulumi.Input['TransformerX12ValidationOptionsArgsDict']]
+    """
+    Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
+    """
 
 @pulumi.input_type
 class TransformerX12AdvancedOptionsArgs:
@@ -1308,13 +1228,10 @@ class TransformerX12AdvancedOptionsArgs:
         pulumi.set(self, "validation_options", value)
 
 
-if not MYPY:
-    class TransformerX12CodeListValidationRuleArgsDict(TypedDict):
-        element_id: pulumi.Input[_builtins.str]
-        codes_to_add: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        codes_to_remove: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    TransformerX12CodeListValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12CodeListValidationRuleArgsDict(TypedDict):
+    element_id: pulumi.Input[_builtins.str]
+    codes_to_add: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    codes_to_remove: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TransformerX12CodeListValidationRuleArgs:
@@ -1356,12 +1273,9 @@ class TransformerX12CodeListValidationRuleArgs:
         pulumi.set(self, "codes_to_remove", value)
 
 
-if not MYPY:
-    class TransformerX12DetailsArgsDict(TypedDict):
-        transaction_set: NotRequired[pulumi.Input['TransformerX12TransactionSet']]
-        version: NotRequired[pulumi.Input['TransformerX12Version']]
-elif False:
-    TransformerX12DetailsArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12DetailsArgsDict(TypedDict):
+    transaction_set: NotRequired[pulumi.Input['TransformerX12TransactionSet']]
+    version: NotRequired[pulumi.Input['TransformerX12Version']]
 
 @pulumi.input_type
 class TransformerX12DetailsArgs:
@@ -1392,13 +1306,10 @@ class TransformerX12DetailsArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class TransformerX12ElementLengthValidationRuleArgsDict(TypedDict):
-        element_id: pulumi.Input[_builtins.str]
-        max_length: pulumi.Input[_builtins.float]
-        min_length: pulumi.Input[_builtins.float]
-elif False:
-    TransformerX12ElementLengthValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12ElementLengthValidationRuleArgsDict(TypedDict):
+    element_id: pulumi.Input[_builtins.str]
+    max_length: pulumi.Input[_builtins.float]
+    min_length: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class TransformerX12ElementLengthValidationRuleArgs:
@@ -1438,12 +1349,9 @@ class TransformerX12ElementLengthValidationRuleArgs:
         pulumi.set(self, "min_length", value)
 
 
-if not MYPY:
-    class TransformerX12ElementRequirementValidationRuleArgsDict(TypedDict):
-        element_position: pulumi.Input[_builtins.str]
-        requirement: pulumi.Input['TransformerElementRequirement']
-elif False:
-    TransformerX12ElementRequirementValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12ElementRequirementValidationRuleArgsDict(TypedDict):
+    element_position: pulumi.Input[_builtins.str]
+    requirement: pulumi.Input['TransformerElementRequirement']
 
 @pulumi.input_type
 class TransformerX12ElementRequirementValidationRuleArgs:
@@ -1472,14 +1380,11 @@ class TransformerX12ElementRequirementValidationRuleArgs:
         pulumi.set(self, "requirement", value)
 
 
-if not MYPY:
-    class TransformerX12SplitOptionsArgsDict(TypedDict):
-        split_by: NotRequired[pulumi.Input['TransformerX12SplitBy']]
-        """
-        Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
-        """
-elif False:
-    TransformerX12SplitOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12SplitOptionsArgsDict(TypedDict):
+    split_by: NotRequired[pulumi.Input['TransformerX12SplitBy']]
+    """
+    Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
+    """
 
 @pulumi.input_type
 class TransformerX12SplitOptionsArgs:
@@ -1504,14 +1409,11 @@ class TransformerX12SplitOptionsArgs:
         pulumi.set(self, "split_by", value)
 
 
-if not MYPY:
-    class TransformerX12ValidationOptionsArgsDict(TypedDict):
-        validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgsDict', 'TransformerX12ValidationRule1PropertiesArgsDict', 'TransformerX12ValidationRule2PropertiesArgsDict']]]]]
-        """
-        Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
-        """
-elif False:
-    TransformerX12ValidationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12ValidationOptionsArgsDict(TypedDict):
+    validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgsDict', 'TransformerX12ValidationRule1PropertiesArgsDict', 'TransformerX12ValidationRule2PropertiesArgsDict']]]]]
+    """
+    Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
+    """
 
 @pulumi.input_type
 class TransformerX12ValidationOptionsArgs:
@@ -1536,11 +1438,8 @@ class TransformerX12ValidationOptionsArgs:
         pulumi.set(self, "validation_rules", value)
 
 
-if not MYPY:
-    class TransformerX12ValidationRule0PropertiesArgsDict(TypedDict):
-        code_list_validation_rule: pulumi.Input['TransformerX12CodeListValidationRuleArgsDict']
-elif False:
-    TransformerX12ValidationRule0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12ValidationRule0PropertiesArgsDict(TypedDict):
+    code_list_validation_rule: pulumi.Input['TransformerX12CodeListValidationRuleArgsDict']
 
 @pulumi.input_type
 class TransformerX12ValidationRule0PropertiesArgs:
@@ -1558,11 +1457,8 @@ class TransformerX12ValidationRule0PropertiesArgs:
         pulumi.set(self, "code_list_validation_rule", value)
 
 
-if not MYPY:
-    class TransformerX12ValidationRule1PropertiesArgsDict(TypedDict):
-        element_length_validation_rule: pulumi.Input['TransformerX12ElementLengthValidationRuleArgsDict']
-elif False:
-    TransformerX12ValidationRule1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12ValidationRule1PropertiesArgsDict(TypedDict):
+    element_length_validation_rule: pulumi.Input['TransformerX12ElementLengthValidationRuleArgsDict']
 
 @pulumi.input_type
 class TransformerX12ValidationRule1PropertiesArgs:
@@ -1580,11 +1476,8 @@ class TransformerX12ValidationRule1PropertiesArgs:
         pulumi.set(self, "element_length_validation_rule", value)
 
 
-if not MYPY:
-    class TransformerX12ValidationRule2PropertiesArgsDict(TypedDict):
-        element_requirement_validation_rule: pulumi.Input['TransformerX12ElementRequirementValidationRuleArgsDict']
-elif False:
-    TransformerX12ValidationRule2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TransformerX12ValidationRule2PropertiesArgsDict(TypedDict):
+    element_requirement_validation_rule: pulumi.Input['TransformerX12ElementRequirementValidationRuleArgsDict']
 
 @pulumi.input_type
 class TransformerX12ValidationRule2PropertiesArgs:

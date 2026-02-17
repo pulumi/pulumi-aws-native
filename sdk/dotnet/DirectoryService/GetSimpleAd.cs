@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.DirectoryService
         /// Whether to enable single sign-on for a Simple Active Directory in AWS.
         /// </summary>
         public readonly bool? EnableSso;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSimpleAdResult(
@@ -88,12 +89,15 @@ namespace Pulumi.AwsNative.DirectoryService
 
             ImmutableArray<string> dnsIpAddresses,
 
-            bool? enableSso)
+            bool? enableSso,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Alias = alias;
             DirectoryId = directoryId;
             DnsIpAddresses = dnsIpAddresses;
             EnableSso = enableSso;
+            Tags = tags;
         }
     }
 }

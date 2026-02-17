@@ -56,6 +56,7 @@ import * as deadline from "./deadline";
 import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
+import * as docdb from "./docdb";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -64,6 +65,7 @@ import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as emr from "./emr";
+import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
 import * as entityresolution from "./entityresolution";
 import * as events from "./events";
@@ -120,6 +122,7 @@ import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
+import * as mwaaserverless from "./mwaaserverless";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
@@ -247,6 +250,7 @@ export {
     devicefarm,
     devopsguru,
     dms,
+    docdb,
     dynamodb,
     ec2,
     ecr,
@@ -255,6 +259,7 @@ export {
     eks,
     elasticache,
     emr,
+    emrcontainers,
     emrserverless,
     entityresolution,
     events,
@@ -311,6 +316,7 @@ export {
     memorydb,
     msk,
     mwaa,
+    mwaaserverless,
     networkfirewall,
     oam,
     observabilityadmin,
@@ -498,7 +504,7 @@ export const Region = {
      */
     EuWest3: "eu-west-3",
     /**
-     * EU (Germany)
+     * AWS European Sovereign Cloud (Germany)
      */
     EuscDeEast1: "eusc-de-east-1",
     /**

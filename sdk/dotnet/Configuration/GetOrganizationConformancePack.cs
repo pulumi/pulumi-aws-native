@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Configuration
     public static class GetOrganizationConformancePack
     {
         /// <summary>
-        /// Resource schema for AWS::Config::OrganizationConformancePack.
+        /// Resource Type definition for AWS::Config::OrganizationConformancePack.
         /// </summary>
         public static Task<GetOrganizationConformancePackResult> InvokeAsync(GetOrganizationConformancePackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::Config::OrganizationConformancePack.
+        /// Resource Type definition for AWS::Config::OrganizationConformancePack.
         /// </summary>
         public static Output<GetOrganizationConformancePackResult> Invoke(GetOrganizationConformancePackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::Config::OrganizationConformancePack.
+        /// Resource Type definition for AWS::Config::OrganizationConformancePack.
         /// </summary>
         public static Output<GetOrganizationConformancePackResult> Invoke(GetOrganizationConformancePackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackInvokeArgs(), options.WithDefaults());

@@ -208,6 +208,7 @@ import (
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
+	ArchivingOptions ConfigurationSetArchivingOptionsPtrOutput `pulumi:"archivingOptions"`
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
 	// The name of the configuration set.
@@ -270,6 +271,7 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type configurationSetArgs struct {
+	ArchivingOptions *ConfigurationSetArchivingOptions `pulumi:"archivingOptions"`
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// The name of the configuration set.
@@ -290,6 +292,7 @@ type configurationSetArgs struct {
 
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
+	ArchivingOptions ConfigurationSetArchivingOptionsPtrInput
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
 	// The name of the configuration set.
@@ -343,6 +346,10 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutpu
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
 	return o
+}
+
+func (o ConfigurationSetOutput) ArchivingOptions() ConfigurationSetArchivingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetArchivingOptionsPtrOutput { return v.ArchivingOptions }).(ConfigurationSetArchivingOptionsPtrOutput)
 }
 
 // Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).

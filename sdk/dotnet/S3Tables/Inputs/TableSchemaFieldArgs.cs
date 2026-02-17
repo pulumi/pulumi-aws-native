@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.S3Tables.Inputs
     public sealed class TableSchemaFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The unique identifier for the field
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
         /// The name of the field
         /// </summary>
         [Input("name", required: true)]

@@ -24,6 +24,7 @@ __all__ = ['DbInstanceArgs', 'DbInstance']
 @pulumi.input_type
 class DbInstanceArgs:
     def __init__(__self__, *,
+                 additional_storage_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]] = None,
                  allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -108,6 +109,7 @@ class DbInstanceArgs:
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbInstance resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
                  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
                   *Amazon Aurora* 
@@ -649,6 +651,8 @@ class DbInstanceArgs:
                  *Amazon Aurora* 
                 Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
         """
+        if additional_storage_volumes is not None:
+            pulumi.set(__self__, "additional_storage_volumes", additional_storage_volumes)
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
@@ -813,6 +817,18 @@ class DbInstanceArgs:
             pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_groups is not None:
             pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalStorageVolumes")
+    def additional_storage_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]]:
+        """
+        The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
+        return pulumi.get(self, "additional_storage_volumes")
+
+    @additional_storage_volumes.setter
+    def additional_storage_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]]]):
+        pulumi.set(self, "additional_storage_volumes", value)
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
@@ -2259,6 +2275,7 @@ class DbInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_storage_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]]] = None,
                  allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2367,6 +2384,7 @@ class DbInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
                  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
                   *Amazon Aurora* 
@@ -2952,6 +2970,7 @@ class DbInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_storage_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]]] = None,
                  allocated_storage: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -3043,6 +3062,7 @@ class DbInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
+            __props__.__dict__["additional_storage_volumes"] = additional_storage_volumes
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["apply_immediately"] = apply_immediately
@@ -3165,6 +3185,7 @@ class DbInstance(pulumi.CustomResource):
 
         __props__ = DbInstanceArgs.__new__(DbInstanceArgs)
 
+        __props__.__dict__["additional_storage_volumes"] = None
         __props__.__dict__["allocated_storage"] = None
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["apply_immediately"] = None
@@ -3264,6 +3285,14 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["vpc_security_groups"] = None
         return DbInstance(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalStorageVolumes")
+    def additional_storage_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceAdditionalStorageVolume']]]:
+        """
+        The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        """
+        return pulumi.get(self, "additional_storage_volumes")
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")

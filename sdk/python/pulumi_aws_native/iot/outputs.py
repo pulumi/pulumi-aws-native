@@ -28,9 +28,14 @@ __all__ = [
     'AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration',
     'BillingGroupPropertiesProperties',
     'CaCertificateRegistrationConfig',
+    'CommandAwsJsonSubstitutionCommandPreprocessorConfig',
     'CommandParameter',
     'CommandParameterValue',
+    'CommandParameterValueComparisonOperand',
+    'CommandParameterValueCondition',
+    'CommandParameterValueNumberRange',
     'CommandPayload',
+    'CommandPreprocessor',
     'ConfigurationDetailsProperties',
     'DomainConfigurationAuthorizerConfig',
     'DomainConfigurationClientCertificateConfig',
@@ -45,6 +50,7 @@ __all__ = [
     'JobTemplateMaintenanceWindow',
     'JobTemplateRateIncreaseCriteria',
     'JobTemplateRetryCriteria',
+    'LoggingEventConfiguration',
     'MetricsExportConfigProperties',
     'MitigationActionActionParams',
     'MitigationActionAddThingsToThingGroupParams',
@@ -782,12 +788,43 @@ class CaCertificateRegistrationConfig(dict):
 
 
 @pulumi.output_type
+class CommandAwsJsonSubstitutionCommandPreprocessorConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputFormat":
+            suggest = "output_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandAwsJsonSubstitutionCommandPreprocessorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandAwsJsonSubstitutionCommandPreprocessorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandAwsJsonSubstitutionCommandPreprocessorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_format: 'CommandOutputFormat'):
+        pulumi.set(__self__, "output_format", output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> 'CommandOutputFormat':
+        return pulumi.get(self, "output_format")
+
+
+@pulumi.output_type
 class CommandParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "defaultValue":
             suggest = "default_value"
+        elif key == "valueConditions":
+            suggest = "value_conditions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CommandParameter. Access the value via the '{suggest}' property getter instead.")
@@ -804,14 +841,20 @@ class CommandParameter(dict):
                  name: _builtins.str,
                  default_value: Optional['outputs.CommandParameterValue'] = None,
                  description: Optional[_builtins.str] = None,
-                 value: Optional['outputs.CommandParameterValue'] = None):
+                 type: Optional['CommandParameterType'] = None,
+                 value: Optional['outputs.CommandParameterValue'] = None,
+                 value_conditions: Optional[Sequence['outputs.CommandParameterValueCondition']] = None):
         pulumi.set(__self__, "name", name)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_conditions is not None:
+            pulumi.set(__self__, "value_conditions", value_conditions)
 
     @_builtins.property
     @pulumi.getter
@@ -830,8 +873,18 @@ class CommandParameter(dict):
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> Optional['CommandParameterType']:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
     def value(self) -> Optional['outputs.CommandParameterValue']:
         return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueConditions")
+    def value_conditions(self) -> Optional[Sequence['outputs.CommandParameterValueCondition']]:
+        return pulumi.get(self, "value_conditions")
 
 
 @pulumi.output_type
@@ -896,6 +949,123 @@ class CommandParameterValue(dict):
 
 
 @pulumi.output_type
+class CommandParameterValueComparisonOperand(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberRange":
+            suggest = "number_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandParameterValueComparisonOperand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandParameterValueComparisonOperand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandParameterValueComparisonOperand.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number: Optional[_builtins.str] = None,
+                 number_range: Optional['outputs.CommandParameterValueNumberRange'] = None,
+                 numbers: Optional[Sequence[_builtins.str]] = None,
+                 string: Optional[_builtins.str] = None,
+                 strings: Optional[Sequence[_builtins.str]] = None):
+        if number is not None:
+            pulumi.set(__self__, "number", number)
+        if number_range is not None:
+            pulumi.set(__self__, "number_range", number_range)
+        if numbers is not None:
+            pulumi.set(__self__, "numbers", numbers)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if strings is not None:
+            pulumi.set(__self__, "strings", strings)
+
+    @_builtins.property
+    @pulumi.getter
+    def number(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "number")
+
+    @_builtins.property
+    @pulumi.getter(name="numberRange")
+    def number_range(self) -> Optional['outputs.CommandParameterValueNumberRange']:
+        return pulumi.get(self, "number_range")
+
+    @_builtins.property
+    @pulumi.getter
+    def numbers(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "numbers")
+
+    @_builtins.property
+    @pulumi.getter
+    def string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "string")
+
+    @_builtins.property
+    @pulumi.getter
+    def strings(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "strings")
+
+
+@pulumi.output_type
+class CommandParameterValueCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandParameterValueCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandParameterValueCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandParameterValueCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: 'CommandParameterValueComparisonOperator',
+                 operand: 'outputs.CommandParameterValueComparisonOperand'):
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "operand", operand)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> 'CommandParameterValueComparisonOperator':
+        return pulumi.get(self, "comparison_operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def operand(self) -> 'outputs.CommandParameterValueComparisonOperand':
+        return pulumi.get(self, "operand")
+
+
+@pulumi.output_type
+class CommandParameterValueNumberRange(dict):
+    def __init__(__self__, *,
+                 max: _builtins.str,
+                 min: _builtins.str):
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.str:
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.str:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
 class CommandPayload(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -931,6 +1101,36 @@ class CommandPayload(dict):
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "content_type")
+
+
+@pulumi.output_type
+class CommandPreprocessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsJsonSubstitution":
+            suggest = "aws_json_substitution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandPreprocessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandPreprocessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandPreprocessor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_json_substitution: Optional['outputs.CommandAwsJsonSubstitutionCommandPreprocessorConfig'] = None):
+        if aws_json_substitution is not None:
+            pulumi.set(__self__, "aws_json_substitution", aws_json_substitution)
+
+    @_builtins.property
+    @pulumi.getter(name="awsJsonSubstitution")
+    def aws_json_substitution(self) -> Optional['outputs.CommandAwsJsonSubstitutionCommandPreprocessorConfig']:
+        return pulumi.get(self, "aws_json_substitution")
 
 
 @pulumi.output_type
@@ -1671,6 +1871,73 @@ class JobTemplateRetryCriteria(dict):
         The number of retries allowed for a failure type for the job.
         """
         return pulumi.get(self, "number_of_retries")
+
+
+@pulumi.output_type
+class LoggingEventConfiguration(dict):
+    """
+    Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "logDestination":
+            suggest = "log_destination"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingEventConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingEventConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingEventConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 log_destination: Optional[_builtins.str] = None,
+                 log_level: Optional['LoggingEventConfigurationLogLevel'] = None):
+        """
+        Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+        :param _builtins.str event_type: The type of event to log. These include event types like Connect, Publish, and Disconnect.
+        :param _builtins.str log_destination: CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+        :param 'LoggingEventConfigurationLogLevel' log_level: The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        if log_destination is not None:
+            pulumi.set(__self__, "log_destination", log_destination)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        The type of event to log. These include event types like Connect, Publish, and Disconnect.
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> Optional[_builtins.str]:
+        """
+        CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @_builtins.property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional['LoggingEventConfigurationLogLevel']:
+        """
+        The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+        """
+        return pulumi.get(self, "log_level")
 
 
 @pulumi.output_type

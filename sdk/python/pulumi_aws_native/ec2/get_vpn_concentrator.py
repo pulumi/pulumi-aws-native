@@ -47,7 +47,7 @@ class GetVpnConcentratorResult:
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the transit gateway attachment
+        The ID of the transit gateway attachment for the VPN concentrator.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
@@ -55,7 +55,7 @@ class GetVpnConcentratorResult:
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> Optional[_builtins.str]:
         """
-        The provider-assigned unique ID for this managed resource
+        The ID of the VPN concentrator to associate with the VPN connection.
         """
         return pulumi.get(self, "vpn_concentrator_id")
 
@@ -74,10 +74,10 @@ class AwaitableGetVpnConcentratorResult(GetVpnConcentratorResult):
 def get_vpn_concentrator(vpn_concentrator_id: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConcentratorResult:
     """
-    Resource Type definition for AWS::EC2::VPNConcentrator
+    Describes a VPN concentrator.
 
 
-    :param _builtins.str vpn_concentrator_id: The provider-assigned unique ID for this managed resource
+    :param _builtins.str vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
     """
     __args__ = dict()
     __args__['vpnConcentratorId'] = vpn_concentrator_id
@@ -91,10 +91,10 @@ def get_vpn_concentrator(vpn_concentrator_id: Optional[_builtins.str] = None,
 def get_vpn_concentrator_output(vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConcentratorResult]:
     """
-    Resource Type definition for AWS::EC2::VPNConcentrator
+    Describes a VPN concentrator.
 
 
-    :param _builtins.str vpn_concentrator_id: The provider-assigned unique ID for this managed resource
+    :param _builtins.str vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
     """
     __args__ = dict()
     __args__['vpnConcentratorId'] = vpn_concentrator_id

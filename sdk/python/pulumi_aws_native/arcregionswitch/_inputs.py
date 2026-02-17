@@ -102,16 +102,11 @@ __all__ = [
     'PlanWorkflowArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PlanArcRoutingControlConfigurationArgsDict(TypedDict):
-        region_and_routing_controls: pulumi.Input[Mapping[str, Any]]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    PlanArcRoutingControlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanArcRoutingControlConfigurationArgsDict(TypedDict):
+    region_and_routing_controls: pulumi.Input[Mapping[str, Any]]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class PlanArcRoutingControlConfigurationArgs:
@@ -165,13 +160,10 @@ class PlanArcRoutingControlConfigurationArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanAsgArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanAsgArgsDict: TypeAlias = Mapping[str, Any]
+class PlanAsgArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanAsgArgs:
@@ -214,26 +206,23 @@ class PlanAsgArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanAssociatedAlarmArgsDict(TypedDict):
-        alarm_type: pulumi.Input['PlanAlarmType']
-        """
-        The alarm type for an associated alarm. An associated CloudWatch alarm can be an application health alarm or a trigger alarm.
-        """
-        resource_identifier: pulumi.Input[_builtins.str]
-        """
-        The resource identifier for alarms that you associate with a plan.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cross account role for the configuration.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The external ID (secret key) for the configuration.
-        """
-elif False:
-    PlanAssociatedAlarmArgsDict: TypeAlias = Mapping[str, Any]
+class PlanAssociatedAlarmArgsDict(TypedDict):
+    alarm_type: pulumi.Input['PlanAlarmType']
+    """
+    The alarm type for an associated alarm. An associated CloudWatch alarm can be an application health alarm or a trigger alarm.
+    """
+    resource_identifier: pulumi.Input[_builtins.str]
+    """
+    The resource identifier for alarms that you associate with a plan.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cross account role for the configuration.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The external ID (secret key) for the configuration.
+    """
 
 @pulumi.input_type
 class PlanAssociatedAlarmArgs:
@@ -304,15 +293,12 @@ class PlanAssociatedAlarmArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanCustomActionLambdaConfigurationArgsDict(TypedDict):
-        lambdas: pulumi.Input[Sequence[pulumi.Input['PlanLambdasArgsDict']]]
-        region_to_run: pulumi.Input['PlanRegionToRunIn']
-        retry_interval_minutes: pulumi.Input[_builtins.float]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        ungraceful: NotRequired[pulumi.Input['PlanLambdaUngracefulArgsDict']]
-elif False:
-    PlanCustomActionLambdaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanCustomActionLambdaConfigurationArgsDict(TypedDict):
+    lambdas: pulumi.Input[Sequence[pulumi.Input['PlanLambdasArgsDict']]]
+    region_to_run: pulumi.Input['PlanRegionToRunIn']
+    retry_interval_minutes: pulumi.Input[_builtins.float]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanLambdaUngracefulArgsDict']]
 
 @pulumi.input_type
 class PlanCustomActionLambdaConfigurationArgs:
@@ -376,17 +362,14 @@ class PlanCustomActionLambdaConfigurationArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanDocumentDbConfigurationArgsDict(TypedDict):
-        behavior: Any
-        database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        global_cluster_identifier: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        ungraceful: NotRequired[pulumi.Input['PlanDocumentDbUngracefulArgsDict']]
-elif False:
-    PlanDocumentDbConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanDocumentDbConfigurationArgsDict(TypedDict):
+    behavior: Any
+    database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    global_cluster_identifier: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanDocumentDbUngracefulArgsDict']]
 
 @pulumi.input_type
 class PlanDocumentDbConfigurationArgs:
@@ -474,11 +457,8 @@ class PlanDocumentDbConfigurationArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanDocumentDbUngracefulArgsDict(TypedDict):
-        ungraceful: NotRequired[pulumi.Input['PlanDocumentDbUngracefulBehavior']]
-elif False:
-    PlanDocumentDbUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanDocumentDbUngracefulArgsDict(TypedDict):
+    ungraceful: NotRequired[pulumi.Input['PlanDocumentDbUngracefulBehavior']]
 
 @pulumi.input_type
 class PlanDocumentDbUngracefulArgs:
@@ -497,15 +477,12 @@ class PlanDocumentDbUngracefulArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanEc2AsgCapacityIncreaseConfigurationArgsDict(TypedDict):
-        asgs: pulumi.Input[Sequence[pulumi.Input['PlanAsgArgsDict']]]
-        capacity_monitoring_approach: NotRequired[Any]
-        target_percent: NotRequired[pulumi.Input[_builtins.float]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        ungraceful: NotRequired[pulumi.Input['PlanEc2UngracefulArgsDict']]
-elif False:
-    PlanEc2AsgCapacityIncreaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEc2AsgCapacityIncreaseConfigurationArgsDict(TypedDict):
+    asgs: pulumi.Input[Sequence[pulumi.Input['PlanAsgArgsDict']]]
+    capacity_monitoring_approach: NotRequired[Any]
+    target_percent: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanEc2UngracefulArgsDict']]
 
 @pulumi.input_type
 class PlanEc2AsgCapacityIncreaseConfigurationArgs:
@@ -571,11 +548,8 @@ class PlanEc2AsgCapacityIncreaseConfigurationArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanEc2UngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.float]
-elif False:
-    PlanEc2UngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEc2UngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class PlanEc2UngracefulArgs:
@@ -593,15 +567,12 @@ class PlanEc2UngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanEcsCapacityIncreaseConfigurationArgsDict(TypedDict):
-        services: pulumi.Input[Sequence[pulumi.Input['PlanServiceArgsDict']]]
-        capacity_monitoring_approach: NotRequired[Any]
-        target_percent: NotRequired[pulumi.Input[_builtins.float]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        ungraceful: NotRequired[pulumi.Input['PlanEcsUngracefulArgsDict']]
-elif False:
-    PlanEcsCapacityIncreaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEcsCapacityIncreaseConfigurationArgsDict(TypedDict):
+    services: pulumi.Input[Sequence[pulumi.Input['PlanServiceArgsDict']]]
+    capacity_monitoring_approach: NotRequired[Any]
+    target_percent: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanEcsUngracefulArgsDict']]
 
 @pulumi.input_type
 class PlanEcsCapacityIncreaseConfigurationArgs:
@@ -667,11 +638,8 @@ class PlanEcsCapacityIncreaseConfigurationArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanEcsUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.float]
-elif False:
-    PlanEcsUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEcsUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class PlanEcsUngracefulArgs:
@@ -689,13 +657,10 @@ class PlanEcsUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanEksClusterArgsDict(TypedDict):
-        cluster_arn: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanEksClusterArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEksClusterArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanEksClusterArgs:
@@ -737,17 +702,14 @@ class PlanEksClusterArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanEksResourceScalingConfigurationArgsDict(TypedDict):
-        kubernetes_resource_type: pulumi.Input['PlanKubernetesResourceTypeArgsDict']
-        capacity_monitoring_approach: NotRequired[Any]
-        eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanEksClusterArgsDict']]]]
-        scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]
-        target_percent: NotRequired[pulumi.Input[_builtins.float]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        ungraceful: NotRequired[pulumi.Input['PlanEksResourceScalingUngracefulArgsDict']]
-elif False:
-    PlanEksResourceScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEksResourceScalingConfigurationArgsDict(TypedDict):
+    kubernetes_resource_type: pulumi.Input['PlanKubernetesResourceTypeArgsDict']
+    capacity_monitoring_approach: NotRequired[Any]
+    eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanEksClusterArgsDict']]]]
+    scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]
+    target_percent: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanEksResourceScalingUngracefulArgsDict']]
 
 @pulumi.input_type
 class PlanEksResourceScalingConfigurationArgs:
@@ -837,11 +799,8 @@ class PlanEksResourceScalingConfigurationArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanEksResourceScalingUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.float]
-elif False:
-    PlanEksResourceScalingUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanEksResourceScalingUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.float]
 
 @pulumi.input_type
 class PlanEksResourceScalingUngracefulArgs:
@@ -859,12 +818,9 @@ class PlanEksResourceScalingUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanExecutionApprovalConfigurationArgsDict(TypedDict):
-        approval_role: pulumi.Input[_builtins.str]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    PlanExecutionApprovalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionApprovalConfigurationArgsDict(TypedDict):
+    approval_role: pulumi.Input[_builtins.str]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class PlanExecutionApprovalConfigurationArgs:
@@ -894,11 +850,8 @@ class PlanExecutionApprovalConfigurationArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration0PropertiesArgsDict(TypedDict):
-        custom_action_lambda_config: pulumi.Input['PlanCustomActionLambdaConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration0PropertiesArgsDict(TypedDict):
+    custom_action_lambda_config: pulumi.Input['PlanCustomActionLambdaConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration0PropertiesArgs:
@@ -916,11 +869,8 @@ class PlanExecutionBlockConfiguration0PropertiesArgs:
         pulumi.set(self, "custom_action_lambda_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration10PropertiesArgsDict(TypedDict):
-        document_db_config: pulumi.Input['PlanDocumentDbConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration10PropertiesArgsDict(TypedDict):
+    document_db_config: pulumi.Input['PlanDocumentDbConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration10PropertiesArgs:
@@ -938,11 +888,8 @@ class PlanExecutionBlockConfiguration10PropertiesArgs:
         pulumi.set(self, "document_db_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration1PropertiesArgsDict(TypedDict):
-        ec2_asg_capacity_increase_config: pulumi.Input['PlanEc2AsgCapacityIncreaseConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration1PropertiesArgsDict(TypedDict):
+    ec2_asg_capacity_increase_config: pulumi.Input['PlanEc2AsgCapacityIncreaseConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration1PropertiesArgs:
@@ -960,11 +907,8 @@ class PlanExecutionBlockConfiguration1PropertiesArgs:
         pulumi.set(self, "ec2_asg_capacity_increase_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration2PropertiesArgsDict(TypedDict):
-        execution_approval_config: pulumi.Input['PlanExecutionApprovalConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration2PropertiesArgsDict(TypedDict):
+    execution_approval_config: pulumi.Input['PlanExecutionApprovalConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration2PropertiesArgs:
@@ -982,11 +926,8 @@ class PlanExecutionBlockConfiguration2PropertiesArgs:
         pulumi.set(self, "execution_approval_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration3PropertiesArgsDict(TypedDict):
-        arc_routing_control_config: pulumi.Input['PlanArcRoutingControlConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration3PropertiesArgsDict(TypedDict):
+    arc_routing_control_config: pulumi.Input['PlanArcRoutingControlConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration3PropertiesArgs:
@@ -1004,11 +945,8 @@ class PlanExecutionBlockConfiguration3PropertiesArgs:
         pulumi.set(self, "arc_routing_control_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration4PropertiesArgsDict(TypedDict):
-        global_aurora_config: pulumi.Input['PlanGlobalAuroraConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration4PropertiesArgsDict(TypedDict):
+    global_aurora_config: pulumi.Input['PlanGlobalAuroraConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration4PropertiesArgs:
@@ -1026,11 +964,8 @@ class PlanExecutionBlockConfiguration4PropertiesArgs:
         pulumi.set(self, "global_aurora_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration5PropertiesArgsDict(TypedDict):
-        parallel_config: pulumi.Input['PlanParallelExecutionBlockConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration5PropertiesArgsDict(TypedDict):
+    parallel_config: pulumi.Input['PlanParallelExecutionBlockConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration5PropertiesArgs:
@@ -1048,11 +983,8 @@ class PlanExecutionBlockConfiguration5PropertiesArgs:
         pulumi.set(self, "parallel_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration6PropertiesArgsDict(TypedDict):
-        region_switch_plan_config: pulumi.Input['PlanRegionSwitchPlanConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration6PropertiesArgsDict(TypedDict):
+    region_switch_plan_config: pulumi.Input['PlanRegionSwitchPlanConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration6PropertiesArgs:
@@ -1070,11 +1002,8 @@ class PlanExecutionBlockConfiguration6PropertiesArgs:
         pulumi.set(self, "region_switch_plan_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration7PropertiesArgsDict(TypedDict):
-        ecs_capacity_increase_config: pulumi.Input['PlanEcsCapacityIncreaseConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration7PropertiesArgsDict(TypedDict):
+    ecs_capacity_increase_config: pulumi.Input['PlanEcsCapacityIncreaseConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration7PropertiesArgs:
@@ -1092,11 +1021,8 @@ class PlanExecutionBlockConfiguration7PropertiesArgs:
         pulumi.set(self, "ecs_capacity_increase_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration8PropertiesArgsDict(TypedDict):
-        eks_resource_scaling_config: pulumi.Input['PlanEksResourceScalingConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration8PropertiesArgsDict(TypedDict):
+    eks_resource_scaling_config: pulumi.Input['PlanEksResourceScalingConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration8PropertiesArgs:
@@ -1114,11 +1040,8 @@ class PlanExecutionBlockConfiguration8PropertiesArgs:
         pulumi.set(self, "eks_resource_scaling_config", value)
 
 
-if not MYPY:
-    class PlanExecutionBlockConfiguration9PropertiesArgsDict(TypedDict):
-        route53_health_check_config: pulumi.Input['PlanRoute53HealthCheckConfigurationArgsDict']
-elif False:
-    PlanExecutionBlockConfiguration9PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanExecutionBlockConfiguration9PropertiesArgsDict(TypedDict):
+    route53_health_check_config: pulumi.Input['PlanRoute53HealthCheckConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanExecutionBlockConfiguration9PropertiesArgs:
@@ -1136,17 +1059,14 @@ class PlanExecutionBlockConfiguration9PropertiesArgs:
         pulumi.set(self, "route53_health_check_config", value)
 
 
-if not MYPY:
-    class PlanGlobalAuroraConfigurationArgsDict(TypedDict):
-        behavior: Any
-        database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        global_cluster_identifier: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-        ungraceful: NotRequired[pulumi.Input['PlanGlobalAuroraUngracefulArgsDict']]
-elif False:
-    PlanGlobalAuroraConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanGlobalAuroraConfigurationArgsDict(TypedDict):
+    behavior: Any
+    database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    global_cluster_identifier: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    ungraceful: NotRequired[pulumi.Input['PlanGlobalAuroraUngracefulArgsDict']]
 
 @pulumi.input_type
 class PlanGlobalAuroraConfigurationArgs:
@@ -1234,11 +1154,8 @@ class PlanGlobalAuroraConfigurationArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanGlobalAuroraUngracefulArgsDict(TypedDict):
-        ungraceful: NotRequired[pulumi.Input['PlanGlobalAuroraUngracefulBehavior']]
-elif False:
-    PlanGlobalAuroraUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanGlobalAuroraUngracefulArgsDict(TypedDict):
+    ungraceful: NotRequired[pulumi.Input['PlanGlobalAuroraUngracefulBehavior']]
 
 @pulumi.input_type
 class PlanGlobalAuroraUngracefulArgs:
@@ -1257,12 +1174,9 @@ class PlanGlobalAuroraUngracefulArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanKubernetesResourceTypeArgsDict(TypedDict):
-        api_version: pulumi.Input[_builtins.str]
-        kind: pulumi.Input[_builtins.str]
-elif False:
-    PlanKubernetesResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+class PlanKubernetesResourceTypeArgsDict(TypedDict):
+    api_version: pulumi.Input[_builtins.str]
+    kind: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PlanKubernetesResourceTypeArgs:
@@ -1291,11 +1205,8 @@ class PlanKubernetesResourceTypeArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class PlanLambdaUngracefulArgsDict(TypedDict):
-        behavior: NotRequired[Any]
-elif False:
-    PlanLambdaUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanLambdaUngracefulArgsDict(TypedDict):
+    behavior: NotRequired[Any]
 
 @pulumi.input_type
 class PlanLambdaUngracefulArgs:
@@ -1314,13 +1225,10 @@ class PlanLambdaUngracefulArgs:
         pulumi.set(self, "behavior", value)
 
 
-if not MYPY:
-    class PlanLambdasArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanLambdasArgsDict: TypeAlias = Mapping[str, Any]
+class PlanLambdasArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanLambdasArgs:
@@ -1363,11 +1271,8 @@ class PlanLambdasArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanParallelExecutionBlockConfigurationArgsDict(TypedDict):
-        steps: pulumi.Input[Sequence[pulumi.Input['PlanStepArgsDict']]]
-elif False:
-    PlanParallelExecutionBlockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanParallelExecutionBlockConfigurationArgsDict(TypedDict):
+    steps: pulumi.Input[Sequence[pulumi.Input['PlanStepArgsDict']]]
 
 @pulumi.input_type
 class PlanParallelExecutionBlockConfigurationArgs:
@@ -1385,13 +1290,10 @@ class PlanParallelExecutionBlockConfigurationArgs:
         pulumi.set(self, "steps", value)
 
 
-if not MYPY:
-    class PlanRegionSwitchPlanConfigurationArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanRegionSwitchPlanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanRegionSwitchPlanConfigurationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanRegionSwitchPlanConfigurationArgs:
@@ -1433,14 +1335,11 @@ class PlanRegionSwitchPlanConfigurationArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanReportConfigurationArgsDict(TypedDict):
-        report_output: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgsDict']]]]
-        """
-        The output configuration for the report.
-        """
-elif False:
-    PlanReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanReportConfigurationArgsDict(TypedDict):
+    report_output: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgsDict']]]]
+    """
+    The output configuration for the report.
+    """
 
 @pulumi.input_type
 class PlanReportConfigurationArgs:
@@ -1465,11 +1364,8 @@ class PlanReportConfigurationArgs:
         pulumi.set(self, "report_output", value)
 
 
-if not MYPY:
-    class PlanReportOutputConfigurationPropertiesArgsDict(TypedDict):
-        s3_configuration: pulumi.Input['PlanS3ReportOutputConfigurationArgsDict']
-elif False:
-    PlanReportOutputConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PlanReportOutputConfigurationPropertiesArgsDict(TypedDict):
+    s3_configuration: pulumi.Input['PlanS3ReportOutputConfigurationArgsDict']
 
 @pulumi.input_type
 class PlanReportOutputConfigurationPropertiesArgs:
@@ -1487,16 +1383,13 @@ class PlanReportOutputConfigurationPropertiesArgs:
         pulumi.set(self, "s3_configuration", value)
 
 
-if not MYPY:
-    class PlanRoute53HealthCheckConfigurationArgsDict(TypedDict):
-        hosted_zone_id: pulumi.Input[_builtins.str]
-        record_name: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgsDict']]]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    PlanRoute53HealthCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanRoute53HealthCheckConfigurationArgsDict(TypedDict):
+    hosted_zone_id: pulumi.Input[_builtins.str]
+    record_name: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanRoute53ResourceRecordSetArgsDict']]]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class PlanRoute53HealthCheckConfigurationArgs:
@@ -1573,12 +1466,9 @@ class PlanRoute53HealthCheckConfigurationArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanRoute53ResourceRecordSetArgsDict(TypedDict):
-        record_set_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        region: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanRoute53ResourceRecordSetArgsDict: TypeAlias = Mapping[str, Any]
+class PlanRoute53ResourceRecordSetArgsDict(TypedDict):
+    record_set_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanRoute53ResourceRecordSetArgs:
@@ -1609,12 +1499,9 @@ class PlanRoute53ResourceRecordSetArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class PlanS3ReportOutputConfigurationArgsDict(TypedDict):
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        bucket_path: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanS3ReportOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlanS3ReportOutputConfigurationArgsDict(TypedDict):
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_path: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanS3ReportOutputConfigurationArgs:
@@ -1645,14 +1532,11 @@ class PlanS3ReportOutputConfigurationArgs:
         pulumi.set(self, "bucket_path", value)
 
 
-if not MYPY:
-    class PlanServiceArgsDict(TypedDict):
-        cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        service_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanServiceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanServiceArgsDict(TypedDict):
+    cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    service_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanServiceArgs:
@@ -1707,26 +1591,23 @@ class PlanServiceArgs:
         pulumi.set(self, "service_arn", value)
 
 
-if not MYPY:
-    class PlanStepArgsDict(TypedDict):
-        execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgsDict', 'PlanExecutionBlockConfiguration1PropertiesArgsDict', 'PlanExecutionBlockConfiguration2PropertiesArgsDict', 'PlanExecutionBlockConfiguration3PropertiesArgsDict', 'PlanExecutionBlockConfiguration4PropertiesArgsDict', 'PlanExecutionBlockConfiguration5PropertiesArgsDict', 'PlanExecutionBlockConfiguration6PropertiesArgsDict', 'PlanExecutionBlockConfiguration7PropertiesArgsDict', 'PlanExecutionBlockConfiguration8PropertiesArgsDict', 'PlanExecutionBlockConfiguration9PropertiesArgsDict', 'PlanExecutionBlockConfiguration10PropertiesArgsDict']]
-        """
-        The configuration for an execution block in a workflow.
-        """
-        execution_block_type: pulumi.Input['PlanExecutionBlockType']
-        """
-        The type of an execution block in a workflow.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of a step in a workflow.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of a step in a workflow.
-        """
-elif False:
-    PlanStepArgsDict: TypeAlias = Mapping[str, Any]
+class PlanStepArgsDict(TypedDict):
+    execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgsDict', 'PlanExecutionBlockConfiguration1PropertiesArgsDict', 'PlanExecutionBlockConfiguration2PropertiesArgsDict', 'PlanExecutionBlockConfiguration3PropertiesArgsDict', 'PlanExecutionBlockConfiguration4PropertiesArgsDict', 'PlanExecutionBlockConfiguration5PropertiesArgsDict', 'PlanExecutionBlockConfiguration6PropertiesArgsDict', 'PlanExecutionBlockConfiguration7PropertiesArgsDict', 'PlanExecutionBlockConfiguration8PropertiesArgsDict', 'PlanExecutionBlockConfiguration9PropertiesArgsDict', 'PlanExecutionBlockConfiguration10PropertiesArgsDict']]
+    """
+    The configuration for an execution block in a workflow.
+    """
+    execution_block_type: pulumi.Input['PlanExecutionBlockType']
+    """
+    The type of an execution block in a workflow.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of a step in a workflow.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of a step in a workflow.
+    """
 
 @pulumi.input_type
 class PlanStepArgs:
@@ -1796,18 +1677,15 @@ class PlanStepArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PlanTriggerConditionArgsDict(TypedDict):
-        associated_alarm_name: pulumi.Input[_builtins.str]
-        """
-        The name of the CloudWatch alarm associated with the condition.
-        """
-        condition: pulumi.Input['PlanAlarmCondition']
-        """
-        The condition that must be met. Valid values include ALARM and OK.
-        """
-elif False:
-    PlanTriggerConditionArgsDict: TypeAlias = Mapping[str, Any]
+class PlanTriggerConditionArgsDict(TypedDict):
+    associated_alarm_name: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch alarm associated with the condition.
+    """
+    condition: pulumi.Input['PlanAlarmCondition']
+    """
+    The condition that must be met. Valid values include ALARM and OK.
+    """
 
 @pulumi.input_type
 class PlanTriggerConditionArgs:
@@ -1846,30 +1724,27 @@ class PlanTriggerConditionArgs:
         pulumi.set(self, "condition", value)
 
 
-if not MYPY:
-    class PlanTriggerArgsDict(TypedDict):
-        action: pulumi.Input['PlanWorkflowTargetAction']
-        """
-        The action to perform when the trigger fires. Valid values include ACTIVATE and DEACTIVATE.
-        """
-        conditions: pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgsDict']]]
-        """
-        The conditions that must be met for the trigger to fire.
-        """
-        min_delay_minutes_between_executions: pulumi.Input[_builtins.float]
-        """
-        The minimum time, in minutes, that must elapse between automatic executions of the plan.
-        """
-        target_region: pulumi.Input[_builtins.str]
-        """
-        The AWS Region for a trigger.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description for a trigger.
-        """
-elif False:
-    PlanTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class PlanTriggerArgsDict(TypedDict):
+    action: pulumi.Input['PlanWorkflowTargetAction']
+    """
+    The action to perform when the trigger fires. Valid values include ACTIVATE and DEACTIVATE.
+    """
+    conditions: pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgsDict']]]
+    """
+    The conditions that must be met for the trigger to fire.
+    """
+    min_delay_minutes_between_executions: pulumi.Input[_builtins.float]
+    """
+    The minimum time, in minutes, that must elapse between automatic executions of the plan.
+    """
+    target_region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region for a trigger.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description for a trigger.
+    """
 
 @pulumi.input_type
 class PlanTriggerArgs:
@@ -1954,26 +1829,23 @@ class PlanTriggerArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PlanWorkflowArgsDict(TypedDict):
-        workflow_target_action: pulumi.Input['PlanWorkflowTargetAction']
-        """
-        The action that the workflow performs. Valid values include ACTIVATE and DEACTIVATE.
-        """
-        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanStepArgsDict']]]]
-        """
-        The steps that make up the workflow.
-        """
-        workflow_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the workflow.
-        """
-        workflow_target_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region that the workflow targets.
-        """
-elif False:
-    PlanWorkflowArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowArgsDict(TypedDict):
+    workflow_target_action: pulumi.Input['PlanWorkflowTargetAction']
+    """
+    The action that the workflow performs. Valid values include ACTIVATE and DEACTIVATE.
+    """
+    steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanStepArgsDict']]]]
+    """
+    The steps that make up the workflow.
+    """
+    workflow_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the workflow.
+    """
+    workflow_target_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region that the workflow targets.
+    """
 
 @pulumi.input_type
 class PlanWorkflowArgs:

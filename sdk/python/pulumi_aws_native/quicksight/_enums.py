@@ -7,6 +7,11 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ActionConnectorAuthorizationCodeGrantCredentialsSource',
+    'ActionConnectorClientCredentialsSource',
+    'ActionConnectorConnectionAuthType',
+    'ActionConnectorResourceStatus',
+    'ActionConnectorType',
     'AnalysisAnchorOption',
     'AnalysisArcThickness',
     'AnalysisArcThicknessOptions',
@@ -452,6 +457,69 @@ __all__ = [
     'VpcConnectionVpcConnectionAvailabilityStatus',
     'VpcConnectionVpcConnectionResourceStatus',
 ]
+
+
+@pulumi.type_token("aws-native:quicksight:ActionConnectorAuthorizationCodeGrantCredentialsSource")
+class ActionConnectorAuthorizationCodeGrantCredentialsSource(_builtins.str, Enum):
+    PLAIN_CREDENTIALS = "PLAIN_CREDENTIALS"
+
+
+@pulumi.type_token("aws-native:quicksight:ActionConnectorClientCredentialsSource")
+class ActionConnectorClientCredentialsSource(_builtins.str, Enum):
+    PLAIN_CREDENTIALS = "PLAIN_CREDENTIALS"
+
+
+@pulumi.type_token("aws-native:quicksight:ActionConnectorConnectionAuthType")
+class ActionConnectorConnectionAuthType(_builtins.str, Enum):
+    BASIC = "BASIC"
+    API_KEY = "API_KEY"
+    OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
+    NONE = "NONE"
+    IAM = "IAM"
+    OAUTH2_AUTHORIZATION_CODE = "OAUTH2_AUTHORIZATION_CODE"
+
+
+@pulumi.type_token("aws-native:quicksight:ActionConnectorResourceStatus")
+class ActionConnectorResourceStatus(_builtins.str, Enum):
+    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
+    CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
+    CREATION_FAILED = "CREATION_FAILED"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    PENDING_UPDATE = "PENDING_UPDATE"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:quicksight:ActionConnectorType")
+class ActionConnectorType(_builtins.str, Enum):
+    GENERIC_HTTP = "GENERIC_HTTP"
+    SERVICENOW_NOW_PLATFORM = "SERVICENOW_NOW_PLATFORM"
+    SALESFORCE_CRM = "SALESFORCE_CRM"
+    MICROSOFT_OUTLOOK = "MICROSOFT_OUTLOOK"
+    PAGERDUTY_ADVANCE = "PAGERDUTY_ADVANCE"
+    JIRA_CLOUD = "JIRA_CLOUD"
+    ATLASSIAN_CONFLUENCE = "ATLASSIAN_CONFLUENCE"
+    AMAZON_S3 = "AMAZON_S3"
+    AMAZON_BEDROCK_AGENT_RUNTIME = "AMAZON_BEDROCK_AGENT_RUNTIME"
+    AMAZON_BEDROCK_RUNTIME = "AMAZON_BEDROCK_RUNTIME"
+    AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME = "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME"
+    AMAZON_TEXTRACT = "AMAZON_TEXTRACT"
+    AMAZON_COMPREHEND = "AMAZON_COMPREHEND"
+    AMAZON_COMPREHEND_MEDICAL = "AMAZON_COMPREHEND_MEDICAL"
+    MICROSOFT_ONEDRIVE = "MICROSOFT_ONEDRIVE"
+    MICROSOFT_SHAREPOINT = "MICROSOFT_SHAREPOINT"
+    MICROSOFT_TEAMS = "MICROSOFT_TEAMS"
+    SAP_BUSINESSPARTNER = "SAP_BUSINESSPARTNER"
+    SAP_PRODUCTMASTERDATA = "SAP_PRODUCTMASTERDATA"
+    SAP_PHYSICALINVENTORY = "SAP_PHYSICALINVENTORY"
+    SAP_BILLOFMATERIALS = "SAP_BILLOFMATERIALS"
+    SAP_MATERIALSTOCK = "SAP_MATERIALSTOCK"
+    ZENDESK_SUITE = "ZENDESK_SUITE"
+    SMARTSHEET = "SMARTSHEET"
+    SLACK = "SLACK"
+    ASANA = "ASANA"
+    BAMBOO_HR = "BAMBOO_HR"
 
 
 @pulumi.type_token("aws-native:quicksight:AnalysisAnchorOption")
@@ -2401,6 +2469,7 @@ class DataSetInputColumnDataType(_builtins.str, Enum):
     BIT = "BIT"
     BOOLEAN = "BOOLEAN"
     JSON = "JSON"
+    SEMISTRUCT = "SEMISTRUCT"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSetJoinOperationType")
@@ -2505,6 +2574,7 @@ class DataSourceAuthenticationType(_builtins.str, Enum):
     PASSWORD = "PASSWORD"
     TOKEN = "TOKEN"
     X509 = "X509"
+    KEYPAIR = "KEYPAIR"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSourceErrorInfoType")

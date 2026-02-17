@@ -40,7 +40,8 @@ type ProjectProfile struct {
 	// The name of a project profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of a project profile.
-	Status ProjectProfileStatusPtrOutput `pulumi:"status"`
+	Status                   ProjectProfileStatusPtrOutput `pulumi:"status"`
+	UseDefaultConfigurations pulumi.BoolPtrOutput          `pulumi:"useDefaultConfigurations"`
 }
 
 // NewProjectProfile registers a new resource with the given unique name, arguments, and options.
@@ -52,6 +53,7 @@ func NewProjectProfile(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
+		"useDefaultConfigurations",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -98,7 +100,8 @@ type projectProfileArgs struct {
 	// The name of a project profile.
 	Name *string `pulumi:"name"`
 	// The status of a project profile.
-	Status *ProjectProfileStatus `pulumi:"status"`
+	Status                   *ProjectProfileStatus `pulumi:"status"`
+	UseDefaultConfigurations *bool                 `pulumi:"useDefaultConfigurations"`
 }
 
 // The set of arguments for constructing a ProjectProfile resource.
@@ -114,7 +117,8 @@ type ProjectProfileArgs struct {
 	// The name of a project profile.
 	Name pulumi.StringPtrInput
 	// The status of a project profile.
-	Status ProjectProfileStatusPtrInput
+	Status                   ProjectProfileStatusPtrInput
+	UseDefaultConfigurations pulumi.BoolPtrInput
 }
 
 func (ProjectProfileArgs) ElementType() reflect.Type {
@@ -219,6 +223,10 @@ func (o ProjectProfileOutput) Name() pulumi.StringOutput {
 // The status of a project profile.
 func (o ProjectProfileOutput) Status() ProjectProfileStatusPtrOutput {
 	return o.ApplyT(func(v *ProjectProfile) ProjectProfileStatusPtrOutput { return v.Status }).(ProjectProfileStatusPtrOutput)
+}
+
+func (o ProjectProfileOutput) UseDefaultConfigurations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectProfile) pulumi.BoolPtrOutput { return v.UseDefaultConfigurations }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

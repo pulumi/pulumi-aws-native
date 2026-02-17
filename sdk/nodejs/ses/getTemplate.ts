@@ -24,6 +24,10 @@ export interface GetTemplateArgs {
 export interface GetTemplateResult {
     readonly id?: string;
     /**
+     * The tags (keys and values) associated with the email template.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The content of the email, composed of a subject line and either an HTML part or a text-only part.
      */
     readonly template?: outputs.ses.Template;

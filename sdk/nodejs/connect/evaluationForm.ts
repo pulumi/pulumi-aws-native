@@ -64,6 +64,7 @@ export class EvaluationForm extends pulumi.CustomResource {
      * Configuration for language settings of this evaluation form.
      */
     declare public readonly languageConfiguration: pulumi.Output<outputs.connect.EvaluationFormLanguageConfiguration | undefined>;
+    declare public readonly reviewConfiguration: pulumi.Output<outputs.connect.EvaluationFormEvaluationReviewConfiguration | undefined>;
     /**
      * A scoring strategy of the evaluation form.
      */
@@ -114,6 +115,7 @@ export class EvaluationForm extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["items"] = args?.items;
             resourceInputs["languageConfiguration"] = args?.languageConfiguration;
+            resourceInputs["reviewConfiguration"] = args?.reviewConfiguration;
             resourceInputs["scoringStrategy"] = args?.scoringStrategy;
             resourceInputs["status"] = args?.status;
             resourceInputs["tags"] = args?.tags;
@@ -127,6 +129,7 @@ export class EvaluationForm extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["items"] = undefined /*out*/;
             resourceInputs["languageConfiguration"] = undefined /*out*/;
+            resourceInputs["reviewConfiguration"] = undefined /*out*/;
             resourceInputs["scoringStrategy"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -165,6 +168,7 @@ export interface EvaluationFormArgs {
      * Configuration for language settings of this evaluation form.
      */
     languageConfiguration?: pulumi.Input<inputs.connect.EvaluationFormLanguageConfigurationArgs>;
+    reviewConfiguration?: pulumi.Input<inputs.connect.EvaluationFormEvaluationReviewConfigurationArgs>;
     /**
      * A scoring strategy of the evaluation form.
      */

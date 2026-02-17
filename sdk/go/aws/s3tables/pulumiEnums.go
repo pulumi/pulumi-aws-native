@@ -840,6 +840,338 @@ func (in *tableCompactionStatusPtr) ToTableCompactionStatusPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(TableCompactionStatusPtrOutput)
 }
 
+// Sort direction (asc or desc)
+type TableIcebergSortFieldDirection string
+
+const (
+	TableIcebergSortFieldDirectionAsc  = TableIcebergSortFieldDirection("asc")
+	TableIcebergSortFieldDirectionDesc = TableIcebergSortFieldDirection("desc")
+)
+
+func (TableIcebergSortFieldDirection) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortFieldDirection)(nil)).Elem()
+}
+
+func (e TableIcebergSortFieldDirection) ToTableIcebergSortFieldDirectionOutput() TableIcebergSortFieldDirectionOutput {
+	return pulumi.ToOutput(e).(TableIcebergSortFieldDirectionOutput)
+}
+
+func (e TableIcebergSortFieldDirection) ToTableIcebergSortFieldDirectionOutputWithContext(ctx context.Context) TableIcebergSortFieldDirectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableIcebergSortFieldDirectionOutput)
+}
+
+func (e TableIcebergSortFieldDirection) ToTableIcebergSortFieldDirectionPtrOutput() TableIcebergSortFieldDirectionPtrOutput {
+	return e.ToTableIcebergSortFieldDirectionPtrOutputWithContext(context.Background())
+}
+
+func (e TableIcebergSortFieldDirection) ToTableIcebergSortFieldDirectionPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldDirectionPtrOutput {
+	return TableIcebergSortFieldDirection(e).ToTableIcebergSortFieldDirectionOutputWithContext(ctx).ToTableIcebergSortFieldDirectionPtrOutputWithContext(ctx)
+}
+
+func (e TableIcebergSortFieldDirection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableIcebergSortFieldDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableIcebergSortFieldDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableIcebergSortFieldDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableIcebergSortFieldDirectionOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldDirectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortFieldDirection)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToTableIcebergSortFieldDirectionOutput() TableIcebergSortFieldDirectionOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToTableIcebergSortFieldDirectionOutputWithContext(ctx context.Context) TableIcebergSortFieldDirectionOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToTableIcebergSortFieldDirectionPtrOutput() TableIcebergSortFieldDirectionPtrOutput {
+	return o.ToTableIcebergSortFieldDirectionPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToTableIcebergSortFieldDirectionPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldDirectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSortFieldDirection) *TableIcebergSortFieldDirection {
+		return &v
+	}).(TableIcebergSortFieldDirectionPtrOutput)
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableIcebergSortFieldDirection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableIcebergSortFieldDirection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableIcebergSortFieldDirectionPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldDirectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSortFieldDirection)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldDirectionPtrOutput) ToTableIcebergSortFieldDirectionPtrOutput() TableIcebergSortFieldDirectionPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldDirectionPtrOutput) ToTableIcebergSortFieldDirectionPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldDirectionPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldDirectionPtrOutput) Elem() TableIcebergSortFieldDirectionOutput {
+	return o.ApplyT(func(v *TableIcebergSortFieldDirection) TableIcebergSortFieldDirection {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSortFieldDirection
+		return ret
+	}).(TableIcebergSortFieldDirectionOutput)
+}
+
+func (o TableIcebergSortFieldDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableIcebergSortFieldDirection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableIcebergSortFieldDirectionInput is an input type that accepts values of the TableIcebergSortFieldDirection enum
+// A concrete instance of `TableIcebergSortFieldDirectionInput` can be one of the following:
+//
+//	TableIcebergSortFieldDirectionAsc
+//	TableIcebergSortFieldDirectionDesc
+type TableIcebergSortFieldDirectionInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldDirectionOutput() TableIcebergSortFieldDirectionOutput
+	ToTableIcebergSortFieldDirectionOutputWithContext(context.Context) TableIcebergSortFieldDirectionOutput
+}
+
+var tableIcebergSortFieldDirectionPtrType = reflect.TypeOf((**TableIcebergSortFieldDirection)(nil)).Elem()
+
+type TableIcebergSortFieldDirectionPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldDirectionPtrOutput() TableIcebergSortFieldDirectionPtrOutput
+	ToTableIcebergSortFieldDirectionPtrOutputWithContext(context.Context) TableIcebergSortFieldDirectionPtrOutput
+}
+
+type tableIcebergSortFieldDirectionPtr string
+
+func TableIcebergSortFieldDirectionPtr(v string) TableIcebergSortFieldDirectionPtrInput {
+	return (*tableIcebergSortFieldDirectionPtr)(&v)
+}
+
+func (*tableIcebergSortFieldDirectionPtr) ElementType() reflect.Type {
+	return tableIcebergSortFieldDirectionPtrType
+}
+
+func (in *tableIcebergSortFieldDirectionPtr) ToTableIcebergSortFieldDirectionPtrOutput() TableIcebergSortFieldDirectionPtrOutput {
+	return pulumi.ToOutput(in).(TableIcebergSortFieldDirectionPtrOutput)
+}
+
+func (in *tableIcebergSortFieldDirectionPtr) ToTableIcebergSortFieldDirectionPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldDirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableIcebergSortFieldDirectionPtrOutput)
+}
+
+// Null value ordering (nulls-first or nulls-last)
+type TableIcebergSortFieldNullOrder string
+
+const (
+	TableIcebergSortFieldNullOrderNullsFirst = TableIcebergSortFieldNullOrder("nulls-first")
+	TableIcebergSortFieldNullOrderNullsLast  = TableIcebergSortFieldNullOrder("nulls-last")
+)
+
+func (TableIcebergSortFieldNullOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortFieldNullOrder)(nil)).Elem()
+}
+
+func (e TableIcebergSortFieldNullOrder) ToTableIcebergSortFieldNullOrderOutput() TableIcebergSortFieldNullOrderOutput {
+	return pulumi.ToOutput(e).(TableIcebergSortFieldNullOrderOutput)
+}
+
+func (e TableIcebergSortFieldNullOrder) ToTableIcebergSortFieldNullOrderOutputWithContext(ctx context.Context) TableIcebergSortFieldNullOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableIcebergSortFieldNullOrderOutput)
+}
+
+func (e TableIcebergSortFieldNullOrder) ToTableIcebergSortFieldNullOrderPtrOutput() TableIcebergSortFieldNullOrderPtrOutput {
+	return e.ToTableIcebergSortFieldNullOrderPtrOutputWithContext(context.Background())
+}
+
+func (e TableIcebergSortFieldNullOrder) ToTableIcebergSortFieldNullOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldNullOrderPtrOutput {
+	return TableIcebergSortFieldNullOrder(e).ToTableIcebergSortFieldNullOrderOutputWithContext(ctx).ToTableIcebergSortFieldNullOrderPtrOutputWithContext(ctx)
+}
+
+func (e TableIcebergSortFieldNullOrder) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableIcebergSortFieldNullOrder) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableIcebergSortFieldNullOrder) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableIcebergSortFieldNullOrder) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableIcebergSortFieldNullOrderOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldNullOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSortFieldNullOrder)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToTableIcebergSortFieldNullOrderOutput() TableIcebergSortFieldNullOrderOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToTableIcebergSortFieldNullOrderOutputWithContext(ctx context.Context) TableIcebergSortFieldNullOrderOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToTableIcebergSortFieldNullOrderPtrOutput() TableIcebergSortFieldNullOrderPtrOutput {
+	return o.ToTableIcebergSortFieldNullOrderPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToTableIcebergSortFieldNullOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldNullOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSortFieldNullOrder) *TableIcebergSortFieldNullOrder {
+		return &v
+	}).(TableIcebergSortFieldNullOrderPtrOutput)
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableIcebergSortFieldNullOrder) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldNullOrderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableIcebergSortFieldNullOrder) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableIcebergSortFieldNullOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSortFieldNullOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSortFieldNullOrder)(nil)).Elem()
+}
+
+func (o TableIcebergSortFieldNullOrderPtrOutput) ToTableIcebergSortFieldNullOrderPtrOutput() TableIcebergSortFieldNullOrderPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldNullOrderPtrOutput) ToTableIcebergSortFieldNullOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldNullOrderPtrOutput {
+	return o
+}
+
+func (o TableIcebergSortFieldNullOrderPtrOutput) Elem() TableIcebergSortFieldNullOrderOutput {
+	return o.ApplyT(func(v *TableIcebergSortFieldNullOrder) TableIcebergSortFieldNullOrder {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSortFieldNullOrder
+		return ret
+	}).(TableIcebergSortFieldNullOrderOutput)
+}
+
+func (o TableIcebergSortFieldNullOrderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSortFieldNullOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableIcebergSortFieldNullOrder) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableIcebergSortFieldNullOrderInput is an input type that accepts values of the TableIcebergSortFieldNullOrder enum
+// A concrete instance of `TableIcebergSortFieldNullOrderInput` can be one of the following:
+//
+//	TableIcebergSortFieldNullOrderNullsFirst
+//	TableIcebergSortFieldNullOrderNullsLast
+type TableIcebergSortFieldNullOrderInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldNullOrderOutput() TableIcebergSortFieldNullOrderOutput
+	ToTableIcebergSortFieldNullOrderOutputWithContext(context.Context) TableIcebergSortFieldNullOrderOutput
+}
+
+var tableIcebergSortFieldNullOrderPtrType = reflect.TypeOf((**TableIcebergSortFieldNullOrder)(nil)).Elem()
+
+type TableIcebergSortFieldNullOrderPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSortFieldNullOrderPtrOutput() TableIcebergSortFieldNullOrderPtrOutput
+	ToTableIcebergSortFieldNullOrderPtrOutputWithContext(context.Context) TableIcebergSortFieldNullOrderPtrOutput
+}
+
+type tableIcebergSortFieldNullOrderPtr string
+
+func TableIcebergSortFieldNullOrderPtr(v string) TableIcebergSortFieldNullOrderPtrInput {
+	return (*tableIcebergSortFieldNullOrderPtr)(&v)
+}
+
+func (*tableIcebergSortFieldNullOrderPtr) ElementType() reflect.Type {
+	return tableIcebergSortFieldNullOrderPtrType
+}
+
+func (in *tableIcebergSortFieldNullOrderPtr) ToTableIcebergSortFieldNullOrderPtrOutput() TableIcebergSortFieldNullOrderPtrOutput {
+	return pulumi.ToOutput(in).(TableIcebergSortFieldNullOrderPtrOutput)
+}
+
+func (in *tableIcebergSortFieldNullOrderPtr) ToTableIcebergSortFieldNullOrderPtrOutputWithContext(ctx context.Context) TableIcebergSortFieldNullOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableIcebergSortFieldNullOrderPtrOutput)
+}
+
 // Format of the table.
 type TableOpenTableFormat string
 
@@ -1511,6 +1843,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusInput)(nil)).Elem(), TableCompactionStatus("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusPtrInput)(nil)).Elem(), TableCompactionStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldDirectionInput)(nil)).Elem(), TableIcebergSortFieldDirection("asc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldDirectionPtrInput)(nil)).Elem(), TableIcebergSortFieldDirection("asc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldNullOrderInput)(nil)).Elem(), TableIcebergSortFieldNullOrder("nulls-first"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldNullOrderPtrInput)(nil)).Elem(), TableIcebergSortFieldNullOrder("nulls-first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInput)(nil)).Elem(), TableOpenTableFormat("ICEBERG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatPtrInput)(nil)).Elem(), TableOpenTableFormat("ICEBERG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementStatusInput)(nil)).Elem(), TableSnapshotManagementStatus("enabled"))
@@ -1529,6 +1865,10 @@ func init() {
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusPtrOutput{})
 	pulumi.RegisterOutputType(TableCompactionStatusOutput{})
 	pulumi.RegisterOutputType(TableCompactionStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldDirectionOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldDirectionPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldNullOrderOutput{})
+	pulumi.RegisterOutputType(TableIcebergSortFieldNullOrderPtrOutput{})
 	pulumi.RegisterOutputType(TableOpenTableFormatOutput{})
 	pulumi.RegisterOutputType(TableOpenTableFormatPtrOutput{})
 	pulumi.RegisterOutputType(TableSnapshotManagementStatusOutput{})

@@ -44,35 +44,30 @@ __all__ = [
     'ExperimentTemplateTargetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ExperimentTemplateActionArgsDict(TypedDict):
-        """
-        Specifies an action for the experiment template.
-        """
-        action_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the action.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for the action.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The parameters for the action, if applicable.
-        """
-        start_after: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The name of the action that must be completed before the current action starts.
-        """
-        targets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        One or more targets for the action.
-        """
-elif False:
-    ExperimentTemplateActionArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateActionArgsDict(TypedDict):
+    """
+    Specifies an action for the experiment template.
+    """
+    action_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the action.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the action.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The parameters for the action, if applicable.
+    """
+    start_after: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The name of the action that must be completed before the current action starts.
+    """
+    targets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    One or more targets for the action.
+    """
 
 @pulumi.input_type
 class ExperimentTemplateActionArgs:
@@ -161,14 +156,11 @@ class ExperimentTemplateActionArgs:
         pulumi.set(self, "targets", value)
 
 
-if not MYPY:
-    class ExperimentTemplateCloudWatchDashboardArgsDict(TypedDict):
-        dashboard_identifier: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
-        """
-elif False:
-    ExperimentTemplateCloudWatchDashboardArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateCloudWatchDashboardArgsDict(TypedDict):
+    dashboard_identifier: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+    """
 
 @pulumi.input_type
 class ExperimentTemplateCloudWatchDashboardArgs:
@@ -192,18 +184,15 @@ class ExperimentTemplateCloudWatchDashboardArgs:
         pulumi.set(self, "dashboard_identifier", value)
 
 
-if not MYPY:
-    class ExperimentTemplateExperimentOptionsArgsDict(TypedDict):
-        account_targeting: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']]
-        """
-        The account targeting setting for the experiment template.
-        """
-        empty_target_resolution_mode: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']]
-        """
-        The target resolution failure mode for the experiment template.
-        """
-elif False:
-    ExperimentTemplateExperimentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateExperimentOptionsArgsDict(TypedDict):
+    account_targeting: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']]
+    """
+    The account targeting setting for the experiment template.
+    """
+    empty_target_resolution_mode: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']]
+    """
+    The target resolution failure mode for the experiment template.
+    """
 
 @pulumi.input_type
 class ExperimentTemplateExperimentOptionsArgs:
@@ -244,14 +233,11 @@ class ExperimentTemplateExperimentOptionsArgs:
         pulumi.set(self, "empty_target_resolution_mode", value)
 
 
-if not MYPY:
-    class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict(TypedDict):
-        """
-        The data sources for the experiment report.
-        """
-        cloud_watch_dashboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgsDict']]]]
-elif False:
-    ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict(TypedDict):
+    """
+    The data sources for the experiment report.
+    """
+    cloud_watch_dashboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgsDict']]]]
 
 @pulumi.input_type
 class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs:
@@ -273,12 +259,9 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs:
         pulumi.set(self, "cloud_watch_dashboards", value)
 
 
-if not MYPY:
-    class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs:
@@ -308,14 +291,11 @@ class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperiment
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict(TypedDict):
-        """
-        The output destinations of the experiment report.
-        """
-        experiment_report_s3_configuration: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict']
-elif False:
-    ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict(TypedDict):
+    """
+    The output destinations of the experiment report.
+    """
+    experiment_report_s3_configuration: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict']
 
 @pulumi.input_type
 class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs:
@@ -336,26 +316,23 @@ class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs:
         pulumi.set(self, "experiment_report_s3_configuration", value)
 
 
-if not MYPY:
-    class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
-        outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict']
-        """
-        The output destinations of the experiment report.
-        """
-        data_sources: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict']]
-        """
-        The data sources for the experiment report.
-        """
-        post_experiment_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration after the experiment end time for the data sources to include in the report.
-        """
-        pre_experiment_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration before the experiment start time for the data sources to include in the report.
-        """
-elif False:
-    ExperimentTemplateExperimentReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
+    outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict']
+    """
+    The output destinations of the experiment report.
+    """
+    data_sources: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict']]
+    """
+    The data sources for the experiment report.
+    """
+    post_experiment_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration after the experiment end time for the data sources to include in the report.
+    """
+    pre_experiment_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration before the experiment start time for the data sources to include in the report.
+    """
 
 @pulumi.input_type
 class ExperimentTemplateExperimentReportConfigurationArgs:
@@ -427,14 +404,11 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
         pulumi.set(self, "pre_experiment_duration", value)
 
 
-if not MYPY:
-    class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration for experiment logging to CloudWatch Logs .
-        """
-        log_group_arn: pulumi.Input[_builtins.str]
-elif False:
-    ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The configuration for experiment logging to CloudWatch Logs .
+    """
+    log_group_arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs:
@@ -455,15 +429,12 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArg
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration for experiment logging to Amazon S3 .
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The configuration for experiment logging to Amazon S3 .
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs:
@@ -496,22 +467,19 @@ class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ExperimentTemplateLogConfigurationArgsDict(TypedDict):
-        log_schema_version: pulumi.Input[_builtins.int]
-        """
-        The schema version.
-        """
-        cloud_watch_logs_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict']]
-        """
-        The configuration for experiment logging to CloudWatch Logs .
-        """
-        s3_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict']]
-        """
-        The configuration for experiment logging to Amazon S3 .
-        """
-elif False:
-    ExperimentTemplateLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateLogConfigurationArgsDict(TypedDict):
+    log_schema_version: pulumi.Input[_builtins.int]
+    """
+    The schema version.
+    """
+    cloud_watch_logs_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict']]
+    """
+    The configuration for experiment logging to CloudWatch Logs .
+    """
+    s3_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict']]
+    """
+    The configuration for experiment logging to Amazon S3 .
+    """
 
 @pulumi.input_type
 class ExperimentTemplateLogConfigurationArgs:
@@ -567,12 +535,9 @@ class ExperimentTemplateLogConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
 
-if not MYPY:
-    class ExperimentTemplateStopConditionArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ExperimentTemplateStopConditionArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateStopConditionArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ExperimentTemplateStopConditionArgs:
@@ -602,15 +567,12 @@ class ExperimentTemplateStopConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ExperimentTemplateTargetFilterArgsDict(TypedDict):
-        """
-        Describes a filter used for the target resource input in an experiment template.
-        """
-        path: pulumi.Input[_builtins.str]
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    ExperimentTemplateTargetFilterArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateTargetFilterArgsDict(TypedDict):
+    """
+    Describes a filter used for the target resource input in an experiment template.
+    """
+    path: pulumi.Input[_builtins.str]
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class ExperimentTemplateTargetFilterArgs:
@@ -642,37 +604,34 @@ class ExperimentTemplateTargetFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ExperimentTemplateTargetArgsDict(TypedDict):
-        """
-        Specifies a target for an experiment.
-        """
-        resource_type: pulumi.Input[_builtins.str]
-        """
-        The resource type.
-        """
-        selection_mode: pulumi.Input[_builtins.str]
-        """
-        Scopes the identified resources to a specific count or percentage.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgsDict']]]]
-        """
-        The filters to apply to identify target resources using specific attributes.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The parameters for the resource type.
-        """
-        resource_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The Amazon Resource Names (ARNs) of the targets.
-        """
-        resource_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The tags for the target resources.
-        """
-elif False:
-    ExperimentTemplateTargetArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentTemplateTargetArgsDict(TypedDict):
+    """
+    Specifies a target for an experiment.
+    """
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    The resource type.
+    """
+    selection_mode: pulumi.Input[_builtins.str]
+    """
+    Scopes the identified resources to a specific count or percentage.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgsDict']]]]
+    """
+    The filters to apply to identify target resources using specific attributes.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The parameters for the resource type.
+    """
+    resource_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The Amazon Resource Names (ARNs) of the targets.
+    """
+    resource_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The tags for the target resources.
+    """
 
 @pulumi.input_type
 class ExperimentTemplateTargetArgs:

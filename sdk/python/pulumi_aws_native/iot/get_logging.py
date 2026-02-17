@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoggingResult:
-    def __init__(__self__, default_log_level=None, role_arn=None):
+    def __init__(__self__, default_log_level=None, event_configurations=None, role_arn=None):
         if default_log_level and not isinstance(default_log_level, str):
             raise TypeError("Expected argument 'default_log_level' to be a str")
         pulumi.set(__self__, "default_log_level", default_log_level)
+        if event_configurations and not isinstance(event_configurations, list):
+            raise TypeError("Expected argument 'event_configurations' to be a list")
+        pulumi.set(__self__, "event_configurations", event_configurations)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -39,6 +43,14 @@ class GetLoggingResult:
         The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         """
         return pulumi.get(self, "default_log_level")
+
+    @_builtins.property
+    @pulumi.getter(name="eventConfigurations")
+    def event_configurations(self) -> Optional[Sequence['outputs.LoggingEventConfiguration']]:
+        """
+        Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+        """
+        return pulumi.get(self, "event_configurations")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
@@ -56,6 +68,7 @@ class AwaitableGetLoggingResult(GetLoggingResult):
             yield self
         return GetLoggingResult(
             default_log_level=self.default_log_level,
+            event_configurations=self.event_configurations,
             role_arn=self.role_arn)
 
 
@@ -74,6 +87,7 @@ def get_logging(account_id: Optional[_builtins.str] = None,
 
     return AwaitableGetLoggingResult(
         default_log_level=pulumi.get(__ret__, 'default_log_level'),
+        event_configurations=pulumi.get(__ret__, 'event_configurations'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_logging_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingResult]:
@@ -89,4 +103,5 @@ def get_logging_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getLogging', __args__, opts=opts, typ=GetLoggingResult)
     return __ret__.apply(lambda __response__: GetLoggingResult(
         default_log_level=pulumi.get(__response__, 'default_log_level'),
+        event_configurations=pulumi.get(__response__, 'event_configurations'),
         role_arn=pulumi.get(__response__, 'role_arn')))

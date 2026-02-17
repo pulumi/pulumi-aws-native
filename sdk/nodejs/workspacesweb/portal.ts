@@ -54,7 +54,7 @@ export class Portal extends pulumi.CustomResource {
      *
      * 4. Add an `IdentityProvider` resource to your CloudFormation template.
      *
-     * `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+     * `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
      */
     declare public readonly authenticationType: pulumi.Output<enums.workspacesweb.PortalAuthenticationType | undefined>;
     /**
@@ -103,6 +103,7 @@ export class Portal extends pulumi.CustomResource {
      * The ARN of the web portal.
      */
     declare public /*out*/ readonly portalArn: pulumi.Output<string>;
+    declare public readonly portalCustomDomain: pulumi.Output<string | undefined>;
     /**
      * The endpoint URL of the web portal that users access in order to start streaming sessions.
      */
@@ -165,6 +166,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["ipAccessSettingsArn"] = args?.ipAccessSettingsArn;
             resourceInputs["maxConcurrentSessions"] = args?.maxConcurrentSessions;
             resourceInputs["networkSettingsArn"] = args?.networkSettingsArn;
+            resourceInputs["portalCustomDomain"] = args?.portalCustomDomain;
             resourceInputs["sessionLoggerArn"] = args?.sessionLoggerArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trustStoreArn"] = args?.trustStoreArn;
@@ -192,6 +194,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["maxConcurrentSessions"] = undefined /*out*/;
             resourceInputs["networkSettingsArn"] = undefined /*out*/;
             resourceInputs["portalArn"] = undefined /*out*/;
+            resourceInputs["portalCustomDomain"] = undefined /*out*/;
             resourceInputs["portalEndpoint"] = undefined /*out*/;
             resourceInputs["portalStatus"] = undefined /*out*/;
             resourceInputs["rendererType"] = undefined /*out*/;
@@ -231,7 +234,7 @@ export interface PortalArgs {
      *
      * 4. Add an `IdentityProvider` resource to your CloudFormation template.
      *
-     * `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
+     * `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
      */
     authenticationType?: pulumi.Input<enums.workspacesweb.PortalAuthenticationType>;
     /**
@@ -268,6 +271,7 @@ export interface PortalArgs {
      * The ARN of the network settings that is associated with the web portal.
      */
     networkSettingsArn?: pulumi.Input<string>;
+    portalCustomDomain?: pulumi.Input<string>;
     /**
      * The ARN of the session logger that is associated with the portal.
      */

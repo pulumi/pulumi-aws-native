@@ -63,7 +63,7 @@ const (
 	RegionEuWest2 = Region("eu-west-2")
 	// Europe (Paris)
 	RegionEuWest3 = Region("eu-west-3")
-	// EU (Germany)
+	// AWS European Sovereign Cloud (Germany)
 	RegionEuscDeEast1 = Region("eusc-de-east-1")
 	// Israel (Tel Aviv)
 	RegionIlCentral1 = Region("il-central-1")

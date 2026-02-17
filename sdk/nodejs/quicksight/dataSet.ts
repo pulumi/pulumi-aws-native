@@ -46,7 +46,7 @@ export class DataSet extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
-     * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+     * <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
      */
     declare public readonly columnGroups: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
     /**
@@ -89,7 +89,7 @@ export class DataSet extends pulumi.CustomResource {
      */
     declare public readonly fieldFolders: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
     /**
-     * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+     * <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
      */
     declare public readonly folderArns: pulumi.Output<string[] | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface DataSetArgs {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+     * <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
      */
     columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[]>;
     /**
@@ -258,7 +258,7 @@ export interface DataSetArgs {
      */
     fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>}>;
     /**
-     * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+     * <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
      */
     folderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

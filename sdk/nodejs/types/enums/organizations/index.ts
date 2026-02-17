@@ -47,22 +47,22 @@ export const OrganizationFeatureSet = {
 export type OrganizationFeatureSet = (typeof OrganizationFeatureSet)[keyof typeof OrganizationFeatureSet];
 
 export const PolicyType = {
-    ServiceControlPolicy: "SERVICE_CONTROL_POLICY",
     AiservicesOptOutPolicy: "AISERVICES_OPT_OUT_POLICY",
     BackupPolicy: "BACKUP_POLICY",
-    TagPolicy: "TAG_POLICY",
-    ChatbotPolicy: "CHATBOT_POLICY",
-    ResourceControlPolicy: "RESOURCE_CONTROL_POLICY",
-    DeclarativePolicyEc2: "DECLARATIVE_POLICY_EC2",
-    SecurityhubPolicy: "SECURITYHUB_POLICY",
-    S3Policy: "S3_POLICY",
-    InspectorPolicy: "INSPECTOR_POLICY",
     BedrockPolicy: "BEDROCK_POLICY",
+    ChatbotPolicy: "CHATBOT_POLICY",
+    DeclarativePolicyEc2: "DECLARATIVE_POLICY_EC2",
+    InspectorPolicy: "INSPECTOR_POLICY",
     NetworkSecurityDirectorPolicy: "NETWORK_SECURITY_DIRECTOR_POLICY",
+    ResourceControlPolicy: "RESOURCE_CONTROL_POLICY",
+    S3Policy: "S3_POLICY",
+    SecurityhubPolicy: "SECURITYHUB_POLICY",
+    ServiceControlPolicy: "SERVICE_CONTROL_POLICY",
+    TagPolicy: "TAG_POLICY",
     UpgradeRolloutPolicy: "UPGRADE_ROLLOUT_POLICY",
 } as const;
 
 /**
- * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY, S3_POLICY, INSPECTOR_POLICY, BEDROCK_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, UPGRADE_ROLLOUT_POLICY
+ * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, BEDROCK_POLICY, CHATBOT_POLICY, DECLARATIVE_POLICY_EC2, INSPECTOR_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, RESOURCE_CONTROL_POLICY, S3_POLICY, SECURITYHUB_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, UPGRADE_ROLLOUT_POLICY
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];

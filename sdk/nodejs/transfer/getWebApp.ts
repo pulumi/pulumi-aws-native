@@ -33,6 +33,7 @@ export interface GetWebAppResult {
      * Specifies the unique Amazon Resource Name (ARN) for the web app.
      */
     readonly arn?: string;
+    readonly endpointDetails?: outputs.transfer.WebAppEndpointDetails;
     /**
      * You can provide a structure that contains the details for the identity provider to use with your web app.
      *
@@ -43,6 +44,7 @@ export interface GetWebAppResult {
      * Key-value pairs that can be used to group and search for web apps.
      */
     readonly tags?: outputs.Tag[];
+    readonly vpcEndpointId?: string;
     /**
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */

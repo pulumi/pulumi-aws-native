@@ -10,10 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination. 
+    ///  For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+    /// </summary>
     public sealed class AutoScalingGroupInstanceLifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
+        /// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a ``Retained`` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
         /// </summary>
         [Input("retentionTriggers")]
         public Input<Inputs.AutoScalingGroupRetentionTriggersArgs>? RetentionTriggers { get; set; }

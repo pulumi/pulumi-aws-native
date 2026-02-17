@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class CustomPermissionsCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("action")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Action { get; set; }
+
         /// <summary>
         /// The ability to add or run anomaly detection.
         /// </summary>
@@ -23,6 +26,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("analysis")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Analysis { get; set; }
+
+        [Input("automate")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Automate { get; set; }
+
+        [Input("chatAgent")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ChatAgent { get; set; }
 
         /// <summary>
         /// The ability to create and update email reports.
@@ -53,6 +62,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("createAndUpdateThresholdAlerts")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateThresholdAlerts { get; set; }
+
+        [Input("createChatAgents")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateChatAgents { get; set; }
 
         /// <summary>
         /// The ability to create shared folders.
@@ -108,11 +120,20 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("exportToPdfInScheduledReports")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToPdfInScheduledReports { get; set; }
 
+        [Input("flow")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Flow { get; set; }
+
         /// <summary>
         /// The ability to include content in scheduled email reports.
         /// </summary>
         [Input("includeContentInScheduledReportsEmail")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? IncludeContentInScheduledReportsEmail { get; set; }
+
+        [Input("knowledgeBase")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? KnowledgeBase { get; set; }
+
+        [Input("performFlowUiTask")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PerformFlowUiTask { get; set; }
 
         /// <summary>
         /// The ability to print reports.
@@ -120,11 +141,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("printReports")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PrintReports { get; set; }
 
+        [Input("publishWithoutApproval")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PublishWithoutApproval { get; set; }
+
         /// <summary>
         /// The ability to rename shared folders.
         /// </summary>
         [Input("renameSharedFolders")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? RenameSharedFolders { get; set; }
+
+        [Input("research")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Research { get; set; }
 
         /// <summary>
         /// The ability to share analyses.
@@ -150,11 +177,20 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("shareDatasets")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareDatasets { get; set; }
 
+        [Input("space")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Space { get; set; }
+
         /// <summary>
         /// The ability to subscribe to email reports.
         /// </summary>
         [Input("subscribeDashboardEmailReports")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SubscribeDashboardEmailReports { get; set; }
+
+        [Input("useAgentWebSearch")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAgentWebSearch { get; set; }
+
+        [Input("useBedrockModels")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseBedrockModels { get; set; }
 
         /// <summary>
         /// The ability to view account SPICE capacity.

@@ -36,7 +36,7 @@ class GetInstanceAccessControlAttributeConfigurationResult:
     @pulumi.getter(name="accessControlAttributes")
     def access_control_attributes(self) -> Optional[Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']]:
         """
-        Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        Lists the attributes that are configured for ABAC in the specified  instance.
         """
         return pulumi.get(self, "access_control_attributes")
 

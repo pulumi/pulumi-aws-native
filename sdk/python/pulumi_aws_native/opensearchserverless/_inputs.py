@@ -38,23 +38,18 @@ __all__ = [
     'SecurityConfigSamlConfigOptionsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CollectionEncryptionConfigArgsDict(TypedDict):
-        """
-        The configuration to encrypt the collection
-        """
-        aws_owned_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The configuration to encrypt the collection with AWS owned key
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key to encrypt the collection with
-        """
-elif False:
-    CollectionEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CollectionEncryptionConfigArgsDict(TypedDict):
+    """
+    Encryption settings for the collection
+    """
+    aws_owned_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use an AWS owned key for encryption.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key Management Service key used to encrypt the collection.
+    """
 
 @pulumi.input_type
 class CollectionEncryptionConfigArgs:
@@ -62,9 +57,9 @@ class CollectionEncryptionConfigArgs:
                  aws_owned_key: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The configuration to encrypt the collection
-        :param pulumi.Input[_builtins.bool] aws_owned_key: The configuration to encrypt the collection with AWS owned key
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to encrypt the collection with
+        Encryption settings for the collection
+        :param pulumi.Input[_builtins.bool] aws_owned_key: Indicates whether to use an AWS owned key for encryption.
+        :param pulumi.Input[_builtins.str] kms_key_arn: Key Management Service key used to encrypt the collection.
         """
         if aws_owned_key is not None:
             pulumi.set(__self__, "aws_owned_key", aws_owned_key)
@@ -75,7 +70,7 @@ class CollectionEncryptionConfigArgs:
     @pulumi.getter(name="awsOwnedKey")
     def aws_owned_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        The configuration to encrypt the collection with AWS owned key
+        Indicates whether to use an AWS owned key for encryption.
         """
         return pulumi.get(self, "aws_owned_key")
 
@@ -87,7 +82,7 @@ class CollectionEncryptionConfigArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the KMS key to encrypt the collection with
+        Key Management Service key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -96,21 +91,18 @@ class CollectionEncryptionConfigArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict):
-        """
-        Additional parameters for the k-NN algorithm
-        """
-        ef_construction: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the dynamic list used during k-NN graph creation
-        """
-        m: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of neighbors to consider during k-NN search
-        """
-elif False:
-    IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict):
+    """
+    Additional parameters for the k-NN algorithm
+    """
+    ef_construction: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the dynamic list used during k-NN graph creation
+    """
+    m: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of neighbors to consider during k-NN search
+    """
 
 @pulumi.input_type
 class IndexPropertyMappingMethodPropertiesParametersPropertiesArgs:
@@ -152,29 +144,26 @@ class IndexPropertyMappingMethodPropertiesParametersPropertiesArgs:
         pulumi.set(self, "m", value)
 
 
-if not MYPY:
-    class IndexPropertyMappingMethodPropertiesArgsDict(TypedDict):
-        """
-        Configuration for k-NN search method
-        """
-        name: pulumi.Input['IndexPropertyMappingMethodPropertiesName']
-        """
-        The algorithm name for k-NN search
-        """
-        engine: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]
-        """
-        The k-NN search engine to use
-        """
-        parameters: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict']]
-        """
-        Additional parameters for the k-NN algorithm
-        """
-        space_type: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']]
-        """
-        The distance function used for k-NN search
-        """
-elif False:
-    IndexPropertyMappingMethodPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IndexPropertyMappingMethodPropertiesArgsDict(TypedDict):
+    """
+    Configuration for k-NN search method
+    """
+    name: pulumi.Input['IndexPropertyMappingMethodPropertiesName']
+    """
+    The algorithm name for k-NN search
+    """
+    engine: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]
+    """
+    The k-NN search engine to use
+    """
+    parameters: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict']]
+    """
+    Additional parameters for the k-NN algorithm
+    """
+    space_type: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']]
+    """
+    The distance function used for k-NN search
+    """
 
 @pulumi.input_type
 class IndexPropertyMappingMethodPropertiesArgs:
@@ -247,34 +236,31 @@ class IndexPropertyMappingMethodPropertiesArgs:
         pulumi.set(self, "space_type", value)
 
 
-if not MYPY:
-    class IndexPropertyMappingArgsDict(TypedDict):
-        type: pulumi.Input['IndexPropertyMappingType']
-        """
-        The field data type. Must be a valid OpenSearch field type.
-        """
-        dimension: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Dimension size for vector fields, defines the number of dimensions in the vector
-        """
-        index: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether a field should be indexed
-        """
-        method: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesArgsDict']]
-        """
-        Configuration for k-NN search method
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]
-        """
-        Nested fields within an object or nested field type
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default value for the field when not specified in a document
-        """
-elif False:
-    IndexPropertyMappingArgsDict: TypeAlias = Mapping[str, Any]
+class IndexPropertyMappingArgsDict(TypedDict):
+    type: pulumi.Input['IndexPropertyMappingType']
+    """
+    The field data type. Must be a valid OpenSearch field type.
+    """
+    dimension: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Dimension size for vector fields, defines the number of dimensions in the vector
+    """
+    index: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether a field should be indexed
+    """
+    method: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesArgsDict']]
+    """
+    Configuration for k-NN search method
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]
+    """
+    Nested fields within an object or nested field type
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default value for the field when not specified in a document
+    """
 
 @pulumi.input_type
 class IndexPropertyMappingArgs:
@@ -378,25 +364,22 @@ class IndexPropertyMappingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class IndexSettingsIndexPropertiesArgsDict(TypedDict):
-        """
-        Index settings.
-        """
-        knn: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable/disable k-nearest neighbor search capability
-        """
-        knn_algo_param_ef_search: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the dynamic list for the nearest neighbors
-        """
-        refresh_interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How often to perform refresh operation (e.g. '1s', '5s')
-        """
-elif False:
-    IndexSettingsIndexPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IndexSettingsIndexPropertiesArgsDict(TypedDict):
+    """
+    Index settings.
+    """
+    knn: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable/disable k-nearest neighbor search capability
+    """
+    knn_algo_param_ef_search: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the dynamic list for the nearest neighbors
+    """
+    refresh_interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How often to perform refresh operation (e.g. '1s', '5s')
+    """
 
 @pulumi.input_type
 class IndexSettingsIndexPropertiesArgs:
@@ -454,14 +437,11 @@ class IndexSettingsIndexPropertiesArgs:
         pulumi.set(self, "refresh_interval", value)
 
 
-if not MYPY:
-    class IndexSettingsArgsDict(TypedDict):
-        index: NotRequired[pulumi.Input['IndexSettingsIndexPropertiesArgsDict']]
-        """
-        Index settings.
-        """
-elif False:
-    IndexSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class IndexSettingsArgsDict(TypedDict):
+    index: NotRequired[pulumi.Input['IndexSettingsIndexPropertiesArgsDict']]
+    """
+    Index settings.
+    """
 
 @pulumi.input_type
 class IndexSettingsArgs:
@@ -486,17 +466,14 @@ class IndexSettingsArgs:
         pulumi.set(self, "index", value)
 
 
-if not MYPY:
-    class MappingsPropertiesArgsDict(TypedDict):
-        """
-        Index Mappings
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]
-        """
-        Defines the fields within the mapping, including their types and configurations
-        """
-elif False:
-    MappingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MappingsPropertiesArgsDict(TypedDict):
+    """
+    Index Mappings
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgsDict']]]]
+    """
+    Defines the fields within the mapping, including their types and configurations
+    """
 
 @pulumi.input_type
 class MappingsPropertiesArgs:
@@ -522,21 +499,18 @@ class MappingsPropertiesArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class SecurityConfigIamFederationConfigOptionsArgsDict(TypedDict):
-        """
-        Describe IAM federation options in form of key value map
-        """
-        group_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Group attribute for this IAM federation integration
-        """
-        user_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User attribute for this IAM federation integration
-        """
-elif False:
-    SecurityConfigIamFederationConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigIamFederationConfigOptionsArgsDict(TypedDict):
+    """
+    Describe IAM federation options in form of key value map
+    """
+    group_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Group attribute for this IAM federation integration
+    """
+    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User attribute for this IAM federation integration
+    """
 
 @pulumi.input_type
 class SecurityConfigIamFederationConfigOptionsArgs:
@@ -578,37 +552,34 @@ class SecurityConfigIamFederationConfigOptionsArgs:
         pulumi.set(self, "user_attribute", value)
 
 
-if not MYPY:
-    class SecurityConfigIamIdentityCenterConfigOptionsArgsDict(TypedDict):
-        """
-        Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
-        """
-        instance_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
-        """
-        application_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
-        """
-        application_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
-        """
-        application_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
-        """
-        group_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
-        """
-        user_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user attribute for this IAM Identity Center integration. Defaults to `UserId`
-        """
-elif False:
-    SecurityConfigIamIdentityCenterConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigIamIdentityCenterConfigOptionsArgsDict(TypedDict):
+    """
+    Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+    """
+    instance_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+    """
+    application_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+    """
+    application_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+    """
+    application_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+    """
+    group_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The group attribute for this IAM Identity Center integration. Defaults to `GroupId` .
+    """
+    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+    """
 
 @pulumi.input_type
 class SecurityConfigIamIdentityCenterConfigOptionsArgs:
@@ -713,33 +684,30 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
         pulumi.set(self, "user_attribute", value)
 
 
-if not MYPY:
-    class SecurityConfigSamlConfigOptionsArgsDict(TypedDict):
-        """
-        Describes saml options in form of key value map
-        """
-        metadata: pulumi.Input[_builtins.str]
-        """
-        The XML saml provider metadata document that you want to use
-        """
-        group_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Group attribute for this saml integration
-        """
-        open_search_serverless_entity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom entity id attribute to override default entity id for this saml integration
-        """
-        session_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the session timeout in minutes
-        """
-        user_attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom attribute for this saml integration
-        """
-elif False:
-    SecurityConfigSamlConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityConfigSamlConfigOptionsArgsDict(TypedDict):
+    """
+    Describes saml options in form of key value map
+    """
+    metadata: pulumi.Input[_builtins.str]
+    """
+    The XML saml provider metadata document that you want to use
+    """
+    group_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Group attribute for this saml integration
+    """
+    open_search_serverless_entity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom entity id attribute to override default entity id for this saml integration
+    """
+    session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the session timeout in minutes
+    """
+    user_attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom attribute for this saml integration
+    """
 
 @pulumi.input_type
 class SecurityConfigSamlConfigOptionsArgs:

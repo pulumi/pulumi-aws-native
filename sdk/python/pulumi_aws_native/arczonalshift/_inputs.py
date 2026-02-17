@@ -22,20 +22,15 @@ __all__ = [
     'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ZonalAutoshiftConfigurationControlConditionArgsDict(TypedDict):
-        alarm_identifier: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
-        """
-elif False:
-    ZonalAutoshiftConfigurationControlConditionArgsDict: TypeAlias = Mapping[str, Any]
+class ZonalAutoshiftConfigurationControlConditionArgsDict(TypedDict):
+    alarm_identifier: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+    """
 
 @pulumi.input_type
 class ZonalAutoshiftConfigurationControlConditionArgs:
@@ -74,32 +69,29 @@ class ZonalAutoshiftConfigurationControlConditionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict(TypedDict):
-        outcome_alarms: pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]
-        """
-        The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
-        """
-        blocked_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+class ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict(TypedDict):
+    outcome_alarms: pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]
+    """
+    The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+    """
+    blocked_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
 
-        Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
-        """
-        blocked_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
+    Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+    """
+    blocked_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 
-        Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+    Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
 
-        > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
-        """
-        blocking_alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]]
-        """
-        An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
-        """
-elif False:
-    ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
+    """
+    blocking_alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]]
+    """
+    An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
+    """
 
 @pulumi.input_type
 class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:

@@ -56,88 +56,83 @@ __all__ = [
     'WirelessGatewayLoRaWanGatewayArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DeviceProfileLoRaWanDeviceProfileArgsDict(TypedDict):
-        class_b_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ClassBTimeout value.
-        """
-        class_c_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ClassCTimeout value.
-        """
-        factory_preset_freqs_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
-        """
-        mac_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
-        """
-        max_duty_cycle: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The MaxDutyCycle value.
-        """
-        max_eirp: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The MaxEIRP value.
-        """
-        ping_slot_dr: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The PingSlotDR value.
-        """
-        ping_slot_freq: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The PingSlotFreq value.
-        """
-        ping_slot_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The PingSlotPeriod value.
-        """
-        reg_params_revision: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of regional parameters.
-        """
-        rf_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The frequency band (RFRegion) value.
-        """
-        rx_data_rate2: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The RXDataRate2 value.
-        """
-        rx_delay1: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The RXDelay1 value.
-        """
-        rx_dr_offset1: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The RXDROffset1 value.
-        """
-        rx_freq2: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The RXFreq2 value.
-        """
-        supports32_bit_f_cnt: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The Supports32BitFCnt value.
-        """
-        supports_class_b: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The SupportsClassB value.
-        """
-        supports_class_c: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The SupportsClassC value.
-        """
-        supports_join: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The SupportsJoin value.
-        """
-elif False:
-    DeviceProfileLoRaWanDeviceProfileArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceProfileLoRaWanDeviceProfileArgsDict(TypedDict):
+    class_b_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ClassBTimeout value.
+    """
+    class_c_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ClassCTimeout value.
+    """
+    factory_preset_freqs_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
+    """
+    mac_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
+    """
+    max_duty_cycle: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The MaxDutyCycle value.
+    """
+    max_eirp: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The MaxEIRP value.
+    """
+    ping_slot_dr: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The PingSlotDR value.
+    """
+    ping_slot_freq: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The PingSlotFreq value.
+    """
+    ping_slot_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The PingSlotPeriod value.
+    """
+    reg_params_revision: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of regional parameters.
+    """
+    rf_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The frequency band (RFRegion) value.
+    """
+    rx_data_rate2: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The RXDataRate2 value.
+    """
+    rx_delay1: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The RXDelay1 value.
+    """
+    rx_dr_offset1: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The RXDROffset1 value.
+    """
+    rx_freq2: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The RXFreq2 value.
+    """
+    supports32_bit_f_cnt: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The Supports32BitFCnt value.
+    """
+    supports_class_b: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The SupportsClassB value.
+    """
+    supports_class_c: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The SupportsClassC value.
+    """
+    supports_join: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The SupportsJoin value.
+    """
 
 @pulumi.input_type
 class DeviceProfileLoRaWanDeviceProfileArgs:
@@ -450,18 +445,15 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
         pulumi.set(self, "supports_join", value)
 
 
-if not MYPY:
-    class FuotaTaskLoRaWanArgsDict(TypedDict):
-        rf_region: pulumi.Input[_builtins.str]
-        """
-        FUOTA task LoRaWAN RF region
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        FUOTA task LoRaWAN start time
-        """
-elif False:
-    FuotaTaskLoRaWanArgsDict: TypeAlias = Mapping[str, Any]
+class FuotaTaskLoRaWanArgsDict(TypedDict):
+    rf_region: pulumi.Input[_builtins.str]
+    """
+    FUOTA task LoRaWAN RF region
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    FUOTA task LoRaWAN start time
+    """
 
 @pulumi.input_type
 class FuotaTaskLoRaWanArgs:
@@ -501,26 +493,23 @@ class FuotaTaskLoRaWanArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class MulticastGroupLoRaWanArgsDict(TypedDict):
-        dl_class: pulumi.Input[_builtins.str]
-        """
-        Multicast group LoRaWAN DL Class
-        """
-        rf_region: pulumi.Input[_builtins.str]
-        """
-        Multicast group LoRaWAN RF region
-        """
-        number_of_devices_in_group: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Multicast group number of devices in group. Returned after successful read.
-        """
-        number_of_devices_requested: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Multicast group number of devices requested. Returned after successful read.
-        """
-elif False:
-    MulticastGroupLoRaWanArgsDict: TypeAlias = Mapping[str, Any]
+class MulticastGroupLoRaWanArgsDict(TypedDict):
+    dl_class: pulumi.Input[_builtins.str]
+    """
+    Multicast group LoRaWAN DL Class
+    """
+    rf_region: pulumi.Input[_builtins.str]
+    """
+    Multicast group LoRaWAN RF region
+    """
+    number_of_devices_in_group: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Multicast group number of devices in group. Returned after successful read.
+    """
+    number_of_devices_requested: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Multicast group number of devices requested. Returned after successful read.
+    """
 
 @pulumi.input_type
 class MulticastGroupLoRaWanArgs:
@@ -591,120 +580,117 @@ class MulticastGroupLoRaWanArgs:
         pulumi.set(self, "number_of_devices_requested", value)
 
 
-if not MYPY:
-    class ServiceProfileLoRaWanServiceProfileArgsDict(TypedDict):
-        add_gw_metadata: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The AddGWMetaData value.
-        """
-        channel_mask: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ChannelMask value.
+class ServiceProfileLoRaWanServiceProfileArgsDict(TypedDict):
+    add_gw_metadata: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The AddGWMetaData value.
+    """
+    channel_mask: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ChannelMask value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        dev_status_req_freq: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The DevStatusReqFreq value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    dev_status_req_freq: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The DevStatusReqFreq value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        dl_bucket_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The DLBucketSize value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    dl_bucket_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The DLBucketSize value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        dl_rate: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The DLRate value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    dl_rate: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The DLRate value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        dl_rate_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DLRatePolicy value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    dl_rate_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DLRatePolicy value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        dr_max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The DRMax value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    dr_max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The DRMax value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        dr_min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The DRMin value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    dr_min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The DRMin value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        hr_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The HRAllowed value that describes whether handover roaming is allowed.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    hr_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The HRAllowed value that describes whether handover roaming is allowed.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        min_gw_diversity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The MinGwDiversity value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    min_gw_diversity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The MinGwDiversity value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        nwk_geo_loc: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The NwkGeoLoc value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    nwk_geo_loc: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The NwkGeoLoc value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        pr_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The PRAllowed value that describes whether passive roaming is allowed.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    pr_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The PRAllowed value that describes whether passive roaming is allowed.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        ra_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The RAAllowed value that describes whether roaming activation is allowed.
-        """
-        report_dev_status_battery: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The ReportDevStatusBattery value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    ra_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The RAAllowed value that describes whether roaming activation is allowed.
+    """
+    report_dev_status_battery: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The ReportDevStatusBattery value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        report_dev_status_margin: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The ReportDevStatusMargin value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    report_dev_status_margin: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The ReportDevStatusMargin value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        target_per: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The TargetPer value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    target_per: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The TargetPer value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        ul_bucket_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The UlBucketSize value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    ul_bucket_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The UlBucketSize value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        ul_rate: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ULRate value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    ul_rate: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ULRate value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-        ul_rate_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ULRatePolicy value.
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
+    ul_rate_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ULRatePolicy value.
 
-        This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
-        """
-elif False:
-    ServiceProfileLoRaWanServiceProfileArgsDict: TypeAlias = Mapping[str, Any]
+    This property is `ReadOnly` and can't be inputted for create. It's returned with `Fn::GetAtt`
+    """
 
 @pulumi.input_type
 class ServiceProfileLoRaWanServiceProfileArgs:
@@ -1085,22 +1071,19 @@ class ServiceProfileLoRaWanServiceProfileArgs:
         pulumi.set(self, "ul_rate_policy", value)
 
 
-if not MYPY:
-    class TaskDefinitionLoRaWanGatewayVersionArgsDict(TypedDict):
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The model number of the wireless gateway.
-        """
-        package_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the wireless gateway firmware.
-        """
-        station: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The basic station version of the wireless gateway.
-        """
-elif False:
-    TaskDefinitionLoRaWanGatewayVersionArgsDict: TypeAlias = Mapping[str, Any]
+class TaskDefinitionLoRaWanGatewayVersionArgsDict(TypedDict):
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The model number of the wireless gateway.
+    """
+    package_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the wireless gateway firmware.
+    """
+    station: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The basic station version of the wireless gateway.
+    """
 
 @pulumi.input_type
 class TaskDefinitionLoRaWanGatewayVersionArgs:
@@ -1157,26 +1140,23 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
         pulumi.set(self, "station", value)
 
 
-if not MYPY:
-    class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict(TypedDict):
-        current_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
-        """
-        The version of the gateways that should receive the update.
-        """
-        sig_key_crc: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The CRC of the signature private key to check.
-        """
-        update_signature: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The signature used to verify the update firmware.
-        """
-        update_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
-        """
-        The firmware version to update the gateway to.
-        """
-elif False:
-    TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict: TypeAlias = Mapping[str, Any]
+class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict(TypedDict):
+    current_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    """
+    The version of the gateways that should receive the update.
+    """
+    sig_key_crc: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The CRC of the signature private key to check.
+    """
+    update_signature: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The signature used to verify the update firmware.
+    """
+    update_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    """
+    The firmware version to update the gateway to.
+    """
 
 @pulumi.input_type
 class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
@@ -1249,18 +1229,15 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
         pulumi.set(self, "update_version", value)
 
 
-if not MYPY:
-    class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict(TypedDict):
-        current_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
-        """
-        The version of the gateways that should receive the update.
-        """
-        update_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
-        """
-        The firmware version to update the gateway to.
-        """
-elif False:
-    TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict: TypeAlias = Mapping[str, Any]
+class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict(TypedDict):
+    current_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    """
+    The version of the gateways that should receive the update.
+    """
+    update_version: NotRequired[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgsDict']]
+    """
+    The firmware version to update the gateway to.
+    """
 
 @pulumi.input_type
 class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
@@ -1301,22 +1278,19 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
         pulumi.set(self, "update_version", value)
 
 
-if not MYPY:
-    class TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict(TypedDict):
-        lo_ra_wan: NotRequired[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict']]
-        """
-        The properties that relate to the LoRaWAN wireless gateway.
-        """
-        update_data_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM role used to read data from the S3 bucket.
-        """
-        update_data_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The link to the S3 bucket.
-        """
-elif False:
-    TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict: TypeAlias = Mapping[str, Any]
+class TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict(TypedDict):
+    lo_ra_wan: NotRequired[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgsDict']]
+    """
+    The properties that relate to the LoRaWAN wireless gateway.
+    """
+    update_data_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM role used to read data from the S3 bucket.
+    """
+    update_data_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The link to the S3 bucket.
+    """
 
 @pulumi.input_type
 class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
@@ -1373,21 +1347,18 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
         pulumi.set(self, "update_data_source", value)
 
 
-if not MYPY:
-    class TraceContentPropertiesArgsDict(TypedDict):
-        """
-        Trace content for your wireless gateway and wireless device resources
-        """
-        log_level: NotRequired[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']]
-        """
-        The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
-        """
-        wireless_device_frame_info: NotRequired[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]
-        """
-        `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
-        """
-elif False:
-    TraceContentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TraceContentPropertiesArgsDict(TypedDict):
+    """
+    Trace content for your wireless gateway and wireless device resources
+    """
+    log_level: NotRequired[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']]
+    """
+    The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
+    """
+    wireless_device_frame_info: NotRequired[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']]
+    """
+    `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
+    """
 
 @pulumi.input_type
 class TraceContentPropertiesArgs:
@@ -1429,18 +1400,15 @@ class TraceContentPropertiesArgs:
         pulumi.set(self, "wireless_device_frame_info", value)
 
 
-if not MYPY:
-    class WirelessDeviceAbpV10xArgsDict(TypedDict):
-        dev_addr: pulumi.Input[_builtins.str]
-        """
-        The DevAddr value.
-        """
-        session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgsDict']
-        """
-        Session keys for ABP v1.0.x.
-        """
-elif False:
-    WirelessDeviceAbpV10xArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceAbpV10xArgsDict(TypedDict):
+    dev_addr: pulumi.Input[_builtins.str]
+    """
+    The DevAddr value.
+    """
+    session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgsDict']
+    """
+    Session keys for ABP v1.0.x.
+    """
 
 @pulumi.input_type
 class WirelessDeviceAbpV10xArgs:
@@ -1479,18 +1447,15 @@ class WirelessDeviceAbpV10xArgs:
         pulumi.set(self, "session_keys", value)
 
 
-if not MYPY:
-    class WirelessDeviceAbpV11ArgsDict(TypedDict):
-        dev_addr: pulumi.Input[_builtins.str]
-        """
-        The DevAddr value.
-        """
-        session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV11ArgsDict']
-        """
-        Session keys for ABP v1.1.
-        """
-elif False:
-    WirelessDeviceAbpV11ArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceAbpV11ArgsDict(TypedDict):
+    dev_addr: pulumi.Input[_builtins.str]
+    """
+    The DevAddr value.
+    """
+    session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV11ArgsDict']
+    """
+    Session keys for ABP v1.1.
+    """
 
 @pulumi.input_type
 class WirelessDeviceAbpV11Args:
@@ -1529,25 +1494,22 @@ class WirelessDeviceAbpV11Args:
         pulumi.set(self, "session_keys", value)
 
 
-if not MYPY:
-    class WirelessDeviceApplicationArgsDict(TypedDict):
-        """
-        LoRaWAN application configuration, which can be used to perform geolocation.
-        """
-        destination_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
-        """
-        f_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Fport value.
-        """
-        type: NotRequired[pulumi.Input['WirelessDeviceApplicationType']]
-        """
-        Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
-        """
-elif False:
-    WirelessDeviceApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceApplicationArgsDict(TypedDict):
+    """
+    LoRaWAN application configuration, which can be used to perform geolocation.
+    """
+    destination_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+    """
+    f_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Fport value.
+    """
+    type: NotRequired[pulumi.Input['WirelessDeviceApplicationType']]
+    """
+    Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+    """
 
 @pulumi.input_type
 class WirelessDeviceApplicationArgs:
@@ -1605,14 +1567,11 @@ class WirelessDeviceApplicationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WirelessDeviceFPortsArgsDict(TypedDict):
-        applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgsDict']]]]
-        """
-        A list of optional LoRaWAN application information, which can be used for geolocation.
-        """
-elif False:
-    WirelessDeviceFPortsArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceFPortsArgsDict(TypedDict):
+    applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgsDict']]]]
+    """
+    A list of optional LoRaWAN application information, which can be used for geolocation.
+    """
 
 @pulumi.input_type
 class WirelessDeviceFPortsArgs:
@@ -1637,42 +1596,39 @@ class WirelessDeviceFPortsArgs:
         pulumi.set(self, "applications", value)
 
 
-if not MYPY:
-    class WirelessDeviceLoRaWanDeviceArgsDict(TypedDict):
-        abp_v10x: NotRequired[pulumi.Input['WirelessDeviceAbpV10xArgsDict']]
-        """
-        ABP device object for LoRaWAN specification v1.0.x.
-        """
-        abp_v11: NotRequired[pulumi.Input['WirelessDeviceAbpV11ArgsDict']]
-        """
-        ABP device object for create APIs for v1.1.
-        """
-        dev_eui: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DevEUI value.
-        """
-        device_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the device profile for the new wireless device.
-        """
-        f_ports: NotRequired[pulumi.Input['WirelessDeviceFPortsArgsDict']]
-        """
-        List of FPort assigned for different LoRaWAN application packages to use.
-        """
-        otaa_v10x: NotRequired[pulumi.Input['WirelessDeviceOtaaV10xArgsDict']]
-        """
-        OTAA device object for create APIs for v1.0.x
-        """
-        otaa_v11: NotRequired[pulumi.Input['WirelessDeviceOtaaV11ArgsDict']]
-        """
-        OTAA device object for v1.1 for create APIs.
-        """
-        service_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the service profile.
-        """
-elif False:
-    WirelessDeviceLoRaWanDeviceArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceLoRaWanDeviceArgsDict(TypedDict):
+    abp_v10x: NotRequired[pulumi.Input['WirelessDeviceAbpV10xArgsDict']]
+    """
+    ABP device object for LoRaWAN specification v1.0.x.
+    """
+    abp_v11: NotRequired[pulumi.Input['WirelessDeviceAbpV11ArgsDict']]
+    """
+    ABP device object for create APIs for v1.1.
+    """
+    dev_eui: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DevEUI value.
+    """
+    device_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the device profile for the new wireless device.
+    """
+    f_ports: NotRequired[pulumi.Input['WirelessDeviceFPortsArgsDict']]
+    """
+    List of FPort assigned for different LoRaWAN application packages to use.
+    """
+    otaa_v10x: NotRequired[pulumi.Input['WirelessDeviceOtaaV10xArgsDict']]
+    """
+    OTAA device object for create APIs for v1.0.x
+    """
+    otaa_v11: NotRequired[pulumi.Input['WirelessDeviceOtaaV11ArgsDict']]
+    """
+    OTAA device object for v1.1 for create APIs.
+    """
+    service_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the service profile.
+    """
 
 @pulumi.input_type
 class WirelessDeviceLoRaWanDeviceArgs:
@@ -1809,18 +1765,15 @@ class WirelessDeviceLoRaWanDeviceArgs:
         pulumi.set(self, "service_profile_id", value)
 
 
-if not MYPY:
-    class WirelessDeviceOtaaV10xArgsDict(TypedDict):
-        app_eui: pulumi.Input[_builtins.str]
-        """
-        The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
-        """
-        app_key: pulumi.Input[_builtins.str]
-        """
-        The AppKey value.
-        """
-elif False:
-    WirelessDeviceOtaaV10xArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceOtaaV10xArgsDict(TypedDict):
+    app_eui: pulumi.Input[_builtins.str]
+    """
+    The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
+    """
+    app_key: pulumi.Input[_builtins.str]
+    """
+    The AppKey value.
+    """
 
 @pulumi.input_type
 class WirelessDeviceOtaaV10xArgs:
@@ -1859,22 +1812,19 @@ class WirelessDeviceOtaaV10xArgs:
         pulumi.set(self, "app_key", value)
 
 
-if not MYPY:
-    class WirelessDeviceOtaaV11ArgsDict(TypedDict):
-        app_key: pulumi.Input[_builtins.str]
-        """
-        The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-        """
-        join_eui: pulumi.Input[_builtins.str]
-        """
-        The JoinEUI value.
-        """
-        nwk_key: pulumi.Input[_builtins.str]
-        """
-        The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-        """
-elif False:
-    WirelessDeviceOtaaV11ArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceOtaaV11ArgsDict(TypedDict):
+    app_key: pulumi.Input[_builtins.str]
+    """
+    The AppKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+    """
+    join_eui: pulumi.Input[_builtins.str]
+    """
+    The JoinEUI value.
+    """
+    nwk_key: pulumi.Input[_builtins.str]
+    """
+    The NwkKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+    """
 
 @pulumi.input_type
 class WirelessDeviceOtaaV11Args:
@@ -1928,18 +1878,15 @@ class WirelessDeviceOtaaV11Args:
         pulumi.set(self, "nwk_key", value)
 
 
-if not MYPY:
-    class WirelessDeviceSessionKeysAbpV10xArgsDict(TypedDict):
-        app_s_key: pulumi.Input[_builtins.str]
-        """
-        The AppSKey value.
-        """
-        nwk_s_key: pulumi.Input[_builtins.str]
-        """
-        The NwkKey value.
-        """
-elif False:
-    WirelessDeviceSessionKeysAbpV10xArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceSessionKeysAbpV10xArgsDict(TypedDict):
+    app_s_key: pulumi.Input[_builtins.str]
+    """
+    The AppSKey value.
+    """
+    nwk_s_key: pulumi.Input[_builtins.str]
+    """
+    The NwkKey value.
+    """
 
 @pulumi.input_type
 class WirelessDeviceSessionKeysAbpV10xArgs:
@@ -1978,26 +1925,23 @@ class WirelessDeviceSessionKeysAbpV10xArgs:
         pulumi.set(self, "nwk_s_key", value)
 
 
-if not MYPY:
-    class WirelessDeviceSessionKeysAbpV11ArgsDict(TypedDict):
-        app_s_key: pulumi.Input[_builtins.str]
-        """
-        The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-        """
-        f_nwk_s_int_key: pulumi.Input[_builtins.str]
-        """
-        The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-        """
-        nwk_s_enc_key: pulumi.Input[_builtins.str]
-        """
-        The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-        """
-        s_nwk_s_int_key: pulumi.Input[_builtins.str]
-        """
-        The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
-        """
-elif False:
-    WirelessDeviceSessionKeysAbpV11ArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessDeviceSessionKeysAbpV11ArgsDict(TypedDict):
+    app_s_key: pulumi.Input[_builtins.str]
+    """
+    The AppSKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the AppSKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+    """
+    f_nwk_s_int_key: pulumi.Input[_builtins.str]
+    """
+    The FNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the FNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+    """
+    nwk_s_enc_key: pulumi.Input[_builtins.str]
+    """
+    The NwkSEncKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the NwkSEncKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+    """
+    s_nwk_s_int_key: pulumi.Input[_builtins.str]
+    """
+    The SNwkSIntKey is a secret key, which you should handle in a similar way as you would an application password. You can protect the SNwkSIntKey value by storing it in the AWS Secrets Manager and use the [secretsmanager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager) to reference this value.
+    """
 
 @pulumi.input_type
 class WirelessDeviceSessionKeysAbpV11Args:
@@ -2066,18 +2010,15 @@ class WirelessDeviceSessionKeysAbpV11Args:
         pulumi.set(self, "s_nwk_s_int_key", value)
 
 
-if not MYPY:
-    class WirelessGatewayLoRaWanGatewayArgsDict(TypedDict):
-        gateway_eui: pulumi.Input[_builtins.str]
-        """
-        The gateway's EUI value.
-        """
-        rf_region: pulumi.Input[_builtins.str]
-        """
-        The frequency band (RFRegion) value.
-        """
-elif False:
-    WirelessGatewayLoRaWanGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class WirelessGatewayLoRaWanGatewayArgsDict(TypedDict):
+    gateway_eui: pulumi.Input[_builtins.str]
+    """
+    The gateway's EUI value.
+    """
+    rf_region: pulumi.Input[_builtins.str]
+    """
+    The frequency band (RFRegion) value.
+    """
 
 @pulumi.input_type
 class WirelessGatewayLoRaWanGatewayArgs:

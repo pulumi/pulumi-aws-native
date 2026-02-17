@@ -45,6 +45,9 @@ __all__ = [
     'IpamPoolIpamScopeType',
     'IpamPoolPublicIpSource',
     'IpamPoolState',
+    'IpamPrefixListResolverRuleConditionOperation',
+    'IpamPrefixListResolverRuleResourceType',
+    'IpamPrefixListResolverRuleRuleType',
     'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType',
     'IpamScopeType',
     'IpamTier',
@@ -546,6 +549,7 @@ class IpamPoolAwsService(_builtins.str, Enum):
     Limits which service in Amazon Web Services that the pool can be used in.
     """
     EC2 = "ec2"
+    GLOBAL_SERVICES = "global-services"
 
 
 @pulumi.type_token("aws-native:ec2:IpamPoolIpamScopeType")
@@ -577,6 +581,37 @@ class IpamPoolState(_builtins.str, Enum):
     MODIFY_COMPLETE = "modify-complete"
     DELETE_IN_PROGRESS = "delete-in-progress"
     DELETE_COMPLETE = "delete-complete"
+
+
+@pulumi.type_token("aws-native:ec2:IpamPrefixListResolverRuleConditionOperation")
+class IpamPrefixListResolverRuleConditionOperation(_builtins.str, Enum):
+    """
+    Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+    """
+    EQUALS = "equals"
+    NOT_EQUALS = "not-equals"
+    SUBNET_OF = "subnet-of"
+
+
+@pulumi.type_token("aws-native:ec2:IpamPrefixListResolverRuleResourceType")
+class IpamPrefixListResolverRuleResourceType(_builtins.str, Enum):
+    """
+    The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+    """
+    VPC = "vpc"
+    SUBNET = "subnet"
+    EIP = "eip"
+    PUBLIC_IPV4_POOL = "public-ipv4-pool"
+
+
+@pulumi.type_token("aws-native:ec2:IpamPrefixListResolverRuleRuleType")
+class IpamPrefixListResolverRuleRuleType(_builtins.str, Enum):
+    """
+    There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+    """
+    STATIC_CIDR = "static-cidr"
+    IPAM_RESOURCE_CIDR = "ipam-resource-cidr"
+    IPAM_POOL_CIDR = "ipam-pool-cidr"
 
 
 @pulumi.type_token("aws-native:ec2:IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType")
@@ -1210,9 +1245,8 @@ class VpcEndpointType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat")
 class VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat(_builtins.str, Enum):
     """
-    The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-
-    Valid values: `json` | `text`
+    The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+     Valid values: ``json`` | ``text``
     """
     JSON = "json"
     TEXT = "text"
@@ -1293,7 +1327,7 @@ class VpnConnectionPreSharedKeyStorage(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ec2:VpnConnectionTunnelBandwidth")
 class VpnConnectionTunnelBandwidth(_builtins.str, Enum):
     """
-    The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+    The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
     """
     STANDARD = "standard"
     LARGE = "large"

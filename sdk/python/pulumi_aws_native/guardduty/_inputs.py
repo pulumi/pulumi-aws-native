@@ -48,24 +48,19 @@ __all__ = [
     'PublishingDestinationCfnDestinationPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DetectorCfnDataSourceConfigurationsArgsDict(TypedDict):
-        kubernetes: NotRequired[pulumi.Input['DetectorCfnKubernetesConfigurationArgsDict']]
-        """
-        Describes which Kubernetes data sources are enabled for a detector.
-        """
-        malware_protection: NotRequired[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgsDict']]
-        """
-        Describes whether Malware Protection will be enabled as a data source.
-        """
-        s3_logs: NotRequired[pulumi.Input['DetectorCfns3LogsConfigurationArgsDict']]
-        """
-        Describes whether S3 data event logs are enabled as a data source.
-        """
-elif False:
-    DetectorCfnDataSourceConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnDataSourceConfigurationsArgsDict(TypedDict):
+    kubernetes: NotRequired[pulumi.Input['DetectorCfnKubernetesConfigurationArgsDict']]
+    """
+    Describes which Kubernetes data sources are enabled for a detector.
+    """
+    malware_protection: NotRequired[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgsDict']]
+    """
+    Describes whether Malware Protection will be enabled as a data source.
+    """
+    s3_logs: NotRequired[pulumi.Input['DetectorCfns3LogsConfigurationArgsDict']]
+    """
+    Describes whether S3 data event logs are enabled as a data source.
+    """
 
 @pulumi.input_type
 class DetectorCfnDataSourceConfigurationsArgs:
@@ -122,18 +117,15 @@ class DetectorCfnDataSourceConfigurationsArgs:
         pulumi.set(self, "s3_logs", value)
 
 
-if not MYPY:
-    class DetectorCfnFeatureAdditionalConfigurationArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the additional configuration.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the additional configuration.
-        """
-elif False:
-    DetectorCfnFeatureAdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnFeatureAdditionalConfigurationArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the additional configuration.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the additional configuration.
+    """
 
 @pulumi.input_type
 class DetectorCfnFeatureAdditionalConfigurationArgs:
@@ -174,22 +166,19 @@ class DetectorCfnFeatureAdditionalConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class DetectorCfnFeatureConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
-        """
-        status: pulumi.Input['DetectorCfnFeatureConfigurationStatus']
-        """
-        Status of the feature configuration.
-        """
-        additional_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgsDict']]]]
-        """
-        Information about the additional configuration of a feature in your account.
-        """
-elif False:
-    DetectorCfnFeatureConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnFeatureConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the feature. For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
+    """
+    status: pulumi.Input['DetectorCfnFeatureConfigurationStatus']
+    """
+    Status of the feature configuration.
+    """
+    additional_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgsDict']]]]
+    """
+    Information about the additional configuration of a feature in your account.
+    """
 
 @pulumi.input_type
 class DetectorCfnFeatureConfigurationArgs:
@@ -244,14 +233,11 @@ class DetectorCfnFeatureConfigurationArgs:
         pulumi.set(self, "additional_configuration", value)
 
 
-if not MYPY:
-    class DetectorCfnKubernetesAuditLogsConfigurationArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
-        """
-elif False:
-    DetectorCfnKubernetesAuditLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnKubernetesAuditLogsConfigurationArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+    """
 
 @pulumi.input_type
 class DetectorCfnKubernetesAuditLogsConfigurationArgs:
@@ -275,14 +261,11 @@ class DetectorCfnKubernetesAuditLogsConfigurationArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class DetectorCfnKubernetesConfigurationArgsDict(TypedDict):
-        audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgsDict']
-        """
-        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
-        """
-elif False:
-    DetectorCfnKubernetesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnKubernetesConfigurationArgsDict(TypedDict):
+    audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgsDict']
+    """
+    Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+    """
 
 @pulumi.input_type
 class DetectorCfnKubernetesConfigurationArgs:
@@ -306,14 +289,11 @@ class DetectorCfnKubernetesConfigurationArgs:
         pulumi.set(self, "audit_logs", value)
 
 
-if not MYPY:
-    class DetectorCfnMalwareProtectionConfigurationArgsDict(TypedDict):
-        scan_ec2_instance_with_findings: NotRequired[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgsDict']]
-        """
-        Describes the configuration of Malware Protection for EC2 instances with findings.
-        """
-elif False:
-    DetectorCfnMalwareProtectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnMalwareProtectionConfigurationArgsDict(TypedDict):
+    scan_ec2_instance_with_findings: NotRequired[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgsDict']]
+    """
+    Describes the configuration of Malware Protection for EC2 instances with findings.
+    """
 
 @pulumi.input_type
 class DetectorCfnMalwareProtectionConfigurationArgs:
@@ -338,14 +318,11 @@ class DetectorCfnMalwareProtectionConfigurationArgs:
         pulumi.set(self, "scan_ec2_instance_with_findings", value)
 
 
-if not MYPY:
-    class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgsDict(TypedDict):
-        ebs_volumes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes the configuration for scanning EBS volumes as data source.
-        """
-elif False:
-    DetectorCfnScanEc2InstanceWithFindingsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgsDict(TypedDict):
+    ebs_volumes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Describes the configuration for scanning EBS volumes as data source.
+    """
 
 @pulumi.input_type
 class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
@@ -370,14 +347,11 @@ class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
         pulumi.set(self, "ebs_volumes", value)
 
 
-if not MYPY:
-    class DetectorCfns3LogsConfigurationArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        The status of S3 data event logs as a data source.
-        """
-elif False:
-    DetectorCfns3LogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorCfns3LogsConfigurationArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    The status of S3 data event logs as a data source.
+    """
 
 @pulumi.input_type
 class DetectorCfns3LogsConfigurationArgs:
@@ -401,22 +375,19 @@ class DetectorCfns3LogsConfigurationArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class FilterConditionArgsDict(TypedDict):
-        eq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        greater_than: NotRequired[pulumi.Input[_builtins.int]]
-        greater_than_or_equal: NotRequired[pulumi.Input[_builtins.int]]
-        gt: NotRequired[pulumi.Input[_builtins.int]]
-        gte: NotRequired[pulumi.Input[_builtins.int]]
-        less_than: NotRequired[pulumi.Input[_builtins.int]]
-        less_than_or_equal: NotRequired[pulumi.Input[_builtins.int]]
-        lt: NotRequired[pulumi.Input[_builtins.int]]
-        lte: NotRequired[pulumi.Input[_builtins.int]]
-        neq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    FilterConditionArgsDict: TypeAlias = Mapping[str, Any]
+class FilterConditionArgsDict(TypedDict):
+    eq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    greater_than: NotRequired[pulumi.Input[_builtins.int]]
+    greater_than_or_equal: NotRequired[pulumi.Input[_builtins.int]]
+    gt: NotRequired[pulumi.Input[_builtins.int]]
+    gte: NotRequired[pulumi.Input[_builtins.int]]
+    less_than: NotRequired[pulumi.Input[_builtins.int]]
+    less_than_or_equal: NotRequired[pulumi.Input[_builtins.int]]
+    lt: NotRequired[pulumi.Input[_builtins.int]]
+    lte: NotRequired[pulumi.Input[_builtins.int]]
+    neq: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class FilterConditionArgs:
@@ -567,123 +538,120 @@ class FilterConditionArgs:
         pulumi.set(self, "not_equals", value)
 
 
-if not MYPY:
-    class FilterFindingCriteriaArgsDict(TypedDict):
-        criterion: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FilterConditionArgsDict']]]]
-        """
-        Represents a map of finding properties that match specified conditions and values when querying findings.
+class FilterFindingCriteriaArgsDict(TypedDict):
+    criterion: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FilterConditionArgsDict']]]]
+    """
+    Represents a map of finding properties that match specified conditions and values when querying findings.
 
-        For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+    For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
 
-        - accountId
-        - id
-        - region
-        - severity
+    - accountId
+    - id
+    - region
+    - severity
 
-        To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
+    To filter on the basis of severity, the API and AWS CLI use the following input list for the `FindingCriteria` condition:
 
-        - *Low* : `["1", "2", "3"]`
-        - *Medium* : `["4", "5", "6"]`
-        - *High* : `["7", "8", "9"]`
+    - *Low* : `["1", "2", "3"]`
+    - *Medium* : `["4", "5", "6"]`
+    - *High* : `["7", "8", "9"]`
 
-        For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
-        - type
-        - updatedAt
+    For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) in the *Amazon GuardDuty User Guide* .
+    - type
+    - updatedAt
 
-        Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
-        - resource.accessKeyDetails.accessKeyId
-        - resource.accessKeyDetails.principalId
-        - resource.accessKeyDetails.userName
-        - resource.accessKeyDetails.userType
-        - resource.instanceDetails.iamInstanceProfile.id
-        - resource.instanceDetails.imageId
-        - resource.instanceDetails.instanceId
-        - resource.instanceDetails.tags.key
-        - resource.instanceDetails.tags.value
-        - resource.instanceDetails.networkInterfaces.ipv6Addresses
-        - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
-        - resource.instanceDetails.networkInterfaces.publicDnsName
-        - resource.instanceDetails.networkInterfaces.publicIp
-        - resource.instanceDetails.networkInterfaces.securityGroups.groupId
-        - resource.instanceDetails.networkInterfaces.securityGroups.groupName
-        - resource.instanceDetails.networkInterfaces.subnetId
-        - resource.instanceDetails.networkInterfaces.vpcId
-        - resource.instanceDetails.outpostArn
-        - resource.resourceType
-        - resource.s3BucketDetails.publicAccess.effectivePermissions
-        - resource.s3BucketDetails.name
-        - resource.s3BucketDetails.tags.key
-        - resource.s3BucketDetails.tags.value
-        - resource.s3BucketDetails.type
-        - service.action.actionType
-        - service.action.awsApiCallAction.api
-        - service.action.awsApiCallAction.callerType
-        - service.action.awsApiCallAction.errorCode
-        - service.action.awsApiCallAction.remoteIpDetails.city.cityName
-        - service.action.awsApiCallAction.remoteIpDetails.country.countryName
-        - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
-        - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
-        - service.action.awsApiCallAction.remoteIpDetails.organization.asn
-        - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
-        - service.action.awsApiCallAction.serviceName
-        - service.action.dnsRequestAction.domain
-        - service.action.dnsRequestAction.domainWithSuffix
-        - service.action.networkConnectionAction.blocked
-        - service.action.networkConnectionAction.connectionDirection
-        - service.action.networkConnectionAction.localPortDetails.port
-        - service.action.networkConnectionAction.protocol
-        - service.action.networkConnectionAction.remoteIpDetails.city.cityName
-        - service.action.networkConnectionAction.remoteIpDetails.country.countryName
-        - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
-        - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
-        - service.action.networkConnectionAction.remoteIpDetails.organization.asn
-        - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
-        - service.action.networkConnectionAction.remotePortDetails.port
-        - service.action.awsApiCallAction.remoteAccountDetails.affiliated
-        - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
-        - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
-        - service.action.kubernetesApiCallAction.namespace
-        - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
-        - service.action.kubernetesApiCallAction.requestUri
-        - service.action.kubernetesApiCallAction.statusCode
-        - service.action.networkConnectionAction.localIpDetails.ipAddressV4
-        - service.action.networkConnectionAction.localIpDetails.ipAddressV6
-        - service.action.networkConnectionAction.protocol
-        - service.action.awsApiCallAction.serviceName
-        - service.action.awsApiCallAction.remoteAccountDetails.accountId
-        - service.additionalInfo.threatListName
-        - service.resourceRole
-        - resource.eksClusterDetails.name
-        - resource.kubernetesDetails.kubernetesWorkloadDetails.name
-        - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
-        - resource.kubernetesDetails.kubernetesUserDetails.username
-        - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
-        - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
-        - service.ebsVolumeScanDetails.scanId
-        - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
-        - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
-        - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
-        - service.malwareScanDetails.threats.name
-        - resource.ecsClusterDetails.name
-        - resource.ecsClusterDetails.taskDetails.containers.image
-        - resource.ecsClusterDetails.taskDetails.definitionArn
-        - resource.containerDetails.image
-        - resource.rdsDbInstanceDetails.dbInstanceIdentifier
-        - resource.rdsDbInstanceDetails.dbClusterIdentifier
-        - resource.rdsDbInstanceDetails.engine
-        - resource.rdsDbUserDetails.user
-        - resource.rdsDbInstanceDetails.tags.key
-        - resource.rdsDbInstanceDetails.tags.value
-        - service.runtimeDetails.process.executableSha256
-        - service.runtimeDetails.process.name
-        - service.runtimeDetails.process.name
-        - resource.lambdaDetails.functionName
-        - resource.lambdaDetails.functionArn
-        - resource.lambdaDetails.tags.key
-        - resource.lambdaDetails.tags.value
-        """
-elif False:
-    FilterFindingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+    Type: ISO 8601 string format: `YYYY-MM-DDTHH:MM:SS.SSSZ` or `YYYY-MM-DDTHH:MM:SSZ` depending on whether the value contains milliseconds.
+    - resource.accessKeyDetails.accessKeyId
+    - resource.accessKeyDetails.principalId
+    - resource.accessKeyDetails.userName
+    - resource.accessKeyDetails.userType
+    - resource.instanceDetails.iamInstanceProfile.id
+    - resource.instanceDetails.imageId
+    - resource.instanceDetails.instanceId
+    - resource.instanceDetails.tags.key
+    - resource.instanceDetails.tags.value
+    - resource.instanceDetails.networkInterfaces.ipv6Addresses
+    - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+    - resource.instanceDetails.networkInterfaces.publicDnsName
+    - resource.instanceDetails.networkInterfaces.publicIp
+    - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+    - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+    - resource.instanceDetails.networkInterfaces.subnetId
+    - resource.instanceDetails.networkInterfaces.vpcId
+    - resource.instanceDetails.outpostArn
+    - resource.resourceType
+    - resource.s3BucketDetails.publicAccess.effectivePermissions
+    - resource.s3BucketDetails.name
+    - resource.s3BucketDetails.tags.key
+    - resource.s3BucketDetails.tags.value
+    - resource.s3BucketDetails.type
+    - service.action.actionType
+    - service.action.awsApiCallAction.api
+    - service.action.awsApiCallAction.callerType
+    - service.action.awsApiCallAction.errorCode
+    - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+    - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+    - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+    - service.action.awsApiCallAction.remoteIpDetails.ipAddressV6
+    - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+    - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+    - service.action.awsApiCallAction.serviceName
+    - service.action.dnsRequestAction.domain
+    - service.action.dnsRequestAction.domainWithSuffix
+    - service.action.networkConnectionAction.blocked
+    - service.action.networkConnectionAction.connectionDirection
+    - service.action.networkConnectionAction.localPortDetails.port
+    - service.action.networkConnectionAction.protocol
+    - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+    - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+    - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+    - service.action.networkConnectionAction.remoteIpDetails.ipAddressV6
+    - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+    - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+    - service.action.networkConnectionAction.remotePortDetails.port
+    - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+    - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+    - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6
+    - service.action.kubernetesApiCallAction.namespace
+    - service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn
+    - service.action.kubernetesApiCallAction.requestUri
+    - service.action.kubernetesApiCallAction.statusCode
+    - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+    - service.action.networkConnectionAction.localIpDetails.ipAddressV6
+    - service.action.networkConnectionAction.protocol
+    - service.action.awsApiCallAction.serviceName
+    - service.action.awsApiCallAction.remoteAccountDetails.accountId
+    - service.additionalInfo.threatListName
+    - service.resourceRole
+    - resource.eksClusterDetails.name
+    - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+    - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+    - resource.kubernetesDetails.kubernetesUserDetails.username
+    - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+    - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+    - service.ebsVolumeScanDetails.scanId
+    - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+    - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+    - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+    - service.malwareScanDetails.threats.name
+    - resource.ecsClusterDetails.name
+    - resource.ecsClusterDetails.taskDetails.containers.image
+    - resource.ecsClusterDetails.taskDetails.definitionArn
+    - resource.containerDetails.image
+    - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+    - resource.rdsDbInstanceDetails.dbClusterIdentifier
+    - resource.rdsDbInstanceDetails.engine
+    - resource.rdsDbUserDetails.user
+    - resource.rdsDbInstanceDetails.tags.key
+    - resource.rdsDbInstanceDetails.tags.value
+    - service.runtimeDetails.process.executableSha256
+    - service.runtimeDetails.process.name
+    - service.runtimeDetails.process.name
+    - resource.lambdaDetails.functionName
+    - resource.lambdaDetails.functionArn
+    - resource.lambdaDetails.tags.key
+    - resource.lambdaDetails.tags.value
+    """
 
 @pulumi.input_type
 class FilterFindingCriteriaArgs:
@@ -926,14 +894,11 @@ class FilterFindingCriteriaArgs:
         pulumi.set(self, "criterion", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanCfnActionsArgsDict(TypedDict):
-        tagging: NotRequired[pulumi.Input['MalwareProtectionPlanCfnTaggingArgsDict']]
-        """
-        Contains information about tagging status of the Malware Protection plan resource.
-        """
-elif False:
-    MalwareProtectionPlanCfnActionsArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanCfnActionsArgsDict(TypedDict):
+    tagging: NotRequired[pulumi.Input['MalwareProtectionPlanCfnTaggingArgsDict']]
+    """
+    Contains information about tagging status of the Malware Protection plan resource.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanCfnActionsArgs:
@@ -958,21 +923,18 @@ class MalwareProtectionPlanCfnActionsArgs:
         pulumi.set(self, "tagging", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgsDict(TypedDict):
-        """
-        Information about the protected S3 bucket resource.
-        """
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the S3 bucket.
-        """
-        object_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
-        """
-elif False:
-    MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgsDict(TypedDict):
+    """
+    Information about the protected S3 bucket resource.
+    """
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the S3 bucket.
+    """
+    object_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs:
@@ -1014,14 +976,11 @@ class MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs:
         pulumi.set(self, "object_prefixes", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanCfnProtectedResourceArgsDict(TypedDict):
-        s3_bucket: pulumi.Input['MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgsDict']
-        """
-        Information about the protected S3 bucket resource.
-        """
-elif False:
-    MalwareProtectionPlanCfnProtectedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanCfnProtectedResourceArgsDict(TypedDict):
+    s3_bucket: pulumi.Input['MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgsDict']
+    """
+    Information about the protected S3 bucket resource.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanCfnProtectedResourceArgs:
@@ -1045,14 +1004,11 @@ class MalwareProtectionPlanCfnProtectedResourceArgs:
         pulumi.set(self, "s3_bucket", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanCfnTaggingArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
-        """
-elif False:
-    MalwareProtectionPlanCfnTaggingArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanCfnTaggingArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanCfnTaggingArgs:
@@ -1077,18 +1033,15 @@ class MalwareProtectionPlanCfnTaggingArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PublishingDestinationCfnDestinationPropertiesArgsDict(TypedDict):
-        destination_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the resource to publish to.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key to use for encryption.
-        """
-elif False:
-    PublishingDestinationCfnDestinationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PublishingDestinationCfnDestinationPropertiesArgsDict(TypedDict):
+    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the resource to publish to.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMS key to use for encryption.
+    """
 
 @pulumi.input_type
 class PublishingDestinationCfnDestinationPropertiesArgs:

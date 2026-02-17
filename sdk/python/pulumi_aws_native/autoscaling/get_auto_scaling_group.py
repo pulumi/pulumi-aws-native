@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, auto_scaling_group_arn=None, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_lifecycle_policy=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
+    def __init__(__self__, auto_scaling_group_arn=None, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, deletion_protection=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_lifecycle_policy=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
         if auto_scaling_group_arn and not isinstance(auto_scaling_group_arn, str):
             raise TypeError("Expected argument 'auto_scaling_group_arn' to be a str")
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
@@ -53,6 +53,9 @@ class GetAutoScalingGroupResult:
         if default_instance_warmup and not isinstance(default_instance_warmup, int):
             raise TypeError("Expected argument 'default_instance_warmup' to be a int")
         pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
+        if deletion_protection and not isinstance(deletion_protection, str):
+            raise TypeError("Expected argument 'deletion_protection' to be a str")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if desired_capacity and not isinstance(desired_capacity, str):
             raise TypeError("Expected argument 'desired_capacity' to be a str")
         pulumi.set(__self__, "desired_capacity", desired_capacity)
@@ -141,7 +144,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']:
         """
-        The instance capacity distribution across Availability Zones.
+        The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
@@ -149,7 +152,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
     def availability_zone_impairment_policy(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy']:
         """
-        The Availability Zone impairment policy.
+        The Availability Zone impairment policy for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_impairment_policy")
 
@@ -173,7 +176,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional['outputs.AutoScalingGroupCapacityReservationSpecification']:
         """
-        The capacity reservation specification.
+        The capacity reservation specification for the Auto Scaling group.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -205,6 +208,11 @@ class GetAutoScalingGroupResult:
           Default: None
         """
         return pulumi.get(self, "default_instance_warmup")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
@@ -436,6 +444,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             context=self.context,
             cooldown=self.cooldown,
             default_instance_warmup=self.default_instance_warmup,
+            deletion_protection=self.deletion_protection,
             desired_capacity=self.desired_capacity,
             desired_capacity_type=self.desired_capacity_type,
             health_check_grace_period=self.health_check_grace_period,
@@ -491,6 +500,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[_builtins.str] = No
         context=pulumi.get(__ret__, 'context'),
         cooldown=pulumi.get(__ret__, 'cooldown'),
         default_instance_warmup=pulumi.get(__ret__, 'default_instance_warmup'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         desired_capacity=pulumi.get(__ret__, 'desired_capacity'),
         desired_capacity_type=pulumi.get(__ret__, 'desired_capacity_type'),
         health_check_grace_period=pulumi.get(__ret__, 'health_check_grace_period'),
@@ -543,6 +553,7 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
         context=pulumi.get(__response__, 'context'),
         cooldown=pulumi.get(__response__, 'cooldown'),
         default_instance_warmup=pulumi.get(__response__, 'default_instance_warmup'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         desired_capacity=pulumi.get(__response__, 'desired_capacity'),
         desired_capacity_type=pulumi.get(__response__, 'desired_capacity_type'),
         health_check_grace_period=pulumi.get(__response__, 'health_check_grace_period'),

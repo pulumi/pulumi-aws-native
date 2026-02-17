@@ -165,6 +165,8 @@ if typing.TYPE_CHECKING:
     directoryservice = __directoryservice
     import pulumi_aws_native.dms as __dms
     dms = __dms
+    import pulumi_aws_native.docdb as __docdb
+    docdb = __docdb
     import pulumi_aws_native.docdbelastic as __docdbelastic
     docdbelastic = __docdbelastic
     import pulumi_aws_native.dsql as __dsql
@@ -323,6 +325,8 @@ if typing.TYPE_CHECKING:
     msk = __msk
     import pulumi_aws_native.mwaa as __mwaa
     mwaa = __mwaa
+    import pulumi_aws_native.mwaaserverless as __mwaaserverless
+    mwaaserverless = __mwaaserverless
     import pulumi_aws_native.neptune as __neptune
     neptune = __neptune
     import pulumi_aws_native.neptunegraph as __neptunegraph
@@ -567,6 +571,7 @@ else:
     devopsguru = _utilities.lazy_import('pulumi_aws_native.devopsguru')
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
     dms = _utilities.lazy_import('pulumi_aws_native.dms')
+    docdb = _utilities.lazy_import('pulumi_aws_native.docdb')
     docdbelastic = _utilities.lazy_import('pulumi_aws_native.docdbelastic')
     dsql = _utilities.lazy_import('pulumi_aws_native.dsql')
     dynamodb = _utilities.lazy_import('pulumi_aws_native.dynamodb')
@@ -646,6 +651,7 @@ else:
     memorydb = _utilities.lazy_import('pulumi_aws_native.memorydb')
     msk = _utilities.lazy_import('pulumi_aws_native.msk')
     mwaa = _utilities.lazy_import('pulumi_aws_native.mwaa')
+    mwaaserverless = _utilities.lazy_import('pulumi_aws_native.mwaaserverless')
     neptune = _utilities.lazy_import('pulumi_aws_native.neptune')
     neptunegraph = _utilities.lazy_import('pulumi_aws_native.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
@@ -1030,7 +1036,8 @@ _utilities.register(
    "aws-native:backup:LogicallyAirGappedBackupVault": "LogicallyAirGappedBackupVault",
    "aws-native:backup:ReportPlan": "ReportPlan",
    "aws-native:backup:RestoreTestingPlan": "RestoreTestingPlan",
-   "aws-native:backup:RestoreTestingSelection": "RestoreTestingSelection"
+   "aws-native:backup:RestoreTestingSelection": "RestoreTestingSelection",
+   "aws-native:backup:TieringConfiguration": "TieringConfiguration"
   }
  },
  {
@@ -1284,7 +1291,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codedeploy",
   "classes": {
    "aws-native:codedeploy:Application": "Application",
-   "aws-native:codedeploy:DeploymentConfig": "DeploymentConfig"
+   "aws-native:codedeploy:DeploymentConfig": "DeploymentConfig",
+   "aws-native:codedeploy:DeploymentGroup": "DeploymentGroup"
   }
  },
  {
@@ -1395,6 +1403,7 @@ _utilities.register(
    "aws-native:connect:Instance": "Instance",
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
    "aws-native:connect:IntegrationAssociation": "IntegrationAssociation",
+   "aws-native:connect:Notification": "Notification",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:PredefinedAttribute": "PredefinedAttribute",
    "aws-native:connect:Prompt": "Prompt",
@@ -1601,6 +1610,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "docdb",
+  "fqn": "pulumi_aws_native.docdb",
+  "classes": {
+   "aws-native:docdb:GlobalCluster": "GlobalCluster"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "docdbelastic",
   "fqn": "pulumi_aws_native.docdbelastic",
   "classes": {
@@ -1651,6 +1668,7 @@ _utilities.register(
    "aws-native:ec2:IpamAllocation": "IpamAllocation",
    "aws-native:ec2:IpamPool": "IpamPool",
    "aws-native:ec2:IpamPoolCidr": "IpamPoolCidr",
+   "aws-native:ec2:IpamPrefixListResolver": "IpamPrefixListResolver",
    "aws-native:ec2:IpamResourceDiscovery": "IpamResourceDiscovery",
    "aws-native:ec2:IpamResourceDiscoveryAssociation": "IpamResourceDiscoveryAssociation",
    "aws-native:ec2:IpamScope": "IpamScope",
@@ -1843,6 +1861,8 @@ _utilities.register(
   "mod": "emrcontainers",
   "fqn": "pulumi_aws_native.emrcontainers",
   "classes": {
+   "aws-native:emrcontainers:Endpoint": "Endpoint",
+   "aws-native:emrcontainers:SecurityConfiguration": "SecurityConfiguration",
    "aws-native:emrcontainers:VirtualCluster": "VirtualCluster"
   }
  },
@@ -2459,6 +2479,7 @@ _utilities.register(
    "aws-native:lightsail:Certificate": "Certificate",
    "aws-native:lightsail:Container": "Container",
    "aws-native:lightsail:Database": "Database",
+   "aws-native:lightsail:DatabaseSnapshot": "DatabaseSnapshot",
    "aws-native:lightsail:Disk": "Disk",
    "aws-native:lightsail:DiskSnapshot": "DiskSnapshot",
    "aws-native:lightsail:Instance": "Instance",
@@ -2499,6 +2520,7 @@ _utilities.register(
    "aws-native:logs:MetricFilter": "MetricFilter",
    "aws-native:logs:QueryDefinition": "QueryDefinition",
    "aws-native:logs:ResourcePolicy": "ResourcePolicy",
+   "aws-native:logs:ScheduledQuery": "ScheduledQuery",
    "aws-native:logs:SubscriptionFilter": "SubscriptionFilter",
    "aws-native:logs:Transformer": "Transformer"
   }
@@ -2630,6 +2652,7 @@ _utilities.register(
    "aws-native:msk:Configuration": "Configuration",
    "aws-native:msk:Replicator": "Replicator",
    "aws-native:msk:ServerlessCluster": "ServerlessCluster",
+   "aws-native:msk:Topic": "Topic",
    "aws-native:msk:VpcConnection": "VpcConnection"
   }
  },
@@ -2639,6 +2662,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.mwaa",
   "classes": {
    "aws-native:mwaa:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "mwaaserverless",
+  "fqn": "pulumi_aws_native.mwaaserverless",
+  "classes": {
+   "aws-native:mwaaserverless:Workflow": "Workflow"
   }
  },
  {
@@ -2923,6 +2954,7 @@ _utilities.register(
   "mod": "quicksight",
   "fqn": "pulumi_aws_native.quicksight",
   "classes": {
+   "aws-native:quicksight:ActionConnector": "ActionConnector",
    "aws-native:quicksight:Analysis": "Analysis",
    "aws-native:quicksight:CustomPermissions": "CustomPermissions",
    "aws-native:quicksight:Dashboard": "Dashboard",
@@ -3335,6 +3367,7 @@ _utilities.register(
    "aws-native:ses:ConfigurationSet": "ConfigurationSet",
    "aws-native:ses:ConfigurationSetEventDestination": "ConfigurationSetEventDestination",
    "aws-native:ses:ContactList": "ContactList",
+   "aws-native:ses:CustomVerificationEmailTemplate": "CustomVerificationEmailTemplate",
    "aws-native:ses:DedicatedIpPool": "DedicatedIpPool",
    "aws-native:ses:EmailIdentity": "EmailIdentity",
    "aws-native:ses:MailManagerAddonInstance": "MailManagerAddonInstance",
@@ -3620,6 +3653,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.workspaces",
   "classes": {
    "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
+   "aws-native:workspaces:Workspace": "Workspace",
    "aws-native:workspaces:WorkspacesPool": "WorkspacesPool"
   }
  },

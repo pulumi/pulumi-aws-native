@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetKeyValueStoreResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetKeyValueStoreResult:
-    def __init__(__self__, arn=None, comment=None, id=None, status=None):
+    def __init__(__self__, arn=None, comment=None, id=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +37,9 @@ class GetKeyValueStoreResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -69,6 +73,11 @@ class GetKeyValueStoreResult:
         """
         return pulumi.get(self, "status")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetKeyValueStoreResult(GetKeyValueStoreResult):
     # pylint: disable=using-constant-test
@@ -79,7 +88,8 @@ class AwaitableGetKeyValueStoreResult(GetKeyValueStoreResult):
             arn=self.arn,
             comment=self.comment,
             id=self.id,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_key_value_store(name: Optional[_builtins.str] = None,
@@ -99,7 +109,8 @@ def get_key_value_store(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         comment=pulumi.get(__ret__, 'comment'),
         id=pulumi.get(__ret__, 'id'),
-        status=pulumi.get(__ret__, 'status'))
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_key_value_store_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyValueStoreResult]:
     """
@@ -116,4 +127,5 @@ def get_key_value_store_output(name: Optional[pulumi.Input[_builtins.str]] = Non
         arn=pulumi.get(__response__, 'arn'),
         comment=pulumi.get(__response__, 'comment'),
         id=pulumi.get(__response__, 'id'),
-        status=pulumi.get(__response__, 'status')))
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

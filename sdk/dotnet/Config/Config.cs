@@ -162,14 +162,14 @@ namespace Pulumi.AwsNative
             set => _roleArn.Set(value);
         }
 
-        private static readonly __Value<bool?> _s3ForcePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3ForcePathStyle"));
+        private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
         /// <summary>
-        /// Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+        /// Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         /// </summary>
-        public static bool? S3ForcePathStyle
+        public static bool? S3UsePathStyle
         {
-            get => _s3ForcePathStyle.Get();
-            set => _s3ForcePathStyle.Set(value);
+            get => _s3UsePathStyle.Get();
+            set => _s3UsePathStyle.Set(value);
         }
 
         private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey"));

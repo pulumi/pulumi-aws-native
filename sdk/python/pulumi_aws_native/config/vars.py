@@ -113,11 +113,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('roleArn')
 
     @_builtins.property
-    def s3_force_path_style(self) -> Optional[bool]:
+    def s3_use_path_style(self) -> Optional[bool]:
         """
-        Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
+        Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         """
-        return __config__.get_bool('s3ForcePathStyle')
+        return __config__.get_bool('s3UsePathStyle')
 
     @_builtins.property
     def secret_key(self) -> Optional[str]:

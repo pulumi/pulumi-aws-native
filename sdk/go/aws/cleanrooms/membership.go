@@ -35,6 +35,7 @@ type Membership struct {
 	DefaultJobResultConfiguration MembershipProtectedJobResultConfigurationPtrOutput `pulumi:"defaultJobResultConfiguration"`
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
+	IsMetricsEnabled           pulumi.BoolPtrOutput                                 `pulumi:"isMetricsEnabled"`
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -109,6 +110,7 @@ type membershipArgs struct {
 	DefaultJobResultConfiguration *MembershipProtectedJobResultConfiguration `pulumi:"defaultJobResultConfiguration"`
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
+	IsMetricsEnabled           *bool                                        `pulumi:"isMetricsEnabled"`
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -131,6 +133,7 @@ type MembershipArgs struct {
 	DefaultJobResultConfiguration MembershipProtectedJobResultConfigurationPtrInput
 	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrInput
+	IsMetricsEnabled           pulumi.BoolPtrInput
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
@@ -220,6 +223,10 @@ func (o MembershipOutput) DefaultResultConfiguration() MembershipProtectedQueryR
 	return o.ApplyT(func(v *Membership) MembershipProtectedQueryResultConfigurationPtrOutput {
 		return v.DefaultResultConfiguration
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
+}
+
+func (o MembershipOutput) IsMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Membership) pulumi.BoolPtrOutput { return v.IsMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An indicator as to whether job logging has been enabled or disabled for the collaboration.

@@ -39,6 +39,7 @@ export class InboundExternalLink extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     declare public readonly gatewayId: pulumi.Output<string>;
     declare public readonly linkAttributes: pulumi.Output<outputs.rtbfabric.InboundExternalLinkLinkAttributes | undefined>;
     declare public /*out*/ readonly linkId: pulumi.Output<string>;
@@ -70,12 +71,14 @@ export class InboundExternalLink extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["linkId"] = undefined /*out*/;
             resourceInputs["linkStatus"] = undefined /*out*/;
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["gatewayId"] = undefined /*out*/;
             resourceInputs["linkAttributes"] = undefined /*out*/;
             resourceInputs["linkId"] = undefined /*out*/;

@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Defines additional settings for the global secondary indexes of this replica.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> GlobalSecondaryIndexes;
+        public readonly Pulumi.AwsNative.DynamoDb.GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode? GlobalTableSettingsReplicationMode;
         /// <summary>
         /// Defines the Kinesis Data Streams configuration for the specified replica.
         /// </summary>
@@ -78,6 +79,8 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> globalSecondaryIndexes,
 
+            Pulumi.AwsNative.DynamoDb.GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode? globalTableSettingsReplicationMode,
+
             Outputs.GlobalTableKinesisStreamSpecification? kinesisStreamSpecification,
 
             Outputs.GlobalTablePointInTimeRecoverySpecification? pointInTimeRecoverySpecification,
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
             ContributorInsightsSpecification = contributorInsightsSpecification;
             DeletionProtectionEnabled = deletionProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
+            GlobalTableSettingsReplicationMode = globalTableSettingsReplicationMode;
             KinesisStreamSpecification = kinesisStreamSpecification;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ReadOnDemandThroughputSettings = readOnDemandThroughputSettings;

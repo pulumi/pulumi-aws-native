@@ -136,6 +136,7 @@ import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
+import * as docdb from "./docdb";
 import * as docdbelastic from "./docdbelastic";
 import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
@@ -215,6 +216,7 @@ import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
+import * as mwaaserverless from "./mwaaserverless";
 import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
@@ -375,6 +377,7 @@ export {
     devopsguru,
     directoryservice,
     dms,
+    docdb,
     docdbelastic,
     dsql,
     dynamodb,
@@ -454,6 +457,7 @@ export {
     memorydb,
     msk,
     mwaa,
+    mwaaserverless,
     neptune,
     neptunegraph,
     networkfirewall,

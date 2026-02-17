@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,6 +22,8 @@ type VectorBucket struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration VectorBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
+	// User tags (key-value pairs) to associate with the vector bucket.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
 	//
 	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
@@ -80,6 +83,8 @@ func (VectorBucketState) ElementType() reflect.Type {
 type vectorBucketArgs struct {
 	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration *VectorBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// User tags (key-value pairs) to associate with the vector bucket.
+	Tags []aws.Tag `pulumi:"tags"`
 	// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
 	//
 	// The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
@@ -92,6 +97,8 @@ type vectorBucketArgs struct {
 type VectorBucketArgs struct {
 	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration VectorBucketEncryptionConfigurationPtrInput
+	// User tags (key-value pairs) to associate with the vector bucket.
+	Tags aws.TagArrayInput
 	// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
 	//
 	// The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
@@ -147,6 +154,11 @@ func (o VectorBucketOutput) CreationTime() pulumi.StringOutput {
 // The encryption configuration for the vector bucket.
 func (o VectorBucketOutput) EncryptionConfiguration() VectorBucketEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *VectorBucket) VectorBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(VectorBucketEncryptionConfigurationPtrOutput)
+}
+
+// User tags (key-value pairs) to associate with the vector bucket.
+func (o VectorBucketOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VectorBucket) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified vector bucket.

@@ -7,9 +7,22 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BackupPlanMalwareScanner',
+    'BackupPlanScanMode',
     'RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm',
     'RestoreTestingPlanRestoreTestingRecoveryPointType',
 ]
+
+
+@pulumi.type_token("aws-native:backup:BackupPlanMalwareScanner")
+class BackupPlanMalwareScanner(_builtins.str, Enum):
+    GUARDDUTY = "GUARDDUTY"
+
+
+@pulumi.type_token("aws-native:backup:BackupPlanScanMode")
+class BackupPlanScanMode(_builtins.str, Enum):
+    FULL_SCAN = "FULL_SCAN"
+    INCREMENTAL_SCAN = "INCREMENTAL_SCAN"
 
 
 @pulumi.type_token("aws-native:backup:RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm")

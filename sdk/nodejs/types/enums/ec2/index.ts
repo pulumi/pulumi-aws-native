@@ -462,6 +462,7 @@ export type IpamMeteredAccount = (typeof IpamMeteredAccount)[keyof typeof IpamMe
 
 export const IpamPoolAwsService = {
     Ec2: "ec2",
+    GlobalServices: "global-services",
 } as const;
 
 /**
@@ -502,6 +503,40 @@ export const IpamPoolState = {
  * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
  */
 export type IpamPoolState = (typeof IpamPoolState)[keyof typeof IpamPoolState];
+
+export const IpamPrefixListResolverRuleConditionOperation = {
+    Equals: "equals",
+    NotEquals: "not-equals",
+    SubnetOf: "subnet-of",
+} as const;
+
+/**
+ * Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
+ */
+export type IpamPrefixListResolverRuleConditionOperation = (typeof IpamPrefixListResolverRuleConditionOperation)[keyof typeof IpamPrefixListResolverRuleConditionOperation];
+
+export const IpamPrefixListResolverRuleResourceType = {
+    Vpc: "vpc",
+    Subnet: "subnet",
+    Eip: "eip",
+    PublicIpv4Pool: "public-ipv4-pool",
+} as const;
+
+/**
+ * The resourceType property only applies to ipam-resource-cidr rules; this property specifies what type of resources this rule will apply to, such as VPCs or Subnets.
+ */
+export type IpamPrefixListResolverRuleResourceType = (typeof IpamPrefixListResolverRuleResourceType)[keyof typeof IpamPrefixListResolverRuleResourceType];
+
+export const IpamPrefixListResolverRuleRuleType = {
+    StaticCidr: "static-cidr",
+    IpamResourceCidr: "ipam-resource-cidr",
+    IpamPoolCidr: "ipam-pool-cidr",
+} as const;
+
+/**
+ * There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
+ */
+export type IpamPrefixListResolverRuleRuleType = (typeof IpamPrefixListResolverRuleRuleType)[keyof typeof IpamPrefixListResolverRuleRuleType];
 
 export const IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType = {
     Infoblox: "infoblox",
@@ -1194,9 +1229,8 @@ export const VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = 
 } as const;
 
 /**
- * The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
- *
- * Valid values: `json` | `text`
+ * The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+ *  Valid values: ``json`` | ``text``
  */
 export type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = (typeof VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)[keyof typeof VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat];
 
@@ -1285,7 +1319,7 @@ export const VpnConnectionTunnelBandwidth = {
 } as const;
 
 /**
- * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+ * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
  */
 export type VpnConnectionTunnelBandwidth = (typeof VpnConnectionTunnelBandwidth)[keyof typeof VpnConnectionTunnelBandwidth];
 

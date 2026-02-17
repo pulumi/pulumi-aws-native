@@ -552,19 +552,14 @@ __all__ = [
     'PromptVariantArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AgentActionGroupExecutor0PropertiesArgsDict(TypedDict):
-        """
-        Type of Executors for an Action Group
-        """
-        lambda_: pulumi.Input[_builtins.str]
-        """
-        ARN of a Lambda.
-        """
-elif False:
-    AgentActionGroupExecutor0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentActionGroupExecutor0PropertiesArgsDict(TypedDict):
+    """
+    Type of Executors for an Action Group
+    """
+    lambda_: pulumi.Input[_builtins.str]
+    """
+    ARN of a Lambda.
+    """
 
 @pulumi.input_type
 class AgentActionGroupExecutor0PropertiesArgs:
@@ -589,14 +584,11 @@ class AgentActionGroupExecutor0PropertiesArgs:
         pulumi.set(self, "lambda_", value)
 
 
-if not MYPY:
-    class AgentActionGroupExecutor1PropertiesArgsDict(TypedDict):
-        """
-        Type of Executors for an Action Group
-        """
-        custom_control: pulumi.Input['AgentCustomControlMethod']
-elif False:
-    AgentActionGroupExecutor1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentActionGroupExecutor1PropertiesArgsDict(TypedDict):
+    """
+    Type of Executors for an Action Group
+    """
+    custom_control: pulumi.Input['AgentCustomControlMethod']
 
 @pulumi.input_type
 class AgentActionGroupExecutor1PropertiesArgs:
@@ -617,47 +609,44 @@ class AgentActionGroupExecutor1PropertiesArgs:
         pulumi.set(self, "custom_control", value)
 
 
-if not MYPY:
-    class AgentActionGroupArgsDict(TypedDict):
-        """
-        Contains the information of an Agent Action Group
-        """
-        action_group_name: pulumi.Input[_builtins.str]
-        """
-        Name of the action group
-        """
-        action_group_executor: NotRequired[pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgsDict', 'AgentActionGroupExecutor1PropertiesArgsDict']]]
-        """
-        The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
-        """
-        action_group_state: NotRequired[pulumi.Input['AgentActionGroupState']]
-        """
-        Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-        """
-        api_schema: NotRequired[pulumi.Input[Union['AgentApiSchema0PropertiesArgsDict', 'AgentApiSchema1PropertiesArgsDict']]]
-        """
-        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of action group
-        """
-        function_schema: NotRequired[pulumi.Input['AgentFunctionSchemaArgsDict']]
-        """
-        Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
-        """
-        parent_action_group_signature: NotRequired[pulumi.Input['AgentActionGroupSignature']]
-        """
-        If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+class AgentActionGroupArgsDict(TypedDict):
+    """
+    Contains the information of an Agent Action Group
+    """
+    action_group_name: pulumi.Input[_builtins.str]
+    """
+    Name of the action group
+    """
+    action_group_executor: NotRequired[pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgsDict', 'AgentActionGroupExecutor1PropertiesArgsDict']]]
+    """
+    The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+    """
+    action_group_state: NotRequired[pulumi.Input['AgentActionGroupState']]
+    """
+    Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+    """
+    api_schema: NotRequired[pulumi.Input[Union['AgentApiSchema0PropertiesArgsDict', 'AgentApiSchema1PropertiesArgsDict']]]
+    """
+    Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of action group
+    """
+    function_schema: NotRequired[pulumi.Input['AgentFunctionSchemaArgsDict']]
+    """
+    Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
+    """
+    parent_action_group_signature: NotRequired[pulumi.Input['AgentActionGroupSignature']]
+    """
+    If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
 
-        During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
-        """
-        skip_resource_in_use_check_on_delete: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to allow deleting action group while it is in use.
-        """
-elif False:
-    AgentActionGroupArgsDict: TypeAlias = Mapping[str, Any]
+    During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
+    """
+    skip_resource_in_use_check_on_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to allow deleting action group while it is in use.
+    """
 
 @pulumi.input_type
 class AgentActionGroupArgs:
@@ -798,14 +787,11 @@ class AgentActionGroupArgs:
         pulumi.set(self, "skip_resource_in_use_check_on_delete", value)
 
 
-if not MYPY:
-    class AgentAdditionalModelRequestFieldsArgsDict(TypedDict):
-        """
-        Additional Model Request Fields for Prompt Configuration
-        """
-        pass
-elif False:
-    AgentAdditionalModelRequestFieldsArgsDict: TypeAlias = Mapping[str, Any]
+class AgentAdditionalModelRequestFieldsArgsDict(TypedDict):
+    """
+    Additional Model Request Fields for Prompt Configuration
+    """
+    pass
 
 @pulumi.input_type
 class AgentAdditionalModelRequestFieldsArgs:
@@ -816,17 +802,14 @@ class AgentAdditionalModelRequestFieldsArgs:
         pass
 
 
-if not MYPY:
-    class AgentAliasRoutingConfigurationListItemArgsDict(TypedDict):
-        """
-        Details about the routing configuration for an Agent alias.
-        """
-        agent_version: pulumi.Input[_builtins.str]
-        """
-        Agent Version.
-        """
-elif False:
-    AgentAliasRoutingConfigurationListItemArgsDict: TypeAlias = Mapping[str, Any]
+class AgentAliasRoutingConfigurationListItemArgsDict(TypedDict):
+    """
+    Details about the routing configuration for an Agent alias.
+    """
+    agent_version: pulumi.Input[_builtins.str]
+    """
+    Agent Version.
+    """
 
 @pulumi.input_type
 class AgentAliasRoutingConfigurationListItemArgs:
@@ -851,14 +834,11 @@ class AgentAliasRoutingConfigurationListItemArgs:
         pulumi.set(self, "agent_version", value)
 
 
-if not MYPY:
-    class AgentApiSchema0PropertiesArgsDict(TypedDict):
-        """
-        Contains information about the API Schema for the Action Group
-        """
-        s3: pulumi.Input['AgentS3IdentifierArgsDict']
-elif False:
-    AgentApiSchema0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentApiSchema0PropertiesArgsDict(TypedDict):
+    """
+    Contains information about the API Schema for the Action Group
+    """
+    s3: pulumi.Input['AgentS3IdentifierArgsDict']
 
 @pulumi.input_type
 class AgentApiSchema0PropertiesArgs:
@@ -879,17 +859,14 @@ class AgentApiSchema0PropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class AgentApiSchema1PropertiesArgsDict(TypedDict):
-        """
-        Contains information about the API Schema for the Action Group
-        """
-        payload: pulumi.Input[_builtins.str]
-        """
-        String OpenAPI Payload
-        """
-elif False:
-    AgentApiSchema1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentApiSchema1PropertiesArgsDict(TypedDict):
+    """
+    Contains information about the API Schema for the Action Group
+    """
+    payload: pulumi.Input[_builtins.str]
+    """
+    String OpenAPI Payload
+    """
 
 @pulumi.input_type
 class AgentApiSchema1PropertiesArgs:
@@ -914,17 +891,14 @@ class AgentApiSchema1PropertiesArgs:
         pulumi.set(self, "payload", value)
 
 
-if not MYPY:
-    class AgentCollaboratorAgentDescriptorPropertiesArgsDict(TypedDict):
-        """
-        Agent descriptor for agent collaborator
-        """
-        alias_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Alias ARN for agent descriptor
-        """
-elif False:
-    AgentCollaboratorAgentDescriptorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AgentCollaboratorAgentDescriptorPropertiesArgsDict(TypedDict):
+    """
+    Agent descriptor for agent collaborator
+    """
+    alias_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Alias ARN for agent descriptor
+    """
 
 @pulumi.input_type
 class AgentCollaboratorAgentDescriptorPropertiesArgs:
@@ -950,29 +924,26 @@ class AgentCollaboratorAgentDescriptorPropertiesArgs:
         pulumi.set(self, "alias_arn", value)
 
 
-if not MYPY:
-    class AgentCollaboratorArgsDict(TypedDict):
-        """
-        Agent Collaborator
-        """
-        agent_descriptor: pulumi.Input['AgentCollaboratorAgentDescriptorPropertiesArgsDict']
-        """
-        Agent descriptor for agent collaborator
-        """
-        collaboration_instruction: pulumi.Input[_builtins.str]
-        """
-        Agent collaborator instruction
-        """
-        collaborator_name: pulumi.Input[_builtins.str]
-        """
-        Agent collaborator name
-        """
-        relay_conversation_history: NotRequired[pulumi.Input['AgentRelayConversationHistory']]
-        """
-        The collaborator's relay conversation history.
-        """
-elif False:
-    AgentCollaboratorArgsDict: TypeAlias = Mapping[str, Any]
+class AgentCollaboratorArgsDict(TypedDict):
+    """
+    Agent Collaborator
+    """
+    agent_descriptor: pulumi.Input['AgentCollaboratorAgentDescriptorPropertiesArgsDict']
+    """
+    Agent descriptor for agent collaborator
+    """
+    collaboration_instruction: pulumi.Input[_builtins.str]
+    """
+    Agent collaborator instruction
+    """
+    collaborator_name: pulumi.Input[_builtins.str]
+    """
+    Agent collaborator name
+    """
+    relay_conversation_history: NotRequired[pulumi.Input['AgentRelayConversationHistory']]
+    """
+    The collaborator's relay conversation history.
+    """
 
 @pulumi.input_type
 class AgentCollaboratorArgs:
@@ -1043,17 +1014,14 @@ class AgentCollaboratorArgs:
         pulumi.set(self, "relay_conversation_history", value)
 
 
-if not MYPY:
-    class AgentCustomOrchestrationArgsDict(TypedDict):
-        """
-        Structure for custom orchestration
-        """
-        executor: NotRequired[pulumi.Input['AgentOrchestrationExecutorArgsDict']]
-        """
-        The structure of the executor invoking the actions in custom orchestration.
-        """
-elif False:
-    AgentCustomOrchestrationArgsDict: TypeAlias = Mapping[str, Any]
+class AgentCustomOrchestrationArgsDict(TypedDict):
+    """
+    Structure for custom orchestration
+    """
+    executor: NotRequired[pulumi.Input['AgentOrchestrationExecutorArgsDict']]
+    """
+    The structure of the executor invoking the actions in custom orchestration.
+    """
 
 @pulumi.input_type
 class AgentCustomOrchestrationArgs:
@@ -1079,17 +1047,14 @@ class AgentCustomOrchestrationArgs:
         pulumi.set(self, "executor", value)
 
 
-if not MYPY:
-    class AgentFunctionSchemaArgsDict(TypedDict):
-        """
-        Schema of Functions
-        """
-        functions: pulumi.Input[Sequence[pulumi.Input['AgentFunctionArgsDict']]]
-        """
-        List of Function definitions
-        """
-elif False:
-    AgentFunctionSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class AgentFunctionSchemaArgsDict(TypedDict):
+    """
+    Schema of Functions
+    """
+    functions: pulumi.Input[Sequence[pulumi.Input['AgentFunctionArgsDict']]]
+    """
+    List of Function definitions
+    """
 
 @pulumi.input_type
 class AgentFunctionSchemaArgs:
@@ -1114,29 +1079,26 @@ class AgentFunctionSchemaArgs:
         pulumi.set(self, "functions", value)
 
 
-if not MYPY:
-    class AgentFunctionArgsDict(TypedDict):
-        """
-        Function definition
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for a resource.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of function
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgsDict']]]]
-        """
-        The parameters that the agent elicits from the user to fulfill the function.
-        """
-        require_confirmation: NotRequired[pulumi.Input['AgentRequireConfirmation']]
-        """
-        Contains information if user confirmation is required to invoke the function.
-        """
-elif False:
-    AgentFunctionArgsDict: TypeAlias = Mapping[str, Any]
+class AgentFunctionArgsDict(TypedDict):
+    """
+    Function definition
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for a resource.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of function
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgsDict']]]]
+    """
+    The parameters that the agent elicits from the user to fulfill the function.
+    """
+    require_confirmation: NotRequired[pulumi.Input['AgentRequireConfirmation']]
+    """
+    Contains information if user confirmation is required to invoke the function.
+    """
 
 @pulumi.input_type
 class AgentFunctionArgs:
@@ -1209,21 +1171,18 @@ class AgentFunctionArgs:
         pulumi.set(self, "require_confirmation", value)
 
 
-if not MYPY:
-    class AgentGuardrailConfigurationArgsDict(TypedDict):
-        """
-        Configuration for a guardrail.
-        """
-        guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the guardrail, could be the id or the arn
-        """
-        guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the guardrail
-        """
-elif False:
-    AgentGuardrailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AgentGuardrailConfigurationArgsDict(TypedDict):
+    """
+    Configuration for a guardrail.
+    """
+    guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the guardrail, could be the id or the arn
+    """
+    guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the guardrail
+    """
 
 @pulumi.input_type
 class AgentGuardrailConfigurationArgs:
@@ -1265,33 +1224,30 @@ class AgentGuardrailConfigurationArgs:
         pulumi.set(self, "guardrail_version", value)
 
 
-if not MYPY:
-    class AgentInferenceConfigurationArgsDict(TypedDict):
-        """
-        Configuration for inference in prompt configuration
-        """
-        maximum_length: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum length of output
-        """
-        stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stop sequences
-        """
-        temperature: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Controls randomness, higher values increase diversity
-        """
-        top_k: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Sample from the k most likely next tokens
-        """
-        top_p: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Cumulative probability cutoff for token selection
-        """
-elif False:
-    AgentInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AgentInferenceConfigurationArgsDict(TypedDict):
+    """
+    Configuration for inference in prompt configuration
+    """
+    maximum_length: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum length of output
+    """
+    stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stop sequences
+    """
+    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Controls randomness, higher values increase diversity
+    """
+    top_k: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Sample from the k most likely next tokens
+    """
+    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Cumulative probability cutoff for token selection
+    """
 
 @pulumi.input_type
 class AgentInferenceConfigurationArgs:
@@ -1381,25 +1337,22 @@ class AgentInferenceConfigurationArgs:
         pulumi.set(self, "top_p", value)
 
 
-if not MYPY:
-    class AgentKnowledgeBaseArgsDict(TypedDict):
-        """
-        Agent Knowledge Base
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of the Resource.
-        """
-        knowledge_base_id: pulumi.Input[_builtins.str]
-        """
-        Identifier for a resource.
-        """
-        knowledge_base_state: NotRequired[pulumi.Input['AgentKnowledgeBaseState']]
-        """
-        Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-        """
-elif False:
-    AgentKnowledgeBaseArgsDict: TypeAlias = Mapping[str, Any]
+class AgentKnowledgeBaseArgsDict(TypedDict):
+    """
+    Agent Knowledge Base
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of the Resource.
+    """
+    knowledge_base_id: pulumi.Input[_builtins.str]
+    """
+    Identifier for a resource.
+    """
+    knowledge_base_state: NotRequired[pulumi.Input['AgentKnowledgeBaseState']]
+    """
+    Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+    """
 
 @pulumi.input_type
 class AgentKnowledgeBaseArgs:
@@ -1455,25 +1408,22 @@ class AgentKnowledgeBaseArgs:
         pulumi.set(self, "knowledge_base_state", value)
 
 
-if not MYPY:
-    class AgentMemoryConfigurationArgsDict(TypedDict):
-        """
-        Configuration for memory storage
-        """
-        enabled_memory_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]
-        """
-        The type of memory that is stored.
-        """
-        session_summary_configuration: NotRequired[pulumi.Input['AgentSessionSummaryConfigurationArgsDict']]
-        """
-        Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
-        """
-        storage_days: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum number of days to store session details
-        """
-elif False:
-    AgentMemoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AgentMemoryConfigurationArgsDict(TypedDict):
+    """
+    Configuration for memory storage
+    """
+    enabled_memory_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]
+    """
+    The type of memory that is stored.
+    """
+    session_summary_configuration: NotRequired[pulumi.Input['AgentSessionSummaryConfigurationArgsDict']]
+    """
+    Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
+    """
+    storage_days: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum number of days to store session details
+    """
 
 @pulumi.input_type
 class AgentMemoryConfigurationArgs:
@@ -1531,17 +1481,14 @@ class AgentMemoryConfigurationArgs:
         pulumi.set(self, "storage_days", value)
 
 
-if not MYPY:
-    class AgentOrchestrationExecutorArgsDict(TypedDict):
-        """
-        Types of executors for custom orchestration strategy
-        """
-        lambda_: pulumi.Input[_builtins.str]
-        """
-        ARN of a Lambda.
-        """
-elif False:
-    AgentOrchestrationExecutorArgsDict: TypeAlias = Mapping[str, Any]
+class AgentOrchestrationExecutorArgsDict(TypedDict):
+    """
+    Types of executors for custom orchestration strategy
+    """
+    lambda_: pulumi.Input[_builtins.str]
+    """
+    ARN of a Lambda.
+    """
 
 @pulumi.input_type
 class AgentOrchestrationExecutorArgs:
@@ -1566,25 +1513,22 @@ class AgentOrchestrationExecutorArgs:
         pulumi.set(self, "lambda_", value)
 
 
-if not MYPY:
-    class AgentParameterDetailArgsDict(TypedDict):
-        """
-        Parameter detail
-        """
-        type: pulumi.Input['AgentType']
-        """
-        The data type of the parameter.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of function parameter.
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Information about if a parameter is required for function call. Default to false.
-        """
-elif False:
-    AgentParameterDetailArgsDict: TypeAlias = Mapping[str, Any]
+class AgentParameterDetailArgsDict(TypedDict):
+    """
+    Parameter detail
+    """
+    type: pulumi.Input['AgentType']
+    """
+    The data type of the parameter.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of function parameter.
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Information about if a parameter is required for function call. Default to false.
+    """
 
 @pulumi.input_type
 class AgentParameterDetailArgs:
@@ -1641,52 +1585,49 @@ class AgentParameterDetailArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class AgentPromptConfigurationArgsDict(TypedDict):
-        """
-        BasePromptConfiguration per Prompt Type.
-        """
-        additional_model_request_fields: NotRequired[pulumi.Input['AgentAdditionalModelRequestFieldsArgsDict']]
-        """
-        If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
+class AgentPromptConfigurationArgsDict(TypedDict):
+    """
+    BasePromptConfiguration per Prompt Type.
+    """
+    additional_model_request_fields: NotRequired[pulumi.Input['AgentAdditionalModelRequestFieldsArgsDict']]
+    """
+    If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
 
-        For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
-        """
-        base_prompt_template: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base Prompt Template.
-        """
-        foundation_model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The agent's foundation model.
-        """
-        inference_configuration: NotRequired[pulumi.Input['AgentInferenceConfigurationArgsDict']]
-        """
-        Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
-        """
-        parser_mode: NotRequired[pulumi.Input['AgentCreationMode']]
-        """
-        Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
-        """
-        prompt_creation_mode: NotRequired[pulumi.Input['AgentCreationMode']]
-        """
-        Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
-        """
-        prompt_state: NotRequired[pulumi.Input['AgentPromptState']]
-        """
-        Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+    For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+    """
+    base_prompt_template: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base Prompt Template.
+    """
+    foundation_model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The agent's foundation model.
+    """
+    inference_configuration: NotRequired[pulumi.Input['AgentInferenceConfigurationArgsDict']]
+    """
+    Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+    """
+    parser_mode: NotRequired[pulumi.Input['AgentCreationMode']]
+    """
+    Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+    """
+    prompt_creation_mode: NotRequired[pulumi.Input['AgentCreationMode']]
+    """
+    Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
+    """
+    prompt_state: NotRequired[pulumi.Input['AgentPromptState']]
+    """
+    Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 
-        - `PRE_PROCESSING` – `ENABLED`
-        - `ORCHESTRATION` – `ENABLED`
-        - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
-        - `POST_PROCESSING` – `DISABLED`
-        """
-        prompt_type: NotRequired[pulumi.Input['AgentPromptType']]
-        """
-        The step in the agent sequence that this prompt configuration applies to.
-        """
-elif False:
-    AgentPromptConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - `PRE_PROCESSING` – `ENABLED`
+    - `ORCHESTRATION` – `ENABLED`
+    - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
+    - `POST_PROCESSING` – `DISABLED`
+    """
+    prompt_type: NotRequired[pulumi.Input['AgentPromptType']]
+    """
+    The step in the agent sequence that this prompt configuration applies to.
+    """
 
 @pulumi.input_type
 class AgentPromptConfigurationArgs:
@@ -1838,21 +1779,18 @@ class AgentPromptConfigurationArgs:
         pulumi.set(self, "prompt_type", value)
 
 
-if not MYPY:
-    class AgentPromptOverrideConfigurationArgsDict(TypedDict):
-        """
-        Configuration for prompt override.
-        """
-        prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentPromptConfigurationArgsDict']]]
-        """
-        List of BasePromptConfiguration
-        """
-        override_lambda: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of a Lambda.
-        """
-elif False:
-    AgentPromptOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AgentPromptOverrideConfigurationArgsDict(TypedDict):
+    """
+    Configuration for prompt override.
+    """
+    prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentPromptConfigurationArgsDict']]]
+    """
+    List of BasePromptConfiguration
+    """
+    override_lambda: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of a Lambda.
+    """
 
 @pulumi.input_type
 class AgentPromptOverrideConfigurationArgs:
@@ -1893,21 +1831,18 @@ class AgentPromptOverrideConfigurationArgs:
         pulumi.set(self, "override_lambda", value)
 
 
-if not MYPY:
-    class AgentS3IdentifierArgsDict(TypedDict):
-        """
-        The identifier for the S3 resource.
-        """
-        s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A bucket in S3.
-        """
-        s3_object_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A object key in S3.
-        """
-elif False:
-    AgentS3IdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class AgentS3IdentifierArgsDict(TypedDict):
+    """
+    The identifier for the S3 resource.
+    """
+    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A bucket in S3.
+    """
+    s3_object_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A object key in S3.
+    """
 
 @pulumi.input_type
 class AgentS3IdentifierArgs:
@@ -1949,17 +1884,14 @@ class AgentS3IdentifierArgs:
         pulumi.set(self, "s3_object_key", value)
 
 
-if not MYPY:
-    class AgentSessionSummaryConfigurationArgsDict(TypedDict):
-        """
-        Configuration for Session Summarization
-        """
-        max_recent_sessions: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum number of Sessions to Summarize
-        """
-elif False:
-    AgentSessionSummaryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AgentSessionSummaryConfigurationArgsDict(TypedDict):
+    """
+    Configuration for Session Summarization
+    """
+    max_recent_sessions: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum number of Sessions to Summarize
+    """
 
 @pulumi.input_type
 class AgentSessionSummaryConfigurationArgs:
@@ -1985,18 +1917,15 @@ class AgentSessionSummaryConfigurationArgs:
         pulumi.set(self, "max_recent_sessions", value)
 
 
-if not MYPY:
-    class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict(TypedDict):
-        """
-        Various ways to encode a list of models in a CreateInferenceProfile request
-        """
-        copy_from: pulumi.Input[_builtins.str]
-        """
-        Source arns for a custom inference profile to copy its regional load balancing config from. This
-        can either be a foundation model or predefined inference profile ARN.
-        """
-elif False:
-    ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict(TypedDict):
+    """
+    Various ways to encode a list of models in a CreateInferenceProfile request
+    """
+    copy_from: pulumi.Input[_builtins.str]
+    """
+    Source arns for a custom inference profile to copy its regional load balancing config from. This
+    can either be a foundation model or predefined inference profile ARN.
+    """
 
 @pulumi.input_type
 class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
@@ -2023,22 +1952,19 @@ class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
         pulumi.set(self, "copy_from", value)
 
 
-if not MYPY:
-    class AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict(TypedDict):
-        expression: pulumi.Input[_builtins.str]
-        """
-        The SMT expression for this rule
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        A unique id within the PolicyDefinition
-        """
-        alternate_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An alternate expression for this rule
-        """
-elif False:
-    AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    The SMT expression for this rule
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    A unique id within the PolicyDefinition
+    """
+    alternate_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An alternate expression for this rule
+    """
 
 @pulumi.input_type
 class AutomatedReasoningPolicyPolicyDefinitionRuleArgs:
@@ -2093,18 +2019,15 @@ class AutomatedReasoningPolicyPolicyDefinitionRuleArgs:
         pulumi.set(self, "alternate_expression", value)
 
 
-if not MYPY:
-    class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the type value.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A natural language description of the type's value.
-        """
-elif False:
-    AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict: TypeAlias = Mapping[str, Any]
+class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the type value.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A natural language description of the type's value.
+    """
 
 @pulumi.input_type
 class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs:
@@ -2144,22 +2067,19 @@ class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name for this type.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict']]]
-        """
-        A list of valid values for this type.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A natural language description of this type.
-        """
-elif False:
-    AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict: TypeAlias = Mapping[str, Any]
+class AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name for this type.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict']]]
+    """
+    A list of valid values for this type.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A natural language description of this type.
+    """
 
 @pulumi.input_type
 class AutomatedReasoningPolicyPolicyDefinitionTypeArgs:
@@ -2214,22 +2134,19 @@ class AutomatedReasoningPolicyPolicyDefinitionTypeArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict(TypedDict):
-        description: pulumi.Input[_builtins.str]
-        """
-        A natural language description of this variable.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A name from this variable.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        A type for this variable.
-        """
-elif False:
-    AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict: TypeAlias = Mapping[str, Any]
+class AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict(TypedDict):
+    description: pulumi.Input[_builtins.str]
+    """
+    A natural language description of this variable.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A name from this variable.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    A type for this variable.
+    """
 
 @pulumi.input_type
 class AutomatedReasoningPolicyPolicyDefinitionVariableArgs:
@@ -2283,26 +2200,23 @@ class AutomatedReasoningPolicyPolicyDefinitionVariableArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AutomatedReasoningPolicyPolicyDefinitionArgsDict(TypedDict):
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict']]]]
-        """
-        The rules definition block of an AutomatedReasoningPolicyDefinition.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict']]]]
-        """
-        The types definition block of an AutomatedReasoningPolicyDefinition.
-        """
-        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict']]]]
-        """
-        The variables definition block of an AutomatedReasoningPolicyDefinition.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The policy format version.
-        """
-elif False:
-    AutomatedReasoningPolicyPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class AutomatedReasoningPolicyPolicyDefinitionArgsDict(TypedDict):
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict']]]]
+    """
+    The rules definition block of an AutomatedReasoningPolicyDefinition.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict']]]]
+    """
+    The types definition block of an AutomatedReasoningPolicyDefinition.
+    """
+    variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict']]]]
+    """
+    The variables definition block of an AutomatedReasoningPolicyDefinition.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The policy format version.
+    """
 
 @pulumi.input_type
 class AutomatedReasoningPolicyPolicyDefinitionArgs:
@@ -2375,14 +2289,11 @@ class AutomatedReasoningPolicyPolicyDefinitionArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict(TypedDict):
-        transcript: NotRequired[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgsDict']]
-        """
-        This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
-        """
-elif False:
-    DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict(TypedDict):
+    transcript: NotRequired[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgsDict']]
+    """
+    This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs:
@@ -2407,22 +2318,19 @@ class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs:
         pulumi.set(self, "transcript", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating categorical data from audio is enabled.
-        """
-        type_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict']]
-        """
-        This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]
-        """
-        The types of data to generate.
-        """
-elif False:
-    DataAutomationProjectAudioExtractionCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating categorical data from audio is enabled.
+    """
+    type_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict']]
+    """
+    This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]
+    """
+    The types of data to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioExtractionCategoryArgs:
@@ -2478,22 +2386,19 @@ class DataAutomationProjectAudioExtractionCategoryArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioLanguageConfigurationArgsDict(TypedDict):
-        generative_output_language: NotRequired[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]
-        """
-        The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
-        """
-        identify_multiple_languages: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The toggle determining if you want to detect multiple languages from your audio.
-        """
-        input_languages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]
-        """
-        The input language of your audio. This can be set to any of the currently supported languages via the language codes.
-        """
-elif False:
-    DataAutomationProjectAudioLanguageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioLanguageConfigurationArgsDict(TypedDict):
+    generative_output_language: NotRequired[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]
+    """
+    The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+    """
+    identify_multiple_languages: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The toggle determining if you want to detect multiple languages from your audio.
+    """
+    input_languages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]
+    """
+    The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioLanguageConfigurationArgs:
@@ -2550,22 +2455,19 @@ class DataAutomationProjectAudioLanguageConfigurationArgs:
         pulumi.set(self, "input_languages", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioOverrideConfigurationArgsDict(TypedDict):
-        language_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgsDict']]
-        """
-        The output and input language configuration for your audio.
-        """
-        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
-        """
-        Sets modality processing for audio files. All modalities are enabled by default.
-        """
-        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
-        """
-        Configuration for sensitive data detection and redaction for audio files.
-        """
-elif False:
-    DataAutomationProjectAudioOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioOverrideConfigurationArgsDict(TypedDict):
+    language_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgsDict']]
+    """
+    The output and input language configuration for your audio.
+    """
+    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    """
+    Sets modality processing for audio files. All modalities are enabled by default.
+    """
+    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    """
+    Configuration for sensitive data detection and redaction for audio files.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioOverrideConfigurationArgs:
@@ -2622,14 +2524,11 @@ class DataAutomationProjectAudioOverrideConfigurationArgs:
         pulumi.set(self, "sensitive_data_configuration", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioStandardExtractionArgsDict(TypedDict):
-        category: pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgsDict']
-        """
-        Settings for generating data from audio.
-        """
-elif False:
-    DataAutomationProjectAudioStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioStandardExtractionArgsDict(TypedDict):
+    category: pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgsDict']
+    """
+    Settings for generating data from audio.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioStandardExtractionArgs:
@@ -2653,18 +2552,15 @@ class DataAutomationProjectAudioStandardExtractionArgs:
         pulumi.set(self, "category", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioStandardGenerativeFieldArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating descriptions is enabled for audio.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]
-        """
-        The types of description to generate.
-        """
-elif False:
-    DataAutomationProjectAudioStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioStandardGenerativeFieldArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating descriptions is enabled for audio.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]
+    """
+    The types of description to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioStandardGenerativeFieldArgs:
@@ -2704,18 +2600,15 @@ class DataAutomationProjectAudioStandardGenerativeFieldArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectAudioStandardOutputConfigurationArgsDict(TypedDict):
-        extraction: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgsDict']]
-        """
-        Settings for populating data fields that describe the audio.
-        """
-        generative_field: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgsDict']]
-        """
-        Whether to generate descriptions of the data.
-        """
-elif False:
-    DataAutomationProjectAudioStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectAudioStandardOutputConfigurationArgsDict(TypedDict):
+    extraction: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgsDict']]
+    """
+    Settings for populating data fields that describe the audio.
+    """
+    generative_field: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgsDict']]
+    """
+    Whether to generate descriptions of the data.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectAudioStandardOutputConfigurationArgs:
@@ -2756,22 +2649,19 @@ class DataAutomationProjectAudioStandardOutputConfigurationArgs:
         pulumi.set(self, "generative_field", value)
 
 
-if not MYPY:
-    class DataAutomationProjectBlueprintItemArgsDict(TypedDict):
-        blueprint_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of a Blueprint
-        """
-        blueprint_stage: NotRequired[pulumi.Input['DataAutomationProjectBlueprintStage']]
-        """
-        The blueprint's stage.
-        """
-        blueprint_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Blueprint Version
-        """
-elif False:
-    DataAutomationProjectBlueprintItemArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectBlueprintItemArgsDict(TypedDict):
+    blueprint_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of a Blueprint
+    """
+    blueprint_stage: NotRequired[pulumi.Input['DataAutomationProjectBlueprintStage']]
+    """
+    The blueprint's stage.
+    """
+    blueprint_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Blueprint Version
+    """
 
 @pulumi.input_type
 class DataAutomationProjectBlueprintItemArgs:
@@ -2827,14 +2717,11 @@ class DataAutomationProjectBlueprintItemArgs:
         pulumi.set(self, "blueprint_version", value)
 
 
-if not MYPY:
-    class DataAutomationProjectChannelLabelingConfigurationArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        State of channel labeling, either enabled or disabled.
-        """
-elif False:
-    DataAutomationProjectChannelLabelingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectChannelLabelingConfigurationArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    State of channel labeling, either enabled or disabled.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectChannelLabelingConfigurationArgs:
@@ -2858,17 +2745,14 @@ class DataAutomationProjectChannelLabelingConfigurationArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectCustomOutputConfigurationArgsDict(TypedDict):
-        """
-        Custom output configuration
-        """
-        blueprints: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgsDict']]]]
-        """
-        A list of blueprints.
-        """
-elif False:
-    DataAutomationProjectCustomOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectCustomOutputConfigurationArgsDict(TypedDict):
+    """
+    Custom output configuration
+    """
+    blueprints: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgsDict']]]]
+    """
+    A list of blueprints.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectCustomOutputConfigurationArgs:
@@ -2894,14 +2778,11 @@ class DataAutomationProjectCustomOutputConfigurationArgs:
         pulumi.set(self, "blueprints", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentBoundingBoxArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether bounding boxes are enabled for documents.
-        """
-elif False:
-    DataAutomationProjectDocumentBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentBoundingBoxArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether bounding boxes are enabled for documents.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentBoundingBoxArgs:
@@ -2925,14 +2806,11 @@ class DataAutomationProjectDocumentBoundingBoxArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentExtractionGranularityArgsDict(TypedDict):
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]
-        """
-        Granularity settings for documents.
-        """
-elif False:
-    DataAutomationProjectDocumentExtractionGranularityArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentExtractionGranularityArgsDict(TypedDict):
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]
+    """
+    Granularity settings for documents.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentExtractionGranularityArgs:
@@ -2957,14 +2835,11 @@ class DataAutomationProjectDocumentExtractionGranularityArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether additional file formats are enabled for a project.
-        """
-elif False:
-    DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether additional file formats are enabled for a project.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentOutputAdditionalFileFormatArgs:
@@ -2988,18 +2863,15 @@ class DataAutomationProjectDocumentOutputAdditionalFileFormatArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentOutputFormatArgsDict(TypedDict):
-        additional_file_format: pulumi.Input['DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict']
-        """
-        Output settings for additional file formats.
-        """
-        text_format: pulumi.Input['DataAutomationProjectDocumentOutputTextFormatArgsDict']
-        """
-        An output text format.
-        """
-elif False:
-    DataAutomationProjectDocumentOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentOutputFormatArgsDict(TypedDict):
+    additional_file_format: pulumi.Input['DataAutomationProjectDocumentOutputAdditionalFileFormatArgsDict']
+    """
+    Output settings for additional file formats.
+    """
+    text_format: pulumi.Input['DataAutomationProjectDocumentOutputTextFormatArgsDict']
+    """
+    An output text format.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentOutputFormatArgs:
@@ -3038,14 +2910,11 @@ class DataAutomationProjectDocumentOutputFormatArgs:
         pulumi.set(self, "text_format", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentOutputTextFormatArgsDict(TypedDict):
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]
-        """
-        The types of output text to generate.
-        """
-elif False:
-    DataAutomationProjectDocumentOutputTextFormatArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentOutputTextFormatArgsDict(TypedDict):
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]
+    """
+    The types of output text to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentOutputTextFormatArgs:
@@ -3070,22 +2939,19 @@ class DataAutomationProjectDocumentOutputTextFormatArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentOverrideConfigurationArgsDict(TypedDict):
-        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
-        """
-        Sets modality processing for document files. All modalities are enabled by default.
-        """
-        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
-        """
-        Configuration for sensitive data detection and redaction for document files.
-        """
-        splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
-        """
-        Whether document splitter is enabled for a project.
-        """
-elif False:
-    DataAutomationProjectDocumentOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentOverrideConfigurationArgsDict(TypedDict):
+    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    """
+    Sets modality processing for document files. All modalities are enabled by default.
+    """
+    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    """
+    Configuration for sensitive data detection and redaction for document files.
+    """
+    splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
+    """
+    Whether document splitter is enabled for a project.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentOverrideConfigurationArgs:
@@ -3142,18 +3008,15 @@ class DataAutomationProjectDocumentOverrideConfigurationArgs:
         pulumi.set(self, "splitter", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentStandardExtractionArgsDict(TypedDict):
-        bounding_box: pulumi.Input['DataAutomationProjectDocumentBoundingBoxArgsDict']
-        """
-        Whether to generate bounding boxes.
-        """
-        granularity: pulumi.Input['DataAutomationProjectDocumentExtractionGranularityArgsDict']
-        """
-        Which granularities to generate data for.
-        """
-elif False:
-    DataAutomationProjectDocumentStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentStandardExtractionArgsDict(TypedDict):
+    bounding_box: pulumi.Input['DataAutomationProjectDocumentBoundingBoxArgsDict']
+    """
+    Whether to generate bounding boxes.
+    """
+    granularity: pulumi.Input['DataAutomationProjectDocumentExtractionGranularityArgsDict']
+    """
+    Which granularities to generate data for.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentStandardExtractionArgs:
@@ -3192,14 +3055,11 @@ class DataAutomationProjectDocumentStandardExtractionArgs:
         pulumi.set(self, "granularity", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentStandardGenerativeFieldArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating descriptions is enabled for documents.
-        """
-elif False:
-    DataAutomationProjectDocumentStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentStandardGenerativeFieldArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating descriptions is enabled for documents.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentStandardGenerativeFieldArgs:
@@ -3223,22 +3083,19 @@ class DataAutomationProjectDocumentStandardGenerativeFieldArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectDocumentStandardOutputConfigurationArgsDict(TypedDict):
-        extraction: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgsDict']]
-        """
-        Settings for populating data fields that describe the document.
-        """
-        generative_field: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgsDict']]
-        """
-        Whether to generate descriptions.
-        """
-        output_format: NotRequired[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgsDict']]
-        """
-        The output format to generate.
-        """
-elif False:
-    DataAutomationProjectDocumentStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectDocumentStandardOutputConfigurationArgsDict(TypedDict):
+    extraction: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgsDict']]
+    """
+    Settings for populating data fields that describe the document.
+    """
+    generative_field: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgsDict']]
+    """
+    Whether to generate descriptions.
+    """
+    output_format: NotRequired[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgsDict']]
+    """
+    The output format to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectDocumentStandardOutputConfigurationArgs:
@@ -3295,14 +3152,11 @@ class DataAutomationProjectDocumentStandardOutputConfigurationArgs:
         pulumi.set(self, "output_format", value)
 
 
-if not MYPY:
-    class DataAutomationProjectImageBoundingBoxArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Bounding box settings for a project.
-        """
-elif False:
-    DataAutomationProjectImageBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectImageBoundingBoxArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Bounding box settings for a project.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectImageBoundingBoxArgs:
@@ -3326,18 +3180,15 @@ class DataAutomationProjectImageBoundingBoxArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectImageExtractionCategoryArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating categorical data from images is enabled.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]
-        """
-        The types of data to generate.
-        """
-elif False:
-    DataAutomationProjectImageExtractionCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectImageExtractionCategoryArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating categorical data from images is enabled.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]
+    """
+    The types of data to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectImageExtractionCategoryArgs:
@@ -3377,18 +3228,15 @@ class DataAutomationProjectImageExtractionCategoryArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectImageOverrideConfigurationArgsDict(TypedDict):
-        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
-        """
-        Sets modality processing for image files. All modalities are enabled by default.
-        """
-        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
-        """
-        Configuration for sensitive data detection and redaction for image files.
-        """
-elif False:
-    DataAutomationProjectImageOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectImageOverrideConfigurationArgsDict(TypedDict):
+    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    """
+    Sets modality processing for image files. All modalities are enabled by default.
+    """
+    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    """
+    Configuration for sensitive data detection and redaction for image files.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectImageOverrideConfigurationArgs:
@@ -3429,18 +3277,15 @@ class DataAutomationProjectImageOverrideConfigurationArgs:
         pulumi.set(self, "sensitive_data_configuration", value)
 
 
-if not MYPY:
-    class DataAutomationProjectImageStandardExtractionArgsDict(TypedDict):
-        bounding_box: pulumi.Input['DataAutomationProjectImageBoundingBoxArgsDict']
-        """
-        Settings for generating bounding boxes.
-        """
-        category: pulumi.Input['DataAutomationProjectImageExtractionCategoryArgsDict']
-        """
-        Settings for generating categorical data.
-        """
-elif False:
-    DataAutomationProjectImageStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectImageStandardExtractionArgsDict(TypedDict):
+    bounding_box: pulumi.Input['DataAutomationProjectImageBoundingBoxArgsDict']
+    """
+    Settings for generating bounding boxes.
+    """
+    category: pulumi.Input['DataAutomationProjectImageExtractionCategoryArgsDict']
+    """
+    Settings for generating categorical data.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectImageStandardExtractionArgs:
@@ -3479,18 +3324,15 @@ class DataAutomationProjectImageStandardExtractionArgs:
         pulumi.set(self, "category", value)
 
 
-if not MYPY:
-    class DataAutomationProjectImageStandardGenerativeFieldArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating descriptions is enabled for images.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]
-        """
-        Settings for generating descriptions of images.
-        """
-elif False:
-    DataAutomationProjectImageStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectImageStandardGenerativeFieldArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating descriptions is enabled for images.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]
+    """
+    Settings for generating descriptions of images.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectImageStandardGenerativeFieldArgs:
@@ -3530,18 +3372,15 @@ class DataAutomationProjectImageStandardGenerativeFieldArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectImageStandardOutputConfigurationArgsDict(TypedDict):
-        extraction: NotRequired[pulumi.Input['DataAutomationProjectImageStandardExtractionArgsDict']]
-        """
-        Settings for populating data fields that describe the image.
-        """
-        generative_field: NotRequired[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgsDict']]
-        """
-        Whether to generate descriptions of the data.
-        """
-elif False:
-    DataAutomationProjectImageStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectImageStandardOutputConfigurationArgsDict(TypedDict):
+    extraction: NotRequired[pulumi.Input['DataAutomationProjectImageStandardExtractionArgsDict']]
+    """
+    Settings for populating data fields that describe the image.
+    """
+    generative_field: NotRequired[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgsDict']]
+    """
+    Whether to generate descriptions of the data.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectImageStandardOutputConfigurationArgs:
@@ -3582,14 +3421,11 @@ class DataAutomationProjectImageStandardOutputConfigurationArgs:
         pulumi.set(self, "generative_field", value)
 
 
-if not MYPY:
-    class DataAutomationProjectModalityProcessingConfigurationArgsDict(TypedDict):
-        state: NotRequired[pulumi.Input['DataAutomationProjectState']]
-        """
-        Stores the state of the modality for your project, set to either enabled or disabled
-        """
-elif False:
-    DataAutomationProjectModalityProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectModalityProcessingConfigurationArgsDict(TypedDict):
+    state: NotRequired[pulumi.Input['DataAutomationProjectState']]
+    """
+    Stores the state of the modality for your project, set to either enabled or disabled
+    """
 
 @pulumi.input_type
 class DataAutomationProjectModalityProcessingConfigurationArgs:
@@ -3614,29 +3450,26 @@ class DataAutomationProjectModalityProcessingConfigurationArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectModalityRoutingConfigurationArgsDict(TypedDict):
-        """
-        Modality routing configuration
-        """
-        jpeg: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
-        """
-        Sets whether JPEG files are routed to document or image processing.
-        """
-        mov: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
-        """
-        Sets whether MOV files are routed to audio or video processing.
-        """
-        mp4: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
-        """
-        Sets whether MP4 files are routed to audio or video processing.
-        """
-        png: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
-        """
-        Sets whether PNG files are routed to document or image processing.
-        """
-elif False:
-    DataAutomationProjectModalityRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectModalityRoutingConfigurationArgsDict(TypedDict):
+    """
+    Modality routing configuration
+    """
+    jpeg: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    """
+    Sets whether JPEG files are routed to document or image processing.
+    """
+    mov: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    """
+    Sets whether MOV files are routed to audio or video processing.
+    """
+    mp4: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    """
+    Sets whether MP4 files are routed to audio or video processing.
+    """
+    png: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    """
+    Sets whether PNG files are routed to document or image processing.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectModalityRoutingConfigurationArgs:
@@ -3710,33 +3543,30 @@ class DataAutomationProjectModalityRoutingConfigurationArgs:
         pulumi.set(self, "png", value)
 
 
-if not MYPY:
-    class DataAutomationProjectOverrideConfigurationArgsDict(TypedDict):
-        """
-        Override configuration
-        """
-        audio: NotRequired[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgsDict']]
-        """
-        This element declares whether your project will process audio files.
-        """
-        document: NotRequired[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgsDict']]
-        """
-        Additional settings for a project.
-        """
-        image: NotRequired[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgsDict']]
-        """
-        This element declares whether your project will process image files.
-        """
-        modality_routing: NotRequired[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgsDict']]
-        """
-        Lets you set which modalities certain file types are processed as.
-        """
-        video: NotRequired[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgsDict']]
-        """
-        This element declares whether your project will process video files.
-        """
-elif False:
-    DataAutomationProjectOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectOverrideConfigurationArgsDict(TypedDict):
+    """
+    Override configuration
+    """
+    audio: NotRequired[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgsDict']]
+    """
+    This element declares whether your project will process audio files.
+    """
+    document: NotRequired[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgsDict']]
+    """
+    Additional settings for a project.
+    """
+    image: NotRequired[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgsDict']]
+    """
+    This element declares whether your project will process image files.
+    """
+    modality_routing: NotRequired[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgsDict']]
+    """
+    Lets you set which modalities certain file types are processed as.
+    """
+    video: NotRequired[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgsDict']]
+    """
+    This element declares whether your project will process video files.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectOverrideConfigurationArgs:
@@ -3826,18 +3656,15 @@ class DataAutomationProjectOverrideConfigurationArgs:
         pulumi.set(self, "video", value)
 
 
-if not MYPY:
-    class DataAutomationProjectPiiEntitiesConfigurationArgsDict(TypedDict):
-        pii_entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]
-        """
-        List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
-        """
-        redaction_mask_mode: NotRequired[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]
-        """
-        Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
-        """
-elif False:
-    DataAutomationProjectPiiEntitiesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectPiiEntitiesConfigurationArgsDict(TypedDict):
+    pii_entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]
+    """
+    List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+    """
+    redaction_mask_mode: NotRequired[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]
+    """
+    Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectPiiEntitiesConfigurationArgs:
@@ -3878,22 +3705,19 @@ class DataAutomationProjectPiiEntitiesConfigurationArgs:
         pulumi.set(self, "redaction_mask_mode", value)
 
 
-if not MYPY:
-    class DataAutomationProjectSensitiveDataConfigurationArgsDict(TypedDict):
-        detection_mode: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]
-        """
-        Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
-        """
-        detection_scope: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]
-        """
-        Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
-        """
-        pii_entities_configuration: NotRequired[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgsDict']]
-        """
-        Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
-        """
-elif False:
-    DataAutomationProjectSensitiveDataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectSensitiveDataConfigurationArgsDict(TypedDict):
+    detection_mode: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]
+    """
+    Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+    """
+    detection_scope: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]
+    """
+    Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+    """
+    pii_entities_configuration: NotRequired[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgsDict']]
+    """
+    Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectSensitiveDataConfigurationArgs:
@@ -3950,14 +3774,11 @@ class DataAutomationProjectSensitiveDataConfigurationArgs:
         pulumi.set(self, "pii_entities_configuration", value)
 
 
-if not MYPY:
-    class DataAutomationProjectSpeakerLabelingConfigurationArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        State of speaker labeling, either enabled or disabled.
-        """
-elif False:
-    DataAutomationProjectSpeakerLabelingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectSpeakerLabelingConfigurationArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    State of speaker labeling, either enabled or disabled.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectSpeakerLabelingConfigurationArgs:
@@ -3981,14 +3802,11 @@ class DataAutomationProjectSpeakerLabelingConfigurationArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectSplitterConfigurationArgsDict(TypedDict):
-        state: NotRequired[pulumi.Input['DataAutomationProjectState']]
-        """
-        Whether document splitter is enabled for a project.
-        """
-elif False:
-    DataAutomationProjectSplitterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectSplitterConfigurationArgsDict(TypedDict):
+    state: NotRequired[pulumi.Input['DataAutomationProjectState']]
+    """
+    Whether document splitter is enabled for a project.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectSplitterConfigurationArgs:
@@ -4013,29 +3831,26 @@ class DataAutomationProjectSplitterConfigurationArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectStandardOutputConfigurationArgsDict(TypedDict):
-        """
-        Standard output configuration
-        """
-        audio: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgsDict']]
-        """
-        Settings for processing audio.
-        """
-        document: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgsDict']]
-        """
-        Settings for processing documents.
-        """
-        image: NotRequired[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgsDict']]
-        """
-        Settings for processing images.
-        """
-        video: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgsDict']]
-        """
-        Settings for processing video.
-        """
-elif False:
-    DataAutomationProjectStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectStandardOutputConfigurationArgsDict(TypedDict):
+    """
+    Standard output configuration
+    """
+    audio: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgsDict']]
+    """
+    Settings for processing audio.
+    """
+    document: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgsDict']]
+    """
+    Settings for processing documents.
+    """
+    image: NotRequired[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgsDict']]
+    """
+    Settings for processing images.
+    """
+    video: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgsDict']]
+    """
+    Settings for processing video.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectStandardOutputConfigurationArgs:
@@ -4109,18 +3924,15 @@ class DataAutomationProjectStandardOutputConfigurationArgs:
         pulumi.set(self, "video", value)
 
 
-if not MYPY:
-    class DataAutomationProjectTranscriptConfigurationArgsDict(TypedDict):
-        channel_labeling: NotRequired[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgsDict']]
-        """
-        Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
-        """
-        speaker_labeling: NotRequired[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgsDict']]
-        """
-        Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
-        """
-elif False:
-    DataAutomationProjectTranscriptConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectTranscriptConfigurationArgsDict(TypedDict):
+    channel_labeling: NotRequired[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgsDict']]
+    """
+    Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
+    """
+    speaker_labeling: NotRequired[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgsDict']]
+    """
+    Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectTranscriptConfigurationArgs:
@@ -4161,14 +3973,11 @@ class DataAutomationProjectTranscriptConfigurationArgs:
         pulumi.set(self, "speaker_labeling", value)
 
 
-if not MYPY:
-    class DataAutomationProjectVideoBoundingBoxArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether bounding boxes are enabled for video.
-        """
-elif False:
-    DataAutomationProjectVideoBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectVideoBoundingBoxArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether bounding boxes are enabled for video.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectVideoBoundingBoxArgs:
@@ -4192,18 +4001,15 @@ class DataAutomationProjectVideoBoundingBoxArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DataAutomationProjectVideoExtractionCategoryArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating categorical data from video is enabled.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]
-        """
-        The types of data to generate.
-        """
-elif False:
-    DataAutomationProjectVideoExtractionCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectVideoExtractionCategoryArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating categorical data from video is enabled.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]
+    """
+    The types of data to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectVideoExtractionCategoryArgs:
@@ -4243,18 +4049,15 @@ class DataAutomationProjectVideoExtractionCategoryArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectVideoOverrideConfigurationArgsDict(TypedDict):
-        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
-        """
-        Sets modality processing for video files. All modalities are enabled by default.
-        """
-        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
-        """
-        Configuration for sensitive data detection and redaction for video files.
-        """
-elif False:
-    DataAutomationProjectVideoOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectVideoOverrideConfigurationArgsDict(TypedDict):
+    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    """
+    Sets modality processing for video files. All modalities are enabled by default.
+    """
+    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    """
+    Configuration for sensitive data detection and redaction for video files.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectVideoOverrideConfigurationArgs:
@@ -4295,18 +4098,15 @@ class DataAutomationProjectVideoOverrideConfigurationArgs:
         pulumi.set(self, "sensitive_data_configuration", value)
 
 
-if not MYPY:
-    class DataAutomationProjectVideoStandardExtractionArgsDict(TypedDict):
-        bounding_box: pulumi.Input['DataAutomationProjectVideoBoundingBoxArgsDict']
-        """
-        Settings for generating bounding boxes.
-        """
-        category: pulumi.Input['DataAutomationProjectVideoExtractionCategoryArgsDict']
-        """
-        Settings for generating categorical data.
-        """
-elif False:
-    DataAutomationProjectVideoStandardExtractionArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectVideoStandardExtractionArgsDict(TypedDict):
+    bounding_box: pulumi.Input['DataAutomationProjectVideoBoundingBoxArgsDict']
+    """
+    Settings for generating bounding boxes.
+    """
+    category: pulumi.Input['DataAutomationProjectVideoExtractionCategoryArgsDict']
+    """
+    Settings for generating categorical data.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectVideoStandardExtractionArgs:
@@ -4345,18 +4145,15 @@ class DataAutomationProjectVideoStandardExtractionArgs:
         pulumi.set(self, "category", value)
 
 
-if not MYPY:
-    class DataAutomationProjectVideoStandardGenerativeFieldArgsDict(TypedDict):
-        state: pulumi.Input['DataAutomationProjectState']
-        """
-        Whether generating descriptions is enabled for video.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]
-        """
-        The types of description to generate.
-        """
-elif False:
-    DataAutomationProjectVideoStandardGenerativeFieldArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectVideoStandardGenerativeFieldArgsDict(TypedDict):
+    state: pulumi.Input['DataAutomationProjectState']
+    """
+    Whether generating descriptions is enabled for video.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]
+    """
+    The types of description to generate.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectVideoStandardGenerativeFieldArgs:
@@ -4396,18 +4193,15 @@ class DataAutomationProjectVideoStandardGenerativeFieldArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class DataAutomationProjectVideoStandardOutputConfigurationArgsDict(TypedDict):
-        extraction: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgsDict']]
-        """
-        Settings for populating data fields that describe the video.
-        """
-        generative_field: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgsDict']]
-        """
-        Whether to generate descriptions of the video.
-        """
-elif False:
-    DataAutomationProjectVideoStandardOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataAutomationProjectVideoStandardOutputConfigurationArgsDict(TypedDict):
+    extraction: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgsDict']]
+    """
+    Settings for populating data fields that describe the video.
+    """
+    generative_field: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgsDict']]
+    """
+    Whether to generate descriptions of the video.
+    """
 
 @pulumi.input_type
 class DataAutomationProjectVideoStandardOutputConfigurationArgs:
@@ -4448,17 +4242,14 @@ class DataAutomationProjectVideoStandardOutputConfigurationArgs:
         pulumi.set(self, "generative_field", value)
 
 
-if not MYPY:
-    class DataSourceBedrockDataAutomationConfigurationArgsDict(TypedDict):
-        """
-        Settings for a Bedrock Data Automation used to parse documents for a data source.
-        """
-        parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
-        """
-        Specifies whether to enable parsing of multimodal data, including both text and/or images.
-        """
-elif False:
-    DataSourceBedrockDataAutomationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceBedrockDataAutomationConfigurationArgsDict(TypedDict):
+    """
+    Settings for a Bedrock Data Automation used to parse documents for a data source.
+    """
+    parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
+    """
+    Specifies whether to enable parsing of multimodal data, including both text and/or images.
+    """
 
 @pulumi.input_type
 class DataSourceBedrockDataAutomationConfigurationArgs:
@@ -4484,25 +4275,22 @@ class DataSourceBedrockDataAutomationConfigurationArgs:
         pulumi.set(self, "parsing_modality", value)
 
 
-if not MYPY:
-    class DataSourceBedrockFoundationModelConfigurationArgsDict(TypedDict):
-        """
-        Settings for a foundation model used to parse documents for a data source.
-        """
-        model_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the foundation model to use for parsing.
-        """
-        parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
-        """
-        Specifies whether to enable parsing of multimodal data, including both text and/or images.
-        """
-        parsing_prompt: NotRequired[pulumi.Input['DataSourceParsingPromptArgsDict']]
-        """
-        Instructions for interpreting the contents of a document.
-        """
-elif False:
-    DataSourceBedrockFoundationModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceBedrockFoundationModelConfigurationArgsDict(TypedDict):
+    """
+    Settings for a foundation model used to parse documents for a data source.
+    """
+    model_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the foundation model to use for parsing.
+    """
+    parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
+    """
+    Specifies whether to enable parsing of multimodal data, including both text and/or images.
+    """
+    parsing_prompt: NotRequired[pulumi.Input['DataSourceParsingPromptArgsDict']]
+    """
+    Instructions for interpreting the contents of a document.
+    """
 
 @pulumi.input_type
 class DataSourceBedrockFoundationModelConfigurationArgs:
@@ -4559,21 +4347,18 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
         pulumi.set(self, "parsing_prompt", value)
 
 
-if not MYPY:
-    class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict(TypedDict):
-        """
-        Bedrock Foundation Model configuration to be used for Context Enrichment.
-        """
-        enrichment_strategy_configuration: pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgsDict']
-        """
-        The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
-        """
-        model_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
-        """
-elif False:
-    DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict(TypedDict):
+    """
+    Bedrock Foundation Model configuration to be used for Context Enrichment.
+    """
+    enrichment_strategy_configuration: pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgsDict']
+    """
+    The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
+    """
+    model_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
+    """
 
 @pulumi.input_type
 class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs:
@@ -4613,34 +4398,31 @@ class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs:
         pulumi.set(self, "model_arn", value)
 
 
-if not MYPY:
-    class DataSourceChunkingConfigurationArgsDict(TypedDict):
-        """
-        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-        """
-        chunking_strategy: pulumi.Input['DataSourceChunkingStrategy']
-        """
-        Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+class DataSourceChunkingConfigurationArgsDict(TypedDict):
+    """
+    Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    """
+    chunking_strategy: pulumi.Input['DataSourceChunkingStrategy']
+    """
+    Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
 
-        - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
-        - `HIERARCHICAL` – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
-        - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
-        - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
-        """
-        fixed_size_chunking_configuration: NotRequired[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgsDict']]
-        """
-        Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
-        """
-        hierarchical_chunking_configuration: NotRequired[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgsDict']]
-        """
-        Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
-        """
-        semantic_chunking_configuration: NotRequired[pulumi.Input['DataSourceSemanticChunkingConfigurationArgsDict']]
-        """
-        Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
-        """
-elif False:
-    DataSourceChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+    - `HIERARCHICAL` – Split documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+    - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
+    - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
+    """
+    fixed_size_chunking_configuration: NotRequired[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgsDict']]
+    """
+    Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
+    """
+    hierarchical_chunking_configuration: NotRequired[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgsDict']]
+    """
+    Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+    """
+    semantic_chunking_configuration: NotRequired[pulumi.Input['DataSourceSemanticChunkingConfigurationArgsDict']]
+    """
+    Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+    """
 
 @pulumi.input_type
 class DataSourceChunkingConfigurationArgs:
@@ -4723,45 +4505,42 @@ class DataSourceChunkingConfigurationArgs:
         pulumi.set(self, "semantic_chunking_configuration", value)
 
 
-if not MYPY:
-    class DataSourceConfigurationArgsDict(TypedDict):
-        """
-        Specifies a raw data source location to ingest.
-        """
-        type: pulumi.Input['DataSourceType']
-        """
-        The type of data source.
-        """
-        confluence_configuration: NotRequired[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgsDict']]
-        """
-        The configuration information to connect to Confluence as your data source.
+class DataSourceConfigurationArgsDict(TypedDict):
+    """
+    Specifies a raw data source location to ingest.
+    """
+    type: pulumi.Input['DataSourceType']
+    """
+    The type of data source.
+    """
+    confluence_configuration: NotRequired[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgsDict']]
+    """
+    The configuration information to connect to Confluence as your data source.
 
-        > Confluence data source connector is in preview release and is subject to change.
-        """
-        s3_configuration: NotRequired[pulumi.Input['DataSourceS3DataSourceConfigurationArgsDict']]
-        """
-        The configuration information to connect to Amazon S3 as your data source.
-        """
-        salesforce_configuration: NotRequired[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgsDict']]
-        """
-        The configuration information to connect to Salesforce as your data source.
+    > Confluence data source connector is in preview release and is subject to change.
+    """
+    s3_configuration: NotRequired[pulumi.Input['DataSourceS3DataSourceConfigurationArgsDict']]
+    """
+    The configuration information to connect to Amazon S3 as your data source.
+    """
+    salesforce_configuration: NotRequired[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgsDict']]
+    """
+    The configuration information to connect to Salesforce as your data source.
 
-        > Salesforce data source connector is in preview release and is subject to change.
-        """
-        share_point_configuration: NotRequired[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgsDict']]
-        """
-        The configuration information to connect to SharePoint as your data source.
+    > Salesforce data source connector is in preview release and is subject to change.
+    """
+    share_point_configuration: NotRequired[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgsDict']]
+    """
+    The configuration information to connect to SharePoint as your data source.
 
-        > SharePoint data source connector is in preview release and is subject to change.
-        """
-        web_configuration: NotRequired[pulumi.Input['DataSourceWebDataSourceConfigurationArgsDict']]
-        """
-        The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
+    > SharePoint data source connector is in preview release and is subject to change.
+    """
+    web_configuration: NotRequired[pulumi.Input['DataSourceWebDataSourceConfigurationArgsDict']]
+    """
+    The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
 
-        > Crawling web URLs as your data source is in preview release and is subject to change.
-        """
-elif False:
-    DataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > Crawling web URLs as your data source is in preview release and is subject to change.
+    """
 
 @pulumi.input_type
 class DataSourceConfigurationArgs:
@@ -4882,17 +4661,14 @@ class DataSourceConfigurationArgs:
         pulumi.set(self, "web_configuration", value)
 
 
-if not MYPY:
-    class DataSourceConfluenceCrawlerConfigurationArgsDict(TypedDict):
-        """
-        The configuration of the Confluence content. For example, configuring specific types of Confluence content.
-        """
-        filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
-        """
-        The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
-        """
-elif False:
-    DataSourceConfluenceCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceConfluenceCrawlerConfigurationArgsDict(TypedDict):
+    """
+    The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+    """
+    filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
+    """
+    The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
+    """
 
 @pulumi.input_type
 class DataSourceConfluenceCrawlerConfigurationArgs:
@@ -4918,21 +4694,18 @@ class DataSourceConfluenceCrawlerConfigurationArgs:
         pulumi.set(self, "filter_configuration", value)
 
 
-if not MYPY:
-    class DataSourceConfluenceDataSourceConfigurationArgsDict(TypedDict):
-        """
-        The configuration information to connect to Confluence as your data source.
-        """
-        source_configuration: pulumi.Input['DataSourceConfluenceSourceConfigurationArgsDict']
-        """
-        The endpoint information to connect to your Confluence data source.
-        """
-        crawler_configuration: NotRequired[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgsDict']]
-        """
-        The configuration of the Confluence content. For example, configuring specific types of Confluence content.
-        """
-elif False:
-    DataSourceConfluenceDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceConfluenceDataSourceConfigurationArgsDict(TypedDict):
+    """
+    The configuration information to connect to Confluence as your data source.
+    """
+    source_configuration: pulumi.Input['DataSourceConfluenceSourceConfigurationArgsDict']
+    """
+    The endpoint information to connect to your Confluence data source.
+    """
+    crawler_configuration: NotRequired[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgsDict']]
+    """
+    The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+    """
 
 @pulumi.input_type
 class DataSourceConfluenceDataSourceConfigurationArgs:
@@ -4973,29 +4746,26 @@ class DataSourceConfluenceDataSourceConfigurationArgs:
         pulumi.set(self, "crawler_configuration", value)
 
 
-if not MYPY:
-    class DataSourceConfluenceSourceConfigurationArgsDict(TypedDict):
-        """
-        The endpoint information to connect to your Confluence data source.
-        """
-        auth_type: pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType']
-        """
-        The supported authentication type to authenticate and connect to your Confluence instance.
-        """
-        credentials_secret_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
-        """
-        host_type: pulumi.Input['DataSourceConfluenceSourceConfigurationHostType']
-        """
-        The supported host type, whether online/cloud or server/on-premises.
-        """
-        host_url: pulumi.Input[_builtins.str]
-        """
-        The Confluence host URL or instance URL.
-        """
-elif False:
-    DataSourceConfluenceSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceConfluenceSourceConfigurationArgsDict(TypedDict):
+    """
+    The endpoint information to connect to your Confluence data source.
+    """
+    auth_type: pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType']
+    """
+    The supported authentication type to authenticate and connect to your Confluence instance.
+    """
+    credentials_secret_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
+    """
+    host_type: pulumi.Input['DataSourceConfluenceSourceConfigurationHostType']
+    """
+    The supported host type, whether online/cloud or server/on-premises.
+    """
+    host_url: pulumi.Input[_builtins.str]
+    """
+    The Confluence host URL or instance URL.
+    """
 
 @pulumi.input_type
 class DataSourceConfluenceSourceConfigurationArgs:
@@ -5065,21 +4835,18 @@ class DataSourceConfluenceSourceConfigurationArgs:
         pulumi.set(self, "host_url", value)
 
 
-if not MYPY:
-    class DataSourceContextEnrichmentConfigurationArgsDict(TypedDict):
-        """
-        Additional Enrichment Configuration for example when using GraphRag.
-        """
-        type: pulumi.Input['DataSourceContextEnrichmentType']
-        """
-        The method used for context enrichment. It must be Amazon Bedrock foundation models.
-        """
-        bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict']]
-        """
-        The configuration of the Amazon Bedrock foundation model used for context enrichment.
-        """
-elif False:
-    DataSourceContextEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceContextEnrichmentConfigurationArgsDict(TypedDict):
+    """
+    Additional Enrichment Configuration for example when using GraphRag.
+    """
+    type: pulumi.Input['DataSourceContextEnrichmentType']
+    """
+    The method used for context enrichment. It must be Amazon Bedrock foundation models.
+    """
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict']]
+    """
+    The configuration of the Amazon Bedrock foundation model used for context enrichment.
+    """
 
 @pulumi.input_type
 class DataSourceContextEnrichmentConfigurationArgs:
@@ -5120,21 +4887,18 @@ class DataSourceContextEnrichmentConfigurationArgs:
         pulumi.set(self, "bedrock_foundation_model_configuration", value)
 
 
-if not MYPY:
-    class DataSourceCrawlFilterConfigurationArgsDict(TypedDict):
-        """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        """
-        type: pulumi.Input['DataSourceCrawlFilterConfigurationType']
-        """
-        The crawl filter type.
-        """
-        pattern_object_filter: NotRequired[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgsDict']]
-        """
-        The configuration of filtering certain objects or content types of the data source.
-        """
-elif False:
-    DataSourceCrawlFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceCrawlFilterConfigurationArgsDict(TypedDict):
+    """
+    The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+    """
+    type: pulumi.Input['DataSourceCrawlFilterConfigurationType']
+    """
+    The crawl filter type.
+    """
+    pattern_object_filter: NotRequired[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgsDict']]
+    """
+    The configuration of filtering certain objects or content types of the data source.
+    """
 
 @pulumi.input_type
 class DataSourceCrawlFilterConfigurationArgs:
@@ -5175,21 +4939,18 @@ class DataSourceCrawlFilterConfigurationArgs:
         pulumi.set(self, "pattern_object_filter", value)
 
 
-if not MYPY:
-    class DataSourceCustomTransformationConfigurationArgsDict(TypedDict):
-        """
-        Settings for customizing steps in the data source content ingestion pipeline.
-        """
-        intermediate_storage: pulumi.Input['DataSourceIntermediateStorageArgsDict']
-        """
-        An S3 bucket path for input and output objects.
-        """
-        transformations: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgsDict']]]
-        """
-        A list of Lambda functions that process documents.
-        """
-elif False:
-    DataSourceCustomTransformationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceCustomTransformationConfigurationArgsDict(TypedDict):
+    """
+    Settings for customizing steps in the data source content ingestion pipeline.
+    """
+    intermediate_storage: pulumi.Input['DataSourceIntermediateStorageArgsDict']
+    """
+    An S3 bucket path for input and output objects.
+    """
+    transformations: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgsDict']]]
+    """
+    A list of Lambda functions that process documents.
+    """
 
 @pulumi.input_type
 class DataSourceCustomTransformationConfigurationArgs:
@@ -5229,17 +4990,14 @@ class DataSourceCustomTransformationConfigurationArgs:
         pulumi.set(self, "transformations", value)
 
 
-if not MYPY:
-    class DataSourceEnrichmentStrategyConfigurationArgsDict(TypedDict):
-        """
-        Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
-        """
-        method: pulumi.Input['DataSourceEnrichmentStrategyMethod']
-        """
-        The method used for the context enrichment strategy.
-        """
-elif False:
-    DataSourceEnrichmentStrategyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceEnrichmentStrategyConfigurationArgsDict(TypedDict):
+    """
+    Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+    """
+    method: pulumi.Input['DataSourceEnrichmentStrategyMethod']
+    """
+    The method used for the context enrichment strategy.
+    """
 
 @pulumi.input_type
 class DataSourceEnrichmentStrategyConfigurationArgs:
@@ -5264,21 +5022,18 @@ class DataSourceEnrichmentStrategyConfigurationArgs:
         pulumi.set(self, "method", value)
 
 
-if not MYPY:
-    class DataSourceFixedSizeChunkingConfigurationArgsDict(TypedDict):
-        """
-        Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
-        """
-        max_tokens: pulumi.Input[_builtins.int]
-        """
-        The maximum number of tokens to include in a chunk.
-        """
-        overlap_percentage: pulumi.Input[_builtins.int]
-        """
-        The percentage of overlap between adjacent chunks of a data source.
-        """
-elif False:
-    DataSourceFixedSizeChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceFixedSizeChunkingConfigurationArgsDict(TypedDict):
+    """
+    Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
+    """
+    max_tokens: pulumi.Input[_builtins.int]
+    """
+    The maximum number of tokens to include in a chunk.
+    """
+    overlap_percentage: pulumi.Input[_builtins.int]
+    """
+    The percentage of overlap between adjacent chunks of a data source.
+    """
 
 @pulumi.input_type
 class DataSourceFixedSizeChunkingConfigurationArgs:
@@ -5318,21 +5073,18 @@ class DataSourceFixedSizeChunkingConfigurationArgs:
         pulumi.set(self, "overlap_percentage", value)
 
 
-if not MYPY:
-    class DataSourceHierarchicalChunkingConfigurationArgsDict(TypedDict):
-        """
-        Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
-        """
-        level_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgsDict']]]
-        """
-        Token settings for each layer.
-        """
-        overlap_tokens: pulumi.Input[_builtins.int]
-        """
-        The number of tokens to repeat across chunks in the same layer.
-        """
-elif False:
-    DataSourceHierarchicalChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceHierarchicalChunkingConfigurationArgsDict(TypedDict):
+    """
+    Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+    """
+    level_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgsDict']]]
+    """
+    Token settings for each layer.
+    """
+    overlap_tokens: pulumi.Input[_builtins.int]
+    """
+    The number of tokens to repeat across chunks in the same layer.
+    """
 
 @pulumi.input_type
 class DataSourceHierarchicalChunkingConfigurationArgs:
@@ -5372,17 +5124,14 @@ class DataSourceHierarchicalChunkingConfigurationArgs:
         pulumi.set(self, "overlap_tokens", value)
 
 
-if not MYPY:
-    class DataSourceHierarchicalChunkingLevelConfigurationArgsDict(TypedDict):
-        """
-        Token settings for a layer in a hierarchical chunking configuration.
-        """
-        max_tokens: pulumi.Input[_builtins.int]
-        """
-        The maximum number of tokens that a chunk can contain in this layer.
-        """
-elif False:
-    DataSourceHierarchicalChunkingLevelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceHierarchicalChunkingLevelConfigurationArgsDict(TypedDict):
+    """
+    Token settings for a layer in a hierarchical chunking configuration.
+    """
+    max_tokens: pulumi.Input[_builtins.int]
+    """
+    The maximum number of tokens that a chunk can contain in this layer.
+    """
 
 @pulumi.input_type
 class DataSourceHierarchicalChunkingLevelConfigurationArgs:
@@ -5407,17 +5156,14 @@ class DataSourceHierarchicalChunkingLevelConfigurationArgs:
         pulumi.set(self, "max_tokens", value)
 
 
-if not MYPY:
-    class DataSourceIntermediateStorageArgsDict(TypedDict):
-        """
-        A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
-        """
-        s3_location: pulumi.Input['DataSourceS3LocationArgsDict']
-        """
-        An S3 bucket path.
-        """
-elif False:
-    DataSourceIntermediateStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceIntermediateStorageArgsDict(TypedDict):
+    """
+    A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+    """
+    s3_location: pulumi.Input['DataSourceS3LocationArgsDict']
+    """
+    An S3 bucket path.
+    """
 
 @pulumi.input_type
 class DataSourceIntermediateStorageArgs:
@@ -5442,25 +5188,22 @@ class DataSourceIntermediateStorageArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class DataSourceParsingConfigurationArgsDict(TypedDict):
-        """
-        Settings for parsing document contents
-        """
-        parsing_strategy: pulumi.Input['DataSourceParsingStrategy']
-        """
-        The parsing strategy for the data source.
-        """
-        bedrock_data_automation_configuration: NotRequired[pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgsDict']]
-        """
-        If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
-        """
-        bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgsDict']]
-        """
-        If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
-        """
-elif False:
-    DataSourceParsingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceParsingConfigurationArgsDict(TypedDict):
+    """
+    Settings for parsing document contents
+    """
+    parsing_strategy: pulumi.Input['DataSourceParsingStrategy']
+    """
+    The parsing strategy for the data source.
+    """
+    bedrock_data_automation_configuration: NotRequired[pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgsDict']]
+    """
+    If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+    """
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgsDict']]
+    """
+    If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
+    """
 
 @pulumi.input_type
 class DataSourceParsingConfigurationArgs:
@@ -5517,17 +5260,14 @@ class DataSourceParsingConfigurationArgs:
         pulumi.set(self, "bedrock_foundation_model_configuration", value)
 
 
-if not MYPY:
-    class DataSourceParsingPromptArgsDict(TypedDict):
-        """
-        Instructions for interpreting the contents of a document.
-        """
-        parsing_prompt_text: pulumi.Input[_builtins.str]
-        """
-        Instructions for interpreting the contents of a document.
-        """
-elif False:
-    DataSourceParsingPromptArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceParsingPromptArgsDict(TypedDict):
+    """
+    Instructions for interpreting the contents of a document.
+    """
+    parsing_prompt_text: pulumi.Input[_builtins.str]
+    """
+    Instructions for interpreting the contents of a document.
+    """
 
 @pulumi.input_type
 class DataSourceParsingPromptArgs:
@@ -5552,17 +5292,14 @@ class DataSourceParsingPromptArgs:
         pulumi.set(self, "parsing_prompt_text", value)
 
 
-if not MYPY:
-    class DataSourcePatternObjectFilterConfigurationArgsDict(TypedDict):
-        """
-        The configuration of specific filters applied to your data source content. You can filter out or include certain content.
-        """
-        filters: pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgsDict']]]
-        """
-        The configuration of specific filters applied to your data source content. You can filter out or include certain content.
-        """
-elif False:
-    DataSourcePatternObjectFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourcePatternObjectFilterConfigurationArgsDict(TypedDict):
+    """
+    The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+    """
+    filters: pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgsDict']]]
+    """
+    The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+    """
 
 @pulumi.input_type
 class DataSourcePatternObjectFilterConfigurationArgs:
@@ -5587,19 +5324,16 @@ class DataSourcePatternObjectFilterConfigurationArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class DataSourcePatternObjectFilterArgsDict(TypedDict):
-        """
-        The specific filters applied to your data source content. You can filter out or include certain content.
-        """
-        object_type: pulumi.Input[_builtins.str]
-        """
-        The supported object type or content type of the data source.
-        """
-        exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    DataSourcePatternObjectFilterArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourcePatternObjectFilterArgsDict(TypedDict):
+    """
+    The specific filters applied to your data source content. You can filter out or include certain content.
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    The supported object type or content type of the data source.
+    """
+    exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class DataSourcePatternObjectFilterArgs:
@@ -5648,25 +5382,22 @@ class DataSourcePatternObjectFilterArgs:
         pulumi.set(self, "inclusion_filters", value)
 
 
-if not MYPY:
-    class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
-        """
-        The configuration information to connect to Amazon S3 as your data source.
-        """
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the bucket that contains the data source.
-        """
-        bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account ID for the owner of the S3 bucket.
-        """
-        inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of S3 prefixes that define the object containing the data sources.
-        """
-elif False:
-    DataSourceS3DataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
+    """
+    The configuration information to connect to Amazon S3 as your data source.
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the bucket that contains the data source.
+    """
+    bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account ID for the owner of the S3 bucket.
+    """
+    inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of S3 prefixes that define the object containing the data sources.
+    """
 
 @pulumi.input_type
 class DataSourceS3DataSourceConfigurationArgs:
@@ -5723,17 +5454,14 @@ class DataSourceS3DataSourceConfigurationArgs:
         pulumi.set(self, "inclusion_prefixes", value)
 
 
-if not MYPY:
-    class DataSourceS3LocationArgsDict(TypedDict):
-        """
-        An Amazon S3 location.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The location's URI
-        """
-elif False:
-    DataSourceS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceS3LocationArgsDict(TypedDict):
+    """
+    An Amazon S3 location.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The location's URI
+    """
 
 @pulumi.input_type
 class DataSourceS3LocationArgs:
@@ -5758,17 +5486,14 @@ class DataSourceS3LocationArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class DataSourceSalesforceCrawlerConfigurationArgsDict(TypedDict):
-        """
-        The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
-        """
-        filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
-        """
-        The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
-        """
-elif False:
-    DataSourceSalesforceCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSalesforceCrawlerConfigurationArgsDict(TypedDict):
+    """
+    The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+    """
+    filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
+    """
+    The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+    """
 
 @pulumi.input_type
 class DataSourceSalesforceCrawlerConfigurationArgs:
@@ -5794,21 +5519,18 @@ class DataSourceSalesforceCrawlerConfigurationArgs:
         pulumi.set(self, "filter_configuration", value)
 
 
-if not MYPY:
-    class DataSourceSalesforceDataSourceConfigurationArgsDict(TypedDict):
-        """
-        The configuration information to connect to Salesforce as your data source.
-        """
-        source_configuration: pulumi.Input['DataSourceSalesforceSourceConfigurationArgsDict']
-        """
-        The endpoint information to connect to your Salesforce data source.
-        """
-        crawler_configuration: NotRequired[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgsDict']]
-        """
-        The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
-        """
-elif False:
-    DataSourceSalesforceDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSalesforceDataSourceConfigurationArgsDict(TypedDict):
+    """
+    The configuration information to connect to Salesforce as your data source.
+    """
+    source_configuration: pulumi.Input['DataSourceSalesforceSourceConfigurationArgsDict']
+    """
+    The endpoint information to connect to your Salesforce data source.
+    """
+    crawler_configuration: NotRequired[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgsDict']]
+    """
+    The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
+    """
 
 @pulumi.input_type
 class DataSourceSalesforceDataSourceConfigurationArgs:
@@ -5849,25 +5571,22 @@ class DataSourceSalesforceDataSourceConfigurationArgs:
         pulumi.set(self, "crawler_configuration", value)
 
 
-if not MYPY:
-    class DataSourceSalesforceSourceConfigurationArgsDict(TypedDict):
-        """
-        The endpoint information to connect to your Salesforce data source.
-        """
-        auth_type: pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType']
-        """
-        The supported authentication type to authenticate and connect to your Salesforce instance.
-        """
-        credentials_secret_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
-        """
-        host_url: pulumi.Input[_builtins.str]
-        """
-        The Salesforce host URL or instance URL.
-        """
-elif False:
-    DataSourceSalesforceSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSalesforceSourceConfigurationArgsDict(TypedDict):
+    """
+    The endpoint information to connect to your Salesforce data source.
+    """
+    auth_type: pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType']
+    """
+    The supported authentication type to authenticate and connect to your Salesforce instance.
+    """
+    credentials_secret_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
+    """
+    host_url: pulumi.Input[_builtins.str]
+    """
+    The Salesforce host URL or instance URL.
+    """
 
 @pulumi.input_type
 class DataSourceSalesforceSourceConfigurationArgs:
@@ -5922,17 +5641,14 @@ class DataSourceSalesforceSourceConfigurationArgs:
         pulumi.set(self, "host_url", value)
 
 
-if not MYPY:
-    class DataSourceSeedUrlArgsDict(TypedDict):
-        """
-        A seed url object.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        A web url.
-        """
-elif False:
-    DataSourceSeedUrlArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSeedUrlArgsDict(TypedDict):
+    """
+    A seed url object.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    A web url.
+    """
 
 @pulumi.input_type
 class DataSourceSeedUrlArgs:
@@ -5957,25 +5673,22 @@ class DataSourceSeedUrlArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class DataSourceSemanticChunkingConfigurationArgsDict(TypedDict):
-        """
-        Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
-        """
-        breakpoint_percentile_threshold: pulumi.Input[_builtins.int]
-        """
-        The dissimilarity threshold for splitting chunks.
-        """
-        buffer_size: pulumi.Input[_builtins.int]
-        """
-        The buffer size.
-        """
-        max_tokens: pulumi.Input[_builtins.int]
-        """
-        The maximum number of tokens that a chunk can contain.
-        """
-elif False:
-    DataSourceSemanticChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSemanticChunkingConfigurationArgsDict(TypedDict):
+    """
+    Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+    """
+    breakpoint_percentile_threshold: pulumi.Input[_builtins.int]
+    """
+    The dissimilarity threshold for splitting chunks.
+    """
+    buffer_size: pulumi.Input[_builtins.int]
+    """
+    The buffer size.
+    """
+    max_tokens: pulumi.Input[_builtins.int]
+    """
+    The maximum number of tokens that a chunk can contain.
+    """
 
 @pulumi.input_type
 class DataSourceSemanticChunkingConfigurationArgs:
@@ -6030,17 +5743,14 @@ class DataSourceSemanticChunkingConfigurationArgs:
         pulumi.set(self, "max_tokens", value)
 
 
-if not MYPY:
-    class DataSourceServerSideEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Contains details about the server-side encryption for the data source.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the AWS KMS key used to encrypt the resource.
-        """
-elif False:
-    DataSourceServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceServerSideEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Contains details about the server-side encryption for the data source.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the AWS KMS key used to encrypt the resource.
+    """
 
 @pulumi.input_type
 class DataSourceServerSideEncryptionConfigurationArgs:
@@ -6066,17 +5776,14 @@ class DataSourceServerSideEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class DataSourceSharePointCrawlerConfigurationArgsDict(TypedDict):
-        """
-        The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
-        """
-        filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
-        """
-        The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
-        """
-elif False:
-    DataSourceSharePointCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSharePointCrawlerConfigurationArgsDict(TypedDict):
+    """
+    The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+    """
+    filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
+    """
+    The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
+    """
 
 @pulumi.input_type
 class DataSourceSharePointCrawlerConfigurationArgs:
@@ -6102,21 +5809,18 @@ class DataSourceSharePointCrawlerConfigurationArgs:
         pulumi.set(self, "filter_configuration", value)
 
 
-if not MYPY:
-    class DataSourceSharePointDataSourceConfigurationArgsDict(TypedDict):
-        """
-        The configuration information to connect to SharePoint as your data source.
-        """
-        source_configuration: pulumi.Input['DataSourceSharePointSourceConfigurationArgsDict']
-        """
-        The endpoint information to connect to your SharePoint data source.
-        """
-        crawler_configuration: NotRequired[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgsDict']]
-        """
-        The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
-        """
-elif False:
-    DataSourceSharePointDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSharePointDataSourceConfigurationArgsDict(TypedDict):
+    """
+    The configuration information to connect to SharePoint as your data source.
+    """
+    source_configuration: pulumi.Input['DataSourceSharePointSourceConfigurationArgsDict']
+    """
+    The endpoint information to connect to your SharePoint data source.
+    """
+    crawler_configuration: NotRequired[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgsDict']]
+    """
+    The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+    """
 
 @pulumi.input_type
 class DataSourceSharePointDataSourceConfigurationArgs:
@@ -6157,37 +5861,34 @@ class DataSourceSharePointDataSourceConfigurationArgs:
         pulumi.set(self, "crawler_configuration", value)
 
 
-if not MYPY:
-    class DataSourceSharePointSourceConfigurationArgsDict(TypedDict):
-        """
-        The endpoint information to connect to your SharePoint data source.
-        """
-        auth_type: pulumi.Input['DataSourceSharePointSourceConfigurationAuthType']
-        """
-        The supported authentication type to authenticate and connect to your SharePoint site/sites.
-        """
-        credentials_secret_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
-        """
-        domain: pulumi.Input[_builtins.str]
-        """
-        The domain of your SharePoint instance or site URL/URLs.
-        """
-        host_type: pulumi.Input['DataSourceSharePointSourceConfigurationHostType']
-        """
-        The supported host type, whether online/cloud or server/on-premises.
-        """
-        site_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of one or more SharePoint site URLs.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of your Microsoft 365 tenant.
-        """
-elif False:
-    DataSourceSharePointSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceSharePointSourceConfigurationArgsDict(TypedDict):
+    """
+    The endpoint information to connect to your SharePoint data source.
+    """
+    auth_type: pulumi.Input['DataSourceSharePointSourceConfigurationAuthType']
+    """
+    The supported authentication type to authenticate and connect to your SharePoint site/sites.
+    """
+    credentials_secret_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    The domain of your SharePoint instance or site URL/URLs.
+    """
+    host_type: pulumi.Input['DataSourceSharePointSourceConfigurationHostType']
+    """
+    The supported host type, whether online/cloud or server/on-premises.
+    """
+    site_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of one or more SharePoint site URLs.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of your Microsoft 365 tenant.
+    """
 
 @pulumi.input_type
 class DataSourceSharePointSourceConfigurationArgs:
@@ -6288,17 +5989,14 @@ class DataSourceSharePointSourceConfigurationArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class DataSourceTransformationFunctionArgsDict(TypedDict):
-        """
-        A Lambda function that processes documents.
-        """
-        transformation_lambda_configuration: pulumi.Input['DataSourceTransformationLambdaConfigurationArgsDict']
-        """
-        The Lambda function.
-        """
-elif False:
-    DataSourceTransformationFunctionArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceTransformationFunctionArgsDict(TypedDict):
+    """
+    A Lambda function that processes documents.
+    """
+    transformation_lambda_configuration: pulumi.Input['DataSourceTransformationLambdaConfigurationArgsDict']
+    """
+    The Lambda function.
+    """
 
 @pulumi.input_type
 class DataSourceTransformationFunctionArgs:
@@ -6323,17 +6021,14 @@ class DataSourceTransformationFunctionArgs:
         pulumi.set(self, "transformation_lambda_configuration", value)
 
 
-if not MYPY:
-    class DataSourceTransformationLambdaConfigurationArgsDict(TypedDict):
-        """
-        A Lambda function that processes documents.
-        """
-        lambda_arn: pulumi.Input[_builtins.str]
-        """
-        The function's ARN identifier.
-        """
-elif False:
-    DataSourceTransformationLambdaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceTransformationLambdaConfigurationArgsDict(TypedDict):
+    """
+    A Lambda function that processes documents.
+    """
+    lambda_arn: pulumi.Input[_builtins.str]
+    """
+    The function's ARN identifier.
+    """
 
 @pulumi.input_type
 class DataSourceTransformationLambdaConfigurationArgs:
@@ -6358,21 +6053,18 @@ class DataSourceTransformationLambdaConfigurationArgs:
         pulumi.set(self, "lambda_arn", value)
 
 
-if not MYPY:
-    class DataSourceTransformationArgsDict(TypedDict):
-        """
-        A Lambda function that processes documents.
-        """
-        step_to_apply: pulumi.Input['DataSourceTransformationStepToApply']
-        """
-        When the service applies the transformation.
-        """
-        transformation_function: pulumi.Input['DataSourceTransformationFunctionArgsDict']
-        """
-        A Lambda function that processes documents.
-        """
-elif False:
-    DataSourceTransformationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceTransformationArgsDict(TypedDict):
+    """
+    A Lambda function that processes documents.
+    """
+    step_to_apply: pulumi.Input['DataSourceTransformationStepToApply']
+    """
+    When the service applies the transformation.
+    """
+    transformation_function: pulumi.Input['DataSourceTransformationFunctionArgsDict']
+    """
+    A Lambda function that processes documents.
+    """
 
 @pulumi.input_type
 class DataSourceTransformationArgs:
@@ -6412,17 +6104,14 @@ class DataSourceTransformationArgs:
         pulumi.set(self, "transformation_function", value)
 
 
-if not MYPY:
-    class DataSourceUrlConfigurationArgsDict(TypedDict):
-        """
-        A url configuration.
-        """
-        seed_urls: pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgsDict']]]
-        """
-        One or more seed or starting point URLs.
-        """
-elif False:
-    DataSourceUrlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceUrlConfigurationArgsDict(TypedDict):
+    """
+    A url configuration.
+    """
+    seed_urls: pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgsDict']]]
+    """
+    One or more seed or starting point URLs.
+    """
 
 @pulumi.input_type
 class DataSourceUrlConfigurationArgs:
@@ -6447,29 +6136,26 @@ class DataSourceUrlConfigurationArgs:
         pulumi.set(self, "seed_urls", value)
 
 
-if not MYPY:
-    class DataSourceVectorIngestionConfigurationArgsDict(TypedDict):
-        """
-        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-        """
-        chunking_configuration: NotRequired[pulumi.Input['DataSourceChunkingConfigurationArgsDict']]
-        """
-        Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
-        """
-        context_enrichment_configuration: NotRequired[pulumi.Input['DataSourceContextEnrichmentConfigurationArgsDict']]
-        """
-        The context enrichment configuration used for ingestion of the data into the vector store.
-        """
-        custom_transformation_configuration: NotRequired[pulumi.Input['DataSourceCustomTransformationConfigurationArgsDict']]
-        """
-        A custom document transformer for parsed data source documents.
-        """
-        parsing_configuration: NotRequired[pulumi.Input['DataSourceParsingConfigurationArgsDict']]
-        """
-        Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
-        """
-elif False:
-    DataSourceVectorIngestionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceVectorIngestionConfigurationArgsDict(TypedDict):
+    """
+    Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    """
+    chunking_configuration: NotRequired[pulumi.Input['DataSourceChunkingConfigurationArgsDict']]
+    """
+    Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    """
+    context_enrichment_configuration: NotRequired[pulumi.Input['DataSourceContextEnrichmentConfigurationArgsDict']]
+    """
+    The context enrichment configuration used for ingestion of the data into the vector store.
+    """
+    custom_transformation_configuration: NotRequired[pulumi.Input['DataSourceCustomTransformationConfigurationArgsDict']]
+    """
+    A custom document transformer for parsed data source documents.
+    """
+    parsing_configuration: NotRequired[pulumi.Input['DataSourceParsingConfigurationArgsDict']]
+    """
+    Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
+    """
 
 @pulumi.input_type
 class DataSourceVectorIngestionConfigurationArgs:
@@ -6543,39 +6229,36 @@ class DataSourceVectorIngestionConfigurationArgs:
         pulumi.set(self, "parsing_configuration", value)
 
 
-if not MYPY:
-    class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the web crawler.
-        """
-        crawler_limits: NotRequired[pulumi.Input['DataSourceWebCrawlerLimitsArgsDict']]
-        """
-        The configuration of crawl limits for the web URLs.
-        """
-        exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
-        """
-        inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
-        """
-        scope: NotRequired[pulumi.Input['DataSourceWebScopeType']]
-        """
-        The scope of what is crawled for your URLs.
+class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the web crawler.
+    """
+    crawler_limits: NotRequired[pulumi.Input['DataSourceWebCrawlerLimitsArgsDict']]
+    """
+    The configuration of crawl limits for the web URLs.
+    """
+    exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+    """
+    inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
+    """
+    scope: NotRequired[pulumi.Input['DataSourceWebScopeType']]
+    """
+    The scope of what is crawled for your URLs.
 
-        You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
-        """
-        user_agent: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The suffix that will be included in the user agent header.
-        """
-        user_agent_header: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full user agent header, including UUID and suffix.
-        """
-elif False:
-    DataSourceWebCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
+    """
+    user_agent: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The suffix that will be included in the user agent header.
+    """
+    user_agent_header: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full user agent header, including UUID and suffix.
+    """
 
 @pulumi.input_type
 class DataSourceWebCrawlerConfigurationArgs:
@@ -6685,21 +6368,18 @@ class DataSourceWebCrawlerConfigurationArgs:
         pulumi.set(self, "user_agent_header", value)
 
 
-if not MYPY:
-    class DataSourceWebCrawlerLimitsArgsDict(TypedDict):
-        """
-        Limit settings for the web crawler.
-        """
-        max_pages: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of pages the crawler can crawl.
-        """
-        rate_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Rate of web URLs retrieved per minute.
-        """
-elif False:
-    DataSourceWebCrawlerLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceWebCrawlerLimitsArgsDict(TypedDict):
+    """
+    Limit settings for the web crawler.
+    """
+    max_pages: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of pages the crawler can crawl.
+    """
+    rate_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Rate of web URLs retrieved per minute.
+    """
 
 @pulumi.input_type
 class DataSourceWebCrawlerLimitsArgs:
@@ -6741,21 +6421,18 @@ class DataSourceWebCrawlerLimitsArgs:
         pulumi.set(self, "rate_limit", value)
 
 
-if not MYPY:
-    class DataSourceWebDataSourceConfigurationArgsDict(TypedDict):
-        """
-        Configures a web data source location.
-        """
-        source_configuration: pulumi.Input['DataSourceWebSourceConfigurationArgsDict']
-        """
-        The source configuration details for the web data source.
-        """
-        crawler_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerConfigurationArgsDict']]
-        """
-        The Web Crawler configuration details for the web data source.
-        """
-elif False:
-    DataSourceWebDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceWebDataSourceConfigurationArgsDict(TypedDict):
+    """
+    Configures a web data source location.
+    """
+    source_configuration: pulumi.Input['DataSourceWebSourceConfigurationArgsDict']
+    """
+    The source configuration details for the web data source.
+    """
+    crawler_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerConfigurationArgsDict']]
+    """
+    The Web Crawler configuration details for the web data source.
+    """
 
 @pulumi.input_type
 class DataSourceWebDataSourceConfigurationArgs:
@@ -6796,17 +6473,14 @@ class DataSourceWebDataSourceConfigurationArgs:
         pulumi.set(self, "crawler_configuration", value)
 
 
-if not MYPY:
-    class DataSourceWebSourceConfigurationArgsDict(TypedDict):
-        """
-        A web source configuration.
-        """
-        url_configuration: pulumi.Input['DataSourceUrlConfigurationArgsDict']
-        """
-        The configuration of the URL/URLs.
-        """
-elif False:
-    DataSourceWebSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceWebSourceConfigurationArgsDict(TypedDict):
+    """
+    A web source configuration.
+    """
+    url_configuration: pulumi.Input['DataSourceUrlConfigurationArgsDict']
+    """
+    The configuration of the URL/URLs.
+    """
 
 @pulumi.input_type
 class DataSourceWebSourceConfigurationArgs:
@@ -6831,11 +6505,8 @@ class DataSourceWebSourceConfigurationArgs:
         pulumi.set(self, "url_configuration", value)
 
 
-if not MYPY:
-    class FlowAdditionalModelRequestFieldsArgsDict(TypedDict):
-        pass
-elif False:
-    FlowAdditionalModelRequestFieldsArgsDict: TypeAlias = Mapping[str, Any]
+class FlowAdditionalModelRequestFieldsArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class FlowAdditionalModelRequestFieldsArgs:
@@ -6843,17 +6514,14 @@ class FlowAdditionalModelRequestFieldsArgs:
         pass
 
 
-if not MYPY:
-    class FlowAgentFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Agent flow node configuration
-        """
-        agent_alias_arn: pulumi.Input[_builtins.str]
-        """
-        Arn representation of the Agent Alias.
-        """
-elif False:
-    FlowAgentFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowAgentFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Agent flow node configuration
+    """
+    agent_alias_arn: pulumi.Input[_builtins.str]
+    """
+    Arn representation of the Agent Alias.
+    """
 
 @pulumi.input_type
 class FlowAgentFlowNodeConfigurationArgs:
@@ -6878,21 +6546,18 @@ class FlowAgentFlowNodeConfigurationArgs:
         pulumi.set(self, "agent_alias_arn", value)
 
 
-if not MYPY:
-    class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
-        type: pulumi.Input['FlowAliasConcurrencyType']
-        """
-        The type of concurrency to use for parallel node execution. Specify one of the following options:
+class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
+    type: pulumi.Input['FlowAliasConcurrencyType']
+    """
+    The type of concurrency to use for parallel node execution. Specify one of the following options:
 
-        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
-        - `Manual` - You specify which nodes can be executed in parallel.
-        """
-        max_concurrency: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Number of nodes executed concurrently at a time
-        """
-elif False:
-    FlowAliasConcurrencyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+    - `Manual` - You specify which nodes can be executed in parallel.
+    """
+    max_concurrency: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Number of nodes executed concurrently at a time
+    """
 
 @pulumi.input_type
 class FlowAliasConcurrencyConfigurationArgs:
@@ -6938,17 +6603,14 @@ class FlowAliasConcurrencyConfigurationArgs:
         pulumi.set(self, "max_concurrency", value)
 
 
-if not MYPY:
-    class FlowAliasRoutingConfigurationListItemArgsDict(TypedDict):
-        """
-        Details about the routing configuration for a Flow alias.
-        """
-        flow_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version.
-        """
-elif False:
-    FlowAliasRoutingConfigurationListItemArgsDict: TypeAlias = Mapping[str, Any]
+class FlowAliasRoutingConfigurationListItemArgsDict(TypedDict):
+    """
+    Details about the routing configuration for a Flow alias.
+    """
+    flow_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version.
+    """
 
 @pulumi.input_type
 class FlowAliasRoutingConfigurationListItemArgs:
@@ -6974,14 +6636,11 @@ class FlowAliasRoutingConfigurationListItemArgs:
         pulumi.set(self, "flow_version", value)
 
 
-if not MYPY:
-    class FlowCollectorFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Collector flow node configuration
-        """
-        pass
-elif False:
-    FlowCollectorFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowCollectorFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Collector flow node configuration
+    """
+    pass
 
 @pulumi.input_type
 class FlowCollectorFlowNodeConfigurationArgs:
@@ -6992,17 +6651,14 @@ class FlowCollectorFlowNodeConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowConditionFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Condition flow node configuration
-        """
-        conditions: pulumi.Input[Sequence[pulumi.Input['FlowConditionArgsDict']]]
-        """
-        List of conditions in a condition node
-        """
-elif False:
-    FlowConditionFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowConditionFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Condition flow node configuration
+    """
+    conditions: pulumi.Input[Sequence[pulumi.Input['FlowConditionArgsDict']]]
+    """
+    List of conditions in a condition node
+    """
 
 @pulumi.input_type
 class FlowConditionFlowNodeConfigurationArgs:
@@ -7027,17 +6683,14 @@ class FlowConditionFlowNodeConfigurationArgs:
         pulumi.set(self, "conditions", value)
 
 
-if not MYPY:
-    class FlowConditionalConnectionConfigurationArgsDict(TypedDict):
-        """
-        Conditional connection configuration
-        """
-        condition: pulumi.Input[_builtins.str]
-        """
-        Name of a condition in a flow
-        """
-elif False:
-    FlowConditionalConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowConditionalConnectionConfigurationArgsDict(TypedDict):
+    """
+    Conditional connection configuration
+    """
+    condition: pulumi.Input[_builtins.str]
+    """
+    Name of a condition in a flow
+    """
 
 @pulumi.input_type
 class FlowConditionalConnectionConfigurationArgs:
@@ -7062,21 +6715,18 @@ class FlowConditionalConnectionConfigurationArgs:
         pulumi.set(self, "condition", value)
 
 
-if not MYPY:
-    class FlowConditionArgsDict(TypedDict):
-        """
-        Condition branch for a condition node
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of a condition in a flow
-        """
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expression for a condition in a flow
-        """
-elif False:
-    FlowConditionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowConditionArgsDict(TypedDict):
+    """
+    Condition branch for a condition node
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a condition in a flow
+    """
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expression for a condition in a flow
+    """
 
 @pulumi.input_type
 class FlowConditionArgs:
@@ -7117,14 +6767,11 @@ class FlowConditionArgs:
         pulumi.set(self, "expression", value)
 
 
-if not MYPY:
-    class FlowConnectionConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Connection configuration
-        """
-        data: pulumi.Input['FlowDataConnectionConfigurationArgsDict']
-elif False:
-    FlowConnectionConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowConnectionConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Connection configuration
+    """
+    data: pulumi.Input['FlowDataConnectionConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowConnectionConfiguration0PropertiesArgs:
@@ -7145,14 +6792,11 @@ class FlowConnectionConfiguration0PropertiesArgs:
         pulumi.set(self, "data", value)
 
 
-if not MYPY:
-    class FlowConnectionConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Connection configuration
-        """
-        conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgsDict']
-elif False:
-    FlowConnectionConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowConnectionConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Connection configuration
+    """
+    conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowConnectionConfiguration1PropertiesArgs:
@@ -7173,33 +6817,30 @@ class FlowConnectionConfiguration1PropertiesArgs:
         pulumi.set(self, "conditional", value)
 
 
-if not MYPY:
-    class FlowConnectionArgsDict(TypedDict):
-        """
-        Flow connection
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of a connection in a flow
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Name of a node in a flow
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        Name of a node in a flow
-        """
-        type: pulumi.Input['FlowConnectionType']
-        """
-        Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
-        """
-        configuration: NotRequired[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgsDict', 'FlowConnectionConfiguration1PropertiesArgsDict']]]
-        """
-        The configuration of the connection.
-        """
-elif False:
-    FlowConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowConnectionArgsDict(TypedDict):
+    """
+    Flow connection
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a connection in a flow
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Name of a node in a flow
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    Name of a node in a flow
+    """
+    type: pulumi.Input['FlowConnectionType']
+    """
+    Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
+    """
+    configuration: NotRequired[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgsDict', 'FlowConnectionConfiguration1PropertiesArgsDict']]]
+    """
+    The configuration of the connection.
+    """
 
 @pulumi.input_type
 class FlowConnectionArgs:
@@ -7285,21 +6926,18 @@ class FlowConnectionArgs:
         pulumi.set(self, "configuration", value)
 
 
-if not MYPY:
-    class FlowDataConnectionConfigurationArgsDict(TypedDict):
-        """
-        Data connection configuration
-        """
-        source_output: pulumi.Input[_builtins.str]
-        """
-        Name of a node output in a flow
-        """
-        target_input: pulumi.Input[_builtins.str]
-        """
-        Name of a node input in a flow
-        """
-elif False:
-    FlowDataConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDataConnectionConfigurationArgsDict(TypedDict):
+    """
+    Data connection configuration
+    """
+    source_output: pulumi.Input[_builtins.str]
+    """
+    Name of a node output in a flow
+    """
+    target_input: pulumi.Input[_builtins.str]
+    """
+    Name of a node input in a flow
+    """
 
 @pulumi.input_type
 class FlowDataConnectionConfigurationArgs:
@@ -7339,21 +6977,18 @@ class FlowDataConnectionConfigurationArgs:
         pulumi.set(self, "target_input", value)
 
 
-if not MYPY:
-    class FlowDefinitionArgsDict(TypedDict):
-        """
-        Flow definition
-        """
-        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgsDict']]]]
-        """
-        List of connections
-        """
-        nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgsDict']]]]
-        """
-        List of nodes in a flow
-        """
-elif False:
-    FlowDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDefinitionArgsDict(TypedDict):
+    """
+    Flow definition
+    """
+    connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgsDict']]]]
+    """
+    List of connections
+    """
+    nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgsDict']]]]
+    """
+    List of nodes in a flow
+    """
 
 @pulumi.input_type
 class FlowDefinitionArgs:
@@ -7395,17 +7030,14 @@ class FlowDefinitionArgs:
         pulumi.set(self, "nodes", value)
 
 
-if not MYPY:
-    class FlowFieldForRerankingArgsDict(TypedDict):
-        """
-        Field name for reranking
-        """
-        field_name: pulumi.Input[_builtins.str]
-        """
-        Field name for reranking
-        """
-elif False:
-    FlowFieldForRerankingArgsDict: TypeAlias = Mapping[str, Any]
+class FlowFieldForRerankingArgsDict(TypedDict):
+    """
+    Field name for reranking
+    """
+    field_name: pulumi.Input[_builtins.str]
+    """
+    Field name for reranking
+    """
 
 @pulumi.input_type
 class FlowFieldForRerankingArgs:
@@ -7430,21 +7062,18 @@ class FlowFieldForRerankingArgs:
         pulumi.set(self, "field_name", value)
 
 
-if not MYPY:
-    class FlowGuardrailConfigurationArgsDict(TypedDict):
-        """
-        Configuration for a guardrail
-        """
-        guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the guardrail, could be the id or the arn
-        """
-        guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the guardrail
-        """
-elif False:
-    FlowGuardrailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowGuardrailConfigurationArgsDict(TypedDict):
+    """
+    Configuration for a guardrail
+    """
+    guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the guardrail, could be the id or the arn
+    """
+    guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the guardrail
+    """
 
 @pulumi.input_type
 class FlowGuardrailConfigurationArgs:
@@ -7486,18 +7115,15 @@ class FlowGuardrailConfigurationArgs:
         pulumi.set(self, "guardrail_version", value)
 
 
-if not MYPY:
-    class FlowInlineCodeFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Inline code config strucuture, contains code configs
-        """
-        code: pulumi.Input[_builtins.str]
-        """
-        The inline code entered by customers. max size is 5MB.
-        """
-        language: pulumi.Input['FlowSupportedLanguages']
-elif False:
-    FlowInlineCodeFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowInlineCodeFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Inline code config strucuture, contains code configs
+    """
+    code: pulumi.Input[_builtins.str]
+    """
+    The inline code entered by customers. max size is 5MB.
+    """
+    language: pulumi.Input['FlowSupportedLanguages']
 
 @pulumi.input_type
 class FlowInlineCodeFlowNodeConfigurationArgs:
@@ -7533,14 +7159,11 @@ class FlowInlineCodeFlowNodeConfigurationArgs:
         pulumi.set(self, "language", value)
 
 
-if not MYPY:
-    class FlowInputFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Input flow node configuration
-        """
-        pass
-elif False:
-    FlowInputFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowInputFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Input flow node configuration
+    """
+    pass
 
 @pulumi.input_type
 class FlowInputFlowNodeConfigurationArgs:
@@ -7551,14 +7174,11 @@ class FlowInputFlowNodeConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowIteratorFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Iterator flow node configuration
-        """
-        pass
-elif False:
-    FlowIteratorFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowIteratorFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Iterator flow node configuration
+    """
+    pass
 
 @pulumi.input_type
 class FlowIteratorFlowNodeConfigurationArgs:
@@ -7569,30 +7189,27 @@ class FlowIteratorFlowNodeConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowKnowledgeBaseFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Knowledge base flow node configuration
-        """
-        knowledge_base_id: pulumi.Input[_builtins.str]
-        """
-        Identifier of the KnowledgeBase
-        """
-        guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
-        inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
-        model_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
-        """
-        number_of_results: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Number Of Results to Retrieve
-        """
-        orchestration_configuration: NotRequired[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgsDict']]
-        prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
-        reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchRerankingConfigurationArgsDict']]
-elif False:
-    FlowKnowledgeBaseFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowKnowledgeBaseFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Knowledge base flow node configuration
+    """
+    knowledge_base_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the KnowledgeBase
+    """
+    guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
+    inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
+    model_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
+    """
+    number_of_results: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Number Of Results to Retrieve
+    """
+    orchestration_configuration: NotRequired[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgsDict']]
+    prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
+    reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchRerankingConfigurationArgsDict']]
 
 @pulumi.input_type
 class FlowKnowledgeBaseFlowNodeConfigurationArgs:
@@ -7709,14 +7326,11 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
         pulumi.set(self, "reranking_configuration", value)
 
 
-if not MYPY:
-    class FlowKnowledgeBaseOrchestrationConfigurationArgsDict(TypedDict):
-        additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
-        inference_config: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
-        performance_config: NotRequired[pulumi.Input['FlowPerformanceConfigurationArgsDict']]
-        prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
-elif False:
-    FlowKnowledgeBaseOrchestrationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowKnowledgeBaseOrchestrationConfigurationArgsDict(TypedDict):
+    additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
+    inference_config: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
+    performance_config: NotRequired[pulumi.Input['FlowPerformanceConfigurationArgsDict']]
+    prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
 
 @pulumi.input_type
 class FlowKnowledgeBaseOrchestrationConfigurationArgs:
@@ -7771,14 +7385,11 @@ class FlowKnowledgeBaseOrchestrationConfigurationArgs:
         pulumi.set(self, "prompt_template", value)
 
 
-if not MYPY:
-    class FlowKnowledgeBasePromptTemplatePropertiesArgsDict(TypedDict):
-        """
-        Knowledge Base Prompt template
-        """
-        text_prompt_template: pulumi.Input[_builtins.str]
-elif False:
-    FlowKnowledgeBasePromptTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowKnowledgeBasePromptTemplatePropertiesArgsDict(TypedDict):
+    """
+    Knowledge Base Prompt template
+    """
+    text_prompt_template: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowKnowledgeBasePromptTemplatePropertiesArgs:
@@ -7799,17 +7410,14 @@ class FlowKnowledgeBasePromptTemplatePropertiesArgs:
         pulumi.set(self, "text_prompt_template", value)
 
 
-if not MYPY:
-    class FlowLambdaFunctionFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Lambda function flow node configuration
-        """
-        lambda_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of a Lambda.
-        """
-elif False:
-    FlowLambdaFunctionFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowLambdaFunctionFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Lambda function flow node configuration
+    """
+    lambda_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of a Lambda.
+    """
 
 @pulumi.input_type
 class FlowLambdaFunctionFlowNodeConfigurationArgs:
@@ -7834,21 +7442,18 @@ class FlowLambdaFunctionFlowNodeConfigurationArgs:
         pulumi.set(self, "lambda_arn", value)
 
 
-if not MYPY:
-    class FlowLexFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Lex flow node configuration
-        """
-        bot_alias_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of a Lex bot alias
-        """
-        locale_id: pulumi.Input[_builtins.str]
-        """
-        Lex bot locale id
-        """
-elif False:
-    FlowLexFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowLexFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Lex flow node configuration
+    """
+    bot_alias_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of a Lex bot alias
+    """
+    locale_id: pulumi.Input[_builtins.str]
+    """
+    Lex bot locale id
+    """
 
 @pulumi.input_type
 class FlowLexFlowNodeConfigurationArgs:
@@ -7888,18 +7493,15 @@ class FlowLexFlowNodeConfigurationArgs:
         pulumi.set(self, "locale_id", value)
 
 
-if not MYPY:
-    class FlowLoopControllerFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the LoopController node, which manages loop execution
-        """
-        continue_condition: pulumi.Input['FlowConditionArgsDict']
-        max_iterations: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum number of iterations the loop can perform
-        """
-elif False:
-    FlowLoopControllerFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowLoopControllerFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the LoopController node, which manages loop execution
+    """
+    continue_condition: pulumi.Input['FlowConditionArgsDict']
+    max_iterations: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum number of iterations the loop can perform
+    """
 
 @pulumi.input_type
 class FlowLoopControllerFlowNodeConfigurationArgs:
@@ -7936,14 +7538,11 @@ class FlowLoopControllerFlowNodeConfigurationArgs:
         pulumi.set(self, "max_iterations", value)
 
 
-if not MYPY:
-    class FlowLoopFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Loop node config, contains loop's internal definition
-        """
-        definition: pulumi.Input['FlowDefinitionArgsDict']
-elif False:
-    FlowLoopFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowLoopFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Loop node config, contains loop's internal definition
+    """
+    definition: pulumi.Input['FlowDefinitionArgsDict']
 
 @pulumi.input_type
 class FlowLoopFlowNodeConfigurationArgs:
@@ -7964,14 +7563,11 @@ class FlowLoopFlowNodeConfigurationArgs:
         pulumi.set(self, "definition", value)
 
 
-if not MYPY:
-    class FlowLoopInputFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the LoopInput node
-        """
-        pass
-elif False:
-    FlowLoopInputFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowLoopInputFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the LoopInput node
+    """
+    pass
 
 @pulumi.input_type
 class FlowLoopInputFlowNodeConfigurationArgs:
@@ -7982,12 +7578,9 @@ class FlowLoopInputFlowNodeConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowMetadataConfigurationForRerankingArgsDict(TypedDict):
-        selection_mode: pulumi.Input['FlowRerankingMetadataSelectionMode']
-        selective_mode_configuration: NotRequired[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict']]]
-elif False:
-    FlowMetadataConfigurationForRerankingArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMetadataConfigurationForRerankingArgsDict(TypedDict):
+    selection_mode: pulumi.Input['FlowRerankingMetadataSelectionMode']
+    selective_mode_configuration: NotRequired[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict']]]
 
 @pulumi.input_type
 class FlowMetadataConfigurationForRerankingArgs:
@@ -8017,14 +7610,11 @@ class FlowMetadataConfigurationForRerankingArgs:
         pulumi.set(self, "selective_mode_configuration", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        input: pulumi.Input['FlowInputFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    input: pulumi.Input['FlowInputFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration0PropertiesArgs:
@@ -8045,14 +7635,11 @@ class FlowNodeConfiguration0PropertiesArgs:
         pulumi.set(self, "input", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration10PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        collector: pulumi.Input['FlowCollectorFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration10PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    collector: pulumi.Input['FlowCollectorFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration10PropertiesArgs:
@@ -8073,14 +7660,11 @@ class FlowNodeConfiguration10PropertiesArgs:
         pulumi.set(self, "collector", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration11PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        retrieval: pulumi.Input['FlowRetrievalFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration11PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    retrieval: pulumi.Input['FlowRetrievalFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration11PropertiesArgs:
@@ -8101,14 +7685,11 @@ class FlowNodeConfiguration11PropertiesArgs:
         pulumi.set(self, "retrieval", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration12PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        inline_code: pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration12PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    inline_code: pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration12PropertiesArgs:
@@ -8129,14 +7710,11 @@ class FlowNodeConfiguration12PropertiesArgs:
         pulumi.set(self, "inline_code", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration13PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        loop: pulumi.Input['FlowLoopFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration13PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration13PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    loop: pulumi.Input['FlowLoopFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration13PropertiesArgs:
@@ -8157,14 +7735,11 @@ class FlowNodeConfiguration13PropertiesArgs:
         pulumi.set(self, "loop", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration14PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        loop_input: pulumi.Input['FlowLoopInputFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration14PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration14PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    loop_input: pulumi.Input['FlowLoopInputFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration14PropertiesArgs:
@@ -8185,14 +7760,11 @@ class FlowNodeConfiguration14PropertiesArgs:
         pulumi.set(self, "loop_input", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration15PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        loop_controller: pulumi.Input['FlowLoopControllerFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration15PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration15PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    loop_controller: pulumi.Input['FlowLoopControllerFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration15PropertiesArgs:
@@ -8213,14 +7785,11 @@ class FlowNodeConfiguration15PropertiesArgs:
         pulumi.set(self, "loop_controller", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        output: pulumi.Input['FlowOutputFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    output: pulumi.Input['FlowOutputFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration1PropertiesArgs:
@@ -8241,14 +7810,11 @@ class FlowNodeConfiguration1PropertiesArgs:
         pulumi.set(self, "output", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        knowledge_base: pulumi.Input['FlowKnowledgeBaseFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration2PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    knowledge_base: pulumi.Input['FlowKnowledgeBaseFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration2PropertiesArgs:
@@ -8269,14 +7835,11 @@ class FlowNodeConfiguration2PropertiesArgs:
         pulumi.set(self, "knowledge_base", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration3PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        condition: pulumi.Input['FlowConditionFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration3PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    condition: pulumi.Input['FlowConditionFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration3PropertiesArgs:
@@ -8297,14 +7860,11 @@ class FlowNodeConfiguration3PropertiesArgs:
         pulumi.set(self, "condition", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration4PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        lex: pulumi.Input['FlowLexFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration4PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    lex: pulumi.Input['FlowLexFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration4PropertiesArgs:
@@ -8325,14 +7885,11 @@ class FlowNodeConfiguration4PropertiesArgs:
         pulumi.set(self, "lex", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration5PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        prompt: pulumi.Input['FlowPromptFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration5PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    prompt: pulumi.Input['FlowPromptFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration5PropertiesArgs:
@@ -8353,14 +7910,11 @@ class FlowNodeConfiguration5PropertiesArgs:
         pulumi.set(self, "prompt", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration6PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        lambda_function: pulumi.Input['FlowLambdaFunctionFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration6PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    lambda_function: pulumi.Input['FlowLambdaFunctionFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration6PropertiesArgs:
@@ -8381,14 +7935,11 @@ class FlowNodeConfiguration6PropertiesArgs:
         pulumi.set(self, "lambda_function", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration7PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        agent: pulumi.Input['FlowAgentFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration7PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    agent: pulumi.Input['FlowAgentFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration7PropertiesArgs:
@@ -8409,14 +7960,11 @@ class FlowNodeConfiguration7PropertiesArgs:
         pulumi.set(self, "agent", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration8PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        storage: pulumi.Input['FlowStorageFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration8PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    storage: pulumi.Input['FlowStorageFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration8PropertiesArgs:
@@ -8437,14 +7985,11 @@ class FlowNodeConfiguration8PropertiesArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class FlowNodeConfiguration9PropertiesArgsDict(TypedDict):
-        """
-        Node configuration in a flow
-        """
-        iterator: pulumi.Input['FlowIteratorFlowNodeConfigurationArgsDict']
-elif False:
-    FlowNodeConfiguration9PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeConfiguration9PropertiesArgsDict(TypedDict):
+    """
+    Node configuration in a flow
+    """
+    iterator: pulumi.Input['FlowIteratorFlowNodeConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowNodeConfiguration9PropertiesArgs:
@@ -8465,33 +8010,30 @@ class FlowNodeConfiguration9PropertiesArgs:
         pulumi.set(self, "iterator", value)
 
 
-if not MYPY:
-    class FlowNodeInputArgsDict(TypedDict):
-        """
-        Input to a node in a flow
-        """
-        expression: pulumi.Input[_builtins.str]
-        """
-        Expression for a node input in a flow
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of a node input in a flow
-        """
-        type: pulumi.Input['FlowNodeIoDataType']
-        """
-        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
-        """
-        category: NotRequired[pulumi.Input['FlowNodeInputCategory']]
-        """
-        Specifies how input data flows between iterations in a DoWhile loop.
+class FlowNodeInputArgsDict(TypedDict):
+    """
+    Input to a node in a flow
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    Expression for a node input in a flow
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a node input in a flow
+    """
+    type: pulumi.Input['FlowNodeIoDataType']
+    """
+    Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+    """
+    category: NotRequired[pulumi.Input['FlowNodeInputCategory']]
+    """
+    Specifies how input data flows between iterations in a DoWhile loop.
 
-        - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
-        - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
-        - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
-        """
-elif False:
-    FlowNodeInputArgsDict: TypeAlias = Mapping[str, Any]
+    - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+    - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+    - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
+    """
 
 @pulumi.input_type
 class FlowNodeInputArgs:
@@ -8570,21 +8112,18 @@ class FlowNodeInputArgs:
         pulumi.set(self, "category", value)
 
 
-if not MYPY:
-    class FlowNodeOutputArgsDict(TypedDict):
-        """
-        Output of a node in a flow
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of a node output in a flow
-        """
-        type: pulumi.Input['FlowNodeIoDataType']
-        """
-        The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
-        """
-elif False:
-    FlowNodeOutputArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeOutputArgsDict(TypedDict):
+    """
+    Output of a node in a flow
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a node output in a flow
+    """
+    type: pulumi.Input['FlowNodeIoDataType']
+    """
+    The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
+    """
 
 @pulumi.input_type
 class FlowNodeOutputArgs:
@@ -8624,33 +8163,30 @@ class FlowNodeOutputArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FlowNodeArgsDict(TypedDict):
-        """
-        Internal mixin for flow node
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of a node in a flow
-        """
-        type: pulumi.Input['FlowNodeType']
-        """
-        The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        """
-        configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict', 'FlowNodeConfiguration13PropertiesArgsDict', 'FlowNodeConfiguration14PropertiesArgsDict', 'FlowNodeConfiguration15PropertiesArgsDict']]]
-        """
-        Contains configurations for the node.
-        """
-        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgsDict']]]]
-        """
-        List of node inputs in a flow
-        """
-        outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgsDict']]]]
-        """
-        List of node outputs in a flow
-        """
-elif False:
-    FlowNodeArgsDict: TypeAlias = Mapping[str, Any]
+class FlowNodeArgsDict(TypedDict):
+    """
+    Internal mixin for flow node
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a node in a flow
+    """
+    type: pulumi.Input['FlowNodeType']
+    """
+    The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+    """
+    configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict', 'FlowNodeConfiguration13PropertiesArgsDict', 'FlowNodeConfiguration14PropertiesArgsDict', 'FlowNodeConfiguration15PropertiesArgsDict']]]
+    """
+    Contains configurations for the node.
+    """
+    inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgsDict']]]]
+    """
+    List of node inputs in a flow
+    """
+    outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgsDict']]]]
+    """
+    List of node outputs in a flow
+    """
 
 @pulumi.input_type
 class FlowNodeArgs:
@@ -8738,14 +8274,11 @@ class FlowNodeArgs:
         pulumi.set(self, "outputs", value)
 
 
-if not MYPY:
-    class FlowOutputFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Output flow node configuration
-        """
-        pass
-elif False:
-    FlowOutputFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowOutputFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Output flow node configuration
+    """
+    pass
 
 @pulumi.input_type
 class FlowOutputFlowNodeConfigurationArgs:
@@ -8756,11 +8289,8 @@ class FlowOutputFlowNodeConfigurationArgs:
         pass
 
 
-if not MYPY:
-    class FlowPerformanceConfigurationArgsDict(TypedDict):
-        latency: NotRequired[pulumi.Input['FlowPerformanceConfigurationLatency']]
-elif False:
-    FlowPerformanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPerformanceConfigurationArgsDict(TypedDict):
+    latency: NotRequired[pulumi.Input['FlowPerformanceConfigurationLatency']]
 
 @pulumi.input_type
 class FlowPerformanceConfigurationArgs:
@@ -8779,15 +8309,12 @@ class FlowPerformanceConfigurationArgs:
         pulumi.set(self, "latency", value)
 
 
-if not MYPY:
-    class FlowPromptFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Prompt flow node configuration
-        """
-        source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict']]
-        guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
-elif False:
-    FlowPromptFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Prompt flow node configuration
+    """
+    source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict']]
+    guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
 
 @pulumi.input_type
 class FlowPromptFlowNodeConfigurationArgs:
@@ -8820,20 +8347,17 @@ class FlowPromptFlowNodeConfigurationArgs:
         pulumi.set(self, "guardrail_configuration", value)
 
 
-if not MYPY:
-    class FlowPromptFlowNodeInlineConfigurationArgsDict(TypedDict):
-        """
-        Inline prompt configuration for prompt node
-        """
-        model_id: pulumi.Input[_builtins.str]
-        """
-        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
-        """
-        template_configuration: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgsDict']
-        template_type: pulumi.Input['FlowPromptTemplateType']
-        inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
-elif False:
-    FlowPromptFlowNodeInlineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptFlowNodeInlineConfigurationArgsDict(TypedDict):
+    """
+    Inline prompt configuration for prompt node
+    """
+    model_id: pulumi.Input[_builtins.str]
+    """
+    ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
+    """
+    template_configuration: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgsDict']
+    template_type: pulumi.Input['FlowPromptTemplateType']
+    inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
 
 @pulumi.input_type
 class FlowPromptFlowNodeInlineConfigurationArgs:
@@ -8892,17 +8416,14 @@ class FlowPromptFlowNodeInlineConfigurationArgs:
         pulumi.set(self, "inference_configuration", value)
 
 
-if not MYPY:
-    class FlowPromptFlowNodeResourceConfigurationArgsDict(TypedDict):
-        """
-        Resource prompt configuration for prompt node
-        """
-        prompt_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of a prompt resource possibly with a version
-        """
-elif False:
-    FlowPromptFlowNodeResourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptFlowNodeResourceConfigurationArgsDict(TypedDict):
+    """
+    Resource prompt configuration for prompt node
+    """
+    prompt_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of a prompt resource possibly with a version
+    """
 
 @pulumi.input_type
 class FlowPromptFlowNodeResourceConfigurationArgs:
@@ -8927,14 +8448,11 @@ class FlowPromptFlowNodeResourceConfigurationArgs:
         pulumi.set(self, "prompt_arn", value)
 
 
-if not MYPY:
-    class FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Prompt source configuration for prompt node
-        """
-        resource: pulumi.Input['FlowPromptFlowNodeResourceConfigurationArgsDict']
-elif False:
-    FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Prompt source configuration for prompt node
+    """
+    resource: pulumi.Input['FlowPromptFlowNodeResourceConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowPromptFlowNodeSourceConfiguration0PropertiesArgs:
@@ -8955,14 +8473,11 @@ class FlowPromptFlowNodeSourceConfiguration0PropertiesArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Prompt source configuration for prompt node
-        """
-        inline: pulumi.Input['FlowPromptFlowNodeInlineConfigurationArgsDict']
-elif False:
-    FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Prompt source configuration for prompt node
+    """
+    inline: pulumi.Input['FlowPromptFlowNodeInlineConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowPromptFlowNodeSourceConfiguration1PropertiesArgs:
@@ -8983,14 +8498,11 @@ class FlowPromptFlowNodeSourceConfiguration1PropertiesArgs:
         pulumi.set(self, "inline", value)
 
 
-if not MYPY:
-    class FlowPromptInferenceConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Model inference configuration
-        """
-        text: pulumi.Input['FlowPromptModelInferenceConfigurationArgsDict']
-elif False:
-    FlowPromptInferenceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptInferenceConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Model inference configuration
+    """
+    text: pulumi.Input['FlowPromptModelInferenceConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowPromptInferenceConfigurationPropertiesArgs:
@@ -9011,17 +8523,14 @@ class FlowPromptInferenceConfigurationPropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class FlowPromptInputVariableArgsDict(TypedDict):
-        """
-        Input variable
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name for an input variable
-        """
-elif False:
-    FlowPromptInputVariableArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptInputVariableArgsDict(TypedDict):
+    """
+    Input variable
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name for an input variable
+    """
 
 @pulumi.input_type
 class FlowPromptInputVariableArgs:
@@ -9047,29 +8556,26 @@ class FlowPromptInputVariableArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class FlowPromptModelInferenceConfigurationArgsDict(TypedDict):
-        """
-        Prompt model inference configuration
-        """
-        max_tokens: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum length of output
-        """
-        stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stop sequences
-        """
-        temperature: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Controls randomness, higher values increase diversity
-        """
-        top_p: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Cumulative probability cutoff for token selection
-        """
-elif False:
-    FlowPromptModelInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptModelInferenceConfigurationArgsDict(TypedDict):
+    """
+    Prompt model inference configuration
+    """
+    max_tokens: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum length of output
+    """
+    stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stop sequences
+    """
+    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Controls randomness, higher values increase diversity
+    """
+    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Cumulative probability cutoff for token selection
+    """
 
 @pulumi.input_type
 class FlowPromptModelInferenceConfigurationArgs:
@@ -9143,14 +8649,11 @@ class FlowPromptModelInferenceConfigurationArgs:
         pulumi.set(self, "top_p", value)
 
 
-if not MYPY:
-    class FlowPromptTemplateConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Prompt template configuration
-        """
-        text: pulumi.Input['FlowTextPromptTemplateConfigurationArgsDict']
-elif False:
-    FlowPromptTemplateConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowPromptTemplateConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Prompt template configuration
+    """
+    text: pulumi.Input['FlowTextPromptTemplateConfigurationArgsDict']
 
 @pulumi.input_type
 class FlowPromptTemplateConfigurationPropertiesArgs:
@@ -9171,14 +8674,11 @@ class FlowPromptTemplateConfigurationPropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Reranking Metadata Selective Mode Configuration
-        """
-        fields_to_include: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgsDict']]]
-elif False:
-    FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Reranking Metadata Selective Mode Configuration
+    """
+    fields_to_include: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgsDict']]]
 
 @pulumi.input_type
 class FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs:
@@ -9199,14 +8699,11 @@ class FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs:
         pulumi.set(self, "fields_to_include", value)
 
 
-if not MYPY:
-    class FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Reranking Metadata Selective Mode Configuration
-        """
-        fields_to_exclude: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgsDict']]]
-elif False:
-    FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Reranking Metadata Selective Mode Configuration
+    """
+    fields_to_exclude: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgsDict']]]
 
 @pulumi.input_type
 class FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs:
@@ -9227,14 +8724,11 @@ class FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs:
         pulumi.set(self, "fields_to_exclude", value)
 
 
-if not MYPY:
-    class FlowRetrievalFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Retrieval flow node configuration
-        """
-        service_configuration: pulumi.Input['FlowRetrievalFlowNodeServiceConfigurationPropertiesArgsDict']
-elif False:
-    FlowRetrievalFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowRetrievalFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Retrieval flow node configuration
+    """
+    service_configuration: pulumi.Input['FlowRetrievalFlowNodeServiceConfigurationPropertiesArgsDict']
 
 @pulumi.input_type
 class FlowRetrievalFlowNodeConfigurationArgs:
@@ -9255,17 +8749,14 @@ class FlowRetrievalFlowNodeConfigurationArgs:
         pulumi.set(self, "service_configuration", value)
 
 
-if not MYPY:
-    class FlowRetrievalFlowNodeS3ConfigurationArgsDict(TypedDict):
-        """
-        s3 Retrieval configuration for Retrieval node
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        bucket name of an s3 that will be used for Retrieval flow node configuration
-        """
-elif False:
-    FlowRetrievalFlowNodeS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowRetrievalFlowNodeS3ConfigurationArgsDict(TypedDict):
+    """
+    s3 Retrieval configuration for Retrieval node
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    bucket name of an s3 that will be used for Retrieval flow node configuration
+    """
 
 @pulumi.input_type
 class FlowRetrievalFlowNodeS3ConfigurationArgs:
@@ -9290,14 +8781,11 @@ class FlowRetrievalFlowNodeS3ConfigurationArgs:
         pulumi.set(self, "bucket_name", value)
 
 
-if not MYPY:
-    class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Retrieval service configuration for Retrieval node
-        """
-        s3: NotRequired[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgsDict']]
-elif False:
-    FlowRetrievalFlowNodeServiceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Retrieval service configuration for Retrieval node
+    """
+    s3: NotRequired[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgsDict']]
 
 @pulumi.input_type
 class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs:
@@ -9319,25 +8807,22 @@ class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class FlowS3LocationArgsDict(TypedDict):
-        """
-        A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        A bucket in S3
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        A object key in S3
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the the S3 object to use
-        """
-elif False:
-    FlowS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowS3LocationArgsDict(TypedDict):
+    """
+    A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    A bucket in S3
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    A object key in S3
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the the S3 object to use
+    """
 
 @pulumi.input_type
 class FlowS3LocationArgs:
@@ -9393,14 +8878,11 @@ class FlowS3LocationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class FlowStorageFlowNodeConfigurationArgsDict(TypedDict):
-        """
-        Storage flow node configuration
-        """
-        service_configuration: pulumi.Input['FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict']
-elif False:
-    FlowStorageFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowStorageFlowNodeConfigurationArgsDict(TypedDict):
+    """
+    Storage flow node configuration
+    """
+    service_configuration: pulumi.Input['FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict']
 
 @pulumi.input_type
 class FlowStorageFlowNodeConfigurationArgs:
@@ -9421,17 +8903,14 @@ class FlowStorageFlowNodeConfigurationArgs:
         pulumi.set(self, "service_configuration", value)
 
 
-if not MYPY:
-    class FlowStorageFlowNodeS3ConfigurationArgsDict(TypedDict):
-        """
-        s3 storage configuration for storage node
-        """
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        bucket name of an s3 that will be used for storage flow node configuration
-        """
-elif False:
-    FlowStorageFlowNodeS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowStorageFlowNodeS3ConfigurationArgsDict(TypedDict):
+    """
+    s3 storage configuration for storage node
+    """
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    bucket name of an s3 that will be used for storage flow node configuration
+    """
 
 @pulumi.input_type
 class FlowStorageFlowNodeS3ConfigurationArgs:
@@ -9456,14 +8935,11 @@ class FlowStorageFlowNodeS3ConfigurationArgs:
         pulumi.set(self, "bucket_name", value)
 
 
-if not MYPY:
-    class FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict(TypedDict):
-        """
-        storage service configuration for storage node
-        """
-        s3: NotRequired[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgsDict']]
-elif False:
-    FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict(TypedDict):
+    """
+    storage service configuration for storage node
+    """
+    s3: NotRequired[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgsDict']]
 
 @pulumi.input_type
 class FlowStorageFlowNodeServiceConfigurationPropertiesArgs:
@@ -9485,21 +8961,18 @@ class FlowStorageFlowNodeServiceConfigurationPropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class FlowTextPromptTemplateConfigurationArgsDict(TypedDict):
-        """
-        Configuration for text prompt template
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        Prompt content for String prompt template
-        """
-        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgsDict']]]]
-        """
-        List of input variables
-        """
-elif False:
-    FlowTextPromptTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTextPromptTemplateConfigurationArgsDict(TypedDict):
+    """
+    Configuration for text prompt template
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    Prompt content for String prompt template
+    """
+    input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgsDict']]]]
+    """
+    List of input variables
+    """
 
 @pulumi.input_type
 class FlowTextPromptTemplateConfigurationArgs:
@@ -9540,16 +9013,13 @@ class FlowTextPromptTemplateConfigurationArgs:
         pulumi.set(self, "input_variables", value)
 
 
-if not MYPY:
-    class FlowVectorSearchBedrockRerankingConfigurationArgsDict(TypedDict):
-        model_configuration: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgsDict']
-        metadata_configuration: NotRequired[pulumi.Input['FlowMetadataConfigurationForRerankingArgsDict']]
-        number_of_reranked_results: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Number Of Results For Reranking
-        """
-elif False:
-    FlowVectorSearchBedrockRerankingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowVectorSearchBedrockRerankingConfigurationArgsDict(TypedDict):
+    model_configuration: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgsDict']
+    metadata_configuration: NotRequired[pulumi.Input['FlowMetadataConfigurationForRerankingArgsDict']]
+    number_of_reranked_results: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Number Of Results For Reranking
+    """
 
 @pulumi.input_type
 class FlowVectorSearchBedrockRerankingConfigurationArgs:
@@ -9597,12 +9067,9 @@ class FlowVectorSearchBedrockRerankingConfigurationArgs:
         pulumi.set(self, "number_of_reranked_results", value)
 
 
-if not MYPY:
-    class FlowVectorSearchBedrockRerankingModelConfigurationArgsDict(TypedDict):
-        model_arn: pulumi.Input[_builtins.str]
-        additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
-elif False:
-    FlowVectorSearchBedrockRerankingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowVectorSearchBedrockRerankingModelConfigurationArgsDict(TypedDict):
+    model_arn: pulumi.Input[_builtins.str]
+    additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
 
 @pulumi.input_type
 class FlowVectorSearchBedrockRerankingModelConfigurationArgs:
@@ -9632,12 +9099,9 @@ class FlowVectorSearchBedrockRerankingModelConfigurationArgs:
         pulumi.set(self, "additional_model_request_fields", value)
 
 
-if not MYPY:
-    class FlowVectorSearchRerankingConfigurationArgsDict(TypedDict):
-        type: pulumi.Input['FlowVectorSearchRerankingConfigurationType']
-        bedrock_reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgsDict']]
-elif False:
-    FlowVectorSearchRerankingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FlowVectorSearchRerankingConfigurationArgsDict(TypedDict):
+    type: pulumi.Input['FlowVectorSearchRerankingConfigurationType']
+    bedrock_reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgsDict']]
 
 @pulumi.input_type
 class FlowVectorSearchRerankingConfigurationArgs:
@@ -9667,21 +9131,18 @@ class FlowVectorSearchRerankingConfigurationArgs:
         pulumi.set(self, "bedrock_reranking_configuration", value)
 
 
-if not MYPY:
-    class GuardrailAutomatedReasoningPolicyConfigArgsDict(TypedDict):
-        """
-        Optional configuration for integrating Automated Reasoning policies with the guardrail.
-        """
-        policies: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of Automated Reasoning policy ARNs to include in the guardrail configuration
-        """
-        confidence_threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
-        """
-elif False:
-    GuardrailAutomatedReasoningPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailAutomatedReasoningPolicyConfigArgsDict(TypedDict):
+    """
+    Optional configuration for integrating Automated Reasoning policies with the guardrail.
+    """
+    policies: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+    """
+    confidence_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+    """
 
 @pulumi.input_type
 class GuardrailAutomatedReasoningPolicyConfigArgs:
@@ -9722,55 +9183,52 @@ class GuardrailAutomatedReasoningPolicyConfigArgs:
         pulumi.set(self, "confidence_threshold", value)
 
 
-if not MYPY:
-    class GuardrailContentFilterConfigArgsDict(TypedDict):
-        """
-        Content filter config in content policy.
-        """
-        input_strength: pulumi.Input['GuardrailFilterStrength']
-        """
-        The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
-        """
-        output_strength: pulumi.Input['GuardrailFilterStrength']
-        """
-        The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
-        """
-        type: pulumi.Input['GuardrailContentFilterType']
-        """
-        The harmful category that the content filter is applied to.
-        """
-        input_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
-        """
-        Specifies the action to take when harmful content is detected. Supported values include:
+class GuardrailContentFilterConfigArgsDict(TypedDict):
+    """
+    Content filter config in content policy.
+    """
+    input_strength: pulumi.Input['GuardrailFilterStrength']
+    """
+    The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+    """
+    output_strength: pulumi.Input['GuardrailFilterStrength']
+    """
+    The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+    """
+    type: pulumi.Input['GuardrailContentFilterType']
+    """
+    The harmful category that the content filter is applied to.
+    """
+    input_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
+    """
+    Specifies the action to take when harmful content is detected. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        input_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
-        """
-        List of modalities
-        """
-        output_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
-        """
-        Specifies the action to take when harmful content is detected in the output. Supported values include:
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    input_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
+    """
+    List of modalities
+    """
+    output_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
+    """
+    Specifies the action to take when harmful content is detected in the output. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        output_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
-        """
-        List of modalities
-        """
-elif False:
-    GuardrailContentFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    output_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
+    """
+    List of modalities
+    """
 
 @pulumi.input_type
 class GuardrailContentFilterConfigArgs:
@@ -9933,14 +9391,11 @@ class GuardrailContentFilterConfigArgs:
         pulumi.set(self, "output_modalities", value)
 
 
-if not MYPY:
-    class GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict(TypedDict):
-        """
-        Guardrail tier config for content policy
-        """
-        tier_name: pulumi.Input['GuardrailContentFiltersTierName']
-elif False:
-    GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict(TypedDict):
+    """
+    Guardrail tier config for content policy
+    """
+    tier_name: pulumi.Input['GuardrailContentFiltersTierName']
 
 @pulumi.input_type
 class GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs:
@@ -9961,21 +9416,18 @@ class GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs:
         pulumi.set(self, "tier_name", value)
 
 
-if not MYPY:
-    class GuardrailContentPolicyConfigArgsDict(TypedDict):
-        """
-        Content policy config for a guardrail.
-        """
-        filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgsDict']]]
-        """
-        List of content filter configs in content policy.
-        """
-        content_filters_tier_config: NotRequired[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict']]
-        """
-        Guardrail tier config for content policy
-        """
-elif False:
-    GuardrailContentPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailContentPolicyConfigArgsDict(TypedDict):
+    """
+    Content policy config for a guardrail.
+    """
+    filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgsDict']]]
+    """
+    List of content filter configs in content policy.
+    """
+    content_filters_tier_config: NotRequired[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict']]
+    """
+    Guardrail tier config for content policy
+    """
 
 @pulumi.input_type
 class GuardrailContentPolicyConfigArgs:
@@ -10016,32 +9468,29 @@ class GuardrailContentPolicyConfigArgs:
         pulumi.set(self, "content_filters_tier_config", value)
 
 
-if not MYPY:
-    class GuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
-        """
-        A config for grounding filter.
-        """
-        threshold: pulumi.Input[_builtins.float]
-        """
-        The threshold for this filter.
-        """
-        type: pulumi.Input['GuardrailContextualGroundingFilterType']
-        """
-        The filter details for the guardrails contextual grounding filter.
-        """
-        action: NotRequired[pulumi.Input['GuardrailContextualGroundingAction']]
-        """
-        Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+class GuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
+    """
+    A config for grounding filter.
+    """
+    threshold: pulumi.Input[_builtins.float]
+    """
+    The threshold for this filter.
+    """
+    type: pulumi.Input['GuardrailContextualGroundingFilterType']
+    """
+    The filter details for the guardrails contextual grounding filter.
+    """
+    action: NotRequired[pulumi.Input['GuardrailContextualGroundingAction']]
+    """
+    Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-elif False:
-    GuardrailContextualGroundingFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
 
 @pulumi.input_type
 class GuardrailContextualGroundingFilterConfigArgs:
@@ -10119,17 +9568,14 @@ class GuardrailContextualGroundingFilterConfigArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class GuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
-        """
-        Contextual grounding policy config for a guardrail.
-        """
-        filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingFilterConfigArgsDict']]]
-        """
-        List of contextual grounding filter configs.
-        """
-elif False:
-    GuardrailContextualGroundingPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
+    """
+    Contextual grounding policy config for a guardrail.
+    """
+    filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingFilterConfigArgsDict']]]
+    """
+    List of contextual grounding filter configs.
+    """
 
 @pulumi.input_type
 class GuardrailContextualGroundingPolicyConfigArgs:
@@ -10154,17 +9600,14 @@ class GuardrailContextualGroundingPolicyConfigArgs:
         pulumi.set(self, "filters_config", value)
 
 
-if not MYPY:
-    class GuardrailCrossRegionConfigArgsDict(TypedDict):
-        """
-        The system-defined guardrail profile that you’re using with your guardrail
-        """
-        guardrail_profile_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the guardrail profile
-        """
-elif False:
-    GuardrailCrossRegionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailCrossRegionConfigArgsDict(TypedDict):
+    """
+    The system-defined guardrail profile that you’re using with your guardrail
+    """
+    guardrail_profile_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the guardrail profile
+    """
 
 @pulumi.input_type
 class GuardrailCrossRegionConfigArgs:
@@ -10189,39 +9632,36 @@ class GuardrailCrossRegionConfigArgs:
         pulumi.set(self, "guardrail_profile_arn", value)
 
 
-if not MYPY:
-    class GuardrailManagedWordsConfigArgsDict(TypedDict):
-        """
-        A managed words config.
-        """
-        type: pulumi.Input['GuardrailManagedWordsType']
-        """
-        The managed word type to configure for the guardrail.
-        """
-        input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
-        """
-        Specifies the action to take when harmful content is detected in the input. Supported values include:
+class GuardrailManagedWordsConfigArgsDict(TypedDict):
+    """
+    A managed words config.
+    """
+    type: pulumi.Input['GuardrailManagedWordsType']
+    """
+    The managed word type to configure for the guardrail.
+    """
+    input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    """
+    Specifies the action to take when harmful content is detected in the input. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
-        """
-        Specifies the action to take when harmful content is detected in the output. Supported values include:
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    """
+    Specifies the action to take when harmful content is detected in the output. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-elif False:
-    GuardrailManagedWordsConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
 
 @pulumi.input_type
 class GuardrailManagedWordsConfigArgs:
@@ -10322,162 +9762,159 @@ class GuardrailManagedWordsConfigArgs:
         pulumi.set(self, "output_enabled", value)
 
 
-if not MYPY:
-    class GuardrailPiiEntityConfigArgsDict(TypedDict):
-        """
-        Pii entity configuration.
-        """
-        action: pulumi.Input['GuardrailSensitiveInformationAction']
-        """
-        Configure guardrail action when the PII entity is detected.
-        """
-        type: pulumi.Input['GuardrailPiiEntityType']
-        """
-        Configure guardrail type when the PII entity is detected.
+class GuardrailPiiEntityConfigArgsDict(TypedDict):
+    """
+    Pii entity configuration.
+    """
+    action: pulumi.Input['GuardrailSensitiveInformationAction']
+    """
+    Configure guardrail action when the PII entity is detected.
+    """
+    type: pulumi.Input['GuardrailPiiEntityType']
+    """
+    Configure guardrail type when the PII entity is detected.
 
-        The following PIIs are used to block or mask sensitive information:
+    The following PIIs are used to block or mask sensitive information:
 
-        - *General*
+    - *General*
 
-        - *ADDRESS*
+    - *ADDRESS*
 
-        A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
-        - *AGE*
+    A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
+    - *AGE*
 
-        An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
-        - *NAME*
+    An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
+    - *NAME*
 
-        An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
-        - *EMAIL*
+    An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
+    - *EMAIL*
 
-        An email address, such as *marymajor@email.com* .
-        - *PHONE*
+    An email address, such as *marymajor@email.com* .
+    - *PHONE*
 
-        A phone number. This entity type also includes fax and pager numbers.
-        - *USERNAME*
+    A phone number. This entity type also includes fax and pager numbers.
+    - *USERNAME*
 
-        A user name that identifies an account, such as a login name, screen name, nick name, or handle.
-        - *PASSWORD*
+    A user name that identifies an account, such as a login name, screen name, nick name, or handle.
+    - *PASSWORD*
 
-        An alphanumeric string that is used as a password, such as "* *very20special#pass** ".
-        - *DRIVER_ID*
+    An alphanumeric string that is used as a password, such as "* *very20special#pass** ".
+    - *DRIVER_ID*
 
-        The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters.
-        - *LICENSE_PLATE*
+    The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters.
+    - *LICENSE_PLATE*
 
-        A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
-        - *VEHICLE_IDENTIFICATION_NUMBER*
+    A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
+    - *VEHICLE_IDENTIFICATION_NUMBER*
 
-        A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
-        - *Finance*
+    A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
+    - *Finance*
 
-        - *CREDIT_DEBIT_CARD_CVV*
+    - *CREDIT_DEBIT_CARD_CVV*
 
-        A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
-        - *CREDIT_DEBIT_CARD_EXPIRY*
+    A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
+    - *CREDIT_DEBIT_CARD_EXPIRY*
 
-        The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as *month/year* or *MM/YY* . Guardrails recognizes expiration dates such as *01/21* , *01/2021* , and *Jan 2021* .
-        - *CREDIT_DEBIT_CARD_NUMBER*
+    The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as *month/year* or *MM/YY* . Guardrails recognizes expiration dates such as *01/21* , *01/2021* , and *Jan 2021* .
+    - *CREDIT_DEBIT_CARD_NUMBER*
 
-        The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
-        - *PIN*
+    The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present.
+    - *PIN*
 
-        A four-digit personal identification number (PIN) with which you can access your bank account.
-        - *INTERNATIONAL_BANK_ACCOUNT_NUMBER*
+    A four-digit personal identification number (PIN) with which you can access your bank account.
+    - *INTERNATIONAL_BANK_ACCOUNT_NUMBER*
 
-        An International Bank Account Number has specific formats in each country. For more information, see [www.iban.com/structure](https://docs.aws.amazon.com/https://www.iban.com/structure) .
-        - *SWIFT_CODE*
+    An International Bank Account Number has specific formats in each country. For more information, see [www.iban.com/structure](https://docs.aws.amazon.com/https://www.iban.com/structure) .
+    - *SWIFT_CODE*
 
-        A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.
+    A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.
 
-        SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
-        - *IT*
+    SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
+    - *IT*
 
-        - *IP_ADDRESS*
+    - *IP_ADDRESS*
 
-        An IPv4 address, such as *198.51.100.0* .
-        - *MAC_ADDRESS*
+    An IPv4 address, such as *198.51.100.0* .
+    - *MAC_ADDRESS*
 
-        A *media access control* (MAC) address is a unique identifier assigned to a network interface controller (NIC).
-        - *URL*
+    A *media access control* (MAC) address is a unique identifier assigned to a network interface controller (NIC).
+    - *URL*
 
-        A web address, such as *www.example.com* .
-        - *AWS_ACCESS_KEY*
+    A web address, such as *www.example.com* .
+    - *AWS_ACCESS_KEY*
 
-        A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
-        - *AWS_SECRET_KEY*
+    A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+    - *AWS_SECRET_KEY*
 
-        A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
-        - *USA specific*
+    A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+    - *USA specific*
 
-        - *US_BANK_ACCOUNT_NUMBER*
+    - *US_BANK_ACCOUNT_NUMBER*
 
-        A US bank account number, which is typically 10 to 12 digits long.
-        - *US_BANK_ROUTING_NUMBER*
+    A US bank account number, which is typically 10 to 12 digits long.
+    - *US_BANK_ROUTING_NUMBER*
 
-        A US bank account routing number. These are typically nine digits long,
-        - *US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER*
+    A US bank account routing number. These are typically nine digits long,
+    - *US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER*
 
-        A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits.
-        - *US_PASSPORT_NUMBER*
+    A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits.
+    - *US_PASSPORT_NUMBER*
 
-        A US passport number. Passport numbers range from six to nine alphanumeric characters.
-        - *US_SOCIAL_SECURITY_NUMBER*
+    A US passport number. Passport numbers range from six to nine alphanumeric characters.
+    - *US_SOCIAL_SECURITY_NUMBER*
 
-        A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
-        - *Canada specific*
+    A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
+    - *Canada specific*
 
-        - *CA_HEALTH_NUMBER*
+    - *CA_HEALTH_NUMBER*
 
-        A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
-        - *CA_SOCIAL_INSURANCE_NUMBER*
+    A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
+    - *CA_SOCIAL_INSURANCE_NUMBER*
 
-        A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.
+    A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.
 
-        The SIN is formatted as three groups of three digits, such as *123-456-789* . A SIN can be validated through a simple check-digit process called the [Luhn algorithm](https://docs.aws.amazon.com/https://www.wikipedia.org/wiki/Luhn_algorithm) .
-        - *UK Specific*
+    The SIN is formatted as three groups of three digits, such as *123-456-789* . A SIN can be validated through a simple check-digit process called the [Luhn algorithm](https://docs.aws.amazon.com/https://www.wikipedia.org/wiki/Luhn_algorithm) .
+    - *UK Specific*
 
-        - *UK_NATIONAL_HEALTH_SERVICE_NUMBER*
+    - *UK_NATIONAL_HEALTH_SERVICE_NUMBER*
 
-        A UK National Health Service Number is a 10-17 digit number, such as *485 777 3456* . The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
-        - *UK_NATIONAL_INSURANCE_NUMBER*
+    A UK National Health Service Number is a 10-17 digit number, such as *485 777 3456* . The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
+    - *UK_NATIONAL_INSURANCE_NUMBER*
 
-        A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.
+    A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.
 
-        The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.
-        - *UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER*
+    The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.
+    - *UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER*
 
-        A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
-        - *Custom*
+    A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
+    - *Custom*
 
-        - *Regex filter* - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..
-        """
-        input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
-        """
-        Specifies the action to take when harmful content is detected in the input. Supported values include:
+    - *Regex filter* - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..
+    """
+    input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    """
+    Specifies the action to take when harmful content is detected in the input. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `ANONYMIZE` – Mask the content and replace it with identifier tags.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
-        """
-        Specifies the action to take when harmful content is detected in the output. Supported values include:
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    """
+    Specifies the action to take when harmful content is detected in the output. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `ANONYMIZE` – Mask the content and replace it with identifier tags.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-elif False:
-    GuardrailPiiEntityConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
 
 @pulumi.input_type
 class GuardrailPiiEntityConfigArgs:
@@ -10831,51 +10268,48 @@ class GuardrailPiiEntityConfigArgs:
         pulumi.set(self, "output_enabled", value)
 
 
-if not MYPY:
-    class GuardrailRegexConfigArgsDict(TypedDict):
-        """
-        A regex configuration.
-        """
-        action: pulumi.Input['GuardrailSensitiveInformationAction']
-        """
-        The guardrail action to configure when matching regular expression is detected.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The regex name.
-        """
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The regex pattern.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regex description.
-        """
-        input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
-        """
-        Specifies the action to take when harmful content is detected in the input. Supported values include:
+class GuardrailRegexConfigArgsDict(TypedDict):
+    """
+    A regex configuration.
+    """
+    action: pulumi.Input['GuardrailSensitiveInformationAction']
+    """
+    The guardrail action to configure when matching regular expression is detected.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The regex name.
+    """
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The regex pattern.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regex description.
+    """
+    input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    """
+    Specifies the action to take when harmful content is detected in the input. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
-        """
-        Specifies the action to take when harmful content is detected in the output. Supported values include:
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    """
+    Specifies the action to take when harmful content is detected in the output. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-elif False:
-    GuardrailRegexConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
 
 @pulumi.input_type
 class GuardrailRegexConfigArgs:
@@ -11022,21 +10456,18 @@ class GuardrailRegexConfigArgs:
         pulumi.set(self, "output_enabled", value)
 
 
-if not MYPY:
-    class GuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
-        """
-        Sensitive information policy config for a guardrail.
-        """
-        pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgsDict']]]]
-        """
-        List of entities.
-        """
-        regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgsDict']]]]
-        """
-        List of regex.
-        """
-elif False:
-    GuardrailSensitiveInformationPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
+    """
+    Sensitive information policy config for a guardrail.
+    """
+    pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgsDict']]]]
+    """
+    List of entities.
+    """
+    regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgsDict']]]]
+    """
+    List of regex.
+    """
 
 @pulumi.input_type
 class GuardrailSensitiveInformationPolicyConfigArgs:
@@ -11078,51 +10509,48 @@ class GuardrailSensitiveInformationPolicyConfigArgs:
         pulumi.set(self, "regexes_config", value)
 
 
-if not MYPY:
-    class GuardrailTopicConfigArgsDict(TypedDict):
-        """
-        Topic config in topic policy.
-        """
-        definition: pulumi.Input[_builtins.str]
-        """
-        Definition of topic in topic policy
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of topic in topic policy
-        """
-        type: pulumi.Input['GuardrailTopicType']
-        """
-        Specifies to deny the topic.
-        """
-        examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of text examples
-        """
-        input_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
-        """
-        Specifies the action to take when harmful content is detected in the input. Supported values include:
+class GuardrailTopicConfigArgsDict(TypedDict):
+    """
+    Topic config in topic policy.
+    """
+    definition: pulumi.Input[_builtins.str]
+    """
+    Definition of topic in topic policy
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of topic in topic policy
+    """
+    type: pulumi.Input['GuardrailTopicType']
+    """
+    Specifies to deny the topic.
+    """
+    examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of text examples
+    """
+    input_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
+    """
+    Specifies the action to take when harmful content is detected in the input. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        output_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
-        """
-        Specifies the action to take when harmful content is detected in the output. Supported values include:
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    output_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
+    """
+    Specifies the action to take when harmful content is detected in the output. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-elif False:
-    GuardrailTopicConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
 
 @pulumi.input_type
 class GuardrailTopicConfigArgs:
@@ -11269,14 +10697,11 @@ class GuardrailTopicConfigArgs:
         pulumi.set(self, "output_enabled", value)
 
 
-if not MYPY:
-    class GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict(TypedDict):
-        """
-        Guardrail tier config for topic policy
-        """
-        tier_name: pulumi.Input['GuardrailTopicsTierName']
-elif False:
-    GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict(TypedDict):
+    """
+    Guardrail tier config for topic policy
+    """
+    tier_name: pulumi.Input['GuardrailTopicsTierName']
 
 @pulumi.input_type
 class GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs:
@@ -11297,21 +10722,18 @@ class GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs:
         pulumi.set(self, "tier_name", value)
 
 
-if not MYPY:
-    class GuardrailTopicPolicyConfigArgsDict(TypedDict):
-        """
-        Topic policy config for a guardrail.
-        """
-        topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgsDict']]]
-        """
-        List of topic configs in topic policy.
-        """
-        topics_tier_config: NotRequired[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict']]
-        """
-        Guardrail tier config for topic policy
-        """
-elif False:
-    GuardrailTopicPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailTopicPolicyConfigArgsDict(TypedDict):
+    """
+    Topic policy config for a guardrail.
+    """
+    topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgsDict']]]
+    """
+    List of topic configs in topic policy.
+    """
+    topics_tier_config: NotRequired[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict']]
+    """
+    Guardrail tier config for topic policy
+    """
 
 @pulumi.input_type
 class GuardrailTopicPolicyConfigArgs:
@@ -11352,39 +10774,36 @@ class GuardrailTopicPolicyConfigArgs:
         pulumi.set(self, "topics_tier_config", value)
 
 
-if not MYPY:
-    class GuardrailWordConfigArgsDict(TypedDict):
-        """
-        A custom word config.
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        The custom word text.
-        """
-        input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
-        """
-        Specifies the action to take when harmful content is detected in the input. Supported values include:
+class GuardrailWordConfigArgsDict(TypedDict):
+    """
+    A custom word config.
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    The custom word text.
+    """
+    input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    """
+    Specifies the action to take when harmful content is detected in the input. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-        output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
-        """
-        Specifies the action to take when harmful content is detected in the output. Supported values include:
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
+    output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    """
+    Specifies the action to take when harmful content is detected in the output. Supported values include:
 
-        - `BLOCK` – Block the content and replace it with blocked messaging.
-        - `NONE` – Take no action but return detection information in the trace response.
-        """
-        output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
-        """
-elif False:
-    GuardrailWordConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - `BLOCK` – Block the content and replace it with blocked messaging.
+    - `NONE` – Take no action but return detection information in the trace response.
+    """
+    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+    """
 
 @pulumi.input_type
 class GuardrailWordConfigArgs:
@@ -11485,21 +10904,18 @@ class GuardrailWordConfigArgs:
         pulumi.set(self, "output_enabled", value)
 
 
-if not MYPY:
-    class GuardrailWordPolicyConfigArgsDict(TypedDict):
-        """
-        Word policy config for a guardrail.
-        """
-        managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgsDict']]]]
-        """
-        A config for the list of managed words.
-        """
-        words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgsDict']]]]
-        """
-        List of custom word configs.
-        """
-elif False:
-    GuardrailWordPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GuardrailWordPolicyConfigArgsDict(TypedDict):
+    """
+    Word policy config for a guardrail.
+    """
+    managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgsDict']]]]
+    """
+    A config for the list of managed words.
+    """
+    words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgsDict']]]]
+    """
+    List of custom word configs.
+    """
 
 @pulumi.input_type
 class GuardrailWordPolicyConfigArgs:
@@ -11541,17 +10957,14 @@ class GuardrailWordPolicyConfigArgs:
         pulumi.set(self, "words_config", value)
 
 
-if not MYPY:
-    class IntelligentPromptRouterPromptRouterTargetModelArgsDict(TypedDict):
-        """
-        Model configuration
-        """
-        model_arn: pulumi.Input[_builtins.str]
-        """
-        Arn of underlying model which are added in the Prompt Router.
-        """
-elif False:
-    IntelligentPromptRouterPromptRouterTargetModelArgsDict: TypeAlias = Mapping[str, Any]
+class IntelligentPromptRouterPromptRouterTargetModelArgsDict(TypedDict):
+    """
+    Model configuration
+    """
+    model_arn: pulumi.Input[_builtins.str]
+    """
+    Arn of underlying model which are added in the Prompt Router.
+    """
 
 @pulumi.input_type
 class IntelligentPromptRouterPromptRouterTargetModelArgs:
@@ -11576,17 +10989,14 @@ class IntelligentPromptRouterPromptRouterTargetModelArgs:
         pulumi.set(self, "model_arn", value)
 
 
-if not MYPY:
-    class IntelligentPromptRouterRoutingCriteriaArgsDict(TypedDict):
-        """
-        Represents the criteria used for routing requests.
-        """
-        response_quality_difference: pulumi.Input[_builtins.float]
-        """
-        The criteria's response quality difference.
-        """
-elif False:
-    IntelligentPromptRouterRoutingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class IntelligentPromptRouterRoutingCriteriaArgsDict(TypedDict):
+    """
+    Represents the criteria used for routing requests.
+    """
+    response_quality_difference: pulumi.Input[_builtins.float]
+    """
+    The criteria's response quality difference.
+    """
 
 @pulumi.input_type
 class IntelligentPromptRouterRoutingCriteriaArgs:
@@ -11611,14 +11021,11 @@ class IntelligentPromptRouterRoutingCriteriaArgs:
         pulumi.set(self, "response_quality_difference", value)
 
 
-if not MYPY:
-    class KnowledgeBaseAudioConfigurationArgsDict(TypedDict):
-        """
-        Configure the audio configuration for multi modal ingestion.
-        """
-        segmentation_configuration: pulumi.Input['KnowledgeBaseAudioSegmentationConfigurationArgsDict']
-elif False:
-    KnowledgeBaseAudioConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseAudioConfigurationArgsDict(TypedDict):
+    """
+    Configure the audio configuration for multi modal ingestion.
+    """
+    segmentation_configuration: pulumi.Input['KnowledgeBaseAudioSegmentationConfigurationArgsDict']
 
 @pulumi.input_type
 class KnowledgeBaseAudioConfigurationArgs:
@@ -11639,14 +11046,11 @@ class KnowledgeBaseAudioConfigurationArgs:
         pulumi.set(self, "segmentation_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseAudioSegmentationConfigurationArgsDict(TypedDict):
-        """
-        Configure the audio segmentation configuration for multi modal ingestion.
-        """
-        fixed_length_duration: pulumi.Input[_builtins.int]
-elif False:
-    KnowledgeBaseAudioSegmentationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseAudioSegmentationConfigurationArgsDict(TypedDict):
+    """
+    Configure the audio segmentation configuration for multi modal ingestion.
+    """
+    fixed_length_duration: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class KnowledgeBaseAudioSegmentationConfigurationArgs:
@@ -11667,29 +11071,26 @@ class KnowledgeBaseAudioSegmentationConfigurationArgs:
         pulumi.set(self, "fixed_length_duration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
-        """
-        The vector configuration details for the Bedrock embeddings model.
-        """
-        audio: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgsDict']]]]
-        """
-        Configuration settings for processing audio content in multimodal knowledge bases.
-        """
-        dimensions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The dimensions details for the vector configuration used on the Bedrock embeddings model.
-        """
-        embedding_data_type: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]
-        """
-        The data type for the vectors when using a model to convert text into vector embeddings.
-        """
-        video: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]
-        """
-        Configuration settings for processing video content in multimodal knowledge bases.
-        """
-elif False:
-    KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
+    """
+    The vector configuration details for the Bedrock embeddings model.
+    """
+    audio: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgsDict']]]]
+    """
+    Configuration settings for processing audio content in multimodal knowledge bases.
+    """
+    dimensions: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The dimensions details for the vector configuration used on the Bedrock embeddings model.
+    """
+    embedding_data_type: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]
+    """
+    The data type for the vectors when using a model to convert text into vector embeddings.
+    """
+    video: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]
+    """
+    Configuration settings for processing video content in multimodal knowledge bases.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
@@ -11763,29 +11164,26 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
         pulumi.set(self, "video", value)
 
 
-if not MYPY:
-    class KnowledgeBaseConfigurationArgsDict(TypedDict):
-        """
-        Contains details about the embeddings model used for the knowledge base.
-        """
-        type: pulumi.Input['KnowledgeBaseType']
-        """
-        The type of data that the data source is converted into for the knowledge base.
-        """
-        kendra_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict']]
-        """
-        Settings for an Amazon Kendra knowledge base.
-        """
-        sql_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]
-        """
-        Specifies configurations for a knowledge base connected to an SQL database.
-        """
-        vector_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict']]
-        """
-        Contains details about the model that's used to convert the data source into vector embeddings.
-        """
-elif False:
-    KnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseConfigurationArgsDict(TypedDict):
+    """
+    Contains details about the embeddings model used for the knowledge base.
+    """
+    type: pulumi.Input['KnowledgeBaseType']
+    """
+    The type of data that the data source is converted into for the knowledge base.
+    """
+    kendra_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict']]
+    """
+    Settings for an Amazon Kendra knowledge base.
+    """
+    sql_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]
+    """
+    Specifies configurations for a knowledge base connected to an SQL database.
+    """
+    vector_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict']]
+    """
+    Contains details about the model that's used to convert the data source into vector embeddings.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseConfigurationArgs:
@@ -11858,15 +11256,12 @@ class KnowledgeBaseConfigurationArgs:
         pulumi.set(self, "vector_knowledge_base_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseCuratedQueryArgsDict(TypedDict):
-        """
-        Curated query or question and answer pair
-        """
-        natural_language: pulumi.Input[_builtins.str]
-        sql: pulumi.Input[_builtins.str]
-elif False:
-    KnowledgeBaseCuratedQueryArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseCuratedQueryArgsDict(TypedDict):
+    """
+    Curated query or question and answer pair
+    """
+    natural_language: pulumi.Input[_builtins.str]
+    sql: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class KnowledgeBaseCuratedQueryArgs:
@@ -11898,17 +11293,14 @@ class KnowledgeBaseCuratedQueryArgs:
         pulumi.set(self, "sql", value)
 
 
-if not MYPY:
-    class KnowledgeBaseEmbeddingModelConfigurationArgsDict(TypedDict):
-        """
-        The embeddings model configuration details for the vector model used in Knowledge Base.
-        """
-        bedrock_embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict']]
-        """
-        The vector configuration details on the Bedrock embeddings model.
-        """
-elif False:
-    KnowledgeBaseEmbeddingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseEmbeddingModelConfigurationArgsDict(TypedDict):
+    """
+    The embeddings model configuration details for the vector model used in Knowledge Base.
+    """
+    bedrock_embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict']]
+    """
+    The vector configuration details on the Bedrock embeddings model.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseEmbeddingModelConfigurationArgs:
@@ -11934,17 +11326,14 @@ class KnowledgeBaseEmbeddingModelConfigurationArgs:
         pulumi.set(self, "bedrock_embedding_model_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict(TypedDict):
-        """
-        Configurations for a Kendra knowledge base
-        """
-        kendra_index_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Amazon Kendra index.
-        """
-elif False:
-    KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict(TypedDict):
+    """
+    Configurations for a Kendra knowledge base
+    """
+    kendra_index_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Amazon Kendra index.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseKendraKnowledgeBaseConfigurationArgs:
@@ -11969,45 +11358,42 @@ class KnowledgeBaseKendraKnowledgeBaseConfigurationArgs:
         pulumi.set(self, "kendra_index_arn", value)
 
 
-if not MYPY:
-    class KnowledgeBaseMongoDbAtlasConfigurationArgsDict(TypedDict):
-        """
-        Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
-        """
-        collection_name: pulumi.Input[_builtins.str]
-        """
-        Name of the collection within MongoDB Atlas.
-        """
-        credentials_secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database within MongoDB Atlas.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        MongoDB Atlas endpoint.
-        """
-        field_mapping: pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgsDict']
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        vector_index_name: pulumi.Input[_builtins.str]
-        """
-        Name of a MongoDB Atlas index.
-        """
-        endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        MongoDB Atlas endpoint service name.
-        """
-        text_index_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a MongoDB Atlas text index.
-        """
-elif False:
-    KnowledgeBaseMongoDbAtlasConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseMongoDbAtlasConfigurationArgsDict(TypedDict):
+    """
+    Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+    """
+    collection_name: pulumi.Input[_builtins.str]
+    """
+    Name of the collection within MongoDB Atlas.
+    """
+    credentials_secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database within MongoDB Atlas.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MongoDB Atlas endpoint.
+    """
+    field_mapping: pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgsDict']
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    vector_index_name: pulumi.Input[_builtins.str]
+    """
+    Name of a MongoDB Atlas index.
+    """
+    endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    MongoDB Atlas endpoint service name.
+    """
+    text_index_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a MongoDB Atlas text index.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseMongoDbAtlasConfigurationArgs:
@@ -12139,25 +11525,22 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
         pulumi.set(self, "text_index_name", value)
 
 
-if not MYPY:
-    class KnowledgeBaseMongoDbAtlasFieldMappingArgsDict(TypedDict):
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        metadata_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
-        text_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
-        vector_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
-elif False:
-    KnowledgeBaseMongoDbAtlasFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseMongoDbAtlasFieldMappingArgsDict(TypedDict):
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    metadata_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores metadata about the vector store.
+    """
+    text_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+    """
+    vector_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseMongoDbAtlasFieldMappingArgs:
@@ -12212,21 +11595,18 @@ class KnowledgeBaseMongoDbAtlasFieldMappingArgs:
         pulumi.set(self, "vector_field", value)
 
 
-if not MYPY:
-    class KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict(TypedDict):
-        """
-        Contains the configurations to use Neptune Analytics as Vector Store.
-        """
-        field_mapping: pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict']
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        graph_arn: pulumi.Input[_builtins.str]
-        """
-        ARN for Neptune Analytics graph database.
-        """
-elif False:
-    KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict(TypedDict):
+    """
+    Contains the configurations to use Neptune Analytics as Vector Store.
+    """
+    field_mapping: pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict']
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    graph_arn: pulumi.Input[_builtins.str]
+    """
+    ARN for Neptune Analytics graph database.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseNeptuneAnalyticsConfigurationArgs:
@@ -12266,21 +11646,18 @@ class KnowledgeBaseNeptuneAnalyticsConfigurationArgs:
         pulumi.set(self, "graph_arn", value)
 
 
-if not MYPY:
-    class KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict(TypedDict):
-        """
-        A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
-        """
-        metadata_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
-        text_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
-elif False:
-    KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseNeptuneAnalyticsFieldMappingArgsDict(TypedDict):
+    """
+    A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+    """
+    metadata_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores metadata about the vector store.
+    """
+    text_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseNeptuneAnalyticsFieldMappingArgs:
@@ -12320,29 +11697,26 @@ class KnowledgeBaseNeptuneAnalyticsFieldMappingArgs:
         pulumi.set(self, "text_field", value)
 
 
-if not MYPY:
-    class KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict(TypedDict):
-        """
-        Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
-        """
-        domain_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the OpenSearch domain.
-        """
-        domain_endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint URL the OpenSearch domain.
-        """
-        field_mapping: pulumi.Input['KnowledgeBaseOpenSearchManagedClusterFieldMappingArgsDict']
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        vector_index_name: pulumi.Input[_builtins.str]
-        """
-        The name of the vector store.
-        """
-elif False:
-    KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict(TypedDict):
+    """
+    Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+    """
+    domain_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the OpenSearch domain.
+    """
+    domain_endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint URL the OpenSearch domain.
+    """
+    field_mapping: pulumi.Input['KnowledgeBaseOpenSearchManagedClusterFieldMappingArgsDict']
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    vector_index_name: pulumi.Input[_builtins.str]
+    """
+    The name of the vector store.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseOpenSearchManagedClusterConfigurationArgs:
@@ -12412,25 +11786,22 @@ class KnowledgeBaseOpenSearchManagedClusterConfigurationArgs:
         pulumi.set(self, "vector_index_name", value)
 
 
-if not MYPY:
-    class KnowledgeBaseOpenSearchManagedClusterFieldMappingArgsDict(TypedDict):
-        """
-        A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
-        """
-        metadata_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
-        text_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
-        vector_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
-elif False:
-    KnowledgeBaseOpenSearchManagedClusterFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseOpenSearchManagedClusterFieldMappingArgsDict(TypedDict):
+    """
+    A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+    """
+    metadata_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores metadata about the vector store.
+    """
+    text_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+    """
+    vector_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs:
@@ -12485,25 +11856,22 @@ class KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs:
         pulumi.set(self, "vector_field", value)
 
 
-if not MYPY:
-    class KnowledgeBaseOpenSearchServerlessConfigurationArgsDict(TypedDict):
-        """
-        Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
-        """
-        collection_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the OpenSearch Service vector store.
-        """
-        field_mapping: pulumi.Input['KnowledgeBaseOpenSearchServerlessFieldMappingArgsDict']
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        vector_index_name: pulumi.Input[_builtins.str]
-        """
-        The name of the vector store.
-        """
-elif False:
-    KnowledgeBaseOpenSearchServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseOpenSearchServerlessConfigurationArgsDict(TypedDict):
+    """
+    Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+    """
+    collection_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the OpenSearch Service vector store.
+    """
+    field_mapping: pulumi.Input['KnowledgeBaseOpenSearchServerlessFieldMappingArgsDict']
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    vector_index_name: pulumi.Input[_builtins.str]
+    """
+    The name of the vector store.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseOpenSearchServerlessConfigurationArgs:
@@ -12558,25 +11926,22 @@ class KnowledgeBaseOpenSearchServerlessConfigurationArgs:
         pulumi.set(self, "vector_index_name", value)
 
 
-if not MYPY:
-    class KnowledgeBaseOpenSearchServerlessFieldMappingArgsDict(TypedDict):
-        """
-        A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
-        """
-        metadata_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
-        text_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
-        vector_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
-elif False:
-    KnowledgeBaseOpenSearchServerlessFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseOpenSearchServerlessFieldMappingArgsDict(TypedDict):
+    """
+    A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+    """
+    metadata_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores metadata about the vector store.
+    """
+    text_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+    """
+    vector_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseOpenSearchServerlessFieldMappingArgs:
@@ -12631,29 +11996,26 @@ class KnowledgeBaseOpenSearchServerlessFieldMappingArgs:
         pulumi.set(self, "vector_field", value)
 
 
-if not MYPY:
-    class KnowledgeBasePineconeConfigurationArgsDict(TypedDict):
-        """
-        Contains the storage configuration of the knowledge base in Pinecone.
-        """
-        connection_string: pulumi.Input[_builtins.str]
-        """
-        The endpoint URL for your index management page.
-        """
-        credentials_secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-        """
-        field_mapping: pulumi.Input['KnowledgeBasePineconeFieldMappingArgsDict']
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace to be used to write new data to your database.
-        """
-elif False:
-    KnowledgeBasePineconeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBasePineconeConfigurationArgsDict(TypedDict):
+    """
+    Contains the storage configuration of the knowledge base in Pinecone.
+    """
+    connection_string: pulumi.Input[_builtins.str]
+    """
+    The endpoint URL for your index management page.
+    """
+    credentials_secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
+    """
+    field_mapping: pulumi.Input['KnowledgeBasePineconeFieldMappingArgsDict']
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace to be used to write new data to your database.
+    """
 
 @pulumi.input_type
 class KnowledgeBasePineconeConfigurationArgs:
@@ -12724,21 +12086,18 @@ class KnowledgeBasePineconeConfigurationArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class KnowledgeBasePineconeFieldMappingArgsDict(TypedDict):
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        metadata_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
-        text_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
-elif False:
-    KnowledgeBasePineconeFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBasePineconeFieldMappingArgsDict(TypedDict):
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    metadata_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores metadata about the vector store.
+    """
+    text_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+    """
 
 @pulumi.input_type
 class KnowledgeBasePineconeFieldMappingArgs:
@@ -12778,16 +12137,13 @@ class KnowledgeBasePineconeFieldMappingArgs:
         pulumi.set(self, "text_field", value)
 
 
-if not MYPY:
-    class KnowledgeBaseQueryGenerationColumnArgsDict(TypedDict):
-        """
-        Redshift query generation column
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    KnowledgeBaseQueryGenerationColumnArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseQueryGenerationColumnArgsDict(TypedDict):
+    """
+    Redshift query generation column
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationColumnArgs:
@@ -12833,21 +12189,18 @@ class KnowledgeBaseQueryGenerationColumnArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class KnowledgeBaseQueryGenerationConfigurationArgsDict(TypedDict):
-        """
-        Configurations for generating Redshift engine queries
-        """
-        execution_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time after which query generation will time out.
-        """
-        generation_context: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationContextArgsDict']]
-        """
-        Specifies configurations for context to use during query generation.
-        """
-elif False:
-    KnowledgeBaseQueryGenerationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseQueryGenerationConfigurationArgsDict(TypedDict):
+    """
+    Configurations for generating Redshift engine queries
+    """
+    execution_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time after which query generation will time out.
+    """
+    generation_context: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationContextArgsDict']]
+    """
+    Specifies configurations for context to use during query generation.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationConfigurationArgs:
@@ -12889,21 +12242,18 @@ class KnowledgeBaseQueryGenerationConfigurationArgs:
         pulumi.set(self, "generation_context", value)
 
 
-if not MYPY:
-    class KnowledgeBaseQueryGenerationContextArgsDict(TypedDict):
-        """
-        Context used to improve query generation
-        """
-        curated_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgsDict']]]]
-        """
-        An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
-        """
-        tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgsDict']]]]
-        """
-        An array of objects, each of which defines information about a table in the database.
-        """
-elif False:
-    KnowledgeBaseQueryGenerationContextArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseQueryGenerationContextArgsDict(TypedDict):
+    """
+    Context used to improve query generation
+    """
+    curated_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgsDict']]]]
+    """
+    An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+    """
+    tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgsDict']]]]
+    """
+    An array of objects, each of which defines information about a table in the database.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationContextArgs:
@@ -12945,17 +12295,14 @@ class KnowledgeBaseQueryGenerationContextArgs:
         pulumi.set(self, "tables", value)
 
 
-if not MYPY:
-    class KnowledgeBaseQueryGenerationTableArgsDict(TypedDict):
-        """
-        Tables used for Redshift query generation context
-        """
-        name: pulumi.Input[_builtins.str]
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgsDict']]]]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
-elif False:
-    KnowledgeBaseQueryGenerationTableArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseQueryGenerationTableArgsDict(TypedDict):
+    """
+    Tables used for Redshift query generation context
+    """
+    name: pulumi.Input[_builtins.str]
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgsDict']]]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
 
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationTableArgs:
@@ -13012,33 +12359,30 @@ class KnowledgeBaseQueryGenerationTableArgs:
         pulumi.set(self, "inclusion", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRdsConfigurationArgsDict(TypedDict):
-        """
-        Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
-        """
-        credentials_secret_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-        """
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of your Amazon RDS database.
-        """
-        field_mapping: pulumi.Input['KnowledgeBaseRdsFieldMappingArgsDict']
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the vector store.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the table in the database.
-        """
-elif False:
-    KnowledgeBaseRdsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRdsConfigurationArgsDict(TypedDict):
+    """
+    Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+    """
+    credentials_secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of your Amazon RDS database.
+    """
+    field_mapping: pulumi.Input['KnowledgeBaseRdsFieldMappingArgsDict']
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the vector store.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the table in the database.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRdsConfigurationArgs:
@@ -13123,33 +12467,30 @@ class KnowledgeBaseRdsConfigurationArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRdsFieldMappingArgsDict(TypedDict):
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        metadata_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
-        primary_key_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the ID for each entry.
-        """
-        text_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
-        vector_field: pulumi.Input[_builtins.str]
-        """
-        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
-        custom_metadata_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
-        """
-elif False:
-    KnowledgeBaseRdsFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRdsFieldMappingArgsDict(TypedDict):
+    """
+    Contains the names of the fields to which to map information about the vector store.
+    """
+    metadata_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores metadata about the vector store.
+    """
+    primary_key_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the ID for each entry.
+    """
+    text_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+    """
+    vector_field: pulumi.Input[_builtins.str]
+    """
+    The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+    """
+    custom_metadata_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRdsFieldMappingArgs:
@@ -13235,25 +12576,22 @@ class KnowledgeBaseRdsFieldMappingArgs:
         pulumi.set(self, "custom_metadata_field", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftConfigurationArgsDict(TypedDict):
-        """
-        Configurations for a Redshift knowledge base
-        """
-        query_engine_configuration: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict']
-        """
-        Specifies configurations for an Amazon Redshift query engine.
-        """
-        storage_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict']]]
-        """
-        Specifies configurations for Amazon Redshift database storage.
-        """
-        query_generation_configuration: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgsDict']]
-        """
-        Specifies configurations for generating queries.
-        """
-elif False:
-    KnowledgeBaseRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftConfigurationArgsDict(TypedDict):
+    """
+    Configurations for a Redshift knowledge base
+    """
+    query_engine_configuration: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict']
+    """
+    Specifies configurations for an Amazon Redshift query engine.
+    """
+    storage_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict']]]
+    """
+    Specifies configurations for Amazon Redshift database storage.
+    """
+    query_generation_configuration: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgsDict']]
+    """
+    Specifies configurations for generating queries.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftConfigurationArgs:
@@ -13309,25 +12647,22 @@ class KnowledgeBaseRedshiftConfigurationArgs:
         pulumi.set(self, "query_generation_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict(TypedDict):
-        """
-        Configurations for Redshift query engine provisioned auth setup
-        """
-        type: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']
-        """
-        The type of authentication to use.
-        """
-        database_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Redshift database user
-        """
-        username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an Secrets Manager secret for authentication.
-        """
-elif False:
-    KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict(TypedDict):
+    """
+    Configurations for Redshift query engine provisioned auth setup
+    """
+    type: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']
+    """
+    The type of authentication to use.
+    """
+    database_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Redshift database user
+    """
+    username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an Secrets Manager secret for authentication.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
@@ -13384,21 +12719,18 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
         pulumi.set(self, "username_password_secret_arn", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftProvisionedConfigurationArgsDict(TypedDict):
-        """
-        Configurations for provisioned Redshift query engine
-        """
-        auth_configuration: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict']
-        """
-        Specifies configurations for authentication to Amazon Redshift.
-        """
-        cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The ID of the Amazon Redshift cluster.
-        """
-elif False:
-    KnowledgeBaseRedshiftProvisionedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftProvisionedConfigurationArgsDict(TypedDict):
+    """
+    Configurations for provisioned Redshift query engine
+    """
+    auth_configuration: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict']
+    """
+    Specifies configurations for authentication to Amazon Redshift.
+    """
+    cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    The ID of the Amazon Redshift cluster.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
@@ -13438,14 +12770,11 @@ class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
         pulumi.set(self, "cluster_identifier", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict(TypedDict):
-        """
-        Configurations for Redshift query engine AWS Data Catalog backed storage
-        """
-        table_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict(TypedDict):
+    """
+    Configurations for Redshift query engine AWS Data Catalog backed storage
+    """
+    table_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs:
@@ -13466,25 +12795,22 @@ class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs:
         pulumi.set(self, "table_names", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict(TypedDict):
-        """
-        Configurations for Redshift query engine
-        """
-        type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']
-        """
-        The type of query engine.
-        """
-        provisioned_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgsDict']]
-        """
-        Specifies configurations for a provisioned Amazon Redshift query engine.
-        """
-        serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgsDict']]
-        """
-        Specifies configurations for a serverless Amazon Redshift query engine.
-        """
-elif False:
-    KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict(TypedDict):
+    """
+    Configurations for Redshift query engine
+    """
+    type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']
+    """
+    The type of query engine.
+    """
+    provisioned_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgsDict']]
+    """
+    Specifies configurations for a provisioned Amazon Redshift query engine.
+    """
+    serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgsDict']]
+    """
+    Specifies configurations for a serverless Amazon Redshift query engine.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
@@ -13541,14 +12867,11 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
         pulumi.set(self, "serverless_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict(TypedDict):
-        """
-        Configurations for Redshift query engine Redshift backed storage
-        """
-        database_name: pulumi.Input[_builtins.str]
-elif False:
-    KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict(TypedDict):
+    """
+    Configurations for Redshift query engine Redshift backed storage
+    """
+    database_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs:
@@ -13569,16 +12892,13 @@ class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs:
         pulumi.set(self, "database_name", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict(TypedDict):
-        """
-        Configurations for available Redshift query engine storage types
-        """
-        type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType']
-        aws_data_catalog_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict']]
-        redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict']]
-elif False:
-    KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict(TypedDict):
+    """
+    Configurations for available Redshift query engine storage types
+    """
+    type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType']
+    aws_data_catalog_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict']]
+    redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict']]
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs:
@@ -13623,21 +12943,18 @@ class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs:
         pulumi.set(self, "redshift_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict(TypedDict):
-        """
-        Configurations for Redshift query engine serverless auth setup
-        """
-        type: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']
-        """
-        The type of authentication to use.
-        """
-        username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an Secrets Manager secret for authentication.
-        """
-elif False:
-    KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict(TypedDict):
+    """
+    Configurations for Redshift query engine serverless auth setup
+    """
+    type: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']
+    """
+    The type of authentication to use.
+    """
+    username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an Secrets Manager secret for authentication.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
@@ -13678,21 +12995,18 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
         pulumi.set(self, "username_password_secret_arn", value)
 
 
-if not MYPY:
-    class KnowledgeBaseRedshiftServerlessConfigurationArgsDict(TypedDict):
-        """
-        Configurations for serverless Redshift query engine
-        """
-        auth_configuration: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict']
-        """
-        Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
-        """
-        workgroup_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Amazon Redshift workgroup.
-        """
-elif False:
-    KnowledgeBaseRedshiftServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseRedshiftServerlessConfigurationArgsDict(TypedDict):
+    """
+    Configurations for serverless Redshift query engine
+    """
+    auth_configuration: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict']
+    """
+    Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+    """
+    workgroup_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Amazon Redshift workgroup.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftServerlessConfigurationArgs:
@@ -13732,17 +13046,14 @@ class KnowledgeBaseRedshiftServerlessConfigurationArgs:
         pulumi.set(self, "workgroup_arn", value)
 
 
-if not MYPY:
-    class KnowledgeBaseS3LocationArgsDict(TypedDict):
-        """
-        An Amazon S3 location.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The location's URI
-        """
-elif False:
-    KnowledgeBaseS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseS3LocationArgsDict(TypedDict):
+    """
+    An Amazon S3 location.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The location's URI
+    """
 
 @pulumi.input_type
 class KnowledgeBaseS3LocationArgs:
@@ -13767,25 +13078,22 @@ class KnowledgeBaseS3LocationArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class KnowledgeBaseS3VectorsConfigurationArgsDict(TypedDict):
-        """
-        Contains the storage configuration of the knowledge base for S3 vectors.
-        """
-        index_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
-        """
-        index_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
-        """
-        vector_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
-        """
-elif False:
-    KnowledgeBaseS3VectorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseS3VectorsConfigurationArgsDict(TypedDict):
+    """
+    Contains the storage configuration of the knowledge base for S3 vectors.
+    """
+    index_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+    """
+    index_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+    """
+    vector_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseS3VectorsConfigurationArgs:
@@ -13843,21 +13151,18 @@ class KnowledgeBaseS3VectorsConfigurationArgs:
         pulumi.set(self, "vector_bucket_arn", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
-        """
-        Configurations for a SQL knowledge base
-        """
-        type: pulumi.Input['KnowledgeBaseQueryEngineType']
-        """
-        The type of SQL database to connect to the knowledge base.
-        """
-        redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgsDict']]
-        """
-        Specifies configurations for a knowledge base connected to an Amazon Redshift database.
-        """
-elif False:
-    KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
+    """
+    Configurations for a SQL knowledge base
+    """
+    type: pulumi.Input['KnowledgeBaseQueryEngineType']
+    """
+    The type of SQL database to connect to the knowledge base.
+    """
+    redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgsDict']]
+    """
+    Specifies configurations for a knowledge base connected to an Amazon Redshift database.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
@@ -13898,45 +13203,42 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
         pulumi.set(self, "redshift_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseStorageConfigurationArgsDict(TypedDict):
-        """
-        The vector store service in which the knowledge base is stored.
-        """
-        type: pulumi.Input['KnowledgeBaseStorageType']
-        """
-        The vector store service in which the knowledge base is stored.
-        """
-        mongo_db_atlas_configuration: NotRequired[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgsDict']]
-        """
-        Contains the storage configuration of the knowledge base in MongoDB Atlas.
-        """
-        neptune_analytics_configuration: NotRequired[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict']]
-        """
-        Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
-        """
-        opensearch_managed_cluster_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict']]
-        """
-        Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
-        """
-        opensearch_serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgsDict']]
-        """
-        Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
-        """
-        pinecone_configuration: NotRequired[pulumi.Input['KnowledgeBasePineconeConfigurationArgsDict']]
-        """
-        Contains the storage configuration of the knowledge base in Pinecone.
-        """
-        rds_configuration: NotRequired[pulumi.Input['KnowledgeBaseRdsConfigurationArgsDict']]
-        """
-        Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
-        """
-        s3_vectors_configuration: NotRequired[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgsDict']]
-        """
-        The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
-        """
-elif False:
-    KnowledgeBaseStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseStorageConfigurationArgsDict(TypedDict):
+    """
+    The vector store service in which the knowledge base is stored.
+    """
+    type: pulumi.Input['KnowledgeBaseStorageType']
+    """
+    The vector store service in which the knowledge base is stored.
+    """
+    mongo_db_atlas_configuration: NotRequired[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgsDict']]
+    """
+    Contains the storage configuration of the knowledge base in MongoDB Atlas.
+    """
+    neptune_analytics_configuration: NotRequired[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict']]
+    """
+    Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
+    """
+    opensearch_managed_cluster_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict']]
+    """
+    Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
+    """
+    opensearch_serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgsDict']]
+    """
+    Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+    """
+    pinecone_configuration: NotRequired[pulumi.Input['KnowledgeBasePineconeConfigurationArgsDict']]
+    """
+    Contains the storage configuration of the knowledge base in Pinecone.
+    """
+    rds_configuration: NotRequired[pulumi.Input['KnowledgeBaseRdsConfigurationArgsDict']]
+    """
+    Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
+    """
+    s3_vectors_configuration: NotRequired[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgsDict']]
+    """
+    The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+    """
 
 @pulumi.input_type
 class KnowledgeBaseStorageConfigurationArgs:
@@ -14073,14 +13375,11 @@ class KnowledgeBaseStorageConfigurationArgs:
         pulumi.set(self, "s3_vectors_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSupplementalDataStorageConfigurationArgsDict(TypedDict):
-        """
-        Configurations for supplemental data storage.
-        """
-        supplemental_data_storage_locations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSupplementalDataStorageLocationArgsDict']]]
-elif False:
-    KnowledgeBaseSupplementalDataStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSupplementalDataStorageConfigurationArgsDict(TypedDict):
+    """
+    Configurations for supplemental data storage.
+    """
+    supplemental_data_storage_locations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseSupplementalDataStorageLocationArgsDict']]]
 
 @pulumi.input_type
 class KnowledgeBaseSupplementalDataStorageConfigurationArgs:
@@ -14101,15 +13400,12 @@ class KnowledgeBaseSupplementalDataStorageConfigurationArgs:
         pulumi.set(self, "supplemental_data_storage_locations", value)
 
 
-if not MYPY:
-    class KnowledgeBaseSupplementalDataStorageLocationArgsDict(TypedDict):
-        """
-        Supplemental data storage location.
-        """
-        supplemental_data_storage_location_type: pulumi.Input['KnowledgeBaseSupplementalDataStorageLocationType']
-        s3_location: NotRequired[pulumi.Input['KnowledgeBaseS3LocationArgsDict']]
-elif False:
-    KnowledgeBaseSupplementalDataStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseSupplementalDataStorageLocationArgsDict(TypedDict):
+    """
+    Supplemental data storage location.
+    """
+    supplemental_data_storage_location_type: pulumi.Input['KnowledgeBaseSupplementalDataStorageLocationType']
+    s3_location: NotRequired[pulumi.Input['KnowledgeBaseS3LocationArgsDict']]
 
 @pulumi.input_type
 class KnowledgeBaseSupplementalDataStorageLocationArgs:
@@ -14142,25 +13438,22 @@ class KnowledgeBaseSupplementalDataStorageLocationArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict(TypedDict):
-        """
-        Contains details about the model used to create vector embeddings for the knowledge base.
-        """
-        embedding_model_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the model used to create vector embeddings for the knowledge base.
-        """
-        embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]
-        """
-        The embeddings model configuration details for the vector model used in Knowledge Base.
-        """
-        supplemental_data_storage_configuration: NotRequired[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgsDict']]
-        """
-        If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
-        """
-elif False:
-    KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict(TypedDict):
+    """
+    Contains details about the model used to create vector embeddings for the knowledge base.
+    """
+    embedding_model_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the model used to create vector embeddings for the knowledge base.
+    """
+    embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]
+    """
+    The embeddings model configuration details for the vector model used in Knowledge Base.
+    """
+    supplemental_data_storage_configuration: NotRequired[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgsDict']]
+    """
+    If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+    """
 
 @pulumi.input_type
 class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
@@ -14217,14 +13510,11 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
         pulumi.set(self, "supplemental_data_storage_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseVideoConfigurationArgsDict(TypedDict):
-        """
-        Configure the video configuration for multi modal ingestion.
-        """
-        segmentation_configuration: pulumi.Input['KnowledgeBaseVideoSegmentationConfigurationArgsDict']
-elif False:
-    KnowledgeBaseVideoConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseVideoConfigurationArgsDict(TypedDict):
+    """
+    Configure the video configuration for multi modal ingestion.
+    """
+    segmentation_configuration: pulumi.Input['KnowledgeBaseVideoSegmentationConfigurationArgsDict']
 
 @pulumi.input_type
 class KnowledgeBaseVideoConfigurationArgs:
@@ -14245,14 +13535,11 @@ class KnowledgeBaseVideoConfigurationArgs:
         pulumi.set(self, "segmentation_configuration", value)
 
 
-if not MYPY:
-    class KnowledgeBaseVideoSegmentationConfigurationArgsDict(TypedDict):
-        """
-        Configure the video segmentation configuration for multi modal ingestion.
-        """
-        fixed_length_duration: pulumi.Input[_builtins.int]
-elif False:
-    KnowledgeBaseVideoSegmentationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class KnowledgeBaseVideoSegmentationConfigurationArgsDict(TypedDict):
+    """
+    Configure the video segmentation configuration for multi modal ingestion.
+    """
+    fixed_length_duration: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class KnowledgeBaseVideoSegmentationConfigurationArgs:
@@ -14273,14 +13560,11 @@ class KnowledgeBaseVideoSegmentationConfigurationArgs:
         pulumi.set(self, "fixed_length_duration", value)
 
 
-if not MYPY:
-    class PromptAdditionalModelRequestFieldsArgsDict(TypedDict):
-        """
-        Contains model-specific configurations
-        """
-        pass
-elif False:
-    PromptAdditionalModelRequestFieldsArgsDict: TypeAlias = Mapping[str, Any]
+class PromptAdditionalModelRequestFieldsArgsDict(TypedDict):
+    """
+    Contains model-specific configurations
+    """
+    pass
 
 @pulumi.input_type
 class PromptAdditionalModelRequestFieldsArgs:
@@ -14291,17 +13575,14 @@ class PromptAdditionalModelRequestFieldsArgs:
         pass
 
 
-if not MYPY:
-    class PromptAgentResourceArgsDict(TypedDict):
-        """
-        Target Agent to invoke with Prompt
-        """
-        agent_identifier: pulumi.Input[_builtins.str]
-        """
-        Arn representation of the Agent Alias.
-        """
-elif False:
-    PromptAgentResourceArgsDict: TypeAlias = Mapping[str, Any]
+class PromptAgentResourceArgsDict(TypedDict):
+    """
+    Target Agent to invoke with Prompt
+    """
+    agent_identifier: pulumi.Input[_builtins.str]
+    """
+    Arn representation of the Agent Alias.
+    """
 
 @pulumi.input_type
 class PromptAgentResourceArgs:
@@ -14326,14 +13607,11 @@ class PromptAgentResourceArgs:
         pulumi.set(self, "agent_identifier", value)
 
 
-if not MYPY:
-    class PromptAnyToolChoiceArgsDict(TypedDict):
-        """
-        Any Tool choice
-        """
-        pass
-elif False:
-    PromptAnyToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+class PromptAnyToolChoiceArgsDict(TypedDict):
+    """
+    Any Tool choice
+    """
+    pass
 
 @pulumi.input_type
 class PromptAnyToolChoiceArgs:
@@ -14344,14 +13622,11 @@ class PromptAnyToolChoiceArgs:
         pass
 
 
-if not MYPY:
-    class PromptAutoToolChoiceArgsDict(TypedDict):
-        """
-        Auto Tool choice
-        """
-        pass
-elif False:
-    PromptAutoToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+class PromptAutoToolChoiceArgsDict(TypedDict):
+    """
+    Auto Tool choice
+    """
+    pass
 
 @pulumi.input_type
 class PromptAutoToolChoiceArgs:
@@ -14362,14 +13637,11 @@ class PromptAutoToolChoiceArgs:
         pass
 
 
-if not MYPY:
-    class PromptCachePointBlockArgsDict(TypedDict):
-        """
-        CachePointBlock
-        """
-        type: pulumi.Input['PromptCachePointType']
-elif False:
-    PromptCachePointBlockArgsDict: TypeAlias = Mapping[str, Any]
+class PromptCachePointBlockArgsDict(TypedDict):
+    """
+    CachePointBlock
+    """
+    type: pulumi.Input['PromptCachePointType']
 
 @pulumi.input_type
 class PromptCachePointBlockArgs:
@@ -14390,26 +13662,23 @@ class PromptCachePointBlockArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PromptChatPromptTemplateConfigurationArgsDict(TypedDict):
-        """
-        Configuration for chat prompt template
-        """
-        messages: pulumi.Input[Sequence[pulumi.Input['PromptMessageArgsDict']]]
-        """
-        List of messages for chat prompt template
-        """
-        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
-        """
-        List of input variables
-        """
-        system: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgsDict', 'PromptSystemContentBlock1PropertiesArgsDict']]]]]
-        """
-        Configuration for chat prompt template
-        """
-        tool_configuration: NotRequired[pulumi.Input['PromptToolConfigurationArgsDict']]
-elif False:
-    PromptChatPromptTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PromptChatPromptTemplateConfigurationArgsDict(TypedDict):
+    """
+    Configuration for chat prompt template
+    """
+    messages: pulumi.Input[Sequence[pulumi.Input['PromptMessageArgsDict']]]
+    """
+    List of messages for chat prompt template
+    """
+    input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
+    """
+    List of input variables
+    """
+    system: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgsDict', 'PromptSystemContentBlock1PropertiesArgsDict']]]]]
+    """
+    Configuration for chat prompt template
+    """
+    tool_configuration: NotRequired[pulumi.Input['PromptToolConfigurationArgsDict']]
 
 @pulumi.input_type
 class PromptChatPromptTemplateConfigurationArgs:
@@ -14478,17 +13747,14 @@ class PromptChatPromptTemplateConfigurationArgs:
         pulumi.set(self, "tool_configuration", value)
 
 
-if not MYPY:
-    class PromptContentBlock0PropertiesArgsDict(TypedDict):
-        """
-        Configuration for chat prompt template
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        Configuration for chat prompt template
-        """
-elif False:
-    PromptContentBlock0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptContentBlock0PropertiesArgsDict(TypedDict):
+    """
+    Configuration for chat prompt template
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    Configuration for chat prompt template
+    """
 
 @pulumi.input_type
 class PromptContentBlock0PropertiesArgs:
@@ -14513,14 +13779,11 @@ class PromptContentBlock0PropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class PromptContentBlock1PropertiesArgsDict(TypedDict):
-        """
-        Configuration for chat prompt template
-        """
-        cache_point: pulumi.Input['PromptCachePointBlockArgsDict']
-elif False:
-    PromptContentBlock1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptContentBlock1PropertiesArgsDict(TypedDict):
+    """
+    Configuration for chat prompt template
+    """
+    cache_point: pulumi.Input['PromptCachePointBlockArgsDict']
 
 @pulumi.input_type
 class PromptContentBlock1PropertiesArgs:
@@ -14541,14 +13804,11 @@ class PromptContentBlock1PropertiesArgs:
         pulumi.set(self, "cache_point", value)
 
 
-if not MYPY:
-    class PromptGenAiResourcePropertiesArgsDict(TypedDict):
-        """
-        Target resource to invoke with Prompt
-        """
-        agent: pulumi.Input['PromptAgentResourceArgsDict']
-elif False:
-    PromptGenAiResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptGenAiResourcePropertiesArgsDict(TypedDict):
+    """
+    Target resource to invoke with Prompt
+    """
+    agent: pulumi.Input['PromptAgentResourceArgsDict']
 
 @pulumi.input_type
 class PromptGenAiResourcePropertiesArgs:
@@ -14569,14 +13829,11 @@ class PromptGenAiResourcePropertiesArgs:
         pulumi.set(self, "agent", value)
 
 
-if not MYPY:
-    class PromptInferenceConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Model inference configuration
-        """
-        text: pulumi.Input['PromptModelInferenceConfigurationArgsDict']
-elif False:
-    PromptInferenceConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptInferenceConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Model inference configuration
+    """
+    text: pulumi.Input['PromptModelInferenceConfigurationArgsDict']
 
 @pulumi.input_type
 class PromptInferenceConfigurationPropertiesArgs:
@@ -14597,17 +13854,14 @@ class PromptInferenceConfigurationPropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class PromptInputVariableArgsDict(TypedDict):
-        """
-        Input variable
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name for an input variable
-        """
-elif False:
-    PromptInputVariableArgsDict: TypeAlias = Mapping[str, Any]
+class PromptInputVariableArgsDict(TypedDict):
+    """
+    Input variable
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name for an input variable
+    """
 
 @pulumi.input_type
 class PromptInputVariableArgs:
@@ -14633,18 +13887,15 @@ class PromptInputVariableArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PromptMessageArgsDict(TypedDict):
-        """
-        Chat prompt Message
-        """
-        content: pulumi.Input[Sequence[pulumi.Input[Union['PromptContentBlock0PropertiesArgsDict', 'PromptContentBlock1PropertiesArgsDict']]]]
-        """
-        List of Content Blocks
-        """
-        role: pulumi.Input['PromptConversationRole']
-elif False:
-    PromptMessageArgsDict: TypeAlias = Mapping[str, Any]
+class PromptMessageArgsDict(TypedDict):
+    """
+    Chat prompt Message
+    """
+    content: pulumi.Input[Sequence[pulumi.Input[Union['PromptContentBlock0PropertiesArgsDict', 'PromptContentBlock1PropertiesArgsDict']]]]
+    """
+    List of Content Blocks
+    """
+    role: pulumi.Input['PromptConversationRole']
 
 @pulumi.input_type
 class PromptMessageArgs:
@@ -14680,15 +13931,12 @@ class PromptMessageArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class PromptMetadataEntryArgsDict(TypedDict):
-        """
-        Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
-        """
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    PromptMetadataEntryArgsDict: TypeAlias = Mapping[str, Any]
+class PromptMetadataEntryArgsDict(TypedDict):
+    """
+    Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+    """
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PromptMetadataEntryArgs:
@@ -14720,29 +13968,26 @@ class PromptMetadataEntryArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PromptModelInferenceConfigurationArgsDict(TypedDict):
-        """
-        Prompt model inference configuration
-        """
-        max_tokens: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum length of output
-        """
-        stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of stop sequences
-        """
-        temperature: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Controls randomness, higher values increase diversity
-        """
-        top_p: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Cumulative probability cutoff for token selection
-        """
-elif False:
-    PromptModelInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PromptModelInferenceConfigurationArgsDict(TypedDict):
+    """
+    Prompt model inference configuration
+    """
+    max_tokens: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum length of output
+    """
+    stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of stop sequences
+    """
+    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Controls randomness, higher values increase diversity
+    """
+    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Cumulative probability cutoff for token selection
+    """
 
 @pulumi.input_type
 class PromptModelInferenceConfigurationArgs:
@@ -14816,17 +14061,14 @@ class PromptModelInferenceConfigurationArgs:
         pulumi.set(self, "top_p", value)
 
 
-if not MYPY:
-    class PromptSpecificToolChoiceArgsDict(TypedDict):
-        """
-        Specific Tool choice
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Tool name
-        """
-elif False:
-    PromptSpecificToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+class PromptSpecificToolChoiceArgsDict(TypedDict):
+    """
+    Specific Tool choice
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Tool name
+    """
 
 @pulumi.input_type
 class PromptSpecificToolChoiceArgs:
@@ -14851,17 +14093,14 @@ class PromptSpecificToolChoiceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PromptSystemContentBlock0PropertiesArgsDict(TypedDict):
-        """
-        Configuration for chat prompt template
-        """
-        text: pulumi.Input[_builtins.str]
-        """
-        Configuration for chat prompt template
-        """
-elif False:
-    PromptSystemContentBlock0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptSystemContentBlock0PropertiesArgsDict(TypedDict):
+    """
+    Configuration for chat prompt template
+    """
+    text: pulumi.Input[_builtins.str]
+    """
+    Configuration for chat prompt template
+    """
 
 @pulumi.input_type
 class PromptSystemContentBlock0PropertiesArgs:
@@ -14886,14 +14125,11 @@ class PromptSystemContentBlock0PropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class PromptSystemContentBlock1PropertiesArgsDict(TypedDict):
-        """
-        Configuration for chat prompt template
-        """
-        cache_point: pulumi.Input['PromptCachePointBlockArgsDict']
-elif False:
-    PromptSystemContentBlock1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptSystemContentBlock1PropertiesArgsDict(TypedDict):
+    """
+    Configuration for chat prompt template
+    """
+    cache_point: pulumi.Input['PromptCachePointBlockArgsDict']
 
 @pulumi.input_type
 class PromptSystemContentBlock1PropertiesArgs:
@@ -14914,14 +14150,11 @@ class PromptSystemContentBlock1PropertiesArgs:
         pulumi.set(self, "cache_point", value)
 
 
-if not MYPY:
-    class PromptTemplateConfiguration0PropertiesArgsDict(TypedDict):
-        """
-        Prompt template configuration
-        """
-        text: pulumi.Input['PromptTextPromptTemplateConfigurationArgsDict']
-elif False:
-    PromptTemplateConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptTemplateConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Prompt template configuration
+    """
+    text: pulumi.Input['PromptTextPromptTemplateConfigurationArgsDict']
 
 @pulumi.input_type
 class PromptTemplateConfiguration0PropertiesArgs:
@@ -14942,14 +14175,11 @@ class PromptTemplateConfiguration0PropertiesArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class PromptTemplateConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        Prompt template configuration
-        """
-        chat: pulumi.Input['PromptChatPromptTemplateConfigurationArgsDict']
-elif False:
-    PromptTemplateConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptTemplateConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Prompt template configuration
+    """
+    chat: pulumi.Input['PromptChatPromptTemplateConfigurationArgsDict']
 
 @pulumi.input_type
 class PromptTemplateConfiguration1PropertiesArgs:
@@ -14970,23 +14200,20 @@ class PromptTemplateConfiguration1PropertiesArgs:
         pulumi.set(self, "chat", value)
 
 
-if not MYPY:
-    class PromptTextPromptTemplateConfigurationArgsDict(TypedDict):
-        """
-        Configuration for text prompt template
-        """
-        cache_point: NotRequired[pulumi.Input['PromptCachePointBlockArgsDict']]
-        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
-        """
-        List of input variables
-        """
-        text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prompt content for String prompt template
-        """
-        text_s3_location: NotRequired[pulumi.Input['PromptTextS3LocationArgsDict']]
-elif False:
-    PromptTextPromptTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PromptTextPromptTemplateConfigurationArgsDict(TypedDict):
+    """
+    Configuration for text prompt template
+    """
+    cache_point: NotRequired[pulumi.Input['PromptCachePointBlockArgsDict']]
+    input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
+    """
+    List of input variables
+    """
+    text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prompt content for String prompt template
+    """
+    text_s3_location: NotRequired[pulumi.Input['PromptTextS3LocationArgsDict']]
 
 @pulumi.input_type
 class PromptTextPromptTemplateConfigurationArgs:
@@ -15052,25 +14279,22 @@ class PromptTextPromptTemplateConfigurationArgs:
         pulumi.set(self, "text_s3_location", value)
 
 
-if not MYPY:
-    class PromptTextS3LocationArgsDict(TypedDict):
-        """
-        The identifier for the S3 resource.
-        """
-        bucket: pulumi.Input[_builtins.str]
-        """
-        A bucket in S3
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        A object key in S3
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the the S3 object to use
-        """
-elif False:
-    PromptTextS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+class PromptTextS3LocationArgsDict(TypedDict):
+    """
+    The identifier for the S3 resource.
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    A bucket in S3
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    A object key in S3
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the the S3 object to use
+    """
 
 @pulumi.input_type
 class PromptTextS3LocationArgs:
@@ -15126,14 +14350,11 @@ class PromptTextS3LocationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PromptTool0PropertiesArgsDict(TypedDict):
-        """
-        Tool details
-        """
-        tool_spec: pulumi.Input['PromptToolSpecificationArgsDict']
-elif False:
-    PromptTool0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptTool0PropertiesArgsDict(TypedDict):
+    """
+    Tool details
+    """
+    tool_spec: pulumi.Input['PromptToolSpecificationArgsDict']
 
 @pulumi.input_type
 class PromptTool0PropertiesArgs:
@@ -15154,14 +14375,11 @@ class PromptTool0PropertiesArgs:
         pulumi.set(self, "tool_spec", value)
 
 
-if not MYPY:
-    class PromptTool1PropertiesArgsDict(TypedDict):
-        """
-        Tool details
-        """
-        cache_point: pulumi.Input['PromptCachePointBlockArgsDict']
-elif False:
-    PromptTool1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptTool1PropertiesArgsDict(TypedDict):
+    """
+    Tool details
+    """
+    cache_point: pulumi.Input['PromptCachePointBlockArgsDict']
 
 @pulumi.input_type
 class PromptTool1PropertiesArgs:
@@ -15182,14 +14400,11 @@ class PromptTool1PropertiesArgs:
         pulumi.set(self, "cache_point", value)
 
 
-if not MYPY:
-    class PromptToolChoice0PropertiesArgsDict(TypedDict):
-        """
-        Tool choice
-        """
-        auto: pulumi.Input['PromptAutoToolChoiceArgsDict']
-elif False:
-    PromptToolChoice0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptToolChoice0PropertiesArgsDict(TypedDict):
+    """
+    Tool choice
+    """
+    auto: pulumi.Input['PromptAutoToolChoiceArgsDict']
 
 @pulumi.input_type
 class PromptToolChoice0PropertiesArgs:
@@ -15210,14 +14425,11 @@ class PromptToolChoice0PropertiesArgs:
         pulumi.set(self, "auto", value)
 
 
-if not MYPY:
-    class PromptToolChoice1PropertiesArgsDict(TypedDict):
-        """
-        Tool choice
-        """
-        any: pulumi.Input['PromptAnyToolChoiceArgsDict']
-elif False:
-    PromptToolChoice1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptToolChoice1PropertiesArgsDict(TypedDict):
+    """
+    Tool choice
+    """
+    any: pulumi.Input['PromptAnyToolChoiceArgsDict']
 
 @pulumi.input_type
 class PromptToolChoice1PropertiesArgs:
@@ -15238,14 +14450,11 @@ class PromptToolChoice1PropertiesArgs:
         pulumi.set(self, "any", value)
 
 
-if not MYPY:
-    class PromptToolChoice2PropertiesArgsDict(TypedDict):
-        """
-        Tool choice
-        """
-        tool: pulumi.Input['PromptSpecificToolChoiceArgsDict']
-elif False:
-    PromptToolChoice2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptToolChoice2PropertiesArgsDict(TypedDict):
+    """
+    Tool choice
+    """
+    tool: pulumi.Input['PromptSpecificToolChoiceArgsDict']
 
 @pulumi.input_type
 class PromptToolChoice2PropertiesArgs:
@@ -15266,18 +14475,15 @@ class PromptToolChoice2PropertiesArgs:
         pulumi.set(self, "tool", value)
 
 
-if not MYPY:
-    class PromptToolConfigurationArgsDict(TypedDict):
-        """
-        Tool configuration
-        """
-        tools: pulumi.Input[Sequence[pulumi.Input[Union['PromptTool0PropertiesArgsDict', 'PromptTool1PropertiesArgsDict']]]]
-        """
-        List of Tools
-        """
-        tool_choice: NotRequired[pulumi.Input[Union['PromptToolChoice0PropertiesArgsDict', 'PromptToolChoice1PropertiesArgsDict', 'PromptToolChoice2PropertiesArgsDict']]]
-elif False:
-    PromptToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PromptToolConfigurationArgsDict(TypedDict):
+    """
+    Tool configuration
+    """
+    tools: pulumi.Input[Sequence[pulumi.Input[Union['PromptTool0PropertiesArgsDict', 'PromptTool1PropertiesArgsDict']]]]
+    """
+    List of Tools
+    """
+    tool_choice: NotRequired[pulumi.Input[Union['PromptToolChoice0PropertiesArgsDict', 'PromptToolChoice1PropertiesArgsDict', 'PromptToolChoice2PropertiesArgsDict']]]
 
 @pulumi.input_type
 class PromptToolConfigurationArgs:
@@ -15314,14 +14520,11 @@ class PromptToolConfigurationArgs:
         pulumi.set(self, "tool_choice", value)
 
 
-if not MYPY:
-    class PromptToolInputSchemaPropertiesArgsDict(TypedDict):
-        """
-        Tool input schema json
-        """
-        json: Any
-elif False:
-    PromptToolInputSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PromptToolInputSchemaPropertiesArgsDict(TypedDict):
+    """
+    Tool input schema json
+    """
+    json: Any
 
 @pulumi.input_type
 class PromptToolInputSchemaPropertiesArgs:
@@ -15342,19 +14545,16 @@ class PromptToolInputSchemaPropertiesArgs:
         pulumi.set(self, "json", value)
 
 
-if not MYPY:
-    class PromptToolSpecificationArgsDict(TypedDict):
-        """
-        Tool specification
-        """
-        input_schema: pulumi.Input['PromptToolInputSchemaPropertiesArgsDict']
-        name: pulumi.Input[_builtins.str]
-        """
-        Tool name
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PromptToolSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class PromptToolSpecificationArgsDict(TypedDict):
+    """
+    Tool specification
+    """
+    input_schema: pulumi.Input['PromptToolInputSchemaPropertiesArgsDict']
+    name: pulumi.Input[_builtins.str]
+    """
+    Tool name
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PromptToolSpecificationArgs:
@@ -15402,45 +14602,42 @@ class PromptToolSpecificationArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PromptVariantArgsDict(TypedDict):
-        """
-        Prompt variant
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for a variant.
-        """
-        template_configuration: pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgsDict', 'PromptTemplateConfiguration1PropertiesArgsDict']]
-        """
-        Contains configurations for the prompt template.
-        """
-        template_type: pulumi.Input['PromptTemplateType']
-        """
-        The type of prompt template to use.
-        """
-        additional_model_request_fields: NotRequired[pulumi.Input['PromptAdditionalModelRequestFieldsArgsDict']]
-        """
-        Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
-        """
-        gen_ai_resource: NotRequired[pulumi.Input['PromptGenAiResourcePropertiesArgsDict']]
-        """
-        Specifies a generative AI resource with which to use the prompt.
-        """
-        inference_configuration: NotRequired[pulumi.Input['PromptInferenceConfigurationPropertiesArgsDict']]
-        """
-        Contains inference configurations for the prompt variant.
-        """
-        metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgsDict']]]]
-        """
-        An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
-        """
-        model_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
-        """
-elif False:
-    PromptVariantArgsDict: TypeAlias = Mapping[str, Any]
+class PromptVariantArgsDict(TypedDict):
+    """
+    Prompt variant
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for a variant.
+    """
+    template_configuration: pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgsDict', 'PromptTemplateConfiguration1PropertiesArgsDict']]
+    """
+    Contains configurations for the prompt template.
+    """
+    template_type: pulumi.Input['PromptTemplateType']
+    """
+    The type of prompt template to use.
+    """
+    additional_model_request_fields: NotRequired[pulumi.Input['PromptAdditionalModelRequestFieldsArgsDict']]
+    """
+    Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+    """
+    gen_ai_resource: NotRequired[pulumi.Input['PromptGenAiResourcePropertiesArgsDict']]
+    """
+    Specifies a generative AI resource with which to use the prompt.
+    """
+    inference_configuration: NotRequired[pulumi.Input['PromptInferenceConfigurationPropertiesArgsDict']]
+    """
+    Contains inference configurations for the prompt variant.
+    """
+    metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgsDict']]]]
+    """
+    An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+    """
+    model_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
+    """
 
 @pulumi.input_type
 class PromptVariantArgs:

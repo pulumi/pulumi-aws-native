@@ -95,6 +95,14 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableWitness> GlobalTableWitnesses;
         /// <summary>
+        /// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GlobalTableKeySchema> KeySchema;
+        /// <summary>
+        /// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex> LocalSecondaryIndexes;
+        /// <summary>
         /// Specifies the consistency mode for a new global table.
         /// 
         /// You can specify one of the following consistency modes:
@@ -105,6 +113,8 @@ namespace Pulumi.AwsNative.DynamoDb
         /// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
         /// </summary>
         public readonly Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency? MultiRegionConsistency;
+        public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? ReadOnDemandThroughputSettings;
+        public readonly Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         /// <summary>
         /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
         /// 
@@ -162,7 +172,15 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.GlobalTableWitness> globalTableWitnesses,
 
+            ImmutableArray<Outputs.GlobalTableKeySchema> keySchema,
+
+            ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex> localSecondaryIndexes,
+
             Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency? multiRegionConsistency,
+
+            Outputs.GlobalTableReadOnDemandThroughputSettings? readOnDemandThroughputSettings,
+
+            Outputs.GlobalTableGlobalReadProvisionedThroughputSettings? readProvisionedThroughputSettings,
 
             ImmutableArray<Outputs.GlobalTableReplicaSpecification> replicas,
 
@@ -187,7 +205,11 @@ namespace Pulumi.AwsNative.DynamoDb
             BillingMode = billingMode;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
             GlobalTableWitnesses = globalTableWitnesses;
+            KeySchema = keySchema;
+            LocalSecondaryIndexes = localSecondaryIndexes;
             MultiRegionConsistency = multiRegionConsistency;
+            ReadOnDemandThroughputSettings = readOnDemandThroughputSettings;
+            ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
             Replicas = replicas;
             SseSpecification = sseSpecification;
             StreamArn = streamArn;

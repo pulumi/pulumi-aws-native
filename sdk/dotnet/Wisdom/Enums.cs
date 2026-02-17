@@ -50,6 +50,9 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiAgentAiAgentType EmailResponse { get; } = new AiAgentAiAgentType("EMAIL_RESPONSE");
         public static AiAgentAiAgentType EmailOverview { get; } = new AiAgentAiAgentType("EMAIL_OVERVIEW");
         public static AiAgentAiAgentType EmailGenerativeAnswer { get; } = new AiAgentAiAgentType("EMAIL_GENERATIVE_ANSWER");
+        public static AiAgentAiAgentType Orchestration { get; } = new AiAgentAiAgentType("ORCHESTRATION");
+        public static AiAgentAiAgentType NoteTaking { get; } = new AiAgentAiAgentType("NOTE_TAKING");
+        public static AiAgentAiAgentType CaseSummarization { get; } = new AiAgentAiAgentType("CASE_SUMMARIZATION");
 
         public static bool operator ==(AiAgentAiAgentType left, AiAgentAiAgentType right) => left.Equals(right);
         public static bool operator !=(AiAgentAiAgentType left, AiAgentAiAgentType right) => !left.Equals(right);
@@ -87,6 +90,64 @@ namespace Pulumi.AwsNative.Wisdom
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AiAgentKnowledgeBaseSearchType other && Equals(other);
         public bool Equals(AiAgentKnowledgeBaseSearchType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AiAgentToolOverrideInputValueType : IEquatable<AiAgentToolOverrideInputValueType>
+    {
+        private readonly string _value;
+
+        private AiAgentToolOverrideInputValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiAgentToolOverrideInputValueType String { get; } = new AiAgentToolOverrideInputValueType("STRING");
+        public static AiAgentToolOverrideInputValueType Number { get; } = new AiAgentToolOverrideInputValueType("NUMBER");
+        public static AiAgentToolOverrideInputValueType JsonString { get; } = new AiAgentToolOverrideInputValueType("JSON_STRING");
+
+        public static bool operator ==(AiAgentToolOverrideInputValueType left, AiAgentToolOverrideInputValueType right) => left.Equals(right);
+        public static bool operator !=(AiAgentToolOverrideInputValueType left, AiAgentToolOverrideInputValueType right) => !left.Equals(right);
+
+        public static explicit operator string(AiAgentToolOverrideInputValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiAgentToolOverrideInputValueType other && Equals(other);
+        public bool Equals(AiAgentToolOverrideInputValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AiAgentToolType : IEquatable<AiAgentToolType>
+    {
+        private readonly string _value;
+
+        private AiAgentToolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiAgentToolType ModelContextProtocol { get; } = new AiAgentToolType("MODEL_CONTEXT_PROTOCOL");
+        public static AiAgentToolType ReturnToControl { get; } = new AiAgentToolType("RETURN_TO_CONTROL");
+        public static AiAgentToolType Constant { get; } = new AiAgentToolType("CONSTANT");
+
+        public static bool operator ==(AiAgentToolType left, AiAgentToolType right) => left.Equals(right);
+        public static bool operator !=(AiAgentToolType left, AiAgentToolType right) => !left.Equals(right);
+
+        public static explicit operator string(AiAgentToolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiAgentToolType other && Equals(other);
+        public bool Equals(AiAgentToolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -31,7 +31,7 @@
   "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/CreationTime", "/properties/ClusterStatus", "/properties/FailureMessage", "/properties/InstanceGroups/*/CurrentCount", "/properties/RestrictedInstanceGroups/*/CurrentCount" ],
   "description" : "Resource Type definition for AWS::SageMaker::Cluster",
   "additionalIdentifiers" : [ [ "/properties/ClusterName" ] ],
-  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator", "/properties/InstanceGroups/*/OverrideVpcConfig", "/properties/InstanceGroups/*/ExecutionRole", "/properties/InstanceGroups/*/InstanceGroupName", "/properties/InstanceGroups/*/InstanceType", "/properties/InstanceGroups/*/ThreadsPerCore", "/properties/RestrictedInstanceGroups/*/OverrideVpcConfig", "/properties/RestrictedInstanceGroups/*/ExecutionRole", "/properties/RestrictedInstanceGroups/*/InstanceGroupName", "/properties/RestrictedInstanceGroups/*/InstanceType", "/properties/RestrictedInstanceGroups/*/ThreadsPerCore" ],
+  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator/Eks", "/properties/InstanceGroups/*/OverrideVpcConfig", "/properties/InstanceGroups/*/ExecutionRole", "/properties/InstanceGroups/*/InstanceGroupName", "/properties/InstanceGroups/*/InstanceType", "/properties/InstanceGroups/*/ThreadsPerCore", "/properties/RestrictedInstanceGroups/*/OverrideVpcConfig", "/properties/RestrictedInstanceGroups/*/ExecutionRole", "/properties/RestrictedInstanceGroups/*/InstanceGroupName", "/properties/RestrictedInstanceGroups/*/InstanceType", "/properties/RestrictedInstanceGroups/*/ThreadsPerCore" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/ClusterArn" ],
   "definitions" : {
@@ -83,6 +83,22 @@
         "properties" : {
           "EbsVolumeConfig" : {
             "$ref" : "#/definitions/ClusterEbsVolumeConfig"
+          }
+        }
+      }, {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "FsxLustreConfig" : {
+            "$ref" : "#/definitions/ClusterFsxLustreConfig"
+          }
+        }
+      }, {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "FsxOpenZfsConfig" : {
+            "$ref" : "#/definitions/ClusterFsxOpenZfsConfig"
           }
         }
       } ],
@@ -255,9 +271,50 @@
       },
       "required" : [ "Type", "Value" ]
     },
+    "ClusterFsxLustreConfig" : {
+      "description" : "Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MountPath" : {
+          "minLength" : 1,
+          "pattern" : "^/(?!/)(?!.*/$)[a-zA-Z0-9._-]+(/[a-zA-Z0-9._-]+)*$",
+          "description" : "The mount path for the FSx for Lustre file system.",
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "DnsName" : {
+          "minLength" : 16,
+          "pattern" : "^((fs|fc)i?-[0-9a-f]{8,}\\..{4,253})$",
+          "description" : "The DNS name of the FSx for Lustre file system.",
+          "type" : "string",
+          "maxLength" : 275
+        },
+        "MountName" : {
+          "minLength" : 1,
+          "pattern" : "^([A-Za-z0-9_-]{1,8})$",
+          "description" : "The mount name of the FSx for Lustre file system.",
+          "type" : "string",
+          "maxLength" : 8
+        }
+      },
+      "required" : [ "DnsName", "MountName" ]
+    },
     "InstanceType" : {
       "description" : "The instance type of the instance group of a SageMaker HyperPod cluster.",
       "type" : "string"
+    },
+    "ClusterOrchestratorSlurmConfig" : {
+      "description" : "Specifies parameter(s) related to Slurm as orchestrator.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "SlurmConfigStrategy" : {
+          "description" : "The strategy for managing Slurm configuration on the cluster.",
+          "type" : "string",
+          "enum" : [ "Overwrite", "Managed", "Merge" ]
+        }
+      }
     },
     "ExecutionRole" : {
       "minLength" : 20,
@@ -270,6 +327,33 @@
       "description" : "The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.",
       "type" : "string",
       "enum" : [ "InstanceStress", "InstanceConnectivity" ]
+    },
+    "ClusterSlurmConfig" : {
+      "description" : "Slurm configuration for the instance group.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PartitionNames" : {
+          "minItems" : 0,
+          "maxItems" : 1,
+          "description" : "The Slurm partitions that this instance group belongs to. Maximum of 1 partition.",
+          "insertionOrder" : false,
+          "type" : "array",
+          "items" : {
+            "minLength" : 0,
+            "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "description" : "The name of a Slurm partition.",
+            "type" : "string",
+            "maxLength" : 1024
+          }
+        },
+        "NodeType" : {
+          "description" : "The type of Slurm node for this instance group.",
+          "type" : "string",
+          "enum" : [ "Controller", "Login", "Compute" ]
+        }
+      },
+      "required" : [ "NodeType" ]
     },
     "EnvironmentConfig" : {
       "description" : "The configuration for the restricted instance groups (RIG) environment.",
@@ -325,15 +409,25 @@
       }
     },
     "Orchestrator" : {
-      "description" : "Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Eks" : {
-          "$ref" : "#/definitions/ClusterOrchestratorEksConfig"
+      "oneOf" : [ {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "Eks" : {
+            "$ref" : "#/definitions/ClusterOrchestratorEksConfig"
+          }
         }
-      },
-      "required" : [ "Eks" ]
+      }, {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "Slurm" : {
+            "$ref" : "#/definitions/ClusterOrchestratorSlurmConfig"
+          }
+        }
+      } ],
+      "description" : "Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.",
+      "type" : "object"
     },
     "ClusterEbsVolumeConfig" : {
       "description" : "Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.",
@@ -386,6 +480,28 @@
         "$ref" : "#/definitions/DeepHealthCheckType"
       }
     },
+    "ClusterFsxOpenZfsConfig" : {
+      "description" : "Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MountPath" : {
+          "minLength" : 1,
+          "pattern" : "^/(?!/)(?!.*/$)[a-zA-Z0-9._-]+(/[a-zA-Z0-9._-]+)*$",
+          "description" : "The mount path for the FSx for OpenZFS file system.",
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "DnsName" : {
+          "minLength" : 16,
+          "pattern" : "^((fs|fc)i?-[0-9a-f]{8,}\\..{4,253})$",
+          "description" : "The DNS name of the FSx for OpenZFS file system.",
+          "type" : "string",
+          "maxLength" : 275
+        }
+      },
+      "required" : [ "DnsName" ]
+    },
     "ClusterKubernetesTaints" : {
       "maxItems" : 50,
       "description" : "A list of Kubernetes taints to apply to cluster nodes. Maximum of 50 taints.",
@@ -400,6 +516,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "SlurmConfig" : {
+          "$ref" : "#/definitions/ClusterSlurmConfig"
+        },
         "CapacityRequirements" : {
           "$ref" : "#/definitions/ClusterCapacityRequirements"
         },
@@ -502,7 +621,7 @@
       "required" : [ "ScheduleExpression" ]
     },
     "ClusterInstanceStorageConfigs" : {
-      "maxItems" : 1,
+      "maxItems" : 4,
       "description" : "The instance storage configuration for the instance group.",
       "insertionOrder" : false,
       "type" : "array",

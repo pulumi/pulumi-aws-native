@@ -46,6 +46,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// A display name for a backup rule.
         /// </summary>
         public readonly string RuleName;
+        public readonly ImmutableArray<Outputs.BackupPlanScanActionResourceType> ScanActions;
         /// <summary>
         /// A CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>
@@ -85,6 +86,8 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             string ruleName,
 
+            ImmutableArray<Outputs.BackupPlanScanActionResourceType> scanActions,
+
             string? scheduleExpression,
 
             string? scheduleExpressionTimezone,
@@ -102,6 +105,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;
+            ScanActions = scanActions;
             ScheduleExpression = scheduleExpression;
             ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindowMinutes = startWindowMinutes;

@@ -20,6 +20,8 @@ type Logging struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 	DefaultLogLevel LoggingDefaultLogLevelOutput `pulumi:"defaultLogLevel"`
+	// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+	EventConfigurations LoggingEventConfigurationArrayOutput `pulumi:"eventConfigurations"`
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
@@ -81,6 +83,8 @@ type loggingArgs struct {
 	AccountId string `pulumi:"accountId"`
 	// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 	DefaultLogLevel LoggingDefaultLogLevel `pulumi:"defaultLogLevel"`
+	// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+	EventConfigurations []LoggingEventConfiguration `pulumi:"eventConfigurations"`
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn string `pulumi:"roleArn"`
 }
@@ -91,6 +95,8 @@ type LoggingArgs struct {
 	AccountId pulumi.StringInput
 	// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 	DefaultLogLevel LoggingDefaultLogLevelInput
+	// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+	EventConfigurations LoggingEventConfigurationArrayInput
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn pulumi.StringInput
 }
@@ -140,6 +146,11 @@ func (o LoggingOutput) AccountId() pulumi.StringOutput {
 // The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 func (o LoggingOutput) DefaultLogLevel() LoggingDefaultLogLevelOutput {
 	return o.ApplyT(func(v *Logging) LoggingDefaultLogLevelOutput { return v.DefaultLogLevel }).(LoggingDefaultLogLevelOutput)
+}
+
+// Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+func (o LoggingOutput) EventConfigurations() LoggingEventConfigurationArrayOutput {
+	return o.ApplyT(func(v *Logging) LoggingEventConfigurationArrayOutput { return v.EventConfigurations }).(LoggingEventConfigurationArrayOutput)
 }
 
 // The ARN of the role that allows IoT to write to Cloudwatch logs.

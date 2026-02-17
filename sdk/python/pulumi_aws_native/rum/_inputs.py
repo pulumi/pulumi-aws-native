@@ -32,55 +32,50 @@ __all__ = [
     'AppMonitorResourcePolicyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppMonitorConfigurationArgsDict(TypedDict):
-        """
-        AppMonitor configuration
-        """
-        allow_cookies: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
-        """
-        enable_x_ray: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
-        """
-        excluded_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
-        """
-        favorite_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of pages in the RUM console that are to be displayed with a favorite icon.
-        """
-        guest_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
-        """
-        identity_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the identity pool that is used to authorize the sending of data to RUM.
-        """
-        included_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
-        """
-        metric_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgsDict']]]]
-        """
-        An array of structures which define the destinations and the metrics that you want to send.
-        """
-        session_sample_rate: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
-        """
-        telemetries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]
-        """
-        An array that lists the types of telemetry data that this app monitor is to collect.
-        """
-elif False:
-    AppMonitorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AppMonitorConfigurationArgsDict(TypedDict):
+    """
+    AppMonitor configuration
+    """
+    allow_cookies: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+    """
+    enable_x_ray: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
+    """
+    excluded_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
+    """
+    favorite_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of pages in the RUM console that are to be displayed with a favorite icon.
+    """
+    guest_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
+    """
+    identity_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the identity pool that is used to authorize the sending of data to RUM.
+    """
+    included_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
+    """
+    metric_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgsDict']]]]
+    """
+    An array of structures which define the destinations and the metrics that you want to send.
+    """
+    session_sample_rate: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
+    """
+    telemetries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]
+    """
+    An array that lists the types of telemetry data that this app monitor is to collect.
+    """
 
 @pulumi.input_type
 class AppMonitorConfigurationArgs:
@@ -250,17 +245,14 @@ class AppMonitorConfigurationArgs:
         pulumi.set(self, "telemetries", value)
 
 
-if not MYPY:
-    class AppMonitorCustomEventsArgsDict(TypedDict):
-        """
-        AppMonitor custom events configuration
-        """
-        status: NotRequired[pulumi.Input['AppMonitorCustomEventsStatus']]
-        """
-        Indicates whether AppMonitor accepts custom events.
-        """
-elif False:
-    AppMonitorCustomEventsArgsDict: TypeAlias = Mapping[str, Any]
+class AppMonitorCustomEventsArgsDict(TypedDict):
+    """
+    AppMonitor custom events configuration
+    """
+    status: NotRequired[pulumi.Input['AppMonitorCustomEventsStatus']]
+    """
+    Indicates whether AppMonitor accepts custom events.
+    """
 
 @pulumi.input_type
 class AppMonitorCustomEventsArgs:
@@ -286,21 +278,18 @@ class AppMonitorCustomEventsArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict(TypedDict):
-        """
-        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
-        """
-        status: pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus']
-        """
-        Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
-        """
-        s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
-        """
-elif False:
-    AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict(TypedDict):
+    """
+    A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+    """
+    status: pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus']
+    """
+    Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+    """
+    s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+    """
 
 @pulumi.input_type
 class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs:
@@ -341,17 +330,14 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class AppMonitorDeobfuscationConfigurationArgsDict(TypedDict):
-        """
-        A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
-        """
-        java_script_source_maps: NotRequired[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict']]
-        """
-        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
-        """
-elif False:
-    AppMonitorDeobfuscationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AppMonitorDeobfuscationConfigurationArgsDict(TypedDict):
+    """
+    A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+    """
+    java_script_source_maps: NotRequired[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict']]
+    """
+    A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+    """
 
 @pulumi.input_type
 class AppMonitorDeobfuscationConfigurationArgs:
@@ -377,137 +363,134 @@ class AppMonitorDeobfuscationConfigurationArgs:
         pulumi.set(self, "java_script_source_maps", value)
 
 
-if not MYPY:
-    class AppMonitorMetricDefinitionArgsDict(TypedDict):
-        """
-        A single metric definition
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
+class AppMonitorMetricDefinitionArgsDict(TypedDict):
+    """
+    A single metric definition
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
 
-        PerformanceNavigationDuration
+    PerformanceNavigationDuration
 
-        PerformanceResourceDuration
+    PerformanceResourceDuration
 
-        NavigationSatisfiedTransaction
+    NavigationSatisfiedTransaction
 
-        NavigationToleratedTransaction
+    NavigationToleratedTransaction
 
-        NavigationFrustratedTransaction
+    NavigationFrustratedTransaction
 
-        WebVitalsCumulativeLayoutShift
+    WebVitalsCumulativeLayoutShift
 
-        WebVitalsFirstInputDelay
+    WebVitalsFirstInputDelay
 
-        WebVitalsLargestContentfulPaint
+    WebVitalsLargestContentfulPaint
 
-        WebVitalsInteractionToNextPaint
+    WebVitalsInteractionToNextPaint
 
-        JsErrorCount
+    JsErrorCount
 
-        HttpErrorCount
+    HttpErrorCount
 
-        SessionCount
+    SessionCount
 
-        PageViewCount
+    PageViewCount
 
-        Http4xxCount
+    Http4xxCount
 
-        Http5xxCount
+    Http5xxCount
 
-        SessionDuration
+    SessionDuration
 
-        PageViewCountPerSession
+    PageViewCountPerSession
 
-        JsErrorCountPerSession
+    JsErrorCountPerSession
 
-        Http4xxCountPerSession
+    Http4xxCountPerSession
 
-        Http5xxCountPerSession
+    Http5xxCountPerSession
 
-        JsErrorCountPerPageView
+    JsErrorCountPerPageView
 
-        Http4xxCountPerPageView
+    Http4xxCountPerPageView
 
-        Http5xxCountPerPageView
+    Http5xxCountPerPageView
 
-        TimeOnPage
+    TimeOnPage
 
-        ColdLaunchTime
+    ColdLaunchTime
 
-        WarmLaunchTime
+    WarmLaunchTime
 
-        CrashCount
+    CrashCount
 
-        ANRCount
+    ANRCount
 
-        AppHangCount
+    AppHangCount
 
-        ScreenLoadCount
+    ScreenLoadCount
 
-        ScreenLoadTime
+    ScreenLoadTime
 
-        NetworkLatency
+    NetworkLatency
 
-        SpanPayloadSize
+    SpanPayloadSize
 
-        LogEventPayloadSize
-        """
-        dimension_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Use this field only if you are sending the metric to CloudWatch.
+    LogEventPayloadSize
+    """
+    dimension_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Use this field only if you are sending the metric to CloudWatch.
 
-        This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
+    This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
 
-        "metadata.pageId": "PageId"
+    "metadata.pageId": "PageId"
 
-        "metadata.browserName": "BrowserName"
+    "metadata.browserName": "BrowserName"
 
-        "metadata.deviceType": "DeviceType"
+    "metadata.deviceType": "DeviceType"
 
-        "metadata.osName": "OSName"
+    "metadata.osName": "OSName"
 
-        "metadata.countryCode": "CountryCode"
+    "metadata.countryCode": "CountryCode"
 
-        "event_details.fileType": "FileType"
+    "event_details.fileType": "FileType"
 
-        All dimensions listed in this field must also be included in EventPattern.
-        """
-        event_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+    All dimensions listed in this field must also be included in EventPattern.
+    """
+    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
 
-        When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+    When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
 
-        Example event patterns:
+    Example event patterns:
 
-        '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+    '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
 
-        '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+    '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
 
-        '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+    '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
 
-        If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace used by CloudWatch Metrics for the metric that is defined in this structure
-        """
-        unit_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
-        """
-        value_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The field within the event object that the metric value is sourced from.
+    If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace used by CloudWatch Metrics for the metric that is defined in this structure
+    """
+    unit_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+    """
+    value_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The field within the event object that the metric value is sourced from.
 
-        If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+    If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 
-        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
-        """
-elif False:
-    AppMonitorMetricDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+    If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
+    """
 
 @pulumi.input_type
 class AppMonitorMetricDefinitionArgs:
@@ -625,7 +608,7 @@ class AppMonitorMetricDefinitionArgs:
                
                If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
                
-               If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+               If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
         """
         pulumi.set(__self__, "name", name)
         if dimension_keys is not None:
@@ -803,7 +786,7 @@ class AppMonitorMetricDefinitionArgs:
 
         If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
 
-        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
         """
         return pulumi.get(self, "value_key")
 
@@ -812,31 +795,30 @@ class AppMonitorMetricDefinitionArgs:
         pulumi.set(self, "value_key", value)
 
 
-if not MYPY:
-    class AppMonitorMetricDestinationArgsDict(TypedDict):
-        """
-        An structure which defines the destination and the metrics that you want to send.
-        """
-        destination: pulumi.Input['AppMonitorMetricDestinationDestination']
-        """
-        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
-        destination_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
-        iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+class AppMonitorMetricDestinationArgsDict(TypedDict):
+    """
+    An structure which defines the destination and the metrics that you want to send.
+    """
+    destination: pulumi.Input['AppMonitorMetricDestinationDestination']
+    """
+    Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
+    """
+    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
-        This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
-        """
-        metric_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgsDict']]]]
-        """
-        An array of structures which define the metrics that you want to send.
-        """
-elif False:
-    AppMonitorMetricDestinationArgsDict: TypeAlias = Mapping[str, Any]
+    This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+    """
+    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+
+    This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+    """
+    metric_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgsDict']]]]
+    """
+    An array of structures which define the metrics that you want to send.
+    """
 
 @pulumi.input_type
 class AppMonitorMetricDestinationArgs:
@@ -847,9 +829,11 @@ class AppMonitorMetricDestinationArgs:
                  metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None):
         """
         An structure which defines the destination and the metrics that you want to send.
-        :param pulumi.Input['AppMonitorMetricDestinationDestination'] destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[_builtins.str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+        :param pulumi.Input['AppMonitorMetricDestinationDestination'] destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
+        :param pulumi.Input[_builtins.str] destination_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+               
+               This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        :param pulumi.Input[_builtins.str] iam_role_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
                
                This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         :param pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]] metric_definitions: An array of structures which define the metrics that you want to send.
@@ -866,7 +850,7 @@ class AppMonitorMetricDestinationArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input['AppMonitorMetricDestinationDestination']:
         """
-        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
         """
         return pulumi.get(self, "destination")
 
@@ -878,7 +862,9 @@ class AppMonitorMetricDestinationArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+
+        This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -890,7 +876,7 @@ class AppMonitorMetricDestinationArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
         This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         """
@@ -913,23 +899,20 @@ class AppMonitorMetricDestinationArgs:
         pulumi.set(self, "metric_definitions", value)
 
 
-if not MYPY:
-    class AppMonitorResourcePolicyArgsDict(TypedDict):
-        """
-        A structure that defines resource policy attached to your app monitor.
-        """
-        policy_document: pulumi.Input[_builtins.str]
-        """
-        The JSON to use as the resource policy. The document can be up to 4 KB in size. 
-        """
-        policy_revision_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
+class AppMonitorResourcePolicyArgsDict(TypedDict):
+    """
+    A structure that defines resource policy attached to your app monitor.
+    """
+    policy_document: pulumi.Input[_builtins.str]
+    """
+    The JSON to use as the resource policy. The document can be up to 4 KB in size. 
+    """
+    policy_revision_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
 
-         When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
-        """
-elif False:
-    AppMonitorResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+     When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
+    """
 
 @pulumi.input_type
 class AppMonitorResourcePolicyArgs:

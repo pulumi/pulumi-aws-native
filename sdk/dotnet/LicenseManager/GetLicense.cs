@@ -104,6 +104,14 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public readonly string? ProductSku;
         /// <summary>
+        /// License status.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
+        /// A list of tags to attach.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Date and time range during which the license is valid, in ISO8601-UTC format.
         /// </summary>
         public readonly Outputs.LicenseValidityDateFormat? Validity;
@@ -134,6 +142,10 @@ namespace Pulumi.AwsNative.LicenseManager
 
             string? productSku,
 
+            string? status,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.LicenseValidityDateFormat? validity,
 
             string? version)
@@ -148,6 +160,8 @@ namespace Pulumi.AwsNative.LicenseManager
             LicenseName = licenseName;
             ProductName = productName;
             ProductSku = productSku;
+            Status = status;
+            Tags = tags;
             Validity = validity;
             Version = version;
         }

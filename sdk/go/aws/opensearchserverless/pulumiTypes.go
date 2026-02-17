@@ -13,11 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The configuration to encrypt the collection
+// Encryption settings for the collection
 type CollectionEncryptionConfig struct {
-	// The configuration to encrypt the collection with AWS owned key
+	// Indicates whether to use an AWS owned key for encryption.
 	AwsOwnedKey *bool `pulumi:"awsOwnedKey"`
-	// The ARN of the KMS key to encrypt the collection with
+	// Key Management Service key used to encrypt the collection.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -32,11 +32,11 @@ type CollectionEncryptionConfigInput interface {
 	ToCollectionEncryptionConfigOutputWithContext(context.Context) CollectionEncryptionConfigOutput
 }
 
-// The configuration to encrypt the collection
+// Encryption settings for the collection
 type CollectionEncryptionConfigArgs struct {
-	// The configuration to encrypt the collection with AWS owned key
+	// Indicates whether to use an AWS owned key for encryption.
 	AwsOwnedKey pulumi.BoolPtrInput `pulumi:"awsOwnedKey"`
-	// The ARN of the KMS key to encrypt the collection with
+	// Key Management Service key used to encrypt the collection.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -93,7 +93,7 @@ func (i *collectionEncryptionConfigPtrType) ToCollectionEncryptionConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionEncryptionConfigPtrOutput)
 }
 
-// The configuration to encrypt the collection
+// Encryption settings for the collection
 type CollectionEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (CollectionEncryptionConfigOutput) ElementType() reflect.Type {
@@ -118,12 +118,12 @@ func (o CollectionEncryptionConfigOutput) ToCollectionEncryptionConfigPtrOutputW
 	}).(CollectionEncryptionConfigPtrOutput)
 }
 
-// The configuration to encrypt the collection with AWS owned key
+// Indicates whether to use an AWS owned key for encryption.
 func (o CollectionEncryptionConfigOutput) AwsOwnedKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CollectionEncryptionConfig) *bool { return v.AwsOwnedKey }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the KMS key to encrypt the collection with
+// Key Management Service key used to encrypt the collection.
 func (o CollectionEncryptionConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollectionEncryptionConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -152,7 +152,7 @@ func (o CollectionEncryptionConfigPtrOutput) Elem() CollectionEncryptionConfigOu
 	}).(CollectionEncryptionConfigOutput)
 }
 
-// The configuration to encrypt the collection with AWS owned key
+// Indicates whether to use an AWS owned key for encryption.
 func (o CollectionEncryptionConfigPtrOutput) AwsOwnedKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollectionEncryptionConfig) *bool {
 		if v == nil {
@@ -162,7 +162,7 @@ func (o CollectionEncryptionConfigPtrOutput) AwsOwnedKey() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the KMS key to encrypt the collection with
+// Key Management Service key used to encrypt the collection.
 func (o CollectionEncryptionConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectionEncryptionConfig) *string {
 		if v == nil {

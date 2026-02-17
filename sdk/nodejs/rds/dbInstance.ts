@@ -58,6 +58,10 @@ export class DbInstance extends pulumi.CustomResource {
     }
 
     /**
+     * The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+     */
+    declare public readonly additionalStorageVolumes: pulumi.Output<outputs.rds.DbInstanceAdditionalStorageVolume[] | undefined>;
+    /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
      *   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
      *    *Amazon Aurora* 
@@ -906,6 +910,7 @@ export class DbInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["additionalStorageVolumes"] = args?.additionalStorageVolumes;
             resourceInputs["allocatedStorage"] = args?.allocatedStorage;
             resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
             resourceInputs["applyImmediately"] = args?.applyImmediately;
@@ -1005,6 +1010,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
             resourceInputs["statusInfos"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalStorageVolumes"] = undefined /*out*/;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["applyImmediately"] = undefined /*out*/;
@@ -1115,6 +1121,10 @@ export class DbInstance extends pulumi.CustomResource {
  * The set of arguments for constructing a DbInstance resource.
  */
 export interface DbInstanceArgs {
+    /**
+     * The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+     */
+    additionalStorageVolumes?: pulumi.Input<pulumi.Input<inputs.rds.DbInstanceAdditionalStorageVolumeArgs>[]>;
     /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
      *   If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 

@@ -7,11 +7,20 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'DatabaseSnapshotResourceType',
     'DiskAddOnStatus',
     'DiskSnapshotResourceType',
     'DiskSnapshotState',
     'InstanceAddOnStatus',
 ]
+
+
+@pulumi.type_token("aws-native:lightsail:DatabaseSnapshotResourceType")
+class DatabaseSnapshotResourceType(_builtins.str, Enum):
+    """
+    The Lightsail resource type.
+    """
+    RELATIONAL_DATABASE_SNAPSHOT = "RelationalDatabaseSnapshot"
 
 
 @pulumi.type_token("aws-native:lightsail:DiskAddOnStatus")

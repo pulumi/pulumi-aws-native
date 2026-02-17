@@ -39,19 +39,14 @@ __all__ = [
     'TemplateSsmDocumentDetailsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CompliancePropertiesArgsDict(TypedDict):
-        """
-        Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Compliance type determined by the Config rule
-        """
-elif False:
-    CompliancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CompliancePropertiesArgsDict(TypedDict):
+    """
+    Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Compliance type determined by the Config rule
+    """
 
 @pulumi.input_type
 class CompliancePropertiesArgs:
@@ -77,25 +72,22 @@ class CompliancePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ConfigRuleCustomPolicyDetailsArgsDict(TypedDict):
-        """
-        Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
-        """
-        enable_debug_log_delivery: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
-        """
-        policy_runtime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
-        """
-        policy_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The policy definition containing the logic for your CC Custom Policy rule.
-        """
-elif False:
-    ConfigRuleCustomPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigRuleCustomPolicyDetailsArgsDict(TypedDict):
+    """
+    Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
+    """
+    enable_debug_log_delivery: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
+    """
+    policy_runtime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
+    """
+    policy_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The policy definition containing the logic for your CC Custom Policy rule.
+    """
 
 @pulumi.input_type
 class ConfigRuleCustomPolicyDetailsArgs:
@@ -153,17 +145,14 @@ class ConfigRuleCustomPolicyDetailsArgs:
         pulumi.set(self, "policy_text", value)
 
 
-if not MYPY:
-    class ConfigRuleEvaluationModeConfigurationArgsDict(TypedDict):
-        """
-        The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
-        """
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The mode of an evaluation. The valid values are Detective or Proactive.
-        """
-elif False:
-    ConfigRuleEvaluationModeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigRuleEvaluationModeConfigurationArgsDict(TypedDict):
+    """
+    The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
+    """
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The mode of an evaluation. The valid values are Detective or Proactive.
+    """
 
 @pulumi.input_type
 class ConfigRuleEvaluationModeConfigurationArgs:
@@ -189,29 +178,26 @@ class ConfigRuleEvaluationModeConfigurationArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class ConfigRuleScopeArgsDict(TypedDict):
-        """
-        Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
-        """
-        compliance_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
-        """
-        compliance_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
-        """
-        tag_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
-        """
-        tag_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
-        """
-elif False:
-    ConfigRuleScopeArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigRuleScopeArgsDict(TypedDict):
+    """
+    Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
+    """
+    compliance_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
+    """
+    compliance_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
+    """
+    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
+    """
+    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
+    """
 
 @pulumi.input_type
 class ConfigRuleScopeArgs:
@@ -285,33 +271,30 @@ class ConfigRuleScopeArgs:
         pulumi.set(self, "tag_value", value)
 
 
-if not MYPY:
-    class ConfigRuleSourceDetailArgsDict(TypedDict):
-        """
-        Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for ``SourceDetail`` only for custom rules.
-        """
-        event_source: pulumi.Input[_builtins.str]
-        """
-        The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
-        """
-        message_type: pulumi.Input[_builtins.str]
-        """
-        The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
-          +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
-          +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-          +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
-          +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
-          
-         If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
-        """
-        maximum_execution_frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
-          By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
-         Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
-        """
-elif False:
-    ConfigRuleSourceDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigRuleSourceDetailArgsDict(TypedDict):
+    """
+    Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for ``SourceDetail`` only for custom rules.
+    """
+    event_source: pulumi.Input[_builtins.str]
+    """
+    The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
+    """
+    message_type: pulumi.Input[_builtins.str]
+    """
+    The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+      +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+      +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+      +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+      +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+      
+     If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
+    """
+    maximum_execution_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+      By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+     Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
+    """
 
 @pulumi.input_type
 class ConfigRuleSourceDetailArgs:
@@ -383,34 +366,31 @@ class ConfigRuleSourceDetailArgs:
         pulumi.set(self, "maximum_execution_frequency", value)
 
 
-if not MYPY:
-    class ConfigRuleSourceArgsDict(TypedDict):
-        """
-        Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
-        """
-        owner: pulumi.Input[_builtins.str]
-        """
-        Indicates whether AWS or the customer owns and manages the CC rule.
-          CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
-          CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
-        """
-        custom_policy_details: NotRequired[pulumi.Input['ConfigRuleCustomPolicyDetailsArgsDict']]
-        """
-        Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
-        """
-        source_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgsDict']]]]
-        """
-        Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
-         If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
-        """
-        source_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
-         For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
-         For CC Custom Policy rules, this field will be ignored.
-        """
-elif False:
-    ConfigRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigRuleSourceArgsDict(TypedDict):
+    """
+    Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
+    """
+    owner: pulumi.Input[_builtins.str]
+    """
+    Indicates whether AWS or the customer owns and manages the CC rule.
+      CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+      CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
+    """
+    custom_policy_details: NotRequired[pulumi.Input['ConfigRuleCustomPolicyDetailsArgsDict']]
+    """
+    Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
+    """
+    source_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgsDict']]]]
+    """
+    Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+     If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
+    """
+    source_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+     For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+     For CC Custom Policy rules, this field will be ignored.
+    """
 
 @pulumi.input_type
 class ConfigRuleSourceArgs:
@@ -493,22 +473,19 @@ class ConfigRuleSourceArgs:
         pulumi.set(self, "source_identifier", value)
 
 
-if not MYPY:
-    class ConfigurationAggregatorAccountAggregationSourceArgsDict(TypedDict):
-        account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The 12-digit account ID of the account being aggregated.
-        """
-        all_aws_regions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, aggregate existing AWS Config regions and future regions.
-        """
-        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The source regions being aggregated.
-        """
-elif False:
-    ConfigurationAggregatorAccountAggregationSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationAggregatorAccountAggregationSourceArgsDict(TypedDict):
+    account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The 12-digit account ID of the account being aggregated.
+    """
+    all_aws_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, aggregate existing AWS Config regions and future regions.
+    """
+    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source regions being aggregated.
+    """
 
 @pulumi.input_type
 class ConfigurationAggregatorAccountAggregationSourceArgs:
@@ -564,22 +541,19 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
         pulumi.set(self, "aws_regions", value)
 
 
-if not MYPY:
-    class ConfigurationAggregatorOrganizationAggregationSourceArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
-        """
-        all_aws_regions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, aggregate existing AWS Config regions and future regions.
-        """
-        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The source regions being aggregated.
-        """
-elif False:
-    ConfigurationAggregatorOrganizationAggregationSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationAggregatorOrganizationAggregationSourceArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+    """
+    all_aws_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, aggregate existing AWS Config regions and future regions.
+    """
+    aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source regions being aggregated.
+    """
 
 @pulumi.input_type
 class ConfigurationAggregatorOrganizationAggregationSourceArgs:
@@ -635,21 +609,18 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
         pulumi.set(self, "aws_regions", value)
 
 
-if not MYPY:
-    class ConformancePackInputParameterArgsDict(TypedDict):
-        """
-        Input parameters in the form of key-value pairs for the conformance pack.
-        """
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        One part of a key-value pair.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        Another part of the key-value pair.
-        """
-elif False:
-    ConformancePackInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ConformancePackInputParameterArgsDict(TypedDict):
+    """
+    Input parameters in the form of key-value pairs for the conformance pack.
+    """
+    parameter_name: pulumi.Input[_builtins.str]
+    """
+    One part of a key-value pair.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    Another part of the key-value pair.
+    """
 
 @pulumi.input_type
 class ConformancePackInputParameterArgs:
@@ -689,21 +660,18 @@ class ConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class OrganizationConformancePackConformancePackInputParameterArgsDict(TypedDict):
-        """
-        Input parameters in the form of key-value pairs for the conformance pack.
-        """
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        One part of a key-value pair.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        One part of a key-value pair.
-        """
-elif False:
-    OrganizationConformancePackConformancePackInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConformancePackConformancePackInputParameterArgsDict(TypedDict):
+    """
+    Input parameters in the form of key-value pairs for the conformance pack.
+    """
+    parameter_name: pulumi.Input[_builtins.str]
+    """
+    One part of a key-value pair.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    One part of a key-value pair.
+    """
 
 @pulumi.input_type
 class OrganizationConformancePackConformancePackInputParameterArgs:
@@ -743,23 +711,20 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class TemplateSsmDocumentDetailsPropertiesArgsDict(TypedDict):
-        """
-        The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-        """
-        document_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
-        """
-        document_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+class TemplateSsmDocumentDetailsPropertiesArgsDict(TypedDict):
+    """
+    The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+    """
+    document_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
+    """
+    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
 
-        > This field is optional.
-        """
-elif False:
-    TemplateSsmDocumentDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    > This field is optional.
+    """
 
 @pulumi.input_type
 class TemplateSsmDocumentDetailsPropertiesArgs:

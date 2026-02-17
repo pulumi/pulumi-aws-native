@@ -55,6 +55,11 @@ export const getServerlessCluster: typeof import("./getServerlessCluster").getSe
 export const getServerlessClusterOutput: typeof import("./getServerlessCluster").getServerlessClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCluster","getServerlessClusterOutput"], () => require("./getServerlessCluster"));
 
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+
 export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArgs } from "./getVpcConnection";
 export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
@@ -69,6 +74,11 @@ export { ServerlessClusterArgs } from "./serverlessCluster";
 export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
 export const ServerlessCluster: typeof import("./serverlessCluster").ServerlessCluster = null as any;
 utilities.lazyLoad(exports, ["ServerlessCluster"], () => require("./serverlessCluster"));
+
+export { TopicArgs } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
 export { VpcConnectionArgs } from "./vpcConnection";
 export type VpcConnection = import("./vpcConnection").VpcConnection;
@@ -95,6 +105,8 @@ const _module = {
                 return new Replicator(name, <any>undefined, { urn })
             case "aws-native:msk:ServerlessCluster":
                 return new ServerlessCluster(name, <any>undefined, { urn })
+            case "aws-native:msk:Topic":
+                return new Topic(name, <any>undefined, { urn })
             case "aws-native:msk:VpcConnection":
                 return new VpcConnection(name, <any>undefined, { urn })
             default:

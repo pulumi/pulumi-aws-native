@@ -55,6 +55,7 @@ __all__ = [
     'DistributionOriginGroupMember',
     'DistributionOriginGroupMembers',
     'DistributionOriginGroups',
+    'DistributionOriginMtlsConfig',
     'DistributionOriginShield',
     'DistributionParameterDefinition',
     'DistributionParameterDefinitionDefinitionProperties',
@@ -2118,6 +2119,8 @@ class DistributionCustomOriginConfig(dict):
             suggest = "ip_address_type"
         elif key == "originKeepaliveTimeout":
             suggest = "origin_keepalive_timeout"
+        elif key == "originMtlsConfig":
+            suggest = "origin_mtls_config"
         elif key == "originReadTimeout":
             suggest = "origin_read_timeout"
         elif key == "originSslProtocols":
@@ -2140,6 +2143,7 @@ class DistributionCustomOriginConfig(dict):
                  https_port: Optional[_builtins.int] = None,
                  ip_address_type: Optional['DistributionCustomOriginConfigIpAddressType'] = None,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
+                 origin_mtls_config: Optional['outputs.DistributionOriginMtlsConfig'] = None,
                  origin_read_timeout: Optional[_builtins.int] = None,
                  origin_ssl_protocols: Optional[Sequence[_builtins.str]] = None):
         """
@@ -2167,6 +2171,8 @@ class DistributionCustomOriginConfig(dict):
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_mtls_config is not None:
+            pulumi.set(__self__, "origin_mtls_config", origin_mtls_config)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
         if origin_ssl_protocols is not None:
@@ -2215,6 +2221,11 @@ class DistributionCustomOriginConfig(dict):
          For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="originMtlsConfig")
+    def origin_mtls_config(self) -> Optional['outputs.DistributionOriginMtlsConfig']:
+        return pulumi.get(self, "origin_mtls_config")
 
     @_builtins.property
     @pulumi.getter(name="originReadTimeout")
@@ -3669,6 +3680,35 @@ class DistributionOriginGroups(dict):
         The items (origin groups) in a distribution.
         """
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class DistributionOriginMtlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateArn":
+            suggest = "client_certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginMtlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginMtlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginMtlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate_arn: _builtins.str):
+        pulumi.set(__self__, "client_certificate_arn", client_certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateArn")
+    def client_certificate_arn(self) -> _builtins.str:
+        return pulumi.get(self, "client_certificate_arn")
 
 
 @pulumi.output_type

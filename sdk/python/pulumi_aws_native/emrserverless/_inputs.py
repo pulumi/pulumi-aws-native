@@ -56,19 +56,14 @@ __all__ = [
     'ApplicationWorkerTypeSpecificationInputArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationAutoStartConfigurationArgsDict(TypedDict):
-        """
-        Configuration for Auto Start of Application
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, the Application will automatically start. Defaults to true.
-        """
-elif False:
-    ApplicationAutoStartConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAutoStartConfigurationArgsDict(TypedDict):
+    """
+    Configuration for Auto Start of Application
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, the Application will automatically start. Defaults to true.
+    """
 
 @pulumi.input_type
 class ApplicationAutoStartConfigurationArgs:
@@ -94,21 +89,18 @@ class ApplicationAutoStartConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ApplicationAutoStopConfigurationArgsDict(TypedDict):
-        """
-        Configuration for Auto Stop of Application
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, the Application will automatically stop after being idle. Defaults to true.
-        """
-        idle_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
-        """
-elif False:
-    ApplicationAutoStopConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAutoStopConfigurationArgsDict(TypedDict):
+    """
+    Configuration for Auto Stop of Application
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, the Application will automatically stop after being idle. Defaults to true.
+    """
+    idle_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
+    """
 
 @pulumi.input_type
 class ApplicationAutoStopConfigurationArgs:
@@ -150,30 +142,27 @@ class ApplicationAutoStopConfigurationArgs:
         pulumi.set(self, "idle_timeout_minutes", value)
 
 
-if not MYPY:
-    class ApplicationCloudWatchLoggingConfigurationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to false, CloudWatch logging will be turned off. Defaults to false.
-        """
-        encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
-        """
-        log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
-        """
-        log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
-        """
-        log_type_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogTypeMapKeyValuePairArgsDict']]]]
-        """
-        The specific log-streams which need to be uploaded to CloudWatch.
-        """
-elif False:
-    ApplicationCloudWatchLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCloudWatchLoggingConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to false, CloudWatch logging will be turned off. Defaults to false.
+    """
+    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+    """
+    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+    """
+    log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+    """
+    log_type_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationLogTypeMapKeyValuePairArgsDict']]]]
+    """
+    The specific log-streams which need to be uploaded to CloudWatch.
+    """
 
 @pulumi.input_type
 class ApplicationCloudWatchLoggingConfigurationArgs:
@@ -262,19 +251,16 @@ class ApplicationCloudWatchLoggingConfigurationArgs:
         pulumi.set(self, "log_type_map", value)
 
 
-if not MYPY:
-    class ApplicationConfigurationObjectArgsDict(TypedDict):
-        """
-        Configuration for a JobRun.
-        """
-        classification: pulumi.Input[_builtins.str]
-        """
-        String with a maximum length of 1024.
-        """
-        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgsDict']]]]
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    ApplicationConfigurationObjectArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationConfigurationObjectArgsDict(TypedDict):
+    """
+    Configuration for a JobRun.
+    """
+    classification: pulumi.Input[_builtins.str]
+    """
+    String with a maximum length of 1024.
+    """
+    configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgsDict']]]]
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ApplicationConfigurationObjectArgs:
@@ -323,17 +309,14 @@ class ApplicationConfigurationObjectArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class ApplicationIdentityCenterConfigurationArgsDict(TypedDict):
-        """
-        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
-        """
-        identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM IdentityCenter instance arn
-        """
-elif False:
-    ApplicationIdentityCenterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationIdentityCenterConfigurationArgsDict(TypedDict):
+    """
+    The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+    """
+    identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM IdentityCenter instance arn
+    """
 
 @pulumi.input_type
 class ApplicationIdentityCenterConfigurationArgs:
@@ -359,17 +342,14 @@ class ApplicationIdentityCenterConfigurationArgs:
         pulumi.set(self, "identity_center_instance_arn", value)
 
 
-if not MYPY:
-    class ApplicationImageConfigurationInputArgsDict(TypedDict):
-        """
-        The image configuration.
-        """
-        image_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
-        """
-elif False:
-    ApplicationImageConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationImageConfigurationInputArgsDict(TypedDict):
+    """
+    The image configuration.
+    """
+    image_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+    """
 
 @pulumi.input_type
 class ApplicationImageConfigurationInputArgs:
@@ -395,15 +375,12 @@ class ApplicationImageConfigurationInputArgs:
         pulumi.set(self, "image_uri", value)
 
 
-if not MYPY:
-    class ApplicationInitialCapacityConfigKeyValuePairArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Worker type for an analytics framework.
-        """
-        value: pulumi.Input['ApplicationInitialCapacityConfigArgsDict']
-elif False:
-    ApplicationInitialCapacityConfigKeyValuePairArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInitialCapacityConfigKeyValuePairArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Worker type for an analytics framework.
+    """
+    value: pulumi.Input['ApplicationInitialCapacityConfigArgsDict']
 
 @pulumi.input_type
 class ApplicationInitialCapacityConfigKeyValuePairArgs:
@@ -438,15 +415,12 @@ class ApplicationInitialCapacityConfigKeyValuePairArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ApplicationInitialCapacityConfigArgsDict(TypedDict):
-        worker_configuration: pulumi.Input['ApplicationWorkerConfigurationArgsDict']
-        worker_count: pulumi.Input[_builtins.int]
-        """
-        Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped
-        """
-elif False:
-    ApplicationInitialCapacityConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInitialCapacityConfigArgsDict(TypedDict):
+    worker_configuration: pulumi.Input['ApplicationWorkerConfigurationArgsDict']
+    worker_count: pulumi.Input[_builtins.int]
+    """
+    Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped
+    """
 
 @pulumi.input_type
 class ApplicationInitialCapacityConfigArgs:
@@ -481,18 +455,15 @@ class ApplicationInitialCapacityConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
-if not MYPY:
-    class ApplicationInteractiveConfigurationArgsDict(TypedDict):
-        livy_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables an Apache Livy endpoint that you can connect to and run interactive jobs
-        """
-        studio_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
-        """
-elif False:
-    ApplicationInteractiveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInteractiveConfigurationArgsDict(TypedDict):
+    livy_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables an Apache Livy endpoint that you can connect to and run interactive jobs
+    """
+    studio_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
+    """
 
 @pulumi.input_type
 class ApplicationInteractiveConfigurationArgs:
@@ -533,12 +504,9 @@ class ApplicationInteractiveConfigurationArgs:
         pulumi.set(self, "studio_enabled", value)
 
 
-if not MYPY:
-    class ApplicationLogTypeMapKeyValuePairArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    ApplicationLogTypeMapKeyValuePairArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationLogTypeMapKeyValuePairArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class ApplicationLogTypeMapKeyValuePairArgs:
@@ -567,18 +535,15 @@ class ApplicationLogTypeMapKeyValuePairArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ApplicationManagedPersistenceMonitoringConfigurationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to false, managed logging will be turned off. Defaults to true.
-        """
-        encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key ARN to encrypt the logs stored in managed persistence
-        """
-elif False:
-    ApplicationManagedPersistenceMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationManagedPersistenceMonitoringConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to false, managed logging will be turned off. Defaults to true.
+    """
+    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ARN to encrypt the logs stored in managed persistence
+    """
 
 @pulumi.input_type
 class ApplicationManagedPersistenceMonitoringConfigurationArgs:
@@ -619,22 +584,19 @@ class ApplicationManagedPersistenceMonitoringConfigurationArgs:
         pulumi.set(self, "encryption_key_arn", value)
 
 
-if not MYPY:
-    class ApplicationMaximumAllowedResourcesArgsDict(TypedDict):
-        cpu: pulumi.Input[_builtins.str]
-        """
-        Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
-        """
-        memory: pulumi.Input[_builtins.str]
-        """
-        Per worker memory resource. GB is the only supported unit and specifying GB is optional.
-        """
-        disk: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Per worker Disk resource. GB is the only supported unit and specifying GB is optional
-        """
-elif False:
-    ApplicationMaximumAllowedResourcesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMaximumAllowedResourcesArgsDict(TypedDict):
+    cpu: pulumi.Input[_builtins.str]
+    """
+    Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
+    """
+    memory: pulumi.Input[_builtins.str]
+    """
+    Per worker memory resource. GB is the only supported unit and specifying GB is optional.
+    """
+    disk: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+    """
 
 @pulumi.input_type
 class ApplicationMaximumAllowedResourcesArgs:
@@ -689,29 +651,26 @@ class ApplicationMaximumAllowedResourcesArgs:
         pulumi.set(self, "disk", value)
 
 
-if not MYPY:
-    class ApplicationMonitoringConfigurationArgsDict(TypedDict):
-        """
-        Monitoring configuration for batch and interactive JobRun.
-        """
-        cloud_watch_logging_configuration: NotRequired[pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgsDict']]
-        """
-        CloudWatch logging configurations for a JobRun.
-        """
-        managed_persistence_monitoring_configuration: NotRequired[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgsDict']]
-        """
-        Managed log persistence configurations for a JobRun.
-        """
-        prometheus_monitoring_configuration: NotRequired[pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgsDict']]
-        """
-        Prometheus monitoring configurations for a JobRun.
-        """
-        s3_monitoring_configuration: NotRequired[pulumi.Input['ApplicationS3MonitoringConfigurationArgsDict']]
-        """
-        S3 monitoring configurations for a JobRun.
-        """
-elif False:
-    ApplicationMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationMonitoringConfigurationArgsDict(TypedDict):
+    """
+    Monitoring configuration for batch and interactive JobRun.
+    """
+    cloud_watch_logging_configuration: NotRequired[pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgsDict']]
+    """
+    CloudWatch logging configurations for a JobRun.
+    """
+    managed_persistence_monitoring_configuration: NotRequired[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgsDict']]
+    """
+    Managed log persistence configurations for a JobRun.
+    """
+    prometheus_monitoring_configuration: NotRequired[pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgsDict']]
+    """
+    Prometheus monitoring configurations for a JobRun.
+    """
+    s3_monitoring_configuration: NotRequired[pulumi.Input['ApplicationS3MonitoringConfigurationArgsDict']]
+    """
+    S3 monitoring configurations for a JobRun.
+    """
 
 @pulumi.input_type
 class ApplicationMonitoringConfigurationArgs:
@@ -785,18 +744,15 @@ class ApplicationMonitoringConfigurationArgs:
         pulumi.set(self, "s3_monitoring_configuration", value)
 
 
-if not MYPY:
-    class ApplicationNetworkConfigurationArgsDict(TypedDict):
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ID of the security groups in the VPC to which you want to connect your job or application.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect your job or application.
-        """
-elif False:
-    ApplicationNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationNetworkConfigurationArgsDict(TypedDict):
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ID of the security groups in the VPC to which you want to connect your job or application.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ID of the subnets in the VPC to which you want to connect your job or application.
+    """
 
 @pulumi.input_type
 class ApplicationNetworkConfigurationArgs:
@@ -837,14 +793,11 @@ class ApplicationNetworkConfigurationArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class ApplicationPrometheusMonitoringConfigurationArgsDict(TypedDict):
-        remote_write_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
-        """
-elif False:
-    ApplicationPrometheusMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPrometheusMonitoringConfigurationArgsDict(TypedDict):
+    remote_write_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+    """
 
 @pulumi.input_type
 class ApplicationPrometheusMonitoringConfigurationArgs:
@@ -869,15 +822,12 @@ class ApplicationPrometheusMonitoringConfigurationArgs:
         pulumi.set(self, "remote_write_url", value)
 
 
-if not MYPY:
-    class ApplicationS3MonitoringConfigurationArgsDict(TypedDict):
-        encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key ARN to encrypt the logs stored in given s3
-        """
-        log_uri: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ApplicationS3MonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationS3MonitoringConfigurationArgsDict(TypedDict):
+    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ARN to encrypt the logs stored in given s3
+    """
+    log_uri: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ApplicationS3MonitoringConfigurationArgs:
@@ -914,21 +864,18 @@ class ApplicationS3MonitoringConfigurationArgs:
         pulumi.set(self, "log_uri", value)
 
 
-if not MYPY:
-    class ApplicationSchedulerConfigurationArgsDict(TypedDict):
-        """
-        The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
-        """
-        max_concurrent_runs: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
-        """
-        queue_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
-        """
-elif False:
-    ApplicationSchedulerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationSchedulerConfigurationArgsDict(TypedDict):
+    """
+    The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+    """
+    max_concurrent_runs: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
+    """
+    queue_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
+    """
 
 @pulumi.input_type
 class ApplicationSchedulerConfigurationArgs:
@@ -970,26 +917,23 @@ class ApplicationSchedulerConfigurationArgs:
         pulumi.set(self, "queue_timeout_minutes", value)
 
 
-if not MYPY:
-    class ApplicationWorkerConfigurationArgsDict(TypedDict):
-        cpu: pulumi.Input[_builtins.str]
-        """
-        Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
-        """
-        memory: pulumi.Input[_builtins.str]
-        """
-        Per worker memory resource. GB is the only supported unit and specifying GB is optional.
-        """
-        disk: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Per worker Disk resource. GB is the only supported unit and specifying GB is optional
-        """
-        disk_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
-        """
-elif False:
-    ApplicationWorkerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationWorkerConfigurationArgsDict(TypedDict):
+    cpu: pulumi.Input[_builtins.str]
+    """
+    Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
+    """
+    memory: pulumi.Input[_builtins.str]
+    """
+    Per worker memory resource. GB is the only supported unit and specifying GB is optional.
+    """
+    disk: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Per worker Disk resource. GB is the only supported unit and specifying GB is optional
+    """
+    disk_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+    """
 
 @pulumi.input_type
 class ApplicationWorkerConfigurationArgs:
@@ -1060,17 +1004,14 @@ class ApplicationWorkerConfigurationArgs:
         pulumi.set(self, "disk_type", value)
 
 
-if not MYPY:
-    class ApplicationWorkerTypeSpecificationInputArgsDict(TypedDict):
-        """
-        The specifications for a worker type.
-        """
-        image_configuration: NotRequired[pulumi.Input['ApplicationImageConfigurationInputArgsDict']]
-        """
-        The image configuration for a worker type.
-        """
-elif False:
-    ApplicationWorkerTypeSpecificationInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationWorkerTypeSpecificationInputArgsDict(TypedDict):
+    """
+    The specifications for a worker type.
+    """
+    image_configuration: NotRequired[pulumi.Input['ApplicationImageConfigurationInputArgsDict']]
+    """
+    The image configuration for a worker type.
+    """
 
 @pulumi.input_type
 class ApplicationWorkerTypeSpecificationInputArgs:

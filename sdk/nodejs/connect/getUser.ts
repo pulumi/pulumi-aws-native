@@ -26,6 +26,14 @@ export interface GetUserArgs {
 
 export interface GetUserResult {
     /**
+     * After Contact Work configurations of a user.
+     */
+    readonly afterContactWorkConfigs?: outputs.connect.UserAfterContactWorkConfigPerChannel[];
+    /**
+     * Auto-accept configurations of a user.
+     */
+    readonly autoAcceptConfigs?: outputs.connect.UserAutoAcceptConfig[];
+    /**
      * The identifier of the user account in the directory used for identity management.
      */
     readonly directoryUserId?: string;
@@ -42,9 +50,17 @@ export interface GetUserResult {
      */
     readonly instanceArn?: string;
     /**
+     * Persistent Connection configurations of a user.
+     */
+    readonly persistentConnectionConfigs?: outputs.connect.UserPersistentConnectionConfig[];
+    /**
      * The phone settings for the user.
      */
     readonly phoneConfig?: outputs.connect.UserPhoneConfig;
+    /**
+     * Phone Number configurations of a user.
+     */
+    readonly phoneNumberConfigs?: outputs.connect.UserPhoneNumberConfig[];
     /**
      * The identifier of the routing profile for the user.
      */
@@ -69,6 +85,10 @@ export interface GetUserResult {
      * The user name for the account.
      */
     readonly username?: string;
+    /**
+     * Voice Enhancement configurations of a user.
+     */
+    readonly voiceEnhancementConfigs?: outputs.connect.UserVoiceEnhancementConfig[];
 }
 /**
  * Resource Type definition for AWS::Connect::User

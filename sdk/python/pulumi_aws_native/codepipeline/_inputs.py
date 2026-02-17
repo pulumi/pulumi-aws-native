@@ -80,23 +80,18 @@ __all__ = [
     'WebhookFilterRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomActionTypeArtifactDetailsArgsDict(TypedDict):
-        """
-        Returns information about the details of an artifact.
-        """
-        maximum_count: pulumi.Input[_builtins.int]
-        """
-        The maximum number of artifacts allowed for the action type.
-        """
-        minimum_count: pulumi.Input[_builtins.int]
-        """
-        The minimum number of artifacts allowed for the action type.
-        """
-elif False:
-    CustomActionTypeArtifactDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CustomActionTypeArtifactDetailsArgsDict(TypedDict):
+    """
+    Returns information about the details of an artifact.
+    """
+    maximum_count: pulumi.Input[_builtins.int]
+    """
+    The maximum number of artifacts allowed for the action type.
+    """
+    minimum_count: pulumi.Input[_builtins.int]
+    """
+    The minimum number of artifacts allowed for the action type.
+    """
 
 @pulumi.input_type
 class CustomActionTypeArtifactDetailsArgs:
@@ -136,41 +131,38 @@ class CustomActionTypeArtifactDetailsArgs:
         pulumi.set(self, "minimum_count", value)
 
 
-if not MYPY:
-    class CustomActionTypeConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration properties for the custom action.
-        """
-        key: pulumi.Input[_builtins.bool]
-        """
-        Whether the configuration property is a key.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the action configuration property.
-        """
-        required: pulumi.Input[_builtins.bool]
-        """
-        Whether the configuration property is a required value.
-        """
-        secret: pulumi.Input[_builtins.bool]
-        """
-        Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the action configuration property that is displayed to users. 
-        """
-        queryable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the configuration property.
-        """
-elif False:
-    CustomActionTypeConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomActionTypeConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The configuration properties for the custom action.
+    """
+    key: pulumi.Input[_builtins.bool]
+    """
+    Whether the configuration property is a key.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the action configuration property.
+    """
+    required: pulumi.Input[_builtins.bool]
+    """
+    Whether the configuration property is a required value.
+    """
+    secret: pulumi.Input[_builtins.bool]
+    """
+    Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the action configuration property that is displayed to users. 
+    """
+    queryable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the configuration property.
+    """
 
 @pulumi.input_type
 class CustomActionTypeConfigurationPropertiesArgs:
@@ -288,29 +280,26 @@ class CustomActionTypeConfigurationPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CustomActionTypeSettingsArgsDict(TypedDict):
-        """
-        Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
-        """
-        entity_url_template: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
-        """
-        execution_url_template: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
-        """
-        revision_url_template: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
-        """
-        third_party_configuration_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-        """
-elif False:
-    CustomActionTypeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CustomActionTypeSettingsArgsDict(TypedDict):
+    """
+    Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+    """
+    entity_url_template: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
+    """
+    execution_url_template: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
+    """
+    revision_url_template: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+    """
+    third_party_configuration_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+    """
 
 @pulumi.input_type
 class CustomActionTypeSettingsArgs:
@@ -384,67 +373,64 @@ class CustomActionTypeSettingsArgs:
         pulumi.set(self, "third_party_configuration_url", value)
 
 
-if not MYPY:
-    class PipelineActionDeclarationArgsDict(TypedDict):
-        """
-        Represents information about an action declaration.
-        """
-        action_type_id: pulumi.Input['PipelineActionTypeIdArgsDict']
-        """
-        Specifies the action type and the provider of the action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The action declaration's name.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The shell commands to run with your compute action in CodePipeline.
-        """
-        configuration: NotRequired[Any]
-        """
-        The action's configuration. These are key-value pairs that specify input values for an action.
-        """
-        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgsDict']]]]
-        """
-        The list of environment variables that are input to a compute based action.
-        """
-        input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgsDict']]]]
-        """
-        The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
+class PipelineActionDeclarationArgsDict(TypedDict):
+    """
+    Represents information about an action declaration.
+    """
+    action_type_id: pulumi.Input['PipelineActionTypeIdArgsDict']
+    """
+    Specifies the action type and the provider of the action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The action declaration's name.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The shell commands to run with your compute action in CodePipeline.
+    """
+    configuration: NotRequired[Any]
+    """
+    The action's configuration. These are key-value pairs that specify input values for an action.
+    """
+    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgsDict']]]]
+    """
+    The list of environment variables that are input to a compute based action.
+    """
+    input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgsDict']]]]
+    """
+    The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 
-        > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
-        """
-        output_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineOutputArtifactArgsDict']]]]
-        """
-        The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
-        """
-        output_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of variables that are to be exported from the compute action.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action declaration's AWS Region, such as us-east-1.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
-        """
-        run_order: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The order in which actions are run.
-        """
-        timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A timeout duration in minutes that can be applied against the ActionType’s default timeout value specified in Quotas for AWS CodePipeline. This attribute is available only to the manual approval ActionType.
-        """
-elif False:
-    PipelineActionDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+    > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
+    """
+    output_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineOutputArtifactArgsDict']]]]
+    """
+    The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
+    """
+    output_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of variables that are to be exported from the compute action.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action declaration's AWS Region, such as us-east-1.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
+    """
+    run_order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The order in which actions are run.
+    """
+    timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A timeout duration in minutes that can be applied against the ActionType’s default timeout value specified in Quotas for AWS CodePipeline. This attribute is available only to the manual approval ActionType.
+    """
 
 @pulumi.input_type
 class PipelineActionDeclarationArgs:
@@ -664,29 +650,26 @@ class PipelineActionDeclarationArgs:
         pulumi.set(self, "timeout_in_minutes", value)
 
 
-if not MYPY:
-    class PipelineActionTypeIdArgsDict(TypedDict):
-        """
-        Represents information about an action type.
-        """
-        category: pulumi.Input['PipelineActionTypeIdCategory']
-        """
-        A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
-        """
-        owner: pulumi.Input[_builtins.str]
-        """
-        The creator of the action being called. There are three valid values for the Owner field in the action category section within your pipeline structure: AWS, ThirdParty, and Custom.
-        """
-        provider: pulumi.Input[_builtins.str]
-        """
-        The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as CodeDeploy.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        A string that describes the action version.
-        """
-elif False:
-    PipelineActionTypeIdArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineActionTypeIdArgsDict(TypedDict):
+    """
+    Represents information about an action type.
+    """
+    category: pulumi.Input['PipelineActionTypeIdCategory']
+    """
+    A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
+    """
+    owner: pulumi.Input[_builtins.str]
+    """
+    The creator of the action being called. There are three valid values for the Owner field in the action category section within your pipeline structure: AWS, ThirdParty, and Custom.
+    """
+    provider: pulumi.Input[_builtins.str]
+    """
+    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as CodeDeploy.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    A string that describes the action version.
+    """
 
 @pulumi.input_type
 class PipelineActionTypeIdArgs:
@@ -756,23 +739,20 @@ class PipelineActionTypeIdArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PipelineArtifactStoreMapArgsDict(TypedDict):
-        """
-        A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
-        """
-        artifact_store: pulumi.Input['PipelineArtifactStoreArgsDict']
-        """
-        Represents information about the S3 bucket where artifacts are stored for the pipeline.
+class PipelineArtifactStoreMapArgsDict(TypedDict):
+    """
+    A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
+    """
+    artifact_store: pulumi.Input['PipelineArtifactStoreArgsDict']
+    """
+    Represents information about the S3 bucket where artifacts are stored for the pipeline.
 
-        > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        The action declaration's AWS Region, such as us-east-1.
-        """
-elif False:
-    PipelineArtifactStoreMapArgsDict: TypeAlias = Mapping[str, Any]
+    > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The action declaration's AWS Region, such as us-east-1.
+    """
 
 @pulumi.input_type
 class PipelineArtifactStoreMapArgs:
@@ -816,25 +796,22 @@ class PipelineArtifactStoreMapArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class PipelineArtifactStoreArgsDict(TypedDict):
-        """
-        The S3 bucket where artifacts for the pipeline are stored.
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
-        """
-        type: pulumi.Input['PipelineArtifactStoreType']
-        """
-        The type of the artifact store, such as S3.
-        """
-        encryption_key: NotRequired[pulumi.Input['PipelineEncryptionKeyArgsDict']]
-        """
-        The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service ( AWS KMS) key. If this is undefined, the default key for Amazon S3 is used. To see an example artifact store encryption key field, see the example structure here: [AWS::CodePipeline::Pipeline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html) .
-        """
-elif False:
-    PipelineArtifactStoreArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineArtifactStoreArgsDict(TypedDict):
+    """
+    The S3 bucket where artifacts for the pipeline are stored.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
+    """
+    type: pulumi.Input['PipelineArtifactStoreType']
+    """
+    The type of the artifact store, such as S3.
+    """
+    encryption_key: NotRequired[pulumi.Input['PipelineEncryptionKeyArgsDict']]
+    """
+    The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service ( AWS KMS) key. If this is undefined, the default key for Amazon S3 is used. To see an example artifact store encryption key field, see the example structure here: [AWS::CodePipeline::Pipeline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html) .
+    """
 
 @pulumi.input_type
 class PipelineArtifactStoreArgs:
@@ -890,17 +867,14 @@ class PipelineArtifactStoreArgs:
         pulumi.set(self, "encryption_key", value)
 
 
-if not MYPY:
-    class PipelineBeforeEntryConditionsArgsDict(TypedDict):
-        """
-        The configuration that specifies the rules to run before stage starts.
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
-        """
-        The conditions that are configured as entry conditions.
-        """
-elif False:
-    PipelineBeforeEntryConditionsArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineBeforeEntryConditionsArgsDict(TypedDict):
+    """
+    The configuration that specifies the rules to run before stage starts.
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
+    """
+    The conditions that are configured as entry conditions.
+    """
 
 @pulumi.input_type
 class PipelineBeforeEntryConditionsArgs:
@@ -926,21 +900,18 @@ class PipelineBeforeEntryConditionsArgs:
         pulumi.set(self, "conditions", value)
 
 
-if not MYPY:
-    class PipelineBlockerDeclarationArgsDict(TypedDict):
-        """
-        Reserved for future use.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Reserved for future use.
-        """
-        type: pulumi.Input['PipelineBlockerDeclarationType']
-        """
-        Reserved for future use.
-        """
-elif False:
-    PipelineBlockerDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineBlockerDeclarationArgsDict(TypedDict):
+    """
+    Reserved for future use.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Reserved for future use.
+    """
+    type: pulumi.Input['PipelineBlockerDeclarationType']
+    """
+    Reserved for future use.
+    """
 
 @pulumi.input_type
 class PipelineBlockerDeclarationArgs:
@@ -980,21 +951,18 @@ class PipelineBlockerDeclarationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PipelineConditionArgsDict(TypedDict):
-        """
-        Represents information about condition.
-        """
-        result: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The specified result for when the failure conditions are met, such as rolling back the stage
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineRuleDeclarationArgsDict']]]]
-        """
-        The rules that make up the condition.
-        """
-elif False:
-    PipelineConditionArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineConditionArgsDict(TypedDict):
+    """
+    Represents information about condition.
+    """
+    result: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The specified result for when the failure conditions are met, such as rolling back the stage
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineRuleDeclarationArgsDict']]]]
+    """
+    The rules that make up the condition.
+    """
 
 @pulumi.input_type
 class PipelineConditionArgs:
@@ -1036,21 +1004,18 @@ class PipelineConditionArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class PipelineEncryptionKeyArgsDict(TypedDict):
-        """
-        Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID used to identify the key. For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption key, such as an AWS KMS key. When creating or updating a pipeline, the value must be set to 'KMS'.
-        """
-elif False:
-    PipelineEncryptionKeyArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineEncryptionKeyArgsDict(TypedDict):
+    """
+    Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID used to identify the key. For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of encryption key, such as an AWS KMS key. When creating or updating a pipeline, the value must be set to 'KMS'.
+    """
 
 @pulumi.input_type
 class PipelineEncryptionKeyArgs:
@@ -1090,25 +1055,22 @@ class PipelineEncryptionKeyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PipelineEnvironmentVariableArgsDict(TypedDict):
-        """
-        Represents information about the environment variable of an action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the environment variable.
-        """
-        type: NotRequired[pulumi.Input['PipelineEnvironmentVariableType']]
-        """
-        The type of the environment variable.
-        """
-elif False:
-    PipelineEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineEnvironmentVariableArgsDict(TypedDict):
+    """
+    Represents information about the environment variable of an action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the environment variable.
+    """
+    type: NotRequired[pulumi.Input['PipelineEnvironmentVariableType']]
+    """
+    The type of the environment variable.
+    """
 
 @pulumi.input_type
 class PipelineEnvironmentVariableArgs:
@@ -1164,17 +1126,14 @@ class PipelineEnvironmentVariableArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PipelineFailureConditionsRetryConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration that specifies the retry configuration for a stage
-        """
-        retry_mode: NotRequired[pulumi.Input['PipelineFailureConditionsRetryConfigurationPropertiesRetryMode']]
-        """
-        The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
-        """
-elif False:
-    PipelineFailureConditionsRetryConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineFailureConditionsRetryConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The configuration that specifies the retry configuration for a stage
+    """
+    retry_mode: NotRequired[pulumi.Input['PipelineFailureConditionsRetryConfigurationPropertiesRetryMode']]
+    """
+    The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+    """
 
 @pulumi.input_type
 class PipelineFailureConditionsRetryConfigurationPropertiesArgs:
@@ -1200,25 +1159,22 @@ class PipelineFailureConditionsRetryConfigurationPropertiesArgs:
         pulumi.set(self, "retry_mode", value)
 
 
-if not MYPY:
-    class PipelineFailureConditionsArgsDict(TypedDict):
-        """
-        The configuration that specifies the result, such as rollback, to occur upon stage failure
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
-        """
-        The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
-        """
-        result: NotRequired[pulumi.Input['PipelineFailureConditionsResult']]
-        """
-        The specified result for when the failure conditions are met, such as rolling back the stage
-        """
-        retry_configuration: NotRequired[pulumi.Input['PipelineFailureConditionsRetryConfigurationPropertiesArgsDict']]
-        """
-        The configuration that specifies the retry configuration for a stage
-        """
-elif False:
-    PipelineFailureConditionsArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineFailureConditionsArgsDict(TypedDict):
+    """
+    The configuration that specifies the result, such as rollback, to occur upon stage failure
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
+    """
+    The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
+    """
+    result: NotRequired[pulumi.Input['PipelineFailureConditionsResult']]
+    """
+    The specified result for when the failure conditions are met, such as rolling back the stage
+    """
+    retry_configuration: NotRequired[pulumi.Input['PipelineFailureConditionsRetryConfigurationPropertiesArgsDict']]
+    """
+    The configuration that specifies the retry configuration for a stage
+    """
 
 @pulumi.input_type
 class PipelineFailureConditionsArgs:
@@ -1276,21 +1232,18 @@ class PipelineFailureConditionsArgs:
         pulumi.set(self, "retry_configuration", value)
 
 
-if not MYPY:
-    class PipelineGitBranchFilterCriteriaArgsDict(TypedDict):
-        """
-        The Git repository branches specified as filter criteria to start the pipeline.
-        """
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-        """
-elif False:
-    PipelineGitBranchFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGitBranchFilterCriteriaArgsDict(TypedDict):
+    """
+    The Git repository branches specified as filter criteria to start the pipeline.
+    """
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineGitBranchFilterCriteriaArgs:
@@ -1332,25 +1285,22 @@ class PipelineGitBranchFilterCriteriaArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class PipelineGitConfigurationArgsDict(TypedDict):
-        """
-        A type of trigger configuration for Git-based source actions.
-        """
-        source_action_name: pulumi.Input[_builtins.str]
-        """
-        The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-        """
-        pull_request: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineGitPullRequestFilterArgsDict']]]]
-        """
-        The field where the repository event that will start the pipeline is specified as pull requests.
-        """
-        push: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgsDict']]]]
-        """
-        The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
-        """
-elif False:
-    PipelineGitConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGitConfigurationArgsDict(TypedDict):
+    """
+    A type of trigger configuration for Git-based source actions.
+    """
+    source_action_name: pulumi.Input[_builtins.str]
+    """
+    The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
+    """
+    pull_request: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineGitPullRequestFilterArgsDict']]]]
+    """
+    The field where the repository event that will start the pipeline is specified as pull requests.
+    """
+    push: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgsDict']]]]
+    """
+    The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
+    """
 
 @pulumi.input_type
 class PipelineGitConfigurationArgs:
@@ -1407,21 +1357,18 @@ class PipelineGitConfigurationArgs:
         pulumi.set(self, "push", value)
 
 
-if not MYPY:
-    class PipelineGitFilePathFilterCriteriaArgsDict(TypedDict):
-        """
-        The Git repository file paths specified as filter criteria to start the pipeline.
-        """
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-        """
-elif False:
-    PipelineGitFilePathFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGitFilePathFilterCriteriaArgsDict(TypedDict):
+    """
+    The Git repository file paths specified as filter criteria to start the pipeline.
+    """
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineGitFilePathFilterCriteriaArgs:
@@ -1463,25 +1410,22 @@ class PipelineGitFilePathFilterCriteriaArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class PipelineGitPullRequestFilterArgsDict(TypedDict):
-        """
-        The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.
-        """
-        branches: NotRequired[pulumi.Input['PipelineGitBranchFilterCriteriaArgsDict']]
-        """
-        The field that specifies to filter on branches for the pull request trigger configuration.
-        """
-        events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.
-        """
-        file_paths: NotRequired[pulumi.Input['PipelineGitFilePathFilterCriteriaArgsDict']]
-        """
-        The field that specifies to filter on file paths for the pull request trigger configuration.
-        """
-elif False:
-    PipelineGitPullRequestFilterArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGitPullRequestFilterArgsDict(TypedDict):
+    """
+    The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.
+    """
+    branches: NotRequired[pulumi.Input['PipelineGitBranchFilterCriteriaArgsDict']]
+    """
+    The field that specifies to filter on branches for the pull request trigger configuration.
+    """
+    events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.
+    """
+    file_paths: NotRequired[pulumi.Input['PipelineGitFilePathFilterCriteriaArgsDict']]
+    """
+    The field that specifies to filter on file paths for the pull request trigger configuration.
+    """
 
 @pulumi.input_type
 class PipelineGitPullRequestFilterArgs:
@@ -1539,25 +1483,22 @@ class PipelineGitPullRequestFilterArgs:
         pulumi.set(self, "file_paths", value)
 
 
-if not MYPY:
-    class PipelineGitPushFilterArgsDict(TypedDict):
-        """
-        The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.
-        """
-        branches: NotRequired[pulumi.Input['PipelineGitBranchFilterCriteriaArgsDict']]
-        """
-        The field that specifies to filter on branches for the push trigger configuration.
-        """
-        file_paths: NotRequired[pulumi.Input['PipelineGitFilePathFilterCriteriaArgsDict']]
-        """
-        The field that specifies to filter on file paths for the push trigger configuration.
-        """
-        tags: NotRequired[pulumi.Input['PipelineGitTagFilterCriteriaArgsDict']]
-        """
-        The field that contains the details for the Git tags trigger configuration.
-        """
-elif False:
-    PipelineGitPushFilterArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGitPushFilterArgsDict(TypedDict):
+    """
+    The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.
+    """
+    branches: NotRequired[pulumi.Input['PipelineGitBranchFilterCriteriaArgsDict']]
+    """
+    The field that specifies to filter on branches for the push trigger configuration.
+    """
+    file_paths: NotRequired[pulumi.Input['PipelineGitFilePathFilterCriteriaArgsDict']]
+    """
+    The field that specifies to filter on file paths for the push trigger configuration.
+    """
+    tags: NotRequired[pulumi.Input['PipelineGitTagFilterCriteriaArgsDict']]
+    """
+    The field that contains the details for the Git tags trigger configuration.
+    """
 
 @pulumi.input_type
 class PipelineGitPushFilterArgs:
@@ -1615,21 +1556,18 @@ class PipelineGitPushFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class PipelineGitTagFilterCriteriaArgsDict(TypedDict):
-        """
-        The Git tags specified as filter criteria for whether a Git tag repository event will start the pipeline.
-        """
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
-        """
-elif False:
-    PipelineGitTagFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGitTagFilterCriteriaArgsDict(TypedDict):
+    """
+    The Git tags specified as filter criteria for whether a Git tag repository event will start the pipeline.
+    """
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineGitTagFilterCriteriaArgs:
@@ -1671,17 +1609,14 @@ class PipelineGitTagFilterCriteriaArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class PipelineInputArtifactArgsDict(TypedDict):
-        """
-        Represents information about an artifact to be worked on, such as a test or build artifact.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the artifact to be worked on (for example, "My App").
-        """
-elif False:
-    PipelineInputArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineInputArtifactArgsDict(TypedDict):
+    """
+    Represents information about an artifact to be worked on, such as a test or build artifact.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the artifact to be worked on (for example, "My App").
+    """
 
 @pulumi.input_type
 class PipelineInputArtifactArgs:
@@ -1706,21 +1641,18 @@ class PipelineInputArtifactArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PipelineOutputArtifactArgsDict(TypedDict):
-        """
-        Represents information about the output of an action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the output of an artifact, such as "My App".
-        """
-        files: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The files that you want to associate with the output artifact that will be exported from the compute action.
-        """
-elif False:
-    PipelineOutputArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineOutputArtifactArgsDict(TypedDict):
+    """
+    Represents information about the output of an action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the output of an artifact, such as "My App".
+    """
+    files: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The files that you want to associate with the output artifact that will be exported from the compute action.
+    """
 
 @pulumi.input_type
 class PipelineOutputArtifactArgs:
@@ -1761,41 +1693,38 @@ class PipelineOutputArtifactArgs:
         pulumi.set(self, "files", value)
 
 
-if not MYPY:
-    class PipelineRuleDeclarationArgsDict(TypedDict):
-        """
-        Represents information about condition.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The shell commands to run with your compute action in CodePipeline.
-        """
-        configuration: NotRequired[Any]
-        """
-        The rule's configuration. These are key-value pairs that specify input values for a rule.
-        """
-        input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgsDict']]]]
-        """
-        The input artifacts fields for the rule, such as specifying an input file for the rule.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule declaration's name.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule declaration's AWS Region, such as us-east-1.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
-        """
-        rule_type_id: NotRequired[pulumi.Input['PipelineRuleTypeIdArgsDict']]
-        """
-        The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
-        """
-elif False:
-    PipelineRuleDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineRuleDeclarationArgsDict(TypedDict):
+    """
+    Represents information about condition.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The shell commands to run with your compute action in CodePipeline.
+    """
+    configuration: NotRequired[Any]
+    """
+    The rule's configuration. These are key-value pairs that specify input values for a rule.
+    """
+    input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgsDict']]]]
+    """
+    The input artifacts fields for the rule, such as specifying an input file for the rule.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule declaration's name.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule declaration's AWS Region, such as us-east-1.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
+    """
+    rule_type_id: NotRequired[pulumi.Input['PipelineRuleTypeIdArgsDict']]
+    """
+    The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
+    """
 
 @pulumi.input_type
 class PipelineRuleDeclarationArgs:
@@ -1917,29 +1846,26 @@ class PipelineRuleDeclarationArgs:
         pulumi.set(self, "rule_type_id", value)
 
 
-if not MYPY:
-    class PipelineRuleTypeIdArgsDict(TypedDict):
-        """
-        Represents information about a rule type.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A category for the provider type for the rule.
-        """
-        owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The creator of the rule being called. Only AWS is supported.
-        """
-        provider: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The provider of the service being called by the rule.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that describes the rule version.
-        """
-elif False:
-    PipelineRuleTypeIdArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineRuleTypeIdArgsDict(TypedDict):
+    """
+    Represents information about a rule type.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A category for the provider type for the rule.
+    """
+    owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The creator of the rule being called. Only AWS is supported.
+    """
+    provider: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The provider of the service being called by the rule.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that describes the rule version.
+    """
 
 @pulumi.input_type
 class PipelineRuleTypeIdArgs:
@@ -2013,37 +1939,34 @@ class PipelineRuleTypeIdArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PipelineStageDeclarationArgsDict(TypedDict):
-        """
-        Represents information about a stage and its definition.
-        """
-        actions: pulumi.Input[Sequence[pulumi.Input['PipelineActionDeclarationArgsDict']]]
-        """
-        The actions included in a stage.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the stage.
-        """
-        before_entry: NotRequired[pulumi.Input['PipelineBeforeEntryConditionsArgsDict']]
-        """
-        The method to use before stage runs.
-        """
-        blockers: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineBlockerDeclarationArgsDict']]]]
-        """
-        Reserved for future use.
-        """
-        on_failure: NotRequired[pulumi.Input['PipelineFailureConditionsArgsDict']]
-        """
-        The method to use when a stage has not completed successfully
-        """
-        on_success: NotRequired[pulumi.Input['PipelineSuccessConditionsArgsDict']]
-        """
-        The method to use when a stage has completed successfully
-        """
-elif False:
-    PipelineStageDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineStageDeclarationArgsDict(TypedDict):
+    """
+    Represents information about a stage and its definition.
+    """
+    actions: pulumi.Input[Sequence[pulumi.Input['PipelineActionDeclarationArgsDict']]]
+    """
+    The actions included in a stage.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the stage.
+    """
+    before_entry: NotRequired[pulumi.Input['PipelineBeforeEntryConditionsArgsDict']]
+    """
+    The method to use before stage runs.
+    """
+    blockers: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineBlockerDeclarationArgsDict']]]]
+    """
+    Reserved for future use.
+    """
+    on_failure: NotRequired[pulumi.Input['PipelineFailureConditionsArgsDict']]
+    """
+    The method to use when a stage has not completed successfully
+    """
+    on_success: NotRequired[pulumi.Input['PipelineSuccessConditionsArgsDict']]
+    """
+    The method to use when a stage has completed successfully
+    """
 
 @pulumi.input_type
 class PipelineStageDeclarationArgs:
@@ -2147,21 +2070,18 @@ class PipelineStageDeclarationArgs:
         pulumi.set(self, "on_success", value)
 
 
-if not MYPY:
-    class PipelineStageTransitionArgsDict(TypedDict):
-        """
-        The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
-        """
-        reason: pulumi.Input[_builtins.str]
-        """
-        The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
-        """
-        stage_name: pulumi.Input[_builtins.str]
-        """
-        The name of the stage where you want to disable the inbound or outbound transition of artifacts.
-        """
-elif False:
-    PipelineStageTransitionArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineStageTransitionArgsDict(TypedDict):
+    """
+    The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
+    """
+    reason: pulumi.Input[_builtins.str]
+    """
+    The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
+    """
+    stage_name: pulumi.Input[_builtins.str]
+    """
+    The name of the stage where you want to disable the inbound or outbound transition of artifacts.
+    """
 
 @pulumi.input_type
 class PipelineStageTransitionArgs:
@@ -2201,17 +2121,14 @@ class PipelineStageTransitionArgs:
         pulumi.set(self, "stage_name", value)
 
 
-if not MYPY:
-    class PipelineSuccessConditionsArgsDict(TypedDict):
-        """
-        The configuration that specifies the result, such as rollback, to occur upon stage failure
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
-        """
-        The conditions that are success conditions.
-        """
-elif False:
-    PipelineSuccessConditionsArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineSuccessConditionsArgsDict(TypedDict):
+    """
+    The configuration that specifies the result, such as rollback, to occur upon stage failure
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
+    """
+    The conditions that are success conditions.
+    """
 
 @pulumi.input_type
 class PipelineSuccessConditionsArgs:
@@ -2237,21 +2154,18 @@ class PipelineSuccessConditionsArgs:
         pulumi.set(self, "conditions", value)
 
 
-if not MYPY:
-    class PipelineTriggerDeclarationArgsDict(TypedDict):
-        """
-        Represents information about the specified trigger configuration, such as the filter criteria and the source stage for the action that contains the trigger.
-        """
-        provider_type: pulumi.Input['PipelineTriggerDeclarationProviderType']
-        """
-        The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.
-        """
-        git_configuration: NotRequired[pulumi.Input['PipelineGitConfigurationArgsDict']]
-        """
-        Provides the filter criteria and the source stage for the repository event that starts the pipeline, such as Git tags.
-        """
-elif False:
-    PipelineTriggerDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineTriggerDeclarationArgsDict(TypedDict):
+    """
+    Represents information about the specified trigger configuration, such as the filter criteria and the source stage for the action that contains the trigger.
+    """
+    provider_type: pulumi.Input['PipelineTriggerDeclarationProviderType']
+    """
+    The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.
+    """
+    git_configuration: NotRequired[pulumi.Input['PipelineGitConfigurationArgsDict']]
+    """
+    Provides the filter criteria and the source stage for the repository event that starts the pipeline, such as Git tags.
+    """
 
 @pulumi.input_type
 class PipelineTriggerDeclarationArgs:
@@ -2292,25 +2206,22 @@ class PipelineTriggerDeclarationArgs:
         pulumi.set(self, "git_configuration", value)
 
 
-if not MYPY:
-    class PipelineVariableDeclarationArgsDict(TypedDict):
-        """
-        A variable declared at the pipeline level.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of a pipeline-level variable.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of a pipeline-level variable.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.
-        """
-elif False:
-    PipelineVariableDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineVariableDeclarationArgsDict(TypedDict):
+    """
+    A variable declared at the pipeline level.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of a pipeline-level variable.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of a pipeline-level variable.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.
+    """
 
 @pulumi.input_type
 class PipelineVariableDeclarationArgs:
@@ -2367,21 +2278,18 @@ class PipelineVariableDeclarationArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class WebhookAuthConfigurationArgsDict(TypedDict):
-        """
-        Properties that configure the authentication applied to incoming webhook trigger requests
-        """
-        allowed_ip_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
-        """
-        secret_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
-        """
-elif False:
-    WebhookAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WebhookAuthConfigurationArgsDict(TypedDict):
+    """
+    Properties that configure the authentication applied to incoming webhook trigger requests
+    """
+    allowed_ip_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+    """
+    secret_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+    """
 
 @pulumi.input_type
 class WebhookAuthConfigurationArgs:
@@ -2423,21 +2331,18 @@ class WebhookAuthConfigurationArgs:
         pulumi.set(self, "secret_token", value)
 
 
-if not MYPY:
-    class WebhookFilterRuleArgsDict(TypedDict):
-        """
-        A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
-        """
-        json_path: pulumi.Input[_builtins.str]
-        """
-        A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
-        """
-        match_equals: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
-        """
-elif False:
-    WebhookFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+class WebhookFilterRuleArgsDict(TypedDict):
+    """
+    A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+    """
+    json_path: pulumi.Input[_builtins.str]
+    """
+    A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+    """
+    match_equals: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+    """
 
 @pulumi.input_type
 class WebhookFilterRuleArgs:

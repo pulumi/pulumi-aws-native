@@ -37,7 +37,7 @@ type Application struct {
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
 	IamIdentityProviderArn pulumi.StringPtrOutput `pulumi:"iamIdentityProviderArn"`
-	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+	// The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	//
@@ -267,7 +267,7 @@ func (o ApplicationOutput) IamIdentityProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.IamIdentityProviderArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+// The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
 func (o ApplicationOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IdentityCenterApplicationArn }).(pulumi.StringOutput)
 }

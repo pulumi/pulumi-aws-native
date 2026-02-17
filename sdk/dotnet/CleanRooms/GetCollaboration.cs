@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// A description of the collaboration provided by the collaboration owner.
         /// </summary>
         public readonly string? Description;
+        public readonly bool? IsMetricsEnabled;
         /// <summary>
         /// A human-readable identifier provided by the collaboration owner. Display names are not unique.
         /// </summary>
@@ -108,6 +109,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? description,
 
+            bool? isMetricsEnabled,
+
             string? name,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -116,6 +119,7 @@ namespace Pulumi.AwsNative.CleanRooms
             Arn = arn;
             CollaborationIdentifier = collaborationIdentifier;
             Description = description;
+            IsMetricsEnabled = isMetricsEnabled;
             Name = name;
             Tags = tags;
         }
