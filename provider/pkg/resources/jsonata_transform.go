@@ -233,11 +233,7 @@ func getOrCompileRegex(pattern string) (*regexp.Regexp, error) {
 //  1. Pulumi DeepEquals - Primary comparison using Pulumi's PropertyValue equality.
 //     Handles type normalization (e.g., int(6) and float64(6.0) both become NumberProperty).
 //
-//  2. String format comparison - Fallback for cross-type comparisons where DeepEquals
-//     would fail due to different PropertyValue types (e.g., string "6" vs number 6).
-//     AWS APIs sometimes return inconsistent types for the same field.
-//
-//  3. Regex pattern matching - For CloudFormation transforms that produce regex patterns.
+//  2. Regex pattern matching - For CloudFormation transforms that produce regex patterns.
 //     Example transforms that produce patterns:
 //     - engineVersion: $join([$string(EngineVersion), ".*"]) → "5.8.*" matches "5.8.1"
 //     - principal: $join(["^arn:aws[a-zA-Z-]*:iam::",Principal,":[a-zA-Z-]*"]) → regex
@@ -250,13 +246,7 @@ func ValuesEquivalent(original, transformedNew interface{}) bool {
 		return true
 	}
 
-	// 2. Secondary: String format comparison for cross-type equivalence.
-	// AWS APIs may return numbers as strings or vice versa.
-	if fmt.Sprintf("%v", original) == fmt.Sprintf("%v", transformedNew) {
-		return true
-	}
-
-	// 3. Tertiary: Regex pattern matching for CloudFormation transforms.
+	// 2. Secondary: Regex pattern matching for CloudFormation transforms.
 	// Some transforms produce regex patterns to match version ranges or ARN formats.
 	if pattern, ok := transformedNew.(string); ok {
 		// Remove wrapping quotes if present (some CF transforms produce quoted regexes)

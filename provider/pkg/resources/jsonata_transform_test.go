@@ -140,9 +140,10 @@ func TestValuesEquivalent(t *testing.T) {
 		assert.False(t, ValuesEquivalent("tcp", "udp"))
 	})
 
-	t.Run("number to string comparison via sprintf", func(t *testing.T) {
+	t.Run("deep-equals typed comparisons", func(t *testing.T) {
 		assert.True(t, ValuesEquivalent(6, 6))
 		assert.True(t, ValuesEquivalent("6", "6"))
+		assert.True(t, ValuesEquivalent(int(6), float64(6.0)))
 	})
 
 	t.Run("regex pattern match", func(t *testing.T) {
@@ -155,6 +156,11 @@ func TestValuesEquivalent(t *testing.T) {
 	t.Run("simple regex with .*", func(t *testing.T) {
 		assert.True(t, ValuesEquivalent("hello world", "hello.*"))
 		assert.False(t, ValuesEquivalent("goodbye", "hello.*"))
+	})
+
+	t.Run("quoted regex pattern", func(t *testing.T) {
+		pattern := "\"^arn:aws[a-zA-Z-]*:iam::123456789012:[a-zA-Z-]*\""
+		assert.True(t, ValuesEquivalent("arn:aws:iam::123456789012:root", pattern))
 	})
 
 	// Real CloudFormation propertyTransform patterns from AWS resource schemas.
@@ -177,6 +183,30 @@ func TestValuesEquivalent(t *testing.T) {
 		assert.False(t, ValuesEquivalent("arn:aws:iam::999999999999:root", pattern))
 	})
 
+	t.Run("CloudFormation KMS ARN transform pattern", func(t *testing.T) {
+		// Transform from metadata:
+		// $join(["arn:(aws)...[:]{1}key\\/", KmsKeyId])
+		pattern := "arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:kms:[a-z]{2}[-]{1}[a-z]{3,10}[-]{0,1}[a-z]{0,10}[-]{1}[1-3]{1}:[0-9]{12}[:]{1}key\\/12345"
+		assert.True(t, ValuesEquivalent("arn:aws:kms:us-east-1:123456789012:key/12345", pattern))
+		assert.False(t, ValuesEquivalent("arn:aws:kms:us-east-1:123456789012:key/98765", pattern))
+	})
+
+	t.Run("CloudFormation Lambda function ARN alternation pattern", func(t *testing.T) {
+		// Transform from metadata:
+		// $join(["((arn:.*:lambda:.*:[0-9]{12}:function)|([0-9]{12}:function)):", Name])
+		pattern := "((arn:.*:lambda:.*:[0-9]{12}:function)|([0-9]{12}:function)):my-func"
+		assert.True(t, ValuesEquivalent("arn:aws:lambda:us-east-1:123456789012:function:my-func", pattern))
+		assert.True(t, ValuesEquivalent("123456789012:function:my-func", pattern))
+		assert.False(t, ValuesEquivalent("arn:aws:lambda:us-east-1:123456789012:function:other-func", pattern))
+	})
+
+	t.Run("does not coerce cross-type literals", func(t *testing.T) {
+		assert.False(t, ValuesEquivalent("1", 1))
+		assert.False(t, ValuesEquivalent("6", float64(6.0)))
+		assert.False(t, ValuesEquivalent(true, "true"))
+		assert.False(t, ValuesEquivalent(false, "false"))
+	})
+
 	// Numeric edge cases - important for AWS responses which may return
 	// numbers as different Go types depending on JSON parsing context.
 	t.Run("numeric edge cases", func(t *testing.T) {
@@ -192,15 +222,15 @@ func TestValuesEquivalent(t *testing.T) {
 			{"float64 vs float64 different", float64(6.0), float64(7.0), false},
 			{"float64 decimal", float64(6.5), float64(6.5), true},
 
-			// Cross-type comparisons (common when comparing AWS responses)
-			// Note: Go's fmt.Sprintf("%v") formats float64(6.0) as "6" and int(6) as "6"
-			{"int vs float64 equal", int(6), float64(6.0), true},
-			{"float64 vs int equal", float64(6.0), int(6), true},
+				// Cross-type numeric comparisons (common when comparing decoded AWS responses)
+				// are handled by DeepEquals via Pulumi PropertyValue normalization.
+				{"int vs float64 equal", int(6), float64(6.0), true},
+				{"float64 vs int equal", float64(6.0), int(6), true},
 
-			// String number comparisons (AWS may return numeric strings)
-			{"string number vs float64", "6", float64(6.0), true},
-			{"string number vs int", "6", int(6), true},
-			{"float64 vs string number", float64(6.0), "6", true},
+			// Cross-type number/string comparisons are intentionally strict.
+			{"string number vs float64", "6", float64(6.0), false},
+			{"string number vs int", "6", int(6), false},
+			{"float64 vs string number", float64(6.0), "6", false},
 
 			// Different values should not match
 			{"string vs different number", "6", float64(7.0), false},
