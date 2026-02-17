@@ -368,6 +368,11 @@ func (m *mockAPI) GetResourceRequestStatus(ctx context.Context, requestToken str
 	panic("not implemented")
 }
 
+// GetResourceRequestStatusWithHooks returns the current status of a resource operation request with hook information.
+func (m *mockAPI) GetResourceRequestStatusWithHooks(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error) {
+	panic("not implemented")
+}
+
 func (m *mockAPI) WaitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
 	return m.WaitForResourceOpCompletionFunc(ctx, pi)
 }

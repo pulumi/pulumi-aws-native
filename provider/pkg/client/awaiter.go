@@ -6,6 +6,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/golang/glog"
@@ -42,7 +43,19 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *typ
 		}
 		glog.V(9).Infof("waiting for resource %q: attempt #%d status %q", identifier, i, status)
 
-		finished, err := hasFinished(pi)
+		var (
+			finished   bool
+			err        error
+			hookEvents []types.HookProgressEvent
+		)
+		if status == "FAILED" && pi.RequestToken != nil {
+			pi, hookEvents, err = a.client.GetResourceRequestStatusWithHooks(ctx, *pi.RequestToken)
+			if err != nil {
+				return nil, errors.Wrap(err, "getting resource request status")
+			}
+		}
+
+		finished, err = hasFinishedWithHooks(pi, hookEvents)
 		if finished || err != nil {
 			return pi, err
 		}
@@ -69,15 +82,24 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *typ
 			return nil, errors.New("missing request token")
 		}
 
-		pi, err = a.client.GetResourceRequestStatus(ctx, *pi.RequestToken)
+		pi, hookEvents, err = a.client.GetResourceRequestStatusWithHooks(ctx, *pi.RequestToken)
 		if err != nil {
 			return nil, errors.Wrap(err, "getting resource request status")
+		}
+
+		finished, err = hasFinishedWithHooks(pi, hookEvents)
+		if finished || err != nil {
+			return pi, err
 		}
 		i += 1
 	}
 }
 
 func hasFinished(pi *types.ProgressEvent) (bool, error) {
+	return hasFinishedWithHooks(pi, nil)
+}
+
+func hasFinishedWithHooks(pi *types.ProgressEvent, hookEvents []types.HookProgressEvent) (bool, error) {
 	status := pi.OperationStatus
 	switch status {
 	case "SUCCESS":
@@ -87,7 +109,21 @@ func hasFinished(pi *types.ProgressEvent) (bool, error) {
 		if pi.StatusMessage != nil {
 			statusMessage = *pi.StatusMessage
 		}
-		return true, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
+
+		hookErr := NewHookError(string(pi.Operation), string(pi.ErrorCode), statusMessage)
+
+		// Add hook information if available
+		if len(hookEvents) > 0 {
+			for _, hookEvent := range hookEvents {
+				hookStatus := aws.ToString(hookEvent.HookStatus)
+				// Check for failed hook statuses
+				if hookStatus == "HOOK_COMPLETE_FAILED" || hookStatus == "HOOK_FAILED" {
+					hookErr.WithHookEvent(hookEvent)
+				}
+			}
+		}
+
+		return true, hookErr
 	case "IN_PROGRESS", "PENDING":
 		return false, nil
 	default:
