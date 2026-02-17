@@ -12,24 +12,27 @@ import (
 // HookError represents an error with CloudFormation hook information
 type HookError struct {
 	baseMessage string
-	errorCode   string
 	hookErrors  []string
 }
 
 func NewHookError(operation string, errorCode string, statusMessage string) *HookError {
 	return &HookError{
 		baseMessage: fmt.Sprintf("operation %s failed with %q: %s", operation, errorCode, statusMessage),
-		errorCode:   errorCode,
 		hookErrors:  []string{},
 	}
 }
 
 func (e *HookError) WithHookEvent(hookEvent types.HookProgressEvent) *HookError {
+	timeStr := "N/A"
+	if hookEvent.HookEventTime != nil {
+		timeStr = hookEvent.HookEventTime.Format(time.RFC3339)
+	}
+
 	hookMessage := fmt.Sprintf("HookName: %s, HookArn: %s, HookVersion: %s, Time: %s, HookMessage: %s",
 		aws.ToString(hookEvent.HookTypeName),
 		aws.ToString(hookEvent.HookTypeArn),
 		aws.ToString(hookEvent.HookTypeVersionId),
-		hookEvent.HookEventTime.Format(time.RFC3339),
+		timeStr,
 		aws.ToString(hookEvent.HookStatusMessage))
 
 	e.hookErrors = append(e.hookErrors, hookMessage)

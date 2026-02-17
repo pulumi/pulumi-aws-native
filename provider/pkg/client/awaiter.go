@@ -43,7 +43,19 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *typ
 		}
 		glog.V(9).Infof("waiting for resource %q: attempt #%d status %q", identifier, i, status)
 
-		finished, err := hasFinishedWithHooks(pi, nil)
+		var (
+			finished   bool
+			err        error
+			hookEvents []types.HookProgressEvent
+		)
+		if status == "FAILED" && pi.RequestToken != nil {
+			pi, hookEvents, err = a.client.GetResourceRequestStatusWithHooks(ctx, *pi.RequestToken)
+			if err != nil {
+				return nil, errors.Wrap(err, "getting resource request status")
+			}
+		}
+
+		finished, err = hasFinishedWithHooks(pi, hookEvents)
 		if finished || err != nil {
 			return pi, err
 		}
@@ -70,12 +82,11 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *typ
 			return nil, errors.New("missing request token")
 		}
 
-		var hookEvents []types.HookProgressEvent
 		pi, hookEvents, err = a.client.GetResourceRequestStatusWithHooks(ctx, *pi.RequestToken)
 		if err != nil {
 			return nil, errors.Wrap(err, "getting resource request status")
 		}
-		
+
 		finished, err = hasFinishedWithHooks(pi, hookEvents)
 		if finished || err != nil {
 			return pi, err
@@ -98,9 +109,9 @@ func hasFinishedWithHooks(pi *types.ProgressEvent, hookEvents []types.HookProgre
 		if pi.StatusMessage != nil {
 			statusMessage = *pi.StatusMessage
 		}
-		
+
 		hookErr := NewHookError(string(pi.Operation), string(pi.ErrorCode), statusMessage)
-		
+
 		// Add hook information if available
 		if len(hookEvents) > 0 {
 			for _, hookEvent := range hookEvents {
@@ -111,7 +122,7 @@ func hasFinishedWithHooks(pi *types.ProgressEvent, hookEvents []types.HookProgre
 				}
 			}
 		}
-		
+
 		return true, hookErr
 	case "IN_PROGRESS", "PENDING":
 		return false, nil
