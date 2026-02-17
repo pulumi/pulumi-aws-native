@@ -63,6 +63,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sso v1.29.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.35.2 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/blues/jsonata-go v1.5.4 // indirect
 	github.com/charmbracelet/bubbles v0.18.0 // indirect
 	github.com/charmbracelet/bubbletea v0.26.4 // indirect
 	github.com/charmbracelet/lipgloss v0.11.0 // indirect

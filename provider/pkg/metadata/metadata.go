@@ -54,6 +54,16 @@ type CloudAPIResource struct {
 
 	// ListHandlerSchema contains a minimal subset of the CloudFormation list handler schema for a resource.
 	ListHandlerSchema *ListHandlerSchema `json:"listHandlerSchema,omitempty"`
+
+	// PropertyTransforms maps SDK property paths to JSONata expressions for drift detection.
+	// CloudFormation schemas include these transforms to define how property values should be
+	// normalized during comparison (e.g., case normalization, numeric to string mappings).
+	//
+	// Paths use lowerCamelCase with "/" separators and "*" for array elements.
+	// Example: {"securityGroupEgress/*/ipProtocol": "$lowercase(IpProtocol)"}
+	//
+	// The expressions are evaluated using JSONata (https://jsonata.org/).
+	PropertyTransforms map[string]string `json:"propertyTransforms,omitempty"`
 }
 
 type AutoNamingSpec struct {

@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestFilterAWSPrefixedTags(t *testing.T) {
@@ -315,78 +316,58 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 	})
 }
 
-func TestSuppressEFSReplicationProtectionTransition(t *testing.T) {
-	t.Run("suppresses REPLICATING transition", func(t *testing.T) {
-		oldFsp := resource.NewObjectProperty(resource.PropertyMap{
-			"replicationOverwriteProtection": resource.NewStringProperty("DISABLED"),
-		})
-		newFsp := resource.NewObjectProperty(resource.PropertyMap{
-			"replicationOverwriteProtection": resource.NewStringProperty("REPLICATING"),
-		})
+func TestBuildCfnContext(t *testing.T) {
+	t.Run("builds nested structure for multi-segment paths", func(t *testing.T) {
+		// For path fileSystemProtection/replicationOverwriteProtection
+		// the context should have:
+		// - FileSystemProtection.ReplicationOverwriteProtection = value (nested)
+		// - ReplicationOverwriteProtection = value (leaf)
+		baseContext := map[string]interface{}{}
+		path := "fileSystemProtection/replicationOverwriteProtection"
+		value := "DISABLED"
 
-		diff := &resource.ObjectDiff{
-			Adds: resource.PropertyMap{},
-			Updates: map[resource.PropertyKey]resource.ValueDiff{
-				"fileSystemProtection": {Old: oldFsp, New: newFsp},
-			},
-			Deletes: resource.PropertyMap{},
-			Sames:   resource.PropertyMap{},
-		}
+		ctx := buildCfnContext(baseContext, path, value, nil)
 
-		result := suppressEFSReplicationProtectionTransition(diff)
+		// Check leaf value is present
+		assert.Equal(t, "DISABLED", ctx["replicationOverwriteProtection"])
+		assert.Equal(t, "DISABLED", ctx["ReplicationOverwriteProtection"])
 
-		_, hasUpdate := result.Updates["fileSystemProtection"]
-		assert.False(t, hasUpdate, "REPLICATING transition should be suppressed")
+		// Check nested structure with various name variations
+		fsp, ok := ctx["FileSystemProtection"].(map[string]interface{})
+		assert.True(t, ok, "FileSystemProtection should be a map")
+		assert.Equal(t, "DISABLED", fsp["ReplicationOverwriteProtection"])
 	})
 
-	t.Run("allows non-REPLICATING updates", func(t *testing.T) {
-		oldFsp := resource.NewObjectProperty(resource.PropertyMap{
-			"replicationOverwriteProtection": resource.NewStringProperty("ENABLED"),
-		})
-		newFsp := resource.NewObjectProperty(resource.PropertyMap{
-			"replicationOverwriteProtection": resource.NewStringProperty("DISABLED"),
-		})
+	t.Run("handles single-segment paths", func(t *testing.T) {
+		baseContext := map[string]interface{}{}
+		path := "ipProtocol"
+		value := "tcp"
 
-		diff := &resource.ObjectDiff{
-			Adds: resource.PropertyMap{},
-			Updates: map[resource.PropertyKey]resource.ValueDiff{
-				"fileSystemProtection": {Old: oldFsp, New: newFsp},
-			},
-			Deletes: resource.PropertyMap{},
-			Sames:   resource.PropertyMap{},
-		}
+		ctx := buildCfnContext(baseContext, path, value, nil)
 
-		result := suppressEFSReplicationProtectionTransition(diff)
-
-		// Should not be suppressed - it's not REPLICATING
-		_, hasUpdate := result.Updates["fileSystemProtection"]
-		assert.True(t, hasUpdate)
+		assert.Equal(t, "tcp", ctx["ipProtocol"])
+		assert.Equal(t, "tcp", ctx["IpProtocol"])
+		// Note: Without irreversibleNames lookup, only PascalCase is added
 	})
 
-	t.Run("ignores non-object updates", func(t *testing.T) {
-		diff := &resource.ObjectDiff{
-			Adds: resource.PropertyMap{},
-			Updates: map[resource.PropertyKey]resource.ValueDiff{
-				"fileSystemProtection": {
-					Old: resource.NewStringProperty("old"),
-					New: resource.NewStringProperty("new"),
-				},
-			},
-			Deletes: resource.PropertyMap{},
-			Sames:   resource.PropertyMap{},
+	t.Run("preserves base context", func(t *testing.T) {
+		baseContext := map[string]interface{}{
+			"existingProp": "existingValue",
 		}
+		path := "newProp"
+		value := "newValue"
 
-		result := suppressEFSReplicationProtectionTransition(diff)
+		ctx := buildCfnContext(baseContext, path, value, nil)
 
-		_, hasUpdate := result.Updates["fileSystemProtection"]
-		assert.True(t, hasUpdate, "non-object updates should pass through")
+		assert.Equal(t, "existingValue", ctx["existingProp"])
+		assert.Equal(t, "newValue", ctx["newProp"])
 	})
 }
 
 func TestSuppressAWSManagedDiffs(t *testing.T) {
 	t.Run("handles nil diff", func(t *testing.T) {
 		spec := &metadata.CloudAPIResource{TagsProperty: "tags"}
-		result := SuppressAWSManagedDiffs("aws-native:s3:Bucket", spec, nil, resource.PropertyMap{})
+		result := SuppressAWSManagedDiffs("aws-native:s3:Bucket", spec, nil, resource.PropertyMap{}, NewTransformCache())
 		assert.Nil(t, result)
 	})
 
@@ -406,40 +387,40 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 			Sames:   resource.PropertyMap{},
 		}
 
-		result := SuppressAWSManagedDiffs("aws-native:s3:Bucket", spec, diff, resource.PropertyMap{})
+		result := SuppressAWSManagedDiffs("aws-native:s3:Bucket", spec, diff, resource.PropertyMap{}, NewTransformCache())
 
 		_, hasAdd := result.Adds["tags"]
 		assert.False(t, hasAdd)
 	})
 
-	t.Run("applies EFS-specific suppression", func(t *testing.T) {
-		spec := &metadata.CloudAPIResource{TagsProperty: "fileSystemTags"}
-		oldFsp := resource.NewObjectProperty(resource.PropertyMap{
-			"replicationOverwriteProtection": resource.NewStringProperty("DISABLED"),
-		})
-		newFsp := resource.NewObjectProperty(resource.PropertyMap{
-			"replicationOverwriteProtection": resource.NewStringProperty("REPLICATING"),
-		})
-
-		diff := &resource.ObjectDiff{
-			Adds: resource.PropertyMap{},
-			Updates: map[resource.PropertyKey]resource.ValueDiff{
-				"fileSystemProtection": {Old: oldFsp, New: newFsp},
+	t.Run("applies EFS-specific suppression via propertyTransform", func(t *testing.T) {
+		// EFS replication protection is now handled via propertyTransform
+		// The transform normalizes DISABLED -> REPLICATING for comparison
+		// NOTE: The actual CloudFormation expression uses nested path: FileSystemProtection.ReplicationOverwriteProtection
+		// This tests that buildCfnContext correctly builds the nested context structure
+		spec := &metadata.CloudAPIResource{
+			TagsProperty: "fileSystemTags",
+			PropertyTransforms: map[string]string{
+				"fileSystemProtection/replicationOverwriteProtection": "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(FileSystemProtection.ReplicationOverwriteProtection)",
 			},
-			Deletes: resource.PropertyMap{},
-			Sames:   resource.PropertyMap{},
 		}
-
-		originalInputs := resource.PropertyMap{
+		oldProps := resource.PropertyMap{
 			"fileSystemProtection": resource.NewObjectProperty(resource.PropertyMap{
 				"replicationOverwriteProtection": resource.NewStringProperty("DISABLED"),
 			}),
 		}
+		newProps := resource.PropertyMap{
+			"fileSystemProtection": resource.NewObjectProperty(resource.PropertyMap{
+				"replicationOverwriteProtection": resource.NewStringProperty("REPLICATING"),
+			}),
+		}
+		diff := oldProps.Diff(newProps)
+		require.NotNil(t, diff, "diff should not be nil")
 
-		result := SuppressAWSManagedDiffs("aws-native:efs:FileSystem", spec, diff, originalInputs)
+		result := SuppressAWSManagedDiffs("aws-native:efs:FileSystem", spec, diff, oldProps, NewTransformCache())
 
 		_, hasUpdate := result.Updates["fileSystemProtection"]
-		assert.False(t, hasUpdate)
+		assert.False(t, hasUpdate, "DISABLED -> REPLICATING should be suppressed via propertyTransform")
 	})
 
 	t.Run("skips tag filtering when no TagsProperty", func(t *testing.T) {
@@ -453,7 +434,7 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 			Sames:   resource.PropertyMap{},
 		}
 
-		result := SuppressAWSManagedDiffs("aws-native:some:Resource", spec, diff, resource.PropertyMap{})
+		result := SuppressAWSManagedDiffs("aws-native:some:Resource", spec, diff, resource.PropertyMap{}, NewTransformCache())
 
 		// Should pass through unchanged
 		_, hasAdd := result.Adds["someProperty"]
